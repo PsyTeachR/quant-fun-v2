@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Loading data | Quant-Fun-V2</title>
+<meta name="author" content="psyTeachR Team">
+<meta name="description" content="Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Chapter 3 Loading data | Quant-Fun-V2">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/loading-data.html">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:description" content="Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 Loading data | Quant-Fun-V2">
+<meta name="twitter:description" content="Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research...">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
+        <small class="text-muted">psyTeachR Books</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
+<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
+<li><a class="active" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">C</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="loading-data" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Loading data<a class="anchor" aria-label="anchor" href="#loading-data"><i class="fas fa-link"></i></a>
+</h1>
+<p>Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research process such as experimental design, ethics, data management and visualisation.</p>
+<p>In this chapter, you will continue to develop reproducible scripts. This means scripts that completely and transparently perform an analysis from start to finish in a way that yields the same result for different people using the same software on different computers. And transparency is a key value of science, as embodied in the “trust but verify” motto. When you do things reproducibly, others can understand and check your work.</p>
+<p>This benefits science, but there is a selfish reason, too: the most important person who will benefit from a reproducible script is your future self. When you return to an analysis after two weeks of vacation, you will thank your earlier self for doing things in a transparent, reproducible way, as you can easily pick up right where you left off. The topic of open science is a big debate in the scientific community at the moment. Some classic psychological experiments have been found not to be replicable and part of the explanation for this has been a historical lack of transparency about data and analysis methods and this is a topic we're going to cover more in the lectures and in your reading.</p>
+<p>As part of your skill development, it is important that you work with data so that you can become confident and competent in your management and analysis of data. In this course, we will work with real data that has been shared by other researchers.</p>
+<div id="getting-data-ready-to-work-with" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Getting data ready to work with<a class="anchor" aria-label="anchor" href="#getting-data-ready-to-work-with"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this chapter you will learn how to load the packages required to work with the data. You'll then load the data into R Studio before getting it organised into a sensible format that relates to our research question. If you can't remember what packages are, go back and revise Programming Basics.</p>
+</div>
+<div id="ld-a1" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Activity 1: Set-up Loading Data<a class="anchor" aria-label="anchor" href="#ld-a1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before we begin working with the data we need to do some set-up. If you need help with any of these steps, you should refer to Intro to R and Programming Basics:</p>
+<ul>
+<li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv" download><code>participant-info.csv</code></a> into your chapter folder. If you are working on the server, you will need to upload the files to the server as well.<br>
+</li>
+<li>Open R and ensure the environment is clear.</li>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
+</li>
+<li>Set the working directory to your chapter folder.<br>
+</li>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "Loading Data".<br>
+</li>
+<li>Delete the default R Markdown welcome text and insert a new code chunk.<br>
+</li>
+<li>You can use the white space to take any notes that might help you for each activity.</li>
+</ul>
+</div>
+<div id="ld-a2" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Activity 2: Load in the package<a class="anchor" aria-label="anchor" href="#ld-a2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Today we need to use the <code>tidyverse</code> package. You will use this package in almost every single chapter of this course as the functions it contains are those we use for data wrangling, descriptive statistics, and visualisation.</p>
+<ul>
+<li>To load the <code>tidyverse</code> type the following code into your code chunk and then run it.</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="open-data" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Open data<a class="anchor" aria-label="anchor" href="#open-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>For this chapter we are going to be using real data from the following paper:</p>
+<p><a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.35/">Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schüz, B., 2018. Data from, ‘Web-based Positive Psychology Interventions: A Reexamination of Effectiveness’. Journal of Open Psychology Data, 6(1).</a></p>
+<p>We recommend that you read through this paper and open up the .csv files in order to understand the data better but briefly, the files contains data from two scales, the Authentic Happiness Inventory (AHI) and the Center for Epidemiological Studies Depression (CES-D) scale, as well as demographic information about participants.</p>
+</div>
+<div id="ld-a3" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Activity 3: Read in data<a class="anchor" aria-label="anchor" href="#ld-a3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now we can read in the data. To do this we will use the function <code>read_csv()</code> that allows us to read in .csv files. There are also functions that allow you to read in .xlsx files and other formats, however in this course we will only use .csv files.</p>
+<ul>
+<li>First, we will create an object called <code>dat</code> that contains the data in the <code>ahi-cesd.csv</code> file. Then, we will create an object called <code>info</code> that contains the data in the <code>participant-info.csv</code>.</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span> <span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
+<span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"participant-info.csv"</span><span class="op">)</span></code></pre></div>
+<div class="danger">
+<p>
+There is also a function called <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code>. Be very careful NOT to use this function instead of <code>read_csv()</code> as they have different ways of naming columns. For the portfolio tasks, unless your results match our exactly you will not get the marks which means you need to be careful to use the right functions.
+</p>
+</div>
+</div>
+<div id="ld-a4" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Activity 4: Check yo' data<a class="anchor" aria-label="anchor" href="#ld-a4"><i class="fas fa-link"></i></a>
+</h2>
+<p>You should now see that the objects <code>dat</code> and <code>pinfo</code> have appeared in the environment pane. Whenever you read data into R you should always do an initial check to see that your data looks like you expected. There are several ways you can do this, try them all out to see how the results differ.</p>
+<ul>
+<li>In the environment pane, click on <code>dat</code> and <code>pinfo</code>. This will open the data to give you a spreadsheet-like view (although you can't edit it like in Excel)<br>
+</li>
+<li>In the environment pane, click the small blue play button to the left of <code>dat</code> and <code>pinfo</code>. This will show you the structure of the object information including the names of all the variables in that object and what type they are (also see <code><a href="https://rdrr.io/r/utils/str.html">str(pinfo)</a></code>)</li>
+<li>Use <code><a href="https://rdrr.io/r/base/summary.html">summary(pinfo)</a></code>
+</li>
+<li>Use <code><a href="https://rdrr.io/r/utils/head.html">head(pinfo)</a></code>
+</li>
+<li>Just type the name of the object you want to view, e.g., <code>dat</code>.</li>
+</ul>
+</div>
+<div id="ld-a5" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> Activity 5: Join the files together<a class="anchor" aria-label="anchor" href="#ld-a5"><i class="fas fa-link"></i></a>
+</h2>
+<p>We have two files, <code>dat</code> and <code>info</code> but what we really want is a single file that has both the data and the demographic information about the participants. R makes this very easy by using the function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>.</p>
+<p>Remember to use the help function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">?inner_join</a></code> if you want more information about how to use a function and to use tab auto-complete to help you write your code.</p>
+<p>The below code will create a new object <code>all_dat</code> that has the data from both <code>dat</code> and <code>pinfo</code> and it will use the columns <code>id</code> and <code>intervention</code> to match the participants' data.</p>
+<ul>
+<li>Type and run this code and then view the new dataset using one of the methods from Activity 4.</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dat</span>, <span class="co"># the first table you want to join</span>
+                      y <span class="op">=</span> <span class="va">pinfo</span>, <span class="co"># the second table you want to join</span>
+                      by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span><span class="op">)</span> <span class="co"># columns the two tables have in common</span></code></pre></div>
+</div>
+<div id="ld-a6" class="section level2" number="3.8">
+<h2>
+<span class="header-section-number">3.8</span> Activity 6: Pull out variables of interest<a class="anchor" aria-label="anchor" href="#ld-a6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Our final step is to pull our variables of interest. Very frequently, datasets will have more variables and data than you actually want to use and it can make life easier to create a new object with just the data you need.</p>
+<p>In this case, the file contains the responses to each individual question on both the AHI scale and the CESD scale as well as the total score (i.e., the sum of all the individual responses). For our analysis, all we care about is the total scores, as well as the demographic information about participants.</p>
+<p>To do this we use the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function to create a new object named <code>summarydata</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">summarydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">all_dat</span>, <span class="co"># name of the object to take data from</span>
+                      <span class="va">ahiTotal</span>, <span class="va">cesdTotal</span>, <span class="va">sex</span>, <span class="va">age</span>, <span class="va">educ</span>, <span class="va">income</span>, <span class="va">occasion</span>,<span class="va">elapsed.days</span><span class="op">)</span> <span class="co"># all the columns you want to keep</span></code></pre></div>
+<ul>
+<li>Type and run the above code and then run <code><a href="https://rdrr.io/r/utils/head.html">head(summarydata)</a></code>. If everything has gone to plan it should look something like this:</li>
+</ul>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">ahiTotal</th>
+<th align="center">cesdTotal</th>
+<th align="center">sex</th>
+<th align="center">age</th>
+<th align="center">educ</th>
+<th align="center">income</th>
+<th align="center">occasion</th>
+<th align="center">elapsed.days</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">32</td>
+<td align="center">50</td>
+<td align="center">1</td>
+<td align="center">46</td>
+<td align="center">4</td>
+<td align="center">3</td>
+<td align="center">5</td>
+<td align="center">182.03</td>
+</tr>
+<tr class="even">
+<td align="center">34</td>
+<td align="center">49</td>
+<td align="center">1</td>
+<td align="center">37</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">14.19</td>
+</tr>
+<tr class="odd">
+<td align="center">34</td>
+<td align="center">47</td>
+<td align="center">1</td>
+<td align="center">37</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">33.03</td>
+</tr>
+<tr class="even">
+<td align="center">35</td>
+<td align="center">41</td>
+<td align="center">1</td>
+<td align="center">19</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0.00</td>
+</tr>
+<tr class="odd">
+<td align="center">36</td>
+<td align="center">36</td>
+<td align="center">1</td>
+<td align="center">40</td>
+<td align="center">5</td>
+<td align="center">2</td>
+<td align="center">5</td>
+<td align="center">202.10</td>
+</tr>
+<tr class="even">
+<td align="center">37</td>
+<td align="center">35</td>
+<td align="center">1</td>
+<td align="center">49</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0.00</td>
+</tr>
+</tbody>
+</table></div>
+<p>Finally, try knitting the file to HTML. And that's it, well done! Remember to save your Markdown in your chapter folder and make a note of any mistakes you made and how you fixed them. You have started on your journey to become a confident and competent member of the open scientific community!</p>
+<div id="ld-fin" class="section level3" number="3.8.1">
+<h3>
+<span class="header-section-number">3.8.1</span> Finished!<a class="anchor" aria-label="anchor" href="#ld-fin"><i class="fas fa-link"></i></a>
+</h3>
+<p>There is no portfolio assessment this week, instead, use the time to get comfortable with what we've covered already and revise the activities and support materials presented so far if needed. If you're feeling comfortable with R, you can work your way through this book at your own pace or push yourself by using the additional resources highlighted in Programming Basics.</p>
+<p>If you're using the R server, we strongly recommend that you download a copy of any files you have been working on so that you have a local back-up.</p>
+</div>
+</div>
+<div id="ld-debug" class="section level2" number="3.9">
+<h2>
+<span class="header-section-number">3.9</span> Debugging tips<a class="anchor" aria-label="anchor" href="#ld-debug"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>When you downloaded the files did you save the file names <strong>exactly</strong> as they were originally? If you download the file more than once you will find your computer may automatically add a number to the end of the file name. <code>data.csv</code> is not the same as <code>data(1).csv</code>. Pay close attention to names!</li>
+<li>Have you used the <strong>exact</strong> same object names as we did in each activity? Remember, <code>name</code> is different to <code>Name</code>. In order to make sure you can follow along with this book, pay special attention to ensuring you use the same object names as we do.<br>
+</li>
+<li>Have you used quotation marks where needed?<br>
+</li>
+<li>Have you accidentally deleted any back ticks (```) from the beginning or end of code chunks?</li>
+</ul>
+</div>
+<div id="ld-debugex" class="section level2" number="3.10">
+<h2>
+<span class="header-section-number">3.10</span> Debugging exercises<a class="anchor" aria-label="anchor" href="#ld-debugex"><i class="fas fa-link"></i></a>
+</h2>
+<p>These exercises will produce errors. Try to solve the errors yourself, and then make a note of what the error message was and how you solved it - you might find it helpful to create a new file just for error solving notes. You will find that you make the same errors in R over and over again so whilst this might slow you down initially, it will greatly speed you up in the long-run.</p>
+<ol style="list-style-type: decimal">
+<li>Restart the R session (<code>Session - Restart R</code>). This should unload any packages you had loaded and also clear the environment. Make sure that the working directory is set to the right folder and then run the below code:</li>
+</ol>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span></code></pre></div>
+<p>This will produce the error <code>could not find function "read_csv"</code>. Once you figure out how to fix this error, make a note of it.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>When you restarted the session, you unloaded all the packages you previously had loaded. The function <code>read_csv()</code> is part of the <code>tidyverse</code> package which means that in order for the code to run, you need to run <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> to reload the package so that you can use the function.</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Make sure that the working directory is set to the right folder and then run the below code:</li>
+</ol>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd"</span><span class="op">)</span></code></pre></div>
+<p>This will produce the error <code>Error: 'ahi-cesd' does not exist in current working directory</code>. Once you figure out how to fix this error, make a note of it.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>When loading data, you need to provide the full file name, including the file extension. In this case, the error was caused by writing <code>ahi-cesd</code> instead of <code>ahi-cesd.csv</code>. As far as R is concerned, these are two completely different files and only one of them exists in the working directory.</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Make sure that the working directory is set to the right folder and then run the below code:</li>
+</ol>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span> <span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
+<span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"participant-info.csv"</span><span class="op">)</span>
+<span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dat</span>, 
+                      y <span class="op">=</span> <span class="va">pinfo</span>, 
+                      by <span class="op">=</span> <span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span> 
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">all_dat</span><span class="op">)</span></code></pre></div>
+<p>Look at the summary for <code>all_dat</code>. You will see that R has duplicated the <code>intervention</code> variable, so that there is now an <code>intervention.x</code> and an <code>intervention.y</code> that contain the same data. Once you figure out how to fix this error, make a note of it.</p>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>If you want to join two tables that have mulitple columns in common, you need to use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> command to list all of the variables. The code above hasn't done this, it's just listed <code>id</code> and <code>intervention</code> without enclosing them with <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</p>
+</div>
+</div>
+<div id="ld-test" class="section level2" number="3.11">
+<h2>
+<span class="header-section-number">3.11</span> Test yourself<a class="anchor" aria-label="anchor" href="#ld-test"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>When loading in a .csv file, which function should you use?</li>
+</ol>
+<p><select class="webex-solveme" data-answer='["read_csv()"]'><option></option>
+<option>read_csv()</option>
+<option>read.csv()</option></select></p>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>Remember, in this course we use <code>read_csv()</code> and it is important for the portfolio assignment that you use this function otherwise you may find that the variable names are slightly different and you won't get the marks</p>
+</div>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>The function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> takes the arguments <code>x</code>, <code>y</code>, <code>by</code>. What does <code>by</code> do?</li>
+</ol>
+<p><select class="webex-solveme" data-answer='["Specifies the column to join by that both tables have in common"]'><option></option>
+<option>Specifies the first table to join</option>
+<option>Specifies the second table to join</option>
+<option>Specifies the column to join by that both tables have in common</option></select></p>
+<ol start="3" style="list-style-type: decimal">
+<li>What does the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> do?
+<br><select class="webex-solveme" data-answer='["Keeps only the variables you specify"]'><option></option>
+<option>Keeps only the observations you specify</option>
+<option>Keeps only the variables you specify</option>
+<option>Keeps only the objects you specify</option></select>
+</li>
+</ol>
+</div>
+</div>
+
+
+
+<div class="chapter-nav">
+<div class="prev"><a href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></div>
+<div class="next"><a href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#loading-data"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="nav-link" href="#getting-data-ready-to-work-with"><span class="header-section-number">3.1</span> Getting data ready to work with</a></li>
+<li><a class="nav-link" href="#ld-a1"><span class="header-section-number">3.2</span> Activity 1: Set-up Loading Data</a></li>
+<li><a class="nav-link" href="#ld-a2"><span class="header-section-number">3.3</span> Activity 2: Load in the package</a></li>
+<li><a class="nav-link" href="#open-data"><span class="header-section-number">3.4</span> Open data</a></li>
+<li><a class="nav-link" href="#ld-a3"><span class="header-section-number">3.5</span> Activity 3: Read in data</a></li>
+<li><a class="nav-link" href="#ld-a4"><span class="header-section-number">3.6</span> Activity 4: Check yo' data</a></li>
+<li><a class="nav-link" href="#ld-a5"><span class="header-section-number">3.7</span> Activity 5: Join the files together</a></li>
+<li>
+<a class="nav-link" href="#ld-a6"><span class="header-section-number">3.8</span> Activity 6: Pull out variables of interest</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-fin"><span class="header-section-number">3.8.1</span> Finished!</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ld-debug"><span class="header-section-number">3.9</span> Debugging tips</a></li>
+<li><a class="nav-link" href="#ld-debugex"><span class="header-section-number">3.10</span> Debugging exercises</a></li>
+<li><a class="nav-link" href="#ld-test"><span class="header-section-number">3.11</span> Test yourself</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/03-loading-data.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/03-loading-data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+});
+</script>
+
+</div>
+ <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-02.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

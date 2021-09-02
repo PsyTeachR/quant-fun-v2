@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 1 Programming basics | Quant-Fun-V2</title>
+<meta name="author" content="psyTeachR Team">
+<meta name="description" content="In this chapter, we will cover how to use R and RStudio at the University of Glasgow as well as some basic programming concepts and terminology, common pitfalls, helpful hints, and where to get...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Chapter 1 Programming basics | Quant-Fun-V2">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/programming-basics.html">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:description" content="In this chapter, we will cover how to use R and RStudio at the University of Glasgow as well as some basic programming concepts and terminology, common pitfalls, helpful hints, and where to get...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 1 Programming basics | Quant-Fun-V2">
+<meta name="twitter:description" content="In this chapter, we will cover how to use R and RStudio at the University of Glasgow as well as some basic programming concepts and terminology, common pitfalls, helpful hints, and where to get...">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
+        <small class="text-muted">psyTeachR Books</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="active" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
+<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
+<li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">C</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="programming-basics" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Programming basics<a class="anchor" aria-label="anchor" href="#programming-basics"><i class="fas fa-link"></i></a>
+</h1>
+<p>In this chapter, we will cover how to use R and RStudio at the University of Glasgow as well as some basic programming concepts and terminology, common pitfalls, helpful hints, and where to get help. Those of you who have no programming experience should find this chapter particularly helpful, however, even if you've used R before there may be some helpful hints and tips so please make sure you read through this chapter before the moving on.</p>
+<p>This is a long chapter but we don't expect you to memorise all the information that is contained in it and some sections of it will not make sense until you start writing your own code - just make sure you know what help is available!</p>
+<div id="r-and-rstudio" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> R and RStudio<a class="anchor" aria-label="anchor" href="#r-and-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier. Think of it as knowing English and using a plain text editor like NotePad to write a book versus using a word processor like Microsoft Word. You could do it, but it wouldn't look as good and it would be much harder without things like spell-checking and formatting. In a similar way, you can use R without R Studio but we wouldn't recommend it. The key thing to remember is that although you will do all of your work using RStudio for this course, you are actually using two pieces of software which means that from time-to-time, both of them may have separate updates.</p>
+<p>There are two ways you can use R for psychology. First, you can use a online version of R and R through your web browser and we will refer to this as the <strong>R server</strong>. Second, you can download and install R and RStudio for free on your laptop or desktop computer.</p>
+<p><strong>Which version of R should you use?</strong></p>
+<p>The advantage of using the R server is that you do not need to install anything on your machine, you simply access it through your web browser. All the extra packages and functions you need for this course will already be installed. We recommend using the server if you have a computer that you cannot install R on (e.g., a Chromebook), or if you have serious problems with installing R on your computer.</p>
+<p>The advantage to installing R on your computer is that you do not need to be connected to the internet to use it, it is easier to save and manage your files, and there are no problems caused if the server crashes (which is rare, but does and has happened).</p>
+<p>With the exception of how they save files, both versions are largely identical in how they work, however, after a year over working remotely, we have concluded that <strong>if you can install R on your computer, you should</strong>. If your computer cannot install R, or if you have technical problems during the installation you cannot resolve, then you should use the server. However, the need to be connected to the internet and the inability to open e.g., assessment files directly on your computer if you use the server mean that it is worth trying to install it if you can.</p>
+<div id="r-server" class="section level3" number="1.1.1">
+<h3>
+<span class="header-section-number">1.1.1</span> R server<a class="anchor" aria-label="anchor" href="#r-server"><i class="fas fa-link"></i></a>
+</h3>
+<p>You will find the link to the R server on Moodle. Please note that the R server is only for use by students and staff in the School of Psychology and Institute for Neuroscience and Psychology. Sign in to the R server with your usual GUID and password.</p>
+</div>
+<div id="installing-r-on-your-computer" class="section level3" number="1.1.2">
+<h3>
+<span class="header-section-number">1.1.2</span> Installing R on your computer<a class="anchor" aria-label="anchor" href="#installing-r-on-your-computer"><i class="fas fa-link"></i></a>
+</h3>
+<p>To use R on your computer, please see <a href="https://psyteachr.github.io/ug1-practical/installing-r.html">Installing R</a> which has more detailed instructions and links to the files you need to download, as well as a links to a series of walkthroughs for installing R on different types of computers.</p>
+</div>
+</div>
+<div id="getting-to-know-r-studio" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Getting to know R Studio<a class="anchor" aria-label="anchor" href="#getting-to-know-r-studio"><i class="fas fa-link"></i></a>
+</h2>
+<p>R Studio has a console that you can try out code in (appearing as the bottom left window in Figure <a href="programming-basics.html#fig:img-rstudio">1.1</a>), there is a script editor (top left), a window showing functions and objects you have created in the “Environment” tab (top right window in the figure), and a window that shows plots, files packages, and help documentation (bottom right).</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-rstudio"></span>
+<img src="images/rstudio.png" alt="RStudio interface" width="100%"><p class="caption">
+Figure 1.1: RStudio interface
+</p>
+</div>
+<p>You will learn more about how to use the features included in R Studio throughout this course, however, we highly recommend watching <a href="https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/">RStudio Essentials 1</a> from the R Studio team. The video lasts ~30 minutes and gives a tour of the main parts of R Studio.</p>
+</div>
+<div id="console-vs.-scripts" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Console vs. scripts<a class="anchor" aria-label="anchor" href="#console-vs.-scripts"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you first open up R Studio you won't see a script like above, there will just be a single pane on the left, which is the console. You can write code in the console to test it out, but it won't save anywhere. For this chapter, we'll use the console to show you some simple code examples but moving forward you'll save your code in a script file, and you'll see the extra pane appear.</p>
+</div>
+<div id="functions-and-arguments" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Functions and arguments<a class="anchor" aria-label="anchor" href="#functions-and-arguments"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Functions</strong> in R execute specific tasks and normally take a number of <strong>arguments</strong> (if you're into linguistics you might want to think as these as verbs that require a subject and an object). You can look up all the arguments that a function takes by using the help documentation by using the format <code>?function</code>. Some arguments are required, and some are optional. Optional arguments will often use a default (normally specified in the help documentation) if you do not enter any value.</p>
+<p>As an example, let’s look at the help documentation for the function <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> which randomly generates a set of numbers with a normal distribution.</p>
+</div>
+<div id="activity-1" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Activity 1<a class="anchor" aria-label="anchor" href="#activity-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Open up R Studio (either on the server or on your machine) and in the console, type the following code:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="op">?</span><span class="va">rnorm</span></code></pre></div>
+<p>The help documentation for <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> should appear in the bottom right help panel. In the usage section, we see that <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> takes the following form:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>In the arguments section, there are explanations for each of the arguments. <code>n</code> is the number of observations we want to create, <code>mean</code> is the mean of the data points we will create and <code>sd</code> is the standard deviation of the set. In the details section it notes that if no values are entered for <code>mean</code> and <code>sd</code> it will use a default of 0 and 1 for these values. Because there is no default value for <code>n</code> it must be specified otherwise the code won't run.</p>
+<p>Let's try an example and just change the required argument <code>n</code> to ask R to produce 5 random numbers.</p>
+</div>
+<div id="activity-2" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Activity 2<a class="anchor" aria-label="anchor" href="#activity-2"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Copy and paste the following code into the console.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12042016</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] -0.2896163 -0.6428964  0.5829221 -0.3286728 -0.5110101</code></pre>
+<p>These numbers have a mean of 0 and an SD of 1. Now we can change the additional arguments to produce a different set of numbers.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 13.320853  9.377956 10.235461  9.811793 13.019102</code></pre>
+<p>This time R has still produced 5 random numbers, but now this set of numbers has a mean of 10 and an sd of 2 as specified. Always remember to use the help documentation to help you understand what arguments a function requires.</p>
+<div class="info">
+<p>
+If you're looking up examples of code online, you may often see code that starts with the function <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code>. This function controls the random number generator - if you're using any functions that generate numbers randomly (such as <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>), running <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> will ensure that you get the same result (in some cases this may not be what you want to do). We call <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> in this example because it means that you will get the same random numbers as this book.
+</p>
+</div>
+</div>
+<div id="argument-names" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Argument names<a class="anchor" aria-label="anchor" href="#argument-names"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the above examples, we have written out the argument names in our code (e.g., <code>n</code>, <code>mean</code>, <code>sd</code>), however, this is not strictly necessary. The following two lines of code would both produce the same result (although each time you run <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> it will produce a slightly different set of numbers, because it's random, but they would still have the same mean and SD):</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, mean <span class="op">=</span> <span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>Importantly, if you do not write out the argument names, R will use the default order of arguments, that is for <code>rnorm</code> it will assume that the first number you enter is <code>n</code>. the second number is <code>mean</code> and the third number is <code>sd</code>.</p>
+<p>If you write out the argument names then you can write the arguments in whatever order you like:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>sd <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">6</span>, mean <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<p>When you are first learning R, you may find it useful to write out the argument names as it can help you remember and understand what each part of the function is doing. However, as your skills progress you may find it quicker to omit the argument names and you will also see examples of code online that do not use argument names so it is important to be able to understand which argument each bit of code is referring to (or look up the help documentation to check).</p>
+<p>In this course, we will always write out the argument names the first time we use each function, however, in subsequent uses they may be omitted.</p>
+</div>
+<div id="tab-auto-complete" class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> Tab auto-complete<a class="anchor" aria-label="anchor" href="#tab-auto-complete"><i class="fas fa-link"></i></a>
+</h2>
+<p>One very useful feature of R Studio is the tab auto-complete for functions (see Figure <a href="programming-basics.html#fig:img-autocomplete">1.2</a>). If you write the name of the function and then press the tab key, R Studio will show you the arguments that function takes along with a brief description. If you press enter on the argument name it will fill in the name for you, just like auto-complete on your phone. This is incredibly useful when you are first learning R and you should remember to use this feature frequently.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-autocomplete"></span>
+<img src="images/autocomplete.png" alt="Tab auto-complete" width="100%"><p class="caption">
+Figure 1.2: Tab auto-complete
+</p>
+</div>
+</div>
+<div id="packages" class="section level2" number="1.9">
+<h2>
+<span class="header-section-number">1.9</span> Base R and packages<a class="anchor" aria-label="anchor" href="#packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you install R you will have access to a range of functions including options for data wrangling and statistical analysis. The functions that are included in the default installation are typically referred to as <strong>Base R</strong> and there is a useful cheat sheet that shows many Base R functions <a href="https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf">here</a>.</p>
+<p>However, the power of R is that it is extendable and open source - put simply, if a function doesn't exist or doesn't work very well, anyone can create a new <strong>package</strong> that contains data and code to allow you to perform new tasks. You may find it useful to think of Base R as the default apps that come on your phone and packages as additional apps that you need to download separately.</p>
+</div>
+<div id="activity-3-install-the-tidyverse-optional" class="section level2" number="1.10">
+<h2>
+<span class="header-section-number">1.10</span> Activity 3: Install the tidyverse (optional)<a class="anchor" aria-label="anchor" href="#activity-3-install-the-tidyverse-optional"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to use a package, you must first install it. The following code installs the package <code>tidyverse</code>, a package we will use very frequently in this course.</p>
+<ul>
+<li>If you are working on your own computer, use the below code to install the tidyverse. <strong>You do not need to do this if you are working on the server or if you are using the computers in the Boyd Orr building</strong>.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
+<p>You only need to install a package once, however, each time you start R you need to load the packages you want to use, in a similar way that you need to install an app on your phone once, but you need to open it every time you want to use it.</p>
+<div class="danger">
+<p>
+If you get an error message that says something like "WARNING: Rtools is required to build R packages" you may need to download and install an extra bit of software called <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> (this is one of the many reasons why using the server can be easier).
+</p>
+</div>
+<p>To load packages we use the function <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>. Typically you would start any analysis script by loading all of the packages you need, but we will come back to that in the next chapter.</p>
+</div>
+<div id="activity-4-load-the-tidyverse" class="section level2" number="1.11">
+<h2>
+<span class="header-section-number">1.11</span> Activity 4: Load the tidyverse<a class="anchor" aria-label="anchor" href="#activity-4-load-the-tidyverse"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Run the below code to load the tidyverse. You can do this regardless of whether you are using your own computer or the server.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<p>You will get what looks like an error message - it's not. It's just R telling you what it's done.</p>
+<p>Now that we've loaded the <code>tidyverse</code> package we can use any of the functions it contains but remember, you need to run the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function every time you start R.</p>
+</div>
+<div id="package-updates" class="section level2" number="1.12">
+<h2>
+<span class="header-section-number">1.12</span> Package updates<a class="anchor" aria-label="anchor" href="#package-updates"><i class="fas fa-link"></i></a>
+</h2>
+<p>In addition to updates to R and R Studio, the creators of packages also sometimes update their code. This can be to add functions to a package, or it can be to fix errors. One thing to avoid is unintentionally updating an installed package. When you run <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> it will always install the latest version of the package and it will overwrite any older versions you may have installed. Sometimes this isn't a problem, however, sometimes you will find that the update means your code no longer works as the package has changed substantially. It is possible to revert back to an older version of a package but try to avoid this anyway.</p>
+<div class="danger">
+<p>
+To avoid accidentally overwriting a package with a later version, you should <strong>never</strong> include <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> in your analysis scripts in case you, or someone else runs the code by mistake. Remember, the server will already have all of the packages you need for this course so you only need to install packages if you are using your own machine.
+</p>
+</div>
+</div>
+<div id="conflicts" class="section level2" number="1.13">
+<h2>
+<span class="header-section-number">1.13</span> Package conflicts<a class="anchor" aria-label="anchor" href="#conflicts"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are thousands of different R packages with even more functions. Unfortunately, sometimes different packages have the same function names. For example, the packages <code>dplyr</code> and <code>MASS</code> both have a function named <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>. If you load both of these packages, R will produce a warning telling you that there is a conflict.</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: 'MASS'</code></pre>
+<pre><code>## The following object is masked from 'package:dplyr':
+## 
+##     select</code></pre>
+<p>In this case, R is telling you that the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> in the <code>dplyr</code> package is being hidden (or 'masked') by another function with the same name. If you were to try and use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, R would use the function from the package that was loaded most recently - in this case it would use the function from <code>MASS</code>.</p>
+<p>If you want to specify which package you want to use for a particular function you can use code in the format <code>package::function</code>, for example:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/lm.ridge.html">select</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="objects" class="section level2" number="1.14">
+<h2>
+<span class="header-section-number">1.14</span> Objects<a class="anchor" aria-label="anchor" href="#objects"><i class="fas fa-link"></i></a>
+</h2>
+<p>A large part of your coding will involve creating and manipulating objects. Objects contain stuff. That stuff can be numbers, words, or the result of operations and analyses.You assign content to an object using <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>.</p>
+</div>
+<div id="activity-5-create-some-objects" class="section level2" number="1.15">
+<h2>
+<span class="header-section-number">1.15</span> Activity 5: Create some objects<a class="anchor" aria-label="anchor" href="#activity-5-create-some-objects"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Copy and paste the following code into the console, change the code so that it uses your own name and age and run it. You should see that <code>name</code>, <code>age</code>, <code>today</code>, <code>new_year</code>, and <code>data</code> appear in the environment pane.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"emily"</span>
+<span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">16</span> <span class="op">+</span> <span class="fl">19</span> 
+<span class="va">today</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">new_year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-01-01"</span><span class="op">)</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">15</span>, sd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-objects-enviro"></span>
+<img src="images/objects-enviro.png" alt="Objects in the environment" width="100%"><p class="caption">
+Figure 1.3: Objects in the environment
+</p>
+</div>
+<p>Note that in these examples, <code>name</code>,<code>age</code>, and <code>new_year</code> would always contain the values <code>emily</code>, <code>35</code>, and the date of New Year's Day 2021, however, <code>today</code> will draw the date from the operating system and <code>data</code> will be a randomly generated set of data so the values of these objects will not be static.</p>
+<p>As a side note, if you ever have to teach programming and statistics, don't use your age as an example because every time you have to update your teaching materials you get a reminder of the fragility of existence and your advancing age.</p>
+<p>Importantly, objects can be involved in calculations and can interact with each other. For example:</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">age</span> <span class="op">+</span> <span class="fl">10</span>
+<span class="va">new_year</span> <span class="op">-</span> <span class="va">today</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 45
+## Time difference of -244 days
+## [1] 17.66644</code></pre>
+<p>Finally, you can store the result of these operations in a new object:</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">decade</span> <span class="op">&lt;-</span> <span class="va">age</span> <span class="op">+</span> <span class="fl">10</span></code></pre></div>
+<div class="try">
+<p>
+You may find it helpful to read <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> as <code>contains</code>, e.g., <code>name</code> contains the text <code>emily</code>.
+</p>
+</div>
+<p>You will constantly be creating objects throughout this course and you will learn more about them and how they behave as we go along, however, for now it is enough to understand that they are a way of saving values, that these values can be numbers, text, or the result of operations, and that they can be used in further operations to create new variables.</p>
+<div class="info">
+<p>
+You may also see objects referred to as 'variables'. There is a difference between the two in programming terms, however, they are used synonymously very frequently.
+</p>
+</div>
+</div>
+<div id="looking-after-the-environment" class="section level2" number="1.16">
+<h2>
+<span class="header-section-number">1.16</span> Looking after the environment<a class="anchor" aria-label="anchor" href="#looking-after-the-environment"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you've been writing a lot of code you may find that the environment pane (or workspace) has become cluttered with many objects. This can make it difficult to figure out which object you need and therefore you run the risk of using the wrong data frame. If you're working on a new dataset, or if you've tried lots of different code before getting the final version, it is good practice to remember to clear the environment to avoid using the wrong object. You can do this in several way.</p>
+<ol style="list-style-type: decimal">
+<li>To remove individual objects, you can type <code><a href="https://rdrr.io/r/base/rm.html">rm(object_name)</a></code> in the console. Try this now to remove one of the objects you created in the previous section.</li>
+<li>To clear all objects from the environment run <code><a href="https://rdrr.io/r/base/rm.html">rm(list = ls())</a></code> in the console.</li>
+<li>To clear all objects from the environment you can also click the broom icon in the environment pane.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-broom"></span>
+<img src="images/broom.png" alt="Clearing the workspace" width="100%"><p class="caption">
+Figure 1.4: Clearing the workspace
+</p>
+</div>
+</div>
+<div id="global-options" class="section level2" number="1.17">
+<h2>
+<span class="header-section-number">1.17</span> Global options<a class="anchor" aria-label="anchor" href="#global-options"><i class="fas fa-link"></i></a>
+</h2>
+<p>By default, when you open R Studio it will show you what you were last working on, including your code and any objects you have created. This might sound helpful, but actually it tends to cause more problems than it's worth because it means that you risk accidentally using an old version of an object. We recommend changing the settings so that each time you start R Studio, it opens a fresh copy. You can do this by clicking <code>Tools</code> - <code>Global Options</code> and then deselecting boxes so that it looks like the below.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-options"></span>
+<img src="images/global_options.jpg" alt="Global options" width="100%"><p class="caption">
+Figure 1.5: Global options
+</p>
+</div>
+</div>
+<div id="r-sessions" class="section level2" number="1.18">
+<h2>
+<span class="header-section-number">1.18</span> R sessions<a class="anchor" aria-label="anchor" href="#r-sessions"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new <strong>session</strong>. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.</p>
+</div>
+<div id="activity-6" class="section level2" number="1.19">
+<h2>
+<span class="header-section-number">1.19</span> Activity 6<a class="anchor" aria-label="anchor" href="#activity-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Click 'Session - Restart R'.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-session"></span>
+<img src="images/new_session.png" alt="The truth about programming" width="100%"><p class="caption">
+Figure 1.6: The truth about programming
+</p>
+</div>
+</div>
+<div id="how-to-cite-r-and-rstudio" class="section level2" number="1.20">
+<h2>
+<span class="header-section-number">1.20</span> How to cite R and RStudio<a class="anchor" aria-label="anchor" href="#how-to-cite-r-and-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<p>You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who built it (most of them for free!) credit. You should provide separate citations for R, RStudio, and the packages you use.</p>
+<p>To get the citation for the version of R you are using, simply run the <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> function which will always provide you with the most recent citation.</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## To cite R in publications use:
+## 
+##   R Core Team (2021). R: A language and environment for statistical
+##   computing. R Foundation for Statistical Computing, Vienna, Austria.
+##   URL https://www.R-project.org/.
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {R: A Language and Environment for Statistical Computing},
+##     author = {{R Core Team}},
+##     organization = {R Foundation for Statistical Computing},
+##     address = {Vienna, Austria},
+##     year = {2021},
+##     url = {https://www.R-project.org/},
+##   }
+## 
+## We have invested a lot of time and effort in creating R, please cite it
+## when using it for data analysis. See also 'citation("pkgname")' for
+## citing R packages.</code></pre>
+<p>To generate the citation for any packages you are using, you can also use the <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> function with the name of the package you wish to cite.</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##   Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+##   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Article{,
+##     title = {Welcome to the {tidyverse}},
+##     author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+##     year = {2019},
+##     journal = {Journal of Open Source Software},
+##     volume = {4},
+##     number = {43},
+##     pages = {1686},
+##     doi = {10.21105/joss.01686},
+##   }</code></pre>
+<p>To generate the citation for the version of RStudio you are using, you can use the <code>RStudio.Vesion()</code> function:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">RStudio.Version</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Finally, here's an example of how that might look in the write-up of your method section:</p>
+<blockquote>
+<p>Analysis was conducted using R (R Core Team, 2020), RStudio (Rstudio Team, 2020), and the tidyverse package (Wickham, 2017).</p>
+</blockquote>
+<p>As noted, you may not have to do this for a while, but come back to this when you do because it's important to give the open-source community credit for their work.</p>
+</div>
+<div id="help-and-additional-resources" class="section level2" number="1.21">
+<h2>
+<span class="header-section-number">1.21</span> Help and additional resources<a class="anchor" aria-label="anchor" href="#help-and-additional-resources"><i class="fas fa-link"></i></a>
+</h2>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-kitteh"></span>
+<img src="images/kitteh.PNG" alt="The truth about programming" width="100%"><p class="caption">
+Figure 1.7: The truth about programming
+</p>
+</div>
+<p>Getting good at programming really means getting good trying stuff out, searching for help online, and finding examples of code to copy. If you are having difficulty with any of the exercises contained in this book then you can ask for help on Teams, however, learning to problem-solve effectively is a key skill that you need to develop throughout this course.</p>
+<ul>
+<li>Use the help documentation. If you're struggling to understand how a function works, remember the <code>?function</code> command.</li>
+<li>If you get an error message, copy and paste it in to Google - it's very likely someone else has had the same problem.</li>
+<li>In addition to these course materials there are a number of excellent resources for learning R:
+<ul>
+<li><a href="http://www.cookbook-r.com/">R Cookbook</a></li>
+<li><a href="https://stackoverflow.com/">StackOverflow</a></li>
+<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
+<li>Search or use the <a href="https://twitter.com/search?f=tweets&amp;q=%23rstats&amp;src=typd">#rstats</a> hashtag on Twitter</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="debugging-tips" class="section level2" number="1.22">
+<h2>
+<span class="header-section-number">1.22</span> Debugging tips<a class="anchor" aria-label="anchor" href="#debugging-tips"><i class="fas fa-link"></i></a>
+</h2>
+<p>A large part of coding is trying to figure why your code doesn't work and this is true whether you are a novice or an expert. As you progress through this course you should keep a record of mistakes you make and how you fixed them. In the early chapters we will provide a number of common mistakes to look out for but you will undoubtedly make (and fix!) new mistakes yourself.</p>
+<ul>
+<li>Have you loaded the correct packages for the functions you are trying to use? One very common mistake is to write the code to load the package, e.g., <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> but then forget to run it.</li>
+<li>Have you made a typo? Remember <code>data</code> is not the same as <code>DATA</code> and <code>t.test</code> is not the same as <code>t_test</code>.</li>
+<li>Is there a package conflict? Have you tried specifying the package and function with <code>package::function</code>?</li>
+<li>Is it definitely an error? Not all red text in R means an error - sometimes it is just giving you a message with information.</li>
+</ul>
+</div>
+<div id="test-yourself" class="section level2" number="1.23">
+<h2>
+<span class="header-section-number">1.23</span> Test yourself<a class="anchor" aria-label="anchor" href="#test-yourself"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Question 1.</strong> Why should you never include the code <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> in your analysis scripts? <select class="webex-solveme" data-answer='["You (or someone else) may accidentally install a package update that stops your code working"]'><option></option>
+<option>You should use library() instead</option>
+<option>Packages are already part of Base R</option>
+<option>You (or someone else) may accidentally install a package update that stops your code working</option>
+<option>You already have the latest version of the package</option></select></p>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>Remember, when you run <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> it will always install the latest version of the package and it will overwrite any older versions of the package you may have installed.</p>
+</div>
+<p><br></p>
+<p><strong>Question 2.</strong>What will the following code produce?</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">50</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<p><select class="webex-solveme" data-answer='["A dataset with 6 numbers that has a mean of 50 and an SD of 10"]'><option></option>
+<option>A dataset with 10 numbers that has a mean of 6 and an SD of 50</option>
+<option>A dataset with 6 numbers that has a mean of 50 and an SD of 10</option>
+<option>A dataset with 50 numbers that has a mean of 10 and an SD of 6</option>
+<option>A dataset with 50 numbers that has a mean of 10 and an SD of 6</option></select></p>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>The default form for <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> is <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm(n, mean, sd)</a></code>. If you need help remembering what each argument of a function does, look up the help documentation by running <code><a href="https://rdrr.io/r/stats/Normal.html">?rnorm</a></code></p>
+</div>
+<p><br><strong>Question 3.</strong> If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use?</p>
+<p><select class="webex-solveme" data-answer='["package::function"]'><option></option>
+<option>package::function</option>
+<option>function::package</option>
+<option>library(package)</option>
+<option>install.packages(package)</option></select></p>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>You should use the form <code>package::function</code>, for example <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select</a></code>. Remember that when you first load your packages R will warn you if any functions have the same name - remember to look out for this!</p>
+</div>
+<p><strong>Question 4.</strong> Which of the following is most likely to be an argument? <select class="webex-solveme" data-answer='["35"]'><option></option>
+<option>35</option>
+<option>read_csv()</option>
+<option>&lt;-</option></select></p>
+<p><strong>Question 5.</strong> An easy way to spot functions is to look for <select class="webex-solveme" data-answer='["brackets"]'><option></option>
+<option>brackets</option>
+<option>numbers</option>
+<option>computers</option></select>.</p>
+<p><strong>Question 6.</strong> The job of <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> is to send the output from the function to a/an <select class="webex-solveme" data-answer='["object"]'><option></option>
+<option>argument</option>
+<option>assignment</option>
+<option>object</option></select>.</p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="index.html">Overview</a></div>
+<div class="next"><a href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#programming-basics"><span class="header-section-number">1</span> Programming basics</a></li>
+<li>
+<a class="nav-link" href="#r-and-rstudio"><span class="header-section-number">1.1</span> R and RStudio</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-server"><span class="header-section-number">1.1.1</span> R server</a></li>
+<li><a class="nav-link" href="#installing-r-on-your-computer"><span class="header-section-number">1.1.2</span> Installing R on your computer</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#getting-to-know-r-studio"><span class="header-section-number">1.2</span> Getting to know R Studio</a></li>
+<li><a class="nav-link" href="#console-vs.-scripts"><span class="header-section-number">1.3</span> Console vs. scripts</a></li>
+<li><a class="nav-link" href="#functions-and-arguments"><span class="header-section-number">1.4</span> Functions and arguments</a></li>
+<li><a class="nav-link" href="#activity-1"><span class="header-section-number">1.5</span> Activity 1</a></li>
+<li><a class="nav-link" href="#activity-2"><span class="header-section-number">1.6</span> Activity 2</a></li>
+<li><a class="nav-link" href="#argument-names"><span class="header-section-number">1.7</span> Argument names</a></li>
+<li><a class="nav-link" href="#tab-auto-complete"><span class="header-section-number">1.8</span> Tab auto-complete</a></li>
+<li><a class="nav-link" href="#packages"><span class="header-section-number">1.9</span> Base R and packages</a></li>
+<li><a class="nav-link" href="#activity-3-install-the-tidyverse-optional"><span class="header-section-number">1.10</span> Activity 3: Install the tidyverse (optional)</a></li>
+<li><a class="nav-link" href="#activity-4-load-the-tidyverse"><span class="header-section-number">1.11</span> Activity 4: Load the tidyverse</a></li>
+<li><a class="nav-link" href="#package-updates"><span class="header-section-number">1.12</span> Package updates</a></li>
+<li><a class="nav-link" href="#conflicts"><span class="header-section-number">1.13</span> Package conflicts</a></li>
+<li><a class="nav-link" href="#objects"><span class="header-section-number">1.14</span> Objects</a></li>
+<li><a class="nav-link" href="#activity-5-create-some-objects"><span class="header-section-number">1.15</span> Activity 5: Create some objects</a></li>
+<li><a class="nav-link" href="#looking-after-the-environment"><span class="header-section-number">1.16</span> Looking after the environment</a></li>
+<li><a class="nav-link" href="#global-options"><span class="header-section-number">1.17</span> Global options</a></li>
+<li><a class="nav-link" href="#r-sessions"><span class="header-section-number">1.18</span> R sessions</a></li>
+<li><a class="nav-link" href="#activity-6"><span class="header-section-number">1.19</span> Activity 6</a></li>
+<li><a class="nav-link" href="#how-to-cite-r-and-rstudio"><span class="header-section-number">1.20</span> How to cite R and RStudio</a></li>
+<li><a class="nav-link" href="#help-and-additional-resources"><span class="header-section-number">1.21</span> Help and additional resources</a></li>
+<li><a class="nav-link" href="#debugging-tips"><span class="header-section-number">1.22</span> Debugging tips</a></li>
+<li><a class="nav-link" href="#test-yourself"><span class="header-section-number">1.23</span> Test yourself</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/01-programming-basics.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/01-programming-basics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-02.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
