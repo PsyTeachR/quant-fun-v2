@@ -1,0 +1,49 @@
+# Conventions
+
+This book will use the following conventions:
+
+* Generic code: `list(number = 1, letter = "A")`
+* Highlighted code: `r hl(dplyr::slice_max())`
+* File paths: `r path("data/sales.csv")`
+* R Packages: `r pkg("tidyverse")`
+* Functions: `r hl(paste())`
+* Strings: `r hl("psyTeachR")`
+* Numbers: `r hl(100)`, `r hl(3.14)`
+* Logical values: `r hl(TRUE)`, `r hl(FALSE)`
+* Glossary items: `r glossary("ordinal")`
+* Citations: @R-tidyverse
+* Internal links: Chapter\ \@ref(intro)
+* External links: [R for Data Science](https://r4ds.had.co.nz/){target="_blank"}
+* Menu/interface options: **`New File...`**
+* Quiz question: I am going to learn a lot: `r torf(TRUE)`
+
+```{block, webex.hide="Hidden Solutions"}
+You found it!
+```
+
+::: {.info data-latex=""}
+Informational asides.
+:::
+
+::: {.warning data-latex=""}
+Notes to warn you about something.
+:::
+
+::: {.dangerous data-latex=""}
+Notes about things that could cause serious errors.
+:::
+
+::: {.try data-latex=""}
+Try it yourself.
+:::
+
+```{r}
+# code chunks
+paste("Applied", "Data", "Skills", 1, sep = " ")
+```
+
+
+```{r, eval=FALSE, verbatim='r setup, message = FALSE'}
+# code chunks with visible r headers
+library(tidyverse)
+```
