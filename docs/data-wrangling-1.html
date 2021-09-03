@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 4 Data wrangling 1 | Quant-Fun-V2</title>
+<meta name="author" content="psyTeachR Team">
+<meta name="description" content="Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Chapter 4 Data wrangling 1 | Quant-Fun-V2">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/data-wrangling-1.html">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:description" content="Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 4 Data wrangling 1 | Quant-Fun-V2">
+<meta name="twitter:description" content="Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate...">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
+        <small class="text-muted">psyTeachR Books</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
+<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
+<li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="active" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
+<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
+<li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
+<li><a class="" href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></li>
+<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
+<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
+<li><a class="" href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></li>
+<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
+<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
+<li><a class="" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
+<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">D</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">E</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-wrangling-1" class="section level1" number="4">
+<h1>
+<span class="header-section-number">4</span> Data wrangling 1<a class="anchor" aria-label="anchor" href="#data-wrangling-1"><i class="fas fa-link"></i></a>
+</h1>
+<p>Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate observation (e.g. a subject), and each column stands for a different variable (e.g. a response, category, or group). A key benefit of tabular data is that it allows you to store different types of data-numerical measurements, alphanumeric labels, categorical descriptors-all in one place.</p>
+<p>It may surprise you to learn that scientists actually spend far more of time cleaning and preparing their data than they spend actually analysing it. This means completing tasks such as cleaning up bad values, changing the structure of tables, merging information stored in separate tables, reducing the data down to a subset of observations, and producing data summaries. Some have estimated that up to 80% of time spent on data analysis involves such data preparation tasks (Dasu &amp; Johnson, 2003)!</p>
+<p>Many people seem to operate under the assumption that the only option for data cleaning is the painstaking and time-consuming cutting and pasting of data within a spreadsheet program like Excel. We have witnessed students and colleagues waste days, weeks, and even months manually transforming their data in Excel, cutting, copying, and pasting data. Fixing up your data by hand is not only a terrible use of your time, but it is error-prone and not reproducible. Additionally, in this age where we can easily collect massive datasets online, you will not be able to organise, clean, and prepare these by hand.</p>
+<p>In short, you will not thrive as a psychologist if you do not learn some key data wrangling skills. Although every dataset presents unique challenges, there are some systematic principles you should follow that will make your analyses easier, less error-prone, more efficient, and more reproducible.</p>
+<p>In this lesson you will see how data science skills will allow you to efficiently get answers to nearly any question you might want to ask about your data. By learning how to properly make your computer do the hard and boring work for you, you can focus on the bigger issues.</p>
+<div id="tidyverse" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Tidyverse<a class="anchor" aria-label="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
+</h2>
+<p>Tidyverse (<a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a>) is a collection of R packages created by world-famous data scientist Hadley Wickham.</p>
+<p>Tidyverse contains six core packages: <code>dplyr</code>, <code>tidyr</code>, <code>readr</code>, <code>purrr</code>, <code>ggplot2</code>, and <code>tibble</code>. Last week when you typed <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> into R, you will have seen that it loads in all of these packages in one go. Within these six core packages, you should be able to find everything you need to wrangle and visualise your data.</p>
+<p>In this chapter, we are going to focus on the <code>dplyr</code> package, which contains six important functions:</p>
+<ul>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> Include or exclude certain variables (columns)</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> Include or exclude certain observations (rows)</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> Create new variables (columns)</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> Change the order of observations (rows)</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> Organize the observations into groups</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> Derive aggregate variables for groups of observations</li>
+</ul>
+<p>These six functions are known as ’single table verbs’ because they only operate on one table at a time. Although the operations of these functions may seem very simplistic, it’s amazing what you can accomplish when you string them together: Hadley Wickham has claimed that 90% of data analysis can be reduced to the operations described by these six functions.</p>
+</div>
+<div id="the-babynames-database" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> The <code>babynames</code> database<a class="anchor" aria-label="anchor" href="#the-babynames-database"><i class="fas fa-link"></i></a>
+</h2>
+<p>To demonstrate the power of the six <code>dplyr</code> verbs, we will use them to work with the babynames data from the <code>babynames</code> package. The babynames dataset has historical information about births of babies in the U.S.</p>
+</div>
+<div id="dw1-a1" class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#dw1-a1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Do the following. If you need help, consult Intro to R or Programming Basics.</p>
+<ul>
+<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.<br>
+</li>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "Data wrangling 1".<br>
+</li>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
+</li>
+<li>If you are working on your own computer, install the package <code>babynames</code>. Remember, <strong>never install packages if you are working on a university computer</strong>.</li>
+<li>Delete the default R Markdown welcome text and insert a new code chunk that loads the packages <code>tidyverse</code> and <code>babynames</code> using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>.</li>
+</ul>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/babynames">babynames</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw1-a2" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Activity 2: Look at the data<a class="anchor" aria-label="anchor" href="#dw1-a2"><i class="fas fa-link"></i></a>
+</h2>
+<p>The package <code>babynames</code> contains an object of the same name that contains all the data about babynames.</p>
+<ul>
+<li>View a preview of this dataset by typing <code>babynames</code> in to the console. You should see the following output:</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">babynames</span><span class="op">)</span></code></pre></div>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">year</th>
+<th align="left">sex</th>
+<th align="left">name</th>
+<th align="right">n</th>
+<th align="right">prop</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Mary</td>
+<td align="right">7065</td>
+<td align="right">0.0723836</td>
+</tr>
+<tr class="even">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Anna</td>
+<td align="right">2604</td>
+<td align="right">0.0266790</td>
+</tr>
+<tr class="odd">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Emma</td>
+<td align="right">2003</td>
+<td align="right">0.0205215</td>
+</tr>
+<tr class="even">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Elizabeth</td>
+<td align="right">1939</td>
+<td align="right">0.0198658</td>
+</tr>
+<tr class="odd">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Minnie</td>
+<td align="right">1746</td>
+<td align="right">0.0178884</td>
+</tr>
+<tr class="even">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Margaret</td>
+<td align="right">1578</td>
+<td align="right">0.0161672</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>The first line tells us that the object we are looking at is in a <code>tibble</code> with information on five variables with over 1.9 million rows. Yes, this dataset contains 1.8 <strong>million</strong> observations. Interested in analyzing these data by hand? No thanks! A tibble is basically a table of data presenting a two dimensional array of your data.</p>
+<p>Each row in the table represents data about births for a given name and sex in a given year. The variables are:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>variable</th>
+<th>type</th>
+<th>description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>year</td>
+<td>double (numeric)</td>
+<td>year of birth</td>
+</tr>
+<tr class="even">
+<td>sex</td>
+<td>character</td>
+<td>recorded sex of baby (F = female, M = male)</td>
+</tr>
+<tr class="odd">
+<td>name</td>
+<td>character</td>
+<td>forename given to baby</td>
+</tr>
+<tr class="even">
+<td>n</td>
+<td>integer</td>
+<td>number of babies given that name</td>
+</tr>
+<tr class="odd">
+<td>prop</td>
+<td>double (numeric)</td>
+<td>proportion of all babies of that sex</td>
+</tr>
+</tbody>
+</table></div>
+<p>The first row of the table tells us that in the year 1880, there were 7065 baby girls born in the U.S. who were given the name Mary, and this accounted for about 7% of all baby girls.</p>
+</div>
+<div id="dw1-a3" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Activity 3: Your first plot<a class="anchor" aria-label="anchor" href="#dw1-a3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Type the code below into the Activity 3 code chunk and run it.</li>
+</ul>
+<p>The code might not make much sense to you right now, but don't worry about not understanding it yet! The point is show you how much you can accomplish with very little code. The code creates a graph showing the popularity of four girl baby names - Alexandra, Beverly, Emily, and Kathleen - from 1880 to 2014. You should see Figure <a href="data-wrangling-1.html#fig:babynames-plot">4.1</a> appear, which shows the proportion of each name across different years - you can plug in different names if you like and see how the plot changes.</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="va">babynames</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Emily"</span>,<span class="st">"Kathleen"</span>,<span class="st">"Alexandra"</span>,<span class="st">"Beverly"</span><span class="op">)</span>, <span class="va">sex</span><span class="op">==</span><span class="st">"F"</span><span class="op">)</span>
+
+<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>,<span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,y <span class="op">=</span> <span class="va">prop</span>, colour<span class="op">=</span><span class="va">name</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span>  </code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:babynames-plot"></span>
+<img src="04-wrangling-1_files/figure-html/babynames-plot-1.png" alt="Proportion of four baby names from 1880 to 2014" width="100%"><p class="caption">
+Figure 4.1: Proportion of four baby names from 1880 to 2014
+</p>
+</div>
+<ul>
+<li>Change the names to your own examples and see how the plot changes. You can also change the sex from “F” to “M.” Post the photos of your new plots on the Teams channel.</li>
+<li>Because in most countries assigned sex at birth is binary, there is no data on intersex, trans or non-binary names. In lieu of that, here’s the <a href="https://en.wikipedia.org/wiki/Unisex_name">Wikipedia page</a> about gender-neutral names and naming laws around the world which will hopefully make you question why on earth we ascribe someone’s entire gender identity to a bunch of sounds and letters we use to label them.</li>
+</ul>
+<div class="webex-solution">
+<button>
+But I want to display male AND female names!
+</button>
+<p>This is more complicated than you might first imagine so only read on if you're feeling confident. If you remove the filter for <code>sex</code> when creating <code>dat</code> and then run the plot code again, it will make a very messy looking plot (try it). This is because for most names there will be two data points because although the numbers might be small for gendered names, there is usually always at least one baby of the non-dominant name gender that has been assigned that name.</p>
+<p>You can get around this by adding an additional line of code that produces separate plots by sex. The scale argument tells R that it can use different scales on the y-axis for each plot - when there's a large difference between the two scales this is helpful to allow you to see the data in both sets (run this code and then remove the scales argument and run it again to see the difference) although it does run the risk of people misinterpreting the data if the difference between the scales isn't made clear.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="va">babynames</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Emily"</span>,<span class="st">"Kathleen"</span>,<span class="st">"Alexandra"</span>,<span class="st">"Beverly"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat2</span>,<span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,y <span class="op">=</span> <span class="va">prop</span>, colour<span class="op">=</span><span class="va">name</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">sex</span>, scales <span class="op">=</span> <span class="st">"free_y"</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="04-wrangling-1_files/figure-html/unnamed-chunk-3-1.png" alt="Plots by sex with different scales" width="100%"><p class="caption">
+Figure 4.2: Plots by sex with different scales
+</p>
+</div>
+<p>On the other hand, if the scales for your two groups are fairly similar, it's better to keep the same scales to aid comparison. This time we will filter the dataset for gender neutral names where it might make more sense to have them on the same scale - again try it with and without the scales argument to see what happens</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dat3</span> <span class="op">&lt;-</span> <span class="va">babynames</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Sam"</span>,<span class="st">"Alex"</span>,<span class="st">"Jordan"</span>,<span class="st">"Drew"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat3</span>,<span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">year</span>,y <span class="op">=</span> <span class="va">prop</span>, colour<span class="op">=</span><span class="va">name</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">sex</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="04-wrangling-1_files/figure-html/unnamed-chunk-4-1.png" alt="Plots by sex with the same scale" width="100%"><p class="caption">
+Figure 4.3: Plots by sex with the same scale
+</p>
+</div>
+</div>
+</div>
+<div id="dw1-a4" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Activity 4: Selecting variables of interest<a class="anchor" aria-label="anchor" href="#dw1-a4"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are two numeric measurements of name popularity, <code>prop</code> (the proportion of all babies with each name) is probably more useful than <code>n</code> (total number of babies with that name), because it takes into account that different numbers of babies are born in different years.</p>
+<p>Just like in Loading Data, if we wanted to create a dataset that only includes certain variables, we can use the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function from the <code>dplyr</code> package. Run the below code to only select the columns <code>year</code>, <code>sex</code>, <code>name</code> and <code>prop</code>.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, <span class="co"># the object you want to select variables from</span>
+       <span class="va">year</span>, <span class="va">sex</span>, <span class="va">name</span>, <span class="va">prop</span><span class="op">)</span> <span class="co"># the variables you want to select</span></code></pre></div>
+<p>Alternatively, you can also tell R which variables you don't want, in this case, rather than telling R to select <code>year</code>, <code>sex</code>, <code>name</code> and <code>prop</code>, we can simply tell it to drop the column <code>n</code> using the minus sign <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> before the variable name.</p>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, <span class="op">-</span><span class="va">n</span><span class="op">)</span></code></pre></div>
+<p>Note that <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> does not change the original tibble, but makes a new tibble with the specified columns. If you don't save this new tibble to an object, it won't be saved. If you want to keep this new dataset, create a new object. When you run this code, you will see your new tibble appear in the environment pane.</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">new_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, <span class="op">-</span><span class="va">n</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw1-a5" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Activity 5: Arranging the data<a class="anchor" aria-label="anchor" href="#dw1-a5"><i class="fas fa-link"></i></a>
+</h2>
+<p>The function <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> will sort the rows in the table according to the columns you supply. Try running the following code:</p>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, <span class="co"># the data you want to sort</span>
+        <span class="va">name</span><span class="op">)</span> <span class="co"># the variable you want to sort by</span></code></pre></div>
+<p>The data are now sorted in ascending alphabetical order by name. The default is to sort in ascending order. If you want it descending, wrap the name of the variable in the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> function. For instance, to sort by year in descending order, run the following code:</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">babynames</span>,<span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<p>You can also sort by more than one column. What do you think the following code will do?</p>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+</div>
+<div id="dw1-a6" class="section level2" number="4.8">
+<h2>
+<span class="header-section-number">4.8</span> Activity 6: Using filter to select observations<a class="anchor" aria-label="anchor" href="#dw1-a6"><i class="fas fa-link"></i></a>
+</h2>
+<p>We have previously used <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to select certain variables or columns, however, frequently you will also want to select only certain observations or rows, for example, only babies born after 1999, or only babies named "Mary". You do this using the verb <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. The <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function is a bit more involved than the other verbs, and requires more detailed explanation, but this is because it is also extremely powerful.</p>
+<p>Here is an example of filter, can you guess what it will do?</p>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, <span class="va">year</span> <span class="op">&gt;</span> <span class="fl">2000</span><span class="op">)</span></code></pre></div>
+<p>The first part of the code tells the function to use the object <code>babynames</code>. The second argument, <code>year &gt; 2000</code>, is what is known as a <strong>Boolean expression</strong>: an expression whose evaluation results in a value of TRUE or FALSE. What <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> does is include any observations (rows) for which the expression evaluates to TRUE, and exclude any for which it evaluates to FALSE. So in effect, behind the scenes, <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> goes through the entire set of 1.8 million observations, row by row, checking the value of year for each row, keeping it if the value is greater than 2000, and rejecting it if it is less than 2000. To see how a boolean expression works, consider the code below:</p>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">years</span> <span class="op">&lt;-</span> <span class="fl">1996</span><span class="op">:</span><span class="fl">2005</span>
+<span class="va">years</span>
+<span class="va">years</span> <span class="op">&gt;</span> <span class="fl">2000</span></code></pre></div>
+<pre><code>##  [1] 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005
+##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<p>You can see that the expression <code>years &gt; 2000</code> returns a <strong>logical vector</strong> (a vector of TRUE and FALSE values), where each element represents whether the expression is true or false for that element. For the first five elements (1996 to 2000) it is false, and for the last five elements (2001 to 2005) it is true.</p>
+<p>Here are the most commonly used Boolean expressions.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Operator</th>
+<th>Name</th>
+<th>is TRUE if and only if</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>A &lt; B</td>
+<td>less than</td>
+<td>A is less than B</td>
+</tr>
+<tr class="even">
+<td>A &lt;= B</td>
+<td>less than or equal</td>
+<td>A is less than or equal to B</td>
+</tr>
+<tr class="odd">
+<td>A &gt; B</td>
+<td>greater than</td>
+<td>A is greater than B</td>
+</tr>
+<tr class="even">
+<td>A &gt;= B</td>
+<td>greater than or equal</td>
+<td>A is greater than or equal to B</td>
+</tr>
+<tr class="odd">
+<td>A == B</td>
+<td>equivalence</td>
+<td>A exactly equals B</td>
+</tr>
+<tr class="even">
+<td>A != B</td>
+<td>not equal</td>
+<td>A does not exactly equal B</td>
+</tr>
+<tr class="odd">
+<td>A %in% B</td>
+<td>in</td>
+<td>A is an element of vector B</td>
+</tr>
+</tbody>
+</table></div>
+<p>If you want only those observations for a specific name (e.g., Mary), you use the equivalence operator <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code>. Note that you use double equal signs, not a single equal sign.</p>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="va">name</span> <span class="op">==</span> <span class="st">"Mary"</span><span class="op">)</span></code></pre></div>
+<p>If you wanted all the names except Mary, you use the 'not equals' operator:</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="va">name</span><span class="op">!=</span><span class="st">"Mary"</span><span class="op">)</span> </code></pre></div>
+<p>And if you wanted names from a defined set - e.g., names of British queens - you can use <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code>:</p>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Mary"</span>,<span class="st">"Elizabeth"</span>,<span class="st">"Victoria"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>This gives you data for the names in the vector on the right hand side of <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code>. You can always invert an expression to get its opposite. So, for instance, if you instead wanted to get rid of all Marys, Elizabeths, and Victorias you would use the following:</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">babynames</span>, <span class="op">!</span><span class="op">(</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Mary"</span>,<span class="st">"Elizabeth"</span>,<span class="st">"Victoria"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>You can include as many expressions as you like as additional arguments to <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> and it will only pull out the rows for which all of the expressions for that row evaluate to TRUE. For instance, <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter(babynames, year &gt; 2000, prop &gt; .01)</a></code> will pull out only those observations beyond the year 2000 that represent greater than 1% of the names for a given sex; any observation where either expression is false will be excluded. This ability to string together criteria makes <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> a very powerful member of the Wickham Six.</p>
+<p><strong>Remember that this section exists. It will contain a lot of the answers to problems you face when wrangling data!</strong></p>
+</div>
+<div id="dw1-a7" class="section level2" number="4.9">
+<h2>
+<span class="header-section-number">4.9</span> Activity 7: Creating new variables<a class="anchor" aria-label="anchor" href="#dw1-a7"><i class="fas fa-link"></i></a>
+</h2>
+<p>Sometimes we need to create a new variable that doesn’t exist in our dataset. For instance, we might want to figure out what decade a particular year belongs to. To create new variables, we use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>. Note that if you want to save this new column, you need to save it to an object. Here, you are mutating a new column and attaching it to the <code>new_dat</code> object you created in Activity 4.</p>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">new_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, <span class="co"># the tibble you want to add a column to</span>
+                  decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">year</span><span class="op">/</span><span class="fl">10</span><span class="op">)</span> <span class="op">*</span><span class="fl">10</span><span class="op">)</span> <span class="co"># new column name = what you want it to contain</span>
+<span class="va">new_dat</span></code></pre></div>
+<p>In this case, you are creating a new column decade which has the decade each year appears in. This is calculated using the command <code>decade = floor(year/10)*10</code>.</p>
+</div>
+<div id="dw1-a8" class="section level2" number="4.10">
+<h2>
+<span class="header-section-number">4.10</span> Activity 8: Grouping and summarising<a class="anchor" aria-label="anchor" href="#dw1-a8"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most quantitative analyses will require you to summarise your data somehow, for example, by calculating the mean, median or a sum total of your data. You can perform all of these operations using the function <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>.</p>
+<p>First, let's use the object <code>dat</code> that just has the data for the four girls names, Alexandra, Beverly, Emily, and Kathleen. To start off, we're simply going to calculate the total number of babies across all years that were given one of these four names.</p>
+<p>It's useful to get in the habit of translating your code into full sentences to make it easier to figure out what's happening. You can read the below code as "run the function summarise using the data in the object <code>dat</code> to create a new variable named <code>total</code> that is the result of adding up all the numbers in the column <code>n</code>".</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">dat</span>, <span class="co"># the data you want to use</span>
+          total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> <span class="co"># result name = operation</span></code></pre></div>
+<p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> becomes even more powerful when combined with the final <code>dplyr</code> function, <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>. Quite often, you will want to produce your summary statistics broken down by groups, for examples, the scores of participants in different conditions, or the reading time for native and non-native speakers.</p>
+<p>There are two ways you can use <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>. First, you can create a new, grouped object.</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">group_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">dat</span>, <span class="co"># the data you want to group</span>
+                      <span class="va">name</span><span class="op">)</span> <span class="co"># the variable you want to group by</span></code></pre></div>
+<p>If you look at this object in the viewer, it won't look any different to the original <code>dat</code>, however, the underlying structure has changed. Let's run the above summarise code again, but now using the grouped data.</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">group_dat</span>, 
+          total <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
+<p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> has performed exactly the same operation as before - adding up the total number in the column <code>n</code> - but this time it has done is separately for each group, which in this case was the variable <code>name</code>.</p>
+<p>You can request multiple summary calculations to be performed in the same function. For example, the following code calculates the mean and median number of babies given each name every year.</p>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">group_dat</span>,
+          mean_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>,
+          median_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>You can also add multiple grouping variables. For example, the following code groups <code>new_dat</code> by <code>sex</code> and <code>decade</code> and then calculates the summary statistics to give us the mean and median number of male and female babies in each decade.</p>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">group_new_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">new_dat</span>, <span class="va">sex</span>, <span class="va">decade</span><span class="op">)</span>
+<span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">group_new_dat</span>,
+          mean_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>,
+          median_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="info">
+<p>
+If you get what looks like an error that says <code>summarise() ungrouping output (override with .groups argument)</code>don't worry, this isn't an error it's just R telling you what it's done. This message was included in a very recent update to the <code>tidyverse</code> which is why it doesn't appear on some of the walkthrough vidoes.
+</p>
+</div>
+</div>
+<div id="dw1-a9" class="section level2" number="4.11">
+<h2>
+<span class="header-section-number">4.11</span> Activity 9: Pipes<a class="anchor" aria-label="anchor" href="#dw1-a9"><i class="fas fa-link"></i></a>
+</h2>
+<p>The final activity for this chapter essentially repeats what we've already covered but in a slightly different way. In the previous activities, you created new objects with new variables or groupings and then you called <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> on those new objects in separate lines of code. As a result, you had multiple objects in your environment pane and you need to make sure that you keep track of the different names.</p>
+<p>Instead, you can use <strong>pipes</strong>. Pipes are written as <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>and they should be read as "and then". Pipes allow you to string together 'sentences' of code into 'paragraphs' so that you don't need to create intermediary objects. Again, it is easier to show than tell.</p>
+<p>The below code does <strong>exactly</strong> the same as all the code we wrote above but it only creates one object.</p>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pipe_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">babynames</span>, decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">year</span><span class="op">/</span><span class="fl">10</span><span class="op">)</span> <span class="op">*</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">name</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Emily"</span>,<span class="st">"Kathleen"</span>,<span class="st">"Alexandra"</span>,<span class="st">"Beverly"</span><span class="op">)</span>, <span class="va">sex</span><span class="op">==</span><span class="st">"F"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">name</span>, <span class="va">decade</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>The reason that this function is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.</p>
+<div class="try">
+<p>
+When learning to code it can be a useful practice to read your code 'out loud' in full sentences to help you understand what it is doing. You can read the code above as "create a new variable called decade AND THEN only keep the names Emily, Kathleen, Alexandra and Beverly that belong to female babies AND THEN group the dataset by name and decade AND THEN calculate the mean number of babies with each name per decade." Try doing this each time you write a new bit of code.
+</p>
+</div>
+<p>Some people find pipes a bit tricky to understand from a conceptual point of view, however, it's well worth learning to use them as when your code starts getting longer they are much more efficient and mean you have to write less code which is always a good thing!</p>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></div>
+<div class="next"><a href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-wrangling-1"><span class="header-section-number">4</span> Data wrangling 1</a></li>
+<li><a class="nav-link" href="#tidyverse"><span class="header-section-number">4.1</span> Tidyverse</a></li>
+<li><a class="nav-link" href="#the-babynames-database"><span class="header-section-number">4.2</span> The babynames database</a></li>
+<li><a class="nav-link" href="#dw1-a1"><span class="header-section-number">4.3</span> Activity 1: Set-up</a></li>
+<li><a class="nav-link" href="#dw1-a2"><span class="header-section-number">4.4</span> Activity 2: Look at the data</a></li>
+<li><a class="nav-link" href="#dw1-a3"><span class="header-section-number">4.5</span> Activity 3: Your first plot</a></li>
+<li><a class="nav-link" href="#dw1-a4"><span class="header-section-number">4.6</span> Activity 4: Selecting variables of interest</a></li>
+<li><a class="nav-link" href="#dw1-a5"><span class="header-section-number">4.7</span> Activity 5: Arranging the data</a></li>
+<li><a class="nav-link" href="#dw1-a6"><span class="header-section-number">4.8</span> Activity 6: Using filter to select observations</a></li>
+<li><a class="nav-link" href="#dw1-a7"><span class="header-section-number">4.9</span> Activity 7: Creating new variables</a></li>
+<li><a class="nav-link" href="#dw1-a8"><span class="header-section-number">4.10</span> Activity 8: Grouping and summarising</a></li>
+<li><a class="nav-link" href="#dw1-a9"><span class="header-section-number">4.11</span> Activity 9: Pipes</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/04-wrangling-1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/04-wrangling-1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-03.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

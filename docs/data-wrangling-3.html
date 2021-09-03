@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 6 Data Wrangling 3 | Quant-Fun-V2</title>
+<meta name="author" content="psyTeachR Team">
+<meta name="description" content="6.1 Data wrangling recap In the last chapter, we looked at using one-table Wickham verbs to filter, arrange, group_by, select, mutate and summarise. Now we will focus on working with data across...">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Chapter 6 Data Wrangling 3 | Quant-Fun-V2">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/data-wrangling-3.html">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:description" content="6.1 Data wrangling recap In the last chapter, we looked at using one-table Wickham verbs to filter, arrange, group_by, select, mutate and summarise. Now we will focus on working with data across...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 6 Data Wrangling 3 | Quant-Fun-V2">
+<meta name="twitter:description" content="6.1 Data wrangling recap In the last chapter, we looked at using one-table Wickham verbs to filter, arrange, group_by, select, mutate and summarise. Now we will focus on working with data across...">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
+        <small class="text-muted">psyTeachR Books</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
+<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
+<li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
+<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
+<li><a class="active" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
+<li><a class="" href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></li>
+<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
+<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
+<li><a class="" href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></li>
+<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
+<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
+<li><a class="" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
+<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">D</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">E</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-wrangling-3" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Data Wrangling 3<a class="anchor" aria-label="anchor" href="#data-wrangling-3"><i class="fas fa-link"></i></a>
+</h1>
+<div id="data-wrangling-recap" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Data wrangling recap<a class="anchor" aria-label="anchor" href="#data-wrangling-recap"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the last chapter, we looked at using one-table Wickham verbs to <code>filter</code>, <code>arrange</code>, <code>group_by</code>, <code>select</code>, <code>mutate</code> and <code>summarise</code>. Now we will focus on working with data across two or more tables. The two main verbs we will practice adding to the Wickham six in this chapter are <code>pivot_longer()</code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>and these will help you process your data for your quantitative project.</p>
+<ul>
+<li>
+<code>pivot_longer()</code> allows us to <strong>transform</strong> a table from wide format to tidy-format (more on this below).</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> allows us to <strong>combine</strong> two tables together based on common columns.</li>
+</ul>
+<div class="try">
+<p>
+A function is a tool that takes an input, performs some action, and gives an output. They are nothing more than that. If you think about it your toaster is a function: it takes bread as an input; it performs the action of heating it up; and it gives an output, the toast. A good thing about the Wickham six functions is that they are nicely named as verbs to describe what they do - <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> mutates (adds on a column); <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> arranges columns, <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> summarises, etc.
+</p>
+<p>
+In terms of remembering all the functions, the truth is you don't have to know them all. However, through practice and repetition, you will quickly learn to remember which ones are which and what package they come from. Sort of like where to find your spoons in your kitchen - you don't look in the fridge, and then the washing machine, and then the drawer. Nope, you learnt, by repetition, to look in the drawer first time. It's the same with functions. Keep in mind that research methods is like a language in that the more you use it and work with it the more it makes sense.
+</p>
+</div>
+</div>
+<div id="tidy-data" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> Tidy data<a class="anchor" aria-label="anchor" href="#tidy-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>We will use a type of data organisation known as <strong>tidy data</strong>. Any data in this format is easily processed through the <code>tidyverse</code> package. However, the data you work with will not always be formatted this way. If that happens then your first step is to put it into tidy data format. There are three fundamental rules defining Tidy Data:</p>
+<ol style="list-style-type: decimal">
+<li>Each variable must have its own column.</li>
+<li>Each observation must have its own row.</li>
+<li>Each value must have its own cell</li>
+</ol>
+<div class="try">
+<p>
+If you've worked with any kind of data before, particularly if you've used Excel, it's very likely that you will have used <strong>wide format</strong> data. In wide format, each participant's data is all in one row with multiple columns for different data points. This means that the data set tends to be very wide and you will have as many rows as you have participants.
+</p>
+<p>
+This layout can be easy to read, however, it makes programming quite difficult. Whilst Tidy Data can be conceptually more difficult to understand at first, it means you can manipulate your data in whatever way you want very easily. There is more information about <a href="https://r4ds.had.co.nz/tidy-data.html">tidy data available here</a>.
+</p>
+</div>
+</div>
+<div id="analysing-the-autism-spectrum-quotient-aq" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Analysing the Autism Spectrum Quotient (AQ)<a class="anchor" aria-label="anchor" href="#analysing-the-autism-spectrum-quotient-aq"><i class="fas fa-link"></i></a>
+</h2>
+<p>To continue building your data wrangling skills in this chapter you will tidy data from the Autism Spectrum Quotient (AQ) questionnaire. The AQ10 is a non-diagnostic short form of the AQ with only 10 questions per participant. It is a discrete scale and the higher a participant scores on the AQ10 the more autistic-like traits they are said to display. Anyone scoring 7 or above is recommended for further diagnosis. You can see an example of the AQ10 through this link: <a href="http://docs.autismresearchcentre.com/tests/AQ10.pdf">AQ10 Example</a>.</p>
+<p>There are 66 participants and your goal in this chapter is to find an AQ score for each of them through your data-wrangling skills.</p>
+<p>There are four data files to work with that you should download into your chapter folder:</p>
+<ul>
+<li>
+<a href="responses.csv" download>responses.csv</a> containing the AQ survey responses to each of the 10 questions for the 66 participants</li>
+<li>
+<a href="qformats.csv" download>qformats.csv</a> containing information on how a question should be coded - i.e. forward or reverse coding</li>
+<li>
+<a href="scoring.csv" download>scoring.csv</a> containing information on how many points a specific response should get; depending on whether it is forward or reverse coded</li>
+<li>
+<a href="pinfo.csv" download>pinfo.csv</a> containing participant information such as Age, Sex and importantly <code>ID</code> number.</li>
+</ul>
+<p><br></p>
+<div class="try">
+<p>
+<code>csv</code> stands for 'comma separated variable', and is a very basic way of transferring data. It really just stores numbers and text and nothing else. The great thing about being this basic is that it can be read by many different machines and does not need expensive licenses to open it.
+</p>
+</div>
+</div>
+<div id="dw3-a1" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Activity 1: Set-up Data Wrangling 3<a class="anchor" aria-label="anchor" href="#dw3-a1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Do the following. If you need help, consult Programming Basics and Loading Data.</p>
+<ul>
+<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.<br>
+</li>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "Data wrangling 3".<br>
+</li>
+<li>Download the four .csv files above and save them in your chapter folder. Make sure that you do not change the file names at all.</li>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
+</li>
+<li>Delete the default R Markdown welcome text and insert a new code chunk that loads the package <code>tidyverse</code> using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function.</li>
+</ul>
+</div>
+<div id="dw3-a2" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Activity 2: Load in the data<a class="anchor" aria-label="anchor" href="#dw3-a2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now you need to load in the <code>.csv</code> data files using the <code>read_csv()</code> function and save them as variables in the environment. For example, to load in the <code>responses</code> file we would type:</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">responses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"responses.csv"</span><span class="op">)</span> </code></pre></div>
+<ul>
+<li>Add the following lines of code to your Markdown and complete them to load in all four <code>.csv</code> data files. Use the above code as an example and name each variable the same as its original file name (minus the .csv part), again as above, e.g. <code>responses.csv</code> gets saved as <code>responses</code>. Remember to run the lines so that the data loaded in and is stored in your environment.</li>
+</ul>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="data-wrangling-3.html#cb65-1" aria-hidden="true" tabindex="-1"></a>responses <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>()    <span class="co"># survey responses</span></span>
+<span id="cb65-2"><a href="data-wrangling-3.html#cb65-2" aria-hidden="true" tabindex="-1"></a>qformats <span class="ot">&lt;-</span>                 <span class="co"># question formats</span></span>
+<span id="cb65-3"><a href="data-wrangling-3.html#cb65-3" aria-hidden="true" tabindex="-1"></a>scoring <span class="ot">&lt;-</span>                  <span class="co"># scoring info</span></span>
+<span id="cb65-4"><a href="data-wrangling-3.html#cb65-4" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span>                    <span class="co"># participant information</span></span></code></pre></div>
+</div>
+<div id="dw3-a3" class="section level2" number="6.6">
+<h2>
+<span class="header-section-number">6.6</span> Activity 3: Look at your data<a class="anchor" aria-label="anchor" href="#dw3-a3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now that we have the data loaded in it is always best to have a look at it to get an idea of its layout. We showed you ways of doing this before, but you can also use the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> or <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> functions in your Console window and put the name of the data between the brackets to see how it is arranged. Don't add these to your script though they are just one-offs for testing.</p>
+<ul>
+<li>Have a look at the data in <code>responses</code> to see if you think it is Tidy or not and answer the following question: The data in <code>responses</code> is in <select class="webex-solveme" data-answer='["Wide"]'><option></option>
+<option>Tidy</option>
+<option>Wide</option></select> format</li>
+</ul>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The <code>responses</code> tibble is far from being tidy; each row represents multiple observations from the same participant, i.e. each row shows responses to multiple questions and there are the same number of rows as there are participants (66) - <code>wide format</code>. Remember we want the data in tidy format as described above.</p>
+</div>
+</div>
+<div id="dw3-a4" class="section level2" number="6.7">
+<h2>
+<span class="header-section-number">6.7</span> Activity 4: Tidying data<a class="anchor" aria-label="anchor" href="#dw3-a4"><i class="fas fa-link"></i></a>
+</h2>
+<p>We now have all the data we need loaded in, but in order to make it easier for us to get the AQ score for each participant, we need to change the layout of the <code>responses</code> tibble to Tidy Data.</p>
+<p>The first step is to use the function <code>pivot_longer()</code> to transform the data. The pivot functions can be easier to show than tell - you may find it a useful exercise to run the below code and compare the newly created object <code>rlong</code> with the original <code>respones</code> before reading on.</p>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">rlong</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span>data <span class="op">=</span> <span class="va">responses</span>,
+                      cols <span class="op">=</span> <span class="va">Q1</span><span class="op">:</span><span class="va">Q10</span>,
+                      names_to <span class="op">=</span> <span class="st">"Question"</span>, 
+                      values_to <span class="op">=</span> <span class="st">"Response"</span><span class="op">)</span></code></pre></div>
+<ul>
+<li><p>As with the other tidyverse functions, the first argument specifies the dataset to use as the base, in this case <code>responses</code>. This argument name is often dropped in examples.</p></li>
+<li><p><code>cols</code> specifies all the columns you want to transform. The easiest way to visualise this is to think about which columns would be the same in the new long-form dataset and which will change. In this case, we only have a single column <code>Id</code> that will remain constant, we will transform all the ther columns that contain participant's responses to each question. The colon notation <code>first_column:last_column</code> is used to select all variables from the first column specified to the second. In our code, <code>cols</code> specifies that the columns we want to transform are <code>Q1</code> to <code>Q10</code>.</p></li>
+<li><p><code>names_to</code> specifies the names of the new columns that will be created.</p></li>
+<li><p>Finally, <code>values_to</code> names the new column that will contain the measurements, in this case we'll call it <code>Response</code>. At this point you may find it helpful to go back and compare <code>rlong</code> and `responses`` again to see how each argument matches up with the output of the table.</p></li>
+</ul>
+</div>
+<div id="dw3-a5" class="section level2" number="6.8">
+<h2>
+<span class="header-section-number">6.8</span> Activity 5: Combining data<a class="anchor" aria-label="anchor" href="#dw3-a5"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now the <code>responses</code> data is in tidy format, you are closer to being able to calculate an AQ score for each person. However, you still need some extra information:</p>
+<ul>
+<li>Is the question reverse or forward scored (i.e., is strongly agree a positive or negative response)? This information is found in <code>qformats</code>
+</li>
+<li>How many points are given to give a specific response? This information is found in <code>scoring</code>.</li>
+</ul>
+<p>This is a typical analysis situation where different information is in different tables and you need to join them altogether. Both these pieces of information are contained in <code>qformats</code> and <code>scoring</code> respectively, but we want to join them to <code>responses</code> to create one informative tidy table with all the information we need. We can do this through the function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>; a function to combine information in two tibbles using a column common to both tibbles.</p>
+<ul>
+<li>Replace the <code>NULL</code> values in the below code with the necessary variable names to join <code>rlong</code> and <code>qformats</code> by <code>Question</code>. If you need extra help, revisit Loading Data - you used the same function then! You can also check the solutions for the answer (but make sure you try yourself first).</li>
+</ul>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">rlong2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="cn">NULL</span>, by <span class="op">=</span> <span class="st">"NULL"</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>Now view <code>rlong2</code>. You have matched each question with its scoring format, <code>forward</code> or <code>reverse</code>.</li>
+</ul>
+<div class="try">
+<p>
+A lot of questionnaires have some questions that are Forward scored and some questions that are Reverse scored. What does this mean? Imagine a situation where your options in replying to a question are: 1 - extremely agree, 2 - agree, 3 - neutral, 4 - disagree, 5 - extremely disagree. In a forward-scoring question you would get 1 point for extremely agree, 2 for agree, 3 for neutral, etc. In a reverse scoring question you would get 5 for extremely agree, 4 for agree, 3 for neutral, etc.
+</p>
+<p>
+The reasoning behind this shift is that sometimes agreeing or disagreeing might be more favourable depending on how the question is worded. Secondly, sometimes these questions are used just to catch people out - imagine if you had two similar questions where one has the reverse meaning of the other. In this scenario, people should respond opposites. If they respond the same then they might not be paying attention.
+</p>
+</div>
+</div>
+<div id="dw3-a6" class="section level2" number="6.9">
+<h2>
+<span class="header-section-number">6.9</span> Activity 6: Combining more data<a class="anchor" aria-label="anchor" href="#dw3-a6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now you need to combine the information in our new table, <code>rlong2</code>, with the <code>scoring</code> table so you know how many points to attribute each question based on the answer the participant gave, and whether the question was forward or reverse coded. Again, you can use the <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> function, but this time the common columns found in <code>rlong2</code> and <code>scoring</code> are <code>QFormat</code> and <code>Response</code>. To combine by two columns you just write them in sequence as shown below.</p>
+<ul>
+<li>You can only ever join two tables with <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> at once, so if you have multiple tables like we do, you need to do multiple calls to <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>
+</li>
+<li>When there is more than one common column between two tibbles you are joining, it is best to combine by all the columns to avoid repeat columns names in the new tibble. If you run a join and it produces columns named <code>variable.x</code> and <code>variable.y</code> it means that there was another column that was the same in both datasets that you didn't add to <code>by</code>.</li>
+<li>You have to be very careful to use <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> if you have multiple variables for <code>by</code>. This is a common error and results in the <code>variable.x</code>/<code>variable.y</code> issue above.</li>
+<li>Type the below line into the Activity 6 code chunk, run it, and then view the new object.</li>
+</ul>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># combine rows in rlong2 and scoring based on QFormat and Response</span>
+<span class="va">rscores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">rlong2</span>, <span class="va">scoring</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"QFormat"</span>, <span class="st">"Response"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw3-a7" class="section level2" number="6.10">
+<h2>
+<span class="header-section-number">6.10</span> Activity 7: Calculating the AQ scores<a class="anchor" aria-label="anchor" href="#dw3-a7"><i class="fas fa-link"></i></a>
+</h2>
+<p>You have now created <code>rscores</code> which has information on how each participant responded to each question and how each question should be coded and scored, all within the one tibble. All you need now is to sum the scores for each participant to get their AQ score.</p>
+<ol style="list-style-type: decimal">
+<li>Based on your knowledge from the last chapter, type the below line into your code and replace the NULLs to obtain individual <code>aq_scores</code> for each participant.<br>
+</li>
+<li>Save your Markdown and knit it to make sure all your code works.</li>
+</ol>
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">aq_scores</span> <span class="op">&lt;-</span> <span class="va">rscores</span> <span class="op">%&gt;%</span> 
+             <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># how will you group individual participants?</span>
+             <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>AQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span><span class="op">)</span> <span class="co"># which column will you sum to obtain AQ scores?</span></code></pre></div>
+<div class="webex-solution">
+<button>
+Helpful Hint
+</button>
+<p>Each participant could be grouped by their Id.</p>
+<p>If we summed up the value for each Score we might get a full AQ Score for each particpipant.</p>
+</div>
+</div>
+<div id="dw3-a8" class="section level2" number="6.11">
+<h2>
+<span class="header-section-number">6.11</span> Activity 8: One last thing on pipes<a class="anchor" aria-label="anchor" href="#dw3-a8"><i class="fas fa-link"></i></a>
+</h2>
+<p>You now have a complete code to load in your data, convert it to Tidy, combine the tables and calculate an AQ score for each participant. But, if you look at it, some of your code could be more efficient by using pipes.</p>
+<p>Go back through your code and try to rewrite it using pipes <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> so that it is as efficient as possible.</p>
+<div class="webex-solution">
+<button>
+Helpful Hint
+</button>
+<p>At any point where the first argument of your function is the name of a variable created before that line, there is a good chance you could have used a pipe! Here are all the bits of this code that could be piped together into one chain:</p>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">`rlong &lt;- pivot_longer(responses, names_to = "Question", values_to = "Response", Q1:Q10)`</span>
+
+<span class="va">`rlong2 &lt;- inner_join(rlong, qformats, \"Question\")`</span>
+
+<span class="va">`rscores &lt;- inner_join(rlong2, scoring, c(\"QFormat\", \"Response\"))`</span>
+
+<span class="va">`aq_scores &lt;- rscores %&gt;% group_by(Id) %&gt;% summarise(AQ = sum(Score))`</span></code></pre></div>
+</div>
+<p><br></p>
+<p>You have now recapped one-table and two-table verbs. These are great to know as for example, in the above, it actually only took a handful of reproducible steps to get from messy data to tidy data; could you imagine doing this by hand in Excel through cutting and pasting? Not to mention the mistakes you could make!</p>
+<p>If you have any questions, please post them on Teams.</p>
+</div>
+<div id="dw3-sols" class="section level2" number="6.12">
+<h2>
+<span class="header-section-number">6.12</span> Activity solutions<a class="anchor" aria-label="anchor" href="#dw3-sols"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.</p>
+<div id="dw3-a2sol" class="section level3" number="6.12.1">
+<h3>
+<span class="header-section-number">6.12.1</span> Activity 2<a class="anchor" aria-label="anchor" href="#dw3-a2sol"><i class="fas fa-link"></i></a>
+</h3>
+<div class="webex-solution">
+<button>
+Solution Activity 2
+</button>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">responses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"responses.csv"</span><span class="op">)</span>                  
+<span class="va">qformats</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"qformats.csv"</span><span class="op">)</span>                 
+<span class="va">scoring</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"scoring.csv"</span><span class="op">)</span>                  
+<span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"pinfo.csv"</span><span class="op">)</span></code></pre></div>
+</div>
+<p><strong>Click the tab to see the solution</strong></p>
+</div>
+<div id="dw3-a5sol" class="section level3" number="6.12.2">
+<h3>
+<span class="header-section-number">6.12.2</span> Activity 5<a class="anchor" aria-label="anchor" href="#dw3-a5sol"><i class="fas fa-link"></i></a>
+</h3>
+<div class="webex-solution">
+<button>
+Solution Task 5
+</button>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">rlong2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">rlong</span>, y <span class="op">=</span> <span class="va">qformats</span>, by <span class="op">=</span> <span class="st">"Question"</span><span class="op">)</span></code></pre></div>
+</div>
+<p><strong>Click the tab to see the solution</strong></p>
+</div>
+<div id="dw3-a7sol" class="section level3" number="6.12.3">
+<h3>
+<span class="header-section-number">6.12.3</span> Activity 7<a class="anchor" aria-label="anchor" href="#dw3-a7sol"><i class="fas fa-link"></i></a>
+</h3>
+<div class="webex-solution">
+<button>
+Solution Task 7
+</button>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">aq_scores</span> <span class="op">&lt;-</span> <span class="va">rscores</span> <span class="op">%&gt;%</span> 
+             <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Id</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># group by the ID number in column Id</span>
+             <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>AQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span><span class="op">)</span> <span class="co"># sum column Score to obtain AQ scores.</span></code></pre></div>
+</div>
+<p><strong>Click the tab to see the solution</strong></p>
+</div>
+<div id="dw3-a8sol" class="section level3" number="6.12.4">
+<h3>
+<span class="header-section-number">6.12.4</span> Activity 8<a class="anchor" aria-label="anchor" href="#dw3-a8sol"><i class="fas fa-link"></i></a>
+</h3>
+<div class="webex-solution">
+<button>
+Solution Activity 8
+</button>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">aq_scores2</span> <span class="op">&lt;-</span> <span class="va">responses</span> <span class="op">%&gt;%</span> 
+  <span class="co"># take the data in `responses` and then</span>
+  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="va">Q1</span><span class="op">:</span><span class="va">Q10</span>,
+               names_to <span class="op">=</span> <span class="st">"Question"</span>, 
+               values_to <span class="op">=</span> <span class="st">"Response"</span><span class="op">)</span> <span class="op">%&gt;%</span>  
+  <span class="co"># take columns Q1 to Q10, put the column names in Question and the scores in Response and then</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">qformats</span>, <span class="st">"Question"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="co"># join with `qformats` and match the data by the column `Question` and then</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">scoring</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"QFormat"</span>, <span class="st">"Response"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="co"># join with `scoring` and match the data by the columns `Qformat` and `Response` and then</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Id</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># group by participant ID and then</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>AQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span><span class="op">)</span> <span class="co"># calculate the total AQ score</span></code></pre></div>
+</div>
+<p><strong>Click the tab to see the solution</strong></p>
+</div>
+</div>
+<div id="dw3-test" class="section level2" number="6.13">
+<h2>
+<span class="header-section-number">6.13</span> Test yourself<a class="anchor" aria-label="anchor" href="#dw3-test"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Complete the sentence, the higher the AQ score...<select class="webex-solveme" data-answer='["the more autistic-like traits displayed"]'><option></option>
+<option>the less autistic-like traits displayed</option>
+<option>has no relation to autistic-like traits</option>
+<option>the more autistic-like traits displayed</option></select></p></li>
+<li><p>Type in the AQ score (just the number) of Participant ID No. 87: <input class="webex-solveme nospaces" size="10" data-answer='["2"]'></p></li>
+<li><p>Type how many participants had an AQ score of 3 (again just the number): <input class="webex-solveme nospaces" size="10" data-answer='["13"]'></p></li>
+<li><p>The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Type in how many participants we should refer from our sample: <input class="webex-solveme nospaces" size="10" data-answer='["6"]'></p></li>
+</ul>
+<div class="webex-solution">
+<button>
+Explain these answers
+</button>
+<ol style="list-style-type: decimal">
+<li><p>As mentioned, the higher the score on the AQ10 the more autistic-like traits a participant is said to show.</p></li>
+<li><p>You could do this by code with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter(aq_scores, Id == 87)</a></code>, which would give you a tibble of 1x2 showing the ID number and score. If you just wanted the score you could use <code><a href="https://dplyr.tidyverse.org/reference/pull.html">pull()</a></code> which we haven't shown you that yet: <code>filter(aq_scores, Id == 87) %&gt;% pull(AQ)</code>. The answer is an AQ score of 2.</p></li>
+<li><p>Same as above but changing the argument of the filter. <code>filter(aq_scores, AQ == 3) %&gt;% count()</code>. The answer is 13. Remember you can do this by counting but the code makes it reproducible and accurate every time. You might make mistakes.</p></li>
+<li><p><code>filter(aq_scores, AQ &gt; 6) %&gt;% count()</code> or <code>filter(aq_scores, AQ &gt;= 7) %&gt;% count()</code>. The answer is 6.</p></li>
+</ol>
+</div>
+
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></div>
+<div class="next"><a href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-wrangling-3"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
+<li><a class="nav-link" href="#data-wrangling-recap"><span class="header-section-number">6.1</span> Data wrangling recap</a></li>
+<li><a class="nav-link" href="#tidy-data"><span class="header-section-number">6.2</span> Tidy data</a></li>
+<li><a class="nav-link" href="#analysing-the-autism-spectrum-quotient-aq"><span class="header-section-number">6.3</span> Analysing the Autism Spectrum Quotient (AQ)</a></li>
+<li><a class="nav-link" href="#dw3-a1"><span class="header-section-number">6.4</span> Activity 1: Set-up Data Wrangling 3</a></li>
+<li><a class="nav-link" href="#dw3-a2"><span class="header-section-number">6.5</span> Activity 2: Load in the data</a></li>
+<li><a class="nav-link" href="#dw3-a3"><span class="header-section-number">6.6</span> Activity 3: Look at your data</a></li>
+<li><a class="nav-link" href="#dw3-a4"><span class="header-section-number">6.7</span> Activity 4: Tidying data</a></li>
+<li><a class="nav-link" href="#dw3-a5"><span class="header-section-number">6.8</span> Activity 5: Combining data</a></li>
+<li><a class="nav-link" href="#dw3-a6"><span class="header-section-number">6.9</span> Activity 6: Combining more data</a></li>
+<li><a class="nav-link" href="#dw3-a7"><span class="header-section-number">6.10</span> Activity 7: Calculating the AQ scores</a></li>
+<li><a class="nav-link" href="#dw3-a8"><span class="header-section-number">6.11</span> Activity 8: One last thing on pipes</a></li>
+<li>
+<a class="nav-link" href="#dw3-sols"><span class="header-section-number">6.12</span> Activity solutions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dw3-a2sol"><span class="header-section-number">6.12.1</span> Activity 2</a></li>
+<li><a class="nav-link" href="#dw3-a5sol"><span class="header-section-number">6.12.2</span> Activity 5</a></li>
+<li><a class="nav-link" href="#dw3-a7sol"><span class="header-section-number">6.12.3</span> Activity 7</a></li>
+<li><a class="nav-link" href="#dw3-a8sol"><span class="header-section-number">6.12.4</span> Activity 8</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#dw3-test"><span class="header-section-number">6.13</span> Test yourself</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/06-wrangling-3.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/06-wrangling-3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-03.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

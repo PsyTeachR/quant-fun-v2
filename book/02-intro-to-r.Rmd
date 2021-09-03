@@ -23,7 +23,7 @@ The main disadvantage to using the R server is that you will need to upload and 
 
 Going forward throughout this book, you can either download files to your local computer or, if you're using the server, you'll do an extra step where you also upload them to the sever. We're not going to use any data files in this session but let's try an example to make it clear how you get the data files on to the server.
 
--   Download <a href="ahi-cesd.csv" download>`ahi-cesd.csv`</a> and <a href="participant-info.csv" download>`participant-info.csv`</a> into the chapter folder on your computer. If you are working on the server, you will need to uploaded the files to the server as well.\
+-   Download <a href="ahi-cesd.csv" download>`ahi-cesd.csv`</a> and <a href="participant-info.csv">`participant-info.csv`</a> into the chapter folder on your computer. If you are working on the server, you will need to uploaded the files to the server as well.\
 -   Click `Upload` then `Browse`and choose the folder for the chapter you're working on.
 -   Click `Choose file` and go and find the data you want to upload.
 
