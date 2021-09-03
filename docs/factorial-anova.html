@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 Factorial ANOVA | Quant-Fun-V2</title>
+<meta name="author" content="psyTeachR Team">
+<meta name="description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code....">
+<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta property="og:title" content="Chapter 15 Factorial ANOVA | Quant-Fun-V2">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/factorial-anova.html">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code....">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 Factorial ANOVA | Quant-Fun-V2">
+<meta name="twitter:description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code....">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NP3MF25W3');
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
+        <small class="text-muted">psyTeachR Books</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
+<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
+<li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
+<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
+<li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
+<li><a class="" href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></li>
+<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
+<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
+<li><a class="" href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></li>
+<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
+<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
+<li><a class="active" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
+<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">D</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">E</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="factorial-anova" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> Factorial ANOVA<a class="anchor" aria-label="anchor" href="#factorial-anova"><i class="fas fa-link"></i></a>
+</h1>
+<p>For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code.</p>
+<p>We're going to reproduce the analysis from Experiment 3 of <a href="https://journals.sagepub.com/doi/abs/10.1177/0956797614542274">Zhang, T., Kim, T., Brooks, A. W., Gino, F., &amp; Norton, M. I. (2014). A "present" for the future: The unexpected value of rediscovery. Psychological Science, 25, 1851-1860.</a>. You may remember this study from the Chapter Visualisation chapter.</p>
+<p>This experiment has a 2 x 2 mixed design:</p>
+<ul>
+<li>The first IV is time (time1, time2) and is within-subjects</li>
+<li>The second IV is type of event (ordinary vs. extraordinary) and is a between-subjects factor</li>
+<li>The DV we will use is <code>interest</code>
+</li>
+</ul>
+<div id="factorial-a1" class="section level3" number="15.0.1">
+<h3>
+<span class="header-section-number">15.0.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#factorial-a1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Open R Studio and set the working directory to your chpter folder. Ensure the environment is clear.</li>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "Factorial ANOVA".</li>
+<li>Download <a href="Zhang%20et%20al.%202014%20Study%203.csv" download>Zhang et al. 2014 Study 3.csv</a> and extract the files in to your Week 11 folder.</li>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
+</li>
+<li>If you are working on your own computer, install the package <code>rcompanion</code>. Remember <strong>do not install packages on university computers, they are already installed</strong>.</li>
+<li>Type and run the code that loads <code>pwr</code>, <code>rcompanion</code>, <code>lsr</code>, <code>car</code>, <code>broom</code>, <code>afex</code>, <code>emmeans</code> and <code>tidyverse</code> using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function.</li>
+</ul>
+<p>Run the below code to load the data and wrangle it into the format we need. You don't need to write this code yourself but do make sure you can understand what each line is doing - a good way to do this when the code uses pipes (<code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>) is to highlight and run each line progressively so you can see how it builds up. Line-by-line the code:</p>
+<ul>
+<li>Reads in the data file</li>
+<li>Select the three columns we need<br>
+</li>
+<li>Adds on a column of subject IDs<br>
+</li>
+<li>Tidies the data</li>
+<li>Recodes the values of <code>Condition</code> from numeric to text labels</li>
+<li>Recodes the values of <code>time</code> to be easier to read/write</li>
+</ul>
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">factorial</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"Zhang et al. 2014 Study 3.csv"</span><span class="op">)</span><span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Condition</span>, <span class="va">T1_Predicted_Interest_Composite</span>, <span class="va">T2_Actual_Interest_Composite</span><span class="op">)</span><span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>subject <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">%&gt;%</span>
+  <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"time"</span>,values_to <span class="op">=</span> <span class="st">"interest"</span>, cols <span class="op">=</span>       <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"T1_Predicted_Interest_Composite"</span>,<span class="st">"T2_Actual_Interest_Composite"</span><span class="op">)</span><span class="op">)</span><span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Condition <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">Condition</span>, <span class="st">"1"</span> <span class="op">=</span> <span class="st">"Ordinary"</span>, <span class="st">"2"</span> <span class="op">=</span> <span class="st">"Extraordinary"</span><span class="op">)</span><span class="op">)</span><span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>time <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">time</span>, <span class="st">"T1_Predicted_Interest_Composite"</span> <span class="op">=</span> <span class="st">"time1_interest"</span>,
+                       <span class="st">"T2_Actual_Interest_Composite"</span> <span class="op">=</span> <span class="st">"time2_interest"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">Condition</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="factorial-a2" class="section level3" number="15.0.2">
+<h3>
+<span class="header-section-number">15.0.2</span> Activity 2: Descriptive statistics<a class="anchor" aria-label="anchor" href="#factorial-a2"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Calculate descriptive statistics (mean and SD) for <code>interest</code> for each <code>Condition</code> for each <code>time</code> (hint: you will need to <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> two variables) and store it in an object named <code>sum_dat_factorial</code>. These are known as the cells means.</li>
+</ul>
+</div>
+<div id="factorial-a3" class="section level3" number="15.0.3">
+<h3>
+<span class="header-section-number">15.0.3</span> Activity 3: Violin-boxplots<a class="anchor" aria-label="anchor" href="#factorial-a3"><i class="fas fa-link"></i></a>
+</h3>
+<p>We're going to produce two kinds of plots to visualise our data. First, we'll produce violin-boxplots so that we can see the distribution of our data.</p>
+<ul>
+<li>Write the code that produces the below violin-boxplots for the scores in each group.
+<ul>
+<li>Hint 1: you will need to add in the second IV in the first call to ggplot as a fill argument (aes(x,y,fill)).</li>
+<li>Hint 2: you will need to add <code>position = position_dodge(.9)</code> to geom_boxplot to get the plots to align.</li>
+</ul>
+</li>
+</ul>
+<p>You don't need to replicate the exact colour scheme used below, see if you can play around with the settings to whatever colour scheme you think works best.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plt1"></span>
+<img src="15-factorial-anova_files/figure-html/plt1-1.png" alt="Violin-boxplot by condition and time" width="100%"><p class="caption">
+Figure 15.1: Violin-boxplot by condition and time
+</p>
+</div>
+</div>
+<div id="factorial-a4" class="section level3" number="15.0.4">
+<h3>
+<span class="header-section-number">15.0.4</span> Activity 4: Interaction plots<a class="anchor" aria-label="anchor" href="#factorial-a4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now we're going to produce an interaction plot that makes it easier to see how the IVs are interacting, which requires some ggplot2 functions we haven't come across yet. Rather than using the raw data in <code>dat_factorial</code>, we use the means that we produced in <code>sum_dat_factorial</code>. This type of plot requires two geoms, one to draw the points, and one to draw the lines that connect them.</p>
+<p>This plot reproduces the plot used in the paper.</p>
+<ul>
+<li>Run the code and then play around with how it looks by changing the arguments for e.g., colour, line-type, and the theme.</li>
+</ul>
+<div class="sourceCode" id="cb250"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">sum_dat_factorial</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">mean</span>, group <span class="op">=</span> <span class="va">Condition</span>, shape <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>linetype <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">scale_x_discrete</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Time 1"</span>, <span class="st">"Time 2"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plot2"></span>
+<img src="15-factorial-anova_files/figure-html/plot2-1.png" alt="Interaction plot" width="100%"><p class="caption">
+Figure 15.2: Interaction plot
+</p>
+</div>
+</div>
+<div id="factorial-a5" class="section level3" number="15.0.5">
+<h3>
+<span class="header-section-number">15.0.5</span> Activity 5: ANOVA<a class="anchor" aria-label="anchor" href="#factorial-a5"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Complete the below code to run the factorial ANOVA. Remember that you will need to specify both IVs and that one of them is between-subjects and one of them is within-subjects. Look up the help documentation for <code>aov_ez</code> to find out how to do this.</p></li>
+<li><p>Save the ANOVA model to an object called <code>mod_factorial</code></p></li>
+<li><p>Pull out the anova table, you can either do this with <code>mod_factorial$anova_table</code> or <code><a href="https://rdrr.io/r/stats/anova.html">anova(mod_factorial)</a></code> both have the same result. Save this to an object named <code>factorial_output</code> and make sure you have used <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code>.</p></li>
+</ul>
+<div class="sourceCode" id="cb251"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod_factorial</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"NULL"</span>,
+               data <span class="op">=</span> <span class="cn">NULL</span>, 
+               between <span class="op">=</span> <span class="st">"NULL"</span>, 
+               within <span class="op">=</span> <span class="st">"NULL"</span>,
+               dv <span class="op">=</span> <span class="st">"NULL"</span>, 
+               type <span class="op">=</span> <span class="fl">3</span>,
+               es <span class="op">=</span> <span class="st">"NULL"</span><span class="op">)</span> 
+
+<span class="va">factorial_output</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
+<p>Look at the results. Remember the pre-class information about how to read p-values in scientific notation.</p>
+<ul>
+<li>Is the main effect of condition significant? <select class="webex-solveme" data-answer='["No"]'><option></option>
+<option>Yes</option>
+<option>No</option></select>
+</li>
+<li>Is the main effect of time significant? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
+<option>Yes</option>
+<option>No</option></select>
+</li>
+<li>Is the two-way interaction significant? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
+<option>Yes</option>
+<option>No</option></select>
+</li>
+</ul>
+</div>
+<div id="factorial-a6" class="section level3" number="15.0.6">
+<h3>
+<span class="header-section-number">15.0.6</span> Activity 6: Assumption checking<a class="anchor" aria-label="anchor" href="#factorial-a6"><i class="fas fa-link"></i></a>
+</h3>
+<p>The assumptions for a factorial ANOVA are the same as the one-way ANOVA.</p>
+<ol style="list-style-type: decimal">
+<li>The DV is interval or ratio data</li>
+<li>The observations should be independent</li>
+<li>The residuals should be normally distributed</li>
+<li>There should be homogeneity of variance between the groups</li>
+</ol>
+<p>As before, we know assumption 2 is met from the design of the study. Assumption 1 throws up an interesting issue which is the problem of ordinal data. Ordinal data is the kind of data that comes from Likert scales and is very, very common in psychology. The problem is that ordinal data isn't interval or ratio data, there's a fixed number of values it can take (the values of the Likert scale) and you can't claim that the distance between the values is equal (is the difference between strongly agree and agree the same as the difference between agree and neutral?).</p>
+<p>Technically, we shouldn't use an ANOVA to analyse ordinal data - <em>but almost everyone does</em>. Most people would argue that if there are multiple Likert scale items that are averaged (which is the case in our study) and this averaged data is normally distributed, then it is not a problem. There is a minority (who are actually correct) that argue you should use non-parametric methods or more complicated tests such as ordinal regression for this type of data. Whichever route you choose, you should understand the data you have and you should be able to justify your decision.</p>
+<ul>
+<li><p>To test assumption 3, extract the residuals from the model (<code>mod_factorial$lm$residuals</code>), create a qq-plot and conduct a Shapiro-Wilk test.</p></li>
+<li><p>Are the residuals normally distributed? <select class="webex-solveme" data-answer='["No, but given the sample it is probably acceptable to proceed"]'><option></option>
+<option>Yes</option>
+<option>No</option>
+<option>No, but given the sample it is probably acceptable to proceed</option></select></p></li>
+</ul>
+<p>For the final assumption, we can again use <code><a href="https://rdrr.io/pkg/afex/man/deprecated.html">test_levene()</a></code> to test homogeneity of variance.</p>
+<ul>
+<li>Conduct Levene's test. Is assumption 4 met? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
+<option>Yes</option>
+<option>No</option></select>
+</li>
+</ul>
+</div>
+<div id="factorial-a7" class="section level3" number="15.0.7">
+<h3>
+<span class="header-section-number">15.0.7</span> Activity 7: Post-hoc tests<a class="anchor" aria-label="anchor" href="#factorial-a7"><i class="fas fa-link"></i></a>
+</h3>
+<p>Because the interaction is significant, we should follow this up with post-hoc tests using <code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> to determine which comparisons are significant. If the overall interaction is not significant, you should not conduct additional tests.</p>
+<p><code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> requires you to specify the <code>aov</code> object, and then the factors you want to contrast. For an interaction, we use the notation <code>pairwise ~ IV1 | IV2</code> and you specify which multiple comparison correction you want to apply. Finally, you can use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to tidy up the output of the contrasts and save it into a tibble.</p>
+<ul>
+<li>Run the below code and view the results.</li>
+</ul>
+<div class="sourceCode" id="cb252"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># run the tests</span>
+<span class="va">posthoc_factorial</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">aov</span>, 
+                             <span class="va">pairwise</span> <span class="op">~</span> <span class="va">time</span><span class="op">|</span> <span class="va">Condition</span>, 
+                             adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
+
+<span class="co"># tidy up the output of the tests</span>
+<span class="va">contrasts_factorial</span> <span class="op">&lt;-</span> <span class="va">posthoc_factorial</span><span class="op">$</span><span class="va">contrasts</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Note that because there are two factors, we could also reverse the order of the IVs. Above, we get the results contrasting time 1 and time 2 for each condition. Instead, we could look at the difference between ordinary and extraordinary events at each time point.</p>
+<ul>
+<li>Run the below code and look at the output of <code>contrast_factorial</code> and <code>contrasts_factorial2</code> carefully making sure you understand how to interpret the results. You will find it useful to refer to the interaction plot we made earlier.</li>
+</ul>
+<div class="sourceCode" id="cb253"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">posthoc_factorial2</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">aov</span>, 
+                             <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span><span class="op">|</span> <span class="va">time</span>, 
+                             adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span> 
+
+<span class="va">contrasts_factorial2</span> <span class="op">&lt;-</span> <span class="va">posthoc_factorial2</span><span class="op">$</span><span class="va">contrasts</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Because our main effects (condition and time) only have two levels, we don't need to do any post-hoc tests to determine which conditions differ from each other, however, if one of our factors had three levels then we could use <code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> to calculate the contrast for the main effects, like we did for the one-way ANOVA.</p>
+<p>Finally, to calculate effect size for the pairwise comparisons we again need to do this individually using 'cohensD()<code>from</code>lsr`.</p>
+<ul>
+<li>Run the below code to add on effect sizes to <code>contrasts_factorial</code> and <code>contrasts_factorial2</code>.</li>
+</ul>
+<div class="sourceCode" id="cb254"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">d_extra_t1_t2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
+                         data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">Condition</span> <span class="op">==</span> <span class="st">"Extraordinary"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
+
+<span class="va">d_ord_t1_t2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
+                         data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">Condition</span> <span class="op">==</span> <span class="st">"Ordinary"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
+
+
+<span class="va">Condition_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">d_extra_t1_t2</span>, <span class="va">d_ord_t1_t2</span><span class="op">)</span>
+
+<span class="va">contrasts_factorial</span> <span class="op">&lt;-</span> <span class="va">contrasts_factorial</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>eff_size <span class="op">=</span> <span class="va">Condition_ds</span><span class="op">)</span>
+
+<span class="va">d_time1_extra_ord</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">Condition</span>, 
+                         data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">time</span> <span class="op">==</span> <span class="st">"time1_interest"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
+
+<span class="va">d_time2_extra_ord</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">Condition</span>, 
+                         data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">time</span> <span class="op">==</span> <span class="st">"time2_interest"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+
+<span class="va">time_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">d_time1_extra_ord</span>, <span class="va">d_time2_extra_ord</span><span class="op">)</span>
+
+<span class="va">contrasts_factorial2</span> <span class="op">&lt;-</span> <span class="va">contrasts_factorial</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>eff_size <span class="op">=</span> <span class="va">time_ds</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="factorial-a8" class="section level3" number="15.0.8">
+<h3>
+<span class="header-section-number">15.0.8</span> Activity 8: Write-up<a class="anchor" aria-label="anchor" href="#factorial-a8"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>p-values of &lt; .001 have been entered manually. There is a way to get R to produce this formatting but it's overly complicated for our purposes. If you want to push yourself, look up the <a href="https://github.com/crsh/papaja">papaja</a> package.</li>
+<li>The values of partial eta-squared do not match between our analysis and those reported in the paper. I haven't figured out why this is yet - if you know, please get in touch!</li>
+<li>We have replaced the simple effects in the main paper with our pairwise comparisons.</li>
+</ul>
+<p>First we need to calculate descriptives for the main effect of time as we didn't do this earlier.</p>
+<div class="sourceCode" id="cb255"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">time_descrip</span> <span class="op">&lt;-</span> <span class="va">factorial</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_interest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            sd_interest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">interest</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
+            max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Copy and paste the below into <strong>white-space</strong>.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="factorial-anova.html#cb256-1" aria-hidden="true" tabindex="-1"></a>We conducted the same repeated measures ANOVA with interest as the dependent measure and again found a main effect of time, <span class="fu">F</span>(<span class="st">`</span><span class="at">r factorial_output$num.Df[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r factorial_output$den.Df[2]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$statistic[2] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, ηp2 <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$ges[2] %&gt;% round(3)</span><span class="st">`</span>; anticipated interest at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r time_descrip$mean_interest[1] %&gt;% round(2)</span><span class="st">`</span>), SD <span class="ot">=</span> <span class="st">`</span><span class="at">r time_descrip$sd_interest[1]%&gt;% round(2)</span><span class="st">`</span><span class="er">))</span> was lower than actual interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r time_descrip$mean_interest[2]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r time_descrip$sd_interest[2]%&gt;% round(2)</span><span class="st">`</span>).We also observed an interaction between time and type of experience, <span class="fu">F</span>(<span class="st">`</span><span class="at">r factorial_output$num.Df[3]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r factorial_output$den.Df[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$statistic[3] %&gt;% round(3)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$p.value[3] %&gt;% round(2)</span><span class="st">`</span>, ηp2 <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$ges[3] %&gt;% round(3)</span><span class="st">`</span>. Pairwise comparisons revealed that <span class="cf">for</span> ordinary events, predicted interest at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[3]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[3]%&gt;% round(2)</span><span class="st">`</span>) was lower than experienced interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[4]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[4]%&gt;% round(2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r contrasts_factorial$df[2]%&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$statistic[2]%&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$eff_size[2]%&gt;% round(2)</span><span class="st">`</span>. Although predicted interest <span class="cf">for</span> extraordinary events at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[1]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[1]%&gt;% round(2)</span><span class="st">`</span>) was lower than experienced interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[2]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[2]%&gt;% round(2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r contrasts_factorial$df[1]%&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$statistic[1]%&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$eff_size[1]%&gt;% round(2)</span><span class="st">`</span> , the magnitude of underestimation was smaller than <span class="cf">for</span> ordinary events.</span></code></pre></div>
+<blockquote>
+<p>We conducted the same repeated measures ANOVA with interest as the dependent measure and again found a main effect of time, F(1, 128) = 25.88, p &lt; .001, ηp2 = 0.044; anticipated interest at Time 1 (M = 4.2), SD = 1.12)) was lower than actual interest at Time 2 (M = 4.69, SD = 1.19).We also observed an interaction between time and type of experience, F(1, 128) = 4.445, p = 0.04, ηp2 = 0.008. Pairwise comparisons revealed that for ordinary events, predicted interest at Time 1 (M = 4.04, SD = 1.09) was lower than experienced interest at Time 2 (M = 4.73, SD = 1.24), t(128) = -5.05, p &lt; .001, d = 0.59. Although predicted interest for extraordinary events at Time 1 (M = 4.36, SD = 1.13) was lower than experienced interest at Time 2 (M = 4.65, SD = 1.14), t(128) = -2.12, p &lt; .001, d = 0.25 , the magnitude of underestimation was smaller than for ordinary events.</p>
+</blockquote>
+</div>
+<div id="factorial-a9" class="section level3" number="15.0.9">
+<h3>
+<span class="header-section-number">15.0.9</span> Activity 9: Transforming data<a class="anchor" aria-label="anchor" href="#factorial-a9"><i class="fas fa-link"></i></a>
+</h3>
+<p>In this chapter we decided that the violation of the assumption of normality was ok so that we could replicate the results in the paper. But what if we weren't happy with this or if the violation had been more extreme? One option to deal with normality is to <strong>transform your data</strong>. If you want more information on this you should consult the Appendix chapter on data transformation.</p>
+<p>There are various options for how you can transform data but we're going to use Tukeys Ladder of Powers transformation. This finds the power transformation that makes the data fit the normal distribution as closely as possible with this type of transformation.</p>
+<ul>
+<li>Run the below code. This will use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> to add a new variable to the data-set, <code>interest_tukey</code> which is going to be our transformed DV. The function <code><a href="https://rdrr.io/pkg/rcompanion/man/transformTukey.html">transformTukey()</a></code> is from the <code>rcompanion</code> package. Setting <code>plotit = TRUE</code> will automatically create qqPlots and histograms so that we can immediately visualise the new variable.</li>
+</ul>
+<div class="sourceCode" id="cb257"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">factorial</span> <span class="op">&lt;-</span> <span class="va">factorial</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>interest_tukey <span class="op">=</span> <span class="fu">transformTukey</span><span class="op">(</span><span class="va">interest</span>, plotit<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Now that you've transformed the DV we can re-run the ANOVA with this new variable.</p>
+<div class="sourceCode" id="cb258"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">tukey_factorial</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>,
+               data <span class="op">=</span> <span class="va">factorial</span>, 
+               between <span class="op">=</span> <span class="st">"Condition"</span>, 
+               within <span class="op">=</span> <span class="st">"time"</span>,
+               dv <span class="op">=</span> <span class="st">"interest_tukey"</span>, 
+               type <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>
+
+<span class="va">tukey_factorial</span></code></pre></div>
+<p>Notice that doing this hasn't changed the pattern of the ANOVA results, the p-values for the main effects and interactions are very slightly different but the overall conclusions remain the same. This is likely because the violations of normality was quite mild and there is a large sample size, however, with the transformation we can be more confident in our results and it may not always be the case that the transformed ANOVA is the same if the violations were more extreme.</p>
+<div id="factorial-fin" class="section level4" number="15.0.9.1">
+<h4>
+<span class="header-section-number">15.0.9.1</span> Finished!<a class="anchor" aria-label="anchor" href="#factorial-fin"><i class="fas fa-link"></i></a>
+</h4>
+<p>And we're done! There's only one more week of R left. I know that for some of you, you will be breathing a sigh of relief but we really want you to reflect on just how far you've come and the skills that you've learned. Even if you don't continue with quantitative research, your understanding of how data is manipulated and how the final results of journal articles actually happen will have substantially increased and that level of critical awareness is an all-round good skill to have.</p>
+</div>
+</div>
+<div id="factorial-sols" class="section level3" number="15.0.10">
+<h3>
+<span class="header-section-number">15.0.10</span> Activity solutions<a class="anchor" aria-label="anchor" href="#factorial-sols"><i class="fas fa-link"></i></a>
+</h3>
+<div id="factorial-a1sol" class="section level4" number="15.0.10.1">
+<h4>
+<span class="header-section-number">15.0.10.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#factorial-a1sol"><i class="fas fa-link"></i></a>
+</h4>
+<div class="webex-solution">
+<button>
+Activity 1
+</button>
+<div class="sourceCode" id="cb259"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/heliosdrm/pwr">"pwr"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://rcompanion.org/">"rcompanion"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://r-forge.r-project.org/projects/car/">"car"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://health.adelaide.edu.au/psychology/ccs/teaching/lsr/">"lsr"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://afex.singmann.science/">"afex"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/rvlenth/emmeans">"emmeans"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span></code></pre></div>
+</div>
+<p>** Click tab to see solution **</p>
+</div>
+<div id="factorial-a2sol" class="section level4" number="15.0.10.2">
+<h4>
+<span class="header-section-number">15.0.10.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#factorial-a2sol"><i class="fas fa-link"></i></a>
+</h4>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb260"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sum_dat_factorial</span><span class="op">&lt;-</span><span class="va">factorial</span><span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Condition</span>, <span class="va">time</span><span class="op">)</span><span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">interest</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+            <span class="op">)</span></code></pre></div>
+</div>
+<p>** Click tab to see solution **</p>
+</div>
+<div id="factorial-a3sol" class="section level4" number="15.0.10.3">
+<h4>
+<span class="header-section-number">15.0.10.3</span> Activity 3<a class="anchor" aria-label="anchor" href="#factorial-a3sol"><i class="fas fa-link"></i></a>
+</h4>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb261"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">factorial</span>, 
+       <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span> , y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span>, 
+              alpha <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">geom_boxplot</span><span class="op">(</span>position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span><span class="fl">.9</span><span class="op">)</span>, 
+               width <span class="op">=</span> <span class="fl">.2</span>, 
+               alpha <span class="op">=</span> <span class="fl">.6</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">scale_x_discrete</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Time 1"</span>, <span class="st">"Time 2"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span>option <span class="op">=</span> <span class="st">"E"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">stat_summary</span><span class="op">(</span>fun <span class="op">=</span> <span class="st">"mean"</span>, geom <span class="op">=</span> <span class="st">"point"</span>,
+               position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">stat_summary</span><span class="op">(</span>fun.data <span class="op">=</span> <span class="st">"mean_se"</span>, geom <span class="op">=</span> <span class="st">"errorbar"</span>, width <span class="op">=</span> <span class="fl">.1</span>,
+               position <span class="op">=</span> <span class="fu">position_dodge</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<p>** Click tab to see solution **</p>
+</div>
+<div id="factorial-a5sol" class="section level4" number="15.0.10.4">
+<h4>
+<span class="header-section-number">15.0.10.4</span> Activity 5<a class="anchor" aria-label="anchor" href="#factorial-a5sol"><i class="fas fa-link"></i></a>
+</h4>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb262"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>,
+               data <span class="op">=</span> <span class="va">factorial</span>, 
+               between <span class="op">=</span> <span class="st">"Condition"</span>, 
+               within <span class="op">=</span> <span class="st">"time"</span>,
+               dv <span class="op">=</span> <span class="st">"interest"</span>, 
+               type <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> 
+
+<span class="va">factorial_output</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="co"># OR</span>
+
+<span class="va">factorial_output</span> <span class="op">&lt;-</span> <span class="va">mod_factorial</span><span class="op">$</span><span class="va">anova_table</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<p>** Click tab to see solution **</p>
+</div>
+<div id="factorial-a6sol" class="section level4" number="15.0.10.5">
+<h4>
+<span class="header-section-number">15.0.10.5</span> Activity 6<a class="anchor" aria-label="anchor" href="#factorial-a6sol"><i class="fas fa-link"></i></a>
+</h4>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<div class="sourceCode" id="cb263"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># normality testing</span>
+<span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">lm</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">lm</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>
+
+<span class="co"># levene's test</span>
+<span class="fu"><a href="https://rdrr.io/pkg/afex/man/deprecated.html">test_levene</a></span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">)</span></code></pre></div>
+</div>
+<p>** Click tab to see solution **</p>
+
+</div>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  if (t = document.getElementById("webex-total_correct")) {
+    t.innerHTML =
+      document.getElementsByClassName("webex-correct").length + " of " +
+      document.getElementsByClassName("webex-solveme").length + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+
+  update_total_correct();
+}
+
+</script><script>
+$( document ).ready(function() {
+  var cite = ' ';
+  var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
+  var license = ' <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/" target="blank"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"></a>';
+
+  $("footer div.row div:eq(1) p").html(
+    psyteachr + license + cite
+  );
+});
+</script><div class="chapter-nav">
+<div class="prev"><a href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></div>
+<div class="next"><a href="regression.html"><span class="header-section-number">16</span> Regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li>
+<a class="nav-link" href="#factorial-anova"><span class="header-section-number">15</span> Factorial ANOVA</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#factorial-a1"><span class="header-section-number">15.0.1</span> Activity 1: Set-up</a></li>
+<li><a class="nav-link" href="#factorial-a2"><span class="header-section-number">15.0.2</span> Activity 2: Descriptive statistics</a></li>
+<li><a class="nav-link" href="#factorial-a3"><span class="header-section-number">15.0.3</span> Activity 3: Violin-boxplots</a></li>
+<li><a class="nav-link" href="#factorial-a4"><span class="header-section-number">15.0.4</span> Activity 4: Interaction plots</a></li>
+<li><a class="nav-link" href="#factorial-a5"><span class="header-section-number">15.0.5</span> Activity 5: ANOVA</a></li>
+<li><a class="nav-link" href="#factorial-a6"><span class="header-section-number">15.0.6</span> Activity 6: Assumption checking</a></li>
+<li><a class="nav-link" href="#factorial-a7"><span class="header-section-number">15.0.7</span> Activity 7: Post-hoc tests</a></li>
+<li><a class="nav-link" href="#factorial-a8"><span class="header-section-number">15.0.8</span> Activity 8: Write-up</a></li>
+<li><a class="nav-link" href="#factorial-a9"><span class="header-section-number">15.0.9</span> Activity 9: Transforming data</a></li>
+<li><a class="nav-link" href="#factorial-sols"><span class="header-section-number">15.0.10</span> Activity solutions</a></li>
+</ul>
+</li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/15-factorial-anova.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/15-factorial-anova.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-03.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

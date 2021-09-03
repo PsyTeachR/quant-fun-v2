@@ -55,10 +55,26 @@
 <li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
 <li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
 <li><a class="active" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
+<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
+<li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
+<li><a class="" href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></li>
+<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
+<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
+<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
+<li><a class="" href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></li>
+<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
+<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
+<li><a class="" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
+<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">B</span> Symbols</a></li>
-<li><a class="" href="conventions.html"><span class="header-section-number">C</span> Conventions</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
+<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">D</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">E</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
@@ -361,40 +377,6 @@ Explain this answer
 </ol>
 </div>
 </div>
-
-
-
-<div class="chapter-nav">
-<div class="prev"><a href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></div>
-<div class="next"><a href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#loading-data"><span class="header-section-number">3</span> Loading data</a></li>
-<li><a class="nav-link" href="#getting-data-ready-to-work-with"><span class="header-section-number">3.1</span> Getting data ready to work with</a></li>
-<li><a class="nav-link" href="#ld-a1"><span class="header-section-number">3.2</span> Activity 1: Set-up Loading Data</a></li>
-<li><a class="nav-link" href="#ld-a2"><span class="header-section-number">3.3</span> Activity 2: Load in the package</a></li>
-<li><a class="nav-link" href="#open-data"><span class="header-section-number">3.4</span> Open data</a></li>
-<li><a class="nav-link" href="#ld-a3"><span class="header-section-number">3.5</span> Activity 3: Read in data</a></li>
-<li><a class="nav-link" href="#ld-a4"><span class="header-section-number">3.6</span> Activity 4: Check yo' data</a></li>
-<li><a class="nav-link" href="#ld-a5"><span class="header-section-number">3.7</span> Activity 5: Join the files together</a></li>
-<li>
-<a class="nav-link" href="#ld-a6"><span class="header-section-number">3.8</span> Activity 6: Pull out variables of interest</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-fin"><span class="header-section-number">3.8.1</span> Finished!</a></li></ul>
-</li>
-<li><a class="nav-link" href="#ld-debug"><span class="header-section-number">3.9</span> Debugging tips</a></li>
-<li><a class="nav-link" href="#ld-debugex"><span class="header-section-number">3.10</span> Debugging exercises</a></li>
-<li><a class="nav-link" href="#ld-test"><span class="header-section-number">3.11</span> Test yourself</a></li>
-</ul>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/03-loading-data.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/03-loading-data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
-</div>
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -511,15 +493,44 @@ $( document ).ready(function() {
     psyteachr + license + cite
   );
 });
-</script>
+</script><div class="chapter-nav">
+<div class="prev"><a href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></div>
+<div class="next"><a href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#loading-data"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="nav-link" href="#getting-data-ready-to-work-with"><span class="header-section-number">3.1</span> Getting data ready to work with</a></li>
+<li><a class="nav-link" href="#ld-a1"><span class="header-section-number">3.2</span> Activity 1: Set-up Loading Data</a></li>
+<li><a class="nav-link" href="#ld-a2"><span class="header-section-number">3.3</span> Activity 2: Load in the package</a></li>
+<li><a class="nav-link" href="#open-data"><span class="header-section-number">3.4</span> Open data</a></li>
+<li><a class="nav-link" href="#ld-a3"><span class="header-section-number">3.5</span> Activity 3: Read in data</a></li>
+<li><a class="nav-link" href="#ld-a4"><span class="header-section-number">3.6</span> Activity 4: Check yo' data</a></li>
+<li><a class="nav-link" href="#ld-a5"><span class="header-section-number">3.7</span> Activity 5: Join the files together</a></li>
+<li>
+<a class="nav-link" href="#ld-a6"><span class="header-section-number">3.8</span> Activity 6: Pull out variables of interest</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-fin"><span class="header-section-number">3.8.1</span> Finished!</a></li></ul>
+</li>
+<li><a class="nav-link" href="#ld-debug"><span class="header-section-number">3.9</span> Debugging tips</a></li>
+<li><a class="nav-link" href="#ld-debugex"><span class="header-section-number">3.10</span> Debugging exercises</a></li>
+<li><a class="nav-link" href="#ld-test"><span class="header-section-number">3.11</span> Test yourself</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/03-loading-data.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/03-loading-data.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 
 </div>
- <!-- .container -->
+</div> <!-- .container -->
 
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-02.</p>
+    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -527,6 +538,34 @@ $( document ).ready(function() {
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>

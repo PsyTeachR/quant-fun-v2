@@ -23,7 +23,7 @@ The main disadvantage to using the R server is that you will need to upload and 
 
 Going forward throughout this book, you can either download files to your local computer or, if you're using the server, you'll do an extra step where you also upload them to the sever. We're not going to use any data files in this session but let's try an example to make it clear how you get the data files on to the server.
 
--   Download <a href="ahi-cesd.csv" download>`ahi-cesd.csv`</a> and <a href="participant-info.csv" download>`participant-info.csv`</a> into the chapter folder on your computer. If you are working on the server, you will need to uploaded the files to the server as well.\
+-   Download <a href="ahi-cesd.csv" download>`ahi-cesd.csv`</a> and <a href="participant-info.csv">`participant-info.csv`</a> into the chapter folder on your computer. If you are working on the server, you will need to uploaded the files to the server as well.\
 -   Click `Upload` then `Browse`and choose the folder for the chapter you're working on.
 -   Click `Choose file` and go and find the data you want to upload.
 
@@ -140,7 +140,7 @@ Nearly finished! As our final step we are going to "knit" our file. This simply 
 
 As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.
 
-**My name is Emily and I am 35 years old. It is -53 days until my birthday.**
+**My name is Emily and I am 35 years old. It is -54 days until my birthday.**
 
 We're not going to use this function very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! If you want to push yourself with R, additional functions and features of R Markdown would be a good place to start.
 
