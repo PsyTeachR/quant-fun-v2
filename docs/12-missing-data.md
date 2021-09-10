@@ -148,10 +148,10 @@ A crucial step of data screening is checking for implausible values. What is imp
 
 * Run `summary(messy)` again and look at the minimum and maximum values for each variable. 
 
-* Do the min and max values of `age` look plausible? <select class='webex-solveme' data-answer='["No"]'> <option></option> <option>Yes</option> <option>No</option></select>
-* Do the min and max values of `pre` look plausible? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
-* Do the min and max values of `post` look plausible? <select class='webex-solveme' data-answer='["No"]'> <option></option> <option>Yes</option> <option>No</option></select>
-* Do the min and max values of `delay` look plausible? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Do the min and max values of `age` look plausible? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
+* Do the min and max values of `pre` look plausible? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+* Do the min and max values of `post` look plausible? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
+* Do the min and max values of `delay` look plausible? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 
 <div class='webex-solution'><button>Explain these answers</button>

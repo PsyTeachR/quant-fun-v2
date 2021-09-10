@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -98,10 +98,10 @@
 </div>
 <p>As a measure of engagement in the course, we will use data from Moodle usage analytics. Over the course of the term, there were eight optional weekly on-line sessions that students could attend for extra support. The variable <code>n_weeks</code> in the <code>psess.csv</code> file tells you how many (out of eight) a given student attended.</p>
 <p>Our hypothesis was that greater anxiety would be reflected in lower engagement. Answer the following question.</p>
-<p>If our hypothesis is correct then there should be <select class="webex-solveme" data-answer='["a negative"]'><option></option>
-<option>a positive</option>
-<option>no</option>
-<option>a negative</option></select> correlation between students' mean anxiety levels and <code>n_weeks</code>.</p>
+<p>If our hypothesis is correct then there should be <select class="webex-select"><option value="blank"></option>
+<option value="">a positive</option>
+<option value="">no</option>
+<option value="answer">a negative</option></select> correlation between students' mean anxiety levels and <code>n_weeks</code>.</p>
 <div id="regression-a1" class="section level2" number="16.1">
 <h2>
 <span class="header-section-number">16.1</span> Activity 1: Setup<a class="anchor" aria-label="anchor" href="#regression-a1"><i class="fas fa-link"></i></a>
@@ -129,9 +129,9 @@
 <p>The next thing we need to do is to calculate a mean anxiety score for each student (recall that individual students are identified by the <code>ID</code> variable).</p>
 <p>Recall the difference between <em>wide</em> and <em>tidy</em> data. In wide data, each row represents an individual case, with observations for that case in separate columns; in tidy data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the <code>ID</code> variable).</p>
 <ul>
-<li>The STARS data are currently in <select class="webex-solveme" data-answer='["wide"]'><option></option>
-<option>wide</option>
-<option>tidy</option></select> format.</li>
+<li>The STARS data are currently in <select class="webex-select"><option value="blank"></option>
+<option value="answer">wide</option>
+<option value="">tidy</option></select> format.</li>
 </ul>
 <p>Before we calculate means, you need to use <code>pivot_longer()</code> to restructure the STARS data into the appropriate "tidy" format; i.e., so that it looks like the table below.</p>
 <div class="inline-table"><table class="table table-sm">
@@ -261,10 +261,10 @@ Figure 16.1: Scatteplot of mean anxiety and attendance
 </p>
 </div>
 <ul>
-<li>According to the scatterplot, <select class="webex-solveme" data-answer='["as anxiety increases, engagement decreases"]'><option></option>
-<option>there is no apparent relationship</option>
-<option>as anxiety increases, engagement decreases</option>
-<option>as anxiety increases, engagement increases</option></select>
+<li>According to the scatterplot, <select class="webex-select"><option value="blank"></option>
+<option value="">there is no apparent relationship</option>
+<option value="answer">as anxiety increases, engagement decreases</option>
+<option value="">as anxiety increases, engagement increases</option></select>
 </li>
 </ul>
 </div>
@@ -289,9 +289,9 @@ Figure 16.1: Scatteplot of mean anxiety and attendance
 </li>
 <li>To two decimal places, what is the overall F-ratio of the model? <input class="webex-solveme nospaces" size="5" data-answer='["11.99"]'>
 </li>
-<li>Is the overall model significant? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the overall model significant? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
 <li>What proportion of the variance does the model explain? <input class="webex-solveme nospaces" size="5" data-answer='["23.39"]'>
 </li>
@@ -391,18 +391,18 @@ Transforming the data to correct for non-normality
 <ul>
 <li>Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? <input class="webex-solveme nospaces" size="0.22" data-answer='[".22"]'><br>
 </li>
-<li>According to Cohen's guidelines, this would be a <select class="webex-solveme" data-answer='["Medium"]'><option></option>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option></select> effect.</li>
+<li>According to Cohen's guidelines, this would be a <select class="webex-select"><option value="blank"></option>
+<option value="">Small</option>
+<option value="answer">Medium</option>
+<option value="">Large</option></select> effect.</li>
 </ul>
 <p>There is no formula to calculate our observed f<sup>2</sup>, we must do it manually using the formula from the lecture.</p>
 <div class="sourceCode" id="cb271"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>Is the observed effect size larger than the minimum effect size we could detect? <select class="webex-solveme" data-answer='["Yes, our study is sufficiently powered"]'><option></option>
-<option>Yes, our study is sufficiently powered</option>
-<option>No, our study is underpowered</option></select>
+<li>Is the observed effect size larger than the minimum effect size we could detect? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes, our study is sufficiently powered</option>
+<option value="">No, our study is underpowered</option></select>
 </li>
 </ul>
 </div>
@@ -522,15 +522,22 @@ Solution
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -541,6 +548,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -584,7 +593,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -619,6 +671,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();

@@ -89,11 +89,11 @@ objects
 activity-5-create-some-objects
 looking-after-the-environment
 global-options
-r-sessions
-activity-6
 getting-help
 help-and-additional-resources
 debugging-tips
+reset-your-r-sessions
+activity-6
 test-yourself
 intro-to-r
 intro-a1
@@ -399,6 +399,6 @@ installing-latex
 updating-packages
 updating-r
 additional-resources
-additional-resources-1
+citing-r-and-rstudio
 symbols
 conventions

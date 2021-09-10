@@ -1,5 +1,5 @@
 bookdown::bs4_book:
-  default: true
+  default: yes
   md_extensions: -smart
   df_print: kable
   repo:
@@ -8,10 +8,15 @@ bookdown::bs4_book:
     subdir: book
   includes:
     in_header: include/header.html
-    after_body: [include/webex.js, include/script.js]
-  css: [include/psyteachr.css, include/webex.css, include/style.css]
+    after_body:
+    - include/webex.js
+    - include/script.js
+  css:
+  - include/psyteachr.css
+  - include/webex.css
+  - include/style.css
   theme:
-    primary: "#467AAC"
+    primary: '#467AAC'
 bookdown::pdf_book:
   includes:
     in_header: include/preamble.tex
@@ -19,7 +24,7 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book:
-  stylesheet: [include/epub.css]
+  stylesheet: include/epub.css
   cover_image: images/logo.png
-  toc: true
+  toc: yes
   toc_depth: 2

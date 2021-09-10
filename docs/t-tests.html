@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -275,9 +275,9 @@ Mixed design is when there is a combination of within-subjects and between-subje
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span></code></pre></div>
 <ul>
-<li>Look at the plot. In which condition did the evaluators give the higher ratings? <select class="webex-solveme" data-answer='["listened"]'><option></option>
-<option>listened</option>
-<option>read</option></select>
+<li>Look at the plot. In which condition did the evaluators give the higher ratings? <select class="webex-select"><option value="blank"></option>
+<option value="answer">listened</option>
+<option value="">read</option></select>
 </li>
 </ul>
 </div>
@@ -293,9 +293,9 @@ Mixed design is when there is a combination of within-subjects and between-subje
 </ol>
 <p>We know that 1 and 2 are true from the design of the experiment, the measures used, and by looking at the data. To test assumption 3, we can create a QQ-plot of the <strong>residuals</strong>. For a between-subject t-test the residuals are the difference between the mean of each group and each data point. E.g., if the mean of group A is 10 and a participant in group A scores 12, the residual for that participant is 2.</p>
 <ul>
-<li>Run the below code to calculate then plot the residuals. Based upon the plot, do the data meet the assumption of normality? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Run the below code to calculate then plot the residuals. Based upon the plot, do the data meet the assumption of normality? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
 </ul>
 <div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
@@ -307,9 +307,9 @@ Mixed design is when there is a combination of within-subjects and between-subje
 <span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">ratings2</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
 <p>We can also use a new test that will statistically test the residuals for normality, the <strong>Shapiro-Wilk</strong> test. <code>shapiro.wilk()</code> from Base R assesses if the distribution is significantly different from a normal distribution, so, if the test is significant it means your data is not normal, and if it is non-significant it means it is approximately normal.</p>
 <ul>
-<li>Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
 </ul>
 <div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
@@ -322,15 +322,15 @@ Explain this answer
 </div>
 <p><br></p>
 <ul>
-<li>Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? <select class="webex-solveme" data-answer='["Homogeneity of variance"]'><option></option>
-<option>Homogeneity of variance</option>
-<option>Homoscedascity</option>
-<option>Nominal data</option></select><br>
+<li>Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Homogeneity of variance</option>
+<option value="">Homoscedascity</option>
+<option value="">Nominal data</option></select><br>
 </li>
-<li>Why should you always use a Welch test instead of a Student t-test? <select class="webex-solveme" data-answer='["Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal"]'><option></option>
-<option>Because it rhymes with squelch which is a funny word</option>
-<option>Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal</option>
-<option>Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal</option></select>.</li>
+<li>Why should you always use a Welch test instead of a Student t-test? <select class="webex-select"><option value="blank"></option>
+<option value="">Because it rhymes with squelch which is a funny word</option>
+<option value="">Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal</option>
+<option value="answer">Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal</option></select>.</li>
 </ul>
 </div>
 <div id="ttest-a6" class="section level2" number="10.6">
@@ -498,9 +498,9 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 </table></div>
 <p>Now, we're going to add on a column of adjusted p-values using <code>p.adj()</code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
 <ul>
-<li>Run the below code and then view the adjusted p-values. Are they larger or smaller than the original values? <select class="webex-solveme" data-answer='["Larger"]'><option></option>
-<option>Larger</option>
-<option>Smaller</option></select>
+<li>Run the below code and then view the adjusted p-values. Are they larger or smaller than the original values? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Larger</option>
+<option value="">Smaller</option></select>
 </li>
 </ul>
 <div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
@@ -546,10 +546,10 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 <li><p>t(<input class="webex-solveme nospaces" size="5" data-answer='["33.80","33.8"]'>) = <input class="webex-solveme nospaces" size="4" data-answer='["2.82"]'>, p = <input class="webex-solveme nospaces" size="5" data-answer='["0.024",".024"]'></p></li>
 </ul>
 </li>
-<li><p>According to Cohen's (1988) guidelines, the effect sizes for all three tests are <select class="webex-solveme" data-answer='["Large"]'><option></option>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option></select></p></li>
+<li><p>According to Cohen's (1988) guidelines, the effect sizes for all three tests are <select class="webex-select"><option value="blank"></option>
+<option value="">Small</option>
+<option value="">Medium</option>
+<option value="answer">Large</option></select></p></li>
 </ul>
 </div>
 <div id="ttest-a10" class="section level2" number="10.10">
@@ -876,15 +876,22 @@ Activity 14
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -895,6 +902,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -938,7 +947,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -973,6 +1025,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();

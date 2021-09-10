@@ -81,7 +81,7 @@ pinfo <-                    # participant information
 
 Now that we have the data loaded in it is always best to have a look at it to get an idea of its layout. We showed you ways of doing this before, but you can also use the `glimpse()` or `View()` functions in your Console window and put the name of the data between the brackets to see how it is arranged. Don't add these to your script though they are just one-offs for testing.
 
-* Have a look at the data in `responses` to see if you think it is Tidy or not and answer the following question: The data in `responses` is in <select class='webex-solveme' data-answer='["Wide"]'> <option></option> <option>Tidy</option> <option>Wide</option></select> format
+* Have a look at the data in `responses` to see if you think it is Tidy or not and answer the following question: The data in `responses` is in <select class='webex-select'><option value='blank'></option><option value=''>Tidy</option><option value='answer'>Wide</option></select> format
 
 
 <div class='webex-solution'><button>Explain this answer</button>
@@ -292,7 +292,7 @@ aq_scores2 <- responses %>%
 
 ## Test yourself {#dw3-test}
 
-* Complete the sentence, the higher the AQ score...<select class='webex-solveme' data-answer='["the more autistic-like traits displayed"]'> <option></option> <option>the less autistic-like traits displayed</option> <option>has no relation to autistic-like traits</option> <option>the more autistic-like traits displayed</option></select>  
+* Complete the sentence, the higher the AQ score...<select class='webex-select'><option value='blank'></option><option value=''>the less autistic-like traits displayed</option><option value=''>has no relation to autistic-like traits</option><option value='answer'>the more autistic-like traits displayed</option></select>  
 
 * Type in the AQ score (just the number) of Participant ID No. 87: <input class='webex-solveme nospaces' size='10' data-answer='["2"]'/>  
 

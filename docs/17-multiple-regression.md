@@ -43,13 +43,13 @@ But the expressive power of regression allows us to do this all within a single 
 
 Take a look at the resulting tibbles `pinfo`, `wellbeing`, and `screen`.  The `wellbeing` tibble has information from the WEMWBS questionnaire; `screen` has information about screen time use on weekends (variables ending with `we`) and weekdays (variables ending with `wk`) for four types of activities: using a computer (variables starting with `Comph`; Q10 on the survey), playing video games (variables starting with `Comp`; Q9 on the survey), using a smartphone (variables starting with `Smart`; Q11 on the survey) and watching TV (variables starting with `Watch`; Q8 on the survey).  If you want more information about these variables, look at the items 8-11 on pages 4-5 of the the [PDF version of the survey on the OSF website](https://osf.io/82ybd/).
 
-* The variable corresponding to *gender* is located in the table named <select class='webex-solveme' data-answer='["pinfo"]'> <option></option> <option>pinfo</option> <option>wellbeing</option> <option>screen</option></select> and this variable is called <input class='webex-solveme nospaces' size='6' data-answer='["male"]'/>.
+* The variable corresponding to *gender* is located in the table named <select class='webex-select'><option value='blank'></option><option value='answer'>pinfo</option><option value=''>wellbeing</option><option value=''>screen</option></select> and this variable is called <input class='webex-solveme nospaces' size='6' data-answer='["male"]'/>.
 
-* The WEMWBS data is in <select class='webex-solveme' data-answer='["wide"]'> <option></option> <option>long</option> <option>wide</option></select> format, and contains observations from <input class='webex-solveme nospaces' size='10' data-answer='["102580","102,580"]'/> participants on <input class='webex-solveme nospaces' size='2' data-answer='["15"]'/> items.
+* The WEMWBS data is in <select class='webex-select'><option value='blank'></option><option value=''>long</option><option value='answer'>wide</option></select> format, and contains observations from <input class='webex-solveme nospaces' size='10' data-answer='["102580","102,580"]'/> participants on <input class='webex-solveme nospaces' size='2' data-answer='["15"]'/> items.
 
 * Individual participants in this dataset are identified by the variable named <input class='webex-solveme nospaces' size='9' data-answer='["Serial"]'/> [be sure to type the name *exactly*, including capitalization].  This variable will allow us to link information across the three tables.
 
-* Run `summary()` on the three data-sets. Are there any missing data points? <select class='webex-solveme' data-answer='["No"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Run `summary()` on the three data-sets. Are there any missing data points? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
 
 
 ## Activity 3: Compute the well-being score for each respondent {#mulregression-a3}
@@ -115,7 +115,7 @@ ggplot(wemwbs, aes(tot_wellbeing)) + geom_histogram()
 </div>
 
 
-The distribution of well-being scores is <select class='webex-solveme' data-answer='["negatively skewed"]'> <option></option> <option>symmetric</option> <option>negatively skewed</option> <option>positively skewed</option></select>.
+The distribution of well-being scores is <select class='webex-select'><option value='blank'></option><option value=''>symmetric</option><option value='answer'>negatively skewed</option><option value=''>positively skewed</option></select>.
 
 ## Activity 4: Visualise the relationship {#mulregression-a4}
 
@@ -261,13 +261,13 @@ Then use `summary()` to view the results and store this in an object called `mod
 
 
 
-* The interaction between smartphone use and gender is shown by the variable <select class='webex-solveme' data-answer='["thours_c:male_c"]'> <option></option> <option>thours_c</option> <option>male_c</option> <option>thours_c:male_c</option></select>, and this interaction was <select class='webex-solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>nonsignificant</option></select> at the $\alpha = .05$ level.
+* The interaction between smartphone use and gender is shown by the variable <select class='webex-select'><option value='blank'></option><option value=''>thours_c</option><option value=''>male_c</option><option value='answer'>thours_c:male_c</option></select>, and this interaction was <select class='webex-select'><option value='blank'></option><option value='answer'>significant</option><option value=''>nonsignificant</option></select> at the $\alpha = .05$ level.
 
 * To 2 decimal places, what proportion of the variance in well-being scores does the overall model explain? <input class='webex-solveme nospaces' size='4' data-answer='["9.38"]'/>
 
-* The p-value for the overall model fit is `< 2.2e-16`. Is this significant? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* The p-value for the overall model fit is `< 2.2e-16`. Is this significant? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
-* What is the most reasonable interpretation of these results? <select class='webex-solveme' data-answer='["smartphone use was more negatively associated with wellbeing for girls than for boys"]'> <option></option> <option>smartphone use harms girls more than boys</option> <option>smartphone use harms boys more than girls</option> <option>there is no evidence for gender differences in the relationship between smartphone use and well-being</option> <option>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select>
+* What is the most reasonable interpretation of these results? <select class='webex-select'><option value='blank'></option><option value=''>smartphone use harms girls more than boys</option><option value=''>smartphone use harms boys more than girls</option><option value=''>there is no evidence for gender differences in the relationship between smartphone use and well-being</option><option value='answer'>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select>
 
 ## Activity 9: Assumption checking {#mulregression-a9}
 
@@ -387,7 +387,7 @@ Finally, we'll calculate power and effect size as usual.
 
 
 * What is the observed effect size for the study to 2 decimal places? <input class='webex-solveme nospaces' size='0.10' data-answer='[".10"]'/>  
-* Is the study sufficiently powered? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Is the study sufficiently powered? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 ## Activity 11: Write-up {#mulregression-a11}
 

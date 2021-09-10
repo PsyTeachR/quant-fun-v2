@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -132,29 +132,29 @@ For example, what is the probability of randomly drawing your name out of a hat 
 </h2>
 <p>What types of data are the below measurements?</p>
 <ul>
-<li>Time taken to run a marathon (in seconds): <select class="webex-solveme" data-answer='["ratio"]'><option></option>
-<option>ordinal</option>
-<option>interval</option>
-<option>categorical</option>
-<option>ratio</option></select>
+<li>Time taken to run a marathon (in seconds): <select class="webex-select"><option value="blank"></option>
+<option value="">interval</option>
+<option value="">categorical</option>
+<option value="answer">ratio</option>
+<option value="">ordinal</option></select>
 </li>
-<li>Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class="webex-solveme" data-answer='["ordinal"]'><option></option>
-<option>interval</option>
-<option>ratio</option>
-<option>categorical</option>
-<option>ordinal</option></select>
+<li>Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class="webex-select"><option value="blank"></option>
+<option value="answer">ordinal</option>
+<option value="">interval</option>
+<option value="">categorical</option>
+<option value="">ratio</option></select>
 </li>
-<li>Which Sesame Street character a runner was dressed as: <select class="webex-solveme" data-answer='["categorical"]'><option></option>
-<option>ratio</option>
-<option>interval</option>
-<option>categorical</option>
-<option>ordinal</option></select>
+<li>Which Sesame Street character a runner was dressed as: <select class="webex-select"><option value="blank"></option>
+<option value="">ordinal</option>
+<option value="answer">categorical</option>
+<option value="">interval</option>
+<option value="">ratio</option></select>
 </li>
-<li>Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class="webex-solveme" data-answer='["interval"]'><option></option>
-<option>ordinal</option>
-<option>interval</option>
-<option>ratio</option>
-<option>categorical</option></select>
+<li>Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class="webex-select"><option value="blank"></option>
+<option value="answer">interval</option>
+<option value="">ratio</option>
+<option value="">ordinal</option>
+<option value="">categorical</option></select>
 </li>
 </ul>
 <div id="probability-distributions" class="section level3" number="8.4.1">
@@ -237,17 +237,17 @@ Figure 7.4: A simulation of an experiment collecting height data from 2000 parti
 </h2>
 <p>Complete the sentences so that they are correct.</p>
 <ul>
-<li>In a normal distribution, the mean, median, and mode <select class="webex-solveme" data-answer='["are all equal"]'><option></option>
-<option>sum to zero</option>
-<option>are always different</option>
-<option>are all equal</option></select>.</li>
-<li>In a normal distribution, the further away from the mean an observation is <select class="webex-solveme" data-answer='["the lower its probability of occuring"]'><option></option>
-<option>the higher its probability of occuring</option>
-<option>the lower its probability of occuring</option></select>.</li>
-<li>Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class="webex-solveme" data-answer='["is a continuous variable"]'><option></option>
-<option>is a continuous variable</option>
-<option>has three possible values</option>
-<option>is a categorical variable</option></select>.</li>
+<li>In a normal distribution, the mean, median, and mode <select class="webex-select"><option value="blank"></option>
+<option value="">are always different</option>
+<option value="">sum to zero</option>
+<option value="answer">are all equal</option></select>.</li>
+<li>In a normal distribution, the further away from the mean an observation is <select class="webex-select"><option value="blank"></option>
+<option value="answer">the lower its probability of occuring</option>
+<option value="">the higher its probability of occuring</option></select>.</li>
+<li>Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class="webex-select"><option value="blank"></option>
+<option value="">is a categorical variable</option>
+<option value="">has three possible values</option>
+<option value="answer">is a continuous variable</option></select>.</li>
 </ul>
 </div>
 <div id="prob-a4" class="section level2" number="8.6">
@@ -256,20 +256,20 @@ Figure 7.4: A simulation of an experiment collecting height data from 2000 parti
 </h2>
 <p>Which distribution is likely to be associated with the following?</p>
 <ul>
-<li>Scores on an IQ test <select class="webex-solveme" data-answer='["Normal distribution"]'><option></option>
-<option>Uniform distribution</option>
-<option>Binomial distribution</option>
-<option>Normal distribution</option></select>
+<li>Scores on an IQ test <select class="webex-select"><option value="blank"></option>
+<option value="">Uniform distribution</option>
+<option value="">Binomial distribution</option>
+<option value="answer">Normal distribution</option></select>
 </li>
-<li>Whether a country has won or lost the Eurovision song contest <select class="webex-solveme" data-answer='["Binomial distribution"]'><option></option>
-<option>Uniform distribution</option>
-<option>Binomial distribution</option>
-<option>Normal distribution</option></select>
+<li>Whether a country has won or lost the Eurovision song contest <select class="webex-select"><option value="blank"></option>
+<option value="">Uniform distribution</option>
+<option value="answer">Binomial distribution</option>
+<option value="">Normal distribution</option></select>
 </li>
-<li>Picking a spade card out of a normal pack of playing cards<select class="webex-solveme" data-answer='["Uniform distribution"]'><option></option>
-<option>Uniform distribution</option>
-<option>Binomial distribution</option>
-<option>Normal distribution</option></select>
+<li>Picking a spade card out of a normal pack of playing cards<select class="webex-select"><option value="blank"></option>
+<option value="answer">Uniform distribution</option>
+<option value="">Binomial distribution</option>
+<option value="">Normal distribution</option></select>
 </li>
 </ul>
 </div>
@@ -309,10 +309,10 @@ Figure 7.4: A simulation of an experiment collecting height data from 2000 parti
 <ul>
 <li>What is the probability of getting 5 heads out of 10 coin flips to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["0.25",".25"]'><br>
 </li>
-<li>What is this probability expressed in percent? <select class="webex-solveme" data-answer='["25%"]'><option></option>
-<option>0.25%</option>
-<option>2.5%</option>
-<option>25%</option></select>
+<li>What is this probability expressed in percent? <select class="webex-select"><option value="blank"></option>
+<option value="">0.25%</option>
+<option value="">2.5%</option>
+<option value="answer">25%</option></select>
 </li>
 </ul>
 </div>
@@ -329,10 +329,10 @@ Figure 7.4: A simulation of an experiment collecting height data from 2000 parti
 <ul>
 <li>What is the probability of getting a maximum of 2 heads on 10 coin flips to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["0.05",".05"]'><br>
 </li>
-<li>What is this probability expressed in percent? <select class="webex-solveme" data-answer='["5%"]'><option></option>
-<option>0.05%</option>
-<option>0.5%</option>
-<option>5%</option></select>
+<li>What is this probability expressed in percent? <select class="webex-select"><option value="blank"></option>
+<option value="">0.05%</option>
+<option value="">0.5%</option>
+<option value="answer">5%</option></select>
 </li>
 </ul>
 </div>
@@ -359,10 +359,10 @@ Figure 7.5: Lower and upper tails
 <ul>
 <li>What is the probability of getting between 7 and 10 heads from 10 coin flips to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["0.17",".17"]'><br>
 </li>
-<li>What is this probability expressed in percent? <select class="webex-solveme" data-answer='["17%"]'><option></option>
-<option>0.017%</option>
-<option>0.17</option>
-<option>17%</option></select>
+<li>What is this probability expressed in percent? <select class="webex-select"><option value="blank"></option>
+<option value="">0.017%</option>
+<option value="">0.17</option>
+<option value="answer">17%</option></select>
 </li>
 </ul>
 </div>
@@ -396,7 +396,7 @@ Figure 7.5: Lower and upper tails
 <p>Have a go at playing around with different numbers of coin flips and probabilities in our <code><a href="https://rdrr.io/r/stats/Binomial.html">dbinom()</a></code> and <code><a href="https://rdrr.io/r/stats/Binomial.html">pbinom()</a></code> app!</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<iframe src="https://shannon-mcnee19.shinyapps.io/binomial_shiny/" width="100%" height="800px">
+<iframe src="https://shannon-mcnee19.shinyapps.io/binomial_shiny/" width="100%" height="800px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 7.6: Binomial distribution app
@@ -470,10 +470,10 @@ Figure 8.2: Simulation of Scottish height data
 <ul>
 <li>What is the probability of meeting a 16-24 y.o. Scottish woman who is taller than the average 16-24 y.o. Scottish man? <input class="webex-solveme nospaces" size="4" data-answer='["0.04",".04"]'><br>
 </li>
-<li>What is this probability expressed in percent? <select class="webex-solveme" data-answer='["4%"]'><option></option>
-<option>0.04%</option>
-<option>0.4%</option>
-<option>4%</option></select>
+<li>What is this probability expressed in percent? <select class="webex-select"><option value="blank"></option>
+<option value="">0.04%</option>
+<option value="">0.4%</option>
+<option value="answer">4%</option></select>
 </li>
 </ul>
 </div>
@@ -485,10 +485,10 @@ Figure 8.2: Simulation of Scottish height data
 <ul>
 <li>Using <code><a href="https://rdrr.io/r/stats/Normal.html">pnorm()</a></code> again, what is the proportion of Scottish men Fiona would be willing to date to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["0.23",".23"]'><br>
 </li>
-<li>What is this probability expressed in percent? <select class="webex-solveme" data-answer='["23%"]'><option></option>
-<option>0.23%</option>
-<option>2.3%</option>
-<option>23%</option></select>
+<li>What is this probability expressed in percent? <select class="webex-select"><option value="blank"></option>
+<option value="">0.23%</option>
+<option value="">2.3%</option>
+<option value="answer">23%</option></select>
 </li>
 </ul>
 </div>
@@ -500,10 +500,10 @@ Figure 8.2: Simulation of Scottish height data
 <ul>
 <li>What is the proportion of Scottish women would Fiona be willing to date to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["0.99",".99"]'><br>
 </li>
-<li>What is this probability expressed in percent? <select class="webex-solveme" data-answer='["99%"]'><option></option>
-<option>0.99%</option>
-<option>9.9%</option>
-<option>99%</option></select>
+<li>What is this probability expressed in percent? <select class="webex-select"><option value="blank"></option>
+<option value="">0.99%</option>
+<option value="">9.9%</option>
+<option value="answer">99%</option></select>
 </li>
 </ul>
 </div>
@@ -617,15 +617,22 @@ Solution
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -636,6 +643,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -679,7 +688,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -714,6 +766,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();

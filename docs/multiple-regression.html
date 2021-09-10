@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -130,17 +130,17 @@
 </h2>
 <p>Take a look at the resulting tibbles <code>pinfo</code>, <code>wellbeing</code>, and <code>screen</code>. The <code>wellbeing</code> tibble has information from the WEMWBS questionnaire; <code>screen</code> has information about screen time use on weekends (variables ending with <code>we</code>) and weekdays (variables ending with <code>wk</code>) for four types of activities: using a computer (variables starting with <code>Comph</code>; Q10 on the survey), playing video games (variables starting with <code>Comp</code>; Q9 on the survey), using a smartphone (variables starting with <code>Smart</code>; Q11 on the survey) and watching TV (variables starting with <code>Watch</code>; Q8 on the survey). If you want more information about these variables, look at the items 8-11 on pages 4-5 of the the <a href="https://osf.io/82ybd/">PDF version of the survey on the OSF website</a>.</p>
 <ul>
-<li><p>The variable corresponding to <em>gender</em> is located in the table named <select class="webex-solveme" data-answer='["pinfo"]'><option></option>
-<option>pinfo</option>
-<option>wellbeing</option>
-<option>screen</option></select> and this variable is called <input class="webex-solveme nospaces" size="6" data-answer='["male"]'>.</p></li>
-<li><p>The WEMWBS data is in <select class="webex-solveme" data-answer='["wide"]'><option></option>
-<option>long</option>
-<option>wide</option></select> format, and contains observations from <input class="webex-solveme nospaces" size="10" data-answer='["102580","102,580"]'> participants on <input class="webex-solveme nospaces" size="2" data-answer='["15"]'> items.</p></li>
+<li><p>The variable corresponding to <em>gender</em> is located in the table named <select class="webex-select"><option value="blank"></option>
+<option value="answer">pinfo</option>
+<option value="">wellbeing</option>
+<option value="">screen</option></select> and this variable is called <input class="webex-solveme nospaces" size="6" data-answer='["male"]'>.</p></li>
+<li><p>The WEMWBS data is in <select class="webex-select"><option value="blank"></option>
+<option value="">long</option>
+<option value="answer">wide</option></select> format, and contains observations from <input class="webex-solveme nospaces" size="10" data-answer='["102580","102,580"]'> participants on <input class="webex-solveme nospaces" size="2" data-answer='["15"]'> items.</p></li>
 <li><p>Individual participants in this dataset are identified by the variable named <input class="webex-solveme nospaces" size="9" data-answer='["Serial"]'> [be sure to type the name <em>exactly</em>, including capitalization]. This variable will allow us to link information across the three tables.</p></li>
-<li><p>Run <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> on the three data-sets. Are there any missing data points? <select class="webex-solveme" data-answer='["No"]'><option></option>
-<option>Yes</option>
-<option>No</option></select></p></li>
+<li><p>Run <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> on the three data-sets. Are there any missing data points? <select class="webex-select"><option value="blank"></option>
+<option value="">Yes</option>
+<option value="answer">No</option></select></p></li>
 </ul>
 </div>
 <div id="mulregression-a3" class="section level2" number="17.3">
@@ -201,10 +201,10 @@ Solution
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="inline-figure"><img src="17-multiple-regression_files/figure-html/wemwbs_histogram-1.png" width="100%" style="display: block; margin: auto;"></div>
 </div>
-<p>The distribution of well-being scores is <select class="webex-solveme" data-answer='["negatively skewed"]'><option></option>
-<option>symmetric</option>
-<option>negatively skewed</option>
-<option>positively skewed</option></select>.</p>
+<p>The distribution of well-being scores is <select class="webex-select"><option value="blank"></option>
+<option value="">symmetric</option>
+<option value="answer">negatively skewed</option>
+<option value="">positively skewed</option></select>.</p>
 </div>
 <div id="mulregression-a4" class="section level2" number="17.4">
 <h2>
@@ -359,21 +359,21 @@ Hint
 </ul>
 </div>
 <ul>
-<li><p>The interaction between smartphone use and gender is shown by the variable <select class="webex-solveme" data-answer='["thours_c:male_c"]'><option></option>
-<option>thours_c</option>
-<option>male_c</option>
-<option>thours_c:male_c</option></select>, and this interaction was <select class="webex-solveme" data-answer='["significant"]'><option></option>
-<option>significant</option>
-<option>nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
+<li><p>The interaction between smartphone use and gender is shown by the variable <select class="webex-select"><option value="blank"></option>
+<option value="">thours_c</option>
+<option value="">male_c</option>
+<option value="answer">thours_c:male_c</option></select>, and this interaction was <select class="webex-select"><option value="blank"></option>
+<option value="answer">significant</option>
+<option value="">nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
 <li><p>To 2 decimal places, what proportion of the variance in well-being scores does the overall model explain? <input class="webex-solveme nospaces" size="4" data-answer='["9.38"]'></p></li>
-<li><p>The p-value for the overall model fit is <code>&lt; 2.2e-16</code>. Is this significant? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select></p></li>
-<li><p>What is the most reasonable interpretation of these results? <select class="webex-solveme" data-answer='["smartphone use was more negatively associated with wellbeing for girls than for boys"]'><option></option>
-<option>smartphone use harms girls more than boys</option>
-<option>smartphone use harms boys more than girls</option>
-<option>there is no evidence for gender differences in the relationship between smartphone use and well-being</option>
-<option>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p></li>
+<li><p>The p-value for the overall model fit is <code>&lt; 2.2e-16</code>. Is this significant? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select></p></li>
+<li><p>What is the most reasonable interpretation of these results? <select class="webex-select"><option value="blank"></option>
+<option value="">smartphone use harms girls more than boys</option>
+<option value="">smartphone use harms boys more than girls</option>
+<option value="">there is no evidence for gender differences in the relationship between smartphone use and well-being</option>
+<option value="answer">smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p></li>
 </ul>
 </div>
 <div id="mulregression-a9" class="section level2" number="17.9">
@@ -476,9 +476,9 @@ Figure 4.2: Adjusted homogeneity plot that will produce reference line
 <ul>
 <li><p>Using the code from Power and Effect Size calculate the minimum effect size we could reliably observe given our sample size and design but for 99% power. Report this to 2 decimal places <input class="webex-solveme nospaces" size="0.00" data-answer='[".00"]'></p></li>
 <li><p>What is the observed effect size for the study to 2 decimal places? <input class="webex-solveme nospaces" size="0.10" data-answer='[".10"]'><br></p></li>
-<li><p>Is the study sufficiently powered? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select></p></li>
+<li><p>Is the study sufficiently powered? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select></p></li>
 </ul>
 </div>
 <div id="mulregression-a11" class="section level2" number="17.11">
@@ -687,15 +687,22 @@ Solution
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -706,6 +713,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -749,7 +758,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -784,6 +836,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();

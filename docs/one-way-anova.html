@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -245,16 +245,16 @@ Figure 14.2: Bar plot of instrusions by condition
 </ul>
 <p>You should refer to the lecture for more information on what each variable means and how it is calculated.</p>
 <ul>
-<li>Is the overall effect of Condition significant? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the overall effect of Condition significant? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
 <li>What is the F-statistics to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["3.79"]'>
 </li>
-<li>According to the rules of thumb, the effect size is <select class="webex-solveme" data-answer='["Large"]'><option></option>
-<option>Small</option>
-<option>Medium</option>
-<option>Large</option></select>
+<li>According to the rules of thumb, the effect size is <select class="webex-select"><option value="blank"></option>
+<option value="">Small</option>
+<option value="">Medium</option>
+<option value="answer">Large</option></select>
 </li>
 </ul>
 </div>
@@ -288,10 +288,10 @@ Figure 14.3: qq-plot for model residuals
 ## W = 0.87739, p-value = 4.252e-06</code></pre>
 <p>There are a few things to note about the assumption test results. First, look at the p-value for the Shapiro-Wilk test - <code>4.252e-06</code>. Whenever you see the <code>e</code> at the end of a number it means that R is using <strong>scientific notation</strong>. Scientific notation is a way of writing very large or very small numbers. Because the number after the <code>e</code> is negative it means the number should be divided by 10 to the power of six. Put simply, move the decimal place six places to the left and you will get the standard number. When reporting p-values in your results section, you should not use scientific notation, instead you should round to 3 decimal places.</p>
 <ul>
-<li>What is the value of <code>4.252e-06</code>? <select class="webex-solveme" data-answer='[".000004252"]'><option></option>
-<option>.004252</option>
-<option>42.52</option>
-<option>.000004252</option></select>
+<li>What is the value of <code>4.252e-06</code>? <select class="webex-select"><option value="blank"></option>
+<option value="">.004252</option>
+<option value="">42.52</option>
+<option value="answer">.000004252</option></select>
 </li>
 </ul>
 <p>If you want R to round this for you to make it easier to read, you could use the below code to save it to an object, tidy it and then round the p.value. Just remember that in APA style you should never write "p = 0", instead, you should write "p &lt; .001" (because p will never equal actual zero, it can just be very, very, very small).</p>
@@ -527,15 +527,22 @@ Solution
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -546,6 +553,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -589,7 +598,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -624,6 +676,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();

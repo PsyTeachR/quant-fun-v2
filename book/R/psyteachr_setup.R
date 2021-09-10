@@ -3,7 +3,6 @@
 
 suppressPackageStartupMessages({
   library(tidyverse)
-  library(webex)
   library(glossary)
 })
 
@@ -19,19 +18,6 @@ knitr::opts_chunk$set(
 
 ## set global theme options for figures
 theme_set(theme_bw())
-
-## webex hide chunks
-knitr::knit_hooks$set(webex.hide = function(before, options, envir) {
-  if (before) {
-    if (is.character(options$webex.hide)) {
-      hide(options$webex.hide)
-    } else {
-      hide()
-    }
-  } else {
-    unhide()
-  }
-})
 
 ## set class for a chunk using class="className"
 knitr::knit_hooks$set(class = function(before, options, envir) {
