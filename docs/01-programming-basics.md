@@ -26,6 +26,8 @@ You will find the link to the R server on Moodle. Please note that the R server 
 
 To use R on your computer, please see [Installing R](https://psyteachr.github.io/ug1-practical/installing-r.html) which has more detailed instructions and links to the files you need to download, as well as a links to a series of walkthroughs for installing R on different types of computers. 
 
+[Lnk to appendix](appendix-a-installing-r.html){target="_blank"}
+
 ## Getting to know R Studio
 
 R Studio has a console that you can try out code in (appearing as the bottom left window in Figure \@ref(fig:img-rstudio)), there is a script editor (top left), a window showing functions and objects you have created in the “Environment” tab (top right window in the figure), and a window that shows plots, files packages, and help documentation (bottom right).
@@ -37,7 +39,7 @@ R Studio has a console that you can try out code in (appearing as the bottom lef
 
 You will learn more about how to use the features included in R Studio throughout this course, however, we highly recommend watching [RStudio Essentials 1](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/) from the R Studio team. The video lasts ~30 minutes and gives a tour of the main parts of R Studio. 
 
-## Console vs. scripts
+### Console vs. scripts
 
 When you first open up R Studio you won't see a script like above, there will just be a single pane on the left, which is the console. You can write code in the console to test it out, but it won't save anywhere. For this chapter, we'll use the console to show you some simple code examples but moving forward you'll save your code in a script file, and you'll see the extra pane appear.
 
@@ -47,7 +49,7 @@ When you first open up R Studio you won't see a script like above, there will ju
 
 As an example, let’s look at the help documentation for the function `rnorm()` which randomly generates a set of numbers with a normal distribution. 
 
-## Activity 1
+### Activity 1
 
 * Open up R Studio (either on the server or on your machine) and in the console, type the following code:  
 
@@ -67,7 +69,7 @@ In the arguments section, there are explanations for each of the arguments. `n` 
 
 Let's try an example and just change the required argument `n` to ask R to produce 5 random numbers. 
 
-## Activity 2
+### Activity 2
 
 * Copy and paste the following code into the console.  
 
@@ -99,7 +101,7 @@ This time R has still produced 5 random numbers, but now this set of numbers has
 <p>If you're looking up examples of code online, you may often see code that starts with the function <code>set.seed()</code>. This function controls the random number generator - if you're using any functions that generate numbers randomly (such as <code>rnorm()</code>), running <code>set.seed()</code> will ensure that you get the same result (in some cases this may not be what you want to do). We call <code>set.seed()</code> in this example because it means that you will get the same random numbers as this book.</p>
 </div>
 
-## Argument names
+### Argument names
 
 In the above examples, we have written out the argument names in our code (e.g., `n`, `mean`, `sd`), however, this is not strictly necessary. The following two lines of code would both produce the same result (although each time you run `rnorm()` it will produce a slightly different set of numbers, because it's random, but they would still have the same mean and SD):
 
@@ -122,7 +124,7 @@ When you are first learning R, you may find it useful to write out the argument 
 
 In this course, we will always write out the argument names the first time we use each function, however, in subsequent uses they may be omitted.
 
-## Tab auto-complete
+### Tab auto-complete
 
 One very useful feature of R Studio is the tab auto-complete for functions (see Figure \@ref(fig:img-autocomplete)). If you write the name of the function and then press the tab key, R Studio will show you the arguments that function takes along with a brief description. If you press enter on the argument name it will fill in the name for you, just like auto-complete on your phone. This is incredibly useful when you are first learning R and you should remember to use this feature frequently. 
 
@@ -137,7 +139,7 @@ When you install R you will have access to a range of functions including option
 
 However, the power of R is that it is extendable and open source - put simply, if a function doesn't exist or doesn't work very well, anyone can create a new **package** that contains data and code to allow you to perform new tasks. You may find it useful to think of Base R as the default apps that come on your phone and packages as additional apps that you need to download separately.
 
-## Activity 3: Install the tidyverse (optional)
+### Activity 3: Install the tidyverse (optional)
 
 In order to use a package, you must first install it. The following code installs the package `tidyverse`, a package we will use very frequently in this course.
 
@@ -156,7 +158,7 @@ You only need to install a package once, however, each time you start R you need
 
 To load packages we use the function `library()`. Typically you would start any analysis script by loading all of the packages you need, but we will come back to that in the next chapter.
 
-## Activity 4: Load the tidyverse
+### Activity 4: Load the tidyverse
 
 * Run the below code to load the tidyverse. You can do this regardless of whether you are using your own computer or the server.  
 
@@ -170,7 +172,7 @@ You will get what looks like an error message - it's not. It's just R telling yo
 Now that we've loaded the `tidyverse` package we can use any of the functions it contains but remember, you need to run the `library()` function every time you start R.
 
 
-## Package updates
+### Package updates
 
 In addition to updates to R and R Studio, the creators of packages also sometimes update their code. This can be to add functions to a package, or it can be to fix errors. One thing to avoid is unintentionally updating an installed package. When you run `install.packages()` it will always install the latest version of the package and it will overwrite any older versions you may have installed. Sometimes this isn't a problem, however, sometimes you will find that the update means your code no longer works as the package has changed substantially. It is possible to revert back to an older version of a package but try to avoid this anyway.
 
@@ -178,7 +180,7 @@ In addition to updates to R and R Studio, the creators of packages also sometime
 <p>To avoid accidentally overwriting a package with a later version, you should <strong>never</strong> include <code>install.packages()</code> in your analysis scripts in case you, or someone else runs the code by mistake. Remember, the server will already have all of the packages you need for this course so you only need to install packages if you are using your own machine.</p>
 </div>
 
-## Package conflicts {#conflicts}
+### Package conflicts {#conflicts}
 
 There are thousands of different R packages with even more functions. Unfortunately, sometimes different packages have the same function names. For example, the packages `dplyr` and `MASS` both have a function named `select()`. If you load both of these packages, R will produce a warning telling you that there is a conflict.
 
@@ -213,7 +215,7 @@ MASS::select()
 
 A large part of your coding will involve creating and manipulating objects. Objects contain stuff. That stuff can be numbers, words, or the result of operations and analyses.You assign content to an object using `<-`.
 
-## Activity 5: Create some objects
+### Activity 5: Create some objects
 
 * Copy and paste the following code into the console, change the code so that it uses your own name and age and run it. You should see that `name`, `age`, `today`, `new_year`, and `data` appear in the environment pane.  
 
@@ -246,7 +248,7 @@ mean(data)
 
 ```
 ## [1] 45
-## Time difference of -245 days
+## Time difference of -252 days
 ## [1] 17.66644
 ```
 
@@ -267,7 +269,7 @@ You will constantly be creating objects throughout this course and you will lear
 <p>You may also see objects referred to as 'variables'. There is a difference between the two in programming terms, however, they are used synonymously very frequently.</p>
 </div>
 
-## Looking after the environment
+### Looking after the environment
 
 If you've been writing a lot of code you may find that the environment pane (or workspace) has become cluttered with many objects. This can make it difficult to figure out which object you need and therefore you run the risk of using the wrong data frame. If you're working on a new dataset, or if you've tried lots of different code before getting the final version, it is good practice to remember to clear the environment to avoid using the wrong object. You can do this in several way.
 
@@ -290,12 +292,11 @@ By default, when you open R Studio it will show you what you were last working o
 <p class="caption">(\#fig:img-options)Global options</p>
 </div>
 
-
-## R sessions
+### R sessions
 
 When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new **session**. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.
 
-## Activity 6
+### Activity 6
 
 Click 'Session - Restart R'. 
 
@@ -304,99 +305,25 @@ Click 'Session - Restart R'.
 <p class="caption">(\#fig:img-session)The truth about programming</p>
 </div>
 
-## How to cite R and RStudio
+## Getting Help 
 
-You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who built it (most of them for free!) credit. You should provide separate citations for R, RStudio, and the packages you use.
+### Help and additional resources
 
-To get the citation for the version of R you are using, simply run the `citation()` function which will always provide you with the most recent citation.
-
-
-```r
-citation()
-```
-
-```
-## 
-## To cite R in publications use:
-## 
-##   R Core Team (2021). R: A language and environment for statistical
-##   computing. R Foundation for Statistical Computing, Vienna, Austria.
-##   URL https://www.R-project.org/.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {R: A Language and Environment for Statistical Computing},
-##     author = {{R Core Team}},
-##     organization = {R Foundation for Statistical Computing},
-##     address = {Vienna, Austria},
-##     year = {2021},
-##     url = {https://www.R-project.org/},
-##   }
-## 
-## We have invested a lot of time and effort in creating R, please cite it
-## when using it for data analysis. See also 'citation("pkgname")' for
-## citing R packages.
-```
-
-To generate the citation for any packages you are using, you can also use the `citation()` function with the name of the package you wish to cite.
-
-
-```r
-citation("tidyverse")
-```
-
-```
-## 
-##   Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
-##   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Article{,
-##     title = {Welcome to the {tidyverse}},
-##     author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
-##     year = {2019},
-##     journal = {Journal of Open Source Software},
-##     volume = {4},
-##     number = {43},
-##     pages = {1686},
-##     doi = {10.21105/joss.01686},
-##   }
-```
-
-To generate the citation for the version of RStudio you are using, you can use the `RStudio.Vesion()` function:
-
-
-```r
-RStudio.Version()
-```
-
-Finally, here's an example of how that might look in the write-up of your method section:
-
-> Analysis was conducted using R (R Core Team, 2020), RStudio (Rstudio Team, 2020), and the tidyverse package (Wickham, 2017).
-
-As noted, you may not have to do this for a while, but come back to this when you do because it's important to give the open-source community credit for their work.
-
-## Help and additional resources
-
-<div class="figure" style="text-align: center">
-<img src="images/kitteh.png" alt="The truth about programming" width="100%" />
-<p class="caption">(\#fig:img-kitteh)The truth about programming</p>
-</div>
-
-Getting good at programming really means getting good trying stuff out,  searching for help online, and finding examples of code to copy. If you are having difficulty with any of the exercises contained in this book then you can ask for help on Teams, however, learning to problem-solve effectively is a key skill that you need to develop throughout this course. 
+Getting good at programming really means getting good trying stuff out,  searching for help online, and finding examples of code to copy. If you are having difficulty with any of the exercises contained in this book then you can ask for help on Teams, however, learning to problem-solve effectively is a key skill that you need to develop throughout this course. There are a wealth of additional resources in the Appendix of this book so it might be worth checking them out, but here are three approaches we take to resolving an issue when we hit a problem.
 
 * Use the help documentation. If you're struggling to understand how a function works, remember the `?function` command.
-* If you get an error message, copy and paste it in to Google - it's very likely someone else has had the same problem.
-* In addition to these course materials there are a number of excellent resources for learning R:
+* When did you last run this function or code successfully? Look back on what you did then and see what is the difference. The skills build on each other so you always look back to go forward!
+* If you get an error message, copy and paste it in to Google - it's very likely someone else has had the same problem. Or trying googling your question in the style of the package name or function name and what you want to do. For example, **arrange data tidyverse** or maybe **sort data in r**
+
+In addition to these course materials and the other [PsyTeachR books](https://psyteachr.github.io/){target="_blank"}, there are a number of excellent online resources for learning data skills that can serve as quick guides:
+  * individual package quickguides found via `**Top Menu >> Help >> Cheat Sheets**`
   * [R Cookbook](http://www.cookbook-r.com/)
   * [StackOverflow](https://stackoverflow.com/)
   * [R for Data Science](https://r4ds.had.co.nz/)
   * Search or use the [#rstats](https://twitter.com/search?f=tweets&q=%23rstats&src=typd) hashtag on Twitter
+  
 
-
-## Debugging tips
+### Debugging tips
 
 A large part of coding is trying to figure why your code doesn't work and this is true whether you are a novice or an expert. As you progress through this course  you should keep a record of mistakes you make and how you fixed them. In the early chapters we will provide a number of common mistakes to look out for but you will undoubtedly make (and fix!) new mistakes yourself.
 
@@ -406,6 +333,8 @@ A large part of coding is trying to figure why your code doesn't work and this i
 * Is it definitely an error? Not all red text in R means an error - sometimes it is just giving you a message with information. 
 
 ## Test yourself
+
+Throughout the book you will find additional questions like these to help you check your understanding. Some will have blanks to fill in, some will be Multiple Choice, but the answers will be revealed in the chapter. If you are unsure of the answer and can't find the explanation, just ask!
 
 **Question 1.** Why should you never include the code `install.packages()` in your analysis scripts? <select class='webex-solveme' data-answer='["You (or someone else) may accidentally install a package update that stops your code working"]'> <option></option> <option>You should use library() instead</option> <option>Packages are already part of Base R</option> <option>You (or someone else) may accidentally install a package update that stops your code working</option> <option>You already have the latest version of the package</option></select> 
 

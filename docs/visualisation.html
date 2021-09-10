@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 13 Visualisation | Quant-Fun-V2</title>
+<title>Chapter 13 Visualisation | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="psyTeachR Team">
 <meta name="description" content="In this chapter we are going to focus on visualising data using ggplot2. You've already created a number of different plots including bar charts, scatterplots, histograms, qq-plots, and...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Chapter 13 Visualisation | Quant-Fun-V2">
+<meta property="og:title" content="Chapter 13 Visualisation | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/visualisation.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <meta property="og:description" content="In this chapter we are going to focus on visualising data using ggplot2. You've already created a number of different plots including bar charts, scatterplots, histograms, qq-plots, and...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 13 Visualisation | Quant-Fun-V2">
+<meta name="twitter:title" content="Chapter 13 Visualisation | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="In this chapter we are going to focus on visualising data using ggplot2. You've already created a number of different plots including bar charts, scatterplots, histograms, qq-plots, and...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,8 +38,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
-        <small class="text-muted">psyTeachR Books</small>
+        <a href="index.html" title="">Fundamentals of Quantitative Analysis</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -52,6 +51,7 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="foreword.html">Foreword</a></li>
 <li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
 <li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
 <li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
@@ -73,14 +73,15 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">D</span> Symbols</a></li>
-<li><a class="" href="conventions.html"><span class="header-section-number">E</span> Conventions</a></li>
+<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/PsyTeachR/quant-fun-v2">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -110,7 +111,7 @@
 <li>Delete the default R Markdown welcome text and insert a new code chunk that loads the package <code>tidyverse</code> using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function.</li>
 <li>Run the below code to load and wrangle the data into tidy data.</li>
 </ul>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">zhang_data</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"Zhang et al. 2014 Study 3.csv"</span><span class="op">)</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Gender</span>, <span class="va">Age</span>,<span class="va">Condition</span>, <span class="va">T1_Predicted_Interest_Composite</span>, <span class="va">T2_Actual_Interest_Composite</span><span class="op">)</span><span class="op">%&gt;%</span>
@@ -133,7 +134,7 @@ The first line of code creates the <code>ggplot()</code> object and specifies wh
 <span class="header-section-number">13.2.1</span> Basic histogram<a class="anchor" aria-label="anchor" href="#basic-histogram"><i class="fas fa-link"></i></a>
 </h3>
 <p>The code below will create a simple histogram with default appearance and no customisation. You wouldn't use this graph in a paper, but if you just want to quickly check your distributions, for e.g., normality, this code might be enough.</p>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> 
   <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -150,7 +151,7 @@ Figure 13.1: Basic histogram
 <p>The next section of code will change the appearance. Plots in ggplot2 are highly customisable - <a href="https://r4ds.had.co.nz/data-visualisation.html">R for Data Science</a> has an excellent chapter on <code>ggplot</code> if you would like additional information.</p>
 <p>Adding <code>binwidth</code> to <code>geom_histogram()</code> changes the bins of the histogram, i.e., how wide the bars are. The default is 30. Sometimes this may be appropriate but often you will want to change the binwidth. What value you give will depend upon your data.</p>
 <p><code>colour()</code> changes the colour of the line around the bars. <code>fill()</code> changes the fill of the bars.</p>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> 
   <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">.3</span>, 
                  colour <span class="op">=</span> <span class="st">"black"</span>,  
@@ -177,7 +178,7 @@ Figure 13.2: Histogram with colour changes
 <code><a href="https://rdrr.io/r/base/labels.html">labels()</a></code> controls the name of the breaks</li>
 </ol>
 <p>For our histogram we will just change the main axis labels.</p>
-<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> 
   <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">.3</span>, 
                  colour <span class="op">=</span> <span class="st">"black"</span>,  
@@ -197,7 +198,7 @@ Figure 13.3: Histogram with label changes
 </h3>
 <p>The following section adds a normal density curve to the histogram, which can be useful for checking the assumption of normality.</p>
 <p>To add the line you must change the <code>geom_histogram()</code> to use density on the y-axis (the default is count) and add a <code>stat_function()</code> layer that draws the line.</p>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> 
   <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">.3</span>, 
                  colour <span class="op">=</span> <span class="st">"black"</span>, 
@@ -226,7 +227,7 @@ Figure 13.4: Histogram with normal density curve
 <span class="header-section-number">13.3.1</span> Basic scatterplot<a class="anchor" aria-label="anchor" href="#basic-scatterplot"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now let's make a scatterplot plotting <code>Age</code> and <code>interest</code> to see if there is any relationship between the two. We need to specify both the x and y-axis variables. The following code will produce a very simple scatterplot. Again, you wouldn't use this graph in a paper, but for eye-balling your data it would suffice.</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span>,y <span class="op">=</span> <span class="va">Age</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
        <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -241,7 +242,7 @@ Figure 13.5: Basic scatterplot
 <span class="header-section-number">13.3.2</span> Axis labels<a class="anchor" aria-label="anchor" href="#axis-labels-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>From this plot it doesn't look like there is much of a relationship between age and interest ratings. We can now change the labels using the same scale functions as before.</p>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span>,y <span class="op">=</span> <span class="va">Age</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
        <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Mean interest score (1-7)"</span><span class="op">)</span> <span class="op">+</span> 
@@ -258,7 +259,7 @@ Figure 13.6: Scatterplot with label changes
 <span class="header-section-number">13.3.3</span> Adding a regression line<a class="anchor" aria-label="anchor" href="#adding-a-regression-line"><i class="fas fa-link"></i></a>
 </h3>
 <p>It's often useful to add a regression line or line of best fit to a scatterplot. The regression line is added with <code>geom_smooth()</code> and by default will also provide a 95% confidence interval. You can specify what type of line you want to draw, most often you will need <code>method = lm</code>, i.e., a linear model or a straight line. Look up the help documentation for <code>geom_smooth()</code> and see what other methods you can use.</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span>,y <span class="op">=</span> <span class="va">Age</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Mean interest score (1-7)"</span><span class="op">)</span> <span class="op">+</span> 
@@ -276,7 +277,7 @@ Figure 13.7: Scatterplot with regression line
 <span class="header-section-number">13.3.4</span> Grouped scatterplots<a class="anchor" aria-label="anchor" href="#grouped-scatterplots"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can use ggplot to show how the relationship might differ for different populations within our data. We do this by adding <code>colour()</code> to <code>aes()</code> and setting it as whatever variable we would like to distinguish between. In this case, we will see how the relationship between age and interest differs for the male and female participants. There are a few participants with missing gender so we will first filter them out.</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb197"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">zhang_data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Gender</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"male"</span>, <span class="st">"female"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
            <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span>,y <span class="op">=</span> <span class="va">Age</span>, colour <span class="op">=</span> <span class="va">Gender</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
@@ -296,7 +297,7 @@ Figure 13.8: Grouped scatterplot
 When you change the <code>labels</code>, R will simply overwrite the names in the dataset. If you wanted to actually change the order of the categories (e.g., have male as the red line) you need to change the order of the factor. We will do this later, for now, just be sure that you're changing the name of the right category (i.e., female comes first))
 </p>
 </div>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">interest</span>,y <span class="op">=</span> <span class="va">Age</span>, colour <span class="op">=</span> <span class="va">Gender</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Mean interest score (1-7)"</span><span class="op">)</span> <span class="op">+</span> 
@@ -321,7 +322,7 @@ Figure 13.9: Grouped scatterplot with adjusted labels
 <span class="header-section-number">13.4.1</span> Basic boxplot<a class="anchor" aria-label="anchor" href="#basic-boxplot"><i class="fas fa-link"></i></a>
 </h3>
 <p>The following code will produce a simple boxplot for eye-balling your data.</p>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -336,7 +337,7 @@ Figure 13.10: Basic boxplot
 <span class="header-section-number">13.4.2</span> Adding data points<a class="anchor" aria-label="anchor" href="#adding-data-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>If we add another layer <code>geom_point()</code> we can add our raw data points to our boxplots to make them more informative.</p>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></code></pre></div>
@@ -348,7 +349,7 @@ Figure 13.11: Boxplot with overplotting
 </div>
 <p>However, this plot suffers from <strong>over-plotting</strong>, that is, there are multiple data points on top of each other. We can change this by using <code>geom_jitter()</code>, which adds a layer of points that are jittered so that each one is visible.</p>
 <p><code>height</code> and <code>width</code> affect how much each point is jittered. Play around with the values to see how it affects the data points.</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_jitter</span><span class="op">(</span>height <span class="op">=</span> <span class="fl">0</span>, width <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span></code></pre></div>
@@ -364,7 +365,7 @@ Figure 13.12: Boxplot with jittered data
 <span class="header-section-number">13.4.3</span> Adding colour<a class="anchor" aria-label="anchor" href="#adding-colour"><i class="fas fa-link"></i></a>
 </h3>
 <p>We may want to add colour to our graph (and for consistency, we'll sort out the labels). We do this by adding the 'fill' argument to the ggplot aesthetic by specifying which variable the colour of the fill should be organised by.</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_jitter</span><span class="op">(</span>height <span class="op">=</span> <span class="fl">0</span>, width <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span><span class="op">+</span>
@@ -385,7 +386,7 @@ Figure 13.13: Boxplot with colour
 <p>When you only have one IV, using the fill command to change the colour is a little redundant, as the colours don't add any additional information. It makes more sense to use colour to represent an additional IV.</p>
 <p>For this example, we'll use <code>Condition</code> and <code>time</code> as IVs. <code>fill()</code> now specifies a second IV, rather than repeating the IV on the x-axis as in the previous plot.</p>
 <p>With multiple IVs the command to overlay the raw data points changes as the data points also need dodged (try running the code with the previous geom_jitter function to see what happens)</p>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span>position<span class="op">=</span><span class="fu">position_jitterdodge</span><span class="op">(</span>jitter.width <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -401,7 +402,7 @@ Figure 13.14: Boxplot for two factors
 <span class="header-section-number">13.4.5</span> Colour-blind friendly options<a class="anchor" aria-label="anchor" href="#colour-blind-friendly-options"><i class="fas fa-link"></i></a>
 </h3>
 <p>There is one more fill option that we can use. Rather than specifying <code>scale_fill_discrete()</code>, we can use <code>scale_fill_viridis_d()</code>. This function does exactly the same thing but it uses a colour-blind friendly palette (which also prints in black and white). There are 5 different options for colours and you can see them by changing <code>option</code> to A, B, C, D or E. Personally I like option E with <code>alpha = .6</code> (to control transparency) but that's not an official School position.</p>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">.6</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span>position<span class="op">=</span><span class="fu">position_jitterdodge</span><span class="op">(</span>jitter.width <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -420,11 +421,11 @@ Figure 7.3: Boxplots with friendly colours
 </h2>
 <p>R orders categorical variables alphabetically. For gender it didn't really matter whether male or female was represented first and for time 1 and 2 it makes sense for them to be in this order but we may want to change the order of Condition (in my mind it makes more sense for Ordinary to come first, but that may just be me).</p>
 <p>To do this we can use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code>fct_level()</code> to change the factor levels to the order we want.</p>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">zhang_data</span> <span class="op">&lt;-</span> <span class="va">zhang_data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Condition <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">Condition</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Ordinary"</span>, <span class="st">"Extraordinary"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Now we can re-run the boxplot. That's better.</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">.6</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span>position<span class="op">=</span><span class="fu">position_jitterdodge</span><span class="op">(</span>jitter.width <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -446,7 +447,7 @@ Figure 13.15: Boxplot with reordered factors
 </h3>
 <p>Bar charts should only be used for counts because they can distort your understanding of the data if you use them to represent means (see <a href="https://www.autodeskresearch.com/publications/samestats">here for a great example</a>.</p>
 <p>First, we'll do a bar chart for the count of male and females in our sample.</p>
-<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">Gender</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -461,7 +462,7 @@ Figure 13.16: Basic bar chart
 <span class="header-section-number">13.6.2</span> Bar charts with two factors<a class="anchor" aria-label="anchor" href="#bar-charts-with-two-factors"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can also use <code>fill()</code> to separate gender by Condition</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">Gender</span>, fill <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"dodge"</span>, alpha <span class="op">=</span> <span class="fl">.6</span><span class="op">)</span> <span class="op">+</span> <span class="co"># the position argument places the bars next to each other, rather than on top of each other, try removing this</span>
   <span class="fu">scale_fill_viridis_d</span><span class="op">(</span>option <span class="op">=</span> <span class="st">"E"</span><span class="op">)</span></code></pre></div>
@@ -482,7 +483,7 @@ Figure 13.17: Bar chart with two factors
 <span class="header-section-number">13.7.1</span> Basic violin plot<a class="anchor" aria-label="anchor" href="#basic-violin-plot"><i class="fas fa-link"></i></a>
 </h3>
 <p>Violin plots are so-called because with a normal distribution the shape would look something like a violin. They show density, i.e., the fatter the violin the more data points there are for that value.</p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -497,7 +498,7 @@ Figure 13.18: Basic violin plot
 <span class="header-section-number">13.7.2</span> Violin plots with raw data points<a class="anchor" aria-label="anchor" href="#violin-plots-with-raw-data-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>Like the boxplot, we can also add the raw data points to our violin plot, making sure to use jitter to avoid over-plotting.</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_jitter</span><span class="op">(</span>height <span class="op">=</span> <span class="fl">0</span>, width <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span></code></pre></div>
@@ -529,7 +530,7 @@ It's important to remember that R is very literal. <code>ggplot2</code> works on
 <code>fatten = NULL</code> removes the median line from the boxplots. This can be useful if you're running a test where you're comparing means as it makes it easier to see the point range.</li>
 <li>You may get warning messages telling you that R has removed rows containing missing values, you do not need to worry about this.</li>
 </ul>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">.6</span>, trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, alpha <span class="op">=</span> <span class="fl">.7</span>, fatten <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span><span class="op">+</span>
@@ -553,7 +554,7 @@ Figure 13.20: Violin-boxplot with summary data
 <ul>
 <li>This code adds an extra argument <code>position = position_dodge(.9)</code> to align the layers with the violin plots. Try removing this argument from each layer to see what happens, and also try adjusting the value from <code>.9</code> to another number.</li>
 </ul>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">.6</span>, trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, 
@@ -577,7 +578,7 @@ Figure 13.21: Violin-boxplot facetted by gender
 <span class="header-section-number">13.9.1</span> Facet labelling<a class="anchor" aria-label="anchor" href="#facet-labelling"><i class="fas fa-link"></i></a>
 </h3>
 <p>Finally, changing the labels within the facets is a little more complicated - there's no additional scale layer, instead, you adjust this inside <code>facet_wrap()</code> using <code>labeller</code>. This has always felt unintuitive to me and I have to look it up every single time so don't worry if it is confusing - just remember where to look for the example.</p>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">.6</span>, trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, 
@@ -604,14 +605,14 @@ Figure 13.22: Facetted plot with updated labels
 </h2>
 <p>Finally, we're going to do something a bit snazzy. As well as the functions that are included in packages, anyone can also write custom functions and share the code. One such custom function allows us to create <strong>raincloud plots</strong> which are highly informative and very pretty. See <a href="https://wellcomeopenresearch.org/articles/4-63">here</a> for more information about their creation and function (and to cite them if you use them in a publication or report).</p>
 <p>In order to use this custom function code you will need to install the <code>plyr</code> package, although crucially, don't load it like you normally would using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>. The custom function code will just use one very specific function, if you load the entire package you risk creating a function conflict.</p>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"plyr"</span><span class="op">)</span></code></pre></div>
 <div id="split-violin-plots" class="section level3" number="13.10.1">
 <h3>
 <span class="header-section-number">13.10.1</span> Split-violin plots<a class="anchor" aria-label="anchor" href="#split-violin-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>Because the functions we need don't exist in a package we can load, we need to create them. Copy and paste all the below code without changing anything. You do not need to understand this code. I certainly don't. When you run this, you should see <code>geom_split_violin</code> appear in the Environment pane under Functions.</p>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">GeomSplitViolin</span> <span class="op">&lt;-</span> <span class="fu">ggproto</span><span class="op">(</span>
   <span class="st">"GeomSplitViolin"</span>, 
   <span class="va">GeomViolin</span>, 
@@ -665,7 +666,7 @@ Figure 13.22: Facetted plot with updated labels
   <span class="op">)</span>
 <span class="op">}</span></code></pre></div>
 <p>The split-violin is a version of the violin-boxplot that is good for visualising interactions. If you look at the faceted graph we made, there's actually quite a lot of unnecessary space used up because we only need half of the violin to see the distribution - the other half is just repeating the same information.</p>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">Gender</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_split_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span>, alpha <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, alpha <span class="op">=</span> <span class="fl">.6</span>,
@@ -687,7 +688,7 @@ Figure 13.23: Split-violin plot
 <span class="header-section-number">13.10.2</span> Raincloud plots<a class="anchor" aria-label="anchor" href="#raincloud-plots"><i class="fas fa-link"></i></a>
 </h3>
 <p>The second custom function is <code>geom_flat_violin</code>. Copy and paste all of this code and again you should see it appear in your Environment pane.</p>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="st">"%||%"</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
   <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span><span class="op">)</span> <span class="va">a</span> <span class="kw">else</span> <span class="va">b</span>
 <span class="op">}</span>
@@ -752,7 +753,7 @@ Figure 13.23: Split-violin plot
   <span class="op">)</span></code></pre></div>
 <p>This plot is similar to the split-violin, but it adds in the raw data points and looks a bit like a raincloud as a result.</p>
 <p>First, we will run the plot for just one variable, Condition. Again, try changing the arguments (adjust any numbers and change FALSE to TRUE) to see how you can control different aspects of the plot, in particular, try removing <code>coord_flip()</code> to see what happens.</p>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_flat_violin</span><span class="op">(</span>position <span class="op">=</span> <span class="fu">position_nudge</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">.25</span>, y <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, 
                    trim<span class="op">=</span><span class="cn">FALSE</span>, alpha <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span> <span class="op">+</span>
@@ -776,7 +777,7 @@ Figure 13.24: Raincloud plot for one factor
 <span class="header-section-number">13.10.3</span> Raincloud plots with multiple factors<a class="anchor" aria-label="anchor" href="#raincloud-plots-with-multiple-factors"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now we can run the code for a 2 x 2 plot, adding in Gender to <code>fill</code> argument. This is quite a complicated plot, do not worry if you are struggling to understand the code but remember, you just need to understand which bits to change.</p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">zhang_data</span>, 
        <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">Gender</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_flat_violin</span><span class="op">(</span>position <span class="op">=</span> <span class="fu">position_nudge</span><span class="op">(</span>x <span class="op">=</span> <span class="fl">.25</span>, y <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, 
@@ -990,8 +991,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/13-visualisation.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/13-visualisation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/13-visualisation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/13-visualisation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1003,7 +1004,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-03.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

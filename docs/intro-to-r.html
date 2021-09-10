@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 2 Intro to R | Quant-Fun-V2</title>
+<title>Chapter 2 Intro to R | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="psyTeachR Team">
 <meta name="description" content="There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!  2.1 Activity 1: Create the working directory If you want to load data into R, or...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="Chapter 2 Intro to R | Quant-Fun-V2">
+<meta property="og:title" content="Chapter 2 Intro to R | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/intro-to-r.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <meta property="og:description" content="There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!  2.1 Activity 1: Create the working directory If you want to load data into R, or...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 2 Intro to R | Quant-Fun-V2">
+<meta name="twitter:title" content="Chapter 2 Intro to R | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!  2.1 Activity 1: Create the working directory If you want to load data into R, or...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,8 +38,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="psyTeachR Books">Quant-Fun-V2</a>:
-        <small class="text-muted">psyTeachR Books</small>
+        <a href="index.html" title="">Fundamentals of Quantitative Analysis</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -52,6 +51,7 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="foreword.html">Foreword</a></li>
 <li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
 <li><a class="active" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
 <li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
@@ -73,14 +73,15 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">D</span> Symbols</a></li>
-<li><a class="" href="conventions.html"><span class="header-section-number">E</span> Conventions</a></li>
+<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/psyteachr/template">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/PsyTeachR/quant-fun-v2">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -195,7 +196,7 @@ When you create a new code chunk you should notice that the grey box starts and 
 <span class="header-section-number">2.7</span> Activity 5: Write some code<a class="anchor" aria-label="anchor" href="#intro-a5"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now we're going to use the code examples you read about in Programming Basics to add some simple code to our R Markdown document. In your code chunk write the below code but replace the values of name/age/birthday with your own details). Note that text values and dates need to be contained in quotation marks but numerical values do not. Missing and/or unnecessary quotation marks are a common cause of code not working - remember this!</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Emily"</span> 
 <span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">35</span>
 <span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>
@@ -234,7 +235,7 @@ Figure 2.7: Slightly better method of running code
 </h2>
 <p>An incredibly useful feature of R Markdown is that R can insert values into your writing using <strong>inline code</strong>. If you've ever had to copy and paste a value or text from one file in to another, you'll know how easy it can be to make mistakes. Inline code avoids this. It's easier to show you what inline code does rather than to explain it so let's have a go.</p>
 <p>First, copy and paste this text exactly (do not change <em>anything</em>) to the <strong>white space</strong> underneath your code chunk.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="intro-to-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a>My name is <span class="st">`</span><span class="at">r name</span><span class="st">`</span> and I am <span class="st">`</span><span class="at">r age</span><span class="st">`</span> years old. It is <span class="st">`</span><span class="at">r next_birthday - today</span><span class="st">`</span> days until my birthday.</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="intro-to-r.html#cb21-1" aria-hidden="true" tabindex="-1"></a>My name is <span class="st">`</span><span class="at">r name</span><span class="st">`</span> and I am <span class="st">`</span><span class="at">r age</span><span class="st">`</span> years old. It is <span class="st">`</span><span class="at">r next_birthday - today</span><span class="st">`</span> days until my birthday.</span></code></pre></div>
 </div>
 <div id="intro-a8" class="section level2" number="2.11">
 <h2>
@@ -242,7 +243,7 @@ Figure 2.7: Slightly better method of running code
 </h2>
 <p>Nearly finished! As our final step we are going to "knit" our file. This simply means that we're going to compile our code into a document that is more presentable. To do this click <code>Knit</code> -&gt; <code>Knit to HMTL</code>. R Markdown will create a new HTML document and it will automatically save this file in your working directory.</p>
 <p>As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.</p>
-<p><strong>My name is Emily and I am 35 years old. It is -54 days until my birthday.</strong></p>
+<p><strong>My name is Emily and I am 35 years old. It is -61 days until my birthday.</strong></p>
 <p>We're not going to use this function very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! If you want to push yourself with R, additional functions and features of R Markdown would be a good place to start.</p>
 <p>Before we finish, there are a few final things to note about knitting that will be useful for the portfolio and quantitative project:</p>
 <ul>
@@ -410,8 +411,8 @@ $( document ).ready(function() {
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/psyteachr/template/blob/master/book/02-intro-to-r.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/psyteachr/template/edit/master/book/02-intro-to-r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/02-intro-to-r.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/02-intro-to-r.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -423,7 +424,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Quant-Fun-V2</strong>: psyTeachR Books" was written by psyTeachR Team. It was last built on 2021-09-03.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-10.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

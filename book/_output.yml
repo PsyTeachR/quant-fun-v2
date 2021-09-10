@@ -3,7 +3,7 @@ bookdown::bs4_book:
   md_extensions: -smart
   df_print: kable
   repo:
-    base: https://github.com/psyteachr/template
+    base: https://github.com/PsyTeachR/quant-fun-v2
     branch: master
     subdir: book
   includes:

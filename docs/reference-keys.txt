@@ -4,7 +4,6 @@ fig:img-objects-enviro
 fig:img-broom
 fig:img-options
 fig:img-session
-fig:img-kitteh
 fig:img-working-dir
 fig:img-new-markdown
 fig:img-file-dir
@@ -68,6 +67,7 @@ fig:plots
 fig:settings-general
 fig:settings-code
 fig:img-updateall
+fig:img-kitteh
 fig:img-soundimals-hash
 programming-basics
 r-and-rstudio
@@ -91,7 +91,7 @@ looking-after-the-environment
 global-options
 r-sessions
 activity-6
-how-to-cite-r-and-rstudio
+getting-help
 help-and-additional-resources
 debugging-tips
 test-yourself
@@ -399,5 +399,6 @@ installing-latex
 updating-packages
 updating-r
 additional-resources
+additional-resources-1
 symbols
 conventions
