@@ -1,5 +1,10 @@
 # Additional Resources
 
+<div class="figure" style="text-align: center">
+<img src="images/kitteh.png" alt="The truth about programming" width="100%" />
+<p class="caption">(\#fig:img-kitteh)The truth about programming</p>
+</div>
+
 If you would like additional practice, you can check out the other UofG PsyTeachR course books. 
 
 * [Level 1](https://psyteachr.github.io/ug1-practical/) - Intro to R (overlaps with Msc Conv book), data wrangling, data viz, descriptive statistics  

@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>B Updating packages | Fundamentals of Quantitative Analysis</title>
+<title>D Additional Resources | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="psyTeachR Team">
-<meta name="description" content="Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. Be aware that some package...">
+<meta name="description" content="How to cite R and RStudio You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
-<meta property="og:title" content="B Updating packages | Fundamentals of Quantitative Analysis">
+<meta property="og:title" content="D Additional Resources | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/updating-packages.html">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/additional-resources-1.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
-<meta property="og:description" content="Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. Be aware that some package...">
+<meta property="og:description" content="How to cite R and RStudio You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="B Updating packages | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. Be aware that some package...">
+<meta name="twitter:title" content="D Additional Resources | Fundamentals of Quantitative Analysis">
+<meta name="twitter:description" content="How to cite R and RStudio You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -71,9 +71,9 @@
 <li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
 <li class="book-part">Appendices</li>
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="active" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="active" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -85,51 +85,64 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="updating-packages" class="section level1" number="19">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="additional-resources-1" class="section level1" number="21">
 <h1>
-<span class="header-section-number">B</span> Updating packages<a class="anchor" aria-label="anchor" href="#updating-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">D</span> Additional Resources<a class="anchor" aria-label="anchor" href="#additional-resources-1"><i class="fas fa-link"></i></a>
 </h1>
-<p>Package developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. <strong>Be aware that some package updates may cause your previous code to stop working</strong>. This does not tend to happen with minor updates to packages, but occasionally with major updates, you can have serious issues if the developer has made fundamental changes to how the code works. For this reason, we recommend updating all your packages once at the beginning of each academic year (or semester) - don't do it before an assessment or deadline just in case!</p>
-<p>To update an individual package, the easiest way is to use the <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> function, as this always installs the most recent version of the package.</p>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
-<p>To update multiple packages, or indeed all packages, RStudio provides helpful tools. Click <code>Tools - Check for Package Updates</code>. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:img-updateall"></span>
-<img src="images/update_packages.jpg" alt="Updating packages with RStudio" width="100%"><p class="caption">
-Figure B.1: Updating packages with RStudio
-</p>
-</div>
-<p>Occasionally, you might have a few problem packages that seemingly refuse to update, for me, <code>rlang</code> and <code>vctrs</code> cause me no end of trouble. These aren't packages that you will likely ever explicitly load, but they're required beneath the surface for R to do things like knit your Markdown files etc.</p>
-<p>If you try to update an existing package and get an error message that says something like <code>Warning in install.packages : installation of package ‘vctrs’ had non-zero exit status</code> or perhaps <code>Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) :  namespace 'rlang' 0.4.9 is being loaded, but &gt;= 0.4.10 is required</code> one solution I have found is to manually uninstall the package, restart R, and then install the package new, rather than trying to update an existing version. The <code>installr</code> package also has a useful function for uninstalling packages.</p>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load installr</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/installr/">installr</a></span><span class="op">)</span>
+<p>How to cite R and RStudio</p>
+<p>You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who built it (most of them for free!) credit. You should provide separate citations for R, RStudio, and the packages you use.</p>
+<p>To get the citation for the version of R you are using, simply run the <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> function which will always provide you with the most recent citation.</p>
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+## To cite R in publications use:
+## 
+##   R Core Team (2021). R: A language and environment for statistical
+##   computing. R Foundation for Statistical Computing, Vienna, Austria.
+##   URL https://www.R-project.org/.
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {R: A Language and Environment for Statistical Computing},
+##     author = {{R Core Team}},
+##     organization = {R Foundation for Statistical Computing},
+##     address = {Vienna, Austria},
+##     year = {2021},
+##     url = {https://www.R-project.org/},
+##   }
+## 
+## We have invested a lot of time and effort in creating R, please cite it
+## when using it for data analysis. See also 'citation("pkgname")' for
+## citing R packages.</code></pre>
+<p>To generate the citation for any packages you are using, you can also use the <code><a href="https://rdrr.io/r/utils/citation.html">citation()</a></code> function with the name of the package you wish to cite.</p>
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##   Wickham et al., (2019). Welcome to the tidyverse. Journal of Open
+##   Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Article{,
+##     title = {Welcome to the {tidyverse}},
+##     author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+##     year = {2019},
+##     journal = {Journal of Open Source Software},
+##     volume = {4},
+##     number = {43},
+##     pages = {1686},
+##     doi = {10.21105/joss.01686},
+##   }</code></pre>
+<p>To generate the citation for the version of RStudio you are using, you can use the <code>RStudio.Vesion()</code> function:</p>
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">RStudio.Version</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Finally, here's an example of how that might look in the write-up of your method section:</p>
+<blockquote>
+<p>Analysis was conducted using R (R Core Team, 2020), RStudio (Rstudio Team, 2020), and the tidyverse package (Wickham, 2017).</p>
+</blockquote>
+<p>As noted, you may not have to do this for a while, but come back to this when you do because it's important to give the open-source community credit for their work.</p>
 
-<span class="co"># Uninstall the problem package</span>
-<span class="fu"><a href="https://talgalili.github.io/installr/reference/uninstall.packages.html">uninstall.packages</a></span><span class="op">(</span><span class="st">"package_name"</span><span class="op">)</span>
-
-<span class="co"># Then restart R using session - restart R</span>
-<span class="co"># Then install the package fresh</span>
-
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"package"</span><span class="op">)</span></code></pre></div>
-<div id="updating-r" class="section level2" number="19.1">
-<h2>
-<span class="header-section-number">B.1</span> Updating R<a class="anchor" aria-label="anchor" href="#updating-r"><i class="fas fa-link"></i></a>
-</h2>
-<p>Finally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages. The easiest way to update R and not cause yourself a huge headache is to use the <code>installr</code> package. When you use the <code><a href="https://talgalili.github.io/installr/reference/updateR.html">updateR()</a></code> function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a <a href="https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/">full step-by-step guide available</a> for how to use <code>installr</code>, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.</p>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Install the installr package</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"installr"</span><span class="op">)</span>
-
-<span class="co"># Load installr</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/installr/">installr</a></span><span class="op">)</span>
-
-<span class="co"># Run the update function</span>
-<span class="fu"><a href="https://talgalili.github.io/installr/reference/updateR.html">updateR</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<p>As always, if you're having issues, please ask on Teams or book into a GTA session.</p>
-
-</div>
 </div>
 <script>
 
@@ -248,19 +261,16 @@ $( document ).ready(function() {
   );
 });
 </script><div class="chapter-nav">
-<div class="prev"><a href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></div>
-<div class="next"><a href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></div>
+<div class="prev"><a href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></div>
+<div class="next"><a href="symbols.html"><span class="header-section-number">E</span> Symbols</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#updating-packages"><span class="header-section-number">B</span> Updating packages</a></li>
-<li><a class="nav-link" href="#updating-r"><span class="header-section-number">B.1</span> Updating R</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#additional-resources-1"><span class="header-section-number">D</span> Additional Resources</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/appendix-a1-updating-packages.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/appendix-a1-updating-packages.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/appendix-a3-How-to-cite-R.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/appendix-a3-How-to-cite-R.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

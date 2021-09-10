@@ -1,0 +1,29 @@
+# Citing R and RStudio
+
+How to cite R and RStudio
+
+You may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who built it (most of them for free!) credit. You should provide separate citations for R, RStudio, and the packages you use.
+
+To get the citation for the version of R you are using, simply run the `citation()` function which will always provide you with the most recent citation.
+
+```{r citation}
+citation()
+```
+
+To generate the citation for any packages you are using, you can also use the `citation()` function with the name of the package you wish to cite.
+
+```{r cite-tidy}
+citation("tidyverse")
+```
+
+To generate the citation for the version of RStudio you are using, you can use the `RStudio.Vesion()` function:
+
+```{r eval = FALSE}
+RStudio.Version()
+```
+
+Finally, here's an example of how that might look in the write-up of your method section:
+
+> Analysis was conducted using R (R Core Team, 2020), RStudio (Rstudio Team, 2020), and the tidyverse package (Wickham, 2017).
+
+As noted, you may not have to do this for a while, but come back to this when you do because it's important to give the open-source community credit for their work.

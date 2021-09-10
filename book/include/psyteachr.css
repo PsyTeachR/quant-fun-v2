@@ -34,6 +34,12 @@
 .small_left { float: left; }
 .small_right img, .small_left img { max-width: 100%; }
 
+.small_center {
+  width: 25%;
+  margin: 0 auto;
+}
+
+
 /* rainbow borders */
 body {
   margin-top: 18px;

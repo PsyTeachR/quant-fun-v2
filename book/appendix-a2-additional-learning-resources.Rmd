@@ -1,5 +1,11 @@
 # Additional Resources
 
+```{r img-kitteh, echo=FALSE, fig.cap="The truth about programming", output.width = "25%", fig.align="center"}
+
+knitr::include_graphics("images/kitteh.png")
+
+```
+
 If you would like additional practice, you can check out the other UofG PsyTeachR course books. 
 
 * [Level 1](https://psyteachr.github.io/ug1-practical/) - Intro to R (overlaps with Msc Conv book), data wrangling, data viz, descriptive statistics  

@@ -47,10 +47,10 @@ How you tackle probability depends on the type of data/variables you are working
 
 What types of data are the below measurements?
 
-* Time taken to run a marathon (in seconds): <select class='webex-solveme' data-answer='["ratio"]'> <option></option> <option>interval</option> <option>ordinal</option> <option>ratio</option> <option>categorical</option></select>
-* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-solveme' data-answer='["ordinal"]'> <option></option> <option>categorical</option> <option>ratio</option> <option>interval</option> <option>ordinal</option></select>
-* Which Sesame Street character a runner was dressed as: <select class='webex-solveme' data-answer='["categorical"]'> <option></option> <option>categorical</option> <option>ratio</option> <option>ordinal</option> <option>interval</option></select>
-* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-solveme' data-answer='["interval"]'> <option></option> <option>ordinal</option> <option>ratio</option> <option>interval</option> <option>categorical</option></select>
+* Time taken to run a marathon (in seconds): <select class='webex-solveme' data-answer='["ratio"]'> <option></option> <option>ordinal</option> <option>interval</option> <option>categorical</option> <option>ratio</option></select>
+* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-solveme' data-answer='["ordinal"]'> <option></option> <option>interval</option> <option>ratio</option> <option>categorical</option> <option>ordinal</option></select>
+* Which Sesame Street character a runner was dressed as: <select class='webex-solveme' data-answer='["categorical"]'> <option></option> <option>ratio</option> <option>interval</option> <option>categorical</option> <option>ordinal</option></select>
+* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-solveme' data-answer='["interval"]'> <option></option> <option>ordinal</option> <option>interval</option> <option>ratio</option> <option>categorical</option></select>
 
 ### Probability distributions
 
@@ -131,9 +131,9 @@ As with any probabilities, real-world data will come close to the normal distrib
 
 Complete the sentences so that they are correct.
 
-* In a normal distribution, the mean, median, and mode <select class='webex-solveme' data-answer='["are all equal"]'> <option></option> <option>are all equal</option> <option>are always different</option> <option>sum to zero</option></select>.
+* In a normal distribution, the mean, median, and mode <select class='webex-solveme' data-answer='["are all equal"]'> <option></option> <option>sum to zero</option> <option>are always different</option> <option>are all equal</option></select>.
 * In a normal distribution, the further away from the mean an observation is <select class='webex-solveme' data-answer='["the lower its probability of occuring"]'> <option></option> <option>the higher its probability of occuring</option> <option>the lower its probability of occuring</option></select>.
-* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-solveme' data-answer='["is a continuous variable"]'> <option></option> <option>is a categorical variable</option> <option>is a continuous variable</option> <option>has three possible values</option></select>.
+* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-solveme' data-answer='["is a continuous variable"]'> <option></option> <option>is a continuous variable</option> <option>has three possible values</option> <option>is a categorical variable</option></select>.
 
 ## Activity 4: Distribution test {#prob-a4}
 
