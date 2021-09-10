@@ -1,4 +1,4 @@
-# Additional Resources
+# Citing R and RStudio
 
 How to cite R and RStudio
 

@@ -277,20 +277,6 @@ knitr::include_graphics("images/global_options.jpg")
 
 ```
 
-### R sessions
-
-When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new **session**. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.
-
-### Activity 6
-
-Click 'Session - Restart R'. 
-
-```{r img-session, echo=FALSE, fig.cap="The truth about programming"}
-
-knitr::include_graphics("images/new_session.png")
-
-```
-
 ## Getting Help 
 
 ### Help and additional resources
@@ -302,6 +288,7 @@ Getting good at programming really means getting good trying stuff out,  searchi
 * If you get an error message, copy and paste it in to Google - it's very likely someone else has had the same problem. Or trying googling your question in the style of the package name or function name and what you want to do. For example, **arrange data tidyverse** or maybe **sort data in r**
 
 In addition to these course materials and the other [PsyTeachR books](https://psyteachr.github.io/){target="_blank"}, there are a number of excellent online resources for learning data skills that can serve as quick guides:
+
   * individual package quickguides found via `**Top Menu >> Help >> Cheat Sheets**`
   * [R Cookbook](http://www.cookbook-r.com/)
   * [StackOverflow](https://stackoverflow.com/)
@@ -318,11 +305,26 @@ A large part of coding is trying to figure why your code doesn't work and this i
 * Is there a package conflict? Have you tried specifying the package and function with `package::function`?
 * Is it definitely an error? Not all red text in R means an error - sometimes it is just giving you a message with information. 
 
+### Reset your R sessions
+
+When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new **session**. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.
+
+### Activity 6
+
+Click 'Session - Restart R'. 
+
+```{r img-session, echo=FALSE, fig.cap="The truth about programming"}
+
+knitr::include_graphics("images/new_session.png")
+
+```
+
+
 ## Test yourself
 
 Throughout the book you will find additional questions like these to help you check your understanding. Some will have blanks to fill in, some will be Multiple Choice, but the answers will be revealed in the chapter. If you are unsure of the answer and can't find the explanation, just ask!
 
-**Question 1.** Why should you never include the code `install.packages()` in your analysis scripts? `r mcq(c("You should use library() instead", "Packages are already part of Base R", answer = "You (or someone else) may accidentally install a package update that stops your code working", "You already have the latest version of the package"))` 
+**Question 1.** Why should you never include the code `install.packages()` in your analysis scripts? `r longmcq(c("You should use library() instead", "Packages are already part of Base R", answer = "You (or someone else) may accidentally install a package update that stops your code working", "You already have the latest version of the package"))` 
 
 
 `r hide("Explain This Answer")`
@@ -340,7 +342,7 @@ rnorm(6, 50, 10)
 
 ```
 
-`r mcq(c("A dataset with 10 numbers that has a mean of 6 and an SD of 50",answer = "A dataset with 6 numbers that has a mean of 50 and an SD of 10", "A dataset with 50 numbers that has a mean of 10 and an SD of 6", "A dataset with 50 numbers that has a mean of 10 and an SD of 6"))`  
+`r longmcq(c("A dataset with 10 numbers that has a mean of 6 and an SD of 50",answer = "A dataset with 6 numbers that has a mean of 50 and an SD of 10", "A dataset with 50 numbers that has a mean of 10 and an SD of 6", "A dataset with 50 numbers that has a mean of 10 and an SD of 6"))`  
 
 `r hide("Explain This Answer")`
 ```{r, echo = FALSE, results='asis'}
@@ -350,7 +352,7 @@ cat("The default form for `rnorm()` is `rnorm(n, mean, sd)`. If you need help re
 <br>
 **Question 3.** If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use? 
 
-`r mcq(c(answer = "package::function", "function::package", "library(package)", "install.packages(package)"))`  
+`r longmcq(c(answer = "package::function", "function::package", "library(package)", "install.packages(package)"))`  
 
 `r hide("Explain This Answer")`
 ```{r, echo = FALSE, results='asis'}
@@ -358,11 +360,11 @@ cat("You should use the form `package::function`, for example `dplyr::select`. R
 ```
 `r unhide()`  
 
-**Question 4.** Which of the following is most likely to be an argument? `r mcq(sample(c("read_csv()", answer = "35", "<-")))`
+**Question 4.** Which of the following is most likely to be an argument? `r longmcq(sample(c("read_csv()", answer = "35", "<-")))`
 
-**Question 5.** An easy way to spot functions is to look for `r mcq(sample(c(answer = "brackets", "numbers", "computers")))`.
+**Question 5.** An easy way to spot functions is to look for `r longmcq(sample(c(answer = "brackets", "numbers", "computers")))`.
 
-**Question 6.** The job of `<-` is to send the output from the function to a/an `r mcq(sample(c("assignment", "argument", answer = "object")))`.
+**Question 6.** The job of `<-` is to send the output from the function to a/an `r longmcq(sample(c("assignment", "argument", answer = "object")))`.
 
 
 

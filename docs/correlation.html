@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -164,13 +164,13 @@
 </h3>
 <p>If we want to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have?</p>
 <ul>
-<li>The type of data in this analysis is most probably <select class="webex-solveme" data-answer='["interval"]'><option></option>
-<option>ratio</option>
-<option>interval</option>
-<option>ordinal</option>
-<option>nominal</option></select> as the data is <select class="webex-solveme" data-answer='["continuous"]'><option></option>
-<option>continuous</option>
-<option>discrete</option></select> and there is unlikely to be a true zero</li>
+<li>The type of data in this analysis is most probably <select class="webex-select"><option value="blank"></option>
+<option value="">ratio</option>
+<option value="answer">interval</option>
+<option value="">ordinal</option>
+<option value="">nominal</option></select> as the data is <select class="webex-select"><option value="blank"></option>
+<option value="answer">continuous</option>
+<option value="">discrete</option></select> and there is unlikely to be a true zero</li>
 </ul>
 <div class="webex-solution">
 <button>
@@ -189,24 +189,24 @@ Hints on data type
 <p>All correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can't correlate against an empty cell! So now go check that you have a data point in both columns for each participant.</p>
 <p>It looks like that everyone has data in all the columns but let's test our skills a little whilst we are here. Answer the following questions:</p>
 <ol style="list-style-type: decimal">
-<li>How is missing data represented in a tibble? <select class="webex-solveme" data-answer='["NA"]'><option></option>
-<option>an empty cell</option>
-<option>NA</option>
-<option>a large number</option>
-<option>don't know</option></select>
+<li>How is missing data represented in a tibble? <select class="webex-select"><option value="blank"></option>
+<option value="">an empty cell</option>
+<option value="answer">NA</option>
+<option value="">a large number</option>
+<option value="">don't know</option></select>
 </li>
 <li>Which code would leave you with just the participants who were missing Reading Ability data in mh:
-<select class="webex-solveme" data-answer='["filter(mh, is.na(Abil)"]'><option></option>
-<option>filter(mh, is.na(Ability)</option>
-<option>filter(mh, is.na(Abil)</option>
-<option>filter(mh, !is.na(Ability)</option>
-<option>filter(mh, !is.na(Abil)</option></select>
+<select class="webex-select"><option value="blank"></option>
+<option value="">filter(mh, is.na(Ability)</option>
+<option value="answer">filter(mh, is.na(Abil)</option>
+<option value="">filter(mh, !is.na(Ability)</option>
+<option value="">filter(mh, !is.na(Abil)</option></select>
 </li>
-<li>Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class="webex-solveme" data-answer='["filter(mh, !is.na(Abil)"]'><option></option>
-<option>filter(mh, is.na(Ability)</option>
-<option>filter(mh, is.na(Abil)</option>
-<option>filter(mh, !is.na(Ability)</option>
-<option>filter(mh, !is.na(Abil)</option></select>
+<li>Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class="webex-select"><option value="blank"></option>
+<option value="">filter(mh, is.na(Ability)</option>
+<option value="">filter(mh, is.na(Abil)</option>
+<option value="">filter(mh, !is.na(Ability)</option>
+<option value="answer">filter(mh, !is.na(Abil)</option></select>
 </li>
 </ol>
 <div class="webex-solution">
@@ -284,17 +284,17 @@ Figure 4.3: Scatterplot of scores
 </ul>
 <p>Based on the above visualisations:</p>
 <ul>
-<li>Is the assumption of normality met for both variables? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the assumption of normality met for both variables? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
-<li>Is the assumption of linearity met for both variables? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the assumption of linearity met for both variables? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
-<li>Is the assumption of homoscedasticity met for both variables? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the assumption of homoscedasticity met for both variables? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
 </ul>
 <div class="webex-solution">
@@ -375,25 +375,25 @@ Explain these answers
 <ol style="list-style-type: decimal">
 <li>What is the value of Pearson's <em>r</em> to 2 decimal places? <input class="webex-solveme nospaces" size="20" data-answer='[".45","0.45"]'>
 </li>
-<li>The direction of the relationship between Ability and IQ is: <select class="webex-solveme" data-answer='["positive"]'><option></option>
-<option>positive</option>
-<option>negative</option>
-<option>no relationship</option></select>
+<li>The direction of the relationship between Ability and IQ is: <select class="webex-select"><option value="blank"></option>
+<option value="answer">positive</option>
+<option value="">negative</option>
+<option value="">no relationship</option></select>
 </li>
-<li>The strength of the relationship between Ability and IQ is: <select class="webex-solveme" data-answer='["medium"]'><option></option>
-<option>strong</option>
-<option>medium</option>
-<option>weak</option></select>
+<li>The strength of the relationship between Ability and IQ is: <select class="webex-select"><option value="blank"></option>
+<option value="">strong</option>
+<option value="answer">medium</option>
+<option value="">weak</option></select>
 </li>
-<li>Based on <span class="math inline">\(\alpha = .05\)</span> the relationship between Ability and IQ is: <select class="webex-solveme" data-answer='["significant"]'><option></option>
-<option>significant</option>
-<option>not significant</option></select>
+<li>Based on <span class="math inline">\(\alpha = .05\)</span> the relationship between Ability and IQ is: <select class="webex-select"><option value="blank"></option>
+<option value="answer">significant</option>
+<option value="">not significant</option></select>
 </li>
-<li>The hypothesis was that the reading ability of school children, as measured through a standardized test, and intelligence, again through a standardized test, are positively correlated. Based on the results we can say that the hypothesis: <select class="webex-solveme" data-answer='["is supported"]'><option></option>
-<option>is supported</option>
-<option>is not supported</option>
-<option>is proven</option>
-<option>is not proven</option></select>
+<li>The hypothesis was that the reading ability of school children, as measured through a standardized test, and intelligence, again through a standardized test, are positively correlated. Based on the results we can say that the hypothesis: <select class="webex-select"><option value="blank"></option>
+<option value="answer">is supported</option>
+<option value="">is not supported</option>
+<option value="">is proven</option>
+<option value="">is not proven</option></select>
 </li>
 </ol>
 <div class="webex-solution">
@@ -484,36 +484,36 @@ Figure 9.4: Adjusted scatterplot matrix
 <span class="va">corr_results</span></code></pre></div>
 <p><code>corr_results</code> is a tibble that lists the results of each correlation with its corresponding statistics. Look through the table and then answer the following questions:</p>
 <ol style="list-style-type: decimal">
-<li>Is the correlation between <code>Abil</code> and <code>Home</code> positive or negative? <select class="webex-solveme" data-answer='["Positive"]'><option></option>
-<option>Positive</option>
-<option>Negative</option></select>
+<li>Is the correlation between <code>Abil</code> and <code>Home</code> positive or negative? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Positive</option>
+<option value="">Negative</option></select>
 </li>
-<li>This means that as <code>Abil</code> scores increase, <code>Home</code> scores will <select class="webex-solveme" data-answer='["Increase"]'><option></option>
-<option>Increase</option>
-<option>Decrease</option></select>
+<li>This means that as <code>Abil</code> scores increase, <code>Home</code> scores will <select class="webex-select"><option value="blank"></option>
+<option value="answer">Increase</option>
+<option value="">Decrease</option></select>
 </li>
-<li>What is the strongest positive correlation? <select class="webex-solveme" data-answer='["Abil * Home"]'><option></option>
-<option>Abil * IQ</option>
-<option>Abil * Home</option>
-<option>Abil * TV</option></select>
+<li>What is the strongest positive correlation? <select class="webex-select"><option value="blank"></option>
+<option value="">Abil * IQ</option>
+<option value="answer">Abil * Home</option>
+<option value="">Abil * TV</option></select>
 </li>
-<li>What is the strongest negative correlation? <select class="webex-solveme" data-answer='["Home * TV"]'><option></option>
-<option>Abil * TV</option>
-<option>IQ * TV</option>
-<option>Home * TV</option></select>
+<li>What is the strongest negative correlation? <select class="webex-select"><option value="blank"></option>
+<option value="">Abil * TV</option>
+<option value="">IQ * TV</option>
+<option value="answer">Home * TV</option></select>
 </li>
-<li>Is the correlation between <code>Abil</code> and <code>IQ</code> significant? <select class="webex-solveme" data-answer='["No"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the correlation between <code>Abil</code> and <code>IQ</code> significant? <select class="webex-select"><option value="blank"></option>
+<option value="">Yes</option>
+<option value="answer">No</option></select>
 </li>
-<li>Is the correlation between <code>Abil</code> and <code>Home</code> significant? <select class="webex-solveme" data-answer='["Yes"]'><option></option>
-<option>Yes</option>
-<option>No</option></select>
+<li>Is the correlation between <code>Abil</code> and <code>Home</code> significant? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
 </li>
-<li>How would you describe the strength of the correlation between <code>Home</code> and <code>TV</code>? <select class="webex-solveme" data-answer='["Strong"]'><option></option>
-<option>Weak</option>
-<option>Medium</option>
-<option>Strong</option></select>
+<li>How would you describe the strength of the correlation between <code>Home</code> and <code>TV</code>? <select class="webex-select"><option value="blank"></option>
+<option value="">Weak</option>
+<option value="">Medium</option>
+<option value="answer">Strong</option></select>
 </li>
 <li>Think back to the lecture. Why are we not calculating an effect size?</li>
 </ol>
@@ -630,15 +630,22 @@ Activity 5
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -649,6 +656,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -692,7 +701,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -727,6 +779,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();

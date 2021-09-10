@@ -64,7 +64,7 @@ We will look at these in turn.
 
 If we want to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have?  
 
-* The type of data in this analysis is most probably <select class='webex-solveme' data-answer='["interval"]'> <option></option> <option>ratio</option> <option>interval</option> <option>ordinal</option> <option>nominal</option></select> as the data is <select class='webex-solveme' data-answer='["continuous"]'> <option></option> <option>continuous</option> <option>discrete</option></select> and there is unlikely to be a true zero
+* The type of data in this analysis is most probably <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value='answer'>interval</option><option value=''>ordinal</option><option value=''>nominal</option></select> as the data is <select class='webex-select'><option value='blank'></option><option value='answer'>continuous</option><option value=''>discrete</option></select> and there is unlikely to be a true zero
 
 
 <div class='webex-solution'><button>Hints on data type</button>
@@ -82,10 +82,10 @@ All correlations must have a data point for each participant in the two variable
 
 It looks like that everyone has data in all the columns but let's test our skills a little whilst we are here.  Answer the following questions:
 
-1. How is missing data represented in a tibble? <select class='webex-solveme' data-answer='["NA"]'> <option></option> <option>an empty cell</option> <option>NA</option> <option>a large number</option> <option>don&apos;t know</option></select>
+1. How is missing data represented in a tibble? <select class='webex-select'><option value='blank'></option><option value=''>an empty cell</option><option value='answer'>NA</option><option value=''>a large number</option><option value=''>don't know</option></select>
 2. Which code would leave you with just the participants who were missing Reading Ability data in mh: 
-<select class='webex-solveme' data-answer='["filter(mh, is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select>
-3. Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class='webex-solveme' data-answer='["filter(mh, !is.na(Abil)"]'> <option></option> <option>filter(mh, is.na(Ability)</option> <option>filter(mh, is.na(Abil)</option> <option>filter(mh, !is.na(Ability)</option> <option>filter(mh, !is.na(Abil)</option></select>
+<select class='webex-select'><option value='blank'></option><option value=''>filter(mh, is.na(Ability)</option><option value='answer'>filter(mh, is.na(Abil)</option><option value=''>filter(mh, !is.na(Ability)</option><option value=''>filter(mh, !is.na(Abil)</option></select>
+3. Which code would leave you with just the participants who were not missing Reading Ability data in mh: <select class='webex-select'><option value='blank'></option><option value=''>filter(mh, is.na(Ability)</option><option value=''>filter(mh, is.na(Abil)</option><option value=''>filter(mh, !is.na(Ability)</option><option value='answer'>filter(mh, !is.na(Abil)</option></select>
 
 
 <div class='webex-solution'><button>Hints on removing missing data points</button>
@@ -169,9 +169,9 @@ ggplot(data = mh, aes(x = Abil, y = IQ)) +
 
 Based on the above visualisations:
 
-* Is the assumption of normality met for both variables? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
-* Is the assumption of linearity met for both variables? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
-* Is the assumption of homoscedasticity met for both variables? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Is the assumption of normality met for both variables? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+* Is the assumption of linearity met for both variables? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+* Is the assumption of homoscedasticity met for both variables? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 
 <div class='webex-solution'><button>Explain these answers</button>
@@ -246,10 +246,10 @@ You should now have a tibble called `results` that gives you the output of the c
 Look at `results`and then answer the following questions:
 
 1. What is the value of Pearson's *r* to 2 decimal places? <input class='webex-solveme nospaces' size='20' data-answer='[".45","0.45"]'/>
-2. The direction of the relationship between Ability and IQ is: <select class='webex-solveme' data-answer='["positive"]'> <option></option> <option>positive</option> <option>negative</option> <option>no relationship</option></select>
-3. The strength of the relationship between Ability and IQ is: <select class='webex-solveme' data-answer='["medium"]'> <option></option> <option>strong</option> <option>medium</option> <option>weak</option></select>
-4. Based on $\alpha = .05$ the relationship between Ability and IQ is: <select class='webex-solveme' data-answer='["significant"]'> <option></option> <option>significant</option> <option>not significant</option></select>
-5. The hypothesis was that the reading ability of school children, as measured through a standardized test, and intelligence, again through a standardized test, are positively correlated. Based on the results we can say that the hypothesis: <select class='webex-solveme' data-answer='["is supported"]'> <option></option> <option>is supported</option> <option>is not supported</option> <option>is proven</option> <option>is not proven</option></select> 
+2. The direction of the relationship between Ability and IQ is: <select class='webex-select'><option value='blank'></option><option value='answer'>positive</option><option value=''>negative</option><option value=''>no relationship</option></select>
+3. The strength of the relationship between Ability and IQ is: <select class='webex-select'><option value='blank'></option><option value=''>strong</option><option value='answer'>medium</option><option value=''>weak</option></select>
+4. Based on $\alpha = .05$ the relationship between Ability and IQ is: <select class='webex-select'><option value='blank'></option><option value='answer'>significant</option><option value=''>not significant</option></select>
+5. The hypothesis was that the reading ability of school children, as measured through a standardized test, and intelligence, again through a standardized test, are positively correlated. Based on the results we can say that the hypothesis: <select class='webex-select'><option value='blank'></option><option value='answer'>is supported</option><option value=''>is not supported</option><option value=''>is proven</option><option value=''>is not proven</option></select> 
 
 
 <div class='webex-solution'><button>Explain these answers</button>
@@ -356,13 +356,13 @@ corr_results
 
 `corr_results` is a tibble that lists the results of each correlation with its corresponding statistics. Look through the table and then answer the following questions:
 
-1. Is the correlation between `Abil` and `Home` positive or negative? <select class='webex-solveme' data-answer='["Positive"]'> <option></option> <option>Positive</option> <option>Negative</option></select>
-2. This means that as `Abil` scores increase, `Home` scores will <select class='webex-solveme' data-answer='["Increase"]'> <option></option> <option>Increase</option> <option>Decrease</option></select>
-3. What is the strongest positive correlation? <select class='webex-solveme' data-answer='["Abil * Home"]'> <option></option> <option>Abil * IQ</option> <option>Abil * Home</option> <option>Abil * TV</option></select>
-4. What is the strongest negative correlation? <select class='webex-solveme' data-answer='["Home * TV"]'> <option></option> <option>Abil * TV</option> <option>IQ * TV</option> <option>Home * TV</option></select>
-5. Is the correlation between `Abil` and `IQ` significant? <select class='webex-solveme' data-answer='["No"]'> <option></option> <option>Yes</option> <option>No</option></select>
-6. Is the correlation between `Abil` and `Home` significant? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
-7. How would you describe the strength of the correlation between `Home` and `TV`? <select class='webex-solveme' data-answer='["Strong"]'> <option></option> <option>Weak</option> <option>Medium</option> <option>Strong</option></select>
+1. Is the correlation between `Abil` and `Home` positive or negative? <select class='webex-select'><option value='blank'></option><option value='answer'>Positive</option><option value=''>Negative</option></select>
+2. This means that as `Abil` scores increase, `Home` scores will <select class='webex-select'><option value='blank'></option><option value='answer'>Increase</option><option value=''>Decrease</option></select>
+3. What is the strongest positive correlation? <select class='webex-select'><option value='blank'></option><option value=''>Abil * IQ</option><option value='answer'>Abil * Home</option><option value=''>Abil * TV</option></select>
+4. What is the strongest negative correlation? <select class='webex-select'><option value='blank'></option><option value=''>Abil * TV</option><option value=''>IQ * TV</option><option value='answer'>Home * TV</option></select>
+5. Is the correlation between `Abil` and `IQ` significant? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
+6. Is the correlation between `Abil` and `Home` significant? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+7. How would you describe the strength of the correlation between `Home` and `TV`? <select class='webex-select'><option value='blank'></option><option value=''>Weak</option><option value=''>Medium</option><option value='answer'>Strong</option></select>
 8. Think back to the lecture. Why are we not calculating an effect size?
 
 

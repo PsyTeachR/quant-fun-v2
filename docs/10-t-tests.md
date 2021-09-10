@@ -134,7 +134,7 @@ ggplot(ratings2, aes(x = condition, y = Rating)) +
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")
 ```
 
-* Look at the plot. In which condition did the evaluators give the higher ratings? <select class='webex-solveme' data-answer='["listened"]'> <option></option> <option>listened</option> <option>read</option></select>
+* Look at the plot. In which condition did the evaluators give the higher ratings? <select class='webex-select'><option value='blank'></option><option value='answer'>listened</option><option value=''>read</option></select>
 
 ## Activity 5: Assumptions {#ttest-a5}
 
@@ -146,7 +146,7 @@ Before we run the t-test we need to check that the data meet the assumptions for
 
 We know that 1 and 2 are true from the design of the experiment, the measures used, and by looking at the data. To test assumption 3, we can create a QQ-plot of the **residuals**. For a between-subject t-test the residuals are the difference between the mean of each group and each data point. E.g., if the mean of group A is 10 and a participant in group A scores 12, the residual for that participant is 2.
 
-* Run the below code to calculate then plot the residuals. Based upon the plot, do the data meet the assumption of normality? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Run the below code to calculate then plot the residuals. Based upon the plot, do the data meet the assumption of normality? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 
 ```r
@@ -160,7 +160,7 @@ qqPlot(ratings2$group_resid)
 
 We can also use a new test that will statistically test the residuals for normality, the **Shapiro-Wilk** test. `shapiro.wilk()` from Base R assesses if the distribution is significantly different from a normal distribution, so, if the test is significant it means your data is not normal, and if it is non-significant it means it is approximately normal. 
 
-* Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 
 ```r
@@ -177,8 +177,8 @@ The p-value is .2088 which is more than .05, the cut-off for statistical signifi
   
 <br>
 
-* Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? <select class='webex-solveme' data-answer='["Homogeneity of variance"]'> <option></option> <option>Homogeneity of variance</option> <option>Homoscedascity</option> <option>Nominal data</option></select>    
-* Why should you always use a Welch test instead of a Student t-test? <select class='webex-solveme' data-answer='["Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal"]'> <option></option> <option>Because it rhymes with squelch which is a funny word</option> <option>Because you are more likely to obtain a signifcant p-value than with Student&apos;s t-test when sample sizes and variances are equal</option> <option>Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal</option></select>.
+* Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? <select class='webex-select'><option value='blank'></option><option value='answer'>Homogeneity of variance</option><option value=''>Homoscedascity</option><option value=''>Nominal data</option></select>    
+* Why should you always use a Welch test instead of a Student t-test? <select class='webex-select'><option value='blank'></option><option value=''>Because it rhymes with squelch which is a funny word</option><option value=''>Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal</option><option value='answer'>Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal</option></select>.
 
 ## Activity 6: Running the t-test {#ttest-a6}
 
@@ -294,7 +294,7 @@ results <- bind_rows(hire = results_hire,
 
 Now, we're going to add on a column of adjusted p-values using `p.adj()` and `mutate()`. 
 
-* Run the below code and then view the adjusted p-values. Are they larger or smaller than the original values? <select class='webex-solveme' data-answer='["Larger"]'> <option></option> <option>Larger</option> <option>Smaller</option></select>
+* Run the below code and then view the adjusted p-values. Are they larger or smaller than the original values? <select class='webex-select'><option value='blank'></option><option value='answer'>Larger</option><option value=''>Smaller</option></select>
 
 
 ```r
@@ -341,7 +341,7 @@ impression_d <-
     
     + t(<input class='webex-solveme nospaces' size='5' data-answer='["33.80","33.8"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.82"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.024",".024"]'/> 
 
-* According to Cohen's (1988) guidelines, the effect sizes for all three tests are <select class='webex-solveme' data-answer='["Large"]'> <option></option> <option>Small</option> <option>Medium</option> <option>Large</option></select>
+* According to Cohen's (1988) guidelines, the effect sizes for all three tests are <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value=''>Medium</option><option value='answer'>Large</option></select>
 
 ## Activity 10: Write-up {#ttest-a10}
 

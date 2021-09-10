@@ -198,7 +198,7 @@ If you want to join two tables that have mulitple columns in common, you need to
 
 1. When loading in a .csv file, which function should you use? 
 
-<select class='webex-solveme' data-answer='["read_csv()"]'> <option></option> <option>read_csv()</option> <option>read.csv()</option></select>
+<select class='webex-select'><option value='blank'></option><option value='answer'>read_csv()</option><option value=''>read.csv()</option></select>
 
 
 <div class='webex-solution'><button>Explain this answer</button>
@@ -212,8 +212,8 @@ Remember, in this course we use `read_csv()` and it is important for the portfol
 
 2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do?
 
-<select class='webex-solveme' data-answer='["Specifies the column to join by that both tables have in common"]'> <option></option> <option>Specifies the first table to join</option> <option>Specifies the second table to join</option> <option>Specifies the column to join by that both tables have in common</option></select>
+<select class='webex-select'><option value='blank'></option><option value=''>Specifies the first table to join</option><option value=''>Specifies the second table to join</option><option value='answer'>Specifies the column to join by that both tables have in common</option></select>
 
 3. What does the function `select()` do? 
 <br>
-<select class='webex-solveme' data-answer='["Keeps only the variables you specify"]'> <option></option> <option>Keeps only the observations you specify</option> <option>Keeps only the variables you specify</option> <option>Keeps only the objects you specify</option></select>
+<select class='webex-select'><option value='blank'></option><option value=''>Keeps only the observations you specify</option><option value='answer'>Keeps only the variables you specify</option><option value=''>Keeps only the objects you specify</option></select>

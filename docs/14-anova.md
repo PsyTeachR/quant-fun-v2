@@ -150,9 +150,9 @@ mod_output <- (mod$anova_table) %>% tidy()
 
 You should refer to the lecture for more information on what each variable means and how it is calculated.
 
-* Is the overall effect of Condition significant? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+* Is the overall effect of Condition significant? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 * What is the F-statistics to 2 decimal places? <input class='webex-solveme nospaces' size='4' data-answer='["3.79"]'/>
-* According to the rules of thumb, the effect size is <select class='webex-solveme' data-answer='["Large"]'> <option></option> <option>Small</option> <option>Medium</option> <option>Large</option></select>
+* According to the rules of thumb, the effect size is <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value=''>Medium</option><option value='answer'>Large</option></select>
 
 
 ### Activity 7: Assumption checking {#anova-a7}
@@ -191,7 +191,7 @@ shapiro.test(mod$aov$residuals)
 
 There are a few things to note about the assumption test results. First, look at the p-value for the Shapiro-Wilk test - `4.252e-06`. Whenever you see the `e` at the end of a number it means that R is using **scientific notation**. Scientific notation is a way of writing very large or very small numbers. Because the number after the `e` is negative it means the number should be divided by 10 to the power of six. Put simply, move the decimal place six places to the left and you will get the standard number. When reporting p-values in your results section, you should not use scientific notation, instead you should round to 3 decimal places.
 
-* What is the value of `4.252e-06`? <select class='webex-solveme' data-answer='[".000004252"]'> <option></option> <option>.004252</option> <option>42.52</option> <option>.000004252</option></select>
+* What is the value of `4.252e-06`? <select class='webex-select'><option value='blank'></option><option value=''>.004252</option><option value=''>42.52</option><option value='answer'>.000004252</option></select>
 
 If you want R to round this for you to make it easier to read, you could use the below code to save it to an object, tidy it and then round the p.value. Just remember that in APA style you should never write "p = 0", instead, you should write "p < .001" (because p will never equal actual zero, it can just be very, very, very small).
 

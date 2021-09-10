@@ -15,7 +15,7 @@ This book will use the following conventions:
 * Internal links: Chapter\ \@ref(intro)
 * External links: [R for Data Science](https://r4ds.had.co.nz/){target="_blank"}
 * Menu/interface options: **`New File...`**
-* Quiz question: I am going to learn a lot: <select class='webex-solveme' data-answer='["TRUE"]'> <option></option> <option>TRUE</option> <option>FALSE</option></select>
+* Quiz question: I am going to learn a lot: <select class='webex-select'><option value='blank'></option><option value='answer'>TRUE</option><option value=''>FALSE</option></select>
 
 
 <div class='webex-solution'><button>Hidden Solutions</button>

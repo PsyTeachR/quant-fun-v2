@@ -292,19 +292,6 @@ By default, when you open R Studio it will show you what you were last working o
 <p class="caption">(\#fig:img-options)Global options</p>
 </div>
 
-### R sessions
-
-When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new **session**. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.
-
-### Activity 6
-
-Click 'Session - Restart R'. 
-
-<div class="figure" style="text-align: center">
-<img src="images/new_session.png" alt="The truth about programming" width="100%" />
-<p class="caption">(\#fig:img-session)The truth about programming</p>
-</div>
-
 ## Getting Help 
 
 ### Help and additional resources
@@ -316,6 +303,7 @@ Getting good at programming really means getting good trying stuff out,  searchi
 * If you get an error message, copy and paste it in to Google - it's very likely someone else has had the same problem. Or trying googling your question in the style of the package name or function name and what you want to do. For example, **arrange data tidyverse** or maybe **sort data in r**
 
 In addition to these course materials and the other [PsyTeachR books](https://psyteachr.github.io/){target="_blank"}, there are a number of excellent online resources for learning data skills that can serve as quick guides:
+
   * individual package quickguides found via `**Top Menu >> Help >> Cheat Sheets**`
   * [R Cookbook](http://www.cookbook-r.com/)
   * [StackOverflow](https://stackoverflow.com/)
@@ -332,11 +320,26 @@ A large part of coding is trying to figure why your code doesn't work and this i
 * Is there a package conflict? Have you tried specifying the package and function with `package::function`?
 * Is it definitely an error? Not all red text in R means an error - sometimes it is just giving you a message with information. 
 
+### Reset your R sessions
+
+When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new **session**. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.
+
+### Activity 6
+
+Click 'Session - Restart R'. 
+
+<div class="figure" style="text-align: center">
+<img src="images/new_session.png" alt="The truth about programming" width="100%" />
+<p class="caption">(\#fig:img-session)The truth about programming</p>
+</div>
+
+
 ## Test yourself
 
 Throughout the book you will find additional questions like these to help you check your understanding. Some will have blanks to fill in, some will be Multiple Choice, but the answers will be revealed in the chapter. If you are unsure of the answer and can't find the explanation, just ask!
 
-**Question 1.** Why should you never include the code `install.packages()` in your analysis scripts? <select class='webex-solveme' data-answer='["You (or someone else) may accidentally install a package update that stops your code working"]'> <option></option> <option>You should use library() instead</option> <option>Packages are already part of Base R</option> <option>You (or someone else) may accidentally install a package update that stops your code working</option> <option>You already have the latest version of the package</option></select> 
+**Question 1.** Why should you never include the code `install.packages()` in your analysis scripts? <div class='webex-radiogroup' id='radio_BQYZGFWSYU'><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value=""></input> <span>You should use library() instead</span></label><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value=""></input> <span>Packages are already part of Base R</span></label><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value="answer"></input> <span>You (or someone else) may accidentally install a package update that stops your code working</span></label><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value=""></input> <span>You already have the latest version of the package</span></label></div>
+ 
 
 
 
@@ -355,7 +358,8 @@ Remember, when you run `install.packages()` it will always install the latest ve
 rnorm(6, 50, 10)
 ```
 
-<select class='webex-solveme' data-answer='["A dataset with 6 numbers that has a mean of 50 and an SD of 10"]'> <option></option> <option>A dataset with 10 numbers that has a mean of 6 and an SD of 50</option> <option>A dataset with 6 numbers that has a mean of 50 and an SD of 10</option> <option>A dataset with 50 numbers that has a mean of 10 and an SD of 6</option> <option>A dataset with 50 numbers that has a mean of 10 and an SD of 6</option></select>  
+<div class='webex-radiogroup' id='radio_RJYNCPGFRF'><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value=""></input> <span>A dataset with 10 numbers that has a mean of 6 and an SD of 50</span></label><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value="answer"></input> <span>A dataset with 6 numbers that has a mean of 50 and an SD of 10</span></label><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value=""></input> <span>A dataset with 50 numbers that has a mean of 10 and an SD of 6</span></label><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value=""></input> <span>A dataset with 50 numbers that has a mean of 10 and an SD of 6</span></label></div>
+  
 
 
 <div class='webex-solution'><button>Explain This Answer</button>
@@ -367,7 +371,8 @@ The default form for `rnorm()` is `rnorm(n, mean, sd)`. If you need help remembe
 <br>
 **Question 3.** If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use? 
 
-<select class='webex-solveme' data-answer='["package::function"]'> <option></option> <option>package::function</option> <option>function::package</option> <option>library(package)</option> <option>install.packages(package)</option></select>  
+<div class='webex-radiogroup' id='radio_IDFPKYTJMC'><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value="answer"></input> <span>package::function</span></label><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value=""></input> <span>function::package</span></label><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value=""></input> <span>library(package)</span></label><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value=""></input> <span>install.packages(package)</span></label></div>
+  
 
 
 <div class='webex-solution'><button>Explain This Answer</button>
@@ -377,11 +382,14 @@ You should use the form `package::function`, for example `dplyr::select`. Rememb
 </div>
   
 
-**Question 4.** Which of the following is most likely to be an argument? <select class='webex-solveme' data-answer='["35"]'> <option></option> <option>35</option> <option>read_csv()</option> <option><-</option></select>
+**Question 4.** Which of the following is most likely to be an argument? <div class='webex-radiogroup' id='radio_GDEQKTMFIO'><label><input type="radio" autocomplete="off" name="radio_GDEQKTMFIO" value="answer"></input> <span>35</span></label><label><input type="radio" autocomplete="off" name="radio_GDEQKTMFIO" value=""></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_GDEQKTMFIO" value=""></input> <span><-</span></label></div>
 
-**Question 5.** An easy way to spot functions is to look for <select class='webex-solveme' data-answer='["brackets"]'> <option></option> <option>brackets</option> <option>numbers</option> <option>computers</option></select>.
 
-**Question 6.** The job of `<-` is to send the output from the function to a/an <select class='webex-solveme' data-answer='["object"]'> <option></option> <option>argument</option> <option>assignment</option> <option>object</option></select>.
+**Question 5.** An easy way to spot functions is to look for <div class='webex-radiogroup' id='radio_UNUJXJLAOD'><label><input type="radio" autocomplete="off" name="radio_UNUJXJLAOD" value="answer"></input> <span>brackets</span></label><label><input type="radio" autocomplete="off" name="radio_UNUJXJLAOD" value=""></input> <span>numbers</span></label><label><input type="radio" autocomplete="off" name="radio_UNUJXJLAOD" value=""></input> <span>computers</span></label></div>
+.
+
+**Question 6.** The job of `<-` is to send the output from the function to a/an <div class='webex-radiogroup' id='radio_ZFVMULLEDL'><label><input type="radio" autocomplete="off" name="radio_ZFVMULLEDL" value=""></input> <span>argument</span></label><label><input type="radio" autocomplete="off" name="radio_ZFVMULLEDL" value=""></input> <span>assignment</span></label><label><input type="radio" autocomplete="off" name="radio_ZFVMULLEDL" value="answer"></input> <span>object</span></label></div>
+.
 
 
 

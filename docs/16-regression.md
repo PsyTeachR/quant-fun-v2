@@ -14,7 +14,7 @@ As a measure of engagement in the course, we will use data from Moodle usage ana
 
 Our hypothesis was that greater anxiety would be reflected in lower engagement.  Answer the following question.
 
-If our hypothesis is correct then there should be <select class='webex-solveme' data-answer='["a negative"]'> <option></option> <option>a positive</option> <option>no</option> <option>a negative</option></select> correlation between students' mean anxiety levels and `n_weeks`.
+If our hypothesis is correct then there should be <select class='webex-select'><option value='blank'></option><option value=''>a positive</option><option value=''>no</option><option value='answer'>a negative</option></select> correlation between students' mean anxiety levels and `n_weeks`.
 
 ## Activity 1: Setup {#regression-a1}
 
@@ -37,7 +37,7 @@ The next thing we need to do is to calculate a mean anxiety score for each stude
 
 Recall the difference between *wide* and *tidy* data. In wide data, each row represents an individual case, with observations for that case in separate columns; in tidy data, each row represents a single observation, and the observations are grouped together into cases based on the value of a variable (for these data, the `ID` variable).
 
-* The STARS data are currently in <select class='webex-solveme' data-answer='["wide"]'> <option></option> <option>wide</option> <option>tidy</option></select> format.
+* The STARS data are currently in <select class='webex-select'><option value='blank'></option><option value='answer'>wide</option><option value=''>tidy</option></select> format.
 
 Before we calculate means, you need to use `pivot_longer()` to restructure the STARS data into the appropriate "tidy" format; i.e., so that it looks like the table below.
 
@@ -100,7 +100,7 @@ descriptives <- joined %>%
 <p class="caption">(\#fig:scatter)Scatteplot of mean anxiety and attendance</p>
 </div>
 
-* According to the scatterplot, <select class='webex-solveme' data-answer='["as anxiety increases, engagement decreases"]'> <option></option> <option>there is no apparent relationship</option> <option>as anxiety increases, engagement decreases</option> <option>as anxiety increases, engagement increases</option></select>
+* According to the scatterplot, <select class='webex-select'><option value='blank'></option><option value=''>there is no apparent relationship</option><option value='answer'>as anxiety increases, engagement decreases</option><option value=''>as anxiety increases, engagement increases</option></select>
 
 
 ## Activity 7: Run the regression {#regression-a7}
@@ -122,7 +122,7 @@ Answer the following questions about the model. You may wish to refer to the lec
 2. To three decimal places, if the GLM for this model is $Y_i = \beta_0 + \beta_1 X_i + e_i$, then $\beta_1$ is <input class='webex-solveme nospaces' size='6' data-answer='["-2.173"]'/>
 3. To three decimal places, for each unit increase in anxiety, `n_weeks` decreases by <input class='webex-solveme nospaces' size='5' data-answer='["2.173"]'/>
 4. To two decimal places, what is the overall F-ratio of the model? <input class='webex-solveme nospaces' size='5' data-answer='["11.99"]'/>
-5. Is the overall model significant? <select class='webex-solveme' data-answer='["Yes"]'> <option></option> <option>Yes</option> <option>No</option></select>
+5. Is the overall model significant? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 6. What proportion of the variance does the model explain? <input class='webex-solveme nospaces' size='5' data-answer='["23.39"]'/>
 
 
@@ -264,7 +264,7 @@ pwr.f2.test(u = 1, v = 35, f2 = NULL, sig.level = .05, power = .8)
 ```
 
 * Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? <input class='webex-solveme nospaces' size='0.22' data-answer='[".22"]'/>  
-* According to Cohen's guidelines, this would be a <select class='webex-solveme' data-answer='["Medium"]'> <option></option> <option>Small</option> <option>Medium</option> <option>Large</option></select> effect.
+* According to Cohen's guidelines, this would be a <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value='answer'>Medium</option><option value=''>Large</option></select> effect.
 
 There is no formula to calculate our observed f^2^, we must do it manually using the formula from the lecture.
 
@@ -273,7 +273,7 @@ There is no formula to calculate our observed f^2^, we must do it manually using
 f2 <- mod_summary$adj.r.squared/(1 - mod_summary$adj.r.squared)
 ```
 
-* Is the observed effect size larger than the minimum effect size we could detect? <select class='webex-solveme' data-answer='["Yes, our study is sufficiently powered"]'> <option></option> <option>Yes, our study is sufficiently powered</option> <option>No, our study is underpowered</option></select>
+* Is the observed effect size larger than the minimum effect size we could detect? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes, our study is sufficiently powered</option><option value=''>No, our study is underpowered</option></select>
 
 ## Activity 10: Write-up {#regression-a10}
 

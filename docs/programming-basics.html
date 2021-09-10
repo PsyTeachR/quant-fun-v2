@@ -73,7 +73,7 @@
 <li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
 <li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
 <li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="additional-resources-1.html"><span class="header-section-number">D</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-and-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
 <li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
 <li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
 <li><a class="" href="license.html">License</a></li>
@@ -350,24 +350,6 @@ Figure 1.4: Clearing the workspace
 Figure 1.5: Global options
 </p>
 </div>
-<div id="r-sessions" class="section level3" number="1.6.1">
-<h3>
-<span class="header-section-number">1.6.1</span> R sessions<a class="anchor" aria-label="anchor" href="#r-sessions"><i class="fas fa-link"></i></a>
-</h3>
-<p>When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new <strong>session</strong>. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.</p>
-</div>
-<div id="activity-6" class="section level3" number="1.6.2">
-<h3>
-<span class="header-section-number">1.6.2</span> Activity 6<a class="anchor" aria-label="anchor" href="#activity-6"><i class="fas fa-link"></i></a>
-</h3>
-<p>Click 'Session - Restart R'.</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:img-session"></span>
-<img src="images/new_session.png" alt="The truth about programming" width="100%"><p class="caption">
-Figure 1.6: The truth about programming
-</p>
-</div>
-</div>
 </div>
 <div id="getting-help" class="section level2" number="1.7">
 <h2>
@@ -384,12 +366,15 @@ Figure 1.6: The truth about programming
 <li>If you get an error message, copy and paste it in to Google - it's very likely someone else has had the same problem. Or trying googling your question in the style of the package name or function name and what you want to do. For example, <strong>arrange data tidyverse</strong> or maybe <strong>sort data in r</strong>
 </li>
 </ul>
-<p>In addition to these course materials and the other <a href="https://psyteachr.github.io/" target="_blank">PsyTeachR books</a>, there are a number of excellent online resources for learning data skills that can serve as quick guides:
-* individual package quickguides found via <code>**Top Menu &gt;&gt; Help &gt;&gt; Cheat Sheets**</code>
-* <a href="http://www.cookbook-r.com/">R Cookbook</a>
-* <a href="https://stackoverflow.com/">StackOverflow</a>
-* <a href="https://r4ds.had.co.nz/">R for Data Science</a>
-* Search or use the <a href="https://twitter.com/search?f=tweets&amp;q=%23rstats&amp;src=typd">#rstats</a> hashtag on Twitter</p>
+<p>In addition to these course materials and the other <a href="https://psyteachr.github.io/" target="_blank">PsyTeachR books</a>, there are a number of excellent online resources for learning data skills that can serve as quick guides:</p>
+<ul>
+<li>individual package quickguides found via <code>**Top Menu &gt;&gt; Help &gt;&gt; Cheat Sheets**</code>
+</li>
+<li><a href="http://www.cookbook-r.com/">R Cookbook</a></li>
+<li><a href="https://stackoverflow.com/">StackOverflow</a></li>
+<li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
+<li>Search or use the <a href="https://twitter.com/search?f=tweets&amp;q=%23rstats&amp;src=typd">#rstats</a> hashtag on Twitter</li>
+</ul>
 </div>
 <div id="debugging-tips" class="section level3" number="1.7.2">
 <h3>
@@ -403,17 +388,34 @@ Figure 1.6: The truth about programming
 <li>Is it definitely an error? Not all red text in R means an error - sometimes it is just giving you a message with information.</li>
 </ul>
 </div>
+<div id="reset-your-r-sessions" class="section level3" number="1.7.3">
+<h3>
+<span class="header-section-number">1.7.3</span> Reset your R sessions<a class="anchor" aria-label="anchor" href="#reset-your-r-sessions"><i class="fas fa-link"></i></a>
+</h3>
+<p>When you open up R and start writing code, loading packages, and creating objects, you're typically doing so in a new <strong>session</strong>. In addition to clearing the workspace, it can sometimes be useful to start a new session. This will happen automatically each time you start R on your computer, although sessions can persist on the server. If you find that your code isn't working and you can't figure out why, it might be worth starting a new session. This will clear the environment and detach all loaded packages - think of it like restarting your phone.</p>
+</div>
+<div id="activity-6" class="section level3" number="1.7.4">
+<h3>
+<span class="header-section-number">1.7.4</span> Activity 6<a class="anchor" aria-label="anchor" href="#activity-6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Click 'Session - Restart R'.</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:img-session"></span>
+<img src="images/new_session.png" alt="The truth about programming" width="100%"><p class="caption">
+Figure 1.6: The truth about programming
+</p>
+</div>
+</div>
 </div>
 <div id="test-yourself" class="section level2" number="1.8">
 <h2>
 <span class="header-section-number">1.8</span> Test yourself<a class="anchor" aria-label="anchor" href="#test-yourself"><i class="fas fa-link"></i></a>
 </h2>
 <p>Throughout the book you will find additional questions like these to help you check your understanding. Some will have blanks to fill in, some will be Multiple Choice, but the answers will be revealed in the chapter. If you are unsure of the answer and can't find the explanation, just ask!</p>
-<p><strong>Question 1.</strong> Why should you never include the code <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> in your analysis scripts? <select class="webex-solveme" data-answer='["You (or someone else) may accidentally install a package update that stops your code working"]'><option></option>
-<option>You should use library() instead</option>
-<option>Packages are already part of Base R</option>
-<option>You (or someone else) may accidentally install a package update that stops your code working</option>
-<option>You already have the latest version of the package</option></select></p>
+<strong>Question 1.</strong> Why should you never include the code <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code> in your analysis scripts?
+<div id="radio_BQYZGFWSYU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value=""><span>You should use library() instead</span></label><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value=""><span>Packages are already part of Base R</span></label><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value="answer"><span>You (or someone else) may accidentally install a package update that stops your code working</span></label><label><input type="radio" autocomplete="off" name="radio_BQYZGFWSYU" value=""><span>You already have the latest version of the package</span></label>
+</div>
 <div class="webex-solution">
 <button>
 Explain This Answer
@@ -424,11 +426,9 @@ Explain This Answer
 <p><strong>Question 2.</strong>What will the following code produce?</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">50</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
-<p><select class="webex-solveme" data-answer='["A dataset with 6 numbers that has a mean of 50 and an SD of 10"]'><option></option>
-<option>A dataset with 10 numbers that has a mean of 6 and an SD of 50</option>
-<option>A dataset with 6 numbers that has a mean of 50 and an SD of 10</option>
-<option>A dataset with 50 numbers that has a mean of 10 and an SD of 6</option>
-<option>A dataset with 50 numbers that has a mean of 10 and an SD of 6</option></select></p>
+<div id="radio_RJYNCPGFRF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value=""><span>A dataset with 10 numbers that has a mean of 6 and an SD of 50</span></label><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value="answer"><span>A dataset with 6 numbers that has a mean of 50 and an SD of 10</span></label><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value=""><span>A dataset with 50 numbers that has a mean of 10 and an SD of 6</span></label><label><input type="radio" autocomplete="off" name="radio_RJYNCPGFRF" value=""><span>A dataset with 50 numbers that has a mean of 10 and an SD of 6</span></label>
+</div>
 <div class="webex-solution">
 <button>
 Explain This Answer
@@ -436,29 +436,29 @@ Explain This Answer
 <p>The default form for <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> is <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm(n, mean, sd)</a></code>. If you need help remembering what each argument of a function does, look up the help documentation by running <code><a href="https://rdrr.io/r/stats/Normal.html">?rnorm</a></code></p>
 </div>
 <p><br><strong>Question 3.</strong> If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use?</p>
-<p><select class="webex-solveme" data-answer='["package::function"]'><option></option>
-<option>package::function</option>
-<option>function::package</option>
-<option>library(package)</option>
-<option>install.packages(package)</option></select></p>
+<div id="radio_IDFPKYTJMC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value="answer"><span>package::function</span></label><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value=""><span>function::package</span></label><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value=""><span>library(package)</span></label><label><input type="radio" autocomplete="off" name="radio_IDFPKYTJMC" value=""><span>install.packages(package)</span></label>
+</div>
 <div class="webex-solution">
 <button>
 Explain This Answer
 </button>
 <p>You should use the form <code>package::function</code>, for example <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select</a></code>. Remember that when you first load your packages R will warn you if any functions have the same name - remember to look out for this!</p>
 </div>
-<p><strong>Question 4.</strong> Which of the following is most likely to be an argument? <select class="webex-solveme" data-answer='["35"]'><option></option>
-<option>35</option>
-<option>read_csv()</option>
-<option>&lt;-</option></select></p>
-<p><strong>Question 5.</strong> An easy way to spot functions is to look for <select class="webex-solveme" data-answer='["brackets"]'><option></option>
-<option>brackets</option>
-<option>numbers</option>
-<option>computers</option></select>.</p>
-<p><strong>Question 6.</strong> The job of <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> is to send the output from the function to a/an <select class="webex-solveme" data-answer='["object"]'><option></option>
-<option>argument</option>
-<option>assignment</option>
-<option>object</option></select>.</p>
+<strong>Question 4.</strong> Which of the following is most likely to be an argument?
+<div id="radio_GDEQKTMFIO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GDEQKTMFIO" value="answer"><span>35</span></label><label><input type="radio" autocomplete="off" name="radio_GDEQKTMFIO" value=""><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_GDEQKTMFIO" value=""><span>&lt;-</span></label>
+</div>
+<strong>Question 5.</strong> An easy way to spot functions is to look for
+<div id="radio_UNUJXJLAOD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UNUJXJLAOD" value="answer"><span>brackets</span></label><label><input type="radio" autocomplete="off" name="radio_UNUJXJLAOD" value=""><span>numbers</span></label><label><input type="radio" autocomplete="off" name="radio_UNUJXJLAOD" value=""><span>computers</span></label>
+</div>
+<p>.</p>
+<strong>Question 6.</strong> The job of <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> is to send the output from the function to a/an
+<div id="radio_ZFVMULLEDL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZFVMULLEDL" value=""><span>argument</span></label><label><input type="radio" autocomplete="off" name="radio_ZFVMULLEDL" value=""><span>assignment</span></label><label><input type="radio" autocomplete="off" name="radio_ZFVMULLEDL" value="answer"><span>object</span></label>
+</div>
+<p>.</p>
 
 </div>
 </div>
@@ -466,15 +466,22 @@ Explain This Answer
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
+  console.log("webex: update total_correct");
+
   if (t = document.getElementById("webex-total_correct")) {
-    t.innerHTML =
-      document.getElementsByClassName("webex-correct").length + " of " +
-      document.getElementsByClassName("webex-solveme").length + " correct";
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
   }
 }
 
 /* webex-solution button toggling function */
 b_func = function() {
+  console.log("webex: toggle hide");
+  
   var cl = this.parentElement.classList;
   if (cl.contains('open')) {
     cl.remove("open");
@@ -485,6 +492,8 @@ b_func = function() {
 
 /* function for checking solveme answers */
 solveme_func = function(e) {
+  console.log("webex: check solveme");
+
   var real_answers = JSON.parse(this.dataset.answer);
   var my_answer = this.value;
   var cl = this.classList;
@@ -528,7 +537,50 @@ solveme_func = function(e) {
   update_total_correct();
 }
 
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
 window.onload = function() {
+  console.log("onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
 
@@ -563,6 +615,18 @@ window.onload = function() {
     /* attach checking function */
     solveme[i].onkeyup = solveme_func;
     solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
   }
 
   update_total_correct();
@@ -616,16 +680,13 @@ $( document ).ready(function() {
 <li><a class="nav-link" href="#looking-after-the-environment"><span class="header-section-number">1.5.2</span> Looking after the environment</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#global-options"><span class="header-section-number">1.6</span> Global options</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#r-sessions"><span class="header-section-number">1.6.1</span> R sessions</a></li>
-<li><a class="nav-link" href="#activity-6"><span class="header-section-number">1.6.2</span> Activity 6</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#global-options"><span class="header-section-number">1.6</span> Global options</a></li>
 <li>
 <a class="nav-link" href="#getting-help"><span class="header-section-number">1.7</span> Getting Help</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#help-and-additional-resources"><span class="header-section-number">1.7.1</span> Help and additional resources</a></li>
 <li><a class="nav-link" href="#debugging-tips"><span class="header-section-number">1.7.2</span> Debugging tips</a></li>
+<li><a class="nav-link" href="#reset-your-r-sessions"><span class="header-section-number">1.7.3</span> Reset your R sessions</a></li>
+<li><a class="nav-link" href="#activity-6"><span class="header-section-number">1.7.4</span> Activity 6</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#test-yourself"><span class="header-section-number">1.8</span> Test yourself</a></li>
