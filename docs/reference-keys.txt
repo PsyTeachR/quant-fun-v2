@@ -71,14 +71,14 @@ fig:img-kitteh
 fig:img-soundimals-hash
 programming-basics
 r-and-rstudio
+installing-r-and-rstudio-on-your-computer
 r-server
-installing-r-on-your-computer
 getting-to-know-r-studio
 console-vs.-scripts
-functions-and-arguments
+writing-code-with-functions-and-arguments
 activity-1
 activity-2
-argument-names
+stating-argument-names
 tab-auto-complete
 packages
 activity-3-install-the-tidyverse-optional
@@ -399,6 +399,6 @@ installing-latex
 updating-packages
 updating-r
 additional-resources
-citing-r-and-rstudio
+citing-r-rstudio
 symbols
 conventions
