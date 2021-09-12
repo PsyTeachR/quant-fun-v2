@@ -1,4 +1,4 @@
-# Citing R and RStudio
+# Citing R and RStudio {#citing-r-rstudio}
 
 How to cite R and RStudio
 
