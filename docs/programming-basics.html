@@ -137,7 +137,10 @@ Figure 1.1: RStudio interface
 <h2>
 <span class="header-section-number">1.3</span> Writing code with functions and arguments<a class="anchor" aria-label="anchor" href="#writing-code-with-functions-and-arguments"><i class="fas fa-link"></i></a>
 </h2>
-<p>Code in R is made up of functions, and arguments that go into the functions, to create outputs. <strong>Functions</strong> in R execute specific tasks and normally take a number of <strong>arguments</strong>. If you're into linguistics you might want to think as these as verbs that require a subject and an object. Another analogy is that of a toaster - a function would be the toaster and the type of bread and the setting would be the arguments, and the output would be your toast.</p>
+<p>Code in R is made up of functions, and arguments that go into the functions, to create outputs. <strong>Functions</strong> in R execute specific tasks and normally take a number of <strong>arguments</strong>. If you're into linguistics you might want to think as these as verbs (function) that require a subject and an object (arguments). Another analogy is that of a toaster - a function would be the toaster and the type of bread and the setting would be the arguments, and the output would be your toast. But a key thing to spot is that functions end in brackets or parentheses, and the arguments go within the parenthesis. They tend to look a bit like this:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">function_name</span><span class="op">(</span>argument1 <span class="op">=</span> <span class="va">value</span>, argument2 <span class="op">=</span> <span class="va">value</span><span class="op">)</span></code></pre></div>
+<p>That would be the layout of a function with two arguments and each argument takes a value. This will make more sense as you read on.</p>
 <p>You will learn to use a lot of functions throughout this book and you can look up all the arguments that a function takes in the help documentation by using the format <code>?function</code>. As you will see, in functions, some arguments are required, and some are optional. Optional arguments will often use what is known as a default setting, value, or option (normally specified in the help documentation) if you do not enter any value. Again, like always leaving your toaster on the same setting - the toaster does the same task each time without you changing it.</p>
 <p>As an example, let’s look at the help documentation for the function <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> - a function which randomly generates a set of numbers from what is known as the <a class="glossary" target="_blank" title="A symmetric distribution of data where values near the centre are most probable." href="https://psyteachr.github.io/glossary/n#normal-distribution">normal distribution</a>.</p>
 <div id="activity-1" class="section level3" number="1.3.1">
@@ -147,10 +150,10 @@ Figure 1.1: RStudio interface
 <ul>
 <li>Open up RStudio (either on the server or on your machine) and in the console window, type the following code:</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="op">?</span><span class="va">rnorm</span></code></pre></div>
 <p>The help documentation for <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> should appear in the bottom right help panel. In the <strong>Usage</strong> section of the help, we see that <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> takes the following form:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n</span>, mean <span class="op">=</span> <span class="fl">0</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p>In the <strong>Arguments</strong> section of the help, there are explanations for each of the arguments:</p>
 <ul>
@@ -170,13 +173,13 @@ Figure 1.1: RStudio interface
 <ul>
 <li>Type the following two lines of code into your console window. Press enter/return at the end of each line to "run" that line. So, type <code><a href="https://rdrr.io/r/base/Random.html">set.seed(12042016)</a></code> and press enter/return and then type <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm(n = 5)</a></code> and press enter/return.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12042016</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></code></pre></div>
 <p>And you will now see these numbers in your console window:</p>
 <pre><code>## [1] -0.2896163 -0.6428964  0.5829221 -0.3286728 -0.5110101</code></pre>
 <p>These numbers have a mean close to 0 (M = -0.238) and an SD close to 1 (SD = 0.48) - they are not exact because you only sampled a very small set and that sampling is random. But now we can play with the function and let's change the additional arguments to produce a different set of numbers. This time we will say we want 5 numbers again (<code>n = 5</code>) but we want our mean closer to 10 (<code>mean = 10</code>) and our standard deviation closer to 2 (<code>sd = 2</code>). We would do that as follows and you see the output numbers below.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">12042016</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span>, mean <span class="op">=</span> <span class="fl">10</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1]  9.420767  8.714207 11.165844  9.342654  8.977980</code></pre>
@@ -195,11 +198,11 @@ If you're looking up examples of code online, you may often see code that starts
 <span class="header-section-number">1.3.3</span> Stating argument names<a class="anchor" aria-label="anchor" href="#stating-argument-names"><i class="fas fa-link"></i></a>
 </h3>
 <p>In the above examples, we have written out the argument names in our code (for example, we wrote <code>n = 5</code>, <code>mean = 10</code>, <code>sd = 2</code>), however, this is not strictly necessary. The following two lines of code would produce very similar outputs with the same number of values and similar means and standard deviations - although each time you run <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> it will produce a slightly different set of numbers, because it's random.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">6</span>, mean <span class="op">=</span> <span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p>The main thing is that both lines of code would still work - the code knows what to do with the numbers. Importantly, however, it is key to realise that the code is following a set order of arguments - <code>n</code> then <code>mean</code> then <code>sd</code>. If you do not write out the argument names the code will use the default order of arguments: for <code>rnorm</code> it will assume that the first number you enter is <code>n</code>, the second number is <code>mean</code> and the third number is <code>sd</code>. So you can write the arguments names or not, but it is important to know the default order if you choose not to write the argument names. If however you write out the argument names then you can write the arguments in whatever order you like - the below will still work and produce six numbers with a mean close to 3 and a standard deviation close to 1.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>sd <span class="op">=</span> <span class="fl">1</span>, n <span class="op">=</span> <span class="fl">6</span>, mean <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <p>When you are first learning R, you may find it useful to write out the argument names as it can help you remember and understand what each part of the function is doing. However, as your skills progress you may find it quicker to omit the argument names and you will also see examples of code online that do not use argument names so it is important to be able to understand which argument each bit of code is referring to (or look up the help documentation to check).</p>
 <p>In this course, we will always write out the argument names the first time we use each function, however, in subsequent uses they may be omitted.</p>
@@ -233,7 +236,7 @@ Figure 1.2: Tab auto-complete
 <ul>
 <li>If you are working on your own computer, use the below code to install the tidyverse. If you are using the R server or using the Boyd Orr lab machine then skip this activity.</li>
 </ul>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
 <div class="danger">
 <p>
@@ -251,7 +254,7 @@ If you get an error message that says something like "WARNING: Rtools is require
 <li>Run the below code to load the tidyverse in to your working library.</li>
 <li>Do this activity regardless of whether you are using your own computer or the server.</li>
 </ul>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
 <p>Often when you load packages you get information in your console window. You don't always get a message but often you will. It does also tend to look like an error message at first - it's not. It's just R telling you what it's done.</p>
 <p>Now that we've loaded the <code>tidyverse</code> package we can use any of the functions it contains but remember, you need to run the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function every time you start R.</p>
@@ -272,7 +275,7 @@ To avoid accidentally overwriting a package with a later version, you should <st
 <span class="header-section-number">1.4.4</span> Package conflicts<a class="anchor" aria-label="anchor" href="#conflicts"><i class="fas fa-link"></i></a>
 </h3>
 <p>There are thousands of different R packages and each package has lots and lots of functions. Unfortunately, because packages are developed by different people, sometimes different packages have the same name for different functions. For example, the packages <code>dplyr</code> and <code>MASS</code> both have a function named <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>. <strong>Do not run the below code</strong> but if you did you would see a warning telling you that there is a conflict.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://www.stats.ox.ac.uk/pub/MASS4/">MASS</a></span><span class="op">)</span></code></pre></div>
 <pre><code>## 
@@ -281,7 +284,7 @@ To avoid accidentally overwriting a package with a later version, you should <st
 ## 
 ##     select</code></pre>
 <p>You would see a warning that <strong>The following object is masked from 'package:dplyr': select</strong>. In this case, R is telling you that the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> in the <code>dplyr</code> package is being hidden (or 'masked') by another function with the same name from the <code>MASS</code> package. If you were to try and use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>, R would use the function from the package that was loaded most recently - in this case it would use the function from <code>MASS</code>. This is an issue because you think you are using one function but really you are using another - and they often work differently and you get odd issues in your code that you don't expect. There are various solutions but one simple one, if you already know of the clash, is to specify which package you want to use for a particular function by writing the code in the format <code>package::function</code>, meaning "use the function from the package", for example:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">)</span>
 <span class="fu">MASS</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/MASS/man/lm.ridge.html">select</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>Clashes are inevitable in your learning and when you see one you will probably not spot it at first but you will learn to resolve them quickly.</p>
@@ -299,7 +302,7 @@ To avoid accidentally overwriting a package with a later version, you should <st
 <ul>
 <li>Type the following code into the console window and run each line. You should see that <code>name</code>, <code>age</code>, <code>today</code>, <code>new_year</code>, and <code>data</code> appear in the environment pane.</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"emily"</span>
 <span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">16</span> <span class="op">+</span> <span class="fl">19</span> 
 <span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>
@@ -316,17 +319,17 @@ Figure 1.3: Objects in the environment
 <li>Why don't you try changing the name to your name and the age to your age, and seeing if they update in the environment window.</li>
 </ul>
 <p>Importantly, for what we will learn in future chapters, objects can be involved in calculations and can interact with each other. For example:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">age</span> <span class="op">+</span> <span class="fl">10</span></code></pre></div>
 <pre><code>## [1] 45</code></pre>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new_year</span> <span class="op">-</span> <span class="va">today</span></code></pre></div>
-<pre><code>## Time difference of -254 days</code></pre>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<pre><code>## Time difference of -255 days</code></pre>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 16.71506</code></pre>
 <p>Finally, you can store the result of these operations on objects in a new object as below:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">decade</span> <span class="op">&lt;-</span> <span class="va">age</span> <span class="op">+</span> <span class="fl">10</span></code></pre></div>
 <div class="try">
 <p>
@@ -452,7 +455,7 @@ Explain This Answer
 </div>
 <p><br></p>
 <p><strong>Question 2.</strong>What will the following code produce?</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">50</span>, <span class="fl">10</span><span class="op">)</span></code></pre></div>
 <div id="radio_YZGFWSYURJ" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_YZGFWSYURJ" value=""><span>A dataset with 10 numbers that has a mean of 6 and an SD of 50</span></label><label><input type="radio" autocomplete="off" name="radio_YZGFWSYURJ" value="answer"><span>A dataset with 6 numbers that has a mean of 50 and an SD of 10</span></label><label><input type="radio" autocomplete="off" name="radio_YZGFWSYURJ" value=""><span>A dataset with 50 numbers that has a mean of 10 and an SD of 6</span></label><label><input type="radio" autocomplete="off" name="radio_YZGFWSYURJ" value=""><span>A dataset with 50 numbers that has a mean of 10 and an SD of 6</span></label>
@@ -463,7 +466,8 @@ Explain This Answer
 </button>
 <p>The default form for <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> is <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm(n, mean, sd)</a></code>. If you need help remembering what each argument of a function does, look up the help documentation by running <code><a href="https://rdrr.io/r/stats/Normal.html">?rnorm</a></code></p>
 </div>
-<p><br><strong>Question 3.</strong> If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use?</p>
+<p><br></p>
+<p><strong>Question 3.</strong> If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use?</p>
 <div id="radio_YNCPGFRFID" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value="answer"><span>package::function</span></label><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value=""><span>function::package</span></label><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value=""><span>library(package)</span></label><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value=""><span>install.packages(package)</span></label>
 </div>
@@ -473,20 +477,53 @@ Explain This Answer
 </button>
 <p>You should use the form <code>package::function</code>, for example <code><a href="https://dplyr.tidyverse.org/reference/select.html">dplyr::select</a></code>. Remember that when you first load your packages R will warn you if any functions have the same name - remember to look out for this!</p>
 </div>
-<strong>Question 4.</strong> Which of the following is most likely to be an argument?
+<p><br></p>
+<strong>Question 4.</strong> Which of the following is most likely to be the input to an argument?
 <div id="radio_YTJMCNNGDE" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value="answer"><span>35</span></label><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value=""><span>&lt;-</span></label><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value=""><span>read_csv()</span></label>
 </div>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>read_csv() looks like a function as it has the brackets at the end of it and the &lt;- is the assignment symbol so it is most likely that 35 might be the input to an argument as it is just a value.</p>
+</div>
+<p><br></p>
 <strong>Question 5.</strong> An easy way to spot functions is to look for
 <div id="radio_MFIOHEBJUN" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_MFIOHEBJUN" value="answer"><span>brackets</span></label><label><input type="radio" autocomplete="off" name="radio_MFIOHEBJUN" value=""><span>computers</span></label><label><input type="radio" autocomplete="off" name="radio_MFIOHEBJUN" value=""><span>numbers</span></label>
 </div>
-<p>.</p>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>Remember that functions tend to have brackets or parentheses at the end of their name and the arguments and values go inside the parentheses.</p>
+</div>
+<p><br></p>
 <strong>Question 6.</strong> The job of <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> is to send the output from the function to a/an
 <div id="radio_XJLAODVFZF" class="webex-radiogroup">
 <label><input type="radio" autocomplete="off" name="radio_XJLAODVFZF" value=""><span>argument</span></label><label><input type="radio" autocomplete="off" name="radio_XJLAODVFZF" value=""><span>assignment</span></label><label><input type="radio" autocomplete="off" name="radio_XJLAODVFZF" value="answer"><span>object</span></label>
 </div>
-<p>.</p>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>This is the assignment operator and we use it, <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>, to assign content such as the output of functions to an object.</p>
+</div>
+<p><br></p>
+<strong>Question 7.</strong> Why won't the following code give me 10 values with a mean close to 5 and an sd close to 1: <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm(n = 10, meen = 5, sd = 1)</a></code>?
+<div id="radio_LLEDLMHZXI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value=""><span>b. The order of arguments is not correct</span></label><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value="answer"><span>c. One of the arguments is spelt incorrectly</span></label><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value=""><span>a. The values do not match what I wanted</span></label><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value=""><span>d. The argument names have been included</span></label>
+</div>
+<div class="webex-solution">
+<button>
+Explain This Answer
+</button>
+<p>The answer is c - One of the arguments is spelt incorrectly. If you look closely you will see that the argument <code>mean</code> has been spelt with two e's instead of one e, <code>meen</code>. This will create an error and the code will crash. This is a typical debugging issue in coding and just shows you need to be careful with spelling.</p>
+</div>
+<p><br></p>
+<p><strong>End of Chapter</strong></p>
+<p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
 
 </div>
 </div>
@@ -735,7 +772,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-12.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

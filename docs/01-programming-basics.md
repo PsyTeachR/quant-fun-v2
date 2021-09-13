@@ -43,7 +43,14 @@ When you first open up RStudio you won't see a script like above, there will jus
 
 ## Writing code with functions and arguments
 
-Code in R is made up of functions, and arguments that go into the functions, to create outputs. **Functions** in R execute specific tasks and normally take a number of **arguments**. If you're into linguistics you might want to think as these as verbs that require a subject and an object. Another analogy is that of a toaster - a function would be the toaster and the type of bread and the setting would be the arguments, and the output would be your toast.  
+Code in R is made up of functions, and arguments that go into the functions, to create outputs. **Functions** in R execute specific tasks and normally take a number of **arguments**. If you're into linguistics you might want to think as these as verbs (function) that require a subject and an object (arguments). Another analogy is that of a toaster - a function would be the toaster and the type of bread and the setting would be the arguments, and the output would be your toast. But a key thing to spot is that functions end in brackets or parentheses, and the arguments go within the parenthesis. They tend to look a bit like this:
+
+
+```r
+function_name(argument1 = value, argument2 = value)
+```
+
+That would be the layout of a function with two arguments and each argument takes a value. This will make more sense as you read on.
 
 You will learn to use a lot of functions throughout this book and you can look up all the arguments that a function takes in the help documentation by using the format `?function`. As you will see, in functions, some arguments are required, and some are optional. Optional arguments will often use what is known as a default setting, value, or option (normally specified in the help documentation) if you do not enter any value. Again, like always leaving your toaster on the same setting - the toaster does the same task each time without you changing it.
 
@@ -270,7 +277,7 @@ new_year - today
 ```
 
 ```
-## Time difference of -254 days
+## Time difference of -255 days
 ```
 
 
@@ -377,7 +384,6 @@ Finally, throughout the book you will find additional questions like these to he
  
 
 
-
 <div class='webex-solution'><button>Explain This Answer</button>
 
 Remember, when you run `install.packages()` it will always install the latest version of the package and it will overwrite any older versions of the package you may have installed.
@@ -404,6 +410,7 @@ The default form for `rnorm()` is `rnorm(n, mean, sd)`. If you need help remembe
 </div>
   
 <br>
+
 **Question 3.** If you have two packages that have functions with the same name and you want to specify exactly which package to use, what code would you use? 
 
 <div class='webex-radiogroup' id='radio_YNCPGFRFID'><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value="answer"></input> <span>package::function</span></label><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value=""></input> <span>function::package</span></label><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value=""></input> <span>library(package)</span></label><label><input type="radio" autocomplete="off" name="radio_YNCPGFRFID" value=""></input> <span>install.packages(package)</span></label></div>
@@ -416,15 +423,55 @@ You should use the form `package::function`, for example `dplyr::select`. Rememb
 
 </div>
   
+<br>
 
-**Question 4.** Which of the following is most likely to be an argument? <div class='webex-radiogroup' id='radio_YTJMCNNGDE'><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value="answer"></input> <span>35</span></label><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value=""></input> <span><-</span></label><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value=""></input> <span>read_csv()</span></label></div>
+**Question 4.** Which of the following is most likely to be the input to an argument? <div class='webex-radiogroup' id='radio_YTJMCNNGDE'><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value="answer"></input> <span>35</span></label><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value=""></input> <span><-</span></label><label><input type="radio" autocomplete="off" name="radio_YTJMCNNGDE" value=""></input> <span>read_csv()</span></label></div>
 
+
+
+<div class='webex-solution'><button>Explain This Answer</button>
+
+read_csv() looks like a function as it has the brackets at the end of it and the <- is the assignment symbol so it is most likely that 35 might be the input to an argument as it is just a value.
+
+</div>
+ 
+<br>
 
 **Question 5.** An easy way to spot functions is to look for <div class='webex-radiogroup' id='radio_MFIOHEBJUN'><label><input type="radio" autocomplete="off" name="radio_MFIOHEBJUN" value="answer"></input> <span>brackets</span></label><label><input type="radio" autocomplete="off" name="radio_MFIOHEBJUN" value=""></input> <span>computers</span></label><label><input type="radio" autocomplete="off" name="radio_MFIOHEBJUN" value=""></input> <span>numbers</span></label></div>
-.
+
+
+<div class='webex-solution'><button>Explain This Answer</button>
+
+Remember that functions tend to have brackets or parentheses at the end of their name and the arguments and values go inside the parentheses.
+
+</div>
+ 
+<br>
 
 **Question 6.** The job of `<-` is to send the output from the function to a/an <div class='webex-radiogroup' id='radio_XJLAODVFZF'><label><input type="radio" autocomplete="off" name="radio_XJLAODVFZF" value=""></input> <span>argument</span></label><label><input type="radio" autocomplete="off" name="radio_XJLAODVFZF" value=""></input> <span>assignment</span></label><label><input type="radio" autocomplete="off" name="radio_XJLAODVFZF" value="answer"></input> <span>object</span></label></div>
-.
 
 
 
+<div class='webex-solution'><button>Explain This Answer</button>
+
+This is the assignment operator and we use it, `<-`, to assign content such as the output of functions to an object.
+
+</div>
+ 
+<br>
+
+**Question 7.** Why won't the following code give me 10 values with a mean close to 5 and an sd close to 1: `rnorm(n = 10, meen = 5, sd = 1)`? <div class='webex-radiogroup' id='radio_LLEDLMHZXI'><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value=""></input> <span>b. The order of arguments is not correct</span></label><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value="answer"></input> <span>c. One of the arguments is spelt incorrectly</span></label><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value=""></input> <span>a. The values do not match what I wanted</span></label><label><input type="radio" autocomplete="off" name="radio_LLEDLMHZXI" value=""></input> <span>d. The argument names have been included</span></label></div>
+
+
+
+<div class='webex-solution'><button>Explain This Answer</button>
+
+The answer is c - One of the arguments is spelt incorrectly. If you look closely you will see that the argument `mean` has been spelt with two e's instead of one e, `meen`. This will create an error and the code will crash. This is a typical debugging issue in coding and just shows you need to be careful with spelling.
+
+</div>
+ 
+<br>
+
+**End of Chapter**
+
+That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!
