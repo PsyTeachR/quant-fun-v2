@@ -1,4 +1,4 @@
-# Loading data
+# Starting with data
 
 Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research process such as experimental design, ethics, data management and visualisation. 
 
@@ -12,7 +12,7 @@ As part of your skill development, it is important that you work with data so th
 
 In this chapter you will learn how to load the packages required to work with the data. You'll then load the data into R Studio before getting it organised into a sensible format that relates to our research question. If you can't remember what packages are, go back and revise Programming Basics.
 
-## Activity 1: Set-up Loading Data {#ld-a1}
+### Activity 1: Set-up Loading Data {#ld-a1}
 
 Before we begin working with the data we need to do some set-up. If you need help with any of these steps, you should refer to Intro to R and Programming Basics: 
 
@@ -24,7 +24,7 @@ Before we begin working with the data we need to do some set-up. If you need hel
 * Delete the default R Markdown welcome text and insert a new code chunk.  
 * You can use the white space to take any notes that might help you for each activity.
 
-## Activity  2: Load in the package {#ld-a2}
+### Activity  2: Load in the package {#ld-a2}
 
 Today we need to use the `tidyverse` package. You will use this package in almost every single chapter of this course as the functions it contains are those we use for data wrangling, descriptive statistics, and visualisation.
 
@@ -34,7 +34,7 @@ Today we need to use the `tidyverse` package. You will use this package in almos
 library(tidyverse)
 ```
 
-## Open data
+## Loading in Data
 
 For this chapter we are going to be using real data from the following paper:
 
@@ -42,7 +42,7 @@ For this chapter we are going to be using real data from the following paper:
 
 We recommend that you read through this paper and open up the .csv files in order to understand the data better but briefly, the files contains data from two scales, the  Authentic Happiness Inventory (AHI) and the Center for Epidemiological Studies Depression (CES-D) scale, as well as demographic information about participants. 
 
-## Activity 3: Read in data {#ld-a3}
+### Activity 3: Read in data {#ld-a3}
 
 Now we can read in the data. To do this we will use the function `read_csv()` that allows us to read in .csv files. There are also functions that allow you to read in .xlsx files and other formats, however in this course we will only use .csv files.
 
@@ -58,9 +58,11 @@ pinfo <- read_csv("participant-info.csv")
 There is also a function called `read.csv()`. Be very careful NOT to use this function instead of `read_csv()` as they have different ways of naming columns. For the portfolio tasks, unless your results match our exactly you will not get the marks which means you need to be careful to use the right functions.
 ```
 
-## Activity 4: Check yo' data {#ld-a4}
+## Looking at Data
 
 You should now see that the objects `dat` and `pinfo` have appeared in the environment pane. Whenever you read data into R you should always do an initial check to see that your data looks like you expected. There are several ways you can do this, try them all out to see how the results differ.
+
+### Activity 4: Check yo' data {#ld-a4}
 
 * In the environment pane, click on `dat` and `pinfo`. This will open the data to give you a spreadsheet-like view (although you can't edit it like in Excel)  
 * In the environment pane, click the small blue play button to the left of `dat` and `pinfo`. This will show you the structure of the object information including the names of all the variables in that object and what type they are (also see `str(pinfo)`) 
@@ -68,13 +70,15 @@ You should now see that the objects `dat` and `pinfo` have appeared in the envir
 * Use `head(pinfo)`
 * Just type the name of the object you want to view, e.g., `dat`.
 
-## Activity 5: Join the files together {#ld-a5}
+## Joining Data
 
 We have two files, `dat` and `info` but what we really want is a single file that has both the data and the demographic information about the participants. R makes this very easy by using the function `inner_join()`.
 
 Remember to use the help function `?inner_join` if you want more information about how to use a function and to use tab auto-complete to help you write your code.
 
 The below code will create a new object `all_dat` that has the data from both `dat` and `pinfo` and it will use the columns `id` and `intervention` to match the participants' data. 
+
+### Activity 5: Join the files together {#ld-a5}
 
 * Type and run this code and then view the new dataset using one of the methods from Activity 4.
 
@@ -84,7 +88,7 @@ all_dat <- inner_join(x = dat, # the first table you want to join
                       by = c("id", "intervention")) # columns the two tables have in common
 ```
 
-## Activity 6: Pull out variables of interest {#ld-a6}
+## Selecting Data
 
 Our final step is to pull our variables of interest. Very frequently, datasets will have more variables and data than you actually want to use and it can make life easier to create a new object with just the data you need.
 
@@ -92,12 +96,23 @@ In this case, the file contains the responses to each individual question on bot
 
 To do this we use the `select()` function to create a new object named `summarydata`.
 
+### Activity 6: Pull out variables of interest {#ld-a6}
+
+* Type and run the below code and then run `head(summarydata)`. 
+
 ```{r T4}
 summarydata <- select(.data = all_dat, # name of the object to take data from
-                      ahiTotal, cesdTotal, sex, age, educ, income, occasion,elapsed.days) # all the columns you want to keep
+                      ahiTotal, 
+                      cesdTotal, 
+                      sex, 
+                      age, 
+                      educ, 
+                      income, 
+                      occasion,
+                      elapsed.days) # all the columns you want to keep
 ```
 
-* Type and run the above code and then run `head(summarydata)`. If everything has gone to plan it should look something like this:
+If everything has gone to plan it should look something like this:
 
 ```{r, echo = FALSE, results='asis'}
 
@@ -108,7 +123,7 @@ head(summarydata)%>%
 
 Finally, try knitting the file to HTML. And that's it, well done! Remember to save your Markdown in your chapter folder and make a note of any mistakes you made and how you fixed them. You have started on your journey to become a confident and competent member of the open scientific community! 
 
-### Finished! {#ld-fin}
+## Finished! {#ld-fin}
 
 There is no portfolio assessment this week, instead, use the time to get comfortable with what we've covered already and revise the activities and support materials presented so far if needed. If you're feeling comfortable with R, you can work your way through this book at your own pace or push yourself by using the additional resources highlighted in Programming Basics.
 
@@ -122,7 +137,7 @@ If you're using the R server, we strongly recommend that you download a copy of 
 * Have you accidentally deleted any back ticks (```) from the beginning or end of code chunks?
 
 
-## Debugging exercises {#ld-debugex}
+### Debugging exercises {#ld-debugex}
 
 These exercises will produce errors. Try to solve the errors yourself, and then make a note of what the error message was and how you solved it - you might find it helpful to create a new file just for error solving notes. You will find that you make the same errors in R over and over again so whilst this might slow you down initially, it will greatly speed you up in the long-run. 
 

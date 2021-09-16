@@ -1,0 +1,5 @@
+## Customising your environment
+
+Finally, you can customise how RStudio looks to make it feel more like your own personal version. 
+
+* Click `Tools` - `Global Options` - `Apperance`. You can change the default font, font size, and general appearance of R Studio, including using dark mode. Play around with the settings and see which one you prefer - you're going to spend a lot of time with R, it might as well look nice!
