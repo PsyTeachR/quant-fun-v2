@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Intro to R | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="psyTeachR Team">
-<meta name="description" content="There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!  2.1 Activity 1: Create the working directory If you want to load data into R, or...">
+<meta name="description" content="In this chapter we are going to start introducing you to using code to create reproducible research. We will cover things such as setting a working directory, what is a working directory, using R...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Intro to R | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/intro-to-r.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
-<meta property="og:description" content="There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!  2.1 Activity 1: Create the working directory If you want to load data into R, or...">
+<meta property="og:description" content="In this chapter we are going to start introducing you to using code to create reproducible research. We will cover things such as setting a working directory, what is a working directory, using R...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Intro to R | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!  2.1 Activity 1: Create the working directory If you want to load data into R, or...">
+<meta name="twitter:description" content="In this chapter we are going to start introducing you to using code to create reproducible research. We will cover things such as setting a working directory, what is a working directory, using R...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
 <li><a class="" href="foreword.html">Foreword</a></li>
 <li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
 <li><a class="active" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
-<li><a class="" href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></li>
+<li><a class="" href="starting-with-data.html"><span class="header-section-number">3</span> Starting with data</a></li>
 <li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
 <li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
 <li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
@@ -89,46 +89,50 @@
 <h1>
 <span class="header-section-number">2</span> Intro to R<a class="anchor" aria-label="anchor" href="#intro-to-r"><i class="fas fa-link"></i></a>
 </h1>
-<p>There are nine activities in total for this chapter, but don't worry, they are broken down into very small steps!</p>
-<div id="intro-a1" class="section level2" number="2.1">
+<p>In this chapter we are going to start introducing you to using code to create <strong><a class="glossary" target="_blank" title="Research that documents all of the steps between raw data and results in a way that can be verified." href="https://psyteachr.github.io/glossary/r#reproducible-research">reproducible research</a></strong>. We will cover things such as setting a working directory, what is a working directory, using R Markdown, and writing code in <strong><a class="glossary" target="_blank" title="The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code." href="https://psyteachr.github.io/glossary/r#r-markdown">R Markdown</a></strong>. There are eight activities in total for this chapter, but don't worry, they are broken down into very small steps to help you follow along.</p>
+<div id="using-your-working-directory" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.1</span> Activity 1: Create the working directory<a class="anchor" aria-label="anchor" href="#intro-a1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> Using your Working Directory<a class="anchor" aria-label="anchor" href="#using-your-working-directory"><i class="fas fa-link"></i></a>
 </h2>
-<p>If you want to load data into R, or save the output of what you've created (which you almost always will want to do), you first need to tell R where the <strong>working directory</strong> is. All this means is that we tell R where the files we need (such as raw data) are located and where we want to save any files you have created. Think of it just like when you have different subjects, and you have separate folders for each topic e.g. biology, history and so on. When working with R, it's useful to have all the data sets and files you need in one folder.</p>
-<p>We recommend making a new folder called "Research Methods R" with sub-folders for each chapter and saving any data, scripts, and portfolio files for each chapter into these folders. If you're using R on your laptop rather than the server, we suggest that you save your work onto a cloud storage server like OneDrive so that you never lose your work.</p>
-<ul>
-<li>Choose a location for your book work and then create the necessary folders for each chapter.</li>
-</ul>
-<div class="warning">
+<p>Before you starting to work with data in R, and before you can save the output of what you've created (which you almost always will want to do), you first need to tell R where the <strong><a class="glossary" target="_blank" title="The filepath where R is currently loading files from and saving files to." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a></strong> is. What this means is that we tell R where the files we are going to use (such as our raw data) are located, and where we want to save any files you have created. Think of it just like when you have different course modules, and you have separate folders for each topic e.g. biology, history and so on. When working with data, it's useful to have all the data sets and files you need nicely organised in folders.</p>
+<p>We would highly recommend making a new folder for this course, maybe called "PsychResearchMethods", "ResearchMethodsLabs", or "FundamentalsOfQuantAnalysis" and then add sub-folders, inside that folder as you carry out each chapter, saving any data, scripts, and portfolio files for each chapter into these folders. The main thing is that you call the folder something sensible so that you know what it is and where it is. However, see the red warning box below!</p>
+<div class="danger">
 <p>
-Whatever you do, don't call the folder your keep your R work in "R". If you do this, sometimes R has an identity crisis and won't save or load your files properly.
+Whatever you do, don't call the folder your keep your data skills work in "R". If you do this, sometimes R has an identity crisis and won't save or load your files properly. It can also really damage your setup of R and lead you to having to reinstall everthing. The reason being is that, remembering packages from the first chapter, R tends to save all the packages in a folder called R. If there is another folder called R then it gets confused and stops working properly. You can of course have a folder called "my_Rwork" but just not "R" by itself.
 </p>
 </div>
-</div>
-<div id="intro-a1b" class="section level2" number="2.2">
-<h2>
-<span class="header-section-number">2.2</span> Activity 1b: Upload data files to the server<a class="anchor" aria-label="anchor" href="#intro-a1b"><i class="fas fa-link"></i></a>
-</h2>
-<p>The main disadvantage to using the R server is that you will need to upload and download any files you are working on to and from the server (if you are using a local installation on your laptop you can skip this step).</p>
+<p><strong>Top tip 1:</strong> If you're using R on your laptop rather than the server, it can also be a good idea to save your work onto a cloud storage server like OneDrive so that you never lose your work. Particularly if the work relates to assignments. Just like your written work, you wouldn't want to lose your coding work!</p>
+<p><strong>Top tip 2:</strong> Coding is every so slightly easier when file names and folder names do not have spaces in them. We would suggest folder names like "PsychResearchMethods" instead of "Psych Research Methods".</p>
+<div id="intro-a1" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Activity 1: Create your a folder for all your work<a class="anchor" aria-label="anchor" href="#intro-a1"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
-<li>Log on to the <a href="https://rstudio.psy.gla.ac.uk/">R server</a>
-</li>
-<li>In the file pane click <code>New folder</code> and create the same structure you created on your computer.</li>
+<li>Choose a location for the work and assignments you will do for this module and then create a folder and the necessary sub-folders for each chapter. These will be blank for now but we will add to them over the semester.</li>
 </ul>
-<p>Going forward throughout this book, you can either download files to your local computer or, if you're using the server, you'll do an extra step where you also upload them to the sever. We're not going to use any data files in this session but let's try an example to make it clear how you get the data files on to the server.</p>
+</div>
+<div id="intro-a1b" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> Activity 1b: Upload data files to the server<a class="anchor" aria-label="anchor" href="#intro-a1b"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Note:</strong> This activity (activity 1b) is only for those using the University of Glasgow <strong>R Server</strong> - if you are using a local installation on your own device you will not need to do this activity and skip down to <span id="intro-a2">Activity 2</span>.</p>
+<p>The main disadvantage to using the R server is that you will need create folders on the server and then upload and download any files you are working on to and from the server. Please be aware that <strong>there is no link between your computer and the R server</strong>. If you change files on the server, they won't appear on your computer until you download them from the server, and you need to be very careful when you submit your assessment files that you're submitting the right file. This is the main reason we recommend installing R on your computer if you can.</p>
+<p>Going forward throughout this book, if you're using the server, you'll do an extra step where you also upload them to the sever. We're not going to use any data files in this session but let's try an example to make it clear how you get the data files on to the server.</p>
 <ul>
-<li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv"><code>participant-info.csv</code></a> into the chapter folder on your computer. If you are working on the server, you will need to uploaded the files to the server as well.<br>
-</li>
-<li>Click <code>Upload</code> then <code>Browse</code>and choose the folder for the chapter you're working on.</li>
+<li>Log on to the <strong>R server</strong> using the link on the main course Moodle page.</li>
+<li>In the file pane click <code>New folder</code> and create the same structure you created on your computer.</li>
+<li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv"><code>participant-info.csv</code></a> into the chapter folder on your computer. To download a file from this book, right click the link and select "save link as". Make sure that both files are saved as ".csv". Do not open them on your machine as often other software like Excel can change setting and ruin the files.</li>
+<li>Now that the files are stored on your computer, go to RStudio on the server and click <code>Upload</code> then <code>Browse</code>and choose the folder for the chapter you're working on.</li>
 <li>Click <code>Choose file</code> and go and find the data you want to upload.</li>
 </ul>
-<p>Please be aware that <strong>there is no link between your computer and the R server</strong>. If you change files on the server, they won't magically appear on your computer and you need to be very careful when you submit your assessment files that you're submitting the right thing (last year we had lots of student submit blank files). This is the main reason we recommend installing R on your computer if you can.</p>
 </div>
-<div id="intro-a2" class="section level2" number="2.3">
-<h2>
-<span class="header-section-number">2.3</span> Activity 2: Set the working directory<a class="anchor" aria-label="anchor" href="#intro-a2"><i class="fas fa-link"></i></a>
-</h2>
-<p>Once you have created your folders you can set the working directory by clicking <code>Session</code> -&gt; <code>Set Working Directory</code> -&gt; <code>Choose Directory</code> and then select the relevant folder for this chapter as your working directory.</p>
+<div id="intro-a2" class="section level3" number="2.1.3">
+<h3>
+<span class="header-section-number">2.1.3</span> Activity 2: Set the working directory<a class="anchor" aria-label="anchor" href="#intro-a2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Ok great, now that we have a folder structure that will keep everything nice and ordered you need to <strong>set the working directory</strong> by clicking on the top menu, <strong><code>Session &gt;&gt; Set Working Directory &gt;&gt; Choose Directory</code></strong> and then select the relevant folder for this chapter as your working directory.</p>
+<p><strong>Note:</strong> Setting the working directory means that you are telling R where the data is that you want to work on. It is also where you are going to save files and output. More often than not, when learning, the most common error is because people have not set the working directory and R does not know where the data is!</p>
+<p><strong>Top tip:</strong> One of the first things we always do when we open R in RStudio is set the working directory to where our data is.</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-working-dir"></span>
 <img src="images/working-dir.png" alt="Setting the working directory" width="100%"><p class="caption">
@@ -136,25 +140,37 @@ Figure 2.1: Setting the working directory
 </p>
 </div>
 </div>
-<div id="r-markdown-for-r-book-work-and-portfolio-assignments" class="section level2" number="2.4">
-<h2>
-<span class="header-section-number">2.4</span> R Markdown for R book work and portfolio assignments<a class="anchor" aria-label="anchor" href="#r-markdown-for-r-book-work-and-portfolio-assignments"><i class="fas fa-link"></i></a>
-</h2>
-<p>For the R book work and portfolio assignments you will use a worksheet format called R Markdown (abbreviated as Rmd) which is a great way to create dynamic documents with embedded chunks of code. These documents are self-contained and fully reproducible (if you have the necessary data, you should be able to run someone else's analyses with the click of a button) which makes it very easy to share. This is an important part of your open science training as one of the reasons we are using R Studio is that it enables us to share open and reproducible information. Using these worksheets enables you to keep a record of all the code you write during this course, and when it comes time for the portfolio assignments, we can give you a task you can and then fill in the required code.</p>
-<p>For more information about R Markdown feel free to have a look at their main webpage sometime <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. The key advantage of R Markdown is that it allows you to write code into a document, along with regular text, and then <strong>knit</strong> it using the package <code>knitr</code> to create your document as either a webpage (HTML), a PDF, or Word document (.docx).</p>
 </div>
-<div id="intro-a3" class="section level2" number="2.5">
+<div id="r-markdown-for-data-skills-and-portfolio-assignments" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">2.5</span> Activity 3: Open and save a new R Markdown document<a class="anchor" aria-label="anchor" href="#intro-a3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> R Markdown for data skills and portfolio assignments<a class="anchor" aria-label="anchor" href="#r-markdown-for-data-skills-and-portfolio-assignments"><i class="fas fa-link"></i></a>
 </h2>
-<p>To open a new R Markdown document click the 'new item' icon and then click 'R Markdown'. You will be prompted to give it a title, call it "Intro to R". Also, change the author name to your GUID as this will be good practice for the portfolio assignments. Keep the output format as HTML.</p>
+<p>Ok great, we now have a folder structure we are going to use and we have told R where it is so now let's write some code!</p>
+<p>For the duration of this data skills book and the related assignments you will use a worksheet format called R Markdown (abbreviated as Rmd) which is a great way to create dynamic documents with embedded chunks of code. Remember you saw scripts in Chapter 1? Well R Markdown is like a script but has some excellent features that make it so much better.</p>
+<p>R Markdown documents are self-contained and fully reproducible (if you have the necessary data, you should be able to run someone else's analyses with the click of a button) which makes it very easy to share. This is an important part of your open science training as one of the reasons we teach data skills this way is that it enables us to share open and reproducible information. Using these worksheets enables you to keep a record of all the code you write during this course, and when it comes time for the portfolio assignments, we can give you a task you can and then fill in the required code.</p>
+<p>For more information about R Markdown feel free to have a look at their main webpage sometime <a href="http://rmarkdown.rstudio.com" target="_blank">http://rmarkdown.rstudio.com</a> but for now, the key advantage to know about is that it allows you to write code into a document, along with regular text, and then <strong><a class="glossary" target="_blank" title="To create an HTML, PDF, or Word document from an R Markdown (Rmd) document" href="https://psyteachr.github.io/glossary/k#knit">knit</a></strong> it using the package <code>knitr</code> to create your document as either a webpage (<strong><a class="glossary" target="_blank" title="Hyper-Text Markup Language: A system for semantically tagging structure and information on web pages." href="https://psyteachr.github.io/glossary/h#html">HTML</a></strong>), a PDF, or Word document (.docx). This will become more clear with an example!</p>
+<div id="intro-a3" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> Activity 3: Open and save a new R Markdown document<a class="anchor" aria-label="anchor" href="#intro-a3"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Open a new R Markdown document by clicking the 'new item' icon and then click 'R Markdown' as shown here:</li>
+</ul>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-new-markdown"></span>
 <img src="images/new-markdown.png" alt="Opening a new R Markdown document" width="100%"><p class="caption">
 Figure 2.2: Opening a new R Markdown document
 </p>
 </div>
-<p>Once you've opened a new document be sure to save it by clicking <code>File</code> -&gt; <code>Save as</code>. Name this file "Intro to R" as well. If you've set the working directory correctly, you should now see this file appear in your file viewer pane in the bottom right hand corner like in the example below (your file names and folders will be different).</p>
+<ul>
+<li>You will now be prompted to give it a title so let's call it "Intro to R".</li>
+<li>Also, change the author name to your GUID as this will be good practice for the portfolio assignments. * Leave the output format selected as HTML for now!</li>
+</ul>
+<p>Once you click <strong>OK</strong> this will open a new R Markdown document.</p>
+<ul>
+<li>Save this R Markdown document, by clicking <strong><code>File &gt;&gt; Save as</code></strong> from the top menu, and name this file "Intro to R" as well.</li>
+</ul>
+<p>If you've set the working directory correctly, you should now see this file appear in your file viewer pane in the bottom right hand corner like in the example below (your file names and folders will be different depending on what you called the folders and file).</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-file-dir"></span>
 <img src="images/file-dir.png" alt="New file in working directory" width="100%"><p class="caption">
@@ -162,21 +178,24 @@ Figure 2.3: New file in working directory
 </p>
 </div>
 </div>
-<div id="intro-a4" class="section level2" number="2.6">
-<h2>
-<span class="header-section-number">2.6</span> Activity 4: Create a new code chunk<a class="anchor" aria-label="anchor" href="#intro-a4"><i class="fas fa-link"></i></a>
-</h2>
-<p>When you first open a new R Markdown document you will see a bunch of welcome text that looks like this:</p>
+<div id="intro-a4" class="section level3" number="2.2.2">
+<h3>
+<span class="header-section-number">2.2.2</span> Activity 4: Create a new code chunk<a class="anchor" aria-label="anchor" href="#intro-a4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Great. We now have our R Markdown document so let's start using it to see how we can combine code and text to create an informative document.</p>
+<p>When you first open a new R Markdown document you will see a bunch of default text that looks like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-markdown-default"></span>
 <img src="images/markdown-default.png" alt="New R Markdown text" width="100%"><p class="caption">
 Figure 2.4: New R Markdown text
 </p>
 </div>
-<p>Do the following steps:<br>
-* Delete <strong>everything</strong> below line 7<br>
-* On line 8 type "About me"<br>
-* Click <code>Insert</code> -&gt; <code>R</code></p>
+<p>The default text is just there to give you some examples of what you can do with R Markdown but we are going to show you that as well so do the following:</p>
+<ul>
+<li>Delete <strong>everything</strong> below line 7</li>
+<li>On line 8 type "About me"</li>
+<li>Click <strong><code>Insert &gt;&gt; R</code></strong> from the top menu.</li>
+</ul>
 <p>Your Markdown document should now look something like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-new-chunk"></span>
@@ -184,90 +203,220 @@ Figure 2.4: New R Markdown text
 Figure 2.5: New R chunk
 </p>
 </div>
-<p>What you have created is a <strong>code chunk</strong>. In R Markdown, anything written in the white space is regarded as normal text, and anything written in a grey code chunk is assumed to be code. This makes it easy to combine both text and code in one document.</p>
+<p>What you have created is called a <strong><a class="glossary" target="_blank" title="A section of code in an R Markdown file" href="https://psyteachr.github.io/glossary/c#chunk">code chunk</a></strong>. In R Markdown, anything written outside of a code chunk is assumed to be just normal text, just like you would have in a text editor, and anything written inside the code chunk is assumed to be code. This makes it easy to combine both text and code in one document.</p>
 <div class="warning">
 <p>
-When you create a new code chunk you should notice that the grey box starts and ends with three back ticks ```. One common mistake is to accidentally delete these back ticks. Remember, code chunks are grey and text entry is white - if the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the back ticks.
+When you create a new code chunk you should notice that the grey box starts and ends with three back ticks, followed by the {r}, and then it ends with three back ticks again. This is the structure that creates a code chunk. You could actually just type this structure instead of using the <code>Insert</code> approach but when learning it does help a bit!
+</p>
+<p>
+One common mistake is to accidentally delete these back ticks. A useful thing to notice is that code chunks tend to have a different color background - in the default viewing settings a code chunk is gret and the normal text is white. You can use this to look for mistakes. If the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the backticks.
+</p>
+<p>
+In addition, remember it is backticks (i.e. this `) and not single quotes (i.e. not this ')!
 </p>
 </div>
 </div>
-<div id="intro-a5" class="section level2" number="2.7">
-<h2>
-<span class="header-section-number">2.7</span> Activity 5: Write some code<a class="anchor" aria-label="anchor" href="#intro-a5"><i class="fas fa-link"></i></a>
-</h2>
-<p>Now we're going to use the code examples you read about in Programming Basics to add some simple code to our R Markdown document. In your code chunk write the below code but replace the values of name/age/birthday with your own details). Note that text values and dates need to be contained in quotation marks but numerical values do not. Missing and/or unnecessary quotation marks are a common cause of code not working - remember this!</p>
+<div id="intro-a5" class="section level3" number="2.2.3">
+<h3>
+<span class="header-section-number">2.2.3</span> Activity 5: Write some code<a class="anchor" aria-label="anchor" href="#intro-a5"><i class="fas fa-link"></i></a>
+</h3>
+<p>Awesome! You are doing great and learning more than you think you are!</p>
+<p>Now we're going to use the code examples you read about in Programming Basics to add some code to our R Markdown document.</p>
+<ul>
+<li>In your code chunk write the below code but replace the values of name/age/birthday with your own details). Remember that the four lines of code should all be inside the code chunk!</li>
+</ul>
+<p><strong>Note:</strong> Text and dates need to be contained in quotation marks, e.g. "my name". Numerical values are written without quotation marks, e.g. 45.</p>
+<p><strong>Top tip:</strong> Missing and/or unnecessary quotation marks are a common cause of code not working - remember this!</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Emily"</span> 
 <span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">35</span>
 <span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">next_birthday</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-07-11"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="running-code" class="section level2" number="2.8">
+</div>
+<div id="running-code-in-r-markdown" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">2.8</span> Running code<a class="anchor" aria-label="anchor" href="#running-code"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> Running code in R Markdown<a class="anchor" aria-label="anchor" href="#running-code-in-r-markdown"><i class="fas fa-link"></i></a>
 </h2>
-<p>When you're working in an R Markdown document, there are several ways to run your lines of code.</p>
-<p>First, you can highlight the code you want to run and then click <code>Run</code> -&gt; <code>Run Selected Line(s)</code>, however this is very slow.</p>
+<p>Brilliant! We now have code in our code chunk and now we are going to <strong>run</strong> the code! Running the code just trying to make it work, or seeing if it works! When you're working in an R Markdown document, there are several ways to run your lines of code.</p>
+<ul>
+<li>First, one slow option is you can highlight the code you want to run and then click <strong><code>Run &gt;&gt; Run Selected Line(s)</code></strong>.</li>
+</ul>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-run1"></span>
 <img src="images/run1.png" alt="Slow method of running code" width="100%"><p class="caption">
 Figure 2.6: Slow method of running code
 </p>
 </div>
-<p>Alternatively, you can press the green "play" button at the top-right of the code chunk and this will run <strong>all</strong> lines of code in that chunk.</p>
+<ul>
+<li>Alternatively, you can press the green "play" button at the top-right of the code chunk and this will run <strong>all</strong> lines of code in that chunk.</li>
+</ul>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-run2"></span>
-<img src="images/run2.png" alt="Slightly better method of running code" width="100%"><p class="caption">
-Figure 2.7: Slightly better method of running code
+<img src="images/run2.png" alt="Slightly faster method of running code that runs all lines within the code chunk!" width="100%"><p class="caption">
+Figure 2.7: Slightly faster method of running code that runs all lines within the code chunk!
 </p>
 </div>
-<p>Even better though is to learn some of the keyboard shortcuts for R Studio. To run a single line of code, make sure that the cursor is in the line of code you want to run (it can be anywhere) and press <code>ctrl + enter</code>. If you want to run all of the code in the code chunk, press <code>ctrl + shift + enter</code>. Learn these shortcuts, they will make your life easier!</p>
-</div>
-<div id="intro-a6" class="section level2" number="2.9">
-<h2>
-<span class="header-section-number">2.9</span> Activity 6: Run your code<a class="anchor" aria-label="anchor" href="#intro-a6"><i class="fas fa-link"></i></a>
-</h2>
-<p>Run your code using one of the methods above. You should see the variables <code>name</code>, <code>age</code>, <code>today</code>, and <code>next_birthday</code> appear in the environment pane in the top right corner.</p>
-</div>
-<div id="intro-a7" class="section level2" number="2.10">
-<h2>
-<span class="header-section-number">2.10</span> Activity 7: Inline code<a class="anchor" aria-label="anchor" href="#intro-a7"><i class="fas fa-link"></i></a>
-</h2>
-<p>An incredibly useful feature of R Markdown is that R can insert values into your writing using <strong>inline code</strong>. If you've ever had to copy and paste a value or text from one file in to another, you'll know how easy it can be to make mistakes. Inline code avoids this. It's easier to show you what inline code does rather than to explain it so let's have a go.</p>
-<p>First, copy and paste this text exactly (do not change <em>anything</em>) to the <strong>white space</strong> underneath your code chunk.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="intro-to-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a>My name is <span class="st">`</span><span class="at">r name</span><span class="st">`</span> and I am <span class="st">`</span><span class="at">r age</span><span class="st">`</span> years old. It is <span class="st">`</span><span class="at">r next_birthday - today</span><span class="st">`</span> days until my birthday.</span></code></pre></div>
-</div>
-<div id="intro-a8" class="section level2" number="2.11">
-<h2>
-<span class="header-section-number">2.11</span> Activity 8: Knitting your file<a class="anchor" aria-label="anchor" href="#intro-a8"><i class="fas fa-link"></i></a>
-</h2>
-<p>Nearly finished! As our final step we are going to "knit" our file. This simply means that we're going to compile our code into a document that is more presentable. To do this click <code>Knit</code> -&gt; <code>Knit to HMTL</code>. R Markdown will create a new HTML document and it will automatically save this file in your working directory.</p>
-<p>As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.</p>
-<p><strong>My name is Emily and I am 35 years old. It is -64 days until my birthday.</strong></p>
-<p>We're not going to use this function very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! If you want to push yourself with R, additional functions and features of R Markdown would be a good place to start.</p>
-<p>Before we finish, there are a few final things to note about knitting that will be useful for the portfolio and quantitative project:</p>
+<p>Even better though is to learn some of the keyboard shortcuts below so it becomes more natural and fluid in your typing and makes your learning easier!</p>
 <ul>
-<li>R Markdown will only knit if your code works - this is a good way of checking for the portfolio assignments whether you've written legal code!<br>
-</li>
-<li>You can choose to knit to a Word document rather than HTML. This can be useful for e.g., sharing with others, however, it may lose some functionality and it probably won't look as good so we'd recommend always knitting to HTML.<br>
-</li>
-<li>You can choose to knit to PDF, however, unless you're using the server this requires an LaTex installation and is quite complicated. If you don't already know what LaTex is and how to use it, do not knit to PDF. If you do know how to use LaTex, you don't need us to give you instructions!</li>
+<li>To run a single line of code, make sure that the cursor is in the line of code you want to run and press <code>ctrl + enter</code>.</li>
+<li>If you want to run all of the code in the code chunk, press <code>ctrl + shift + enter</code>.
+<strong>Note:</strong> When using this last method of running lines of code - by positioning the cursor on the line and using <code>ctrl + enter</code> on your keyboard, note that the cursor does not have to be at any specific point of the line, i.e. it does not have to be at the start, middle or the end, it can literally be anywhere.</li>
+</ul>
+<div id="intro-a6" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> Activity 6: Run your code<a class="anchor" aria-label="anchor" href="#intro-a6"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Now run your code using one of the methods above. You should see the variables <code>name</code>, <code>age</code>, <code>today</code>, and <code>next_birthday</code> appear in the environment pane in the top right corner.</li>
+<li>Clear out the <a href="programming-basics.html#look-env">environment using the broom handle approach</a> we saw in Chapter 1 and try a different method to see which works best for you!</li>
+</ul>
+</div>
+<div id="intro-a7" class="section level3" number="2.3.2">
+<h3>
+<span class="header-section-number">2.3.2</span> Activity 7: Inline code<a class="anchor" aria-label="anchor" href="#intro-a7"><i class="fas fa-link"></i></a>
+</h3>
+<p>Superb! Our code works and we know how to run it. But one of the incredible benefits we said about R Markdown is that you can mix text and code. Even better is that you can combined code into a sentence to put specific outputs of your code, like a value, using what is called <strong>inline code</strong>. Think about a time you've had to copy and paste a value or text from one file in to another and you'll know how easy it can be to make mistakes. Inline code avoids this. It's easier to show you what inline code does rather than to explain it so let's have a go.</p>
+<p>First, copy and paste this text exactly (do not change <em>anything</em>) to the underneath and outside your code chunk - this will be the white section under the grey code chunk if you are using default views.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="intro-to-r.html#cb26-1" aria-hidden="true" tabindex="-1"></a>My name is <span class="st">`</span><span class="at">r name</span><span class="st">`</span> and I am <span class="st">`</span><span class="at">r age</span><span class="st">`</span> years old. </span>
+<span id="cb26-2"><a href="intro-to-r.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="intro-to-r.html#cb26-3" aria-hidden="true" tabindex="-1"></a>It is <span class="st">`</span><span class="at">r next_birthday - today</span><span class="st">`</span> days until my birthday.</span></code></pre></div>
+<p>Ok so nothing happened there but that is because we have not done the last magic step - in the next activity!</p>
+</div>
+<div id="intro-a8" class="section level3" number="2.3.3">
+<h3>
+<span class="header-section-number">2.3.3</span> Activity 8: Knitting your file<a class="anchor" aria-label="anchor" href="#intro-a8"><i class="fas fa-link"></i></a>
+</h3>
+<p>As our final step we are going to <strong><a class="glossary" target="_blank" title="To create an HTML, PDF, or Word document from an R Markdown (Rmd) document" href="https://psyteachr.github.io/glossary/k#knit">knit</a></strong> our file. This means that we're going to compile (i.e. turn) our code into a document that is more presentable.
+* From the top menu, click <strong><code>Knit &gt;&gt; Knit to HMTL</code></strong>. R Markdown will now create a new HTML document and it will automatically save this file in your working directory.</p>
+<p>Now let's look at this outputted HTML document and at the sentence we copied in from Activity 7. As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.</p>
+<p><strong>My name is Emily and I am 35 years old. <br><br>It is -67 days until my birthday.</strong></p>
+<p>Pretty amazing isn't it! We're not going to use inline coding very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! The key thing about using inline coding is the structure, i.e. the backtick, followed by the lower case r, then space, then the code, then another backtick. You will get the hang of it as the semester goes on with a little practice.</p>
+<p>There are a few final things to note about knitting that will be useful for going forward with your data skills learning and assignments:</p>
+<ul>
+<li>R Markdown will only knit if your code works - this is a good way of checking for assignments whether you've written functioning code!</li>
+<li>You can choose to knit to a Word document rather than HTML. This can be useful for e.g., sharing with others, however, it may lose some functionality and it probably won't look as good so we'd recommend always knitting to HTML.</li>
+<li>You can choose to knit to PDF, however, unless you're using the server this requires a LaTex installation and is quite complicated. If you don't already know what LaTex is and how to use it, do not knit to PDF. If you do know how to use LaTex, you don't need us to give you instructions!</li>
 <li>R will automatically open the knitted HTML file in the viewer, however, you can also navigate to the folder it is stored in and open the HTML file in your web browser (e.g., Chrome or Firefox).</li>
 </ul>
 </div>
-<div id="intro-a9" class="section level2" number="2.12">
-<h2>
-<span class="header-section-number">2.12</span> Activity 9: Make R your own<a class="anchor" aria-label="anchor" href="#intro-a9"><i class="fas fa-link"></i></a>
-</h2>
-<p>Finally, you can customise how R Studio looks to make it feel more like your own personal version. Click <code>Tools</code> - <code>Global Options</code> - <code>Apperance</code>. You can change the default font, font size, and general appearance of R Studio, including using dark mode. Play around with the settings and see which one you prefer - you're going to spend a lot of time with R, it might as well look nice!</p>
 </div>
-<div id="finished" class="section level2" number="2.13">
+<div id="finished" class="section level2" number="2.4">
 <h2>
-<span class="header-section-number">2.13</span> Finished<a class="anchor" aria-label="anchor" href="#finished"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.4</span> Finished<a class="anchor" aria-label="anchor" href="#finished"><i class="fas fa-link"></i></a>
 </h2>
 <p>And you're done! On your very first time using R you've not only written functioning code but you've written a reproducible output! You could send someone else your R Markdown document and they would be able to produce exactly the same HTML document as you, just by pressing knit.</p>
-<p>The key thing we want you to take away from this chapter is that R isn't scary. It might be very new to a lot of you, but we're going to take you through it step-by-step. You'll be amazed at how quickly you can start producing professional-looking data visualisations and analysis.</p>
-<p>If you have any questions about anything contained in this chapter or in Programming Basics, please use the Research Methods channel on Teams.</p>
+<p>The key thing we want you to take away from this chapter is that the data skills that you are going to learn can be broken down into manageable chunks and that is how we are going to teach you to help you learn them. The skills might be very new to a lot of you, but we're going to take you through it step-by-step. You'll be amazed at how quickly you can start producing professional-looking data visualisations and analysis.</p>
+<p>If you have any questions about anything contained in this chapter or in Programming Basics, please remember to ask us!</p>
+</div>
+<div id="test-yourself-1" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-1"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>One of the key first steps when we open RStudio is to:
+<div id="radio_FQDEIPIVKD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FQDEIPIVKD" value="answer"><span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_FQDEIPIVKD" value=""><span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_FQDEIPIVKD" value=""><span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_FQDEIPIVKD" value=""><span>make a coffee</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain This Answers
+</button>
+<p>One of the most common issues we see is that code doesn't work first time because people have forgotten to set the working directory. The working directory is the file you want to save any files to, or any output, or contains your data. Code needs to know where the data is so we set the working directory as the first step when we open RStudio</p>
+</div>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>When using the default environment color settings for RStudio what color would the background of a code chunk be in R Markdown? <select class="webex-select"><option value="blank"></option>
+<option value="">white</option>
+<option value="">red</option>
+<option value="">green</option>
+<option value="answer">grey</option></select></p></li>
+<li><p>When using the default environment color settings for RStudio what color would the background of normal text be in R Markdown? <select class="webex-select"><option value="blank"></option>
+<option value="answer">white</option>
+<option value="">red</option>
+<option value="">green</option>
+<option value="">grey</option></select></p></li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain These Answers
+</button>
+<p>Assuming you haven't changed any of the settings in RStudio, code chunks will tend to have a grey background and normal text will tend to have a white background. This is a good way to check that you have closed and opened code chunks correctly.</p>
+</div>
+<p><br></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Code chunks are started with:
+<div id="radio_ALIIKUWABO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ALIIKUWABO" value=""><span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_ALIIKUWABO" value="answer"><span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_ALIIKUWABO" value=""><span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_ALIIKUWABO" value=""><span>three single clefs</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain This Answers
+</button>
+<p>Code chunks always take the same general format of three backticks followed by curly parentheses and a lower case r inside the parentheses. Often people mistake these backticks for single quotes but that won't work. If you have set your code chunk correctly, using backticks, the background color will change!</p>
+</div>
+<p><br></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Inline coding is:
+<div id="radio_BRUKUZOLZS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BRUKUZOLZS" value=""><span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_BRUKUZOLZS" value=""><span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_BRUKUZOLZS" value=""><span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_BRUKUZOLZS" value="answer"><span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain This Answers
+</button>
+<p>Inline coding is an incredibly useful approach for merging text and code in a sentence outside of a code chunk. It can be really useful for when you want to add values from your code directly into your text. Copying and pasting can create errors easily so better to code it when you can!</p>
+</div>
+</div>
+<div id="words-from-this-chapter-1" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="43%">
+<col width="56%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="left">definition</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#chunk" class="glossary" target="_blank">chunk</a></td>
+<td align="left">A section of code in an R Markdown file</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/h.html#html" class="glossary" target="_blank">html</a></td>
+<td align="left">Hyper-Text Markup Language: A system for semantically tagging structure and information on web pages.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/k.html#knit" class="glossary" target="_blank">knit</a></td>
+<td align="left">To create an HTML, PDF, or Word document from an R Markdown (Rmd) document</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/r.html#r-markdown" class="glossary" target="_blank">r markdown</a></td>
+<td align="left">The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/r.html#reproducible-research" class="glossary" target="_blank">reproducible research</a></td>
+<td align="left">Research that documents all of the steps between raw data and results in a way that can be verified.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/w.html#working-directory" class="glossary" target="_blank">working directory</a></td>
+<td align="left">The filepath where R is currently loading files from and saving files to.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>End of Chapter</strong></p>
+<p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
 
 </div>
 </div>
@@ -453,24 +602,35 @@ $( document ).ready(function() {
 });
 </script><div class="chapter-nav">
 <div class="prev"><a href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></div>
-<div class="next"><a href="loading-data.html"><span class="header-section-number">3</span> Loading data</a></div>
+<div class="next"><a href="starting-with-data.html"><span class="header-section-number">3</span> Starting with data</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#intro-to-r"><span class="header-section-number">2</span> Intro to R</a></li>
-<li><a class="nav-link" href="#intro-a1"><span class="header-section-number">2.1</span> Activity 1: Create the working directory</a></li>
-<li><a class="nav-link" href="#intro-a1b"><span class="header-section-number">2.2</span> Activity 1b: Upload data files to the server</a></li>
-<li><a class="nav-link" href="#intro-a2"><span class="header-section-number">2.3</span> Activity 2: Set the working directory</a></li>
-<li><a class="nav-link" href="#r-markdown-for-r-book-work-and-portfolio-assignments"><span class="header-section-number">2.4</span> R Markdown for R book work and portfolio assignments</a></li>
-<li><a class="nav-link" href="#intro-a3"><span class="header-section-number">2.5</span> Activity 3: Open and save a new R Markdown document</a></li>
-<li><a class="nav-link" href="#intro-a4"><span class="header-section-number">2.6</span> Activity 4: Create a new code chunk</a></li>
-<li><a class="nav-link" href="#intro-a5"><span class="header-section-number">2.7</span> Activity 5: Write some code</a></li>
-<li><a class="nav-link" href="#running-code"><span class="header-section-number">2.8</span> Running code</a></li>
-<li><a class="nav-link" href="#intro-a6"><span class="header-section-number">2.9</span> Activity 6: Run your code</a></li>
-<li><a class="nav-link" href="#intro-a7"><span class="header-section-number">2.10</span> Activity 7: Inline code</a></li>
-<li><a class="nav-link" href="#intro-a8"><span class="header-section-number">2.11</span> Activity 8: Knitting your file</a></li>
-<li><a class="nav-link" href="#intro-a9"><span class="header-section-number">2.12</span> Activity 9: Make R your own</a></li>
-<li><a class="nav-link" href="#finished"><span class="header-section-number">2.13</span> Finished</a></li>
+<li>
+<a class="nav-link" href="#using-your-working-directory"><span class="header-section-number">2.1</span> Using your Working Directory</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#intro-a1"><span class="header-section-number">2.1.1</span> Activity 1: Create your a folder for all your work</a></li>
+<li><a class="nav-link" href="#intro-a1b"><span class="header-section-number">2.1.2</span> Activity 1b: Upload data files to the server</a></li>
+<li><a class="nav-link" href="#intro-a2"><span class="header-section-number">2.1.3</span> Activity 2: Set the working directory</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#r-markdown-for-data-skills-and-portfolio-assignments"><span class="header-section-number">2.2</span> R Markdown for data skills and portfolio assignments</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#intro-a3"><span class="header-section-number">2.2.1</span> Activity 3: Open and save a new R Markdown document</a></li>
+<li><a class="nav-link" href="#intro-a4"><span class="header-section-number">2.2.2</span> Activity 4: Create a new code chunk</a></li>
+<li><a class="nav-link" href="#intro-a5"><span class="header-section-number">2.2.3</span> Activity 5: Write some code</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#running-code-in-r-markdown"><span class="header-section-number">2.3</span> Running code in R Markdown</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#intro-a6"><span class="header-section-number">2.3.1</span> Activity 6: Run your code</a></li>
+<li><a class="nav-link" href="#intro-a7"><span class="header-section-number">2.3.2</span> Activity 7: Inline code</a></li>
+<li><a class="nav-link" href="#intro-a8"><span class="header-section-number">2.3.3</span> Activity 8: Knitting your file</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#finished"><span class="header-section-number">2.4</span> Finished</a></li>
+<li><a class="nav-link" href="#test-yourself-1"><span class="header-section-number">2.5</span> Test Yourself</a></li>
+<li><a class="nav-link" href="#words-from-this-chapter-1"><span class="header-section-number">2.6</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">
@@ -488,7 +648,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-13.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

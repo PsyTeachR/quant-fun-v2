@@ -1,0 +1,2 @@
+name,package,action,arguments,example,Chapter
+rnorm(),base,produces a vector of n random values from the normal distribution with a mean of mean and an sd of sd,"n, mean, sd","rnorm(n = 5, mean = 0,<br>sd = 1)",1

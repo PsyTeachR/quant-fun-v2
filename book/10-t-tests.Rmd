@@ -186,8 +186,8 @@ cat("The p-value is .2088 which is more than .05, the cut-off for statistical si
 ```
 `r unhide()`  
 <br>
-
-* Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? `r mcq(c(answer = "Homogeneity of variance", "Homoscedascity", "Nominal data"))`    
+  
+  * Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? `r mcq(c(answer = "Homogeneity of variance", "Homoscedascity", "Nominal data"))`    
 * Why should you always use a Welch test instead of a Student t-test? `r mcq(c("Because it rhymes with squelch which is a funny word", "Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal", answer =   "Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal"))`.
 
 ## Activity 6: Running the t-test {#ttest-a6}
@@ -499,7 +499,7 @@ That was a long chapter but now that you've done all the statistical tests you n
 ### Activity 1 {#ttest-a1sol}
 
 `r hide("Activity 1")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 library("broom")
 library("car")
 library("effectsize")
@@ -515,7 +515,7 @@ evaluators <- read_csv("evaluators.csv")
 ### Activity 2 {#ttest-a2sol}
 
 `r hide("Activity 2")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 evaluators <- evaluators %>%
   mutate(sex_labels = dplyr::recode(sex, "1" = "male", "2" = "female"),
          sex_labels = as.factor(sex_labels),
@@ -530,7 +530,7 @@ summary(evaluators)
 ### Activity 6 {#ttest-a6sol}
 
 `r hide("Activity 6")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 intellect <- filter(ratings2, Category == "intellect")
 hire <- filter(ratings2, Category == "hire")
 impression <- filter(ratings2, Category == "impression")
@@ -543,7 +543,7 @@ impression <- filter(ratings2, Category == "impression")
 ### Activity 8 {#ttest-a8sol}
 
 `r hide("Activity 7")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 intellect_d <- cohens_d(Rating ~ condition, 
                       pooled_sd = FALSE, 
                       data = intellect)
@@ -559,7 +559,7 @@ impression_d <- cohens_d(Rating ~ condition,
 ### Activity 12 {#ttest-a12sol}
 
 `r hide("Activity 12")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 shapiro.test(x = gaze$diff)
 
 qqPlot(gaze$diff)
@@ -572,7 +572,7 @@ qqPlot(gaze$diff)
 ### Activity 13 {#ttest-a13sol}
 
 `r hide("Activity 13")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 ggplot(gaze_tidy, aes(x = time, y = looking)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = time), width = .2, show.legend = FALSE) + 
@@ -586,7 +586,7 @@ ggplot(gaze_tidy, aes(x = time, y = looking)) +
 ### Activity 14 {#ttest-a14sol}
 
 `r hide("Activity 14")`
-```{r eval=FALSE}
+```{r, eval=FALSE}
 gaze_t <- t.test(looking ~ time, paired = TRUE, data = gaze_tidy)
 gaze_test <-  gaze_t %>% tidy()
 gaze_d <- cohens_d(looking ~ time, method = "paired", data = gaze_tidy)

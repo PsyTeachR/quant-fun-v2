@@ -6,7 +6,7 @@ This is a long chapter but we don't expect you to memorise all the information t
 
 ## R and RStudio
 
-In short, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier. Think of it as knowing English and using a plain text editor like NotePad to write a book versus using a word processor like Microsoft Word. You could do it, but it wouldn't look as good and it would be much harder without things like spell-checking and formatting. In a similar way, you can use R without RStudio but we wouldn't recommend it. The key thing to remember is that although you will do all of your work using RStudio for this course, you are actually using two pieces of software which means that you will need both, you need to keep both up-to-date, and you should cite both in any work you do (see the Appendix on [citing R and RStudio](#citing-r-rstudio){target="_blank"} when needed).
+In short, R is a programming language that you will write code in and **<a class='glossary' target='_blank' title='An integrated development environment (IDE) that helps you process R code.' href='https://psyteachr.github.io/glossary/r#rstudio'>RStudio</a>** is an Integrated Development Environment (IDE) which makes working with R easier. Think of it as knowing English and using a plain text editor like NotePad to write a book versus using a word processor like Microsoft Word. You could do it, but it wouldn't look as good and it would be much harder without things like spell-checking and formatting. In a similar way, you can use R without RStudio but we wouldn't recommend it. The key thing to remember is that although you will do all of your work using RStudio for this course, you are actually using two pieces of software which means that you will need both, you need to keep both up-to-date, and you should cite both in any work you do (see the Appendix on [citing R and RStudio](#citing-r-rstudio){target="_blank"} when needed).
 
 But first we need to look at starting up R and RStudio. There are two ways you can use R for Psychology as a student here at the University of Glasgow. First, you can use a online version of R and R through your web browser and we will refer to this as the **R server**. Second, you can download and install R and RStudio for free on your laptop or desktop computer.
 
@@ -16,7 +16,7 @@ The advantage of using the **R server** is that you do not need to install anyth
 
 The advantage to installing R on your computer (what we call a local installation) is that you do not need to be connected to the internet to use it, it is easier to save and manage your files, and there are no problems caused if the server stops working (a rare and short occurrence, but it does happen from time to time). 
 
-With the exception of saving files, both approaches are largely identical in how they work, however, our experience tells us that **if you can install R on your computer, you should**. If your computer cannot install R, or if you have technical problems during the installation you cannot resolve, then you should use the server. So in short we would highly recommend installing R and RStudio on your own machine as soon as you can. However, if you can't install them for some reason, or want to use the R server to get up and running on these first couple of chapters, whilst you install R in your own time, then that is also ok.
+With the exception of saving files, both approaches are largely identical in how they work, however, our experience tells us that **if you can install R on your computer, you should**. If your computer cannot install R, or if you have technical problems during the installation you cannot resolve, then you should use the server. So in short we would highly recommend installing R and RStudio on your own machine as soon as you can. However, if you can't install them for some reason, or want to use the R server to get up and running on these first couple of chapters, whilst you install R in your own time, then that is also OK!
 
 ### Installing R and RStudio on your computer
 
@@ -28,22 +28,22 @@ If you prefer to use the R server for now, you will find the link to the R serve
 
 ## Getting to know R Studio
 
-Whether on the server or your own machine, the first thing to do is to get ourselves orientated in RStudio. You will know in RStudio is that it has a number of windows. RStudio has a console window that you can try out code in (appearing as the bottom left window in Figure \@ref(fig:img-rstudio)), there may be a script editor (top left - not show when you first open RStudio), a window showing functions and objects you have created in the “Environment” tab (top right window in the figure), and a window that shows plots, files packages, and help documentation (bottom right).
+Whether on the server or your own machine, the first thing to do is to get ourselves orientated in RStudio. You will know in RStudio is that it has a number of windows. RStudio has a **<a class='glossary' target='_blank' title='The pane in RStudio where you can type in commands and view output messages.' href='https://psyteachr.github.io/glossary/c#console'>console window</a>** that you can try out code in (appearing as the bottom left window in Figure \@ref(fig:img-rstudio)), there may be a **<a class='glossary' target='_blank' title='A plain-text file that contains commands in a coding language, such as R.' href='https://psyteachr.github.io/glossary/s#script'>script</a>** editor (top left - not show when you first open RStudio), a window showing functions and objects you have created in the **<a class='glossary' target='_blank' title='A data structure that contains R objects such as variables and functions' href='https://psyteachr.github.io/glossary/e#environment'>Environment</a>** tab (top right window in the figure), and a window that shows plots, files packages, and help documentation (bottom right).
 
 <div class="figure" style="text-align: center">
 <img src="images/rstudio.png" alt="RStudio interface" width="100%" />
 <p class="caption">(\#fig:img-rstudio)RStudio interface</p>
 </div>
 
-You will learn more about how to use the features included in RStudio throughout this course, however, we would highly recommend at some point watching [RStudio Essentials 1](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/) from the RStudio team. The video lasts ~30 minutes and gives a tour of the main parts of R Studio. 
+You will learn more about how to use the features included in RStudio throughout this course, however, we would highly recommend at some point watching [RStudio Essentials 1](https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/) from the RStudio team. The video lasts ~30 minutes and gives a tour of the main parts of RStudio. 
 
 ### Console vs. scripts
 
-When you first open up RStudio you won't see a script like above, there will just be a single pane on the left, which is the console window. You can write code in the console window to test it out, but the key thing to note is that you can't save that code anywhere - if you shut down RStudio you lose your code. For this chapter only, we'll use the console window to show you some simple code examples but moving forward we will tell you to work in script files or what are called R Markdown files. We will look at these in later chapters but you can open a new script file a number of ways, the simplest of which is on the top menu of RStudio, selecting **`File >> New File >> R Script`**, and then you'll see the extra pane appear.
+When you first open up RStudio you won't see a script like above, there will just be a single pane on the left, which is the console window. You can write code in the console window to test it out, but the key thing to note is that you can't save that code anywhere - if you shut down RStudio you lose your code. For this chapter only, we'll use the console window to show you some simple code examples but moving forward we will tell you to work in script files or what are called **<a class='glossary' target='_blank' title='The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code.' href='https://psyteachr.github.io/glossary/r#r-markdown'>R Markdown</a>** files. We will look at these in later chapters but you can open a new script file a number of ways, the simplest of which is on the top menu of RStudio, selecting **`File >> New File >> R Script`**, and then you'll see the extra pane appear.
 
 ## Writing code with functions and arguments
 
-Code in R is made up of functions, and arguments that go into the functions, to create outputs. **Functions** in R execute specific tasks and normally take a number of **arguments**. If you're into linguistics you might want to think as these as verbs (function) that require a subject and an object (arguments). Another analogy is that of a toaster - a function would be the toaster and the type of bread and the setting would be the arguments, and the output would be your toast. But a key thing to spot is that functions end in brackets or parentheses, and the arguments go within the parenthesis. They tend to look a bit like this:
+Code in R is made up of **<a class='glossary' target='_blank' title='A named section of code that can be reused.' href='https://psyteachr.github.io/glossary/f#function'>functions</a>**, and **<a class='glossary' target='_blank' title='A variable that provides input to a function.' href='https://psyteachr.github.io/glossary/a#argument'>arguments</a>** that go into the functions, to create outputs. **Functions** in R execute specific tasks and normally take a number of **arguments**. If you're into linguistics you might want to think as these as verbs (function) that require a subject and an object (arguments). Another analogy is that of a toaster - a function would be the toaster and the type of bread and the setting would be the arguments, and the output would be your toast. But a key thing to spot is that functions end in brackets or parentheses, and the arguments go within the parenthesis. They tend to look a bit like this:
 
 
 ```r
@@ -54,7 +54,7 @@ That would be the layout of a function with two arguments and each argument take
 
 You will learn to use a lot of functions throughout this book and you can look up all the arguments that a function takes in the help documentation by using the format `?function`. As you will see, in functions, some arguments are required, and some are optional. Optional arguments will often use what is known as a default setting, value, or option (normally specified in the help documentation) if you do not enter any value. Again, like always leaving your toaster on the same setting - the toaster does the same task each time without you changing it.
 
-As an example, let’s look at the help documentation for the function `rnorm()` - a function which randomly generates a set of numbers from what is known as the <a class='glossary' target='_blank' title='A symmetric distribution of data where values near the centre are most probable.' href='https://psyteachr.github.io/glossary/n#normal-distribution'>normal distribution</a>. 
+As an example, let’s look at the help documentation for the function `rnorm()` - a function which randomly generates a set of numbers from what is known as the **<a class='glossary' target='_blank' title='A symmetric distribution of data where values near the centre are most probable.' href='https://psyteachr.github.io/glossary/n#normal-distribution'>Normal Distribution</a>**. 
 
 ### Activity 1
 
@@ -75,10 +75,10 @@ rnorm(n, mean = 0, sd = 1)
 In the **Arguments** section of the help, there are explanations for each of the arguments: 
 
 * `n` is the number of observations/numbers/data points we want to create, 
-* `mean` is the mean of the observations/numbers/data points we will create 
-* and `sd` is the standard deviation of the observations/numbers/data points. 
+* `mean` is the **<a class='glossary' target='_blank' title='A descriptive statistic that measures the average value of a set of numbers.' href='https://psyteachr.github.io/glossary/m#mean'>mean</a>** of the observations/numbers/data points we will create. 
+* and `sd` is the **<a class='glossary' target='_blank' title='A descriptive statistic that measures how spread out data are relative to the mean.' href='https://psyteachr.github.io/glossary/s#standard-deviation'>standard deviation</a>** of the observations/numbers/data points. 
 
-In the **Details** section of the help it notes that if no values are entered for `mean` and `sd` it will use a default of 0 for the mean and 1 for the standard deviation. So these are the values the function will use for its arguments of `mean` and `sd` if you don't state any. However, because there is no default value for `n`, this means that you must state a value for the arguments `n`, otherwise the code won't run.
+In the **Details** section of the help it notes that if no values are entered for `mean` and `sd` it will use a default of 0 for the mean and 1 for the standard deviation. So these are the values the function will use for its arguments of `mean` and `sd` if you don't state any. However, because there is no **<a class='glossary' target='_blank' title='A value that a function uses for an argument if it is skipped.' href='https://psyteachr.github.io/glossary/d#default-value'>default value</a>** for `n`, this means that you must state a value for the arguments `n`, otherwise the code won't run.
 
 That might sound a little bit confusing so let's try an example. Still using `rnorm()` let's set the required argument `n` to ask R to produce 5 random numbers. 
 
@@ -145,7 +145,7 @@ In this course, we will always write out the argument names the first time we us
 
 ### Tab auto-complete
 
-When writing code, one very useful feature of RStudio is the tab auto-complete for functions (see Figure \@ref(fig:img-autocomplete)). If you write the name of the function and then press the tab key on your keyboard, RStudio will show you the arguments that function takes along with a brief description. If you press enter on the argument name it will fill in the name for you, just like auto-complete on your phone. You can also use the tab button when writing a function name to autocomplete that function name or to find functions that start with certain letters - if maybe you can't quite remember how to spell a function for example!
+When writing code, one very useful feature of RStudio is the tab auto-complete for functions (see Figure \@ref(fig:img-autocomplete)). If you write the name of the function and then press the tab key on your keyboard, RStudio will show you the arguments that function takes along with a brief description. If you press enter on the argument name it will fill in the name for you, just like auto-complete on your phone. You can also use the tab button when writing a function name to auto-complete that function name or to find functions that start with certain letters - if maybe you can't quite remember how to spell a function for example!
 
 <div class="figure" style="text-align: center">
 <img src="images/autocomplete.png" alt="Tab auto-complete" width="100%" />
@@ -156,17 +156,17 @@ The auto-complete is incredibly useful when you are first learning R and you sho
 
 ## Base R and packages {#packages}
 
-When you install R you will have access to a range of functions including options for data wrangling and statistical analysis. The functions that are included in the default installation of R are typically referred to as **Base R** and there is a useful cheat sheet that shows many Base R functions [here](https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf).
+When you install R you will have access to a range of functions including options for data wrangling and statistical analysis. The functions that are included in the default installation of R are typically referred to as **<a class='glossary' target='_blank' title='The set of R functions that come with a basic installation of R, before you add external packages' href='https://psyteachr.github.io/glossary/b#base-r'>Base R</a>** and there is a useful cheat sheet that shows many Base R functions [here](https://www.rstudio.com/wp-content/uploads/2016/05/base-r.pdf).
 
-However, the power of R is that it is extendable and open source - put simply, if a function doesn't exist or doesn't work very well, anyone can create a new **package** that contains data and code to allow you to perform new tasks. You may find it useful to think of **Base R** as the default apps that come on your phone and other packages as additional apps - the ones that you really want to use to make the phone your own - that you need to download separately.
+However, the power of R is that it is extendable and open source - put simply, if a function doesn't exist or doesn't work very well, anyone can create a new **<a class='glossary' target='_blank' title='A group of R functions.' href='https://psyteachr.github.io/glossary/p#package'>package</a>** that contains data and code to allow you to perform new tasks. You may find it useful to think of **Base R** as the default apps that come on your phone and other packages as additional apps - the ones that you really want to use to make the phone your own - that you need to download separately.
 
 ### Activity 3: Install the tidyverse (optional)
 
-In order to use a package, you must first install it. The following code installs the package `tidyverse`, a package we will use very frequently in this course.
+In order to use a package, you must first install it. The following code installs the package `tidyverse`, a package we will use very a lot on this course and we will introduce in later chapters.
 
 **PLEASE NOTE: Do not need to do this activity if you are working on the R server or if you are using the computers in a University lab or Boyd Orr Building**. This activity should only be performed on your own device.  
 
-* If you are working on your own computer, use the below code to install the tidyverse. If you are using the R server or using the Boyd Orr lab machine then skip this activity.
+* If you are working on your own computer, use the below code to install the **<a class='glossary' target='_blank' title='A set of R packages that help you create and work with tidy data' href='https://psyteachr.github.io/glossary/t#tidyverse'>tidyverse</a>**. If you are using the R server or using the Boyd Orr lab machine then skip this activity.
 
 
 ```r
@@ -236,7 +236,7 @@ Clashes are inevitable in your learning and when you see one you will probably n
 
 ## Objects
 
-So we have learnt about functions and arguments and earlier we said functions give us outputs. Another name for outputs, or at least specific types of outputs, are **objects**. Objects are the output of functions basically - but really you can create objects without functions as well. A large part of your coding will involve creating and manipulating objects. Objects contain stuff. That stuff can be numbers, words, or the result of functions, operations and analyses. But the first key thing to know about object is how to create them and to give them content. You assign content to an object using `<-` - often called the "left arrow" or the "assignment operator" or stated as "assigned to". Note that we don't use `=`. There is a very large discussion on why objects are assigned content and not equal to content but that is for another time. For now, just remember that we assign (`<-`) content, be it words, numbers, or function output, to objects. Let's try that now.
+So we have learnt about functions and arguments and earlier we said functions give us outputs. Another name for outputs, or at least specific types of outputs, are **<a class='glossary' target='_blank' title='A word that identifies and stores the value of some data for later use.' href='https://psyteachr.github.io/glossary/o#object'>objects</a>**. Objects are the output of functions basically - but really you can create objects without functions as well. A large part of your coding will involve creating and manipulating objects. Objects contain stuff. That stuff can be numbers, words, or the result of functions, operations and analyses. But the first key thing to know about object is how to create them and to give them content. You assign content to an object using `<-` - often called the "left arrow" or the **<a class='glossary' target='_blank' title='The symbol <-, which functions like = and assigns the value on the right to the object on the left' href='https://psyteachr.github.io/glossary/a#assignment-operator'>assignment operator</a>** or stated as "assigned to". Note that we don't use `=`. There is a very large discussion on why objects are assigned content and not equal to content but that is for another time. For now, just remember that we assign (`<-`) content, be it words, numbers, or function output, to objects. Let's try that now.
 
 ### Activity 5: Create some objects
 
@@ -277,7 +277,7 @@ new_year - today
 ```
 
 ```
-## Time difference of -255 days
+## Time difference of -258 days
 ```
 
 
@@ -306,7 +306,7 @@ You will constantly be creating objects throughout this course and you will lear
 <p>You may also see objects referred to as 'variables'. There is a difference between the two in programming terms, however, they are used synchronously very frequently.</p>
 </div>
 
-### Looking after the environment
+### Looking after the environment {#look-env}
 
 Now that we are starting to learn about the other windows and in particular the environment window, if you've been writing a lot of code you may find that the environment window (or workspace) has become cluttered with many objects. This can make it difficult to figure out which object you need and therefore you run the risk of using the wrong data frame. If you're working on a new dataset, or if you've tried lots of different code before getting the final version, it is good practice to remember to clear the environment to avoid using the wrong object. You can do this in several way.
 
@@ -471,6 +471,30 @@ The answer is c - One of the arguments is spelt incorrectly. If you look closely
 </div>
  
 <br>
+
+## Words from this Chapter
+
+Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the [PsyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_blank"}. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.
+
+
+|term                                                                                                                     |definition                                                                                                                                                       |
+|:------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|[argument](https://psyteachr.github.io/glossary/a.html#argument){class="glossary" target="_blank"}                       |A variable that provides input to a function.                                                                                                                    |
+|[assignment operator](https://psyteachr.github.io/glossary/a.html#assignment-operator){class="glossary" target="_blank"} |The symbol <-, which functions like = and assigns the value on the right to the object on the left                                                               |
+|[base r](https://psyteachr.github.io/glossary/b.html#base-r){class="glossary" target="_blank"}                           |The set of R functions that come with a basic installation of R, before you add external packages                                                                |
+|[console](https://psyteachr.github.io/glossary/c.html#console){class="glossary" target="_blank"}                         |The pane in RStudio where you can type in commands and view output messages.                                                                                     |
+|[default value](https://psyteachr.github.io/glossary/d.html#default-value){class="glossary" target="_blank"}             |A value that a function uses for an argument if it is skipped.                                                                                                   |
+|[environment](https://psyteachr.github.io/glossary/e.html#environment){class="glossary" target="_blank"}                 |A data structure that contains R objects such as variables and functions                                                                                         |
+|[function](https://psyteachr.github.io/glossary/f.html#function){class="glossary" target="_blank"}                       |A named section of code that can be reused.                                                                                                                      |
+|[mean](https://psyteachr.github.io/glossary/m.html#mean){class="glossary" target="_blank"}                               |A descriptive statistic that measures the average value of a set of numbers.                                                                                     |
+|[normal distribution](https://psyteachr.github.io/glossary/n.html#normal-distribution){class="glossary" target="_blank"} |A symmetric distribution of data where values near the centre are most probable.                                                                                 |
+|[object](https://psyteachr.github.io/glossary/o.html#object){class="glossary" target="_blank"}                           |A word that identifies and stores the value of some data for later use.                                                                                          |
+|[package](https://psyteachr.github.io/glossary/p.html#package){class="glossary" target="_blank"}                         |A group of R functions.                                                                                                                                          |
+|[r markdown](https://psyteachr.github.io/glossary/r.html#r-markdown){class="glossary" target="_blank"}                   |The R-specific version of markdown: a way to specify formatting, such as headers, paragraphs, lists, bolding, and links, as well as code blocks and inline code. |
+|[rstudio](https://psyteachr.github.io/glossary/r.html#rstudio){class="glossary" target="_blank"}                         |An integrated development environment (IDE) that helps you process R code.                                                                                       |
+|[script](https://psyteachr.github.io/glossary/s.html#script){class="glossary" target="_blank"}                           |A plain-text file that contains commands in a coding language, such as R.                                                                                        |
+|[standard deviation](https://psyteachr.github.io/glossary/s.html#standard-deviation){class="glossary" target="_blank"}   |A descriptive statistic that measures how spread out data are relative to the mean.                                                                              |
+|[tidyverse](https://psyteachr.github.io/glossary/t.html#tidyverse){class="glossary" target="_blank"}                     |A set of R packages that help you create and work with tidy data                                                                                                 |
 
 **End of Chapter**
 
