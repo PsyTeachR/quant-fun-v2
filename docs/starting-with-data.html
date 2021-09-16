@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 Starting with data | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="psyTeachR Team">
-<meta name="description" content="Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research...">
+<meta name="description" content="Part of becoming a psychologist is formulating and asking research questions and then gathering data to enable you to answer those questions effectively. In order to do that, it is very important...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Chapter 3 Starting with data | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/starting-with-data.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
-<meta property="og:description" content="Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research...">
+<meta property="og:description" content="Part of becoming a psychologist is formulating and asking research questions and then gathering data to enable you to answer those questions effectively. In order to do that, it is very important...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 Starting with data | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research...">
+<meta name="twitter:description" content="Part of becoming a psychologist is formulating and asking research questions and then gathering data to enable you to answer those questions effectively. In order to do that, it is very important...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -89,68 +89,91 @@
 <h1>
 <span class="header-section-number">3</span> Starting with data<a class="anchor" aria-label="anchor" href="#starting-with-data"><i class="fas fa-link"></i></a>
 </h1>
-<p>Part of becoming a psychologist is asking questions and gathering data to enable you to answer these questions effectively. It is very important that you understand all aspects of the research process such as experimental design, ethics, data management and visualisation.</p>
-<p>In this chapter, you will continue to develop reproducible scripts. This means scripts that completely and transparently perform an analysis from start to finish in a way that yields the same result for different people using the same software on different computers. And transparency is a key value of science, as embodied in the “trust but verify” motto. When you do things reproducibly, others can understand and check your work.</p>
-<p>This benefits science, but there is a selfish reason, too: the most important person who will benefit from a reproducible script is your future self. When you return to an analysis after two weeks of vacation, you will thank your earlier self for doing things in a transparent, reproducible way, as you can easily pick up right where you left off. The topic of open science is a big debate in the scientific community at the moment. Some classic psychological experiments have been found not to be replicable and part of the explanation for this has been a historical lack of transparency about data and analysis methods and this is a topic we're going to cover more in the lectures and in your reading.</p>
-<p>As part of your skill development, it is important that you work with data so that you can become confident and competent in your management and analysis of data. In this course, we will work with real data that has been shared by other researchers.</p>
-<div id="getting-data-ready-to-work-with" class="section level2" number="3.1">
+<p>Part of becoming a psychologist is formulating and asking research questions and then gathering data to enable you to answer those questions effectively. In order to do that, it is very important that you understand all aspects of the research process such as experimental design, ethics, data management and visualisation.</p>
+<p>In this chapter you will continue to develop reproducible scripts. This means you will develop scripts that completely and transparently perform an analysis from start to finish in a way that yields the same result for different people using the same software on different computers. And transparency is a key value of science as embodied in the “trust but verify” motto. When you do things reproducibly, others can understand and check your work. This idea of open science is a big debate in the scientific community at the moment. Some classic psychological experiments have been found not to be <strong><a class="glossary" target="_blank" title="The extent to which the findings of a study can be repeated with new samples from the same population." href="https://psyteachr.github.io/glossary/r#replicability">replicable</a></strong> and part of the explanation for this has been a historical lack of transparency about data and analysis methods. This is a topic we're going to cover more in the lectures and in your reading.</p>
+<p><strong><a class="glossary" target="_blank" title="Research that documents all of the steps between raw data and results in a way that can be verified." href="https://psyteachr.github.io/glossary/r#reproducible-research">Reproducible research</a></strong> benefits science, but there is a selfish reason, too: the most important person who will benefit from a reproducible script is your future self. When you return to an analysis after two weeks of vacation, you will thank your earlier self for doing things in a transparent, reproducible way, as you can easily pick up right where you left off.</p>
+<p>As part of your skill development it is important that you work with data so that you can become confident and competent in your management and analysis of data. In this course, we will work with real data that has been shared by other researchers to show you what real data looks like and to get your used to the issues that arise!</p>
+<div id="getting-ready-to-work-with-data" class="section level2" number="3.1">
 <h2>
-<span class="header-section-number">3.1</span> Getting data ready to work with<a class="anchor" aria-label="anchor" href="#getting-data-ready-to-work-with"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Getting ready to work with data<a class="anchor" aria-label="anchor" href="#getting-ready-to-work-with-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>In this chapter you will learn how to load the packages required to work with the data. You'll then load the data into R Studio before getting it organised into a sensible format that relates to our research question. If you can't remember what packages are, go back and revise Programming Basics.</p>
+<p>In this chapter you will learn how to load the <strong><a class="glossary" target="_blank" title="A group of R functions." href="https://psyteachr.github.io/glossary/p#package">packages</a></strong> required to work with the data. You'll then load the data into RStudio before getting it organised into a format (or structure) that helps us answer our research question. And a top tip to remember is to always think back to what we have done before - for instance, if you can't remember what packages are, go back and revise the <a href="programming-basics.html" target="_blank">Programming Basics</a>.</p>
+<p>Before we begin working with the data we need to do some set-up and get the data into our working directory.</p>
 <div id="ld-a1" class="section level3" number="3.1.1">
 <h3>
-<span class="header-section-number">3.1.1</span> Activity 1: Set-up Loading Data<a class="anchor" aria-label="anchor" href="#ld-a1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1.1</span> Activity 1: Set-up the data, working directory and Rmd file<a class="anchor" aria-label="anchor" href="#ld-a1"><i class="fas fa-link"></i></a>
 </h3>
-<p>Before we begin working with the data we need to do some set-up. If you need help with any of these steps, you should refer to Intro to R and Programming Basics:</p>
 <ul>
-<li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv" download><code>participant-info.csv</code></a> into your chapter folder. If you are working on the server, you will need to upload the files to the server as well.<br>
+<li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv"><code>participant-info.csv</code></a> into the folder on your computer you want to use for this chapter!
+<ul>
+<li>To download a file from this book, right click the link and select "save link as". Make sure that both files are saved as ".csv". Do not open them on your machine as often other software like Excel can change setting and ruin the files and cause you problems. We will look at the data once we load it into R and RStudio.</li>
+<li>If you are working on the server, you will need to upload the files to the server as well.</li>
+</ul>
 </li>
-<li>Open R and ensure the environment is clear.</li>
+<li>Next, open RStudio and ensure the environment is clear.
+<ul>
 <li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
 </li>
-<li>Set the working directory to your chapter folder.<br>
-</li>
-<li>Open a new R Markdown document and save it in your working directory. Call the file "Loading Data".<br>
-</li>
-<li>Delete the default R Markdown welcome text and insert a new code chunk.<br>
-</li>
-<li>You can use the white space to take any notes that might help you for each activity.</li>
 </ul>
+</li>
+<li>Set the working directory to your chapter folder. You might want to refer to <a href="intro-to-r.html#intro-a2" target="_blank">Activity 2 in Chapter 2</a> if you are unsure about this step.</li>
+<li>Now open a new R Markdown document (.Rmd file) and save it in your working directory. Call the file "LoadingData". You can refer to <a href="intro-to-r.html#intro-a3" target="_blank">Activity 3 in Chapter 2</a>
+<ul>
+<li>
+<strong>Note:</strong> Your R Markdown file (<code>LoadingData.Rmd</code>) must be in the same folder as the datafiles or the code we are going to write will not work.</li>
+</ul>
+</li>
+<li>Finally, delete the default R Markdown text and insert a new code chunk. Remember to only delete the text and code that comes below/after line 7.</li>
+</ul>
+<p>We are now ready to begin working with the data. A <strong>top tip</strong> is to use the white space to take any notes that might help you for each activity and to make reminders to yourself about what things do!</p>
 </div>
 <div id="ld-a2" class="section level3" number="3.1.2">
 <h3>
-<span class="header-section-number">3.1.2</span> Activity 2: Load in the package<a class="anchor" aria-label="anchor" href="#ld-a2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1.2</span> Activity 2: Loading a package to our library<a class="anchor" aria-label="anchor" href="#ld-a2"><i class="fas fa-link"></i></a>
 </h3>
-<p>Today we need to use the <code>tidyverse</code> package. You will use this package in almost every single chapter of this course as the functions it contains are those we use for data wrangling, descriptive statistics, and visualisation.</p>
+<p>Today we need to use the <strong><a class="glossary" target="_blank" title="A set of R packages that help you create and work with tidy data" href="https://psyteachr.github.io/glossary/t#tidyverse">tidyverse</a></strong> package. You will use this package in almost every single chapter of this course as the functions it contains are those we use for <strong><a class="glossary" target="_blank" title="The process of preparing data for visualisation and statistical analysis." href="https://psyteachr.github.io/glossary/d#data-wrangling">data wrangling</a></strong>, <strong><a class="glossary" target="_blank" title="Statistics that describe an aspect of data (e.g., mean, median, mode, variance, range)" href="https://psyteachr.github.io/glossary/d#descriptive">descriptive</a></strong> statistics, and visualisation. So let's load that package into our library using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function.</p>
 <ul>
 <li>To load the <code>tidyverse</code> type the following code into your code chunk and then run it.</li>
+<li>Remember that sometimes in the <strong><a class="glossary" target="_blank" title="The pane in RStudio where you can type in commands and view output messages." href="https://psyteachr.github.io/glossary/c#console">console window</a></strong> you will see information about the package you have loaded, but sometimes you won't. You should however see the line of code you have just run repeated in the console window. If you see any red text, be sure to read it as it might be a warning, an error or a message.</li>
 </ul>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="loading-in-data" class="section level2" number="3.2">
+<div id="the-data" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">3.2</span> Loading in Data<a class="anchor" aria-label="anchor" href="#loading-in-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> The data<a class="anchor" aria-label="anchor" href="#the-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>For this chapter we are going to be using real data from the following paper:</p>
 <p><a href="https://openpsychologydata.metajnl.com/articles/10.5334/jopd.35/">Woodworth, R.J., O'Brien-Malone, A., Diamond, M.R. and Schüz, B., 2018. Data from, ‘Web-based Positive Psychology Interventions: A Reexamination of Effectiveness’. Journal of Open Psychology Data, 6(1).</a></p>
-<p>We recommend that you read through this paper and open up the .csv files in order to understand the data better but briefly, the files contains data from two scales, the Authentic Happiness Inventory (AHI) and the Center for Epidemiological Studies Depression (CES-D) scale, as well as demographic information about participants.</p>
+<p>It would be good to read through this paper even briefly, or just the abstract, to give you a sense of what the paper is about and what the data might look like, but in summary the files contain data from two scales as well as demographic information about participants. The two scales are:</p>
+<ul>
+<li>the Authentic Happiness Inventory (AHI),</li>
+<li>and the Center for Epidemiological Studies Depression (CES-D) scale.</li>
+</ul>
 <div id="ld-a3" class="section level3" number="3.2.1">
 <h3>
 <span class="header-section-number">3.2.1</span> Activity 3: Read in data<a class="anchor" aria-label="anchor" href="#ld-a3"><i class="fas fa-link"></i></a>
 </h3>
-<p>Now we can read in the data. To do this we will use the function <code>read_csv()</code> that allows us to read in .csv files. There are also functions that allow you to read in .xlsx files and other formats, however in this course we will only use .csv files.</p>
+<p>Now that we have our data in our folder we need to read in the data - "read" in this sense just means to bring the data into RStudio and store it in an <strong><a class="glossary" target="_blank" title="A word that identifies and stores the value of some data for later use." href="https://psyteachr.github.io/glossary/o#object">object</a></strong> so we can work with it. To do this we will use the function <code>read_csv()</code> that allows us to read in <strong><a class="glossary" target="_blank" title="Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma." href="https://psyteachr.github.io/glossary/c#csv">.csv files</a></strong>. There are also functions that allow you to read in Excel files (e.g. .xlsx) and other formats, however in this course we will only use .csv files as they are not software specific and therefore are better for when looking to practice open science! A .csv file can be read by any basic text editor on nearly all machines.</p>
 <ul>
-<li>First, we will create an object called <code>dat</code> that contains the data in the <code>ahi-cesd.csv</code> file. Then, we will create an object called <code>info</code> that contains the data in the <code>participant-info.csv</code>.</li>
+<li>The code chunk below reads in both datafiles. Type it into your code chunk and run them. Let's look at what they do.</li>
+<li>First, we create an object called <code>dat</code> that contains the data in the <code>ahi-cesd.csv</code> file.</li>
+<li>Next we then create an object called <code>info</code> that contains the data in the <code>participant-info.csv</code>.</li>
+<li>Note how both lines have the same format of <code>object &lt;- function("datafile_name.csv")</code>
+<ul>
+<li>it is imperative that you have the double quotation marks around the datafile name and that the datafile name is spelt correctly and includes the .csv part.</li>
+<li>and remember that <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> is called the <strong><a class="glossary" target="_blank" title="The symbol &lt;-, which functions like = and assigns the value on the right to the object on the left" href="https://psyteachr.github.io/glossary/a#assignment-operator">assignment operator</a></strong> but we can read it as "assigned to". For example, the first line can be read as the data in <code>ahi-cesd.csv</code> is assigned to the object called <code>dat</code>.</li>
+</ul>
+</li>
 </ul>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span> <span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
 <span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"participant-info.csv"</span><span class="op">)</span></code></pre></div>
+<p>If you have done this activity correctly, and the preceding activities, you should now see that the objects <code>dat</code> and <code>pinfo</code> have appeared in the <strong><a class="glossary" target="_blank" title="A data structure that contains R objects such as variables and functions" href="https://psyteachr.github.io/glossary/e#environment">environment</a></strong> pane. If they are not there then you should check the spelling of the filenames and the structure of the code lines as well as maybe the working directory.</p>
 <div class="danger">
 <p>
-There is also a function called <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code>. Be very careful NOT to use this function instead of <code>read_csv()</code> as they have different ways of naming columns. For the portfolio tasks, unless your results match our exactly you will not get the marks which means you need to be careful to use the right functions.
+WATCH OUT! There is also a function called <code><a href="https://rdrr.io/r/utils/read.table.html">read.csv()</a></code>. Be very careful NOT to use this function instead of <code>read_csv()</code> as they have different ways of naming columns. For the activities and the assignments we will always ask and expect you to use <code>read_csv()</code>. This is really a reminder to watch spelling on functions and to be careful to use the right functions.
 </p>
 </div>
 </div>
@@ -159,59 +182,89 @@ There is also a function called <code><a href="https://rdrr.io/r/utils/read.tabl
 <h2>
 <span class="header-section-number">3.3</span> Looking at Data<a class="anchor" aria-label="anchor" href="#looking-at-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>You should now see that the objects <code>dat</code> and <code>pinfo</code> have appeared in the environment pane. Whenever you read data into R you should always do an initial check to see that your data looks like you expected. There are several ways you can do this, try them all out to see how the results differ.</p>
+<p>Great! Now that we have our data read in the first step you should always do is to have an initial check to see what your data looks like. Normally you will have an idea already from the experiment you ran but if you are using someones data you might not, so best to check it out. There are several ways you can look at your data and these are listed in Activity 4 below. Try them all to see how the results differ.</p>
 <div id="ld-a4" class="section level3" number="3.3.1">
 <h3>
-<span class="header-section-number">3.3.1</span> Activity 4: Check yo' data<a class="anchor" aria-label="anchor" href="#ld-a4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.3.1</span> Activity 4: Look at your data<a class="anchor" aria-label="anchor" href="#ld-a4"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>In the environment pane, click on <code>dat</code> and <code>pinfo</code>. This will open the data to give you a spreadsheet-like view (although you can't edit it like in Excel)<br>
+<li>
+<strong>Option 1:</strong> In the environment pane, click on the name of the object you want to look at. For example, click the names <code>dat</code> and <code>pinfo</code>. This will open the data to give you a spreadsheet-like view (although you can't edit it like in Excel)<br>
 </li>
-<li>In the environment pane, click the small blue play button to the left of <code>dat</code> and <code>pinfo</code>. This will show you the structure of the object information including the names of all the variables in that object and what type they are (also see <code><a href="https://rdrr.io/r/utils/str.html">str(pinfo)</a></code>)</li>
-<li>Use <code><a href="https://rdrr.io/r/base/summary.html">summary(pinfo)</a></code>
+<li>
+<strong>Option 2:</strong> In the environment pane, click the small blue play button to the left of <code>dat</code> and <code>pinfo</code>. This will show you the structure of the object information including the names of all the variables in that object and what type they are (also see <code><a href="https://rdrr.io/r/utils/str.html">str(pinfo)</a></code>)</li>
+<li>
+<strong>Option 3:</strong> In the console window, type and run <code><a href="https://rdrr.io/r/utils/str.html">str(pinfo)</a></code> and then <code><a href="https://rdrr.io/r/utils/str.html">str(dat)</a></code>
 </li>
-<li>Use <code><a href="https://rdrr.io/r/utils/head.html">head(pinfo)</a></code>
+<li>
+<strong>Option 4:</strong> Repeat option 3 but this time use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function - e.g. <code><a href="https://rdrr.io/r/base/summary.html">summary(dat)</a></code>
 </li>
-<li>Just type the name of the object you want to view, e.g., <code>dat</code>.</li>
+<li>
+<strong>Option 5:</strong> Repeat option 3 but this time use the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function</li>
+<li>
+<strong>Option 6:</strong> Type the name of the object you want to view in the console window and run it, e.g., type <code>dat</code> in the console window and run it.</li>
 </ul>
+<p>As you can see there are various different ways to get an idea of what your data looks like. Each tells you similar but also different info. We will explore more as we get further into the book but for now just be aware that you can use all of these approaches to see your data. More often than not Option 1 and Option 2 give you the info you need, the quickest.</p>
 </div>
 </div>
 <div id="joining-data" class="section level2" number="3.4">
 <h2>
 <span class="header-section-number">3.4</span> Joining Data<a class="anchor" aria-label="anchor" href="#joining-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>We have two files, <code>dat</code> and <code>info</code> but what we really want is a single file that has both the data and the demographic information about the participants. R makes this very easy by using the function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>.</p>
-<p>Remember to use the help function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">?inner_join</a></code> if you want more information about how to use a function and to use tab auto-complete to help you write your code.</p>
-<p>The below code will create a new object <code>all_dat</code> that has the data from both <code>dat</code> and <code>pinfo</code> and it will use the columns <code>id</code> and <code>intervention</code> to match the participants' data.</p>
+<p>So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, <code>dat</code> and <code>info</code> but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>.</p>
+<ul>
+<li>
+<strong>Top tip:</strong> Remember to use the help function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">?inner_join</a></code> if you want more information about how to use a function and to use tab auto-complete to help you write your code.</li>
+</ul>
 <div id="ld-a5" class="section level3" number="3.4.1">
 <h3>
 <span class="header-section-number">3.4.1</span> Activity 5: Join the files together<a class="anchor" aria-label="anchor" href="#ld-a5"><i class="fas fa-link"></i></a>
 </h3>
+<p>The below code will create a new object, called <code>all_dat</code>, that combines the data from both <code>dat</code> and <code>pinfo</code> using the information in the columns <code>id</code> and <code>intervention</code> to match the participants' data across the two sets of data. This is going to be an <strong><a class="glossary" target="_blank" title="A mutating join that returns all the rows that have a match in the other table." href="https://psyteachr.github.io/glossary/i#inner-join">inner join approach</a></strong> - data will only be kept for a participant if they exist in both datafiles. There are lots of different joins but we will see them as we go further into the book.</p>
 <ul>
-<li>Type and run this code and then view the new dataset using one of the methods from Activity 4.</li>
+<li>Type and run the below code in a new code chunk to inner join the two sets of data.</li>
+<li>Let's see if we can make sense of what is happening
+<ul>
+<li>
+<code>all_dat</code> is the new object that has the data combined</li>
+<li>
+<code>x</code> is the first argument and it should be the first data/object you want to combine</li>
+<li>
+<code>y</code> is the second argument and it should be the second data/object you want to combine</li>
+<li>
+<code>by</code> is the third argument and it lists the names of the columns you want to combine the data by. It uses an additional function <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> to say that there is more than one column to combine by.</li>
+</ul>
+</li>
 </ul>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dat</span>, <span class="co"># the first table you want to join</span>
-                      y <span class="op">=</span> <span class="va">pinfo</span>, <span class="co"># the second table you want to join</span>
-                      by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span><span class="op">)</span> <span class="co"># columns the two tables have in common</span></code></pre></div>
+<code class="sourceCode R"><span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dat</span>, 
+                      y <span class="op">=</span> <span class="va">pinfo</span>, 
+                      by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Once you have run this code you should now see the <code>all_dat</code> in the environment pane. View the new dataset using one of the methods from Activity 4. In fact, try to remember that you should always view any new object or data that you create. Code often can run but that doesn't necessarily mean it is correct. The programme only ever knows what the code says not what you thought you said. Get into the habit of always checking output!</p>
 </div>
 </div>
 <div id="selecting-data" class="section level2" number="3.5">
 <h2>
 <span class="header-section-number">3.5</span> Selecting Data<a class="anchor" aria-label="anchor" href="#selecting-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>Our final step is to pull our variables of interest. Very frequently, datasets will have more variables and data than you actually want to use and it can make life easier to create a new object with just the data you need.</p>
-<p>In this case, the file contains the responses to each individual question on both the AHI scale and the CESD scale as well as the total score (i.e., the sum of all the individual responses). For our analysis, all we care about is the total scores, as well as the demographic information about participants.</p>
-<p>To do this we use the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function to create a new object named <code>summarydata</code>.</p>
+<p>Excellent! We have now combined our data into one big object! However, Very frequently, datasets will have more variables, information, and data than you actually want to use and it can make life easier to create a new object with just the data you need. So, our final step today is to select just some variables of interest!</p>
+<p>In our case, the <code>all_dat</code> contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function to select only the columns we are interested in and store them (i.e. assign them to) a new object called <code>summarydata</code></p>
 <div id="ld-a6" class="section level3" number="3.5.1">
 <h3>
 <span class="header-section-number">3.5.1</span> Activity 6: Pull out variables of interest<a class="anchor" aria-label="anchor" href="#ld-a6"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
-<li>Type and run the below code and then run <code><a href="https://rdrr.io/r/utils/head.html">head(summarydata)</a></code>.</li>
+<li>Type and run the below code in a new code chunk. Let's also have a quick look at the code.
+<ul>
+<li>summarydata is the new object we are creating using the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function</li>
+<li>
+<code>.data</code> is the first argument and it wants to know what object are we going to select columns from. In this instance <code>all_dat</code>.</li>
+<li>next we have a list of columns that we want to keep. Every column must be spelt correctly and must exist in the object you are selecting it from. Makes sense really; otherwise the function wouldn't know what you wanted!</li>
+</ul>
+</li>
 </ul>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">summarydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">all_dat</span>, <span class="co"># name of the object to take data from</span>
+<code class="sourceCode R"><span class="va">summarydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">all_dat</span>, 
                       <span class="va">ahiTotal</span>, 
                       <span class="va">cesdTotal</span>, 
                       <span class="va">sex</span>, 
@@ -219,8 +272,8 @@ There is also a function called <code><a href="https://rdrr.io/r/utils/read.tabl
                       <span class="va">educ</span>, 
                       <span class="va">income</span>, 
                       <span class="va">occasion</span>,
-                      <span class="va">elapsed.days</span><span class="op">)</span> <span class="co"># all the columns you want to keep</span></code></pre></div>
-<p>If everything has gone to plan it should look something like this:</p>
+                      <span class="va">elapsed.days</span><span class="op">)</span></code></pre></div>
+<p>If that has worked correctly you should see <code>summarydata</code> in the environment pane and can run <code><a href="https://rdrr.io/r/utils/head.html">head(summarydata)</a></code> now in the console window to get a view of the output. If you see any red text in the console window it would be worth checking the spelling of the objects and columns you wanted to select. If everything has gone to plan the output should look something like this:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">ahiTotal</th>
@@ -295,20 +348,17 @@ There is also a function called <code><a href="https://rdrr.io/r/utils/read.tabl
 </tr>
 </tbody>
 </table></div>
-<p>Finally, try knitting the file to HTML. And that's it, well done! Remember to save your Markdown in your chapter folder and make a note of any mistakes you made and how you fixed them. You have started on your journey to become a confident and competent member of the open scientific community!</p>
 </div>
 </div>
-<div id="ld-fin" class="section level2" number="3.6">
+<div id="knitting-our-reproducible-code" class="section level2" number="3.6">
 <h2>
-<span class="header-section-number">3.6</span> Finished!<a class="anchor" aria-label="anchor" href="#ld-fin"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.6</span> Knitting our Reproducible code<a class="anchor" aria-label="anchor" href="#knitting-our-reproducible-code"><i class="fas fa-link"></i></a>
 </h2>
-<p>There is no portfolio assessment this week, instead, use the time to get comfortable with what we've covered already and revise the activities and support materials presented so far if needed. If you're feeling comfortable with R, you can work your way through this book at your own pace or push yourself by using the additional resources highlighted in Programming Basics.</p>
-<p>If you're using the R server, we strongly recommend that you download a copy of any files you have been working on so that you have a local back-up.</p>
-</div>
-<div id="ld-debug" class="section level2" number="3.7">
-<h2>
-<span class="header-section-number">3.7</span> Debugging tips<a class="anchor" aria-label="anchor" href="#ld-debug"><i class="fas fa-link"></i></a>
-</h2>
+<p>As we saw in <a href="##intro-a8-a3" target="_blank">Activity 8 in Chapter 2</a> our final step to making a reproducible document is to knit it to HTML! Try knitting your file to HTML now! If all the code is working correctly then you should get an html document showing all your code! If you don't get the output there could be a few issues either relating to your code or to your installation. You can use the below debugging tips to ask yourself some questions about your code. If all the code looks correct be sure to speak to one of the TEAM to see what might be wrong.</p>
+<div id="ld-debug" class="section level3" number="3.6.1">
+<h3>
+<span class="header-section-number">3.6.1</span> Debugging tips<a class="anchor" aria-label="anchor" href="#ld-debug"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>When you downloaded the files did you save the file names <strong>exactly</strong> as they were originally? If you download the file more than once you will find your computer may automatically add a number to the end of the file name. <code>data.csv</code> is not the same as <code>data(1).csv</code>. Pay close attention to names!</li>
 <li>Have you used the <strong>exact</strong> same object names as we did in each activity? Remember, <code>name</code> is different to <code>Name</code>. In order to make sure you can follow along with this book, pay special attention to ensuring you use the same object names as we do.<br>
@@ -317,27 +367,99 @@ There is also a function called <code><a href="https://rdrr.io/r/utils/read.tabl
 </li>
 <li>Have you accidentally deleted any back ticks (```) from the beginning or end of code chunks?</li>
 </ul>
-<div id="ld-debugex" class="section level3" number="3.7.1">
-<h3>
-<span class="header-section-number">3.7.1</span> Debugging exercises<a class="anchor" aria-label="anchor" href="#ld-debugex"><i class="fas fa-link"></i></a>
-</h3>
-<p>These exercises will produce errors. Try to solve the errors yourself, and then make a note of what the error message was and how you solved it - you might find it helpful to create a new file just for error solving notes. You will find that you make the same errors in R over and over again so whilst this might slow you down initially, it will greatly speed you up in the long-run.</p>
-<ol style="list-style-type: decimal">
-<li>Restart the R session (<code>Session - Restart R</code>). This should unload any packages you had loaded and also clear the environment. Make sure that the working directory is set to the right folder and then run the below code:</li>
-</ol>
+</div>
+</div>
+<div id="code-layout" class="section level2" number="3.7">
+<h2>
+<span class="header-section-number">3.7</span> Code Layout<a class="anchor" aria-label="anchor" href="#code-layout"><i class="fas fa-link"></i></a>
+</h2>
+<p>And one very quick point before we end for the day. You may have noticed we wrote code as such:</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dat</span>, 
+                      y <span class="op">=</span> <span class="va">pinfo</span>, 
+                      by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>But we could also have written it as:</p>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">dat</span>, y <span class="op">=</span> <span class="va">pinfo</span>, by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>Both do exactly the same! In a code chunk you can take a new line after a comma (,) and the code nicely idents for you. It can make it easier to read and to debug if the code is nicely presented but it isn't essential!</p>
+</div>
+<div id="ld-fin" class="section level2" number="3.8">
+<h2>
+<span class="header-section-number">3.8</span> Finished!<a class="anchor" aria-label="anchor" href="#ld-fin"><i class="fas fa-link"></i></a>
+</h2>
+<p>And that's it, well done! Remember to save your work in your chapter folder and make a note of any mistakes you made and how you fixed them. You have started on your journey to become a confident and competent member of the open scientific community!</p>
+<p>Now would be a good time to get comfortable with what we've covered already and revise the activities and support materials presented so far if needed. If you're feeling comfortable with you can work your way through this book at your own pace or push yourself by using the additional resources highlighted in Programming Basics. And don't forget to try out the tasks below to check your understanding and knowledge of the skills you are learning!</p>
+<p>Finally, if you're using the R server, we strongly recommend that you download a copy of any files you have been working on and save them on your machine so that you have a local back-up.</p>
+</div>
+<div id="ld-test" class="section level2" number="3.9">
+<h2>
+<span class="header-section-number">3.9</span> Test yourself<a class="anchor" aria-label="anchor" href="#ld-test"><i class="fas fa-link"></i></a>
+</h2>
+<div id="knowledge-questions" class="section level3" number="3.9.1">
+<h3>
+<span class="header-section-number">3.9.1</span> Knowledge Questions<a class="anchor" aria-label="anchor" href="#knowledge-questions"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>When loading in a .csv file, which function should you use?
+<div id="radio_VXKAPTIHTI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""><span>library()</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>Remember, in this course we use <code>read_csv()</code> and it is important that you use this function otherwise you may find that the data does not work as expected.</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>The function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> takes the arguments <code>x</code>, <code>y</code>, <code>by</code>. What does <code>by</code> do?
+<div id="radio_DOSWAGQWOP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>Remember, functions have arguments and the arguments all do something slightly different. In the <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> the <code>by</code> argument says which columns to join by. If you want to join by more than one column you need to put both columns inside the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> function.</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>What does the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> do?
+<div id="radio_NDCVDCKVJJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value=""><span>Keeps only the objects you specify</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain this answer
+</button>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function comes from one of the tidyverse packages - dplyr to be precise. It is the main function we use to keep and remove columns we want or don't want. You will start to remember functions you need as you work more with them. Remember the best approach is to think back to what you did!</p>
+</div>
+</div>
+<div id="ld-debugex" class="section level3" number="3.9.2">
+<h3>
+<span class="header-section-number">3.9.2</span> Debugging exercises<a class="anchor" aria-label="anchor" href="#ld-debugex"><i class="fas fa-link"></i></a>
+</h3>
+<p>One key skill is learning how to fix errors in your code. These exercises below are specifically design to create errors. Ruun each exercise and try to solve the errors yourself before moving on to the next one. Make a note of what the error message was and how you solved it - you might find it helpful to create a new file just for error solving notes. You will find that you often make the same errors in over and over again when running analyses; experts also make tonnes of errors. The difference between a novice and an expert is that when you are first learning, an error might slow you down, but you will greatly speed you up with practice. Don't be put off by errors!</p>
+<ol style="list-style-type: decimal">
+<li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code:</li>
+</ol>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span></code></pre></div>
 <p>This will produce the error <code>could not find function "read_csv"</code>. Once you figure out how to fix this error, make a note of it.</p>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<p>When you restarted the session, you unloaded all the packages you previously had loaded. The function <code>read_csv()</code> is part of the <code>tidyverse</code> package which means that in order for the code to run, you need to run <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> to reload the package so that you can use the function.</p>
+<p>When you restarted the session you unloaded all the packages you previously had loaded - i.e. the <code>tidyverse</code>. The function <code>read_csv()</code> is part of the <code>tidyverse</code> package which means that in order for the code to run you need to run <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code> to reload the package so that you can use the function. Remember that we always need to load packages into our library but we only install them once. Again, think about apps on your phone!</p>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>Make sure that the working directory is set to the right folder and then run the below code:</li>
+<li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code:</li>
 </ol>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd"</span><span class="op">)</span></code></pre></div>
 <p>This will produce the error <code>Error: 'ahi-cesd' does not exist in current working directory</code>. Once you figure out how to fix this error, make a note of it.</p>
@@ -345,12 +467,12 @@ Solution
 <button>
 Solution
 </button>
-<p>When loading data, you need to provide the full file name, including the file extension. In this case, the error was caused by writing <code>ahi-cesd</code> instead of <code>ahi-cesd.csv</code>. As far as R is concerned, these are two completely different files and only one of them exists in the working directory.</p>
+<p>When loading data you need to provide the full file name including the file extension. In this case the error was caused by writing <code>ahi-cesd</code> instead of <code>ahi-cesd.csv</code>. As far as coding goes, these are two completely different files and only one of them exists in the working directory.</p>
 </div>
 <ol start="3" style="list-style-type: decimal">
-<li>Make sure that the working directory is set to the right folder and then run the below code:</li>
+<li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code:</li>
 </ol>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span> <span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
 <span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"participant-info.csv"</span><span class="op">)</span>
@@ -363,42 +485,78 @@ Solution
 <button>
 Solution
 </button>
-<p>If you want to join two tables that have mulitple columns in common, you need to use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> command to list all of the variables. The code above hasn't done this, it's just listed <code>id</code> and <code>intervention</code> without enclosing them with <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>.</p>
+<p>If you want to join two objects that have mulitple columns in common you need to use the <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> command to list all of the columns. The code above hasn't done this, it's just listed <code>id</code> and <code>intervention</code> without enclosing them with <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> so it defaults to using just the first one and ignores the other column. When it does this both objects had an <code>intervention</code> column so it keeps both. The rule is, when joining objects, join them by all common columns!.</p>
 </div>
 </div>
 </div>
-<div id="ld-test" class="section level2" number="3.8">
+<div id="words-from-this-chapter-2" class="section level2" number="3.10">
 <h2>
-<span class="header-section-number">3.8</span> Test yourself<a class="anchor" aria-label="anchor" href="#ld-test"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.10</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-2"><i class="fas fa-link"></i></a>
 </h2>
-<ol style="list-style-type: decimal">
-<li>When loading in a .csv file, which function should you use?</li>
-</ol>
-<p><select class="webex-select"><option value="blank"></option>
-<option value="answer">read_csv()</option>
-<option value="">read.csv()</option></select></p>
-<div class="webex-solution">
-<button>
-Explain this answer
-</button>
-<p>Remember, in this course we use <code>read_csv()</code> and it is important for the portfolio assignment that you use this function otherwise you may find that the variable names are slightly different and you won't get the marks</p>
-</div>
-<p><br></p>
-<ol start="2" style="list-style-type: decimal">
-<li>The function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> takes the arguments <code>x</code>, <code>y</code>, <code>by</code>. What does <code>by</code> do?</li>
-</ol>
-<p><select class="webex-select"><option value="blank"></option>
-<option value="">Specifies the first table to join</option>
-<option value="">Specifies the second table to join</option>
-<option value="answer">Specifies the column to join by that both tables have in common</option></select></p>
-<ol start="3" style="list-style-type: decimal">
-<li>What does the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> do?
-<br><select class="webex-select"><option value="blank"></option>
-<option value="">Keeps only the observations you specify</option>
-<option value="answer">Keeps only the variables you specify</option>
-<option value="">Keeps only the objects you specify</option></select>
-</li>
-</ol>
+<p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="51%">
+<col width="48%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="left">definition</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/a.html#assignment-operator" class="glossary" target="_blank">assignment operator</a></td>
+<td align="left">The symbol &lt;-, which functions like = and assigns the value on the right to the object on the left</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#console" class="glossary" target="_blank">console</a></td>
+<td align="left">The pane in RStudio where you can type in commands and view output messages.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#csv" class="glossary" target="_blank">csv</a></td>
+<td align="left">Comma-separated variable: a file type for representing data where each variable is separated from the next by a comma.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/d.html#data-wrangling" class="glossary" target="_blank">data wrangling</a></td>
+<td align="left">The process of preparing data for visualisation and statistical analysis.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/d.html#descriptive" class="glossary" target="_blank">descriptive</a></td>
+<td align="left">Statistics that describe an aspect of data (e.g., mean, median, mode, variance, range)</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/e.html#environment" class="glossary" target="_blank">environment</a></td>
+<td align="left">A data structure that contains R objects such as variables and functions</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/i.html#inner-join" class="glossary" target="_blank">inner join</a></td>
+<td align="left">A mutating join that returns all the rows that have a match in the other table.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/o.html#object" class="glossary" target="_blank">object</a></td>
+<td align="left">A word that identifies and stores the value of some data for later use.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/p.html#package" class="glossary" target="_blank">package</a></td>
+<td align="left">A group of R functions.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/r.html#replicability" class="glossary" target="_blank">replicability</a></td>
+<td align="left">The extent to which the findings of a study can be repeated with new samples from the same population.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/r.html#reproducible-research" class="glossary" target="_blank">reproducible research</a></td>
+<td align="left">Research that documents all of the steps between raw data and results in a way that can be verified.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/t.html#tidyverse" class="glossary" target="_blank">tidyverse</a></td>
+<td align="left">A set of R packages that help you create and work with tidy data</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>End of Chapter</strong></p>
+<p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
+
 </div>
 </div>
 <script>
@@ -589,16 +747,16 @@ $( document ).ready(function() {
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#starting-with-data"><span class="header-section-number">3</span> Starting with data</a></li>
 <li>
-<a class="nav-link" href="#getting-data-ready-to-work-with"><span class="header-section-number">3.1</span> Getting data ready to work with</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ld-a1"><span class="header-section-number">3.1.1</span> Activity 1: Set-up Loading Data</a></li>
-<li><a class="nav-link" href="#ld-a2"><span class="header-section-number">3.1.2</span> Activity 2: Load in the package</a></li>
+<a class="nav-link" href="#getting-ready-to-work-with-data"><span class="header-section-number">3.1</span> Getting ready to work with data</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ld-a1"><span class="header-section-number">3.1.1</span> Activity 1: Set-up the data, working directory and Rmd file</a></li>
+<li><a class="nav-link" href="#ld-a2"><span class="header-section-number">3.1.2</span> Activity 2: Loading a package to our library</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#loading-in-data"><span class="header-section-number">3.2</span> Loading in Data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-a3"><span class="header-section-number">3.2.1</span> Activity 3: Read in data</a></li></ul>
+<a class="nav-link" href="#the-data"><span class="header-section-number">3.2</span> The data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-a3"><span class="header-section-number">3.2.1</span> Activity 3: Read in data</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#looking-at-data"><span class="header-section-number">3.3</span> Looking at Data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-a4"><span class="header-section-number">3.3.1</span> Activity 4: Check yo' data</a></li></ul>
+<a class="nav-link" href="#looking-at-data"><span class="header-section-number">3.3</span> Looking at Data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-a4"><span class="header-section-number">3.3.1</span> Activity 4: Look at your data</a></li></ul>
 </li>
 <li>
 <a class="nav-link" href="#joining-data"><span class="header-section-number">3.4</span> Joining Data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-a5"><span class="header-section-number">3.4.1</span> Activity 5: Join the files together</a></li></ul>
@@ -606,11 +764,18 @@ $( document ).ready(function() {
 <li>
 <a class="nav-link" href="#selecting-data"><span class="header-section-number">3.5</span> Selecting Data</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-a6"><span class="header-section-number">3.5.1</span> Activity 6: Pull out variables of interest</a></li></ul>
 </li>
-<li><a class="nav-link" href="#ld-fin"><span class="header-section-number">3.6</span> Finished!</a></li>
 <li>
-<a class="nav-link" href="#ld-debug"><span class="header-section-number">3.7</span> Debugging tips</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-debugex"><span class="header-section-number">3.7.1</span> Debugging exercises</a></li></ul>
+<a class="nav-link" href="#knitting-our-reproducible-code"><span class="header-section-number">3.6</span> Knitting our Reproducible code</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ld-debug"><span class="header-section-number">3.6.1</span> Debugging tips</a></li></ul>
 </li>
-<li><a class="nav-link" href="#ld-test"><span class="header-section-number">3.8</span> Test yourself</a></li>
+<li><a class="nav-link" href="#code-layout"><span class="header-section-number">3.7</span> Code Layout</a></li>
+<li><a class="nav-link" href="#ld-fin"><span class="header-section-number">3.8</span> Finished!</a></li>
+<li>
+<a class="nav-link" href="#ld-test"><span class="header-section-number">3.9</span> Test yourself</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#knowledge-questions"><span class="header-section-number">3.9.1</span> Knowledge Questions</a></li>
+<li><a class="nav-link" href="#ld-debugex"><span class="header-section-number">3.9.2</span> Debugging exercises</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#words-from-this-chapter-2"><span class="header-section-number">3.10</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">

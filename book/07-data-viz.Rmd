@@ -228,7 +228,7 @@ ggplot(summarydata, aes(x = income, y = ahiTotal)) +
   geom_violin()
 ```
 
-## Activity 7: Daving plots (#introviz-a7)
+## Activity 7: Saving plots {#introviz-a7}
 
 Finally, it's useful to be able to save a copy of your plots as an image file so that you can use it in a presentation or word document and to do this we can use the function `ggsave()`.
 

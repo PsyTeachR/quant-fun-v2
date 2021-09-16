@@ -290,8 +290,8 @@ Helpful hint
 <ul>
 <li>Run the below code:</li>
 </ul>
-<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
            power <span class="op">=</span> <span class="fl">.8</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
@@ -306,8 +306,8 @@ Helpful hint
 <li>
 <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code> rounds up to give us the next highest whole number</li>
 </ul>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
            power <span class="op">=</span> <span class="fl">.8</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
@@ -458,7 +458,7 @@ Helpful hint
 <button>
 Activity 1
 </button>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
@@ -474,7 +474,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 2
 </button>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">3.24</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">25</span> <span class="op">+</span><span class="fl">1</span><span class="op">)</span>
 
 <span class="co"># effect is medium to large; d = .64</span></code></pre></div>
@@ -490,7 +490,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 3
 </button>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="fl">2.9</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span>
 
 <span class="co"># effect is large; d = 1.06</span></code></pre></div>
@@ -506,7 +506,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 4
 </button>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t</span> <span class="op">=</span> <span class="op">(</span><span class="fl">10</span> <span class="op">-</span> <span class="fl">11</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1.3</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">30</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1.7</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">30</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">d</span> <span class="op">=</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="fl">30</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">30</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -527,7 +527,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 6
 </button>
-<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_size_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.23</span>,
                             power <span class="op">=</span> <span class="fl">.8</span>, 
                             sig.level <span class="op">=</span> <span class="fl">.05</span>, 
@@ -548,7 +548,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 7
 </button>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
            power <span class="op">=</span> <span class="fl">.9</span>, 
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
@@ -574,7 +574,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 8
 </button>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_size_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">.4</span>, 
                             sig.level <span class="op">=</span> <span class="fl">.05</span>, 
                             power <span class="op">=</span> <span class="fl">.8</span>, 
@@ -592,7 +592,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 9
 </button>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>, 
@@ -616,7 +616,7 @@ Click on the tab to reveal the solution</p>
 <button>
 Activity 11
 </button>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Achievable Cohen d for Example 1</span>
 <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>power <span class="op">=</span> <span class="fl">.8</span>, 
            n <span class="op">=</span> <span class="fl">32</span>, 
@@ -630,7 +630,7 @@ Activity 11
   sig.level = 0.05
       power = 0.8
 alternative = two.sided</code></pre>
-<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52</span>
 
 <span class="co"># Achievable Cohen d for Example 2</span>
@@ -647,7 +647,7 @@ alternative = two.sided</code></pre>
       power = 0.8
 alternative = two.sided</code></pre>
 <p>NOTE: n is number of <em>pairs</em></p>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># this effect might not be reliable given that the effect size found was much lower than the achievable effect size. The issue here is that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then they should have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies isnt easy; hence why some people consider the Many Labs approach a good way ahead.</span>
 
 <span class="co"># Below you could calculate the actual sample size required to achieve a power of .8:</span>
