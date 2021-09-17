@@ -89,7 +89,7 @@ As you can see there are various different ways to get an idea of what your data
 
 ## Joining Data
 
-So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, `dat` and `info` but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function `inner_join()`.
+So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, `dat` and `info` but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function `inner_join()` which comes from the `dplyr` package - one of the packages loaded in as part of the `tidyverse`. But don't worry to much about deliberately trying to remember all the different packages and functions as it will come naturally with the practice we give you.
 
 * **Top tip:** Remember to use the help function `?inner_join` if you want more information about how to use a function and to use tab auto-complete to help you write your code.
 
@@ -115,8 +115,7 @@ Once you have run this code you should now see the `all_dat` in the environment 
 ## Selecting Data
 
 Excellent! We have now combined our data into one big object! However, Very frequently, datasets will have more variables, information, and data than you actually want to use and it can make life easier to create a new object with just the data you need. So, our final step today is to select just some variables of interest! 
-
-In our case, the `all_dat` contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the `select()` function to select only the columns we are interested in and store them (i.e. assign them to) a new object called `summarydata`
+In our case, the `all_dat` contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the `select()` function, again from the `dplyr` package, to select only the columns we are interested in and store them in (i.e. assign them to) a new object called `summarydata`
 
 ### Activity 6: Pull out variables of interest {#ld-a6}
 

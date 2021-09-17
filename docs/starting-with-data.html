@@ -211,7 +211,7 @@ WATCH OUT! There is also a function called <code><a href="https://rdrr.io/r/util
 <h2>
 <span class="header-section-number">3.4</span> Joining Data<a class="anchor" aria-label="anchor" href="#joining-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, <code>dat</code> and <code>info</code> but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>.</p>
+<p>So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, <code>dat</code> and <code>info</code> but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> which comes from the <code>dplyr</code> package - one of the packages loaded in as part of the <code>tidyverse</code>. But don't worry to much about deliberately trying to remember all the different packages and functions as it will come naturally with the practice we give you.</p>
 <ul>
 <li>
 <strong>Top tip:</strong> Remember to use the help function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">?inner_join</a></code> if you want more information about how to use a function and to use tab auto-complete to help you write your code.</li>
@@ -247,8 +247,8 @@ WATCH OUT! There is also a function called <code><a href="https://rdrr.io/r/util
 <h2>
 <span class="header-section-number">3.5</span> Selecting Data<a class="anchor" aria-label="anchor" href="#selecting-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>Excellent! We have now combined our data into one big object! However, Very frequently, datasets will have more variables, information, and data than you actually want to use and it can make life easier to create a new object with just the data you need. So, our final step today is to select just some variables of interest!</p>
-<p>In our case, the <code>all_dat</code> contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function to select only the columns we are interested in and store them (i.e. assign them to) a new object called <code>summarydata</code></p>
+<p>Excellent! We have now combined our data into one big object! However, Very frequently, datasets will have more variables, information, and data than you actually want to use and it can make life easier to create a new object with just the data you need. So, our final step today is to select just some variables of interest!
+In our case, the <code>all_dat</code> contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> function, again from the <code>dplyr</code> package, to select only the columns we are interested in and store them in (i.e. assign them to) a new object called <code>summarydata</code></p>
 <div id="ld-a6" class="section level3" number="3.5.1">
 <h3>
 <span class="header-section-number">3.5.1</span> Activity 6: Pull out variables of interest<a class="anchor" aria-label="anchor" href="#ld-a6"><i class="fas fa-link"></i></a>
@@ -401,8 +401,8 @@ WATCH OUT! There is also a function called <code><a href="https://rdrr.io/r/util
 </h3>
 <ol style="list-style-type: decimal">
 <li>When loading in a .csv file, which function should you use?
-<div id="radio_VXKAPTIHTI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""><span>library()</span></label>
+<div id="radio_GRXUNEPAEM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value=""><span>library()</span></label>
 </div>
 </li>
 </ol>
@@ -414,8 +414,8 @@ Explain this answer
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>The function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> takes the arguments <code>x</code>, <code>y</code>, <code>by</code>. What does <code>by</code> do?
-<div id="radio_DOSWAGQWOP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
+<div id="radio_RNILXSBJVJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RNILXSBJVJ" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_RNILXSBJVJ" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_RNILXSBJVJ" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
 </div>
 </li>
 </ol>
@@ -427,8 +427,8 @@ Explain this answer
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>What does the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> do?
-<div id="radio_NDCVDCKVJJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value=""><span>Keeps only the objects you specify</span></label>
+<div id="radio_BQIGKQMOEG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BQIGKQMOEG" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_BQIGKQMOEG" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_BQIGKQMOEG" value=""><span>Keeps only the objects you specify</span></label>
 </div>
 </li>
 </ol>
@@ -793,7 +793,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-16.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
