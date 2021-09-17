@@ -91,7 +91,7 @@ As you can see there are various different ways to get an idea of what your data
 
 ## Joining Data
 
-So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, `dat` and `info` but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function `inner_join()`.
+So far so awesome! We have our data and we know what it looks like, so let's start trying to do things with our data! The first thing we will do is combine datafiles! We have two files, `dat` and `info` but what we really want is a single file that has both the data and the demographic information about the participants as it makes it easier to work with the data when it is all combined together. To do this we are going to use the function `inner_join()` which comes from the `dplyr` package - one of the packages loaded in as part of the `tidyverse`. But don't worry to much about deliberately trying to remember all the different packages and functions as it will come naturally with the practice we give you.
 
 * **Top tip:** Remember to use the help function `?inner_join` if you want more information about how to use a function and to use tab auto-complete to help you write your code.
 
@@ -118,8 +118,7 @@ Once you have run this code you should now see the `all_dat` in the environment 
 ## Selecting Data
 
 Excellent! We have now combined our data into one big object! However, Very frequently, datasets will have more variables, information, and data than you actually want to use and it can make life easier to create a new object with just the data you need. So, our final step today is to select just some variables of interest! 
-
-In our case, the `all_dat` contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the `select()` function to select only the columns we are interested in and store them (i.e. assign them to) a new object called `summarydata`
+In our case, the `all_dat` contains the responses to each individual question on both the AHI scale and the CESD scale, as well as the total score (i.e., the sum of all the individual responses). Let's say for our analysis all we care about is the total scores and the demographic information about participants. We are going to use a new function called the `select()` function, again from the `dplyr` package, to select only the columns we are interested in and store them in (i.e. assign them to) a new object called `summarydata`
 
 ### Activity 6: Pull out variables of interest {#ld-a6}
 
@@ -196,7 +195,7 @@ Finally, if you're using the R server, we strongly recommend that you download a
 
 ### Knowledge Questions
 
-1. When loading in a .csv file, which function should you use? <div class='webex-radiogroup' id='radio_VXKAPTIHTI'><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value="answer"></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""></input> <span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_VXKAPTIHTI" value=""></input> <span>library()</span></label></div>
+1. When loading in a .csv file, which function should you use? <div class='webex-radiogroup' id='radio_GRXUNEPAEM'><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value="answer"></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value=""></input> <span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_GRXUNEPAEM" value=""></input> <span>library()</span></label></div>
 
 
 
@@ -207,7 +206,7 @@ Remember, in this course we use `read_csv()` and it is important that you use th
 </div>
  
 
-2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do? <div class='webex-radiogroup' id='radio_DOSWAGQWOP'><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value=""></input> <span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value=""></input> <span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_DOSWAGQWOP" value="answer"></input> <span>Specifies the column to join by that both objects have in common</span></label></div>
+2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do? <div class='webex-radiogroup' id='radio_RNILXSBJVJ'><label><input type="radio" autocomplete="off" name="radio_RNILXSBJVJ" value=""></input> <span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_RNILXSBJVJ" value=""></input> <span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_RNILXSBJVJ" value="answer"></input> <span>Specifies the column to join by that both objects have in common</span></label></div>
 
 
 
@@ -218,7 +217,7 @@ Remember, functions have arguments and the arguments all do something slightly d
 </div>
  
 
-3. What does the function `select()` do? <div class='webex-radiogroup' id='radio_NDCVDCKVJJ'><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value=""></input> <span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value="answer"></input> <span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_NDCVDCKVJJ" value=""></input> <span>Keeps only the objects you specify</span></label></div>
+3. What does the function `select()` do? <div class='webex-radiogroup' id='radio_BQIGKQMOEG'><label><input type="radio" autocomplete="off" name="radio_BQIGKQMOEG" value=""></input> <span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_BQIGKQMOEG" value="answer"></input> <span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_BQIGKQMOEG" value=""></input> <span>Keeps only the objects you specify</span></label></div>
 
 
 

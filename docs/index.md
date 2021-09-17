@@ -1,7 +1,7 @@
 --- 
 title: "Fundamentals of Quantitative Analysis"
 author: "psyTeachR Team"
-date: "2021-09-16"
+date: "2021-09-17"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
