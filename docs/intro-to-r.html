@@ -5,18 +5,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Intro to R | Fundamentals of Quantitative Analysis</title>
-<meta name="author" content="psyTeachR Team">
+<meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="In this chapter we are going to start introducing you to using code to create reproducible research. We will cover things such as setting a working directory, what is a working directory, using R...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Intro to R | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/intro-to-r.html">
-<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <meta property="og:description" content="In this chapter we are going to start introducing you to using code to create reproducible research. We will cover things such as setting a working directory, what is a working directory, using R...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Intro to R | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="In this chapter we are going to start introducing you to using code to create reproducible research. We will cover things such as setting a working directory, what is a working directory, using R...">
-<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -290,7 +290,7 @@ Figure 2.7: Slightly faster method of running code that runs all lines within th
 <p>As our final step we are going to <strong><a class="glossary" target="_blank" title="To create an HTML, PDF, or Word document from an R Markdown (Rmd) document" href="https://psyteachr.github.io/glossary/k#knit">knit</a></strong> our file. This means that we're going to compile (i.e. turn) our code into a document that is more presentable.
 * From the top menu, click <strong><code>Knit &gt;&gt; Knit to HMTL</code></strong>. R Markdown will now create a new HTML document and it will automatically save this file in your working directory.</p>
 <p>Now let's look at this outputted HTML document and at the sentence we copied in from Activity 7. As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.</p>
-<p><strong>My name is Emily and I am 35 years old. <br><br>It is -68 days until my birthday.</strong></p>
+<p><strong>My name is Emily and I am 35 years old. <br><br>It is -73 days until my birthday.</strong></p>
 <p>Pretty amazing isn't it! We're not going to use inline coding very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! The key thing about using inline coding is the structure, i.e. the backtick, followed by the lower case r, then space, then the code, then another backtick. You will get the hang of it as the semester goes on with a little practice.</p>
 <p>There are a few final things to note about knitting that will be useful for going forward with your data skills learning and assignments:</p>
 <ul>
@@ -315,8 +315,8 @@ Figure 2.7: Slightly faster method of running code that runs all lines within th
 </h2>
 <ol style="list-style-type: decimal">
 <li>One of the key first steps when we open RStudio is to:
-<div id="radio_BISIJPKNYS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BISIJPKNYS" value="answer"><span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_BISIJPKNYS" value=""><span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_BISIJPKNYS" value=""><span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_BISIJPKNYS" value=""><span>make a coffee</span></label>
+<div id="radio_SRYELQULYT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SRYELQULYT" value="answer"><span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_SRYELQULYT" value=""><span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_SRYELQULYT" value=""><span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_SRYELQULYT" value=""><span>make a coffee</span></label>
 </div>
 </li>
 </ol>
@@ -348,8 +348,8 @@ Explain These Answers
 <p><br></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Code chunks are started with:
-<div id="radio_APSJAVRQOD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_APSJAVRQOD" value=""><span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_APSJAVRQOD" value="answer"><span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_APSJAVRQOD" value=""><span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_APSJAVRQOD" value=""><span>three single clefs</span></label>
+<div id="radio_RQSVXBULYJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RQSVXBULYJ" value=""><span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_RQSVXBULYJ" value="answer"><span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_RQSVXBULYJ" value=""><span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_RQSVXBULYJ" value=""><span>three single clefs</span></label>
 </div>
 </li>
 </ol>
@@ -362,8 +362,8 @@ Explain This Answers
 <p><br></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Inline coding is:
-<div id="radio_BQVRMBGHFT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BQVRMBGHFT" value=""><span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_BQVRMBGHFT" value=""><span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_BQVRMBGHFT" value=""><span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_BQVRMBGHFT" value="answer"><span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label>
+<div id="radio_MOKTZFAUWG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MOKTZFAUWG" value=""><span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_MOKTZFAUWG" value=""><span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_MOKTZFAUWG" value=""><span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_MOKTZFAUWG" value="answer"><span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label>
 </div>
 </li>
 </ol>
@@ -599,6 +599,24 @@ $( document ).ready(function() {
   $("footer div.row div:eq(1) p").html(
     psyteachr + license + cite
   );
+  
+  // open rdrr links externally
+  $("a[href^='https://rdrr.io']").click(function(){
+    window.open(this.href);
+    return false;
+  });
+  
+  // visible second sidebar in mobile
+  function move_sidebar() {
+    var w = window.innerWidth;
+    if (w < 992) {
+      $("#toc").appendTo($("#main-nav"));
+    } else {
+      $("#toc").appendTo($("div.sidebar-chapter"));
+    }
+  }
+  move_sidebar();
+  window.onresize = move_sidebar;
 });
 </script><div class="chapter-nav">
 <div class="prev"><a href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></div>
@@ -648,7 +666,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-17.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
