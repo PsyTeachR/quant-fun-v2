@@ -5,18 +5,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 4 Data wrangling 1 | Fundamentals of Quantitative Analysis</title>
-<meta name="author" content="psyTeachR Team">
+<meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Chapter 4 Data wrangling 1 | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/data-wrangling-1.html">
-<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <meta property="og:description" content="Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 4 Data wrangling 1 | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="Data comes in lots of different formats. One of the most common formats is that of a two-dimensional table (the two dimensions being rows and columns). Usually, each row stands for a separate...">
-<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/twitter_card.png">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -660,6 +660,24 @@ $( document ).ready(function() {
   $("footer div.row div:eq(1) p").html(
     psyteachr + license + cite
   );
+  
+  // open rdrr links externally
+  $("a[href^='https://rdrr.io']").click(function(){
+    window.open(this.href);
+    return false;
+  });
+  
+  // visible second sidebar in mobile
+  function move_sidebar() {
+    var w = window.innerWidth;
+    if (w < 992) {
+      $("#toc").appendTo($("#main-nav"));
+    } else {
+      $("#toc").appendTo($("div.sidebar-chapter"));
+    }
+  }
+  move_sidebar();
+  window.onresize = move_sidebar;
 });
 </script><div class="chapter-nav">
 <div class="prev"><a href="starting-with-data.html"><span class="header-section-number">3</span> Starting with data</a></div>
@@ -696,7 +714,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by psyTeachR Team. It was last built on 2021-09-17.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -10,6 +10,24 @@
   --purple: #61589C; /* hsl(248, 28%, 48%) */
 }
 
+@media screen and (max-width: 991px) {
+  #main-nav nav {
+    width: 49%;
+    display: inline-block;
+    vertical-align: text-top;
+  }
+
+  .book-toc {
+    column-count: 1;
+  }
+
+  #content {
+    flex:0 0 100%;
+    -webkit-flex:0 0 100%;
+    max-width:100%
+  }
+}
+
 .chapter-nav .next, .chapter-nav .prev {
   box-shadow: none;
   border-color: var(--blue);
@@ -33,12 +51,6 @@
 .small_right { float: right;}
 .small_left { float: left; }
 .small_right img, .small_left img { max-width: 100%; }
-
-.small_center {
-  width: 25%;
-  margin: 0 auto;
-}
-
 
 /* rainbow borders */
 body {
