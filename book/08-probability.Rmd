@@ -92,7 +92,7 @@ ggplot(data10000, aes(x = heads,y = p)) +
   scale_x_continuous(breaks = c(0,1,2,3,4,5,6,7,8,9,10))
 ```
 
-`r webex::hide()`
+`r hide()`
 
 ```{r eval = FALSE}
 heads10000 <- replicate(n = 10000, expr = sample(0:1, 10, TRUE) %>% sum())
@@ -110,7 +110,7 @@ ggplot(data10000, aes(x = heads,y = p)) +
 
 ```
 
-`r webex::unhide()`
+`r unhide()`
 
 
 ### The normal distribution
@@ -308,7 +308,7 @@ Data from the [Scottish Health Survey (2008)](http://www.scotland.gov.uk/Resourc
 
 The below figure is a simulation of this data - you can see the code used to run this simulation by clicking the solution button.
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 men <- rnorm(n = 100000, mean = 176.2, sd = 6.748)
 women <- rnorm(n = 100000, mean = 163.8, sd = 6.931)
@@ -321,7 +321,7 @@ ggplot(heights, aes(x = height, fill = sex)) +
   scale_fill_viridis_d(option = "E") +
   theme_minimal()
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ```{r echo = FALSE, fig.cap= "Simulation of Scottish height data"}
 men <- rnorm(n = 100000, mean = 176.2, sd = 6.748)
@@ -396,58 +396,58 @@ For example, if you want to compare whether the scores from two groups are diffe
 
 ### Activity 6 {#prob-a6sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 .25
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 7 {#prob-a7sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 .06
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 8 {#prob-a8sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 .17
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 10 {#prob-a10sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 pnorm(q = 176.2, mean = 163.8, sd = 6.931, lower.tail = FALSE)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 11 {#prob-a11sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 pnorm(q = 181.12, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 12 {#prob-a12sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 pnorm(q = 181.12, mean = 163.8, sd = 6.931, lower.tail = TRUE)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 13 {#prob-a13sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r eval = FALSE}
 qnorm(p = .05, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 

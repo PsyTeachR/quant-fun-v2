@@ -274,7 +274,7 @@ report(mod)
 
 ### Activity 1 {#regression-a1sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a1b, eval = FALSE}
 
 library("pwr")
@@ -288,26 +288,26 @@ stars <- read_csv("L3_stars.csv")
 engage <- read_csv("psess.csv")
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 ### Activity 2 {#regression-a2sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a2b, eval = FALSE}
 
 stars2 <- pivot_longer(data = stars, names_to = "Question", values_to = "Score",cols = Q01:Q51) %>%
   arrange(ID)
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 ### Activity 3 {#regression-a3sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a3b, eval = FALSE}
 
 stars_means <- stars2 %>%
@@ -318,25 +318,25 @@ stars_means <- stars2 %>%
             sd = sd(Score))
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 ### Activity 4 {#regression-a4sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a4b, eval = FALSE}
 
 joined <- inner_join(stars_means, engage, "ID")
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 ### Activity 5 {#regression-a5sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a5b, eval = FALSE}
 
 ggplot(joined, aes(mean_anxiety, n_weeks)) +
@@ -344,7 +344,7 @@ ggplot(joined, aes(mean_anxiety, n_weeks)) +
   geom_smooth(method = "lm")
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 

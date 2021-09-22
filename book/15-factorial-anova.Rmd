@@ -305,7 +305,7 @@ And we're done! There's only one more week of R left. I know that for some of yo
 
 #### Activity 1 {#factorial-a1sol}
 
-`r webex::hide("Activity 1")`
+`r hide("Activity 1")`
 ```{r a1b, eval = FALSE}
 
 library("pwr")
@@ -318,14 +318,14 @@ library("emmeans")
 library("tidyverse")
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 
 #### Activity 2 {#factorial-a2sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a2b, eval = FALSE}
 sum_dat_factorial<-factorial%>%
   group_by(Condition, time)%>%
@@ -333,14 +333,14 @@ sum_dat_factorial<-factorial%>%
             sd = sd(interest, na.rm = TRUE)
             )
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 
 #### Activity 3 {#factorial-a3sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a3b, eval=FALSE}
 ggplot(factorial, 
        aes(x = time , y = interest, fill = Condition))+
@@ -357,13 +357,13 @@ ggplot(factorial,
                position = position_dodge(width = 0.9)) +
   theme_minimal()
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 #### Activity 5 {#factorial-a5sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a5b, eval=FALSE}
 
 mod_factorial <- aov_ez(id = "subject",
@@ -379,13 +379,13 @@ factorial_output <- anova(mod_factorial) %>% tidy()
 
 factorial_output <- mod_factorial$anova_table %>% tidy()
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 #### Activity 6 {#factorial-a6sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a6b, eval=FALSE}
 # normality testing
 qqPlot(mod_factorial$lm$residuals)
@@ -394,6 +394,6 @@ shapiro.test(mod_factorial$lm$residuals)
 # levene's test
 test_levene(mod_factorial)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **

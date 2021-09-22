@@ -324,7 +324,7 @@ Below this line you will find the solutions to the above tasks. Only look at the
 
 #### Activity 1 {#anova-1sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a1, eval=FALSE}
 library("pwr")
 library("lsr")
@@ -338,27 +338,27 @@ library("tidyverse")
 dat <- read_csv("James Holmes_Expt 2_DATA.csv")%>%
   mutate(subject = row_number())
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 #### Activity 2 {#anova-a2sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a2,eval=FALSE}
 dat2 <- dat%>%
   select(subject,Condition,Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary)%>%
   rename(intrusions = Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary)
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 
 #### Activity 4 {#anova-a4sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a4, eval=FALSE}
 
 sum_dat<-dat2%>%
@@ -368,18 +368,18 @@ sum_dat<-dat2%>%
             se = sd/sqrt(length(intrusions)))
 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **
 
 #### Activity 5 {#anova-a5sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a5, eval=FALSE}
 ggplot(dat2, aes(x = Condition, y = intrusions))+
   geom_violin(trim = FALSE)+
   geom_boxplot(width = .2)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ** Click tab to see solution **

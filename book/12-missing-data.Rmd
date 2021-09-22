@@ -15,7 +15,6 @@ Do the following.
 ```{r echo = FALSE, message=FALSE, warning=FALSE}
 library("tidyverse")
 library("psych")
-library("webex")
 messy <- read_csv("messy.csv")
 ```
 

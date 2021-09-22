@@ -383,7 +383,7 @@ Regardless of whether you continue with quantitative methods and using R, rememb
 
 ### Activity 3 {#mulregression-a3sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a3, eval = FALSE}
 wemwbs <- wellbeing %>%
   pivot_longer(names_to = "var", values_to = "score", -Serial) %>%
@@ -397,11 +397,11 @@ wemwbs %>% summarise(mean = mean(tot_wellbeing),
                      min = min(tot_wellbeing), 
                      max = max(tot_wellbeing))
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 5 {#mulregression-a5sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a5, eval = FALSE}
 smarttot <- screen2 %>%
   filter(variable == "Using Smartphone") %>%
@@ -413,11 +413,11 @@ smart_wb <- smarttot %>%
   inner_join(wemwbs, "Serial") %>%
   inner_join(pinfo, "Serial") 
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 6 {#mulregression-a6sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a6, eval = FALSE}
 smart_wb <- smarttot %>%
   filter(tothours > 1) %>%
@@ -428,11 +428,11 @@ smart_wb <- smarttot %>%
          male_c = as.factor(male_c),
          male = as.factor(male))
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 7 {#mulregression-a7sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a7, eval = FALSE}
 smart_wb_gen <- smart_wb %>%
   group_by(tothours, male) %>%
@@ -445,11 +445,11 @@ ggplot(smart_wb_gen, aes(tothours, mean_wellbeing, color = male)) +
   scale_x_continuous(name = "Total hours smartphone use") +
   scale_y_continuous(name = "Mean well-being score")
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 8 {#mulregression-a8sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a8, eval = FALSE}
 mod <- lm(tot_wellbeing ~ thours_c * male_c, smart_wb)
 # alternatively: 
@@ -457,21 +457,21 @@ mod <- lm(tot_wellbeing ~ thours_c * male_c, smart_wb)
 
 mod_summary <- summary(mod)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 9 {#mulregression-a9sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a9, eval = FALSE}
 qqPlot(mod$residuals)
 ```
-`r webex::unhide()`
+`r unhide()`
 
 ### Activity 10 {#mulregression-a10sol}
 
-`r webex::hide()`
+`r hide()`
 ```{r a10b, eval = FALSE}
 pwr.f2.test(u = 3, v = 71029, f2 = NULL, sig.level = .05, power = .99)
 f2 <- mod_summary$adj.r.squared/(1 - mod_summary$adj.r.squared)
 ```
-`r webex::unhide()`
+`r unhide()`

@@ -1,18 +1,17 @@
 --- 
 title: "Fundamentals of Quantitative Analysis"
-author: "psyTeachR Team"
+author: "Emily Nordmann & Phil McAleer"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
-biblio-style: apa
 csl: include/apa.csl
 link-citations: yes
 description: |
   This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis.
 url: https://psyteachr.github.io/quant-fun-v2
 github-repo: psyteachr/quant-fun-v2
-cover-image: images/logos/twitter_card.png
+cover-image: images/logos/logo.png
 apple-touch-icon: images/logos/apple-touch-icon.png
 apple-touch-icon-size: 180
 favicon: images/logos/favicon.ico

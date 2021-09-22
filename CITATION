@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this book, please cite it as below."
+authors:
+- family-names: "Nordmann"
+  given-names: "Emily"
+  orcid: "https://orcid.org/0000-0002-0806-1081"
+- family-names: "McAleer"
+  given-names: "Phil"
+  orcid: "https://orcid.org/0000-0002-4523-2097"
+title: "Fundamentals of Quantitative Analysis"
+version: 2.0
+date-released: 2021-09-22
+url: "https://github.com/psyteachr/quant-fun-v2/"

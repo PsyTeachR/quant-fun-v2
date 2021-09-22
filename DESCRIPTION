@@ -1,0 +1,46 @@
+Package: quantfun
+Title: Fundamentals of Quantitative Analysis
+Version: 2.0
+Authors@R: 
+    c(person(given = "Emily",
+           family = "Nordmann",
+           role = c("aut", "cre"),
+           email = "emily.nordmann@glasgow.ac.uk",
+           comment = c(ORCID = "0000-0002-0806-1081")),
+    person(given = "Phil",
+           family = "McAleer",
+           role = c("aut"),
+           email = "Philip.McAleer@glasgow.ac.uk",
+           comment = c(ORCID = "0000-0002-4523-2097")))
+Description: 
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    webexercises,
+    glossary (>= 0.0.0.9001),
+    bookdown, 
+    broom,
+    pwr,
+    knitr,
+    faux,
+    patchwork,
+    report,
+    car,
+    psych,
+    correlation,
+    babynames,
+    lsr,
+    afex,
+    emmeans,
+    performance,
+    see,
+    effectsize,
+    MASS,
+    installr,
+    rcompanion
+Remotes: 
+    psyteachr/glossary
+Depends: 
+    tidyverse
