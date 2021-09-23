@@ -401,8 +401,8 @@ In our case, the <code>all_dat</code> contains the responses to each individual 
 </h3>
 <ol style="list-style-type: decimal">
 <li>When loading in a .csv file, which function should you use?
-<div id="radio_DETZLJDCTU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value=""><span>library()</span></label>
+<div id="radio_KHRQOYHIBU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value=""><span>library()</span></label>
 </div>
 </li>
 </ol>
@@ -414,8 +414,8 @@ Explain this answer
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>The function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> takes the arguments <code>x</code>, <code>y</code>, <code>by</code>. What does <code>by</code> do?
-<div id="radio_XRIDHBFUXO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XRIDHBFUXO" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_XRIDHBFUXO" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_XRIDHBFUXO" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
+<div id="radio_VHWBKBXLEX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VHWBKBXLEX" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_VHWBKBXLEX" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_VHWBKBXLEX" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
 </div>
 </li>
 </ol>
@@ -427,8 +427,8 @@ Explain this answer
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>What does the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> do?
-<div id="radio_SSOFYGVXCJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SSOFYGVXCJ" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_SSOFYGVXCJ" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_SSOFYGVXCJ" value=""><span>Keeps only the objects you specify</span></label>
+<div id="radio_KXNLXYOTAX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KXNLXYOTAX" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_KXNLXYOTAX" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_KXNLXYOTAX" value=""><span>Keeps only the objects you specify</span></label>
 </div>
 </li>
 </ol>
@@ -449,7 +449,9 @@ Explain this answer
 </ol>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span></code></pre></div>
-<p>This will produce the error <code>could not find function "read_csv"</code>. Once you figure out how to fix this error, make a note of it.</p>
+<p>This will produce the error:</p>
+<pre><code>`could not find function "read_csv"`</code></pre>
+<p>Once you figure out how to fix this error, make a note of it.</p>
 <div class="webex-solution">
 <button>
 Solution
@@ -459,10 +461,12 @@ Solution
 <ol start="2" style="list-style-type: decimal">
 <li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code:</li>
 </ol>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd"</span><span class="op">)</span></code></pre></div>
-<p>This will produce the error <code>Error: 'ahi-cesd' does not exist in current working directory</code>. Once you figure out how to fix this error, make a note of it.</p>
+<p>This will produce the error:</p>
+<pre><code>`Error: 'ahi-cesd' does not exist in current working directory`.</code></pre>
+<p>Once you figure out how to fix this error, make a note of it.</p>
 <div class="webex-solution">
 <button>
 Solution
@@ -472,7 +476,7 @@ Solution
 <ol start="3" style="list-style-type: decimal">
 <li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code:</li>
 </ol>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span> <span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
 <span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"participant-info.csv"</span><span class="op">)</span>
@@ -811,7 +815,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-22.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

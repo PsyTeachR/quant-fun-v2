@@ -220,13 +220,20 @@ One key skill is learning how to fix errors in your code. These exercises below 
 dat <- read_csv("ahi-cesd.csv")
 ```
 
-This will produce the error `could not find function "read_csv"`. Once you figure out how to fix this error, make a note of it.
+This will produce the error:
+
+```
+`could not find function "read_csv"`
+```
+
+Once you figure out how to fix this error, make a note of it.
 
 `r hide("Solution")`
 ```{r, echo = FALSE, results='asis'}
 cat("When you restarted the session you unloaded all the packages you previously had loaded - i.e. the `tidyverse`. The function `read_csv()` is part of the `tidyverse` package which means that in order for the code to run you need to run `library(tidyverse)` to reload the package so that you can use the function. Remember that we always need to load packages into our library but we only install them once. Again, think about apps on your phone!")
 ```
 `r unhide()` 
+
 
 2. Restart the R session (**`Session >> Restart R`**). Make sure that the working directory is set to the right folder and then run the below code:
 
@@ -235,13 +242,20 @@ library(tidyverse)
 dat <- read_csv("ahi-cesd")
 ```
 
-This will produce the error `Error: 'ahi-cesd' does not exist in current working directory`. Once you figure out how to fix this error, make a note of it.
+This will produce the error: 
+
+```
+`Error: 'ahi-cesd' does not exist in current working directory`.
+```
+
+Once you figure out how to fix this error, make a note of it.
 
 `r hide("Solution")`
 ```{r, echo = FALSE, results='asis'}
 cat("When loading data you need to provide the full file name including the file extension. In this case the error was caused by writing `ahi-cesd` instead of `ahi-cesd.csv`. As far as coding goes, these are two completely different files and only one of them exists in the working directory.")
 ```
 `r unhide()` 
+
 
 3. Restart the R session (**`Session >> Restart R`**). Make sure that the working directory is set to the right folder and then run the below code:
 
@@ -262,6 +276,7 @@ Look at the summary for `all_dat`. You will see that R has duplicated the `inter
 cat("If you want to join two objects that have mulitple columns in common you need to use the `c()` command to list all of the columns. The code above hasn't done this, it's just listed `id` and `intervention` without enclosing them with `c()` so it defaults to using just the first one and ignores the other column. When it does this both objects had an `intervention` column so it keeps both. The rule is, when joining objects, join them by all common columns!.")
 ```
 `r unhide()` 
+
 
 ## Words from this Chapter
 
