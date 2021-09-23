@@ -228,7 +228,7 @@ Hints on removing missing data points
 <ul>
 <li>Run the below code to create a histogram for <code>Abil</code>.</li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Abil</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -245,8 +245,8 @@ Figure 9.1: Histogram of Abil
 <ul>
 <li>Run the below code to create a QQ-plot for <code>Abil</code>.</li>
 </ul>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">qqPlot</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qq-abil"></span>
 <img src="09-correlation_files/figure-html/qq-abil-1.png" alt="QQ-plot for Abil" width="100%"><p class="caption">
@@ -268,7 +268,7 @@ Figure 9.2: QQ-plot for Abil
 </h2>
 <p>The <code>ggplot2</code> code is very similar to what you have already encountered with the bar chart and violin-boxplot. The first line of data sets up the base of the plot and we specify that we wish to display <code>Abil</code> on the x-axis, <code>IQ</code> on the y-axis, and use the dataset <code>mh</code>.</p>
 <p>The first geom, <code>geom_point()</code> adds in the data points, the second geom, <code>geom_smooth</code> adds in the line of best fit. The shaded area around the line is a <strong>confidence interval</strong>.</p>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Abil</span>, y <span class="op">=</span> <span class="va">IQ</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span> <span class="co"># if you don't want the shaded CI, add se = FALSE to this</span></code></pre></div>
@@ -276,7 +276,7 @@ Figure 9.2: QQ-plot for Abil
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="09-correlation_files/figure-html/unnamed-chunk-4-1.png" alt="Scatterplot of scores" width="100%"><p class="caption">
-Figure 4.3: Scatterplot of scores
+Figure 7.5: Scatterplot of scores
 </p>
 </div>
 <ul>
@@ -351,8 +351,8 @@ Explain these answers
 </li>
 </ul>
 <p>For example, if your data is stored in <code>dat</code> and you want to do a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, select <span class="op">=</span> <span class="st">"X"</span>, select2 <span class="op">=</span> <span class="st">"Y"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, select <span class="op">=</span> <span class="st">"X"</span>, select2 <span class="op">=</span> <span class="st">"Y"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Based on your answers to the assumption tests, decide which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided).</li>
 <li>Run the correlation between IQ and Ability and save it in an object called <code>results</code>.</li>
@@ -362,7 +362,7 @@ Explain these answers
 <ul>
 <li>Run the below code and then view the output by typing <code>results2</code> in the console. Look at how the output differs from <code>results</code>.</li>
 </ul>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results2</span> <span class="op">&lt;-</span>  <span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="op">~</span> <span class="va">IQ</span> <span class="op">+</span> <span class="va">Abil</span>, data <span class="op">=</span> <span class="va">mh</span>,  method <span class="op">=</span> <span class="st">"pearson"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
 <p>We'll come back to why we've shown you two ways shortly.</p>
 </div>
@@ -414,7 +414,7 @@ Explain these answers
 <span class="header-section-number">9.9</span> Activity 7: Write-up<a class="anchor" aria-label="anchor" href="#corr-a7"><i class="fas fa-link"></i></a>
 </h2>
 <p>Copy and paste the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knit the file.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="correlation.html#cb123-1" aria-hidden="true" tabindex="-1"></a>The mean IQ score was <span class="st">`</span><span class="at">r round(pluck(descriptives$IQ_mean),2)</span><span class="st">`</span> (<span class="st">`</span><span class="at">r round(pluck(descriptives$IQ_SD),2)</span><span class="st">`</span>) and the mean reading ability score was <span class="st">`</span><span class="at">r round(pluck(descriptives$Abil_mean),2)</span><span class="st">`</span> (<span class="st">`</span><span class="at">r round(pluck(descriptives$Abil_SD),2)</span><span class="st">`</span>). A Pearson\<span class="st">`</span><span class="at">s correlation found a significant, medium positive correlation between the two variables (r (</span><span class="st">`</span>r results<span class="sc">$</span>df_error<span class="st">`</span><span class="at">) = </span><span class="st">`</span>r <span class="fu">round</span>(results<span class="sc">$</span>r, <span class="dv">2</span>)<span class="st">`</span><span class="at">, *p* = </span><span class="st">`</span>r <span class="fu">round</span>(results<span class="sc">$</span>p, <span class="dv">3</span>)<span class="st">`</span><span class="at">).</span></span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="correlation.html#cb137-1" aria-hidden="true" tabindex="-1"></a>The mean IQ score was <span class="st">`</span><span class="at">r round(pluck(descriptives$IQ_mean),2)</span><span class="st">`</span> (<span class="st">`</span><span class="at">r round(pluck(descriptives$IQ_SD),2)</span><span class="st">`</span>) and the mean reading ability score was <span class="st">`</span><span class="at">r round(pluck(descriptives$Abil_mean),2)</span><span class="st">`</span> (<span class="st">`</span><span class="at">r round(pluck(descriptives$Abil_SD),2)</span><span class="st">`</span>). A Pearson\<span class="st">`</span><span class="at">s correlation found a significant, medium positive correlation between the two variables (r (</span><span class="st">`</span>r results<span class="sc">$</span>df_error<span class="st">`</span><span class="at">) = </span><span class="st">`</span>r <span class="fu">round</span>(results<span class="sc">$</span>r, <span class="dv">2</span>)<span class="st">`</span><span class="at">, *p* = </span><span class="st">`</span>r <span class="fu">round</span>(results<span class="sc">$</span>p, <span class="dv">3</span>)<span class="st">`</span><span class="at">).</span></span></code></pre></div>
 <p>It will magically transform into:</p>
 <blockquote>
 <p>The mean IQ score was 100.04(9.04) and the mean reading ability score was 55.12(6.08). A Pearson`s correlation found a significant, medium positive correlation between the two variables (r (23) = 0.45, <em>p</em> = 0.024)</p>
@@ -422,8 +422,8 @@ Explain these answers
 <p>The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format.</p>
 <p><code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> on the other hand produces a <code>list</code> type object, which is a bit harder to work with. However, the output of <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> also happens to work with functions from the <code>report</code> package, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> and <code><a href="https://easystats.github.io/report/reference/report_table.html">report_table()</a></code> that automatically reports the results of statistical analyses for you.</p>
 <p><code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help and so we're introducing it now.</p>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">report</span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
 <pre><code>## Effect sizes were labelled following Funder's (2019) recommendations.
 ## 
 ## The Pearson's product-moment correlation between IQ and Abil is positive, statistically significant, and very large (r = 0.45, 95% CI [0.07, 0.72], t(23) = 2.42, p = 0.024)</code></pre>
@@ -437,8 +437,8 @@ Explain these answers
 <ul>
 <li>Run the following code The <code>pairs.panels())</code> function from the <code>psych</code> library creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time.</li>
 </ul>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pairs.panels</span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs"></span>
 <img src="09-correlation_files/figure-html/pairs-1.png" alt="Scatterplot matrix" width="100%"><p class="caption">
@@ -453,10 +453,10 @@ Figure 9.3: Scatterplot matrix
 <li>Pipes this adjusted data into the <code><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels()</a></code> function</li>
 <li>The additional arguments turn off the <a href="https://analyse-it.com/docs/user-guide/multivariate/scatter-plot#:~:text=If%20the%20association%20is%20a,more%20the%20variables%20are%20uncorrelated.">correlation ellipses</a>, use a linear line of best fit, and specify a Pearson's correlation.</li>
 </ul>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">pairs.panels</span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">F</span>, lm <span class="op">=</span> <span class="cn">TRUE</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">F</span>, lm <span class="op">=</span> <span class="cn">TRUE</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs-pipes"></span>
 <img src="09-correlation_files/figure-html/pairs-pipes-1.png" alt="Adjusted scatterplot matrix" width="100%"><p class="caption">
@@ -476,10 +476,10 @@ Figure 9.4: Adjusted scatterplot matrix
 <li><p>Because you're running multiple correlations and some may be positive and some may be negative, there is no option to specify a one or two-tailed test.</p></li>
 <li><p>Run the below code to calculate then view the correlation results</p></li>
 </ul>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">corr_results</span> <span class="op">&lt;-</span> <span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">correlation</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, p_adjust <span class="op">=</span> <span class="st">"holm"</span><span class="op">)</span>
+  <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, p_adjust <span class="op">=</span> <span class="st">"holm"</span><span class="op">)</span>
 
 <span class="va">corr_results</span></code></pre></div>
 <p><code>corr_results</code> is a tibble that lists the results of each correlation with its corresponding statistics. Look through the table and then answer the following questions:</p>
@@ -555,7 +555,7 @@ Explain these answers
 <button>
 Activity 1
 </button>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://r-forge.r-project.org/projects/car/">"car"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/correlation/">"correlation"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/report/">"report"</a></span><span class="op">)</span>
@@ -574,7 +574,7 @@ Activity 1
 <button>
 Activity 3
 </button>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb144"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># histogram</span>
 <span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">IQ</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span>
@@ -599,7 +599,7 @@ Activity 3
 <button>
 Activity 4
 </button>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">descriptives</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">mh</span>, 
                           Abil_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Abil</span><span class="op">)</span>,
                           Abil_SD <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Abil</span><span class="op">)</span>,
@@ -617,7 +617,7 @@ Activity 4
 <button>
 Activity 5
 </button>
-<div class="sourceCode" id="cb132"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb146"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, select <span class="op">=</span> <span class="st">"IQ"</span>, select2 <span class="op">=</span> <span class="st">"Abil"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
 </div>
 <p><strong>click the tab to see the solution</strong>
@@ -874,7 +874,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-22.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

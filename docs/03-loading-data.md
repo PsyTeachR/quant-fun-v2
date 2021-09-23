@@ -195,7 +195,7 @@ Finally, if you're using the R server, we strongly recommend that you download a
 
 ### Knowledge Questions
 
-1. When loading in a .csv file, which function should you use? <div class='webex-radiogroup' id='radio_DETZLJDCTU'><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value="answer"></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value=""></input> <span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_DETZLJDCTU" value=""></input> <span>library()</span></label></div>
+1. When loading in a .csv file, which function should you use? <div class='webex-radiogroup' id='radio_KHRQOYHIBU'><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value="answer"></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value=""></input> <span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_KHRQOYHIBU" value=""></input> <span>library()</span></label></div>
 
 
 
@@ -206,7 +206,7 @@ Remember, in this course we use `read_csv()` and it is important that you use th
 </div>
  
 
-2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do? <div class='webex-radiogroup' id='radio_XRIDHBFUXO'><label><input type="radio" autocomplete="off" name="radio_XRIDHBFUXO" value=""></input> <span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_XRIDHBFUXO" value=""></input> <span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_XRIDHBFUXO" value="answer"></input> <span>Specifies the column to join by that both objects have in common</span></label></div>
+2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do? <div class='webex-radiogroup' id='radio_VHWBKBXLEX'><label><input type="radio" autocomplete="off" name="radio_VHWBKBXLEX" value=""></input> <span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_VHWBKBXLEX" value=""></input> <span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_VHWBKBXLEX" value="answer"></input> <span>Specifies the column to join by that both objects have in common</span></label></div>
 
 
 
@@ -217,7 +217,7 @@ Remember, functions have arguments and the arguments all do something slightly d
 </div>
  
 
-3. What does the function `select()` do? <div class='webex-radiogroup' id='radio_SSOFYGVXCJ'><label><input type="radio" autocomplete="off" name="radio_SSOFYGVXCJ" value=""></input> <span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_SSOFYGVXCJ" value="answer"></input> <span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_SSOFYGVXCJ" value=""></input> <span>Keeps only the objects you specify</span></label></div>
+3. What does the function `select()` do? <div class='webex-radiogroup' id='radio_KXNLXYOTAX'><label><input type="radio" autocomplete="off" name="radio_KXNLXYOTAX" value=""></input> <span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_KXNLXYOTAX" value="answer"></input> <span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_KXNLXYOTAX" value=""></input> <span>Keeps only the objects you specify</span></label></div>
 
 
 
@@ -239,7 +239,13 @@ One key skill is learning how to fix errors in your code. These exercises below 
 dat <- read_csv("ahi-cesd.csv")
 ```
 
-This will produce the error `could not find function "read_csv"`. Once you figure out how to fix this error, make a note of it.
+This will produce the error:
+
+```
+`could not find function "read_csv"`
+```
+
+Once you figure out how to fix this error, make a note of it.
 
 
 <div class='webex-solution'><button>Solution</button>
@@ -249,6 +255,7 @@ When you restarted the session you unloaded all the packages you previously had 
 </div>
  
 
+
 2. Restart the R session (**`Session >> Restart R`**). Make sure that the working directory is set to the right folder and then run the below code:
 
 
@@ -257,7 +264,13 @@ library(tidyverse)
 dat <- read_csv("ahi-cesd")
 ```
 
-This will produce the error `Error: 'ahi-cesd' does not exist in current working directory`. Once you figure out how to fix this error, make a note of it.
+This will produce the error: 
+
+```
+`Error: 'ahi-cesd' does not exist in current working directory`.
+```
+
+Once you figure out how to fix this error, make a note of it.
 
 
 <div class='webex-solution'><button>Solution</button>
@@ -266,6 +279,7 @@ When loading data you need to provide the full file name including the file exte
 
 </div>
  
+
 
 3. Restart the R session (**`Session >> Restart R`**). Make sure that the working directory is set to the right folder and then run the below code:
 
@@ -289,6 +303,7 @@ If you want to join two objects that have mulitple columns in common you need to
 
 </div>
  
+
 
 ## Words from this Chapter
 

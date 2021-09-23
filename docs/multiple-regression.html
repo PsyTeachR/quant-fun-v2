@@ -196,7 +196,7 @@ Hint
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">wemwbs</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span> </code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="inline-figure"><img src="17-multiple-regression_files/figure-html/wemwbs_histogram-1.png" width="100%" style="display: block; margin: auto;"></div>
@@ -214,7 +214,7 @@ Solution
 <ul>
 <li>Run the below code and try and explain in words what each line of code is doing (remember, pronounce <code><a href="https://rdrr.io/pkg/faux/man/pipe.html">%&gt;%</a></code> as "and then"). You may find it easier to look at each of the tables that are produced.</li>
 </ul>
-<div class="sourceCode" id="cb290"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">screen_long</span> <span class="op">&lt;-</span> <span class="va">screen</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"var"</span>, values_to <span class="op">=</span> <span class="st">"hours"</span>, <span class="op">-</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">separate</span><span class="op">(</span><span class="va">var</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"variable"</span>, <span class="st">"day"</span><span class="op">)</span>, <span class="st">"_"</span><span class="op">)</span>
@@ -393,7 +393,7 @@ Hint
 </ol>
 <p>From the work we've done so far we know that assumptions 1 - 4 are met and we can use the functions from the <code>performance</code> package again to check the rest, like we did with the simple linear regression chapter.</p>
 <p>One difference from when we used <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> previously is that rather than just letting it run all the tests it wants, we're going to specify which tests, to stop it throwing an error. A word of warning - these assumptions tests will take longer than usual to run, because it's such a big dataset. The first line of code will run the assumption tests and save it to an object, calling the object name will then display the plots.</p>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">assumptions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod</span>, check <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"vif"</span>, <span class="st">"qq"</span>, <span class="st">"normality"</span>, <span class="st">"linearity"</span>, <span class="st">"homogeneity"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">assumptions</span></code></pre></div>
@@ -405,13 +405,13 @@ Figure 8.1: Assumption plots
 </div>
 <p>For assumption 5, linearity, we already know from looking at the scatterplot that the relationship is linear, but the residual plot also confirms this.</p>
 <p>For assumption 6, normality of residuals, again the residuals look good in both plots and this provides an excellent example of why it's often better to visualise than rely on statistics because if we use <code><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality()</a></code> which calls the Shapiro-Wilk test:</p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Non-normality of residuals detected (p &lt; .001).</code></pre>
 <p>It tells us that the residuals are not normal, despite the fact that the plots look almost perfect. And that's because with large sample sizes, any deviation from perfect normality can be flagged as non-normal.</p>
 <p>For assumption 7, homoscedasticity, the plot is missing the reference line - fun fact, this took us several days of our lives and asking for help on Twitter to figure out. The reason the line isn't there is because the dataset is so large that is creates a memory issue so we need to create the plot ourselves using code the developers of the package <code>see</code> provided to us on Twitter. The default code would try to draw confidence intervals around the line which is what causes the memory issue, this code removes that with <code>se = FALSE</code>.</p>
 <p>Please note that with most datasets you wouldn't have to do this extra step, but it's a good example that when it comes to programming, it doesn't matter how long you've been doing it, there will always be a problem you haven't come across and that asking for help is part of the process.</p>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">assumptions</span><span class="op">$</span><span class="va">HOMOGENEITY</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu"><a href="https://easystats.github.io/see/reference/geom_point2.html">geom_point2</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
     <span class="fu">stat_smooth</span><span class="op">(</span>
@@ -428,18 +428,18 @@ Figure 8.1: Assumption plots
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-3"></span>
 <img src="17-multiple-regression_files/figure-html/unnamed-chunk-3-1.png" alt="Adjusted homogeneity plot that will produce reference line" width="100%"><p class="caption">
-Figure 4.2: Adjusted homogeneity plot that will produce reference line
+Figure 7.4: Adjusted homogeneity plot that will produce reference line
 </p>
 </div>
 <p>Again like normality, the plot isn't perfect but it is pretty good and another example of why visualisation is better than running statistical tests as we see the same significant result if we run:</p>
-<div class="sourceCode" id="cb295"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_homogeneity.html">check_homogeneity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Variances differ between groups (Bartlett Test, p = 0.000).</code></pre>
 <p>For assumption 8, linearity, again the plot looks fine, and we could also have used the grouped scatterplots above to look at this.</p>
 <p>Finally, for assumption 9, multicollinearity, the plot also indicates no issues but we can also test this statistically using <code><a href="https://easystats.github.io/performance/reference/check_collinearity.html">check_collinearity()</a></code>.</p>
 <p>Essentially, this function estimates how much the variance of a coefficient is “inflated” because of linear dependence with other predictors, i.e., that a predictor isn't actually adding any unique variance to the model, it's just really strongly related to other predictors. <a href="https://statisticalhorizons.com/multicollinearity">You can read more about this here</a>. Thankfully, VIF is not affected by large samples like the other tests.</p>
 <p>There are various rules of thumb, but most converge on a VIF of above 2 - 2.5 for any one predictor being problematic.</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_collinearity.html">check_collinearity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
 <div class="inline-table"><table class="table table-sm">
@@ -486,12 +486,12 @@ Figure 4.2: Adjusted homogeneity plot that will produce reference line
 <span class="header-section-number">17.11</span> Activity 11: Write-up<a class="anchor" aria-label="anchor" href="#mulregression-a11"><i class="fas fa-link"></i></a>
 </h2>
 <p>Same as the simple regression, we can use inline coding or the <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> function to help with the write-up. First, copy and paste the below code into <strong>white-space</strong> and then knit the document. Note that the p-values are entered manually because of the APA <code>p &lt; .001</code> formatting.</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="multiple-regression.html#cb298-1" aria-hidden="true" tabindex="-1"></a>All continuous predictors were mean<span class="sc">-</span>centered and deviation coding was used <span class="cf">for</span> categorical predictors. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3] %&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, f<span class="sc">^</span><span class="dv">2</span><span class="sc">^</span> <span class="er">=</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Total screen time was a significant negative predictor of wellbeing scores (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, as was gender (β = `r mod$coefficients[3] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, with girls having lower wellbeing scores than boys. Importantly, there was a significant interaction between screentime and gender (β = `r mod$coefficients[4] %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">, p &lt; .001), smartphone use was more negatively associated with wellbeing for girls than for boys. </span></span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="multiple-regression.html#cb312-1" aria-hidden="true" tabindex="-1"></a>All continuous predictors were mean<span class="sc">-</span>centered and deviation coding was used <span class="cf">for</span> categorical predictors. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3] %&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, f<span class="sc">^</span><span class="dv">2</span><span class="sc">^</span> <span class="er">=</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Total screen time was a significant negative predictor of wellbeing scores (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, as was gender (β = `r mod$coefficients[3] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, with girls having lower wellbeing scores than boys. Importantly, there was a significant interaction between screentime and gender (β = `r mod$coefficients[4] %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">, p &lt; .001), smartphone use was more negatively associated with wellbeing for girls than for boys. </span></span></code></pre></div>
 <blockquote>
 <p>All continuous predictors were mean-centered and deviation coding was used for categorical predictors. The results of the regression indicated that the model significantly predicted course engagement (F(3, 7.1029^{4}) = 2450.89, p &lt; .001, Adjusted R2 = 0.09, f2 = .63), accounting for 9% of the variance. Total screen time was a significant negative predictor of well-being scores (β = -0.77, p &lt; .001, as was gender (β = 5.14, p &lt; .001, with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and gender (β = 0.45, p &lt; .001), smartphone use was more negatively associated with well-being for girls than for boys.</p>
 </blockquote>
 <p>Now, we can use <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> to produce an automated summary. Again, it would need some editing but may be useful to aid interpretation and reporting.</p>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## We fitted a linear model (estimated using OLS) to predict tot_wellbeing with thours_c and male_c (formula: tot_wellbeing ~ thours_c * male_c). The model explains a statistically significant and weak proportion of variance (R2 = 0.09, F(3, 71029) = 2450.89, p &lt; .001, adj. R2 = 0.09). The model's intercept, corresponding to thours_c = 0 and male_c = -0.5, is at 44.87 (95% CI [44.78, 44.96], t(71029) = 1001.87, p &lt; .001). Within this model:
 ## 
@@ -521,7 +521,7 @@ Figure 4.2: Adjusted homogeneity plot that will produce reference line
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wemwbs</span> <span class="op">&lt;-</span> <span class="va">wellbeing</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"var"</span>, values_to <span class="op">=</span> <span class="st">"score"</span>, <span class="op">-</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -543,7 +543,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">smarttot</span> <span class="op">&lt;-</span> <span class="va">screen2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">==</span> <span class="st">"Using Smartphone"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -563,7 +563,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">smart_wb</span> <span class="op">&lt;-</span> <span class="va">smarttot</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tothours</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">wemwbs</span>, <span class="st">"Serial"</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -582,7 +582,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">smart_wb_gen</span> <span class="op">&lt;-</span> <span class="va">smart_wb</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">tothours</span>, <span class="va">male</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_wellbeing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span><span class="op">)</span>
@@ -603,7 +603,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">tot_wellbeing</span> <span class="op">~</span> <span class="va">thours_c</span> <span class="op">*</span> <span class="va">male_c</span>, <span class="va">smart_wb</span><span class="op">)</span>
 <span class="co"># alternatively: </span>
 <span class="co"># mod &lt;- lm(tot_wellbeing ~ thours_c + male_c + thours_c:male_c, smart_wb)</span>
@@ -619,7 +619,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
@@ -631,7 +631,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr.f2.test</a></span><span class="op">(</span>u <span class="op">=</span> <span class="fl">3</span>, v <span class="op">=</span> <span class="fl">71029</span>, f2 <span class="op">=</span> <span class="cn">NULL</span>, sig.level <span class="op">=</span> <span class="fl">.05</span>, power <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span>
 <span class="va">f2</span> <span class="op">&lt;-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">)</span></code></pre></div>
 </div>
@@ -889,7 +889,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-22.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
