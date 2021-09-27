@@ -47,10 +47,10 @@ How you tackle probability depends on the type of data/variables you are working
 
 What types of data are the below measurements?
 
-* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value=''>ordinal</option><option value=''>categorical</option><option value='answer'>ratio</option></select>
-* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>categorical</option><option value=''>ratio</option><option value='answer'>ordinal</option><option value=''>interval</option></select>
-* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value=''>ordinal</option><option value=''>ratio</option><option value='answer'>categorical</option><option value=''>interval</option></select>
-* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value='answer'>interval</option><option value=''>ordinal</option><option value=''>ratio</option><option value=''>categorical</option></select>
+* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value='answer'>ratio</option><option value=''>interval</option><option value=''>ordinal</option><option value=''>categorical</option></select>
+* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value='answer'>ordinal</option><option value=''>categorical</option><option value=''>interval</option></select>
+* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value=''>ordinal</option><option value='answer'>categorical</option><option value=''>interval</option></select>
+* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value=''>ordinal</option><option value=''>categorical</option><option value='answer'>interval</option><option value=''>ratio</option></select>
 
 ### Probability distributions
 

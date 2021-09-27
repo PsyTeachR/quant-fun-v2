@@ -338,6 +338,7 @@ Ok so that is a brief intro to filters but it is worth keeping in mind that you 
 ### Activity 7: Creating new variables with `mutate()` {#dw1-a7}
 
 Doing really well! Only a little more to go we promise! OK so we have really learnt a lot about changing the data we have but sometimes we need to create a new variable that doesn’t exist in our dataset. For instance, we might want to figure out what decade a particular year belongs to in out babynames data and add that to our data! To create new variables, we use the function `mutate()`. 
+
 * Type and run the below code in a new code chunk.
     * Here, you are mutating a new column onto the data and storing it in the object `baby_decades`
     * the first argument is the original data, `babynames`

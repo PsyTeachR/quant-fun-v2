@@ -421,8 +421,8 @@ Figure 4.3: Plots by sex with the same scale
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, 
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
 The above code will produce:
-<div id="radio_GSWQQMQLWK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GSWQQMQLWK" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_GSWQQMQLWK" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_GSWQQMQLWK" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_GSWQQMQLWK" value=""><span>the data sorted by ascending year, sex and prop</span></label>
+<div id="radio_CGKAHRPLJD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""><span>the data sorted by ascending year, sex and prop</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -525,12 +525,19 @@ Explain this answer
 <h3>
 <span class="header-section-number">4.3.4</span> Activity 7: Creating new variables with <code>mutate()</code><a class="anchor" aria-label="anchor" href="#dw1-a7"><i class="fas fa-link"></i></a>
 </h3>
-<p>Doing really well! Only a little more to go we promise! OK so we have really learnt a lot about changing the data we have but sometimes we need to create a new variable that doesn’t exist in our dataset. For instance, we might want to figure out what decade a particular year belongs to in out babynames data and add that to our data! To create new variables, we use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.
-* Type and run the below code in a new code chunk.
-* Here, you are mutating a new column onto the data and storing it in the object <code>baby_decades</code>
-* the first argument is the original data, <code>babynames</code>
-* the second argument is the name of the new column <code>decade</code> followed by what you want in that column - the decade.
-* we are creating the decades using the code `floor(year/10)*10. This seems complicated but it says take the year and divide by 10, then get rid of the decimal places, and then multiply by 10. So for example, 1945/10 = 194.5, and if you get rid of the decimal places that becomes 194, and multiply it by 10 gives you 1940s!.</p>
+<p>Doing really well! Only a little more to go we promise! OK so we have really learnt a lot about changing the data we have but sometimes we need to create a new variable that doesn’t exist in our dataset. For instance, we might want to figure out what decade a particular year belongs to in out babynames data and add that to our data! To create new variables, we use the function <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<ul>
+<li>Type and run the below code in a new code chunk.
+<ul>
+<li>Here, you are mutating a new column onto the data and storing it in the object <code>baby_decades</code>
+</li>
+<li>the first argument is the original data, <code>babynames</code>
+</li>
+<li>the second argument is the name of the new column <code>decade</code> followed by what you want in that column - the decade.</li>
+<li>we are creating the decades using the code `floor(year/10)*10. This seems complicated but it says take the year and divide by 10, then get rid of the decimal places, and then multiply by 10. So for example, 1945/10 = 194.5, and if you get rid of the decimal places that becomes 194, and multiply it by 10 gives you 1940s!.</li>
+</ul>
+</li>
+</ul>
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">baby_decades</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>,
                   decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">year</span><span class="op">/</span><span class="fl">10</span><span class="op">)</span> <span class="op">*</span><span class="fl">10</span><span class="op">)</span>
@@ -540,8 +547,8 @@ Explain this answer
 <code class="sourceCode R"><span class="va">baby_where</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>,
                   country <span class="op">=</span> <span class="st">"USA"</span><span class="op">)</span></code></pre></div>
 What will be stored in the object <code>baby_where</code>?
-<div id="radio_LFWKMUWCYH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LFWKMUWCYH" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_LFWKMUWCYH" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_LFWKMUWCYH" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_LFWKMUWCYH" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
+<div id="radio_MSGRELYERP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -687,28 +694,28 @@ When learning to code it can be a useful practice to read your code 'out loud' i
 </h3>
 <ol style="list-style-type: decimal">
 <li>Which of the following is not one of the Wickham Six functions?
-<div id="radio_WTHYOTXJUM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WTHYOTXJUM" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_WTHYOTXJUM" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_WTHYOTXJUM" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_WTHYOTXJUM" value=""><span>filter()</span></label>
+<div id="radio_HQTCBUHVTS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain columns?
-<div id="radio_RQCPOEIQAL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RQCPOEIQAL" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_RQCPOEIQAL" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_RQCPOEIQAL" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_RQCPOEIQAL" value=""><span>filter()</span></label>
+<div id="radio_VNHMSKVIEY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain rows?
-<div id="radio_YCEVAHVFBC" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YCEVAHVFBC" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_YCEVAHVFBC" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_YCEVAHVFBC" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_YCEVAHVFBC" value="answer"><span>filter()</span></label>
+<div id="radio_WQILQSTNIF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value="answer"><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to add a new column of information?
-<div id="radio_KVNPDRCPZM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KVNPDRCPZM" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_KVNPDRCPZM" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_KVNPDRCPZM" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_KVNPDRCPZM" value=""><span>filter()</span></label>
+<div id="radio_ZQWFQHULAH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which boolean expression would I add to a <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function to keep only Male babies in the original <code>babynames</code> data?
-<div id="radio_CGPNHWYPBE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CGPNHWYPBE" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_CGPNHWYPBE" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_CGPNHWYPBE" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_CGPNHWYPBE" value=""><span>Sex == M</span></label>
+<div id="radio_VCDLYHIKFE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""><span>Sex == M</span></label>
 </div>
 </li>
 </ol>
@@ -1125,7 +1132,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-23.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
