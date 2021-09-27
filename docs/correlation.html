@@ -246,7 +246,7 @@ Figure 9.1: Histogram of Abil
 <li>Run the below code to create a QQ-plot for <code>Abil</code>.</li>
 </ul>
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">qqPlot</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qq-abil"></span>
 <img src="09-correlation_files/figure-html/qq-abil-1.png" alt="QQ-plot for Abil" width="100%"><p class="caption">
@@ -352,7 +352,7 @@ Explain these answers
 </ul>
 <p>For example, if your data is stored in <code>dat</code> and you want to do a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
 <div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, select <span class="op">=</span> <span class="st">"X"</span>, select2 <span class="op">=</span> <span class="st">"Y"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, select <span class="op">=</span> <span class="st">"X"</span>, select2 <span class="op">=</span> <span class="st">"Y"</span>,  method <span class="op">=</span> <span class="st">"pearson"</span>, alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Based on your answers to the assumption tests, decide which correlation method to use (e.g. pearson or spearman) and the type of NHST tail to set (e.g. two.sided or one.sided).</li>
 <li>Run the correlation between IQ and Ability and save it in an object called <code>results</code>.</li>
@@ -423,7 +423,7 @@ Explain these answers
 <p><code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> on the other hand produces a <code>list</code> type object, which is a bit harder to work with. However, the output of <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> also happens to work with functions from the <code>report</code> package, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> and <code><a href="https://easystats.github.io/report/reference/report_table.html">report_table()</a></code> that automatically reports the results of statistical analyses for you.</p>
 <p><code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help and so we're introducing it now.</p>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">report</span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
 <pre><code>## Effect sizes were labelled following Funder's (2019) recommendations.
 ## 
 ## The Pearson's product-moment correlation between IQ and Abil is positive, statistically significant, and very large (r = 0.45, 95% CI [0.07, 0.72], t(23) = 2.42, p = 0.024)</code></pre>
@@ -438,7 +438,7 @@ Explain these answers
 <li>Run the following code The <code>pairs.panels())</code> function from the <code>psych</code> library creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time.</li>
 </ul>
 <div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">pairs.panels</span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs"></span>
 <img src="09-correlation_files/figure-html/pairs-1.png" alt="Scatterplot matrix" width="100%"><p class="caption">
@@ -456,7 +456,7 @@ Figure 9.3: Scatterplot matrix
 <div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">F</span>, lm <span class="op">=</span> <span class="cn">TRUE</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
+  <span class="fu">pairs.panels</span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">F</span>, lm <span class="op">=</span> <span class="cn">TRUE</span>, method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs-pipes"></span>
 <img src="09-correlation_files/figure-html/pairs-pipes-1.png" alt="Adjusted scatterplot matrix" width="100%"><p class="caption">
@@ -479,7 +479,7 @@ Figure 9.4: Adjusted scatterplot matrix
 <div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">corr_results</span> <span class="op">&lt;-</span> <span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, p_adjust <span class="op">=</span> <span class="st">"holm"</span><span class="op">)</span>
+  <span class="fu">correlation</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, p_adjust <span class="op">=</span> <span class="st">"holm"</span><span class="op">)</span>
 
 <span class="va">corr_results</span></code></pre></div>
 <p><code>corr_results</code> is a tibble that lists the results of each correlation with its corresponding statistics. Look through the table and then answer the following questions:</p>
@@ -874,7 +874,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-23.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
