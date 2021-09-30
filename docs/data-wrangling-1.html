@@ -421,8 +421,8 @@ Figure 4.3: Plots by sex with the same scale
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, 
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
 The above code will produce:
-<div id="radio_CGKAHRPLJD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""><span>the data sorted by ascending year, sex and prop</span></label>
+<div id="radio_IBQSPVLIFN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value=""><span>the data sorted by ascending year, sex and prop</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -542,19 +542,82 @@ Explain this answer
 <code class="sourceCode R"><span class="va">baby_decades</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>,
                   decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">year</span><span class="op">/</span><span class="fl">10</span><span class="op">)</span> <span class="op">*</span><span class="fl">10</span><span class="op">)</span>
 <span class="va">baby_decades</span></code></pre></div>
+<p>The start of the data will look something like this with the new column called <code>decade</code> mutated on:</p>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">year</th>
+<th align="left">sex</th>
+<th align="left">name</th>
+<th align="right">n</th>
+<th align="right">prop</th>
+<th align="right">decade</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Mary</td>
+<td align="right">7065</td>
+<td align="right">0.0723836</td>
+<td align="right">1880</td>
+</tr>
+<tr class="even">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Anna</td>
+<td align="right">2604</td>
+<td align="right">0.0266790</td>
+<td align="right">1880</td>
+</tr>
+<tr class="odd">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Emma</td>
+<td align="right">2003</td>
+<td align="right">0.0205215</td>
+<td align="right">1880</td>
+</tr>
+<tr class="even">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Elizabeth</td>
+<td align="right">1939</td>
+<td align="right">0.0198658</td>
+<td align="right">1880</td>
+</tr>
+<tr class="odd">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Minnie</td>
+<td align="right">1746</td>
+<td align="right">0.0178884</td>
+<td align="right">1880</td>
+</tr>
+<tr class="even">
+<td align="right">1880</td>
+<td align="left">F</td>
+<td align="left">Margaret</td>
+<td align="right">1578</td>
+<td align="right">0.0161672</td>
+<td align="right">1880</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 <p>But mutates can be much simpler like this example here. Have a look at the code and then answer the question below:</p>
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">baby_where</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>,
                   country <span class="op">=</span> <span class="st">"USA"</span><span class="op">)</span></code></pre></div>
 What will be stored in the object <code>baby_where</code>?
-<div id="radio_MSGRELYERP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
+<div id="radio_EOKPBQDFTY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
 </div>
 <div class="webex-solution">
 <button>
 Explain this Answer
 </button>
-<p>This code will create a new object storing a tibble that has all the original data and a new column called country that states USA for each row. The <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> adds to what is already there unless you add a <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to remove columns or rows. Note that one of the answers is wrong because it states usa in lowercase but the code states it in uppercase, i.e. USA. Remeber to be specific.</p>
+<p>This code will create a new object storing a tibble that has all the original data and a new column called country that states USA for each row. The <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> adds to what is already there unless you add a <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to remove columns or rows. Note that one of the answers is wrong because it states usa in lowercase but the code states it in uppercase, i.e. USA. Remember to be specific.</p>
 </div>
 </div>
 <div id="dw1-a8" class="section level3" number="4.3.5">
@@ -644,9 +707,58 @@ If you get what looks like an error that says <code>summarise() ungrouping outpu
                           <span class="va">sex</span>, 
                           <span class="va">decade</span><span class="op">)</span>
 
-<span class="va">sum_decades</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">group_new_dat</span>,
+<span class="va">sum_decades</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">group_decades</span>,
                          mean_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span>,
                          median_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/median.html">median</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>And again if you look at <code>sum_decades</code>, the first few lines would look something like this:</p>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">sex</th>
+<th align="right">decade</th>
+<th align="right">mean_year</th>
+<th align="right">median_year</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">F</td>
+<td align="right">1880</td>
+<td align="right">110.5702</td>
+<td align="right">13</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">1890</td>
+<td align="right">128.1841</td>
+<td align="right">13</td>
+</tr>
+<tr class="odd">
+<td align="left">F</td>
+<td align="right">1900</td>
+<td align="right">131.3290</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">1910</td>
+<td align="right">187.0628</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="left">F</td>
+<td align="right">1920</td>
+<td align="right">210.5457</td>
+<td align="right">12</td>
+</tr>
+<tr class="even">
+<td align="left">F</td>
+<td align="right">1930</td>
+<td align="right">214.1987</td>
+<td align="right">12</td>
+</tr>
+</tbody>
+</table></div>
+</div>
 <p>Excellent! We have now had a run through of all of the Wickham six functions that allow us to arrange, select, filter, mutate, group by and summarise our data!</p>
 </div>
 </div>
@@ -656,7 +768,7 @@ If you get what looks like an error that says <code>summarise() ungrouping outpu
 </h2>
 <p>The final activity for this chapter essentially repeats what we've already covered but in a slightly different way. In the previous activities, you created new objects with new variables or groupings and then you called <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> on those new objects in separate lines of code. As a result, you had multiple objects in your environment pane and you need to make sure that you keep track of the different names.</p>
 <p>Instead, you can use <a class="glossary" target="_blank" title="" href="https://psyteachr.github.io/glossary/p#pipe">pipes</a>. Pipes are written as <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> and can be read as "and then". Pipes allow you to string together 'sentences' of code into 'paragraphs' so that you don't need to create intermediary objects. Really, this is something that is easier to show than tell.</p>
-<p>The below code does <strong>exactly</strong> the same as all the code we wrote above but it only creates one object.</p>
+<p>The below code does very similar to all the code we wrote above but it only creates one object.</p>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pipe_summary</span> <span class="op">&lt;-</span> <span class="va">babynames</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">floor</a></span><span class="op">(</span><span class="va">year</span><span class="op">/</span><span class="fl">10</span><span class="op">)</span> <span class="op">*</span><span class="fl">10</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -667,7 +779,50 @@ If you get what looks like an error that says <code>summarise() ungrouping outpu
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">name</span>, 
            <span class="va">decade</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_decade <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>The reason that this function is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.</p>
+<pre><code>## `summarise()` has grouped output by 'name'. You can override using the `.groups` argument.</code></pre>
+<p>Again, just to note, you may see a warning when you run the above code regarding groups in the - this is similar to the previous time we saw the message and it is just letting you know what the output is grouped by. Nothing to worry about it basically. And if we then, as is good practice, look at the output from the above code, the first few lines would gives us:</p>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">name</th>
+<th align="right">decade</th>
+<th align="right">mean_decade</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alexandra</td>
+<td align="right">1890</td>
+<td align="right">6.500000</td>
+</tr>
+<tr class="even">
+<td align="left">Alexandra</td>
+<td align="right">1900</td>
+<td align="right">8.285714</td>
+</tr>
+<tr class="odd">
+<td align="left">Alexandra</td>
+<td align="right">1910</td>
+<td align="right">32.700000</td>
+</tr>
+<tr class="even">
+<td align="left">Alexandra</td>
+<td align="right">1920</td>
+<td align="right">37.000000</td>
+</tr>
+<tr class="odd">
+<td align="left">Alexandra</td>
+<td align="right">1930</td>
+<td align="right">44.400000</td>
+</tr>
+<tr class="even">
+<td align="left">Alexandra</td>
+<td align="right">1940</td>
+<td align="right">117.100000</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Now just to explain a little more, the reason that this function, the <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>, is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.</p>
 <div class="info">
 <p>
 <strong>Read your pipe like a paragraph</strong>
@@ -694,28 +849,28 @@ When learning to code it can be a useful practice to read your code 'out loud' i
 </h3>
 <ol style="list-style-type: decimal">
 <li>Which of the following is not one of the Wickham Six functions?
-<div id="radio_HQTCBUHVTS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""><span>filter()</span></label>
+<div id="radio_NWFYSPDMMZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain columns?
-<div id="radio_VNHMSKVIEY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""><span>filter()</span></label>
+<div id="radio_CRWFPUZXBX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain rows?
-<div id="radio_WQILQSTNIF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value="answer"><span>filter()</span></label>
+<div id="radio_FSVPPDWVAR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value="answer"><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to add a new column of information?
-<div id="radio_ZQWFQHULAH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""><span>filter()</span></label>
+<div id="radio_ZMOJWAKGPP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which boolean expression would I add to a <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function to keep only Male babies in the original <code>babynames</code> data?
-<div id="radio_VCDLYHIKFE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""><span>Sex == M</span></label>
+<div id="radio_GJBQNNPETI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value=""><span>Sex == M</span></label>
 </div>
 </li>
 </ol>
@@ -743,7 +898,7 @@ Explain these Answers
 <ol style="list-style-type: decimal">
 <li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code in your console window:</li>
 </ol>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">babynames</span></code></pre></div>
 <p>This will produce the error:</p>
 <pre><code>Error: object 'babynames' not found</code></pre>
@@ -758,7 +913,7 @@ Solution
 <ol start="2" style="list-style-type: decimal">
 <li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code in your console window:</li>
 </ol>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/babynames">babynames</a></span><span class="op">)</span>
 
 <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, mean_n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -776,10 +931,10 @@ Solution
 <ol start="3" style="list-style-type: decimal">
 <li>Restart the R session (<strong><code>Session &gt;&gt; Restart R</code></strong>). Make sure that the working directory is set to the right folder and then run the below code in your console window:</li>
 </ol>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="data-wrangling-1.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
-<span id="cb71-2"><a href="data-wrangling-1.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb71-3"><a href="data-wrangling-1.html#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="data-wrangling-1.html#cb71-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">summarise</span>(<span class="at">.data =</span> babynames <span class="at">mean_n =</span> <span class="fu">mean</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="data-wrangling-1.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(babynames)</span>
+<span id="cb72-2"><a href="data-wrangling-1.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb72-3"><a href="data-wrangling-1.html#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="data-wrangling-1.html#cb72-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">summarise</span>(<span class="at">.data =</span> babynames <span class="at">mean_n =</span> <span class="fu">mean</span>(n))</span></code></pre></div>
 <p>This will produce the error:</p>
 <pre><code>Error: unexpected symbol in "dat &lt;- summarise(.data = babynames mean_n"
 </code></pre>
@@ -789,13 +944,13 @@ Solution
 Solution
 </button>
 <p>This is actually one of the most painful errors you can see as it doesn't really help you solve your issue because it is not quite clear what it means. <strong>unexpected symbol</strong> means effectively that the code is wrong and it is seeing something it did not think it would see. Again not that clear right? What we do when we see this is ask ourselves have we forgotten a comma somewhere or maybe a bracket or a quotation mark! Look for those issues and see if that helps. The error does show you that the error comes between <code>babynames</code> and <code>mean_n</code> it just isn't clear that that is what it means. The issue will be around the last word it mentions basically. The answer here is that there is a comma missing between the data and the arguement; between <code>babynames</code> and <code>mean_n</code>. The line should read:</p>
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/babynames">babynames</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>, mean_n <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Again an incredibly frustrating and time consuming error. Watch out for these. It is why partitioning the code on to new lines after a comma can be really help see errors as such:</p>
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/babynames">babynames</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
@@ -1132,7 +1287,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-27.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

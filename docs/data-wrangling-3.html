@@ -173,15 +173,15 @@ This layout can be easy to read, however, it makes programming quite difficult. 
 <span class="header-section-number">6.5</span> Activity 2: Load in the data<a class="anchor" aria-label="anchor" href="#dw3-a2"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now you need to load in the <code>.csv</code> data files using the <code>read_csv()</code> function and save them as variables in the environment. For example, to load in the <code>responses</code> file we would type:</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">responses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"responses.csv"</span><span class="op">)</span> </code></pre></div>
 <ul>
 <li>Add the following lines of code to your Markdown and complete them to load in all four <code>.csv</code> data files. Use the above code as an example and name each variable the same as its original file name (minus the .csv part), again as above, e.g. <code>responses.csv</code> gets saved as <code>responses</code>. Remember to run the lines so that the data loaded in and is stored in your environment.</li>
 </ul>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="data-wrangling-3.html#cb81-1" aria-hidden="true" tabindex="-1"></a>responses <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>()    <span class="co"># survey responses</span></span>
-<span id="cb81-2"><a href="data-wrangling-3.html#cb81-2" aria-hidden="true" tabindex="-1"></a>qformats <span class="ot">&lt;-</span>                 <span class="co"># question formats</span></span>
-<span id="cb81-3"><a href="data-wrangling-3.html#cb81-3" aria-hidden="true" tabindex="-1"></a>scoring <span class="ot">&lt;-</span>                  <span class="co"># scoring info</span></span>
-<span id="cb81-4"><a href="data-wrangling-3.html#cb81-4" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span>                    <span class="co"># participant information</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="data-wrangling-3.html#cb82-1" aria-hidden="true" tabindex="-1"></a>responses <span class="ot">&lt;-</span>  <span class="fu">read_csv</span>()    <span class="co"># survey responses</span></span>
+<span id="cb82-2"><a href="data-wrangling-3.html#cb82-2" aria-hidden="true" tabindex="-1"></a>qformats <span class="ot">&lt;-</span>                 <span class="co"># question formats</span></span>
+<span id="cb82-3"><a href="data-wrangling-3.html#cb82-3" aria-hidden="true" tabindex="-1"></a>scoring <span class="ot">&lt;-</span>                  <span class="co"># scoring info</span></span>
+<span id="cb82-4"><a href="data-wrangling-3.html#cb82-4" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span>                    <span class="co"># participant information</span></span></code></pre></div>
 </div>
 <div id="dw3-a3" class="section level2" number="6.6">
 <h2>
@@ -206,7 +206,7 @@ Explain this answer
 </h2>
 <p>We now have all the data we need loaded in, but in order to make it easier for us to get the AQ score for each participant, we need to change the layout of the <code>responses</code> tibble to Tidy Data.</p>
 <p>The first step is to use the function <code>pivot_longer()</code> to transform the data. The pivot functions can be easier to show than tell - you may find it a useful exercise to run the below code and compare the newly created object <code>rlong</code> with the original <code>respones</code> before reading on.</p>
-<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rlong</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span>data <span class="op">=</span> <span class="va">responses</span>,
                       cols <span class="op">=</span> <span class="va">Q1</span><span class="op">:</span><span class="va">Q10</span>,
                       names_to <span class="op">=</span> <span class="st">"Question"</span>, 
@@ -232,7 +232,7 @@ Explain this answer
 <ul>
 <li>Replace the <code>NULL</code> values in the below code with the necessary variable names to join <code>rlong</code> and <code>qformats</code> by <code>Question</code>. If you need extra help, revisit Loading Data - you used the same function then! You can also check the solutions for the answer (but make sure you try yourself first).</li>
 </ul>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rlong2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NULL</span>, y <span class="op">=</span> <span class="cn">NULL</span>, by <span class="op">=</span> <span class="st">"NULL"</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Now view <code>rlong2</code>. You have matched each question with its scoring format, <code>forward</code> or <code>reverse</code>.</li>
@@ -258,7 +258,7 @@ The reasoning behind this shift is that sometimes agreeing or disagreeing might 
 <li>You have to be very careful to use <code><a href="https://rdrr.io/r/base/c.html">c()</a></code> if you have multiple variables for <code>by</code>. This is a common error and results in the <code>variable.x</code>/<code>variable.y</code> issue above.</li>
 <li>Type the below line into the Activity 6 code chunk, run it, and then view the new object.</li>
 </ul>
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># combine rows in rlong2 and scoring based on QFormat and Response</span>
 <span class="va">rscores</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">rlong2</span>, <span class="va">scoring</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"QFormat"</span>, <span class="st">"Response"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
@@ -272,7 +272,7 @@ The reasoning behind this shift is that sometimes agreeing or disagreeing might 
 </li>
 <li>Save your Markdown and knit it to make sure all your code works.</li>
 </ol>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">aq_scores</span> <span class="op">&lt;-</span> <span class="va">rscores</span> <span class="op">%&gt;%</span> 
              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># how will you group individual participants?</span>
              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>AQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="cn">NULL</span><span class="op">)</span><span class="op">)</span> <span class="co"># which column will you sum to obtain AQ scores?</span></code></pre></div>
@@ -295,7 +295,7 @@ Helpful Hint
 Helpful Hint
 </button>
 <p>At any point where the first argument of your function is the name of a variable created before that line, there is a good chance you could have used a pipe! Here are all the bits of this code that could be piped together into one chain:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">`rlong &lt;- pivot_longer(responses, names_to = "Question", values_to = "Response", Q1:Q10)`</span>
 
 <span class="va">`rlong2 &lt;- inner_join(rlong, qformats, \"Question\")`</span>
@@ -321,7 +321,7 @@ Helpful Hint
 <button>
 Solution Activity 2
 </button>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">responses</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"responses.csv"</span><span class="op">)</span>                  
 <span class="va">qformats</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"qformats.csv"</span><span class="op">)</span>                 
 <span class="va">scoring</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"scoring.csv"</span><span class="op">)</span>                  
@@ -337,7 +337,7 @@ Solution Activity 2
 <button>
 Solution Task 5
 </button>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">rlong2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">rlong</span>, y <span class="op">=</span> <span class="va">qformats</span>, by <span class="op">=</span> <span class="st">"Question"</span><span class="op">)</span></code></pre></div>
 </div>
 <p><strong>Click the tab to see the solution</strong></p>
@@ -350,7 +350,7 @@ Solution Task 5
 <button>
 Solution Task 7
 </button>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">aq_scores</span> <span class="op">&lt;-</span> <span class="va">rscores</span> <span class="op">%&gt;%</span> 
              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Id</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># group by the ID number in column Id</span>
              <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>AQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span><span class="op">)</span> <span class="co"># sum column Score to obtain AQ scores.</span></code></pre></div>
@@ -365,7 +365,7 @@ Solution Task 7
 <button>
 Solution Activity 8
 </button>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">aq_scores2</span> <span class="op">&lt;-</span> <span class="va">responses</span> <span class="op">%&gt;%</span> 
   <span class="co"># take the data in `responses` and then</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="va">Q1</span><span class="op">:</span><span class="va">Q10</span>,
@@ -651,7 +651,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-27.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-30.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

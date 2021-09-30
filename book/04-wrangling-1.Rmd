@@ -351,6 +351,15 @@ baby_decades <- mutate(.data = babynames,
 baby_decades
 ```
 
+The start of the data will look something like this with the new column called `decade` mutated on:
+
+```{r decades-hidden, echo = FALSE}
+baby_decades <- mutate(.data = babynames,
+                  decade = floor(year/10) *10)
+head(baby_decades)
+```
+
+
 But mutates can be much simpler like this example here. Have a look at the code and then answer the question below:
 
 ```{r decades2, eval = FALSE}
@@ -361,7 +370,7 @@ baby_where <- mutate(.data = babynames,
 What will be stored in the object `baby_where`? `r longmcq(c("a tibble with one column called country that contains the decade people were born", answer = "a tibble with all the original data and a new column called country stating USA", "a tibble with all the original data and a new column stating usa", "a tibble with all the original data arranged by the country USA"))`
 
 `r hide("Explain this Answer")`
-This code will create a new object storing a tibble that has all the original data and a new column called country that states USA for each row. The `mutate()` adds to what is already there unless you add a `select()` or `filter()` to remove columns or rows. Note that one of the answers is wrong because it states usa in lowercase but the code states it in uppercase, i.e. USA. Remeber to be specific.
+This code will create a new object storing a tibble that has all the original data and a new column called country that states USA for each row. The `mutate()` adds to what is already there unless you add a `select()` or `filter()` to remove columns or rows. Note that one of the answers is wrong because it states usa in lowercase but the code states it in uppercase, i.e. USA. Remember to be specific.
 `r unhide()`
 
 
@@ -440,14 +449,20 @@ sum_multi <- summarise(group_dat,
 
 And you can also add multiple grouping variables. For example, the following code groups `baby_decades` by `sex` and `decade` and then calculates the summary statistics to give us the mean and median number of male and female babies in each decade.
 
-```{r multi2, eval = FALSE, message = FALSE}
+```{r multi2, message = FALSE}
 group_decades <- group_by(baby_decades, 
                           sex, 
                           decade)
 
-sum_decades <- summarise(group_new_dat,
+sum_decades <- summarise(group_decades,
                          mean_year = mean(n),
                          median_year = median(n))
+```
+
+And again if you look at `sum_decades`, the first few lines would look something like this:
+
+```{r show-sum-decs, echo=FALSE}
+head(sum_decades)
 ```
 
 Excellent! We have now had a run through of all of the Wickham six functions that allow us to arrange, select, filter, mutate, group by and summarise our data!
@@ -458,9 +473,9 @@ The final activity for this chapter essentially repeats what we've already cover
 
 Instead, you can use `r glossary("pipe", display = "pipes")`. Pipes are written as `%>%` and can be read as "and then". Pipes allow you to string together 'sentences' of code into 'paragraphs' so that you don't need to create intermediary objects. Really, this is something that is easier to show than tell.
 
-The below code does **exactly** the same as all the code we wrote above but it only creates one object.
+The below code does very similar to all the code we wrote above but it only creates one object.
 
-```{r pipe1, eval = FALSE}
+```{r pipe1}
 pipe_summary <- babynames %>%
   mutate(decade = floor(year/10) *10) %>%
   filter(name %in% c("Emily",
@@ -472,7 +487,13 @@ pipe_summary <- babynames %>%
   summarise(mean_decade = mean(n))
 ```
 
-The reason that this function is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.
+Again, just to note, you may see a warning when you run the above code regarding groups in the - this is similar to the previous time we saw the message and it is just letting you know what the output is grouped by. Nothing to worry about it basically. And if we then, as is good practice, look at the output from the above code, the first few lines would gives us:
+
+```{r pipe1-tab, echo=FALSE}
+head(pipe_summary)
+```
+
+Now just to explain a little more, the reason that this function, the `%>%`, is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.
 
 ```{block, type="info"}
 **Read your pipe like a paragraph**
