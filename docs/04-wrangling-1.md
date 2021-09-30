@@ -252,7 +252,7 @@ arrange(babynames,
         desc(prop)) 
 ```
 
-The above code will produce: <div class='webex-radiogroup' id='radio_CGKAHRPLJD'><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""></input> <span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""></input> <span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value="answer"></input> <span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_CGKAHRPLJD" value=""></input> <span>the data sorted by ascending year, sex and prop</span></label></div>
+The above code will produce: <div class='webex-radiogroup' id='radio_IBQSPVLIFN'><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value=""></input> <span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value=""></input> <span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value="answer"></input> <span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_IBQSPVLIFN" value=""></input> <span>the data sorted by ascending year, sex and prop</span></label></div>
 
 
 
@@ -376,6 +376,22 @@ baby_decades <- mutate(.data = babynames,
 baby_decades
 ```
 
+The start of the data will look something like this with the new column called `decade` mutated on:
+
+<div class="kable-table">
+
+| year|sex |name      |    n|      prop| decade|
+|----:|:---|:---------|----:|---------:|------:|
+| 1880|F   |Mary      | 7065| 0.0723836|   1880|
+| 1880|F   |Anna      | 2604| 0.0266790|   1880|
+| 1880|F   |Emma      | 2003| 0.0205215|   1880|
+| 1880|F   |Elizabeth | 1939| 0.0198658|   1880|
+| 1880|F   |Minnie    | 1746| 0.0178884|   1880|
+| 1880|F   |Margaret  | 1578| 0.0161672|   1880|
+
+</div>
+
+
 But mutates can be much simpler like this example here. Have a look at the code and then answer the question below:
 
 
@@ -384,13 +400,13 @@ baby_where <- mutate(.data = babynames,
                   country = "USA")
 ```
 
-What will be stored in the object `baby_where`? <div class='webex-radiogroup' id='radio_MSGRELYERP'><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""></input> <span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value="answer"></input> <span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""></input> <span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_MSGRELYERP" value=""></input> <span>a tibble with all the original data arranged by the country USA</span></label></div>
+What will be stored in the object `baby_where`? <div class='webex-radiogroup' id='radio_EOKPBQDFTY'><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value=""></input> <span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value="answer"></input> <span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value=""></input> <span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_EOKPBQDFTY" value=""></input> <span>a tibble with all the original data arranged by the country USA</span></label></div>
 
 
 
 <div class='webex-solution'><button>Explain this Answer</button>
 
-This code will create a new object storing a tibble that has all the original data and a new column called country that states USA for each row. The `mutate()` adds to what is already there unless you add a `select()` or `filter()` to remove columns or rows. Note that one of the answers is wrong because it states usa in lowercase but the code states it in uppercase, i.e. USA. Remeber to be specific.
+This code will create a new object storing a tibble that has all the original data and a new column called country that states USA for each row. The `mutate()` adds to what is already there unless you add a `select()` or `filter()` to remove columns or rows. Note that one of the answers is wrong because it states usa in lowercase but the code states it in uppercase, i.e. USA. Remember to be specific.
 
 </div>
 
@@ -486,10 +502,25 @@ group_decades <- group_by(baby_decades,
                           sex, 
                           decade)
 
-sum_decades <- summarise(group_new_dat,
+sum_decades <- summarise(group_decades,
                          mean_year = mean(n),
                          median_year = median(n))
 ```
+
+And again if you look at `sum_decades`, the first few lines would look something like this:
+
+<div class="kable-table">
+
+|sex | decade| mean_year| median_year|
+|:---|------:|---------:|-----------:|
+|F   |   1880|  110.5702|          13|
+|F   |   1890|  128.1841|          13|
+|F   |   1900|  131.3290|          12|
+|F   |   1910|  187.0628|          12|
+|F   |   1920|  210.5457|          12|
+|F   |   1930|  214.1987|          12|
+
+</div>
 
 Excellent! We have now had a run through of all of the Wickham six functions that allow us to arrange, select, filter, mutate, group by and summarise our data!
 
@@ -499,7 +530,7 @@ The final activity for this chapter essentially repeats what we've already cover
 
 Instead, you can use <a class='glossary' target='_blank' title='' href='https://psyteachr.github.io/glossary/p#pipe'>pipes</a>. Pipes are written as `%>%` and can be read as "and then". Pipes allow you to string together 'sentences' of code into 'paragraphs' so that you don't need to create intermediary objects. Really, this is something that is easier to show than tell.
 
-The below code does **exactly** the same as all the code we wrote above but it only creates one object.
+The below code does very similar to all the code we wrote above but it only creates one object.
 
 
 ```r
@@ -514,7 +545,26 @@ pipe_summary <- babynames %>%
   summarise(mean_decade = mean(n))
 ```
 
-The reason that this function is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.
+```
+## `summarise()` has grouped output by 'name'. You can override using the `.groups` argument.
+```
+
+Again, just to note, you may see a warning when you run the above code regarding groups in the - this is similar to the previous time we saw the message and it is just letting you know what the output is grouped by. Nothing to worry about it basically. And if we then, as is good practice, look at the output from the above code, the first few lines would gives us:
+
+<div class="kable-table">
+
+|name      | decade| mean_decade|
+|:---------|------:|-----------:|
+|Alexandra |   1890|    6.500000|
+|Alexandra |   1900|    8.285714|
+|Alexandra |   1910|   32.700000|
+|Alexandra |   1920|   37.000000|
+|Alexandra |   1930|   44.400000|
+|Alexandra |   1940|  117.100000|
+
+</div>
+
+Now just to explain a little more, the reason that this function, the `%>%`, is called a pipe is because it 'pipes' the data through to the next function. When you wrote the code previously, the first argument of each function was the dataset you wanted to work on. When you use pipes it will automatically take the data from the previous line of code so you don't need to specify it again.
 
 <div class="info">
 <p><strong>Read your pipe like a paragraph</strong></p>
@@ -531,19 +581,19 @@ Brilliant! That has been a lot of information but hopefully it has started to gi
 
 ### Knowledge Questions
 
-1. Which of the following is not one of the Wickham Six functions? <div class='webex-radiogroup' id='radio_HQTCBUHVTS'><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value="answer"></input> <span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_HQTCBUHVTS" value=""></input> <span>filter()</span></label></div>
+1. Which of the following is not one of the Wickham Six functions? <div class='webex-radiogroup' id='radio_NWFYSPDMMZ'><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value="answer"></input> <span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value=""></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_NWFYSPDMMZ" value=""></input> <span>filter()</span></label></div>
 
 
-2. Which of the following functions would I use if I wanted to keep only certain columns? <div class='webex-radiogroup' id='radio_VNHMSKVIEY'><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value="answer"></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_VNHMSKVIEY" value=""></input> <span>filter()</span></label></div>
+2. Which of the following functions would I use if I wanted to keep only certain columns? <div class='webex-radiogroup' id='radio_CRWFPUZXBX'><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value="answer"></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value=""></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_CRWFPUZXBX" value=""></input> <span>filter()</span></label></div>
 
 
-3. Which of the following functions would I use if I wanted to keep only certain rows? <div class='webex-radiogroup' id='radio_WQILQSTNIF'><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value=""></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_WQILQSTNIF" value="answer"></input> <span>filter()</span></label></div>
+3. Which of the following functions would I use if I wanted to keep only certain rows? <div class='webex-radiogroup' id='radio_FSVPPDWVAR'><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value=""></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_FSVPPDWVAR" value="answer"></input> <span>filter()</span></label></div>
 
 
-4. Which of the following functions would I use if I wanted to add a new column of information? <div class='webex-radiogroup' id='radio_ZQWFQHULAH'><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value="answer"></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_ZQWFQHULAH" value=""></input> <span>filter()</span></label></div>
+4. Which of the following functions would I use if I wanted to add a new column of information? <div class='webex-radiogroup' id='radio_ZMOJWAKGPP'><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value=""></input> <span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value="answer"></input> <span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_ZMOJWAKGPP" value=""></input> <span>filter()</span></label></div>
 
 
-5. Which boolean expression would I add to a `filter()` function to keep only Male babies in the original `babynames` data? <div class='webex-radiogroup' id='radio_VCDLYHIKFE'><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""></input> <span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value="answer"></input> <span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""></input> <span>sex < F</span></label><label><input type="radio" autocomplete="off" name="radio_VCDLYHIKFE" value=""></input> <span>Sex == M</span></label></div>
+5. Which boolean expression would I add to a `filter()` function to keep only Male babies in the original `babynames` data? <div class='webex-radiogroup' id='radio_GJBQNNPETI'><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value=""></input> <span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value="answer"></input> <span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value=""></input> <span>sex < F</span></label><label><input type="radio" autocomplete="off" name="radio_GJBQNNPETI" value=""></input> <span>Sex == M</span></label></div>
 
 
 
