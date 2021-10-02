@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 5 Data wrangling 2 | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
-<meta name="description" content="One of the key skills in an researcher's toolbox is the ability to work with data. When you run an experiment you get lots of data in various files. For instance, it is not uncommon for an...">
+<meta name="description" content="As we have said previously, one of the key aspects in a researcher's toolbox is the knowledge and skill to work with data - regardless of how it comes to you. In fact, when you run an experiment...">
 <meta name="generator" content="bookdown 0.23 with bs4_book()">
 <meta property="og:title" content="Chapter 5 Data wrangling 2 | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/data-wrangling-2.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<meta property="og:description" content="One of the key skills in an researcher's toolbox is the ability to work with data. When you run an experiment you get lots of data in various files. For instance, it is not uncommon for an...">
+<meta property="og:description" content="As we have said previously, one of the key aspects in a researcher's toolbox is the knowledge and skill to work with data - regardless of how it comes to you. In fact, when you run an experiment...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 5 Data wrangling 2 | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="One of the key skills in an researcher's toolbox is the ability to work with data. When you run an experiment you get lots of data in various files. For instance, it is not uncommon for an...">
+<meta name="twitter:description" content="As we have said previously, one of the key aspects in a researcher's toolbox is the knowledge and skill to work with data - regardless of how it comes to you. In fact, when you run an experiment...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -89,14 +89,9 @@
 <h1>
 <span class="header-section-number">5</span> Data wrangling 2<a class="anchor" aria-label="anchor" href="#data-wrangling-2"><i class="fas fa-link"></i></a>
 </h1>
-<p>One of the key skills in an researcher's toolbox is the ability to work with data. When you run an experiment you get lots of data in various files. For instance, it is not uncommon for an experimental software to create a new file for every participant you run and for each participant's file to contain numerous columns and rows of data, only some of which are important. Being able to wrangle that data, manipulate it into different layouts, extract the parts you need, and summarise it, is one of the most important skills we will help you learn.</p>
-<p>Over this course you will develop your skills in working with data. This chapter focuses on organizing data using the <code>tidyverse</code> package that you have read about in earlier chapters. Over the course, you will learn the main functions for data wrangling and how to use them, and we will use a number of different datasets to give you a wide range of exposure to what Psychology is about, and to reiterate that the same skills apply across different datasets. <strong>The skills don't change, just the data!</strong></p>
-<p>There are some questions to answer as you go along to test your skills: use the example code as a guide and the solutions are at the bottom. Remember to be pro-active in your learning, work together as a community, and if you get stuck use the <strong><a href="https://www.rstudio.com/resources/cheatsheets/">cheatsheets</a></strong>. The key cheatsheet for this activity is the Data Transformation with dplyr.</p>
-<div id="learning-to-wrangle-is-there-a-chastity-belt-on-perception" class="section level2" number="5.1">
-<h2>
-<span class="header-section-number">5.1</span> Learning to wrangle: Is there a chastity belt on perception<a class="anchor" aria-label="anchor" href="#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fas fa-link"></i></a>
-</h2>
-<p>Nearly all data in research methods is stored in two-dimensional tables, either called data-frames, tables or tibbles. There are other ways of storing data that you will discover in time but mainly we will be using tibbles (if you would like more info, type <code>vignette("tibble")</code> in the console). A tibble is really just a table of data with columns and rows of information. But within that table you can get different types of data, i.e. numeric, integer, and character.</p>
+<p>As we have said previously, one of the key aspects in a researcher's toolbox is the knowledge and skill to work with data - regardless of how it comes to you. In fact, when you run an experiment you might get lots of different <a class="glossary" target="_blank" title="The kind of data represented by an object." href="https://psyteachr.github.io/glossary/d#data-type">types of data</a> in various different files. For instance, it is not uncommon for an experimental software to create a new file for every <a class="glossary" title="the word used to describe someone who has taken part in a study. Note that subject is outdated and no longer used.">participants</a> you run and for each participant's file to contain numerous columns and rows of different data types, only some of which are important. Being able to <a class="glossary" target="_blank" title="The process of preparing data for visualisation and statistical analysis." href="https://psyteachr.github.io/glossary/d#data-wrangling">wrangle</a> that data, manipulate it into different layouts, extract the parts you need, and summarise it, is one of the most important skills we will help you learn through this book.</p>
+<p>In the last chapter we introduced you to the <strong>Wickham six</strong> one-table <a class="glossary" target="_blank" title="A named section of code that can be reused." href="https://psyteachr.github.io/glossary/f#function">functions</a> which we use to do that data wrangling. Over the course of this book we will reiterate these functions and skills, and <a class="glossary" target="_blank" title="A group of R functions." href="https://psyteachr.github.io/glossary/p#package">packages</a> like the <code>tidyverse</code> and the packages it contains, across a number of different datasets to give you a wide range of exposure to what Psychology is about, and to reiterate that the same skills apply across different datasets. Always remember, <strong>the whilst the data changes, the skills stay the same!</strong></p>
+<p>We have also started to introduce different types of data and data structures. For example, data is often stored in two-dimensional tables, either called data frames, tables, or <a class="glossary" target="_blank" title="A container for tabular data with some different properties to a data frame" href="https://psyteachr.github.io/glossary/t#tibble">tibbles</a>. There are other ways of storing data that you will discover in time but mainly, in this book, we will be using tibbles, which we mentioned in the previous chapter (if you would like more info, type <code>vignette("tibble")</code> in the console). A tibble is really just a table of data with columns and rows of information - and some additional features we will learn about - and within the cells of the tibble, a cell being where a row and a column meets, you get different types of data, e.g. <a class="glossary" target="_blank" title="A data type representing a real decimal number" href="https://psyteachr.github.io/glossary/d#double">double</a>, <a class="glossary" target="_blank" title="A data type representing whole numbers." href="https://psyteachr.github.io/glossary/i#integer">integer</a>, <a class="glossary" target="_blank" title="A data type representing strings of text." href="https://psyteachr.github.io/glossary/c#character">character</a> and <a class="glossary" target="_blank" title="A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter" href="https://psyteachr.github.io/glossary/f#factor">factor</a></p>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -108,12 +103,12 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Numeric</td>
-<td align="left">Numbers including decimals</td>
+<td align="left">Double</td>
+<td align="left">Numbers that can take decimals</td>
 </tr>
 <tr class="even">
 <td align="left">Integer</td>
-<td align="left">Numbers without decimals</td>
+<td align="left">Numbers that cannot take decimals</td>
 </tr>
 <tr class="odd">
 <td align="left">Character</td>
@@ -125,28 +120,45 @@
 </tr>
 </tbody>
 </table></div>
-<p>Today we are going to be using data from this paper: <a href="http://journals.sagepub.com/doi/abs/10.1177/0956797617730892">Is there a Chastity Belt on Perception</a>. You can read the full paper if you like, but we will summarise the paper for you. The paper asks, <strong>does your ability to perform an action influence your perception?</strong> For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players?</p>
-<p>This experiment does not use tennis players however, they used the Pong task: "a computerised game in which participants aim to block moving balls with various sizes of paddles". A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let's begin!</p>
-</div>
-<div id="dw2-a1" class="section level2" number="5.2">
-<h2>
-<span class="header-section-number">5.2</span> Activity 1: Set-up Data Wrangling 2<a class="anchor" aria-label="anchor" href="#dw2-a1"><i class="fas fa-link"></i></a>
-</h2>
 <ul>
-<li>Download <a href="PongBlueRedBack%201-16%20Codebook.csv" download>PongBlueRedBack 1-16 Codebook.csv</a> into your chapter folder.<br>
+<li>
+<strong>Note 1:</strong> Double and Integer can both be referred to as <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a> data, and you will see this word from time to time. For clarity, we will use Double as a term for any number that can take a decimal (e.g. 3.14) and Integer as a term for any whole number (no decimal, e.g. 3).</li>
+<li>
+<strong>Note 2:</strong> A wee bit confusingly Double data does not have to have decimal places in it. For instance, the value of 1 could be Double as well as Integer. However, the value of 1.1 could only be Double and never Integer. Integers cannot have decimal places. Again, the more you work with data the more this will make sense, but it highlights the importance of looking at your data and checking what type it is as the type determines what you can do with the data.</li>
+</ul>
+<p>Today, we are going to continue developing our understanding of data, and build on the knowledge and skills we have seen to this point, to help you develop your ability to work with data. The only difference in this chapter is we are going to ask you to do more of the wrangling yourself, based on what we have shown you previously. To build our skills we will analyse a novel dataset and some activities based around manipulating that data. Remember to be pro-active in your learning and to refer back to what we have done before, using the example code as a guide. The solutions for all the tasks are at the bottom of the page as well for you to check yourself, but do be sure to try the tasks first. There is also the online <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">cheatsheets</a> if you need more help - the key cheatsheet for this chapter is the Data Transformation with <strong><code>dplyr</code></strong> - and don't forget to ask questions on ours forums.</p>
+<div id="learning-to-wrangle-is-there-a-chastity-belt-on-perception" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Learning to wrangle: Is there a chastity belt on perception<a class="anchor" aria-label="anchor" href="#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><i class="fas fa-link"></i></a>
+</h2>
+<p>Today we are going to be using data from the paper <a href="http://journals.sagepub.com/doi/abs/10.1177/0956797617730892" target="_blank">Is there a Chastity Belt on Perception</a><span class="citation">(<a href="references.html#ref-witt2018" role="doc-biblioref">Witt et al., 2018</a>)</span>. You can read the full paper if you like but we will summarise the paper for you. The paper asks the research question of <strong>does your ability to perform an action influence your perception?</strong> For instance, does your ability to hit a tennis ball influence how fast you perceive the ball to be moving? Or to phrase another way, do expert tennis players perceive the ball moving slower than novice tennis players?</p>
+<p>This experiment does not use tennis players however. Instead they used the Pong task: "a computerised game in which participants aim to block moving balls with various sizes of paddles". A bit like a very classic retro arcade game. Participants tend to estimate the balls as moving faster when they have to block it with a smaller paddle as opposed to when they have a bigger paddle. You can read the paper to get more details if you wish but hopefully that gives enough of an idea to help you understand the wrangling we will do on the data. We have cleaned up the data a little to start with. Let's begin!</p>
+<div id="dw2-a1" class="section level3" number="5.1.1">
+<h3>
+<span class="header-section-number">5.1.1</span> Activity 1: Set-up Data Wrangling 2<a class="anchor" aria-label="anchor" href="#dw2-a1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>First, download <a href="data/chpt5/PongBlueRedBack%201-16%20Codebook.csv" download>PongBlueRedBack 1-16 Codebook.csv</a> into your chapter folder.
+<ul>
+<li>If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PongBlueRedBack%201-16%20Codebook.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder.</li>
+</ul>
 </li>
-<li>Set the working directory to your chapter folder. Ensure the environment is clear.<br>
+<li>Next, set the <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a> to your chapter folder. Ensure the <a class="glossary" target="_blank" title="A data structure that contains R objects such as variables and functions" href="https://psyteachr.github.io/glossary/e#environment">environment</a> is clear.
+<ul>
+<li>If you're using the Rserver, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
 </li>
-<li>Open a new R Markdown document and save it in your working directory. Call the file "Data wrangling 2".</li>
-<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
+</ul>
 </li>
-<li>Delete the default R Markdown welcome text and insert a new code chunk.</li>
-<li>Copy and paste the below code into this code chunk and then run the code.</li>
+<li>Now, open a new R Markdown document and save it in your working directory and call the file something informative like "DataWrangling2".</li>
+<li>Next, delete the default R Markdown welcome text and insert a new code <a class="glossary" target="_blank" title="A section of code in an R Markdown file" href="https://psyteachr.github.io/glossary/c#chunk">chunk</a>.</li>
+<li>Finally, copy and paste the below code into this code chunk and then run the code.</li>
 </ul>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span>
 <span class="va">pong_data</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"PongBlueRedBack 1-16 Codebook.csv"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">pong_data</span><span class="op">)</span></code></pre></div>
+<p><strong>Remember: </strong> We use the <code>read_csv()</code> function to load in data, and the data filename must be a) in quotation marks and b) spelt exactly as the filename states, including spaces and the file extension (in this case .csv)</p>
+<p>If you have done this task correctly you should see the following output:</p>
 <pre><code>##   Participant     JudgedSpeed      PaddleLength   BallSpeed    TrialNumber    
 ##  Min.   : 1.00   Min.   :0.0000   Min.   : 50   Min.   :2.0   Min.   :  1.00  
 ##  1st Qu.: 4.75   1st Qu.:0.0000   1st Qu.: 50   1st Qu.:3.0   1st Qu.: 72.75  
@@ -161,13 +173,28 @@
 ##                     Mean   :0.6866   Mean   : 6.50  
 ##                     3rd Qu.:1.0000   3rd Qu.: 9.25  
 ##                     Max.   :1.0000   Max.   :12.00</code></pre>
-<p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> provides a quick overview of the variables in your dataset and can be a useful quick check that you have indeed imported the correct data. It will also provide some basic descriptive statistics or whether the data is character (text) data which can also be useful to check.</p>
+<p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>, from the <strong><code>base</code></strong> package - the default packages automatically installed - provides a quick overview of the variables in your dataset and can be useful as a quick check that you have indeed imported the correct data. It will also provide some basic <a class="glossary" target="_blank" title="Statistics that describe an aspect of data (e.g., mean, median, mode, variance, range)" href="https://psyteachr.github.io/glossary/d#descriptive">descriptive</a> statistics and some information on whether the data is character (text) data which can also be useful to check.</p>
+<p>An alternative approach for looking at data types would be to use the <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> function, from the <strong><code>dplyr</code></strong> package, loaded in with <strong><code>tidyverse</code></strong>. Try the following in your <a class="glossary" target="_blank" title="The pane in RStudio where you can type in commands and view output messages." href="https://psyteachr.github.io/glossary/c#console">console</a> window:</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">pong_data</span><span class="op">)</span></code></pre></div>
+<p>And you will see:</p>
+<pre><code>## Rows: 4,608
+## Columns: 8
+## $ Participant     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
+## $ JudgedSpeed     &lt;dbl&gt; 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, ~
+## $ PaddleLength    &lt;dbl&gt; 50, 250, 50, 250, 250, 50, 250, 50, 250, 50, 50, 250, ~
+## $ BallSpeed       &lt;dbl&gt; 5, 3, 4, 3, 7, 5, 6, 2, 4, 4, 7, 7, 3, 6, 5, 7, 2, 5, ~
+## $ TrialNumber     &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,~
+## $ BackgroundColor &lt;chr&gt; "red", "blue", "red", "red", "blue", "blue", "red", "r~
+## $ HitOrMiss       &lt;dbl&gt; 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, ~
+## $ BlockNumber     &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~</code></pre>
+<p>And if you look at that table you can see the eight column names followed by <code>&lt;dbl&gt;</code>, short for double, or <code>&lt;chr&gt;</code> short for character. Again, this might not mean that much to you but as you progress you will become very adept at recognising the type of data you are working with, as the type of data changes what you can do to the data.</p>
 </div>
-<div id="dw2-a2" class="section level2" number="5.3">
-<h2>
-<span class="header-section-number">5.3</span> Activity 2: Look at your data<a class="anchor" aria-label="anchor" href="#dw2-a2"><i class="fas fa-link"></i></a>
-</h2>
-<p>Let's have a look at the <code>pong_data</code> and see how it is organized. Click on <code>pong_data</code> in your environment.</p>
+<div id="dw2-a2" class="section level3" number="5.1.2">
+<h3>
+<span class="header-section-number">5.1.2</span> Activity 2: Look at your data<a class="anchor" aria-label="anchor" href="#dw2-a2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Great! Now that we have the data loaded in, let's have a look at the <code>pong_data</code> and see how it is organized. Again you can do this various ways, but today, click on <code>pong_data</code> in your environment pane.</p>
 <p>In the dataset you will see that each row (observation) represents one trial per participant and that there were 288 trials for each of the 16 participants. The columns (variables) we have in the dataset are as follows:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -178,27 +205,27 @@
 <tbody>
 <tr class="odd">
 <td align="center">Participant</td>
-<td align="left">integer</td>
+<td align="left">double</td>
 <td align="left">participant number</td>
 </tr>
 <tr class="even">
 <td align="center">JudgedSpeed</td>
-<td align="left">integer</td>
-<td align="left">speed judgement (1=fast, 0=slow)</td>
+<td align="left">double</td>
+<td align="left">speed judgement (1 = fast, 0 = slow)</td>
 </tr>
 <tr class="odd">
 <td align="center">PaddleLength</td>
-<td align="left">integer</td>
+<td align="left">double</td>
 <td align="left">paddle length (pixels)</td>
 </tr>
 <tr class="even">
 <td align="center">BallSpeed</td>
-<td align="left">integer</td>
+<td align="left">double</td>
 <td align="left">ball speed (2 pixels/4ms)</td>
 </tr>
 <tr class="odd">
 <td align="center">TrialNumber</td>
-<td align="left">integer</td>
+<td align="left">double</td>
 <td align="left">trial number</td>
 </tr>
 <tr class="even">
@@ -208,41 +235,84 @@
 </tr>
 <tr class="odd">
 <td align="center">HitOrMiss</td>
-<td align="left">integer</td>
-<td align="left">hit ball=1, missed ball=0</td>
+<td align="left">double</td>
+<td align="left">hit ball = 1, missed ball = 0</td>
 </tr>
 <tr class="even">
 <td align="center">BlockNumber</td>
-<td align="left">integer</td>
+<td align="left">double</td>
 <td align="left">block number (out of 12 blocks)</td>
 </tr>
 </tbody>
 </table></div>
-<p>We will use this data to master our skills of the Wickham Six verbs, taking each verb in turn. You should refer to the explanations and example code in Data Wrangling 1 to help you complete these. There are <strong>6 verbs to work through</strong> and after that we will briefly recap on two other functions before finishing with a quick look at pipes. Try each activity and ask your peers or your tutor if you need help.</p>
+<p>Just as we saw with <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>, some of the data is <code>double</code> - i.e. numbers - and some of the data is <code>character</code> - i.e. text. We will use this data to master our skills of the Wickham Six verbs, taking each verb in turn. You should refer to the explanations and example code in the previous chapter to help you complete these. Remember the six main functions were:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">Function</th>
+<th align="left">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code></td>
+<td align="left">Include or exclude certain variables (columns)</td>
+</tr>
+<tr class="even">
+<td align="center"><code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code></td>
+<td align="left">Include or exclude certain observations (rows)</td>
+</tr>
+<tr class="odd">
+<td align="center"><code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></td>
+<td align="left">Create new variables (columns)</td>
+</tr>
+<tr class="even">
+<td align="center"><code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code></td>
+<td align="left">Change the order of observations (rows)</td>
+</tr>
+<tr class="odd">
+<td align="center"><code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code></td>
+<td align="left">Organize the observations (rows) into groups</td>
+</tr>
+<tr class="even">
+<td align="center"><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code></td>
+<td align="left">Create summary variables for groups of observations</td>
+</tr>
+</tbody>
+</table></div>
+<p>Now, let's do some wrangling!!! And don't forget, it can help to take a new code chunk on each activity and write yourself some notes between the code chunks!</p>
 </div>
-<div id="dw2-a3" class="section level2" number="5.4">
-<h2>
-<span class="header-section-number">5.4</span> Activity 3: <strong><code>select()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a3"><i class="fas fa-link"></i></a>
-</h2>
-<p>Either by inclusion (telling R all the variables you want to keep) or exclusion (telling R which variables you want to drop), select only the <code>Participant</code>, <code>PaddleLength</code>, <code>TrialNumber</code>, <code>BackgroundColor</code> and <code>HitOrMiss</code> columns from <code>pong_data</code> and store it in a new object named <code>select_dat</code>.</p>
+<div id="dw2-a3" class="section level3" number="5.1.3">
+<h3>
+<span class="header-section-number">5.1.3</span> Activity 3: <strong><code>select()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a3"><i class="fas fa-link"></i></a>
+</h3>
+<p>We are going to start with some selections!</p>
+<ul>
+<li>Either by inclusion (stating all the variables you want to keep) or exclusion (stating all the variables you want to drop), select only the <code>Participant</code>, <code>PaddleLength</code>, <code>TrialNumber</code>, <code>BackgroundColor</code> and <code>HitOrMiss</code> columns from <code>pong_data</code> and store it in a new object named <code>select_dat</code>.</li>
+</ul>
 </div>
-<div id="dw2-a4" class="section level2" number="5.5">
-<h2>
-<span class="header-section-number">5.5</span> Activity 4: Reorder the variables<a class="anchor" aria-label="anchor" href="#dw2-a4"><i class="fas fa-link"></i></a>
-</h2>
-<p><code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> can also be used to reorder the columns in a table as the new table will display the variables in the order that you wrote them. Use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to keep only the columns <code>Participant</code>, <code>JudgedSpeed</code>, <code>BallSpeed</code>, <code>TrialNumber</code>, and <code>HitOrMiss</code> from <code>pong_data</code> but have them display in alphabetical order, left to right. Save this table in a new object named <code>reorder_dat</code>.</p>
+<div id="dw2-a4" class="section level3" number="5.1.4">
+<h3>
+<span class="header-section-number">5.1.4</span> Activity 4: Reorder the variables<a class="anchor" aria-label="anchor" href="#dw2-a4"><i class="fas fa-link"></i></a>
+</h3>
+<p>Good work! Now, we previously mentioned that <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> can also be used to reorder the columns in a tibble, as the new tibble will display the variables in the order that you entered them.</p>
+<ul>
+<li>Use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to keep only the columns <code>Participant</code>, <code>JudgedSpeed</code>, <code>BallSpeed</code>, <code>TrialNumber</code>, and <code>HitOrMiss</code> from <code>pong_data</code> but have them display in alphabetical order, left to right. Save this tibble in a new object named <code>reorder_dat</code>.</li>
+</ul>
 </div>
-<div id="dw2-a5" class="section level2" number="5.6">
-<h2>
-<span class="header-section-number">5.6</span> Activity 5: <strong><code>arrange()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a5"><i class="fas fa-link"></i></a>
-</h2>
-<p>Arrange the data by two variables: <code>HitOrMiss</code> (putting hits - 1 - first), and <code>JudgedSpeed</code> (fast judgement - 1 - first) and store this in an object named <code>arrange_dat</code>.</p>
+<div id="dw2-a5" class="section level3" number="5.1.5">
+<h3>
+<span class="header-section-number">5.1.5</span> Activity 5: <strong><code>arrange()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a5"><i class="fas fa-link"></i></a>
+</h3>
+<p>We are now master of selections!!! Let's move on to a different skill and test our ability to change the order of the data in the rows.</p>
+<ul>
+<li>Arrange the data by the following two variables: <code>HitOrMiss</code> (putting hits - 1 - first), and <code>JudgedSpeed</code> (putting fast judgement - 1 - first) and store this in an object named <code>arrange_dat</code>.</li>
+</ul>
 </div>
-<div id="dw2-a6" class="section level2" number="5.7">
-<h2>
-<span class="header-section-number">5.7</span> Activity 6: <code>filter()</code><a class="anchor" aria-label="anchor" href="#dw2-a6"><i class="fas fa-link"></i></a>
-</h2>
-<p>Use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to extract all Participants in the original <code>pong_data</code> that had:</p>
+<div id="dw2-a6" class="section level3" number="5.1.6">
+<h3>
+<span class="header-section-number">5.1.6</span> Activity 6: <strong><code>filter()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a6"><i class="fas fa-link"></i></a>
+</h3>
+<p>Great! But what about keeping and removing some of the rows with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>! You may need to refer back to the different boolean operations to complete this activity!
+* Use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to extract all Participants in the original <code>pong_data</code> that had:</p>
 <ul>
 <li>a fast speed judgement;</li>
 <li>for speeds 2, 4, 5, and 7;</li>
@@ -259,7 +329,7 @@ Helpful Hint
 <li><p>Filter for the speeds 2, 4, 5 and 7 (<code>BallSpeed</code>)</p></li>
 <li><p>Filter for all Misses (<code>HitOrMiss</code>)</p></li>
 </ol>
-<p>You could do this in three filters where each one uses the output of the preceding one, or remember that filter functions can take more than one argument. Also, because the <code>JudgedSpeed</code> and <code>HitOrMiss</code> are Integer you will need <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> instead of just <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code>.</p>
+<p>You could do this in three filters where each one uses the output of the preceding one, or remember that filter functions can take more than one argument. You may also need to use <code><a href="https://rdrr.io/r/base/Comparison.html">==</a></code> instead of just <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code>.</p>
 </div>
 <p><br></p>
 <div class="warning">
@@ -276,97 +346,514 @@ Exactly! But what if you wanted cats and dogs?
 <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter(animal_data, animals == "cat", animals == "dog")</a></code>
 </p>
 <p>
-Right? Wrong! This actually says "give me everything that is a cat and a dog". But nothing is a cat and a dog, that would be weird - like a dat or a cog. In fact you want everything that is either a cat <strong>or</strong> a dog:
+Right? Wrong! This actually says "give me everything that is a cat and a dog". But nothing is a cat and a dog, that would be weird - like a dat or a cog. In fact you want everything that is either a cat <strong>or</strong> a dog, so you could do:
+</p>
+<p>
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter(animal_data, animals == "cat"| animals == "dog")</a></code>
+</p>
+<p>
+Or you could do:
 </p>
 <p>
 <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter(animal_data, animals %in% c("cat", "dog"))</a></code>
 </p>
 <p>
-You used this code when producing your own graph of babynames, it's a very helpful function so don't forget it exists!
+You used this last approach, using <code><a href="https://rdrr.io/r/base/match.html">%in%</a></code>, when producing your own graph of <code>babynames</code>. It is a very helpful function so don't forget it exists!
 </p>
 </div>
 </div>
-<div id="dw2-a7" class="section level2" number="5.8">
-<h2>
-<span class="header-section-number">5.8</span> Activity 7: <code>mutate()</code><a class="anchor" aria-label="anchor" href="#dw2-a7"><i class="fas fa-link"></i></a>
-</h2>
-<p>In Data Wrangling 1, you learned how the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function lets us create a new variable in our dataset. However, it also has another useful function in that it can be combined with <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> to create new columns with recoded values. For example, let's add a new column to <code>pong_data</code> in which the judged speed is converted into a text label where <code>1</code> will become <code>Fast</code>, and <code>0</code> will become "Slow". Note that if you gave the recoded variable the same name as the original it would overwrite it.</p>
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pong_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+<div id="dw2-a7" class="section level3" number="5.1.7">
+<h3>
+<span class="header-section-number">5.1.7</span> Activity 7: <strong><code>mutate()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a7"><i class="fas fa-link"></i></a>
+</h3>
+<p>Brilliant work on getting this far! You really are starting to get the hang of wrangling! Now, let's test our skills on <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> but first we want to introduce a new function to help understand what we can do with <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>.</p>
+<p>Previously you learned how the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function lets us create a new variable in our dataset. However, it also has another useful function in that it can be combined with <code><a href="https://dplyr.tidyverse.org/reference/recode.html">recode()</a></code> to create new columns with recoded values - where you change how different categories in a variable are represented. For example, the code below adds a new column to <code>pong_data</code> in which the judged speed is converted into a text label where <code>1</code> will become <code>Fast</code>, and <code>0</code> will become "Slow". Run the code and look at the output!</p>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_mut1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                     JudgedSpeedLabel <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">JudgedSpeed</span>, 
                                                     <span class="st">"1"</span> <span class="op">=</span> <span class="st">"Fast"</span>, 
                                                     <span class="st">"0"</span> <span class="op">=</span> <span class="st">"Slow"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<p>The code here is is a bit complicated but:</p>
+<p>The code here is a bit complicated but we will explain:</p>
 <ul>
 <li>
 <code>JudgedSpeedLabel</code> is the name of your new column,</li>
 <li>
-<code>JudgedSpeed</code> is the name of the old column and the one to take information from</li>
-<li>Fast and slow are the new codings of 1 and 0 respectively</li>
-</ul>
-<p>The <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function is also handy for making some calculations on or across columns in your data. For example, say you realise you made a mistake in your experiment where your participant numbers should be 1 higher for every participant, i.e. Participant 1 should actually be numbered as Participant 2, etc. You would do something like:</p>
-<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pong_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pong_data</span>, Participant <span class="op">=</span> <span class="va">Participant</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
-<p>Note here that you are giving the new column the same name as the old column <code>Participant</code>. What happens here is that you are <strong>overwriting the old data with the new data</strong>! So watch out, mutate can create a new column or overwrite an existing column, depending on what you tell it to do!</p>
-<p>Imagine you realise there is a mistake in your dataset and that all your trial numbers are wrong. The first trial (trial number 1) was a practice so should be excluded and your experiment actually started on trial 2.</p>
+<code>JudgedSpeed</code> is the name of the old column and the one to take information from
 <ul>
-<li>Filter out all trials with the number 1 (<code>TrialNumber</code> column) from <code>pong_data</code>,</li>
-<li>Then use the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function to recount all the remaining trial numbers, starting them at one again instead of two. Overwrite <code>TrialNumber</code> in <code>pong_data</code> with this new data.</li>
+<li>Note that if you gave the recoded variable the same name as the original it would overwrite it.</li>
 </ul>
-<p>You can either do this in two separate steps and create a new object, or you can uses pipes <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> and do it it one line of code.</p>
+</li>
+<li>Fast and Slow are the new codings of 1 and 0 respectively in the new column</li>
+</ul>
+<p>The <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function is also handy for making some calculations on or across columns in your data. For example, say you realise you made a mistake in your experiment where your participant numbers should be 1 higher for every participant, i.e. Participant 1 should actually be numbered as Participant 2, etc. You could do something like:</p>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_mut2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                         Participant <span class="op">=</span> <span class="va">Participant</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>Note here, in this second example, you are giving the new column the same name as the old column <code>Participant</code>. Again, happens here is that you are <strong>overwriting the old data with the new data</strong>! So watch out, mutate can create a new column or overwrite an existing column, depending on what you tell it to do!</p>
+<p>Ok great! Now, imagine you realise that there is a mistake in your dataset and that all your trial numbers are wrong. The first trial (trial number 1) was a practice so should be excluded and your experiment actually started on trial 2. Your turn! You can either do this following activity in two separate steps and create a new object each time, or you can uses pipes <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> and do it it one line of code. The final tibble should be stored in an object called <code>pong_data_renumbered</code>.</p>
+<ul>
+<li>Filter out all trials with the number 1 (<code>TrialNumber</code> column) from <code>pong_data</code>.</li>
+<li>Then use the <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> function to renumber all the remaining trial numbers, starting them at one again instead of two, overwriting the values that were in the <code>TrialNumber</code> column.</li>
+</ul>
 <div class="webex-solution">
 <button>
 Helpful Hint
 </button>
-<p>Step 1. filter(<code>TrialNumber</code> does not equal 1) - remember to store this output in a variable?</p>
-<p>Step 2. mutate(<code>TrialNumber</code> = TrialNumber minus 1)</p>
+<ul>
+<li><p>Step 1. filter(<code>TrialNumber</code> does not equal 1). Remember to store this output in a variable if you are not using pipes.</p></li>
+<li><p>Step 2. mutate(<code>TrialNumber</code> = TrialNumber minus 1)</p></li>
+</ul>
 </div>
 </div>
-<div id="dw2-a8" class="section level2" number="5.9">
-<h2>
-<span class="header-section-number">5.9</span> Activity 8: Summarising data<a class="anchor" aria-label="anchor" href="#dw2-a8"><i class="fas fa-link"></i></a>
-</h2>
-<p>Now we're going to calculate descriptive statistics for the data using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>. In this exercise we will calculate:</p>
+<div id="dw2-a8" class="section level3" number="5.1.8">
+<h3>
+<span class="header-section-number">5.1.8</span> Activity 8: Summarising data<a class="anchor" aria-label="anchor" href="#dw2-a8"><i class="fas fa-link"></i></a>
+</h3>
+<p>Excellent! And now that we have done some wrangling we want to calculate some descriptive statistics for the data using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>. <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> has a range of internal functions that make life really easy, e.g. <code>mean</code>, <code>sum</code>, <code>max</code>, <code>min</code>, etc. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr cheatsheet</a> for more examples. And additional one that we will use from time-to-time is <code>na.rm = TRUE</code> which we can add when calculating descriptive statistics to say what to do if there are missing values. Missing values often appear as <code>NA</code> and the job of <code>na.rm</code> is to say whether to remove (rm) the NAs (<code>na.rm = TRUE</code>) or not (<code>na.rm = FALSE</code>). If you try to calculate values from data that have NAs, such as the mean, it would return <code>NA</code> as the result because it doesn't know how to average nothing. This dataset has no missing values but we will show you how to use it here and try to remember this argument exists, as you will use it often and it save you a lot of time!</p>
+<p>Back to the activity. Here, using the data in <code>pong_data_renumbered</code> we will calculate:</p>
 <ul>
 <li>The total (sum) number of hits for each combination of background colour and paddle length.</li>
 <li>The mean number of hits for each combination of background colour and paddle length</li>
 </ul>
-<p>Because we want to produce descriptive statistics by groups (background colour and paddle length), there are two steps:</p>
+<p>Remember though, because we want to produce descriptive statistics by groups (background colour and paddle length), there are two steps:</p>
 <ul>
-<li>Group the data by <code>BackgroundColor</code> and <code>PaddleLength</code> using <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>.</li>
-<li>Then, use <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> to calculate the total and mean number of hits (<code>HitOrMiss</code>) using the grouped data</li>
+<li>First we group the data by <code>BackgroundColor</code> and <code>PaddleLength</code> using <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>.</li>
+<li>Then, we use <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> to calculate the total and mean number of hits (<code>HitOrMiss</code>) using the grouped data</li>
 </ul>
-<p>We will do this using pipes to reduce the amount of code we write. Remember to try and read the code out loud and to pronounce <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> as 'and then'. Copy and paste the below code into a new code chunk and run the code.</p>
-<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pong_data_hits</span><span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span> <span class="co"># take pong_data</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># then group it</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
-            meanhits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">HitOrMiss</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="co"># then summarise it</span></code></pre></div>
+<p>We will do this activity using pipes to reduce the amount of code we write. Remember to try and read the code out loud and to pronounce <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> as 'and then'. Copy and paste the below code into a new code chunk and run the code.</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                               <span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_hits</span> <span class="op">&lt;-</span> <span class="va">pong_data_renumbered</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
+           <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span>, 
+                             na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            meanhits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">HitOrMiss</span>, 
+                            na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by 'BackgroundColor'. You can override using the `.groups` argument.</code></pre>
 <div class="info">
 <p>
-If you get what looks like an error that says <code>summarise() ungrouping output (override with .groups argument)</code>don't worry, this isn't an error it's just R telling you what it's done. This message was included in a very recent update to the <code>tidyverse</code> which is why it doesn't appear on some of the walkthrough vidoes.
-</p>
-</div>
-<p><code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> has a range of internal functions that make life really easy, e.g. <code>mean</code>, <code>sum</code>, <code>max</code>, <code>min</code>, etc. See the <a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">dplyr cheatsheet</a> for more examples.</p>
-<div class="info">
-<p>
-<code>na.rm = TRUE</code> is an argument that we can add when calculating descriptive statistics to tell R what to do if there are missing values. In this dataset, there are no missing values but if there were and we asked R to calculate the mean, it would return <code>NA</code> as the result because it doesn't know how to average nothing. Remember this argument exists, you will use it often and it save you a lot of time!
+Remember, if you get what looks like an error that says "<code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> has grouped output by 'BackgroundColor'. You can override using the <code>.groups</code> argument.", don't worry, this isn't an error it's just the code telling you how the final object is grouped.
 </p>
 </div>
 <ul>
-<li>View <code>pong_data_hits</code> and enter the number of hits made with the small paddle (50) and the red colour background in this box: <input class="webex-solveme nospaces" size="3" data-answer='["517"]'>
+<li><p>View <code>pong_data_hits</code> and answer the following questions to see if you have completed the task correctly.</p></li>
+<li>
+<p>What was the total number of hits made with the small paddle (50) and the blue colour background?</p>
+<div id="radio_XBRUMVFOHA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""><span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value="answer"><span>527</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""><span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""><span>516</span></label>
+</div>
+</li>
+<li>
+<p>To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background?</p>
+<div id="radio_DRVEOBLXHP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""><span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""><span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""><span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value="answer"><span>0.459</span></label>
+</div>
 </li>
 </ul>
 <p><strong>Note:</strong></p>
 <ul>
-<li><p>The name of the column within <code>pong_data_hits</code> is <code>total_hits</code>; this is what you called it in the above code. You could have called it anything you wanted but always try to use something sensible.</p></li>
-<li><p>Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces).</p></li>
+<li>The name of the column within <code>pong_data_hits</code> is <code>total_hits</code>; this is what you called it in the above code. You could have called it anything you wanted but always try to use something sensible.</li>
+<li>Make sure to call your variables something you (and anyone looking at your code) will understand and recognize later (i.e. not variable1, variable2, variable3. etc.), and avoid spaces (use_underscores_never_spaces).</li>
 </ul>
-<div class="try">
-<p>
-After grouping data together using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> function and then performing a task on it, e.g. <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, it can be very good practice to ungroup the data before performing another function. Forgetting to ungroup the dataset won't always affect further processing, but can really mess up other things. Again just a good reminder to always check the data you are getting out of a function a) makes sense and b) is what you expect.
-</p>
 </div>
+</div>
+<div id="ungrouping-counting-pipes---quick-notes" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Ungrouping, counting, pipes - quick notes!<a class="anchor" aria-label="anchor" href="#ungrouping-counting-pipes---quick-notes"><i class="fas fa-link"></i></a>
+</h2>
+<p>You have done some superb work today! Congratulations. You should be really proud of yourself. Before ending we just want to show a couple more new functions and approaches that will help in future activities.</p>
+<div id="dw2-a9" class="section level3" number="5.2.1">
+<h3>
+<span class="header-section-number">5.2.1</span> Counting data<a class="anchor" aria-label="anchor" href="#dw2-a9"><i class="fas fa-link"></i></a>
+</h3>
+<p>First we want to look at different ways of counting your observations. Often it is helpful to know how many observations you have, either in total, or broken down by groups. This can help you spot if something has gone wrong in a calculation, for example, if you've done something with the code and your mean or median is only being calculated using a subset of the values you intended.</p>
+<p>There are two ways of counting the number of observations. The first uses <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> and the function <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code> within the <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>. For example, the below code is the same as the previous activity, but with an extra line that will add a column called <code>n</code> to the table that contains the number of observations in each group. This is useful for when you want to add a column of counts to a table of other descriptive statistics.</p>
+<ul>
+<li>
+<strong>Note:</strong> the function is <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code> and takes no arguments it is just left blank as shown, <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code>. However, as in other functions, the <code>n</code> prior to the <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> could be called anything you want the column to be called, e.g. <code>n = n()</code> or <code>number = n()</code> would do the same but just give different names to the column.</li>
+</ul>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_count</span> <span class="op">&lt;-</span> <span class="va">pong_data_renumbered</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
+           <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span>, 
+                             na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            meanhits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">HitOrMiss</span>, 
+                            na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>However, if you're just interested in counts rather than also calculating descriptives, this above method is a bit clunky. Instead, we can use the function <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> which is specifically designed to count observations and doesn't require the use of <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>.</p>
+<p>To count the total number of observations in the dataset for example we would do:</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data</span> <span class="op">%&gt;%</span> <span class="co"># take pong_data</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># and then count the observations in it</span></code></pre></div>
+<p>And it would give the answer of:</p>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">n</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">4608</td>
+</tr></tbody>
+</table></div>
+</div>
+<p>Alternatively, to count the number of observations in each level of a variable you could do:</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">BackgroundColor</span><span class="op">)</span></code></pre></div>
+<p>And it would give the answer of:</p>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">BackgroundColor</th>
+<th align="right">n</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">blue</td>
+<td align="right">2304</td>
+</tr>
+<tr class="even">
+<td align="left">red</td>
+<td align="right">2304</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<p>Which method you use will depend on whether you want to add the counts to a table of other descriptives, but both functions are useful to know.</p>
+</div>
+<div id="dw2-ungroup" class="section level3" number="5.2.2">
+<h3>
+<span class="header-section-number">5.2.2</span> Ungrouping data<a class="anchor" aria-label="anchor" href="#dw2-ungroup"><i class="fas fa-link"></i></a>
+</h3>
+<p>After grouping data together using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> function and then performing a task on it, e.g. <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, it can be very good practice to ungroup the data before performing another function - by piping it into the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code> function - this is related to what the warnings about <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> mean as they are changing the groupings so removing all groupings can be good to do. Forgetting to ungroup the dataset won't always affect further processing, but can really mess up other things. Again just a good reminder to always check the data you are getting out of a function a) makes sense and b) is what you expect.</p>
+<p>This is an example of how you might use the function:</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_ungroup</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
+           <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="va">ungroup</span></code></pre></div>
+</div>
+<div id="dw2-pipes" class="section level3" number="5.2.3">
+<h3>
+<span class="header-section-number">5.2.3</span> Recapping Pipes (<strong><code>%&gt;%</code></strong>)<a class="anchor" aria-label="anchor" href="#dw2-pipes"><i class="fas fa-link"></i></a>
+</h3>
+<p>And finally today we just want to throw in a quick recap on <a class="glossary" target="_blank" title="" href="https://psyteachr.github.io/glossary/p#pipe">pipes</a>. We have used pipes a little above but you might still not have got the hang of it so reading through this will help a little. Remember where pipes become most useful is when we <strong>string a series of functions together</strong>, rather than using them as separate steps and having to save the data each time under a new variable name and getting ourselves all confused. In non-piped code we have to create a new object each time, for example, <code>data</code>, <code>data_filtered</code>, <code>data_arranged</code>, <code>data_grouped</code>, <code>data_summarised</code> just to get to the final one we actually want. This creates a lot of variables and tibbles in our environment and can make everything unclear, difficult to follow, and eventually slow down our computer. Piped code however uses one variable name, saving space in the environment, and is clear and easy to read. With pipes we skip unnecessary steps and avoid cluttering our environment.</p>
+<p>Here is an example of code that doesn't use pipes to find how many hits there were with the large paddle length and the red background:</p>
+<ul>
+<li>First we group the data accordingly, storing it in <code>pong_data_group</code>
+</li>
+<li>And then we summarise it, storing the answer in <code>total_hits</code>
+</li>
+<li>And finally we filter just the red, small paddle hits</li>
+</ul>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                            <span class="va">BackgroundColor</span>, 
+                            <span class="va">PaddleLength</span><span class="op">)</span>
+
+<span class="va">pong_data_hits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">pong_data_group</span>, 
+                            total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">pong_data_hits_red_small</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data_hits</span>, 
+                                   <span class="va">BackgroundColor</span> <span class="op">==</span> <span class="st">"red"</span>, 
+                                   <span class="va">PaddleLength</span> <span class="op">==</span> <span class="fl">250</span><span class="op">)</span></code></pre></div>
+<p>Alternatively we can make our code even more efficient, using less code, by stringing our sequence of functions together using pipes. This would look like:</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_hits_red_small</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
+           <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">BackgroundColor</span> <span class="op">==</span> <span class="st">"red"</span>, 
+         <span class="va">PaddleLength</span> <span class="op">==</span> <span class="fl">250</span><span class="op">)</span> </code></pre></div>
+<p>So the code becomes easier to read as you remember the data goes into one function "and then" into another, "and then" into another, and so on.</p>
+<p>It is also worth remembering that whilst pipes and code can be written in a single line, but it is much easier to see what the pipe is doing if each function takes its own line. You just have to remember that every time you add a function to the pipeline, add a <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> first and <strong>note that when using separate lines for each function, the <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> must appear at the end of the line and not the start of the next line</strong>. Compare the two examples below. The first won't work but the second will because the second puts the pipes at the end of the line where they need to be!</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-wrangling-2.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Piped version that won't work </span></span>
+<span id="cb91-2"><a href="data-wrangling-2.html#cb91-2" aria-hidden="true" tabindex="-1"></a>data_arrange <span class="ot">&lt;-</span> pong_data </span>
+<span id="cb91-3"><a href="data-wrangling-2.html#cb91-3" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PaddleLength <span class="sc">==</span> <span class="st">"50"</span>)</span>
+<span id="cb91-4"><a href="data-wrangling-2.html#cb91-4" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(BallSpeed) </span>
+<span id="cb91-5"><a href="data-wrangling-2.html#cb91-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-6"><a href="data-wrangling-2.html#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Piped version that will work </span></span>
+<span id="cb91-7"><a href="data-wrangling-2.html#cb91-7" aria-hidden="true" tabindex="-1"></a>data_arrange <span class="ot">&lt;-</span> pong_data <span class="sc">%&gt;%</span></span>
+<span id="cb91-8"><a href="data-wrangling-2.html#cb91-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">filter</span>(PaddleLength <span class="sc">==</span> <span class="st">"50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb91-9"><a href="data-wrangling-2.html#cb91-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">arrange</span>(BallSpeed) </span></code></pre></div>
+</div>
+</div>
+<div id="dw2-fin" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Finished!<a class="anchor" aria-label="anchor" href="#dw2-fin"><i class="fas fa-link"></i></a>
+</h2>
+<p>Brilliant work again! We have now learned a number of functions and verbs that you will need as you progress through this book. You will use them in the next chapter so be sure to go over these and try them out to make yourself more comfortable with them. If you have any questions please post them on Teams. <strong>Happy Wrangling!</strong></p>
+</div>
+<div id="dw2-test" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Test yourself<a class="anchor" aria-label="anchor" href="#dw2-test"><i class="fas fa-link"></i></a>
+</h2>
+<div id="knowledge-questions-2" class="section level3" number="5.4.1">
+<h3>
+<span class="header-section-number">5.4.1</span> Knowledge Questions<a class="anchor" aria-label="anchor" href="#knowledge-questions-2"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>What type of data would these most likely be:</li>
+</ol>
+<ul>
+<li><p>Male = <select class="webex-select"><option value="blank"></option>
+<option value="answer">Character</option>
+<option value="">Numeric</option>
+<option value="">Integer</option></select></p></li>
+<li><p>7.15 = <select class="webex-select"><option value="blank"></option>
+<option value="">Character</option>
+<option value="answer">Double</option>
+<option value="">Integer</option></select></p></li>
+<li><p>137 = <select class="webex-select"><option value="blank"></option>
+<option value="">Character</option>
+<option value="">Double</option>
+<option value="answer">Integer</option></select></p></li>
+</ul>
+<div class="webex-solution">
+<button>
+Explain these answers
+</button>
+<p>There is a lot of different types of data and as well as different types of levels of measurements and it can get very confusing. It's important to try to remember which is which because you can only do certain types of analyses on certain types of data and certain types of measurements. For instance, you can't take the average of Characters just like you can't take the average of Categorical data. Likewise, you can do any maths on Double data, just like you can on Interval and Ratio data. Integer data is funny in that sometimes it is Ordinal and sometimes it is Interval, sometimes you should take the median, sometimes you should take the mean. The main point is to always know what type of data you are using and to think about what you can and cannot do with them.</p>
+<ul>
+<li>Note that the last answer, 137, could also be double as it isn't clear if it could take a decimal or not.</li>
+</ul>
+</div>
+<p><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Which of the Wickham Six would you use to sort columns from smallest to largest:
+<div id="radio_YLBZLYNNAH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>summarise</span></label>
+</div>
+</li>
+<li>Which of the Wickham Six would you use to calculate the mean of a column:
+<div id="radio_XMXDGKHWOX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value="answer"><span>summarise</span></label>
+</div>
+</li>
+<li>Which of the Wickham Six would you use to remove certain observations - e.g. remove all males:
+<div id="radio_PAXDZANYTL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>summarise</span></label>
+</div>
+</li>
+<li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>:
+<div id="radio_IRTOYOZONG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
+</div>
+</li>
+</ol>
+</div>
+<div id="dw2-debug" class="section level3" number="5.4.2">
+<h3>
+<span class="header-section-number">5.4.2</span> Debugging tips<a class="anchor" aria-label="anchor" href="#dw2-debug"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are no debugging challenges today as we have done a lot of work but here are some tips to keep in mind.</p>
+<ul>
+<li>Remember to run the library and not just write the code</li>
+<li>Make sure you have spelt the data file name <strong>exactly</strong> as it is shown. Spaces and everything. Do not change the name of the csv file, fix your code instead. If you have a different name for your file than someone else then your code is not reproducible.</li>
+<li>Remember when uploading data we use <code>read_csv()</code> which has an underscore, whereas the data file itself will have a dot in its name, <code>filename.csv</code>.</li>
+<li>Check that the datafile is actually in the folder you have set as your working directory.</li>
+<li>Remember to start a new session each time you start a new analysis - the more functions and packages you use the great a chance of conflicting functions.</li>
+<li>Watch the spelling of functions and remember to put the data first. Often people forget to include the data as they are focussing on what they want to do.</li>
+<li>Always look at the output of your functions as you build the code. Often code runs but it doesn't do what you think it is doing because you wrote the code wrong. Code only does what you tell it to do!</li>
+<li>When using pipes, remember that you only need the data once, at the start.</li>
+<li>If separating pipes across different lines, remember the line ends with the pipe, it does not start with the pipe.</li>
+<li>And lastly, remember that only the data changes, the skills stay the same. Always look back to when you had the code working and go from there.</li>
+</ul>
+</div>
+</div>
+<div id="dw2-sols" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Solutions to Activities<a class="anchor" aria-label="anchor" href="#dw2-sols"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and speaking to the tutor about any issues.</p>
+<div id="dw2-a3sol" class="section level3" number="5.5.1">
+<h3>
+<span class="header-section-number">5.5.1</span> Activity 3<a class="anchor" aria-label="anchor" href="#dw2-a3sol"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>To include variables we would name all the variables we want:</li>
+</ul>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">select_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                     <span class="va">Participant</span>, 
+                     <span class="va">PaddleLength</span>, 
+                     <span class="va">TrialNumber</span>, 
+                     <span class="va">BackgroundColor</span>, 
+                     <span class="va">HitOrMiss</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>in contrast, to exclude variables we would name the ones we don't want and put a <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> prior to the name:</li>
+</ul>
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">select_dat</span> <span class="op">&lt;-</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                    <span class="op">-</span><span class="va">JudgedSpeed</span>, 
+                    <span class="op">-</span><span class="va">BallSpeed</span>, 
+                    <span class="op">-</span><span class="va">BlockNumber</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw2-a4sol" class="section level3" number="5.5.2">
+<h3>
+<span class="header-section-number">5.5.2</span> Activity 4<a class="anchor" aria-label="anchor" href="#dw2-a4sol"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>To reorder variables using the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> we state the order of the variables we want them in. Note that this only works on column order.</li>
+</ul>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">reorder_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                      <span class="va">BallSpeed</span>, 
+                      <span class="va">HitOrMiss</span>, 
+                      <span class="va">JudgedSpeed</span>, 
+                      <span class="va">Participant</span>, 
+                      <span class="va">TrialNumber</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw2-a5sol" class="section level3" number="5.5.3">
+<h3>
+<span class="header-section-number">5.5.3</span> Activity 5<a class="anchor" aria-label="anchor" href="#dw2-a5sol"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>To arrange the rows by certain columns we use <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> but you need to remember to include <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> to change it from running smallest-to-largest to largest-to-smallest.</li>
+</ul>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">arrange_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                       <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span>, 
+                       <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">JudgedSpeed</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw2-a6sol" class="section level3" number="5.5.4">
+<h3>
+<span class="header-section-number">5.5.4</span> Activity 6<a class="anchor" aria-label="anchor" href="#dw2-a6sol"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>Remembering that filters can take more than one argument then the below code would filter for data where:</p></li>
+<li><p>JudgedSpeed is 1 AND</p></li>
+<li><p>BallSpeed is either 2, 4, 5, or 7, AND</p></li>
+<li><p>HitOrMiss is 0.</p></li>
+</ul>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_fast_miss</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                         <span class="va">JudgedSpeed</span> <span class="op">==</span> <span class="fl">1</span>, 
+                         <span class="va">BallSpeed</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"7"</span><span class="op">)</span>, 
+                         <span class="va">HitOrMiss</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="dw2-a7sol" class="section level3" number="5.5.5">
+<h3>
+<span class="header-section-number">5.5.5</span> Activity 7<a class="anchor" aria-label="anchor" href="#dw2-a7sol"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you didn't use pipes then the following code would be appropriate:</p>
+<ul>
+<li>First you filter. And remember that you can call the first object <code>pong_data_filt</code> anything that makes sense to you and others.</li>
+<li>Then in a separate step you mutate.</li>
+</ul>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_filt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                         <span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> 
+
+<span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">pong_data_filt</span>, 
+                               TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>And if you used pipes this would be the solution:</p>
+<ul>
+<li>Remember you include the data once, and the pipes end the line, they do not start the line.</li>
+</ul>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
+                               <span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p>which could also be written as below - which some find better to remember the data goes in first and only once:</p>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="words-from-this-chapter-4" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="48%">
+<col width="51%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="left">definition</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#character" class="glossary" target="_blank">character</a></td>
+<td align="left">A data type representing strings of text.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#chunk" class="glossary" target="_blank">chunk</a></td>
+<td align="left">A section of code in an R Markdown file</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#console" class="glossary" target="_blank">console</a></td>
+<td align="left">The pane in RStudio where you can type in commands and view output messages.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/d.html#data-type" class="glossary" target="_blank">data type</a></td>
+<td align="left">The kind of data represented by an object.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/d.html#data-wrangling" class="glossary" target="_blank">data wrangling</a></td>
+<td align="left">The process of preparing data for visualisation and statistical analysis.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/d.html#descriptive" class="glossary" target="_blank">descriptive</a></td>
+<td align="left">Statistics that describe an aspect of data (e.g., mean, median, mode, variance, range)</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/d.html#double" class="glossary" target="_blank">double</a></td>
+<td align="left">A data type representing a real decimal number</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/e.html#environment" class="glossary" target="_blank">environment</a></td>
+<td align="left">A data structure that contains R objects such as variables and functions</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/f.html#factor" class="glossary" target="_blank">factor</a></td>
+<td align="left">A data type where a specific set of values are stored with labels; An explanatory variable manipulated by the experimenter</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/f.html#function" class="glossary" target="_blank">function</a></td>
+<td align="left">A named section of code that can be reused.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/i.html#integer" class="glossary" target="_blank">integer</a></td>
+<td align="left">A data type representing whole numbers.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/n.html#numeric" class="glossary" target="_blank">numeric</a></td>
+<td align="left">A data type representing a real decimal number or integer.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/p.html#package" class="glossary" target="_blank">package</a></td>
+<td align="left">A group of R functions.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/p.html#participant" class="glossary" target="_blank">participant</a></td>
+<td align="left">the word used to describe someone who has taken part in a study. Note that subject is outdated and no longer used.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/p.html#pipe" class="glossary" target="_blank">pipe</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/t.html#tibble" class="glossary" target="_blank">tibble</a></td>
+<td align="left">A container for tabular data with some different properties to a data frame</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/w.html#working-directory" class="glossary" target="_blank">working directory</a></td>
+<td align="left">The filepath where R is currently reading and writing files.</td>
+</tr>
+</tbody>
+</table></div>
+<p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
 
 </div>
 </div>
@@ -575,15 +1062,42 @@ $( document ).ready(function() {
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#data-wrangling-2"><span class="header-section-number">5</span> Data wrangling 2</a></li>
-<li><a class="nav-link" href="#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><span class="header-section-number">5.1</span> Learning to wrangle: Is there a chastity belt on perception</a></li>
-<li><a class="nav-link" href="#dw2-a1"><span class="header-section-number">5.2</span> Activity 1: Set-up Data Wrangling 2</a></li>
-<li><a class="nav-link" href="#dw2-a2"><span class="header-section-number">5.3</span> Activity 2: Look at your data</a></li>
-<li><a class="nav-link" href="#dw2-a3"><span class="header-section-number">5.4</span> Activity 3: select()</a></li>
-<li><a class="nav-link" href="#dw2-a4"><span class="header-section-number">5.5</span> Activity 4: Reorder the variables</a></li>
-<li><a class="nav-link" href="#dw2-a5"><span class="header-section-number">5.6</span> Activity 5: arrange()</a></li>
-<li><a class="nav-link" href="#dw2-a6"><span class="header-section-number">5.7</span> Activity 6: filter()</a></li>
-<li><a class="nav-link" href="#dw2-a7"><span class="header-section-number">5.8</span> Activity 7: mutate()</a></li>
-<li><a class="nav-link" href="#dw2-a8"><span class="header-section-number">5.9</span> Activity 8: Summarising data</a></li>
+<li>
+<a class="nav-link" href="#learning-to-wrangle-is-there-a-chastity-belt-on-perception"><span class="header-section-number">5.1</span> Learning to wrangle: Is there a chastity belt on perception</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dw2-a1"><span class="header-section-number">5.1.1</span> Activity 1: Set-up Data Wrangling 2</a></li>
+<li><a class="nav-link" href="#dw2-a2"><span class="header-section-number">5.1.2</span> Activity 2: Look at your data</a></li>
+<li><a class="nav-link" href="#dw2-a3"><span class="header-section-number">5.1.3</span> Activity 3: select()</a></li>
+<li><a class="nav-link" href="#dw2-a4"><span class="header-section-number">5.1.4</span> Activity 4: Reorder the variables</a></li>
+<li><a class="nav-link" href="#dw2-a5"><span class="header-section-number">5.1.5</span> Activity 5: arrange()</a></li>
+<li><a class="nav-link" href="#dw2-a6"><span class="header-section-number">5.1.6</span> Activity 6: filter()</a></li>
+<li><a class="nav-link" href="#dw2-a7"><span class="header-section-number">5.1.7</span> Activity 7: mutate()</a></li>
+<li><a class="nav-link" href="#dw2-a8"><span class="header-section-number">5.1.8</span> Activity 8: Summarising data</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#ungrouping-counting-pipes---quick-notes"><span class="header-section-number">5.2</span> Ungrouping, counting, pipes - quick notes!</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dw2-a9"><span class="header-section-number">5.2.1</span> Counting data</a></li>
+<li><a class="nav-link" href="#dw2-ungroup"><span class="header-section-number">5.2.2</span> Ungrouping data</a></li>
+<li><a class="nav-link" href="#dw2-pipes"><span class="header-section-number">5.2.3</span> Recapping Pipes (%&gt;%)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#dw2-fin"><span class="header-section-number">5.3</span> Finished!</a></li>
+<li>
+<a class="nav-link" href="#dw2-test"><span class="header-section-number">5.4</span> Test yourself</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#knowledge-questions-2"><span class="header-section-number">5.4.1</span> Knowledge Questions</a></li>
+<li><a class="nav-link" href="#dw2-debug"><span class="header-section-number">5.4.2</span> Debugging tips</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#dw2-sols"><span class="header-section-number">5.5</span> Solutions to Activities</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#dw2-a3sol"><span class="header-section-number">5.5.1</span> Activity 3</a></li>
+<li><a class="nav-link" href="#dw2-a4sol"><span class="header-section-number">5.5.2</span> Activity 4</a></li>
+<li><a class="nav-link" href="#dw2-a5sol"><span class="header-section-number">5.5.3</span> Activity 5</a></li>
+<li><a class="nav-link" href="#dw2-a6sol"><span class="header-section-number">5.5.4</span> Activity 6</a></li>
+<li><a class="nav-link" href="#dw2-a7sol"><span class="header-section-number">5.5.5</span> Activity 7</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#words-from-this-chapter-4"><span class="header-section-number">5.6</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">
@@ -601,7 +1115,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-09-30.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
