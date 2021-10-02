@@ -255,7 +255,7 @@ cat("Inline coding is an incredibly useful approach for merging text and code in
 
 Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the [PsyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_blank"}. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.
 
-```{r, echo=FALSE, results='asis'}
+```{r gloss, echo=FALSE, results='asis'}
 glossary_table()
 ```
 
