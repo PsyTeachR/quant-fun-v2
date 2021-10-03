@@ -11,7 +11,7 @@ We have also started to introduce different types of data and data structures. F
 |Double       | Numbers that can take decimals                               |
 |Integer      | Numbers that cannot take decimals                            |
 |Character    | Tends to contain letters or be words                         |
-|Factor       | Nominal (categorical). Can be words or numbers (e.g., male/1, female/2)|
+|Factor       | Nominal (categorical). Can be words or numbers (e.g., animal or human, 1 or 2)|
 
 * **Note 1:** Double and Integer can both be referred to as `r glossary("numeric")` data, and you will see this word from time to time. For clarity, we will use Double as a term for any number that can take a decimal (e.g. 3.14) and Integer as a term for any whole number (no decimal, e.g. 3).
 * **Note 2:** A wee bit confusingly Double data does not have to have decimal places in it. For instance, the value of 1 could be Double as well as Integer. However, the value of 1.1 could only be Double and never Integer. Integers cannot have decimal places. Again, the more you work with data the more this will make sense, but it highlights the importance of looking at your data and checking what type it is as the type determines what you can do with the data.
@@ -27,7 +27,7 @@ This experiment does not use tennis players however. Instead they used the Pong 
 ### Activity 1: Set-up Data Wrangling 2 {#dw2-a1}
 
 * First, download <a href="data/chpt5/PongBlueRedBack 1-16 Codebook.csv" download>PongBlueRedBack 1-16 Codebook.csv</a> into your chapter folder.
-    * If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PongBlueRedBack 1-16 Codebook.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder. 
+    * If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PsyTeachR_FQA_Chpt5-data.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder. 
 * Next, set the `r glossary("working directory")` to your chapter folder. Ensure the `r glossary("environment")` is clear.
     * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R` 
 * Now, open a new R Markdown document and save it in your working directory and call the file something informative like "DataWrangling2". 
@@ -116,8 +116,9 @@ We are now master of selections!!! Let's move on to a different skill and test o
 
 ### Activity 6: **`filter()`** {#dw2-a6}
 
-Great! But what about keeping and removing some of the rows with `filter()`! You may need to refer back to the different boolean operations to complete this activity! 
-* Use `filter()` to extract all Participants in the original `pong_data` that had:
+Great! But what about keeping and removing some of the rows with `filter()`! You may need to refer back to the different boolean operations to complete this activity!
+
+Use `filter()` to extract all Participants in the original `pong_data` that had:
 
 * a fast speed judgement;
 * for speeds 2, 4, 5, and 7;
@@ -224,7 +225,7 @@ Remember though, because we want to produce descriptive statistics by groups (ba
 
 We will do this activity using pipes to reduce the amount of code we write. Remember to try and read the code out loud and to pronounce `%>%` as 'and then'. Copy and paste the below code into a new code chunk and run the code.
 
-```{r act8-hide, echo=TRUE}
+```{r act8-hide, echo=FALSE}
 pong_data_renumbered <- filter(pong_data, 
                                TrialNumber >= 2) %>%
   mutate(TrialNumber = TrialNumber - 1)

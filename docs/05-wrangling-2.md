@@ -11,7 +11,7 @@ We have also started to introduce different types of data and data structures. F
 |Double       | Numbers that can take decimals                               |
 |Integer      | Numbers that cannot take decimals                            |
 |Character    | Tends to contain letters or be words                         |
-|Factor       | Nominal (categorical). Can be words or numbers (e.g., male/1, female/2)|
+|Factor       | Nominal (categorical). Can be words or numbers (e.g., animal or human, 1 or 2)|
 
 * **Note 1:** Double and Integer can both be referred to as <a class='glossary' target='_blank' title='A data type representing a real decimal number or integer.' href='https://psyteachr.github.io/glossary/n#numeric'>numeric</a> data, and you will see this word from time to time. For clarity, we will use Double as a term for any number that can take a decimal (e.g. 3.14) and Integer as a term for any whole number (no decimal, e.g. 3).
 * **Note 2:** A wee bit confusingly Double data does not have to have decimal places in it. For instance, the value of 1 could be Double as well as Integer. However, the value of 1.1 could only be Double and never Integer. Integers cannot have decimal places. Again, the more you work with data the more this will make sense, but it highlights the importance of looking at your data and checking what type it is as the type determines what you can do with the data.
@@ -27,7 +27,7 @@ This experiment does not use tennis players however. Instead they used the Pong 
 ### Activity 1: Set-up Data Wrangling 2 {#dw2-a1}
 
 * First, download <a href="data/chpt5/PongBlueRedBack 1-16 Codebook.csv" download>PongBlueRedBack 1-16 Codebook.csv</a> into your chapter folder.
-    * If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PongBlueRedBack 1-16 Codebook.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder. 
+    * If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PsyTeachR_FQA_Chpt5-data.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder. 
 * Next, set the <a class='glossary' target='_blank' title='The filepath where R is currently reading and writing files.' href='https://psyteachr.github.io/glossary/w#working-directory'>working directory</a> to your chapter folder. Ensure the <a class='glossary' target='_blank' title='A data structure that contains R objects such as variables and functions' href='https://psyteachr.github.io/glossary/e#environment'>environment</a> is clear.
     * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R` 
 * Now, open a new R Markdown document and save it in your working directory and call the file something informative like "DataWrangling2". 
@@ -140,8 +140,9 @@ We are now master of selections!!! Let's move on to a different skill and test o
 
 ### Activity 6: **`filter()`** {#dw2-a6}
 
-Great! But what about keeping and removing some of the rows with `filter()`! You may need to refer back to the different boolean operations to complete this activity! 
-* Use `filter()` to extract all Participants in the original `pong_data` that had:
+Great! But what about keeping and removing some of the rows with `filter()`! You may need to refer back to the different boolean operations to complete this activity!
+
+Use `filter()` to extract all Participants in the original `pong_data` that had:
 
 * a fast speed judgement;
 * for speeds 2, 4, 5, and 7;
@@ -244,11 +245,6 @@ Remember though, because we want to produce descriptive statistics by groups (ba
 We will do this activity using pipes to reduce the amount of code we write. Remember to try and read the code out loud and to pronounce `%>%` as 'and then'. Copy and paste the below code into a new code chunk and run the code.
 
 
-```r
-pong_data_renumbered <- filter(pong_data, 
-                               TrialNumber >= 2) %>%
-  mutate(TrialNumber = TrialNumber - 1)
-```
 
 
 ```r
@@ -273,12 +269,12 @@ pong_data_hits <- pong_data_renumbered %>%
 
 
 
-* What was the total number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_XBRUMVFOHA'><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""></input> <span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value="answer"></input> <span>527</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""></input> <span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""></input> <span>516</span></label></div>
+* What was the total number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_MMUOBHSJTU'><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value="answer"></input> <span>527</span></label><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value=""></input> <span>516</span></label><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value=""></input> <span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value=""></input> <span>1059</span></label></div>
 
 
 
 
-* To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_DRVEOBLXHP'><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""></input> <span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""></input> <span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""></input> <span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value="answer"></input> <span>0.459</span></label></div>
+* To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_KIUQSRVSXA'><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value=""></input> <span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value=""></input> <span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value="answer"></input> <span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value=""></input> <span>0.922</span></label></div>
 
 
 **Note:**
@@ -448,13 +444,13 @@ There is a lot of different types of data and as well as different types of leve
 
 <br>
 
-2. Which of the Wickham Six would you use to sort columns from smallest to largest: <div class='webex-radiogroup' id='radio_YLBZLYNNAH'><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value="answer"></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""></input> <span>summarise</span></label></div>
+2. Which of the Wickham Six would you use to sort columns from smallest to largest: <div class='webex-radiogroup' id='radio_IFQPDCXIQR'><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value="answer"></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""></input> <span>summarise</span></label></div>
 
-3. Which of the Wickham Six would you use to calculate the mean of a column: <div class='webex-radiogroup' id='radio_XMXDGKHWOX'><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value="answer"></input> <span>summarise</span></label></div>
+3. Which of the Wickham Six would you use to calculate the mean of a column: <div class='webex-radiogroup' id='radio_EWEIIRHFOZ'><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value="answer"></input> <span>summarise</span></label></div>
 
-4. Which of the Wickham Six would you use to remove certain observations - e.g. remove all males: <div class='webex-radiogroup' id='radio_PAXDZANYTL'><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value="answer"></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""></input> <span>summarise</span></label></div>
+4. Which of the Wickham Six would you use to remove certain observations - e.g. remove all males: <div class='webex-radiogroup' id='radio_VNYMEZHAYN'><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value="answer"></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""></input> <span>summarise</span></label></div>
  
-5. What does this line of code say? `data %>% filter() %>% group_by() %>% summarise()`: <div class='webex-radiogroup' id='radio_IRTOYOZONG'><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""></input> <span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value="answer"></input> <span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""></input> <span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""></input> <span>take the data and then group it and then summarise it and then filter it</span></label></div>
+5. What does this line of code say? `data %>% filter() %>% group_by() %>% summarise()`: <div class='webex-radiogroup' id='radio_WTSDNBVCCJ'><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value=""></input> <span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value="answer"></input> <span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value=""></input> <span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value=""></input> <span>take the data and then group it and then summarise it and then filter it</span></label></div>
   
 
 ### Debugging tips {#dw2-debug}
