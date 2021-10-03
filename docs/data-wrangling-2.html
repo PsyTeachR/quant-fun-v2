@@ -116,7 +116,7 @@
 </tr>
 <tr class="even">
 <td align="left">Factor</td>
-<td align="left">Nominal (categorical). Can be words or numbers (e.g., male/1, female/2)</td>
+<td align="left">Nominal (categorical). Can be words or numbers (e.g., animal or human, 1 or 2)</td>
 </tr>
 </tbody>
 </table></div>
@@ -140,7 +140,7 @@
 <ul>
 <li>First, download <a href="data/chpt5/PongBlueRedBack%201-16%20Codebook.csv" download>PongBlueRedBack 1-16 Codebook.csv</a> into your chapter folder.
 <ul>
-<li>If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PongBlueRedBack%201-16%20Codebook.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder.</li>
+<li>If you are having trouble downloading .csv files directly you may prefer to download the data as a zip file and unzip it from this link: <a href="data/chpt5/PsyTeachR_FQA_Chpt5-data.zip" download>PongBlueRedBack 1-16 Codebook.zip</a>. Again just unzip it into your chapter folder.</li>
 </ul>
 </li>
 <li>Next, set the <a class="glossary" target="_blank" title="The filepath where R is currently reading and writing files." href="https://psyteachr.github.io/glossary/w#working-directory">working directory</a> to your chapter folder. Ensure the <a class="glossary" target="_blank" title="A data structure that contains R objects such as variables and functions" href="https://psyteachr.github.io/glossary/e#environment">environment</a> is clear.
@@ -311,8 +311,8 @@
 <h3>
 <span class="header-section-number">5.1.6</span> Activity 6: <strong><code>filter()</code></strong><a class="anchor" aria-label="anchor" href="#dw2-a6"><i class="fas fa-link"></i></a>
 </h3>
-<p>Great! But what about keeping and removing some of the rows with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>! You may need to refer back to the different boolean operations to complete this activity!
-* Use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to extract all Participants in the original <code>pong_data</code> that had:</p>
+<p>Great! But what about keeping and removing some of the rows with <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>! You may need to refer back to the different boolean operations to complete this activity!</p>
+<p>Use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to extract all Participants in the original <code>pong_data</code> that had:</p>
 <ul>
 <li>a fast speed judgement;</li>
 <li>for speeds 2, 4, 5, and 7;</li>
@@ -422,10 +422,6 @@ Helpful Hint
 </ul>
 <p>We will do this activity using pipes to reduce the amount of code we write. Remember to try and read the code out loud and to pronounce <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> as 'and then'. Copy and paste the below code into a new code chunk and run the code.</p>
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
-                               <span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_hits</span> <span class="op">&lt;-</span> <span class="va">pong_data_renumbered</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
            <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -443,14 +439,14 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 <li><p>View <code>pong_data_hits</code> and answer the following questions to see if you have completed the task correctly.</p></li>
 <li>
 <p>What was the total number of hits made with the small paddle (50) and the blue colour background?</p>
-<div id="radio_XBRUMVFOHA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""><span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value="answer"><span>527</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""><span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_XBRUMVFOHA" value=""><span>516</span></label>
+<div id="radio_MMUOBHSJTU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value="answer"><span>527</span></label><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value=""><span>516</span></label><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value=""><span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_MMUOBHSJTU" value=""><span>1059</span></label>
 </div>
 </li>
 <li>
 <p>To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background?</p>
-<div id="radio_DRVEOBLXHP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""><span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""><span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value=""><span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_DRVEOBLXHP" value="answer"><span>0.459</span></label>
+<div id="radio_KIUQSRVSXA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value=""><span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value=""><span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value="answer"><span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_KIUQSRVSXA" value=""><span>0.922</span></label>
 </div>
 </li>
 </ul>
@@ -476,7 +472,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 <li>
 <strong>Note:</strong> the function is <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code> and takes no arguments it is just left blank as shown, <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code>. However, as in other functions, the <code>n</code> prior to the <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> could be called anything you want the column to be called, e.g. <code>n = n()</code> or <code>number = n()</code> would do the same but just give different names to the column.</li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_count</span> <span class="op">&lt;-</span> <span class="va">pong_data_renumbered</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
            <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -487,7 +483,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
             n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>However, if you're just interested in counts rather than also calculating descriptives, this above method is a bit clunky. Instead, we can use the function <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code> which is specifically designed to count observations and doesn't require the use of <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> or <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>.</p>
 <p>To count the total number of observations in the dataset for example we would do:</p>
-<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data</span> <span class="op">%&gt;%</span> <span class="co"># take pong_data</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># and then count the observations in it</span></code></pre></div>
 <p>And it would give the answer of:</p>
@@ -502,7 +498,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 </table></div>
 </div>
 <p>Alternatively, to count the number of observations in each level of a variable you could do:</p>
-<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">BackgroundColor</span><span class="op">)</span></code></pre></div>
 <p>And it would give the answer of:</p>
@@ -532,7 +528,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 </h3>
 <p>After grouping data together using the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> function and then performing a task on it, e.g. <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>, it can be very good practice to ungroup the data before performing another function - by piping it into the <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup()</a></code> function - this is related to what the warnings about <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> mean as they are changing the groupings so removing all groupings can be good to do. Forgetting to ungroup the dataset won't always affect further processing, but can really mess up other things. Again just a good reminder to always check the data you are getting out of a function a) makes sense and b) is what you expect.</p>
 <p>This is an example of how you might use the function:</p>
-<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_ungroup</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
            <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -552,7 +548,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 </li>
 <li>And finally we filter just the red, small paddle hits</li>
 </ul>
-<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                             <span class="va">BackgroundColor</span>, 
                             <span class="va">PaddleLength</span><span class="op">)</span>
@@ -564,7 +560,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
                                    <span class="va">BackgroundColor</span> <span class="op">==</span> <span class="st">"red"</span>, 
                                    <span class="va">PaddleLength</span> <span class="op">==</span> <span class="fl">250</span><span class="op">)</span></code></pre></div>
 <p>Alternatively we can make our code even more efficient, using less code, by stringing our sequence of functions together using pipes. This would look like:</p>
-<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_hits_red_small</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
            <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -573,15 +569,15 @@ Remember, if you get what looks like an error that says "<code><a href="https://
          <span class="va">PaddleLength</span> <span class="op">==</span> <span class="fl">250</span><span class="op">)</span> </code></pre></div>
 <p>So the code becomes easier to read as you remember the data goes into one function "and then" into another, "and then" into another, and so on.</p>
 <p>It is also worth remembering that whilst pipes and code can be written in a single line, but it is much easier to see what the pipe is doing if each function takes its own line. You just have to remember that every time you add a function to the pipeline, add a <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> first and <strong>note that when using separate lines for each function, the <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> must appear at the end of the line and not the start of the next line</strong>. Compare the two examples below. The first won't work but the second will because the second puts the pipes at the end of the line where they need to be!</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="data-wrangling-2.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Piped version that won't work </span></span>
-<span id="cb91-2"><a href="data-wrangling-2.html#cb91-2" aria-hidden="true" tabindex="-1"></a>data_arrange <span class="ot">&lt;-</span> pong_data </span>
-<span id="cb91-3"><a href="data-wrangling-2.html#cb91-3" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PaddleLength <span class="sc">==</span> <span class="st">"50"</span>)</span>
-<span id="cb91-4"><a href="data-wrangling-2.html#cb91-4" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(BallSpeed) </span>
-<span id="cb91-5"><a href="data-wrangling-2.html#cb91-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-6"><a href="data-wrangling-2.html#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Piped version that will work </span></span>
-<span id="cb91-7"><a href="data-wrangling-2.html#cb91-7" aria-hidden="true" tabindex="-1"></a>data_arrange <span class="ot">&lt;-</span> pong_data <span class="sc">%&gt;%</span></span>
-<span id="cb91-8"><a href="data-wrangling-2.html#cb91-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">filter</span>(PaddleLength <span class="sc">==</span> <span class="st">"50"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb91-9"><a href="data-wrangling-2.html#cb91-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">arrange</span>(BallSpeed) </span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="data-wrangling-2.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Piped version that won't work </span></span>
+<span id="cb90-2"><a href="data-wrangling-2.html#cb90-2" aria-hidden="true" tabindex="-1"></a>data_arrange <span class="ot">&lt;-</span> pong_data </span>
+<span id="cb90-3"><a href="data-wrangling-2.html#cb90-3" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span> <span class="fu">filter</span>(PaddleLength <span class="sc">==</span> <span class="st">"50"</span>)</span>
+<span id="cb90-4"><a href="data-wrangling-2.html#cb90-4" aria-hidden="true" tabindex="-1"></a>                <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(BallSpeed) </span>
+<span id="cb90-5"><a href="data-wrangling-2.html#cb90-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb90-6"><a href="data-wrangling-2.html#cb90-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Piped version that will work </span></span>
+<span id="cb90-7"><a href="data-wrangling-2.html#cb90-7" aria-hidden="true" tabindex="-1"></a>data_arrange <span class="ot">&lt;-</span> pong_data <span class="sc">%&gt;%</span></span>
+<span id="cb90-8"><a href="data-wrangling-2.html#cb90-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">filter</span>(PaddleLength <span class="sc">==</span> <span class="st">"50"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb90-9"><a href="data-wrangling-2.html#cb90-9" aria-hidden="true" tabindex="-1"></a>                <span class="fu">arrange</span>(BallSpeed) </span></code></pre></div>
 </div>
 </div>
 <div id="dw2-fin" class="section level2" number="5.3">
@@ -627,23 +623,23 @@ Explain these answers
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Which of the Wickham Six would you use to sort columns from smallest to largest:
-<div id="radio_YLBZLYNNAH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_YLBZLYNNAH" value=""><span>summarise</span></label>
+<div id="radio_IFQPDCXIQR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_IFQPDCXIQR" value=""><span>summarise</span></label>
 </div>
 </li>
 <li>Which of the Wickham Six would you use to calculate the mean of a column:
-<div id="radio_XMXDGKHWOX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_XMXDGKHWOX" value="answer"><span>summarise</span></label>
+<div id="radio_EWEIIRHFOZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_EWEIIRHFOZ" value="answer"><span>summarise</span></label>
 </div>
 </li>
 <li>Which of the Wickham Six would you use to remove certain observations - e.g. remove all males:
-<div id="radio_PAXDZANYTL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_PAXDZANYTL" value=""><span>summarise</span></label>
+<div id="radio_VNYMEZHAYN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_VNYMEZHAYN" value=""><span>summarise</span></label>
 </div>
 </li>
 <li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>:
-<div id="radio_IRTOYOZONG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_IRTOYOZONG" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
+<div id="radio_WTSDNBVCCJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_WTSDNBVCCJ" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
 </div>
 </li>
 </ol>
@@ -679,7 +675,7 @@ Explain these answers
 <ul>
 <li>To include variables we would name all the variables we want:</li>
 </ul>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">select_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                      <span class="va">Participant</span>, 
                      <span class="va">PaddleLength</span>, 
@@ -689,7 +685,7 @@ Explain these answers
 <ul>
 <li>in contrast, to exclude variables we would name the ones we don't want and put a <code><a href="https://rdrr.io/r/base/Arithmetic.html">-</a></code> prior to the name:</li>
 </ul>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">select_dat</span> <span class="op">&lt;-</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                     <span class="op">-</span><span class="va">JudgedSpeed</span>, 
                     <span class="op">-</span><span class="va">BallSpeed</span>, 
@@ -702,7 +698,7 @@ Explain these answers
 <ul>
 <li>To reorder variables using the <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> we state the order of the variables we want them in. Note that this only works on column order.</li>
 </ul>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">reorder_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                       <span class="va">BallSpeed</span>, 
                       <span class="va">HitOrMiss</span>, 
@@ -717,7 +713,7 @@ Explain these answers
 <ul>
 <li>To arrange the rows by certain columns we use <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange()</a></code> but you need to remember to include <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> to change it from running smallest-to-largest to largest-to-smallest.</li>
 </ul>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">arrange_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span>, 
                        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">JudgedSpeed</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -732,7 +728,7 @@ Explain these answers
 <li><p>BallSpeed is either 2, 4, 5, or 7, AND</p></li>
 <li><p>HitOrMiss is 0.</p></li>
 </ul>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_fast_miss</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                          <span class="va">JudgedSpeed</span> <span class="op">==</span> <span class="fl">1</span>, 
                          <span class="va">BallSpeed</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"2"</span>, <span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"7"</span><span class="op">)</span>, 
@@ -747,7 +743,7 @@ Explain these answers
 <li>First you filter. And remember that you can call the first object <code>pong_data_filt</code> anything that makes sense to you and others.</li>
 <li>Then in a separate step you mutate.</li>
 </ul>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_filt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                          <span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> 
 
@@ -757,12 +753,12 @@ Explain these answers
 <ul>
 <li>Remember you include the data once, and the pipes end the line, they do not start the line.</li>
 </ul>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data</span>, 
                                <span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p>which could also be written as below - which some find better to remember the data goes in first and only once:</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_renumbered</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">TrialNumber</span> <span class="op">&gt;=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>TrialNumber <span class="op">=</span> <span class="va">TrialNumber</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
@@ -1115,7 +1111,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-02.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
