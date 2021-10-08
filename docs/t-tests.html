@@ -144,7 +144,7 @@ Mixed design is when there is a combination of within-subjects and between-subje
 </li>
 <li>Use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> to get an overview of the missing data points in each variable.</li>
 </ul>
-<div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="va">evaluators</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex_labels <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">sex</span>, <span class="st">"1"</span> <span class="op">=</span> <span class="st">"male"</span>, <span class="st">"2"</span> <span class="op">=</span> <span class="st">"female"</span><span class="op">)</span>,
          sex_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">sex_labels</span><span class="op">)</span>,
@@ -226,7 +226,7 @@ Mixed design is when there is a combination of within-subjects and between-subje
 <li><p>Now create a new tibble called <code>ratings2</code> and filter into it just the "impression" and "hire" ratings from the original <code>ratings</code> tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in <code>ratings2</code>.</p></li>
 <li><p>Join <code>ratings2</code> with the <code>evaluator</code> tibble that we created in Task 1. Keep only the necessary columns as shown above and arrange by Evaluator and Category.</p></li>
 </ol>
-<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># 1. load in the data</span>
 <span class="va">ratings</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ratings.csv"</span><span class="op">)</span>
 
@@ -269,7 +269,7 @@ Mixed design is when there is a combination of within-subjects and between-subje
 </ul>
 <p>Run the below code to produce the plot. It is a good idea to save code 'recipes' for tasks that you will likely want to repeat in the future. You do not need to memorise lines of code, you only need to understand how to alter examples to work with your specific data set.
 * Try setting <code>trim = TRUE</code>, <code>show.legend = FALSE</code> and altering the value of <code>width</code> to see what these arguments do.</p>
-<div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">ratings2</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
@@ -298,7 +298,7 @@ Mixed design is when there is a combination of within-subjects and between-subje
 <option value="">No</option></select>
 </li>
 </ul>
-<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ratings2</span> <span class="op">&lt;-</span> <span class="va">ratings2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group_resid <span class="op">=</span> <span class="va">Rating</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -312,7 +312,7 @@ Mixed design is when there is a combination of within-subjects and between-subje
 <option value="">No</option></select>
 </li>
 </ul>
-<div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">ratings2</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
 <div class="webex-solution">
 <button>
@@ -341,16 +341,16 @@ Explain this answer
 <ul>
 <li>First, calculate the mean and SD for each condition and category to help with reporting the descriptive statistics.</li>
 </ul>
-<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb172"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">group_means</span> <span class="op">&lt;-</span> <span class="va">ratings2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">condition</span>, <span class="va">Category</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>m <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Rating</span><span class="op">)</span>, sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Rating</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Next, create separate data sets for the intellect, hire, and impression data using <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. We have completed intellect for you.</li>
 </ul>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="t-tests.html#cb172-1" aria-hidden="true" tabindex="-1"></a>intellect <span class="ot">&lt;-</span> <span class="fu">filter</span>(ratings2, Category <span class="sc">==</span> <span class="st">"intellect"</span>)</span>
-<span id="cb172-2"><a href="t-tests.html#cb172-2" aria-hidden="true" tabindex="-1"></a>hire <span class="ot">&lt;-</span> </span>
-<span id="cb172-3"><a href="t-tests.html#cb172-3" aria-hidden="true" tabindex="-1"></a>impression <span class="ot">&lt;-</span> </span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="t-tests.html#cb173-1" aria-hidden="true" tabindex="-1"></a>intellect <span class="ot">&lt;-</span> <span class="fu">filter</span>(ratings2, Category <span class="sc">==</span> <span class="st">"intellect"</span>)</span>
+<span id="cb173-2"><a href="t-tests.html#cb173-2" aria-hidden="true" tabindex="-1"></a>hire <span class="ot">&lt;-</span> </span>
+<span id="cb173-3"><a href="t-tests.html#cb173-3" aria-hidden="true" tabindex="-1"></a>impression <span class="ot">&lt;-</span> </span></code></pre></div>
 <p>As you may have realised by now, most of the work of statistics involves the set-up - running the tests is generally very simple. To conduct the t-test we will use <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> from Base R. This function uses <strong>formula syntax</strong> which you also saw in <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code>.</p>
 <ul>
 <li>
@@ -364,7 +364,7 @@ Explain this answer
 <code>paired = FALSE</code> indicates that we do not want to run a paired-samples test and that our data is from a between-subjects design.</li>
 <li>Run the below code and view the output by typing <code>intellect_t</code> in the console.</li>
 </ul>
-<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       paired <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span></code></pre></div>
@@ -374,7 +374,7 @@ Explain this answer
 </li>
 <li>View the object by clicking on <code>results_intellect</code> in the environment.</li>
 </ul>
-<div class="sourceCode" id="cb174"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_intellect</span> <span class="op">&lt;-</span> <span class="va">intellect_t</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>The output is in a nice table format that makes it easy to extract individual values but it is worth explaining what each variable means:</p>
@@ -390,13 +390,13 @@ Explain this answer
 <li><p><code>alternative</code> is whether the test was one or two-tailed</p></li>
 <li><p>Complete the code to run the t-tests for the hire and impression ratings and view the results.</p></li>
 </ul>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="t-tests.html#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-tests</span></span>
-<span id="cb175-2"><a href="t-tests.html#cb175-2" aria-hidden="true" tabindex="-1"></a>hire_t <span class="ot">&lt;-</span> </span>
-<span id="cb175-3"><a href="t-tests.html#cb175-3" aria-hidden="true" tabindex="-1"></a>impression_t <span class="ot">&lt;-</span> </span>
-<span id="cb175-4"><a href="t-tests.html#cb175-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb175-5"><a href="t-tests.html#cb175-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy the output</span></span>
-<span id="cb175-6"><a href="t-tests.html#cb175-6" aria-hidden="true" tabindex="-1"></a>results_hire <span class="ot">&lt;-</span></span>
-<span id="cb175-7"><a href="t-tests.html#cb175-7" aria-hidden="true" tabindex="-1"></a>results_impression <span class="ot">&lt;-</span></span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="t-tests.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-tests</span></span>
+<span id="cb176-2"><a href="t-tests.html#cb176-2" aria-hidden="true" tabindex="-1"></a>hire_t <span class="ot">&lt;-</span> </span>
+<span id="cb176-3"><a href="t-tests.html#cb176-3" aria-hidden="true" tabindex="-1"></a>impression_t <span class="ot">&lt;-</span> </span>
+<span id="cb176-4"><a href="t-tests.html#cb176-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb176-5"><a href="t-tests.html#cb176-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy the output</span></span>
+<span id="cb176-6"><a href="t-tests.html#cb176-6" aria-hidden="true" tabindex="-1"></a>results_hire <span class="ot">&lt;-</span></span>
+<span id="cb176-7"><a href="t-tests.html#cb176-7" aria-hidden="true" tabindex="-1"></a>results_impression <span class="ot">&lt;-</span></span></code></pre></div>
 <div class="warning">
 <p>
 What do you do if the data don't meet the assumption of normality? There are a few options.
@@ -422,7 +422,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <p>To do this first of all we need to join all the results of the t-tests
 together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code> which is one of the reasons why it was useful to <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> the t-test ouput.</p>
 <p>First, you specify all of the individual tibbles you want to join and give them a label, and then you specify what the ID column should be named.</p>
-<div class="sourceCode" id="cb176"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span>hire <span class="op">=</span> <span class="va">results_hire</span>, 
                      impression <span class="op">=</span> <span class="va">results_impression</span>, 
                      intellect <span class="op">=</span> <span class="va">results_intellect</span>, 
@@ -503,7 +503,7 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 <option value="">Smaller</option></select>
 </li>
 </ul>
-<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb178"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="va">results</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>p.adjusted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">p.value</span>, <span class="co"># the column that contains the original p-values</span>
                                method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span><span class="op">)</span> <span class="co"># type of correction to apply</span></code></pre></div>
@@ -519,11 +519,11 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 <code>pooled_sd</code> should be <code>FALSE</code> if you ran a Welch test where the variances are not assumed to be equal and <code>TRUE</code> if you ran a regular Student's t-test.</li>
 <li>Run the below code and then calculate the effect sizes for hire and impression</li>
 </ul>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="t-tests.html#cb178-1" aria-hidden="true" tabindex="-1"></a>intellect_d <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(Rating <span class="sc">~</span> condition, </span>
-<span id="cb178-2"><a href="t-tests.html#cb178-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb178-3"><a href="t-tests.html#cb178-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> intellect)</span>
-<span id="cb178-4"><a href="t-tests.html#cb178-4" aria-hidden="true" tabindex="-1"></a>hire_d <span class="ot">&lt;-</span> </span>
-<span id="cb178-5"><a href="t-tests.html#cb178-5" aria-hidden="true" tabindex="-1"></a>impression_d <span class="ot">&lt;-</span> </span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="t-tests.html#cb179-1" aria-hidden="true" tabindex="-1"></a>intellect_d <span class="ot">&lt;-</span> <span class="fu">cohens_d</span>(Rating <span class="sc">~</span> condition, </span>
+<span id="cb179-2"><a href="t-tests.html#cb179-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">pooled_sd =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb179-3"><a href="t-tests.html#cb179-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> intellect)</span>
+<span id="cb179-4"><a href="t-tests.html#cb179-4" aria-hidden="true" tabindex="-1"></a>hire_d <span class="ot">&lt;-</span> </span>
+<span id="cb179-5"><a href="t-tests.html#cb179-5" aria-hidden="true" tabindex="-1"></a>impression_d <span class="ot">&lt;-</span> </span></code></pre></div>
 </div>
 <div id="ttest-a9" class="section level2" number="10.9">
 <h2>
@@ -560,11 +560,11 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 <ul>
 <li>Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. Look back at the paper and see what differences this makes.</li>
 </ul>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="t-tests.html#cb179-1" aria-hidden="true" tabindex="-1"></a>The pattern of evaluations by professional recruiters replicated the pattern observed <span class="cf">in</span> Experiments <span class="dv">1</span> through 3b (see Fig. <span class="dv">7</span>). Bonferroni<span class="sc">-</span>corrected t<span class="sc">-</span>tests found that <span class="cf">in</span> particular, the recruiters believed that the job candidates had greater intellect<span class="sc">---</span>were more competent, thoughtful, and intelligent<span class="sc">---</span>when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[3], 2)</span><span class="st">`</span>) than when they read <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[6], 2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_intellect$parameter, 2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[3] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the difference <span class="ot">=</span> [<span class="st">`</span><span class="at">r round(results_intellect$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_intellect$conf.high, 2)</span><span class="st">`</span>], d <span class="ot">=</span> <span class="st">`</span><span class="at">r round(intellect_d$Cohens_d,2)</span><span class="st">`</span>. </span>
-<span id="cb179-2"><a href="t-tests.html#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-3"><a href="t-tests.html#cb179-3" aria-hidden="true" tabindex="-1"></a>The recruiters also formed more positive impressions of the candidates<span class="sc">---</span>rated them as more likeable and had a more positive and less negative impression of them<span class="sc">---</span>when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_impression$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[2], 2)</span><span class="st">`</span>) than when they read <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_impression$estimate2%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[5], 2)</span><span class="st">`</span>, <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_impression$parameter,2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_impression$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[2] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the <span class="at">difference =</span> [<span class="st">`</span><span class="at">r round(results_impression$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_impression$conf.high, 2)</span><span class="st">`</span>], <span class="at">d =</span> <span class="st">`</span><span class="at">r round(impression_dintellect_d$Cohens_d, 2)</span><span class="st">`</span>. </span>
-<span id="cb179-4"><a href="t-tests.html#cb179-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-5"><a href="t-tests.html#cb179-5" aria-hidden="true" tabindex="-1"></a>Finally, they also reported being more likely to hire the candidates when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_hire$estimate1 %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[1], 2)</span><span class="st">`</span>) than when they read the same <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_hire$estimate2 %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[4],2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_hire$parameter,2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_hire$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[1] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the <span class="at">difference =</span> [<span class="st">`</span><span class="at">r round(results_hire$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_hire$conf.high, 2)</span><span class="st">`</span>], <span class="at">d =</span> <span class="st">`</span><span class="at">r round(hire_dintellect_d$Cohens_d,2)</span><span class="st">`</span>.</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="t-tests.html#cb180-1" aria-hidden="true" tabindex="-1"></a>The pattern of evaluations by professional recruiters replicated the pattern observed <span class="cf">in</span> Experiments <span class="dv">1</span> through 3b (see Fig. <span class="dv">7</span>). Bonferroni<span class="sc">-</span>corrected t<span class="sc">-</span>tests found that <span class="cf">in</span> particular, the recruiters believed that the job candidates had greater intellect<span class="sc">---</span>were more competent, thoughtful, and intelligent<span class="sc">---</span>when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[3], 2)</span><span class="st">`</span>) than when they read <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[6], 2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_intellect$parameter, 2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[3] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the difference <span class="ot">=</span> [<span class="st">`</span><span class="at">r round(results_intellect$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_intellect$conf.high, 2)</span><span class="st">`</span>], d <span class="ot">=</span> <span class="st">`</span><span class="at">r round(intellect_d$Cohens_d,2)</span><span class="st">`</span>. </span>
+<span id="cb180-2"><a href="t-tests.html#cb180-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-3"><a href="t-tests.html#cb180-3" aria-hidden="true" tabindex="-1"></a>The recruiters also formed more positive impressions of the candidates<span class="sc">---</span>rated them as more likeable and had a more positive and less negative impression of them<span class="sc">---</span>when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_impression$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[2], 2)</span><span class="st">`</span>) than when they read <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_impression$estimate2%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[5], 2)</span><span class="st">`</span>, <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_impression$parameter,2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_impression$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[2] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the <span class="at">difference =</span> [<span class="st">`</span><span class="at">r round(results_impression$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_impression$conf.high, 2)</span><span class="st">`</span>], <span class="at">d =</span> <span class="st">`</span><span class="at">r round(impression_dintellect_d$Cohens_d, 2)</span><span class="st">`</span>. </span>
+<span id="cb180-4"><a href="t-tests.html#cb180-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-5"><a href="t-tests.html#cb180-5" aria-hidden="true" tabindex="-1"></a>Finally, they also reported being more likely to hire the candidates when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_hire$estimate1 %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[1], 2)</span><span class="st">`</span>) than when they read the same <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_hire$estimate2 %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[4],2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_hire$parameter,2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_hire$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[1] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the <span class="at">difference =</span> [<span class="st">`</span><span class="at">r round(results_hire$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_hire$conf.high, 2)</span><span class="st">`</span>], <span class="at">d =</span> <span class="st">`</span><span class="at">r round(hire_dintellect_d$Cohens_d,2)</span><span class="st">`</span>.</span></code></pre></div>
 <blockquote>
 The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). Bonferroni-corrected t-tests found that in particular, the recruiters believed that the job candidates had greater intellect---were more competent, thoughtful, and intelligent---when they listened to pitches (M = 5.64, SD = 1.61) than when they read pitches (M = 5.64, SD = 1.91), t(33.43) = 2.64, 2.82, 3.48, p &lt; 0.004, 95% CI of the difference = [0.83, 3.15], d =
 <div class="kable-table">
@@ -629,7 +629,7 @@ Finally, they also reported being more likely to hire the candidates when they l
 </div>
 <p>.</p>
 <p>Just like with correlations, you can also used the <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> function to produce a report of the individual t-tests. Again, the output it produces is fixed and it must be used with the original list type object, rather than the tidied output. Additionally, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> only takes one t-test at a time, which means that you can't use the adjusted p-values, but it's a useful function to know about.</p>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">intellect_t</span><span class="op">)</span></code></pre></div>
 <pre><code>## Effect sizes were labelled following Cohen's (1988) recommendations.
 ## 
@@ -652,7 +652,7 @@ important social information to infants. Specifically, melodies convey informati
 <ul>
 <li>First, download <a href="Mehr%20Song%20and%20Spelke%202016%20Experiment%201.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> and run the below code to load and wrangle the data into the format we need - this code selects only the data we need for the analysis and renames variables to make them easier to work with.</li>
 </ul>
-<div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"Mehr Song and Spelke 2016 Experiment 1.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">exp1</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">Baseline_Proportion_Gaze_to_Singer</span>,<span class="va">Test_Proportion_Gaze_to_Singer</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -674,7 +674,7 @@ important social information to infants. Specifically, melodies convey informati
 <ul>
 <li>Run the below code to calculate the difference scores and then conduct the Shapriro-Wilk and QQ-plot as with the independent test.</li>
 </ul>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">baseline</span> <span class="op">-</span> <span class="va">test</span><span class="op">)</span></code></pre></div>
 <p>As you can see, from both the Shapiro-Wilk test and the QQ-plot, the data meet the assumption of normality so we can proceed.</p>
@@ -687,7 +687,7 @@ important social information to infants. Specifically, melodies convey informati
 <ul>
 <li>Run the below code to tidy the data and then create the same violin-boxplot as you did for the independent t-test (hint: it is perfectly acceptable to copy and paste the code from Activity 4 and change the data and variable names).</li>
 </ul>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_tidy</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"time"</span>, values_to <span class="op">=</span> <span class="st">"looking"</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">baseline</span>, <span class="va">test</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">diff</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -707,9 +707,9 @@ important social information to infants. Specifically, melodies convey informati
 <ul>
 <li>Run the t-test and calculate the effect size. Store the list output version in <code>gaze_t</code> and then use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> for <code>gaze_test</code>.</li>
 </ul>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="t-tests.html#cb185-1" aria-hidden="true" tabindex="-1"></a>gaze_t <span class="ot">&lt;-</span> </span>
-<span id="cb185-2"><a href="t-tests.html#cb185-2" aria-hidden="true" tabindex="-1"></a>gaze_test <span class="ot">&lt;-</span> </span>
-<span id="cb185-3"><a href="t-tests.html#cb185-3" aria-hidden="true" tabindex="-1"></a>gaze_d <span class="ot">&lt;-</span> </span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="t-tests.html#cb186-1" aria-hidden="true" tabindex="-1"></a>gaze_t <span class="ot">&lt;-</span> </span>
+<span id="cb186-2"><a href="t-tests.html#cb186-2" aria-hidden="true" tabindex="-1"></a>gaze_test <span class="ot">&lt;-</span> </span>
+<span id="cb186-3"><a href="t-tests.html#cb186-3" aria-hidden="true" tabindex="-1"></a>gaze_d <span class="ot">&lt;-</span> </span></code></pre></div>
 <p>The output of the paired-samples t-test is very similar to the independent test, with one exception. Rather than providing the means of both conditions, there is a single <code>estimate</code>. This is the mean <em>difference</em> score between the two conditions.</p>
 <ul>
 <li>
@@ -726,12 +726,12 @@ important social information to infants. Specifically, melodies convey informati
 <span class="header-section-number">10.15</span> Activity 15: Write-up<a class="anchor" aria-label="anchor" href="#ttest-a15"><i class="fas fa-link"></i></a>
 </h2>
 <p>Copy and paste the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knit the file to replicate the results section in the paper (p.489).</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="t-tests.html#cb186-1" aria-hidden="true" tabindex="-1"></a>At test, however, the infants selectively attended to the now<span class="sc">-</span>silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at <span class="fu">baseline</span> (difference <span class="cf">in</span> proportion of looking<span class="sc">:</span> <span class="at">M =</span> <span class="st">`</span><span class="at">r gaze_test$estimate %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sd(gaze$diff, na.rm = TRUE) %&gt;% round(2)</span><span class="st">`</span>, <span class="dv">95</span><span class="sc">% CI = [`r gaze_test$conf.low %</span><span class="er">&gt;</span><span class="sc">% round(2)`, `r gaze_test$conf.high %</span><span class="er">&gt;</span><span class="sc">% round(2)`]), t(`r gaze_test$parameter`) = `r gaze_test$statistic %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p = `r gaze_test$p.value %</span><span class="er">&gt;</span><span class="sc">% round(3)`, d = `r gaze_d$Cohens_d %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">.</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="t-tests.html#cb187-1" aria-hidden="true" tabindex="-1"></a>At test, however, the infants selectively attended to the now<span class="sc">-</span>silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at <span class="fu">baseline</span> (difference <span class="cf">in</span> proportion of looking<span class="sc">:</span> <span class="at">M =</span> <span class="st">`</span><span class="at">r gaze_test$estimate %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sd(gaze$diff, na.rm = TRUE) %&gt;% round(2)</span><span class="st">`</span>, <span class="dv">95</span><span class="sc">% CI = [`r gaze_test$conf.low %</span><span class="er">&gt;</span><span class="sc">% round(2)`, `r gaze_test$conf.high %</span><span class="er">&gt;</span><span class="sc">% round(2)`]), t(`r gaze_test$parameter`) = `r gaze_test$statistic %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p = `r gaze_test$p.value %</span><span class="er">&gt;</span><span class="sc">% round(3)`, d = `r gaze_d$Cohens_d %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">.</span></span></code></pre></div>
 <blockquote>
 <p>At test, however, the infants selectively attended to the now-silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at baseline (difference in proportion of looking: M = -0.07, SD = 0.17, 95% CI = [-0.13, -0.01]), t(31) = -2.42, p = 0.022, d = -0.41.</p>
 </blockquote>
 <p>Similarly, we can use <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> on the original list object to produce an automated write-up.</p>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">gaze_t</span><span class="op">)</span></code></pre></div>
 <pre><code>## Effect sizes were labelled following Cohen's (1988) recommendations.
 ## 
@@ -755,7 +755,7 @@ important social information to infants. Specifically, melodies convey informati
 <button>
 Activity 1
 </button>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://r-forge.r-project.org/projects/car/">"car"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/effectsize/">"effectsize"</a></span><span class="op">)</span>
@@ -774,7 +774,7 @@ Activity 1
 <button>
 Activity 2
 </button>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="va">evaluators</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex_labels <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">sex</span>, <span class="st">"1"</span> <span class="op">=</span> <span class="st">"male"</span>, <span class="st">"2"</span> <span class="op">=</span> <span class="st">"female"</span><span class="op">)</span>,
          sex_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">sex_labels</span><span class="op">)</span>,
@@ -792,7 +792,7 @@ Activity 2
 <button>
 Activity 6
 </button>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span>
 <span class="va">hire</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"hire"</span><span class="op">)</span>
 <span class="va">impression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"impression"</span><span class="op">)</span></code></pre></div>
@@ -808,7 +808,7 @@ Activity 6
 <button>
 Activity 7
 </button>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span>
@@ -828,7 +828,7 @@ Activity 7
 <button>
 Activity 12
 </button>
-<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gaze</span><span class="op">$</span><span class="va">diff</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">gaze</span><span class="op">$</span><span class="va">diff</span><span class="op">)</span></code></pre></div>
@@ -844,7 +844,7 @@ Activity 12
 <button>
 Activity 13
 </button>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">gaze_tidy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">looking</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
@@ -861,7 +861,7 @@ Activity 13
 <button>
 Activity 14
 </button>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, paired <span class="op">=</span> <span class="cn">TRUE</span>, data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span>
 <span class="va">gaze_test</span> <span class="op">&lt;-</span>  <span class="va">gaze_t</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
 <span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, method <span class="op">=</span> <span class="st">"paired"</span>, data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span></code></pre></div>
@@ -1122,7 +1122,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-03.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
