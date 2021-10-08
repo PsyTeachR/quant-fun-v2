@@ -101,7 +101,7 @@ Now that we have the data loaded in it is always best to have a look at it to ge
 
 Have a look at the data in `responses` to see if you think it is Tidy or not and answer the following question: 
 
-* The data in `responses` is in what format? <div class='webex-radiogroup' id='radio_BVQNUUHOXR'><label><input type="radio" autocomplete="off" name="radio_BVQNUUHOXR" value=""></input> <span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_BVQNUUHOXR" value=""></input> <span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_BVQNUUHOXR" value="answer"></input> <span>Wide</span></label></div>
+* The data in `responses` is in what format? <div class='webex-radiogroup' id='radio_AILLTSYKRZ'><label><input type="radio" autocomplete="off" name="radio_AILLTSYKRZ" value=""></input> <span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_AILLTSYKRZ" value=""></input> <span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_AILLTSYKRZ" value="answer"></input> <span>Wide</span></label></div>
  
 
 
@@ -264,15 +264,15 @@ Brilliant work again today! You have now recapped one-table verbs and started to
 
 ## Test yourself {#dw3-test}
 
-* Complete the sentence, the higher the AQ score...<div class='webex-radiogroup' id='radio_XLJMIRIDAL'><label><input type="radio" autocomplete="off" name="radio_XLJMIRIDAL" value=""></input> <span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_XLJMIRIDAL" value=""></input> <span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_XLJMIRIDAL" value="answer"></input> <span>the more autistic-like traits displayed</span></label></div>
+* Complete the sentence, the higher the AQ score...<div class='webex-radiogroup' id='radio_SUJQVAWFXZ'><label><input type="radio" autocomplete="off" name="radio_SUJQVAWFXZ" value=""></input> <span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_SUJQVAWFXZ" value=""></input> <span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_SUJQVAWFXZ" value="answer"></input> <span>the more autistic-like traits displayed</span></label></div>
   
 
-* Assuming that your code all worked, what was the AQ score (just the number) of Participant ID No. 87: <div class='webex-radiogroup' id='radio_YGKKMYBUYS'><label><input type="radio" autocomplete="off" name="radio_YGKKMYBUYS" value="answer"></input> <span>2</span></label><label><input type="radio" autocomplete="off" name="radio_YGKKMYBUYS" value=""></input> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_YGKKMYBUYS" value=""></input> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_YGKKMYBUYS" value=""></input> <span>6</span></label></div>
+* Assuming that your code all worked, what was the AQ score (just the number) of Participant ID No. 87: <div class='webex-radiogroup' id='radio_DWCTSODWVK'><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value="answer"></input> <span>2</span></label><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value=""></input> <span>3</span></label><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value=""></input> <span>5</span></label><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value=""></input> <span>6</span></label></div>
   
 
 * Type in the box how many participants had an AQ score of 3 (again just the number): <input class='webex-solveme nospaces' size='10' data-answer='["13"]'/>  
 
-* The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Based on this data, how many participants might be referred for further assessment? <div class='webex-radiogroup' id='radio_VRUJXGLCDN'><label><input type="radio" autocomplete="off" name="radio_VRUJXGLCDN" value=""></input> <span>2</span></label><label><input type="radio" autocomplete="off" name="radio_VRUJXGLCDN" value=""></input> <span>4</span></label><label><input type="radio" autocomplete="off" name="radio_VRUJXGLCDN" value="answer"></input> <span>6</span></label><label><input type="radio" autocomplete="off" name="radio_VRUJXGLCDN" value=""></input> <span>8</span></label></div>
+* The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Based on this data, how many participants might be referred for further assessment? <div class='webex-radiogroup' id='radio_GXRQLVPAWR'><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value=""></input> <span>2</span></label><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value=""></input> <span>4</span></label><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value="answer"></input> <span>6</span></label><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value=""></input> <span>8</span></label></div>
 
 
 
