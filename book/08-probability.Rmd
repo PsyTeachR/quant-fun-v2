@@ -434,9 +434,11 @@ fak3 <- qnorm(p = .005, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 
 The answer to this last question was: `r longmcq(sample(c(answer = ans,fak1,fak2,fak3)))`
 
+*****
+
 **Visualise it!**
 
-Have a go at playing around with different distributions in our `dnorm()` and `pnorm()` app - [access it here](http://shiny.psy.gla.ac.uk/jackt/ShinyPsyTeachR/ug1/normal-distributions/)
+Have a go at playing around with different distributions in our `dnorm()` and `pnorm()` app - [access it here](https://shiny.psy.gla.ac.uk/jackt/ShinyPsyTeachR/ug1/normal-distributions/){target="blank"}
 
 ******
 
