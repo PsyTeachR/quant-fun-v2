@@ -58,7 +58,7 @@
 <li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
 <li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
 <li><a class="active" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
-<li><a class="" href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></li>
+<li><a class="" href="intro-to-data-visualisation.html"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
 <li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
 <li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
 <li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
@@ -218,8 +218,8 @@ There is more information about <a href="https://r4ds.had.co.nz/tidy-data.html">
 <p>Have a look at the data in <code>responses</code> to see if you think it is Tidy or not and answer the following question:</p>
 <ul>
 <li>The data in <code>responses</code> is in what format?
-<div id="radio_AILLTSYKRZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AILLTSYKRZ" value=""><span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_AILLTSYKRZ" value=""><span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_AILLTSYKRZ" value="answer"><span>Wide</span></label>
+<div id="radio_RTJIXWVBAY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RTJIXWVBAY" value=""><span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_RTJIXWVBAY" value=""><span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_RTJIXWVBAY" value="answer"><span>Wide</span></label>
 </div>
 </li>
 </ul>
@@ -412,21 +412,21 @@ Additional Hints
 <ul>
 <li>
 <p>Complete the sentence, the higher the AQ score...</p>
-<div id="radio_SUJQVAWFXZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SUJQVAWFXZ" value=""><span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_SUJQVAWFXZ" value=""><span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_SUJQVAWFXZ" value="answer"><span>the more autistic-like traits displayed</span></label>
+<div id="radio_OKAENUAZFK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OKAENUAZFK" value=""><span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_OKAENUAZFK" value=""><span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_OKAENUAZFK" value="answer"><span>the more autistic-like traits displayed</span></label>
 </div>
 </li>
 <li>
 <p>Assuming that your code all worked, what was the AQ score (just the number) of Participant ID No. 87:</p>
-<div id="radio_DWCTSODWVK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value="answer"><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value=""><span>3</span></label><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value=""><span>5</span></label><label><input type="radio" autocomplete="off" name="radio_DWCTSODWVK" value=""><span>6</span></label>
+<div id="radio_AOFNNRNCAP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AOFNNRNCAP" value="answer"><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_AOFNNRNCAP" value=""><span>3</span></label><label><input type="radio" autocomplete="off" name="radio_AOFNNRNCAP" value=""><span>5</span></label><label><input type="radio" autocomplete="off" name="radio_AOFNNRNCAP" value=""><span>6</span></label>
 </div>
 </li>
 <li><p>Type in the box how many participants had an AQ score of 3 (again just the number): <input class="webex-solveme nospaces" size="10" data-answer='["13"]'></p></li>
 <li>
 <p>The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Based on this data, how many participants might be referred for further assessment?</p>
-<div id="radio_GXRQLVPAWR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value=""><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value=""><span>4</span></label><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value="answer"><span>6</span></label><label><input type="radio" autocomplete="off" name="radio_GXRQLVPAWR" value=""><span>8</span></label>
+<div id="radio_XDVOPDHBQA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XDVOPDHBQA" value=""><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_XDVOPDHBQA" value=""><span>4</span></label><label><input type="radio" autocomplete="off" name="radio_XDVOPDHBQA" value="answer"><span>6</span></label><label><input type="radio" autocomplete="off" name="radio_XDVOPDHBQA" value=""><span>8</span></label>
 </div>
 </li>
 </ul>
@@ -440,6 +440,56 @@ Explain these answers
 <li><p>Same as above but changing the argument of the filter. <code>filter(aq_scores, AQ == 3) %&gt;% count()</code>. The answer is 13. Remember you can do this by counting but the code makes it reproducible and accurate every time. You might make mistakes.</p></li>
 <li><p><code>filter(aq_scores, AQ &gt; 6) %&gt;% count()</code> or <code>filter(aq_scores, AQ &gt;= 7) %&gt;% count()</code>. The answer is 6.</p></li>
 </ol>
+</div>
+<p><strong>Recap on Wickham Verbs!</strong></p>
+<p>Which function(s) would you use to approach each of the following problems?</p>
+<ul>
+<li><p>We have a dataset of 400 adults, but we want to remove anyone with an age of 50 years or more. To do this, we could use the <select class="webex-select"><option value="blank"></option>
+<option value="">summarise()</option>
+<option value="">mutate()</option>
+<option value="answer">filter()</option>
+<option value="">arrange()</option>
+<option value="">group_by()</option>
+<option value="">select()</option></select> function.</p></li>
+<li><p>We are interested in overall summary statistics for our data, such as the overall average and total number of observations. To do this, we could use the <select class="webex-select"><option value="blank"></option>
+<option value="">group_by()</option>
+<option value="">select()</option>
+<option value="">filter()</option>
+<option value="">arrange()</option>
+<option value="">mutate()</option>
+<option value="answer">summarise()</option></select> function.</p></li>
+<li><p>Our dataset has a column with the number of cats a person has, and a column with the number of dogs. We want to calculate a new column which contains the total number of pets each participant has. To do this, we could use the <select class="webex-select"><option value="blank"></option>
+<option value="">select()</option>
+<option value="">summarise()</option>
+<option value="">filter()</option>
+<option value="">arrange()</option>
+<option value="">group_by()</option>
+<option value="answer">mutate()</option></select> function.</p></li>
+<li><p>We want to calculate the average for each participant in our dataset. To do this we could use the <select class="webex-select"><option value="blank"></option>
+<option value="">group_by() and arrange()</option>
+<option value="">filter() and select()</option>
+<option value="answer">group_by() and summarise()</option>
+<option value="">arrange() and mutate()</option></select> functions.</p></li>
+<li><p>We want to order a dataframe of participants by the number of cats that they own, but want our new dataframe to only contain some of our columns. To do this we could use the <select class="webex-select"><option value="blank"></option>
+<option value="">group_by() and mutate()</option>
+<option value="">select() and summarise()</option>
+<option value="answer">arrange() and select()</option>
+<option value="answer">filter() and select()</option></select> functions.</p></li>
+</ul>
+<div class="webex-solution">
+<button>
+Explain these Answers
+</button>
+<ul>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> helps us keep and remove rows!</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> is the main function for creating means, medians, modes, etc.</li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> can be used to add columns to help add more information.</li>
+<li>When you want summary statistics for individual groups or participants you have to first <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> and then <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>.</li>
+<li>You would need to <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> first to reduce the people based on their number of cats and then just <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> the columns you want to keep.</li>
+</ul>
 </div>
 </div>
 <div id="dw3-sols" class="section level2" number="6.11">
@@ -776,7 +826,7 @@ $( document ).ready(function() {
 });
 </script><div class="chapter-nav">
 <div class="prev"><a href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></div>
-<div class="next"><a href="intro-to-data-viz.html"><span class="header-section-number">7</span> Intro to Data Viz</a></div>
+<div class="next"><a href="intro-to-data-visualisation.html"><span class="header-section-number">7</span> Intro to Data Visualisation</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -834,7 +884,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-08.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-09.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
