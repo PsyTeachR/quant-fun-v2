@@ -265,6 +265,7 @@ Brilliant work again today! You have now recapped one-table verbs and started to
 
 * The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Based on this data, how many participants might be referred for further assessment? `r longmcq(c(2, 4, answer = 6, 8))`
 
+
 `r hide("Explain these answers")`
 ```{r, echo = FALSE, results='asis'}
 cat("
@@ -278,6 +279,36 @@ cat("
         ")
 ```
 `r unhide()`  
+
+**Recap on Wickham Verbs!**
+
+Which function(s) would you use to approach each of the following problems?
+
+* We have a dataset of 400 adults, but we want to remove anyone with an age of 50 years or more. To do this, we could use the `r mcq(sample(c("select()", answer="filter()", "mutate()", "arrange()", "group_by()", "summarise()")))` function.
+
+* We are interested in overall summary statistics for our data, such as the overall average and total number of observations. To do this, we could use the `r mcq(sample(c("select()", "filter()", "mutate()", "arrange()", "group_by()", answer="summarise()")))` function.
+
+* Our dataset has a column with the number of cats a person has, and a column with the number of dogs. We want to calculate a new column which contains the total number of pets each participant has. To do this, we could use the `r mcq(sample(c("select()", "filter()", answer="mutate()", "arrange()", "group_by()", "summarise()")))` function.
+
+* We want to calculate the average for each participant in our dataset. To do this we could use the `r mcq(sample(c(answer="group_by() and summarise()", "filter() and select()", "group_by() and arrange()", "arrange() and mutate()")))` functions.
+
+* We want to order a dataframe of participants by the number of cats that they own, but want our new dataframe to only contain some of our columns. To do this we could use the `r mcq(sample(c(answer = "arrange() and select()", "group_by() and mutate()", answer="filter() and select()", "select() and summarise()")))` functions.
+
+
+`r hide("Explain these Answers")`
+```{r, echo = FALSE, results='asis'}
+cat("
+
+* `filter()` helps us keep and remove rows!
+* `summarise()` is the main function for creating means, medians, modes, etc.
+* `mutate()` can be used to add columns to help add more information.
+* When you want summary statistics for individual groups or participants you have to first `group_by()` and then `summarise()`.
+* You would need to `filter()` first to reduce the people based on their number of cats and then just `select()` the columns you want to keep.
+
+
+")
+```
+`r unhide()`
 
 ## Activity solutions {#dw3-sols}
 
