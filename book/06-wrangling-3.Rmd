@@ -47,7 +47,7 @@ To continue building your data wrangling skills in this chapter you will tidy da
 
 Today we will be working with data from 66 participants and your goal in this chapter is to find an AQ score for each of them through your data-wrangling skills. 
 
-There are four data files to work with that you should download into your chapter folder. You can either right click and save each file seperately below, or [click here to download all the files in a zip file](data/chpt6/PsyTeachR_FQA_Chpt5-data.zip){target="_blank"} for you to unzip: 
+There are four data files to work with that you should download into your chapter folder. You can either right click and save each file separately below, or [click here to download all the files in a zip file](data/chpt6/PsyTeachR_FQA_Chpt6-data.zip){target="_blank"} for you to unzip: 
 
 * <a href="responses.csv" download>responses.csv</a> containing the AQ survey responses to each of the 10 questions for the 66 participants
 * <a href="qformats.csv" download>qformats.csv</a> containing information on how a question should be coded - i.e. forward or reverse coding

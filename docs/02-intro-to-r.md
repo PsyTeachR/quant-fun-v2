@@ -204,7 +204,7 @@ If you have any questions about anything contained in this chapter or in Program
 
 ## Test Yourself
 
-1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_BUIFOHPAEB'><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value=""></input> <span>make a coffee</span></label></div>
+1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_UVRAYNCQJF'><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value=""></input> <span>make a coffee</span></label></div>
 
 
 
@@ -231,7 +231,7 @@ Assuming you haven't changed any of the settings in RStudio, code chunks will te
 
 <br>
 
-4. Code chunks are started with: <div class='webex-radiogroup' id='radio_TGNFTVWRJE'><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value=""></input> <span>three single clefs</span></label></div>
+4. Code chunks are started with: <div class='webex-radiogroup' id='radio_GBMSNTRWFY'><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value=""></input> <span>three single clefs</span></label></div>
 
 
 
@@ -244,7 +244,7 @@ Code chunks always take the same general format of three backticks followed by c
 
 <br>
   
-5. Inline coding is: <div class='webex-radiogroup' id='radio_KMPPLHYUKS'><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
+5. Inline coding is: <div class='webex-radiogroup' id='radio_CFNFSBMECD'><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
 
 
 

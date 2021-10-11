@@ -36,8 +36,8 @@ So you can see that the probability of an event occurring changes with the numbe
 
 Try to answer these questions below to check your understanding.
 
-1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class='webex-select'><option value='blank'></option><option value=''>0.25</option><option value=''>0.0416666666666667</option><option value='answer'>0.1</option><option value=''>0.0833333333333333</option></select>
-2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class='webex-select'><option value='blank'></option><option value=''>0.01</option><option value=''>0.1</option><option value='answer'>0.1</option><option value=''>0</option></select>
+1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class='webex-select'><option value='blank'></option><option value=''>0.0416666666666667</option><option value=''>0.25</option><option value=''>0.0833333333333333</option><option value='answer'>0.1</option></select>
+2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class='webex-select'><option value='blank'></option><option value=''>0</option><option value='answer'>0.1</option><option value=''>0.1</option><option value=''>0.01</option></select>
 
 ## Types of data
 
@@ -57,10 +57,10 @@ How you tackle probability also depends on the type of data/variables you are wo
 
 Try to answer these questions below to check your understanding. What types of data are the below measurements?
 
-* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value=''>ordinal</option><option value=''>categorical</option><option value='answer'>ratio</option></select>
-* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value=''>ratio</option><option value=''>categorical</option><option value='answer'>ordinal</option></select>
-* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value='answer'>categorical</option><option value=''>ratio</option><option value=''>interval</option><option value=''>ordinal</option></select>
-* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value=''>ordinal</option><option value=''>categorical</option><option value='answer'>interval</option></select>
+* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value=''>categorical</option><option value='answer'>ratio</option><option value=''>ordinal</option></select>
+* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value='answer'>ordinal</option><option value=''>ratio</option><option value=''>interval</option><option value=''>categorical</option></select>
+* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value='answer'>categorical</option><option value=''>ratio</option><option value=''>ordinal</option><option value=''>interval</option></select>
+* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value=''>ordinal</option><option value='answer'>interval</option><option value=''>categorical</option><option value=''>ratio</option></select>
 
 ## Probability distributions
 
@@ -81,7 +81,7 @@ The uniform distribution is when each possible outcome has an equal chance of oc
 <p class="caption">(\#fig:unnamed-chunk-1)The Uniform distribution, where every outcome has an equal probability of occurring.</p>
 </div>
 
-The uniform distribution does not feature that regularly in Psychology, except perhaps in experiments where you are randomising which block people get first, but it helps us start to understand that each outcome has a probability in a distribution.
+The uniform distribution does not feature that regularly in Psychology, except perhaps in experiments where you are randomising which block people get first or when performing a <a class='glossary' title='An inferential test used to compare observed frequencies with expected frequencies in categorical conditions'>chi-square</a> test, but it helps us start to understand that each outcome has a probability in a distribution.
 
 ## The binomial distribution
 
@@ -153,8 +153,8 @@ As with any probabilities, real-world data will come close to the normal distrib
 Complete the sentences to make sure that you are understanding the above.
 
 * In a normal distribution, the mean, median, and mode <select class='webex-select'><option value='blank'></option><option value='answer'>are all equal</option><option value=''>are always different</option><option value=''>sum to zero</option></select>.
-* In a normal distribution, the further away from the mean an observation is <select class='webex-select'><option value='blank'></option><option value='answer'>the lower its probability of occuring</option><option value=''>the higher its probability of occuring</option></select>.
-* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-select'><option value='blank'></option><option value='answer'>is a continuous variable</option><option value=''>has three possible values</option><option value=''>is a categorical variable</option></select>.
+* In a normal distribution, the further away from the mean an observation is <select class='webex-select'><option value='blank'></option><option value=''>the higher its probability of occuring</option><option value='answer'>the lower its probability of occuring</option></select>.
+* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-select'><option value='blank'></option><option value=''>has three possible values</option><option value='answer'>is a continuous variable</option><option value=''>is a categorical variable</option></select>.
 
 ### Activity 4: Distribution test {#prob-a4}
 
@@ -418,7 +418,7 @@ Replace the NULLs in the above code to calculate how tall a 16-24 y.o. Scottish 
 
 
 
-The answer to this last question was: <div class='webex-radiogroup' id='radio_OLKURAUAAR'><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value=""></input> <span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value=""></input> <span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value="answer"></input> <span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value=""></input> <span>175.352037231422</span></label></div>
+The answer to this last question was: <div class='webex-radiogroup' id='radio_JMVGUHJZTL'><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value=""></input> <span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value=""></input> <span>175.352037231422</span></label><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value="answer"></input> <span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value=""></input> <span>193.581696140348</span></label></div>
 
 
 *****
@@ -512,6 +512,7 @@ Below you will find a list of words that were used in this chapter that might be
 |term                                                                                                                         |definition                                                                                                                                                                           |
 |:----------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[binomial distribution](https://psyteachr.github.io/glossary/b.html#binomial-distribution){class="glossary" target="_blank"} |The distribution of data where each observation can have one of two outcomes, like success/failure, yes/no or head/tails.                                                            |
+|[chi square](https://psyteachr.github.io/glossary/c.html#chi-square){class="glossary" target="_blank"}                       |An inferential test used to compare observed frequencies with expected frequencies in categorical conditions                                                                         |
 |[continuous](https://psyteachr.github.io/glossary/c.html#continuous){class="glossary" target="_blank"}                       |Data that can take on any values between other existing values.                                                                                                                      |
 |[discrete](https://psyteachr.github.io/glossary/d.html#discrete){class="glossary" target="_blank"}                           |Data that can only take certain values, such as integers.                                                                                                                            |
 |[distribution](https://psyteachr.github.io/glossary/d.html#distribution){class="glossary" target="_blank"}                   |A way to describe the shape of data                                                                                                                                                  |
