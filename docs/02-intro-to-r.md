@@ -95,7 +95,7 @@ The default text is just there to give you some examples of what you can do with
 
 * Delete **everything** below line 7
 * On line 8 type "About me"
-* Click **`Insert >> R`** from the top menu.
+* Click on the Top Menu: **`Code >> Insert Chunk`** from the top menu.
 
 Your Markdown document should now look something like this:
 
@@ -183,7 +183,7 @@ As our final step we are going to **<a class='glossary' target='_blank' title='T
 
 Now let's look at this outputted HTML document and at the sentence we copied in from Activity 7. As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.
 
-**My name is Emily and I am 35 years old. <br><br>It is -90 days until my birthday.**
+**My name is Emily and I am 35 years old. <br><br>It is -92 days until my birthday.**
 
 Pretty amazing isn't it! We're not going to use inline coding very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! The key thing about using inline coding is the structure, i.e. the backtick, followed by the lower case r, then space, then the code, then another backtick. You will get the hang of it as the semester goes on with a little practice.
 
@@ -204,7 +204,7 @@ If you have any questions about anything contained in this chapter or in Program
 
 ## Test Yourself
 
-1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_CGEJZKYPYP'><label><input type="radio" autocomplete="off" name="radio_CGEJZKYPYP" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_CGEJZKYPYP" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_CGEJZKYPYP" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_CGEJZKYPYP" value=""></input> <span>make a coffee</span></label></div>
+1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_BUIFOHPAEB'><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_BUIFOHPAEB" value=""></input> <span>make a coffee</span></label></div>
 
 
 
@@ -231,7 +231,7 @@ Assuming you haven't changed any of the settings in RStudio, code chunks will te
 
 <br>
 
-4. Code chunks are started with: <div class='webex-radiogroup' id='radio_MFXELJNFWX'><label><input type="radio" autocomplete="off" name="radio_MFXELJNFWX" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_MFXELJNFWX" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_MFXELJNFWX" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_MFXELJNFWX" value=""></input> <span>three single clefs</span></label></div>
+4. Code chunks are started with: <div class='webex-radiogroup' id='radio_TGNFTVWRJE'><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_TGNFTVWRJE" value=""></input> <span>three single clefs</span></label></div>
 
 
 
@@ -244,7 +244,7 @@ Code chunks always take the same general format of three backticks followed by c
 
 <br>
   
-5. Inline coding is: <div class='webex-radiogroup' id='radio_WDZQEXYIOC'><label><input type="radio" autocomplete="off" name="radio_WDZQEXYIOC" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_WDZQEXYIOC" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_WDZQEXYIOC" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_WDZQEXYIOC" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
+5. Inline coding is: <div class='webex-radiogroup' id='radio_KMPPLHYUKS'><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_KMPPLHYUKS" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
 
 
 
