@@ -120,16 +120,16 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <p>Try to answer these questions below to check your understanding.</p>
 <ol style="list-style-type: decimal">
 <li>What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class="webex-select"><option value="blank"></option>
-<option value="">0.25</option>
 <option value="">0.0416666666666667</option>
-<option value="answer">0.1</option>
-<option value="">0.0833333333333333</option></select>
+<option value="">0.25</option>
+<option value="">0.0833333333333333</option>
+<option value="answer">0.1</option></select>
 </li>
 <li>What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class="webex-select"><option value="blank"></option>
-<option value="">0.01</option>
-<option value="">0.1</option>
+<option value="">0</option>
 <option value="answer">0.1</option>
-<option value="">0</option></select>
+<option value="">0.1</option>
+<option value="">0.01</option></select>
 </li>
 </ol>
 </div>
@@ -161,27 +161,27 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <ul>
 <li>Time taken to run a marathon (in seconds): <select class="webex-select"><option value="blank"></option>
 <option value="">interval</option>
-<option value="">ordinal</option>
 <option value="">categorical</option>
-<option value="answer">ratio</option></select>
+<option value="answer">ratio</option>
+<option value="">ordinal</option></select>
 </li>
 <li>Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class="webex-select"><option value="blank"></option>
-<option value="">interval</option>
+<option value="answer">ordinal</option>
 <option value="">ratio</option>
-<option value="">categorical</option>
-<option value="answer">ordinal</option></select>
+<option value="">interval</option>
+<option value="">categorical</option></select>
 </li>
 <li>Which Sesame Street character a runner was dressed as: <select class="webex-select"><option value="blank"></option>
 <option value="answer">categorical</option>
 <option value="">ratio</option>
-<option value="">interval</option>
-<option value="">ordinal</option></select>
+<option value="">ordinal</option>
+<option value="">interval</option></select>
 </li>
 <li>Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class="webex-select"><option value="blank"></option>
-<option value="">ratio</option>
 <option value="">ordinal</option>
+<option value="answer">interval</option>
 <option value="">categorical</option>
-<option value="answer">interval</option></select>
+<option value="">ratio</option></select>
 </li>
 </ul>
 </div>
@@ -212,7 +212,7 @@ For example, what is the probability of randomly drawing your name out of a hat 
 Figure 8.1: The Uniform distribution, where every outcome has an equal probability of occurring.
 </p>
 </div>
-<p>The uniform distribution does not feature that regularly in Psychology, except perhaps in experiments where you are randomising which block people get first, but it helps us start to understand that each outcome has a probability in a distribution.</p>
+<p>The uniform distribution does not feature that regularly in Psychology, except perhaps in experiments where you are randomising which block people get first or when performing a <a class="glossary" title="An inferential test used to compare observed frequencies with expected frequencies in categorical conditions">chi-square</a> test, but it helps us start to understand that each outcome has a probability in a distribution.</p>
 </div>
 <div id="the-binomial-distribution" class="section level2" number="8.5">
 <h2>
@@ -284,11 +284,11 @@ Figure 7.6: A simulation of an experiment collecting height data from 2000 parti
 <option value="">are always different</option>
 <option value="">sum to zero</option></select>.</li>
 <li>In a normal distribution, the further away from the mean an observation is <select class="webex-select"><option value="blank"></option>
-<option value="answer">the lower its probability of occuring</option>
-<option value="">the higher its probability of occuring</option></select>.</li>
+<option value="">the higher its probability of occuring</option>
+<option value="answer">the lower its probability of occuring</option></select>.</li>
 <li>Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class="webex-select"><option value="blank"></option>
-<option value="answer">is a continuous variable</option>
 <option value="">has three possible values</option>
+<option value="answer">is a continuous variable</option>
 <option value="">is a categorical variable</option></select>.</li>
 </ul>
 </div>
@@ -597,8 +597,8 @@ Figure 8.2: Simulation of Scottish height data
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="cn">NULL</span>, mean <span class="op">=</span> <span class="cn">NULL</span>, sd <span class="op">=</span> <span class="cn">NULL</span>, lower.tail <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 <p>Replace the NULLs in the above code to calculate how tall a 16-24 y.o. Scottish man would have to be in order to be in the top 5% (i.e., p = .05) of the height distribution for Scottish men in his age group. Remember the solutions are at the end of the chapter. You can confirm if you are right or not by answering this question:</p>
 The answer to this last question was:
-<div id="radio_OLKURAUAAR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value=""><span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value=""><span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value="answer"><span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_OLKURAUAAR" value=""><span>175.352037231422</span></label>
+<div id="radio_JMVGUHJZTL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value=""><span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value=""><span>175.352037231422</span></label><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value="answer"><span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_JMVGUHJZTL" value=""><span>193.581696140348</span></label>
 </div>
 <hr>
 <p><strong>Visualise it!</strong></p>
@@ -706,66 +706,70 @@ The answer to this last question was:
 <td align="left">The distribution of data where each observation can have one of two outcomes, like success/failure, yes/no or head/tails.</td>
 </tr>
 <tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#chi-square" class="glossary" target="_blank">chi square</a></td>
+<td align="left">An inferential test used to compare observed frequencies with expected frequencies in categorical conditions</td>
+</tr>
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/c.html#continuous" class="glossary" target="_blank">continuous</a></td>
 <td align="left">Data that can take on any values between other existing values.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/d.html#discrete" class="glossary" target="_blank">discrete</a></td>
 <td align="left">Data that can only take certain values, such as integers.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/d.html#distribution" class="glossary" target="_blank">distribution</a></td>
 <td align="left">A way to describe the shape of data</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/i.html#inferential" class="glossary" target="_blank">inferential</a></td>
 <td align="left">Statistics that allow you to make predictions about or comparisons between data (e.g., t-value, F-value, rho)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/i.html#integer" class="glossary" target="_blank">integer</a></td>
 <td align="left">A data type representing whole numbers.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/i.html#interval" class="glossary" target="_blank">interval</a></td>
 <td align="left">data which comes in the form of a numerical value where the difference between points is standardised and meaningful</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/l.html#likert" class="glossary" target="_blank">likert</a></td>
 <td align="left">A rating scale with a small number of discrete points in order</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/n.html#nominal" class="glossary" target="_blank">nominal</a></td>
 <td align="left">Categorical variables that don't have an inherent order, such as types of animal.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/n.html#normal-distribution" class="glossary" target="_blank">normal distribution</a></td>
 <td align="left">A symmetric distribution of data where values near the centre are most probable.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/o.html#ordinal" class="glossary" target="_blank">ordinal</a></td>
 <td align="left">Discrete variables that have an inherent order, such as number of legs</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/p.html#population" class="glossary" target="_blank">population</a></td>
 <td align="left">All members of a group that we wish to generalise our findings to. E.g. all students taking Psychology at the University of Glasgow. We draw our testing sample from the population.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/p.html#probability" class="glossary" target="_blank">probability</a></td>
 <td align="left">A number between 0 and 1 where 0 indicates impossibility of the event and 1 indicates certainty</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/r.html#ratio" class="glossary" target="_blank">ratio</a></td>
 <td align="left">data which comes in the form of a numerical value where the difference between points is standardised and meaningful but has a meaningful zero</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/s.html#sample" class="glossary" target="_blank">sample</a></td>
 <td align="left">A subset of the population that you wish to make an inference about through your test.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/s.html#simulation" class="glossary" target="_blank">simulation</a></td>
 <td align="left">Generating data, as opposed to collecting data, from summary parameters such as the mean and standard deviation</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/u.html#uniform-distribution" class="glossary" target="_blank">uniform distribution</a></td>
 <td align="left">A distribution where all numbers in the range have an equal probability of being sampled</td>
 </tr>

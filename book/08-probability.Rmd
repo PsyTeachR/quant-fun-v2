@@ -90,7 +90,7 @@ ggplot(dat, aes(name, prob)) +
   theme_minimal()
 ```
 
-The uniform distribution does not feature that regularly in Psychology, except perhaps in experiments where you are randomising which block people get first, but it helps us start to understand that each outcome has a probability in a distribution.
+The uniform distribution does not feature that regularly in Psychology, except perhaps in experiments where you are randomising which block people get first or when performing a `r glossary("chi-square", display = "chi-square", def = "An inferential test used to compare observed frequencies with expected frequencies in categorical conditions", link = FALSE)` test, but it helps us start to understand that each outcome has a probability in a distribution.
 
 ## The binomial distribution
 
