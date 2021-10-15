@@ -246,7 +246,7 @@ First, we use `emmeans()` to run the comparisons and then we can pull out the co
 * Run the code below. Which conditions are significantly different from each other? Are any of the comparisons different from the ones reported in the paper now that a correction for multiple comparisons has been applied?
 
 ```{r post-hoc tests, results='hide'}
-mod_pairwise <-emmeans(mod$aov, pairwise ~ Condition, adjust = "bonferroni")
+mod_pairwise <-emmeans(mod, pairwise ~ Condition, adjust = "bonferroni")
 mod_contrasts <- mod_pairwise$contrasts %>% tidy()
 ```
 

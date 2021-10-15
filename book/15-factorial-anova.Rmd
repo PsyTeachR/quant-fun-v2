@@ -180,7 +180,7 @@ Because the interaction is significant, we should follow this up with post-hoc t
 
 ```{r}
 # run the tests
-posthoc_factorial <- emmeans(mod_factorial$aov, 
+posthoc_factorial <- emmeans(mod_factorial, 
                              pairwise ~ time| Condition, 
                              adjust = "bonferroni")
 
