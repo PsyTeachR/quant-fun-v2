@@ -363,7 +363,7 @@ Because <code>Condition</code> has four levels, we can’t just specify <code>in
 <li>Run the code below. Which conditions are significantly different from each other? Are any of the comparisons different from the ones reported in the paper now that a correction for multiple comparisons has been applied?</li>
 </ul>
 <div class="sourceCode" id="cb277"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu">emmeans</span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">aov</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu">emmeans</span><span class="op">(</span><span class="va">mod</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 <span class="va">mod_contrasts</span> <span class="op">&lt;-</span> <span class="va">mod_pairwise</span><span class="op">$</span><span class="va">contrasts</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="warning">
 <p>
@@ -758,7 +758,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-11.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
