@@ -257,7 +257,7 @@ Figure 15.2: Interaction plot
 </ul>
 <div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># run the tests</span>
-<span class="va">posthoc_factorial</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">aov</span>, 
+<span class="va">posthoc_factorial</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mod_factorial</span>, 
                              <span class="va">pairwise</span> <span class="op">~</span> <span class="va">time</span><span class="op">|</span> <span class="va">Condition</span>, 
                              adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 
@@ -703,7 +703,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-11.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-17.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -270,7 +270,7 @@ First, we use `emmeans()` to run the comparisons and then we can pull out the co
 
 
 ```r
-mod_pairwise <-emmeans(mod$aov, pairwise ~ Condition, adjust = "bonferroni")
+mod_pairwise <-emmeans(mod, pairwise ~ Condition, adjust = "bonferroni")
 mod_contrasts <- mod_pairwise$contrasts %>% tidy()
 ```
 
