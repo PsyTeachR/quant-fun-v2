@@ -183,7 +183,7 @@ As our final step we are going to **<a class='glossary' target='_blank' title='T
 
 Now let's look at this outputted HTML document and at the sentence we copied in from Activity 7. As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.
 
-**My name is Emily and I am 35 years old. <br><br>It is -92 days until my birthday.**
+**My name is Emily and I am 35 years old. <br><br>It is -104 days until my birthday.**
 
 Pretty amazing isn't it! We're not going to use inline coding very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! The key thing about using inline coding is the structure, i.e. the backtick, followed by the lower case r, then space, then the code, then another backtick. You will get the hang of it as the semester goes on with a little practice.
 
@@ -204,7 +204,7 @@ If you have any questions about anything contained in this chapter or in Program
 
 ## Test Yourself
 
-1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_UVRAYNCQJF'><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_UVRAYNCQJF" value=""></input> <span>make a coffee</span></label></div>
+1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_LGGHFNNCHX'><label><input type="radio" autocomplete="off" name="radio_LGGHFNNCHX" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_LGGHFNNCHX" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_LGGHFNNCHX" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_LGGHFNNCHX" value=""></input> <span>make a coffee</span></label></div>
 
 
 
@@ -231,7 +231,7 @@ Assuming you haven't changed any of the settings in RStudio, code chunks will te
 
 <br>
 
-4. Code chunks are started with: <div class='webex-radiogroup' id='radio_GBMSNTRWFY'><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_GBMSNTRWFY" value=""></input> <span>three single clefs</span></label></div>
+4. Code chunks are started with: <div class='webex-radiogroup' id='radio_ZGVXBDQIHM'><label><input type="radio" autocomplete="off" name="radio_ZGVXBDQIHM" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_ZGVXBDQIHM" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_ZGVXBDQIHM" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_ZGVXBDQIHM" value=""></input> <span>three single clefs</span></label></div>
 
 
 
@@ -244,7 +244,7 @@ Code chunks always take the same general format of three backticks followed by c
 
 <br>
   
-5. Inline coding is: <div class='webex-radiogroup' id='radio_CFNFSBMECD'><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_CFNFSBMECD" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
+5. Inline coding is: <div class='webex-radiogroup' id='radio_HMYGTKEKWG'><label><input type="radio" autocomplete="off" name="radio_HMYGTKEKWG" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_HMYGTKEKWG" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_HMYGTKEKWG" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_HMYGTKEKWG" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
 
 
 

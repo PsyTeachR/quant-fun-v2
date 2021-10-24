@@ -60,7 +60,7 @@
 <li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
 <li><a class="" href="intro-to-data-visualisation.html"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
 <li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
-<li><a class="" href="correlation.html"><span class="header-section-number">9</span> Correlation</a></li>
+<li><a class="" href="correlations.html"><span class="header-section-number">9</span> Correlations</a></li>
 <li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
 <li><a class="" href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></li>
 <li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
@@ -240,7 +240,7 @@
 <ul>
 <li>Run the below code. Read each line and ensure you understand what is being calculated.</li>
 </ul>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">descriptives</span> <span class="op">&lt;-</span> <span class="va">joined</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_anx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mean_anxiety</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
             sd_anx <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mean_anxiety</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -276,7 +276,7 @@ Figure 16.1: Scatteplot of mean anxiety and attendance
 <ul>
 <li>Use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function to predict <code>n_weeks</code> (DV) from <code>mean_anxiety</code> (predictor). Store the result of the call to <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> in the variable <code>mod</code>. To see the results, use <code><a href="https://rdrr.io/r/base/summary.html">summary(mod)</a></code>.</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">n_weeks</span> <span class="op">~</span> <span class="va">mean_anxiety</span>, <span class="va">joined</span><span class="op">)</span>
 <span class="va">mod_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <p>Answer the following questions about the model. You may wish to refer to the lecture notes to help you answer these questions.</p>
@@ -331,8 +331,8 @@ Explain these answers
 <ul>
 <li>If you get the error message <code>Failed with error:  ‘there is no package called ‘qqplotr’’</code>, install the package <code>qqplotr</code>, you don't need to load it using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, but <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> uses it in the background.</li>
 </ul>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">check_model</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="16-regression_files/figure-html/check_model-1.png" alt="Visual assumption checks" width="100%"><p class="caption">
 (#fig:check_model)Visual assumption checks
@@ -341,8 +341,8 @@ Explain these answers
 <p>For Assumption 5, linearity, the plot suggests it's not perfect but it looks pretty good.</p>
 <p>As we've already noted, it's good to visualise your assumption checks because just relying on statistics can be problematic, as they can be sensitive to small or large sample sizes. However, it can also be reassuring to have a statistical test to back up your intuitions from the plot.</p>
 <p>For Assumption 6, normality of residuals, the plot does suggest that the residuals might not be normal, so we can check this with <code><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality()</a></code> which runs a Shapiro-Wilk test.</p>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">check_normality</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Non-normality of residuals detected (p = 0.008).</code></pre>
 <p>The result confirms that the residuals are not normally distributed, something that is likely being exacerbated by the relatively small sample size. If you're feeling confident, you can see how we might resolve this below, but for the core aims of this chapter we'll conclude that it's because of the sample and continue.</p>
 <div class="webex-solution">
@@ -351,14 +351,14 @@ Transforming the data to correct for non-normality
 </button>
 <p>There are multiple ways you can transform data to deal with non-normality, you can find more information about data transformation in the <a href="https://psyteachr.github.io/msc-conv/data-transformation.html">Appendix here</a>.</p>
 <p>First, we need to get a sense of what the issue is with our dependent variable, in this case <code>n_weeks</code>. A simple histogram shows that the DV isn't a normal distribution, instead, it looks more like a <a href="https://openstax.org/books/introductory-statistics/pages/5-2-the-uniform-distribution">uniform distribution</a>.</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">joined</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">n_weeks</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="16-regression_files/figure-html/unnamed-chunk-2-1.png" width="100%" style="display: block; margin: auto;"></div>
 <p>It's important to remember that the assumptions of regression are that the residuals are normally distributed, not the raw data, however, transforming the DV can help.</p>
 <p>To transform the uniform distribution to a normal distribution, we're going to use the <code>unif2norm</code> function from the <code>faux</code> package (which you may need to install).</p>
 <p>This code uses <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> to create a new variable <code>n_weeks_transformed</code> that is the result of the transformation.</p>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/debruine/faux">faux</a></span><span class="op">)</span>
 <span class="va">joined</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">joined</span>, 
                  n_weeks_transformed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/faux/man/unif2norm.html">unif2norm</a></span><span class="op">(</span><span class="va">n_weeks</span><span class="op">)</span><span class="op">)</span>
@@ -367,18 +367,18 @@ Transforming the data to correct for non-normality
   <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="16-regression_files/figure-html/unnamed-chunk-3-1.png" width="100%" style="display: block; margin: auto;"></div>
 <p>You'll notice that the histogram for the transformed variable still doesn't look amazing, but remember it's the residuals, not the raw data that matters. If we re-run the regression with the transformed data and then check the model again, things are looking much better.</p>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod_transformed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">n_weeks_transformed</span> <span class="op">~</span> <span class="va">mean_anxiety</span>, <span class="va">joined</span><span class="op">)</span>
-<span class="fu">check_normality</span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span>
-<span class="fu">check_model</span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span>
+<span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="16-regression_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;"></div>
 <pre><code>## OK: residuals appear as normally distributed (p = 0.107).</code></pre>
 <p>It's worth saying at this point that which transformation you use, and whether it works, can be a bit of trial-and-error.</p>
 </div>
 <p><br></p>
 <p>For homoscedasticity, the plot looks mostly fine, but we can double check this with <code><a href="https://easystats.github.io/performance/reference/check_heteroscedasticity.html">check_heteroscedasticity()</a></code> and the result confirms that the data have met this assumption.</p>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">check_heteroscedasticity</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_heteroscedasticity.html">check_heteroscedasticity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## OK: Error variance appears to be homoscedastic (p = 0.542).</code></pre>
 </div>
 <div id="regression-a9" class="section level2" number="16.9">
@@ -386,7 +386,7 @@ Transforming the data to correct for non-normality
 <span class="header-section-number">16.9</span> Activity 9: Power and effect size<a class="anchor" aria-label="anchor" href="#regression-a9"><i class="fas fa-link"></i></a>
 </h2>
 <p>First we can calculate the minimum effect size we were able to detect given the sample size and design of the study using <code><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr.f2.test()</a></code>. As usual, we fill in all the information we have and set the effect size argument, in this case <code>f2</code>, to <code>NULL</code>.</p>
-<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr.f2.test</a></span><span class="op">(</span>u <span class="op">=</span> <span class="fl">1</span>, v <span class="op">=</span> <span class="fl">35</span>, f2 <span class="op">=</span> <span class="cn">NULL</span>, sig.level <span class="op">=</span> <span class="fl">.05</span>, power <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? <input class="webex-solveme nospaces" size="0.22" data-answer='[".22"]'><br>
@@ -397,7 +397,7 @@ Transforming the data to correct for non-normality
 <option value="">Large</option></select> effect.</li>
 </ul>
 <p>There is no formula to calculate our observed f<sup>2</sup>, we must do it manually using the formula from the lecture.</p>
-<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f2</span> <span class="op">&lt;-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">)</span></code></pre></div>
 <ul>
 <li>Is the observed effect size larger than the minimum effect size we could detect? <select class="webex-select"><option value="blank"></option>
@@ -412,17 +412,17 @@ Transforming the data to correct for non-normality
 </h2>
 <p>There's two ways we can use R to help with the write-up. The first is inline coding like we've done in the other chapters, and the second is to use the <code>report</code> package. Which one you use is entirely up to you but it's nice to have options.</p>
 <p>We need to manually calculate the p-value for the inline coding as you can't extract it from the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> model. Run the below code to do this.</p>
-<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span><span class="va">mod_summary</span><span class="op">$</span><span class="va">fstatistic</span>
 <span class="va">mod_p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Fdist.html">pf</a></span><span class="op">(</span><span class="va">f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, lower<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> </code></pre></div>
 <p>Now, copy and paste the below code into <strong>white-space</strong> and knit the document.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="regression.html#cb315-1" aria-hidden="true" tabindex="-1"></a>A simple linear regression was performed with <span class="fu">engagment</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_weeks %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the outcome variable and statistics <span class="fu">anxiety</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_anx %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the predictor variable. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, <span class="at">f2 =</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Anxiety was a significant positive predictor (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; `r mod_p %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">3</span>)<span class="st">`</span><span class="at">.</span></span>
-<span id="cb315-2"><a href="regression.html#cb315-2" aria-hidden="true" tabindex="-1"></a><span class="at">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="regression.html#cb321-1" aria-hidden="true" tabindex="-1"></a>A simple linear regression was performed with <span class="fu">engagment</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_weeks %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the outcome variable and statistics <span class="fu">anxiety</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_anx %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the predictor variable. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, <span class="at">f2 =</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Anxiety was a significant positive predictor (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; `r mod_p %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">3</span>)<span class="st">`</span><span class="at">.</span></span>
+<span id="cb321-2"><a href="regression.html#cb321-2" aria-hidden="true" tabindex="-1"></a><span class="at">)</span></span></code></pre></div>
 <p>A simple linear regression was performed with engagement (M = 4.54, SD = 0.56) as the outcome variable and statistics anxiety (M = 2.08, SD = 0.56) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(1, 35) = 11.99, p &lt; .001, Adjusted R2 = 0.23, f<sup>2</sup> = .63), accounting for 23% of the variance. Anxiety was a significant positive predictor (β = -2.17, p &lt; 0.001.
 )</p>
 <p>The second option uses <code>report</code>. Just like with the t-test, the output of these functions doesn't tend to be useable without some editing but particularly when you're first learning how to write-up stats it can be useful to have this kind of template (and also to see that there's different ways of reporting stats).</p>
 <p>Running <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> will output a summary of the results which you could copy and past into your Word document.</p>
-<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## We fitted a linear model (estimated using OLS) to predict n_weeks with mean_anxiety (formula: n_weeks ~ mean_anxiety). The model explains a statistically significant and moderate proportion of variance (R2 = 0.26, F(1, 35) = 11.99, p = 0.001, adj. R2 = 0.23). The model's intercept, corresponding to mean_anxiety = 0, is at 9.06 (95% CI [6.32, 11.80], t(35) = 6.71, p &lt; .001). Within this model:
 ## 
@@ -442,7 +442,7 @@ Transforming the data to correct for non-normality
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/heliosdrm/pwr">"pwr"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/see/">"see"</a></span><span class="op">)</span>
@@ -463,7 +463,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">stars2</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span>data <span class="op">=</span> <span class="va">stars</span>, names_to <span class="op">=</span> <span class="st">"Question"</span>, values_to <span class="op">=</span> <span class="st">"Score"</span>,cols <span class="op">=</span> <span class="va">Q01</span><span class="op">:</span><span class="va">Q51</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">ID</span><span class="op">)</span></code></pre></div>
 </div>
@@ -477,7 +477,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">stars_means</span> <span class="op">&lt;-</span> <span class="va">stars2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_anxiety <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Score</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -495,7 +495,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">joined</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">stars_means</span>, <span class="va">engage</span>, <span class="st">"ID"</span><span class="op">)</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
@@ -508,7 +508,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">joined</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">mean_anxiety</span>, <span class="va">n_weeks</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></code></pre></div>
@@ -759,7 +759,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-11.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-23.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
