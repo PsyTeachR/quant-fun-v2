@@ -163,7 +163,7 @@ Note that because there are two factors, we could also reverse the order of the 
 
 
 ```r
-posthoc_factorial2 <- emmeans(mod_factorial$aov, 
+posthoc_factorial2 <- emmeans(mod_factorial, 
                              pairwise ~ Condition| time, 
                              adjust = "bonferroni") 
 
@@ -266,7 +266,6 @@ Notice that doing this hasn't changed the pattern of the ANOVA results, the p-va
 
 #### Finished! {#factorial-fin}
 
-And we're done! There's only one more week of R left. I know that for some of you, you will be breathing a sigh of relief but we really want you to reflect on just how far you've come and the skills that you've learned. Even if you don't continue with quantitative research, your understanding of how data is manipulated and how the final results of journal articles actually happen will have substantially increased and that level of critical awareness is an all-round good skill to have. 
 
 ### Activity solutions {#factorial-sols}
 
