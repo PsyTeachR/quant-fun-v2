@@ -283,6 +283,7 @@ In addition to the scatterplot, it can sometimes be relevant to include means an
 
 * In a new code chunk, write and run code to calculate the mean score and standard deviation for `Abil` and `IQ` using `summarise()` and store the output of this function in an object called `descriptives`
   * Name the output of the calculations `Abil_mean`, `Abil_SD`, `IQ_mean`, and `IQ_SD`. Make sure to use these exact spellings otherwise later activities won't work.
+  * **hint:** We have already seen how to calculate the `mean()`, the `median()`, the number of people (with `n()`), and the `sum()` within the `summarise()` function. Other descriptives such as the `sd()`, the `min()` and the `max()` can also be calculated in a similar way to using `mean()` and `median()`.
 
 If you have performed this correctly, when you view `descriptives` should look similar to this:  
 
