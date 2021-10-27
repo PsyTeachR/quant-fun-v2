@@ -18,7 +18,7 @@ We will begin by looking at the between-subjects t-test which is used for compar
 
 To summarise, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887-889 of the article if you want to look at them specifically for more details and the original data, in **wide** format, can be found at the [Open Stats Lab](https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00){target="_blank"} website for later self-directed learning. Today however, we will be working with a modified version in "tidy" format which can be downloaded below and what we plan to do is reproduce the results from the article on Pg 887.
 
-## Data and Descriptives
+### Data and Descriptives
 
 As always, the first activity is about getting ourselves ready to analyse the data so try out the steps and if you need help, consult the earlier chapters.
 
@@ -27,9 +27,8 @@ As always, the first activity is about getting ourselves ready to analyse the da
 * Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
     * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R`
 * Open a new R Markdown document and save it in your working directory. Call the file "ttests".   
-
 * Download <a href="evaluators.csv" download>evaluators.csv</a> and <a href="ratings.csv" download>ratings.csv</a> and save them in your t-test folder. Make sure that you do not change the file names at all.
-  * If you prefer you can download the data in a [zip folder by clicking here](data/chpt10/PsyTeachR_FQA_Chpt10-data.zip){target="_blank"}
+  * If you prefer you can download the data in a [zip folder by clicking here](data/chpt10/PsyTeachR_FQA_Chpt10-data-between.zip){target="_blank"}
   * Remember not to change the file names at all and that `data.csv` is not the same as `data (1).csv`.
 * Delete the default R Markdown welcome text and insert a new code chunk that loads the following packages, in this specific order, using the `library()` function. Remember the solutions if needed.
   * Load the packages in this order, `broom`, `car`,`effectsize`, `report`, and `tidyverse`
