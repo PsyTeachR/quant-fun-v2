@@ -23,7 +23,7 @@ The main package we use for visualisation within the `tidyverse` umbrella is cal
 
 We will use the same data files as in Chapter 2, Starting with Data, as we already know what the data contains so we can focus just on visualising it. 
 
-### Activity 1: Set-up {#introviz-a1}
+#### Activity 1: Set-up {#introviz-a1}
 
 This data contains happiness and depression scores:
 
@@ -110,7 +110,7 @@ This is a very imporant step to remember if, when you look at your data, some of
 
 Ok great, we are now ready to do some visualising and some plotting. For our first example we will create a barplot of our data showing the number of male and female participants within our data. A <a class='glossary' title='A plot showing counts of categorical data where the height of each bar represents the count of that particular variable'>barplot</a> is a plot that shows counts of categorical data, or factors, where the height of each bar represents the count of that particular variable.
 
-### Activity 3: Bar plot {#introviz-a3}
+#### Activity 3: Bar plot {#introviz-a3}
 
 Read through the following section and try the different code chunks. Following this, and changing parts of the code to see what happens, will help you to see how the layers build up.
 
@@ -277,7 +277,7 @@ So as you can see, with just a few lines of code you can create a very effective
 
 There are numerous different styles of visualisations and figures that you can create. They all start with the format of `ggplot(data, aes(x, y)) + geom_...` and will learn more as you get deeper into the book or you can look at the cheatsheets in the help menus: top menu - **`Help >> Cheat Sheets >> Data Visualisation with ggplot2`**. For instance, `geom_point()` for scatterplots, `geom_histogram()` for histograms, and `geom_line()` for lineplots. But we want to show you a type of figure that is becoming a lot more common in the field due to the quality of information if tells you about your data - the violin-boxplot.
 
-### Activity 4: Violin-boxplot {#introviz-a4}
+#### Activity 4: Violin-boxplot {#introviz-a4}
 
 The violin boxplot is actually a merge of a <a class='glossary' title='A plot showing the probability density of data with a smoothed kernel function and look like a rotated and mirrored histogram'>violin plot</a> and a <a class='glossary' title='A plot summarising distributions using five key values: the median, the upper and lower interquartile values, and the max and min value not considered and outlier. The length of the box represents the interquartile range.'>boxplot</a>. The violin-boxplot is just the boxplot laid over the top of the violin plot - to give additional information. As part of our final activities today we will create a violin-boxplot, hopefully now you will be able to see how similar it is in structure to the bar chart code. In fact, there are only three differences:
 
@@ -318,7 +318,7 @@ ggplot(summarydata, aes(x = income,
 
 As we said above, one key thing to note about `ggplot2` is the use of layers. Whilst we have built layers up step-by-step in this chapter, they are independent and you could remove any of them except for the first layer. Additionally, although they are independent, the order you put them in does matter as we will show you now.
 
-### Activity 5: Layers part 2 {#introviz-a5}
+#### Activity 5: Layers part 2 {#introviz-a5}
 
 * Type and run this code into a new code chunk and look at the output.
 
@@ -349,7 +349,7 @@ If you compare the two figures, shown here below for ease, the first puts the bo
 
 Great work today! We just want to show you one last very helpful function on how to save and export your figures. Much like your favourite jumper, there is no point having it if nobody gets to see it! It is so useful to be able to save a copy of your plots as an image file so that you can use them in a presentation or report. One approach we can use is the function `ggsave()`.
 
-### Activity 6: Saving plots {#introviz-a6}
+#### Activity 6: Saving plots {#introviz-a6}
 
 There are two ways you can use `ggsave()`. If you don't tell `ggsave()` which plot you want to save, by default it will save **the last plot you created**. To demonstrate this let's run the code from Activity 5 again to produce the nice violin-boxplot:
 
@@ -438,7 +438,7 @@ Well done! `ggplot` can be a bit difficult to get your head around at first, par
 
 ## Test Yourself
 
-1. Which of these is the appropriate order of functions to create a boxplot? <div class='webex-radiogroup' id='radio_BLVWUXCHAT'><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value=""></input> <span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value=""></input> <span>ggplot() %>% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value="answer"></input> <span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value=""></input> <span>geom_boxplot() + ggplot()</span></label></div>
+1. Which of these is the appropriate order of functions to create a boxplot? <div class='webex-radiogroup' id='radio_TAQMAVAEHR'><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value=""></input> <span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value="answer"></input> <span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value=""></input> <span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value=""></input> <span>ggplot() %>% geom_boxplot()</span></label></div>
 
 
 2. Would this line of code run, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?
@@ -449,7 +449,7 @@ ggplot(summarydata, aes(x = sex, fill = sex)) %>%
   geom_bar()
 ```
 
-<div class='webex-radiogroup' id='radio_ATICLAOEQA'><label><input type="radio" autocomplete="off" name="radio_ATICLAOEQA" value="answer"></input> <span>No, because you have piped the geom_bar() instead of adding it</span></label><label><input type="radio" autocomplete="off" name="radio_ATICLAOEQA" value=""></input> <span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label></div>
+<div class='webex-radiogroup' id='radio_TZPJAMLRHZ'><label><input type="radio" autocomplete="off" name="radio_TZPJAMLRHZ" value="answer"></input> <span>No, because you have piped the geom_bar() instead of adding it</span></label><label><input type="radio" autocomplete="off" name="radio_TZPJAMLRHZ" value=""></input> <span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label></div>
 
 
 3. Why would this line of code not create a barplot, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?
@@ -460,10 +460,10 @@ ggplot(summarydata, aes(x = sex, fill = sex)) +
   geom_barplot()
 ```
 
-<div class='webex-radiogroup' id='radio_NWTBZSMRPR'><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value=""></input> <span>because this would create a boxplot</span></label><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value=""></input> <span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value="answer"></input> <span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value=""></input> <span>because you have piped the barplot and not added it</span></label></div>
+<div class='webex-radiogroup' id='radio_PGFRCAQDGB'><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value=""></input> <span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value="answer"></input> <span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value=""></input> <span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value=""></input> <span>because this would create a boxplot</span></label></div>
 
 
-4. If I wanted a boxplot on top of a violin plot, what order of functions would I write? <div class='webex-radiogroup' id='radio_KVRDEMOWOV'><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value="answer"></input> <span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value=""></input> <span>ggplot() %>% geom_boxplot() %>% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value=""></input> <span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value=""></input> <span>ggplot() %>% geom_violin() %>% geom_boxplot()</span></label></div>
+4. If I wanted a boxplot on top of a violin plot, what order of functions would I write? <div class='webex-radiogroup' id='radio_TCIWXRJOEA'><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value=""></input> <span>ggplot() %>% geom_boxplot() %>% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value="answer"></input> <span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value=""></input> <span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value=""></input> <span>ggplot() %>% geom_violin() %>% geom_boxplot()</span></label></div>
 
 
 

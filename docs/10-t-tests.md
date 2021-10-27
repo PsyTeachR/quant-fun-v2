@@ -391,9 +391,13 @@ report(intellect_t)
 ```
 
 ```
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
+```
+
+```
 ## Effect sizes were labelled following Cohen's (1988) recommendations.
 ## 
-## The Welch Two Sample t-test testing the difference of Rating by condition (mean in group listened = 5.63, mean in group read = 3.65) suggests that the effect is negative, statistically significant, and large (difference = -1.99, 95% CI [0.83, 3.15], t(33.43) = 3.48, p = 0.001; Cohen's d = 1.20, 95% CI [0.46, 1.93])
+## The Welch Two Sample t-test testing the difference of Rating by condition (mean in group listened = 5.63, mean in group read = 3.65) suggests that the effect is positive, statistically significant, and large (difference = 1.99, 95% CI [0.83, 3.15], t(33.43) = 3.48, p = 0.001; Cohen's d = 1.20, 95% CI [0.46, 1.93])
 ```
 
 
@@ -500,6 +504,10 @@ Similarly, we can use `report()` on the original list object to produce an autom
 
 ```r
 report(gaze_t)
+```
+
+```
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
 ```
 
 ```
