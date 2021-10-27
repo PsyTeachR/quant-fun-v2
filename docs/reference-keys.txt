@@ -299,9 +299,14 @@ write-up
 ttest-a10
 within-subjects-paired-samples
 ttest-a11
+the-data-1
+assumptions-1
 ttest-a12
+descriptives
 ttest-a13
+inferential-analysis-1
 ttest-a14
+write-up-and-interpretation
 ttest-a15
 ttest-fin
 test-yourself-4
