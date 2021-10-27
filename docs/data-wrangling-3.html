@@ -7,7 +7,7 @@
 <title>Chapter 6 Data Wrangling 3 | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="In the last chapter, we looked at using one-table Wickham verbs to filter, arrange, group_by, select, mutate and summarise the pong data. We also learnt a little more about pipes and we saw how to...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Data Wrangling 3 | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/data-wrangling-3.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="Chapter 6 Data Wrangling 3 | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="In the last chapter, we looked at using one-table Wickham verbs to filter, arrange, group_by, select, mutate and summarise the pong data. We also learnt a little more about pipes and we saw how to...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -218,8 +218,8 @@ There is more information about <a href="https://r4ds.had.co.nz/tidy-data.html">
 <p>Have a look at the data in <code>responses</code> to see if you think it is Tidy or not and answer the following question:</p>
 <ul>
 <li>The data in <code>responses</code> is in what format?
-<div id="radio_JKMMRZWBOA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JKMMRZWBOA" value=""><span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_JKMMRZWBOA" value=""><span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_JKMMRZWBOA" value="answer"><span>Wide</span></label>
+<div id="radio_VCDJYPDORO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VCDJYPDORO" value=""><span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_VCDJYPDORO" value=""><span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_VCDJYPDORO" value="answer"><span>Wide</span></label>
 </div>
 </li>
 </ul>
@@ -412,21 +412,21 @@ Additional Hints
 <ul>
 <li>
 <p>Complete the sentence, the higher the AQ score...</p>
-<div id="radio_ETEHKFAFPO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ETEHKFAFPO" value=""><span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_ETEHKFAFPO" value=""><span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_ETEHKFAFPO" value="answer"><span>the more autistic-like traits displayed</span></label>
+<div id="radio_SMDZTWEQPR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SMDZTWEQPR" value=""><span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_SMDZTWEQPR" value=""><span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_SMDZTWEQPR" value="answer"><span>the more autistic-like traits displayed</span></label>
 </div>
 </li>
 <li>
 <p>Assuming that your code all worked, what was the AQ score (just the number) of Participant ID No. 87:</p>
-<div id="radio_RXAYEPSGZL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RXAYEPSGZL" value="answer"><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_RXAYEPSGZL" value=""><span>3</span></label><label><input type="radio" autocomplete="off" name="radio_RXAYEPSGZL" value=""><span>5</span></label><label><input type="radio" autocomplete="off" name="radio_RXAYEPSGZL" value=""><span>6</span></label>
+<div id="radio_NPCMLFRXNP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NPCMLFRXNP" value="answer"><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_NPCMLFRXNP" value=""><span>3</span></label><label><input type="radio" autocomplete="off" name="radio_NPCMLFRXNP" value=""><span>5</span></label><label><input type="radio" autocomplete="off" name="radio_NPCMLFRXNP" value=""><span>6</span></label>
 </div>
 </li>
 <li><p>Type in the box how many participants had an AQ score of 3 (again just the number): <input class="webex-solveme nospaces" size="10" data-answer='["13"]'></p></li>
 <li>
 <p>The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Based on this data, how many participants might be referred for further assessment?</p>
-<div id="radio_YWAUFFXJXV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YWAUFFXJXV" value=""><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_YWAUFFXJXV" value=""><span>4</span></label><label><input type="radio" autocomplete="off" name="radio_YWAUFFXJXV" value="answer"><span>6</span></label><label><input type="radio" autocomplete="off" name="radio_YWAUFFXJXV" value=""><span>8</span></label>
+<div id="radio_HSVZYUILWJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HSVZYUILWJ" value=""><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_HSVZYUILWJ" value=""><span>4</span></label><label><input type="radio" autocomplete="off" name="radio_HSVZYUILWJ" value="answer"><span>6</span></label><label><input type="radio" autocomplete="off" name="radio_HSVZYUILWJ" value=""><span>8</span></label>
 </div>
 </li>
 </ul>
@@ -445,35 +445,35 @@ Explain these answers
 <p>Which function(s) would you use to approach each of the following problems?</p>
 <ul>
 <li><p>We have a dataset of 400 adults, but we want to remove anyone with an age of 50 years or more. To do this, we could use the <select class="webex-select"><option value="blank"></option>
-<option value="">select()</option>
+<option value="">summarise()</option>
+<option value="answer">filter()</option>
 <option value="">arrange()</option>
 <option value="">group_by()</option>
-<option value="">summarise()</option>
 <option value="">mutate()</option>
-<option value="answer">filter()</option></select> function.</p></li>
+<option value="">select()</option></select> function.</p></li>
 <li><p>We are interested in overall summary statistics for our data, such as the overall average and total number of observations. To do this, we could use the <select class="webex-select"><option value="blank"></option>
 <option value="">mutate()</option>
-<option value="">filter()</option>
-<option value="">arrange()</option>
 <option value="">select()</option>
+<option value="">filter()</option>
 <option value="">group_by()</option>
+<option value="">arrange()</option>
 <option value="answer">summarise()</option></select> function.</p></li>
 <li><p>Our dataset has a column with the number of cats a person has, and a column with the number of dogs. We want to calculate a new column which contains the total number of pets each participant has. To do this, we could use the <select class="webex-select"><option value="blank"></option>
 <option value="">arrange()</option>
 <option value="">summarise()</option>
+<option value="">select()</option>
 <option value="answer">mutate()</option>
 <option value="">filter()</option>
-<option value="">select()</option>
 <option value="">group_by()</option></select> function.</p></li>
 <li><p>We want to calculate the average for each participant in our dataset. To do this we could use the <select class="webex-select"><option value="blank"></option>
-<option value="">group_by() and arrange()</option>
 <option value="">arrange() and mutate()</option>
+<option value="">filter() and select()</option>
 <option value="answer">group_by() and summarise()</option>
-<option value="">filter() and select()</option></select> functions.</p></li>
+<option value="">group_by() and arrange()</option></select> functions.</p></li>
 <li><p>We want to order a dataframe of participants by the number of cats that they own, but want our new dataframe to only contain some of our columns. To do this we could use the <select class="webex-select"><option value="blank"></option>
-<option value="answer">arrange() and select()</option>
 <option value="">select() and summarise()</option>
 <option value="answer">filter() and select()</option>
+<option value="answer">arrange() and select()</option>
 <option value="">group_by() and mutate()</option></select> functions.</p></li>
 </ul>
 <div class="webex-solution">
@@ -884,7 +884,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-24.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

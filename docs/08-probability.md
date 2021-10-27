@@ -32,12 +32,12 @@ $$p = \frac{1}{24} = 0.0416667$$
 
 So you can see that the probability of an event occurring changes with the number of possible outcomes. Makes sense really! The more possible outcomes, the less likely any specific one outcome is going to happen. So far so good!
 
-### Activity 1: Probability {#prob-a1}
+#### Activity 1: Probability {#prob-a1}
 
 Try to answer these questions below to check your understanding.
 
-1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class='webex-select'><option value='blank'></option><option value=''>0.0833333333333333</option><option value=''>0.25</option><option value='answer'>0.1</option><option value=''>0.0416666666666667</option></select>
-2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class='webex-select'><option value='blank'></option><option value=''>0</option><option value=''>0.01</option><option value=''>0.1</option><option value='answer'>0.1</option></select>
+1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class='webex-select'><option value='blank'></option><option value='answer'>0.1</option><option value=''>0.25</option><option value=''>0.0833333333333333</option><option value=''>0.0416666666666667</option></select>
+2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class='webex-select'><option value='blank'></option><option value=''>0.01</option><option value='answer'>0.1</option><option value=''>0.1</option><option value=''>0</option></select>
 
 ## Types of data
 
@@ -53,14 +53,14 @@ How you tackle probability also depends on the type of data/variables you are wo
 * **Interval** data is data which comes in the form of a numerical value where the difference between points is standardised and meaningful. For example temperature, the difference in temperature between 10-20 degrees is the same as the difference in temperature between 20-30 degrees. 
 * **Ratio** data is very like interval but has a true zero point. With our interval temperature example above, we have been experiencing negative temperatures (-1,-2 degrees) in Glasgow but with ratio data you don't see negative values such as these i.e. you can't be -10 cm tall. 
 
-### Activity 2: Types of data {#prob-a2}
+#### Activity 2: Types of data {#prob-a2}
 
 Try to answer these questions below to check your understanding. What types of data are the below measurements?
 
-* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value='answer'>ratio</option><option value=''>categorical</option><option value=''>ordinal</option><option value=''>interval</option></select>
-* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value=''>ratio</option><option value='answer'>ordinal</option><option value=''>categorical</option></select>
-* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value='answer'>categorical</option><option value=''>ordinal</option><option value=''>interval</option></select>
-* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value=''>categorical</option><option value=''>ordinal</option><option value='answer'>interval</option></select>
+* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value='answer'>ratio</option><option value=''>categorical</option><option value=''>interval</option><option value=''>ordinal</option></select>
+* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>categorical</option><option value=''>ratio</option><option value=''>interval</option><option value='answer'>ordinal</option></select>
+* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value='answer'>categorical</option><option value=''>interval</option><option value=''>ratio</option><option value=''>ordinal</option></select>
+* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value='answer'>interval</option><option value=''>ratio</option><option value=''>categorical</option><option value=''>ordinal</option></select>
 
 ## Probability distributions
 
@@ -148,15 +148,15 @@ As with any probabilities, real-world data will come close to the normal distrib
 <p class="caption">(\#fig:unnamed-chunk-5)A simulation of an experiment collecting height data from 2000 participants</p>
 </div>
 
-### Activity 3: Normal distribution {#prob-a3}
+#### Activity 3: Normal distribution {#prob-a3}
 
 Complete the sentences to make sure that you are understanding the above.
 
 * In a normal distribution, the mean, median, and mode <select class='webex-select'><option value='blank'></option><option value='answer'>are all equal</option><option value=''>sum to zero</option><option value=''>are always different</option></select>.
 * In a normal distribution, the further away from the mean an observation is <select class='webex-select'><option value='blank'></option><option value=''>the higher its probability of occuring</option><option value='answer'>the lower its probability of occuring</option></select>.
-* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-select'><option value='blank'></option><option value=''>has three possible values</option><option value='answer'>is a continuous variable</option><option value=''>is a categorical variable</option></select>.
+* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-select'><option value='blank'></option><option value=''>is a categorical variable</option><option value=''>has three possible values</option><option value='answer'>is a continuous variable</option></select>.
 
-### Activity 4: Distribution test {#prob-a4}
+#### Activity 4: Distribution test {#prob-a4}
 
 Which distribution is likely to be associated with the following?
 
@@ -168,7 +168,7 @@ Which distribution is likely to be associated with the following?
 
 Now, we're going to calculate probabilities based on the binomial distribution. In this chapter, for the first time we don't need to load the tidyverse. All of the functions we need are contained in Base R. If you want a refresher on the difference between Base R and packages, see Programming Basics.
 
-### Activity 5: Getting Set-Up {#prob-a5}
+#### Activity 5: Getting Set-Up {#prob-a5}
 
 * Open a new R Markdown document, call it "Probability" and save it in the relevant chapter folder, remembering to delete the default text which we do not need.
 
@@ -183,7 +183,7 @@ So let's try these functions out to answer two questions:
 1. What is the probability of getting exactly 5 heads on 10 flips?
 2. What is the probability of getting at most 2 heads on 10 flips?
 
-### Activity 6: `dbinom()` {#prob-a6}
+#### Activity 6: `dbinom()` {#prob-a6}
 
 Let's start with question 1, what is the probability of getting exactly 5 heads on 10 flips? 
 
@@ -207,7 +207,7 @@ Looking at the outcome, answer the following questions:
 * To two decimal places, what is the probability of getting 5 heads out of 10 coin flips? <input class='webex-solveme nospaces' size='4' data-answer='["0.25",".25"]'/>  
 * What is this probability expressed in percent? <select class='webex-select'><option value='blank'></option><option value=''>0.25%</option><option value=''>2.5%</option><option value='answer'>25%</option></select>
 
-### Activity 7: `pbinom()` {#prob-a7}
+#### Activity 7: `pbinom()` {#prob-a7}
 
 OK, question 2. What is the probability of getting at most 2 heads on 10 flips? 
 
@@ -227,7 +227,7 @@ Looking at the outcome, answer the following question:
 * What is the probability of getting a maximum of 2 heads on 10 coin flips to 2 decimal places? <input class='webex-solveme nospaces' size='4' data-answer='["0.05",".05"]'/>  
 * What is this probability expressed in percent? <select class='webex-select'><option value='blank'></option><option value=''>0.05%</option><option value=''>0.5%</option><option value='answer'>5%</option></select>
 
-### Activity 8: `pbinom()` 2 {#prob-a8}
+#### Activity 8: `pbinom()` 2 {#prob-a8}
 
 Let's try one more scenario with a cut-off point to make sure you have understood this. What is the probability of getting 7 or more heads on 10 flips?
 
@@ -263,7 +263,7 @@ Looking at the outcome, answer the following question:
 * What is the probability of getting between 7 and 10 heads from 10 coin flips to 2 decimal places? <input class='webex-solveme nospaces' size='4' data-answer='["0.17",".17"]'/>  
 * What is this probability expressed in percent? <select class='webex-select'><option value='blank'></option><option value=''>0.017%</option><option value=''>0.17</option><option value='answer'>17%</option></select> 
 
-### Activity 9: `qbinom()` {#prob-a9}
+#### Activity 9: `qbinom()` {#prob-a9}
 
 OK great! You are doing excellent as this is tricky stuff. Remember though the whole point is to show you that using probability distributions you can ask all sorts of questions about the probability of any outcome or series of outcomes. 
 
@@ -361,7 +361,7 @@ ggplot(heights, aes(x = height, fill = sex)) +
 
 So to test the normal distribution, and to round off this chapter, we will use the above information to calculate the probability of observing at least or at most a specific height with `pnorm()`, and the heights that are associated with specific probabilities with `qnorm()`.
 
-### Activity 10:`pnorm()` {#prob-a10}
+#### Activity 10:`pnorm()` {#prob-a10}
 
 `pnorm()` requires three arguments:
 
@@ -386,7 +386,7 @@ Looking at your outcome, answer the following questions.
 * What is the probability of meeting a 16-24 y.o. Scottish woman who is taller than the average 16-24 y.o. Scottish man? <input class='webex-solveme nospaces' size='4' data-answer='["0.04",".04"]'/>  
 * What is this probability expressed in percent? <select class='webex-select'><option value='blank'></option><option value=''>0.04%</option><option value=''>0.4%</option><option value='answer'>4%</option></select>
 
-### Activity 11: `pnorm` 2 {#prob-a11}
+#### Activity 11: `pnorm` 2 {#prob-a11}
 
 Fiona is a very tall Scottish woman (181.12 cm) in the 16-24 y.o. range who will only date men who are taller than her.  
 
@@ -395,7 +395,7 @@ Fiona is a very tall Scottish woman (181.12 cm) in the 16-24 y.o. range who will
   * **hint:** Fiona is 181.12 cm tall and you want taller than her.
 * What is this probability expressed in percent? <select class='webex-select'><option value='blank'></option><option value=''>0.23%</option><option value=''>2.3%</option><option value='answer'>23%</option></select>
 
-### Activity 12: `pnorm` 3 {#prob-a12}
+#### Activity 12: `pnorm` 3 {#prob-a12}
 
 On the other hand, Fiona is bisexual and will date women who are shorter than her. 
 
@@ -403,7 +403,7 @@ On the other hand, Fiona is bisexual and will date women who are shorter than he
   * **hint:** female distribution, lower than Fiona.
 * What is this probability expressed in percent? <select class='webex-select'><option value='blank'></option><option value=''>0.99%</option><option value=''>9.9%</option><option value='answer'>99%</option></select>
 
-### Activity 13: `qnorm()` {#prob-a13}
+#### Activity 13: `qnorm()` {#prob-a13}
 
 Finally, in the previous examples we calculated the probability of a particular outcome. Now we want to calculate what outcome would be associated with a particular probability and we can use `qnorm()` to do this.
 
@@ -418,7 +418,7 @@ Replace the NULLs in the above code to calculate how tall a 16-24 y.o. Scottish 
 
 
 
-The answer to this last question was: <div class='webex-radiogroup' id='radio_QOFPKMZAGF'><label><input type="radio" autocomplete="off" name="radio_QOFPKMZAGF" value="answer"></input> <span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_QOFPKMZAGF" value=""></input> <span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_QOFPKMZAGF" value=""></input> <span>175.352037231422</span></label><label><input type="radio" autocomplete="off" name="radio_QOFPKMZAGF" value=""></input> <span>176.2</span></label></div>
+The answer to this last question was: <div class='webex-radiogroup' id='radio_WRRTZWHLRT'><label><input type="radio" autocomplete="off" name="radio_WRRTZWHLRT" value="answer"></input> <span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_WRRTZWHLRT" value=""></input> <span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_WRRTZWHLRT" value=""></input> <span>175.352037231422</span></label><label><input type="radio" autocomplete="off" name="radio_WRRTZWHLRT" value=""></input> <span>176.2</span></label></div>
 
 
 *****
@@ -437,7 +437,7 @@ This was a long read so there is no test yourself today but be sure to make note
 
 ## Activity solutions {#prob-sols}
 
-### Activity 6 {#prob-a6sol}
+#### Activity 6 {#prob-a6sol}
 
 * To two decimal places, what is the probability of getting 5 heads out of 10 coin flips? 
 
@@ -446,7 +446,7 @@ This was a long read so there is no test yourself today but be sure to make note
 .25
 ```
 
-### Activity 7 {#prob-a7sol}
+#### Activity 7 {#prob-a7sol}
 
 * What is the probability of getting a maximum of 2 heads on 10 coin flips to 2 decimal places? 
 
@@ -456,7 +456,7 @@ This was a long read so there is no test yourself today but be sure to make note
 ```
 
 
-### Activity 8 {#prob-a8sol}
+#### Activity 8 {#prob-a8sol}
 
 * What is the probability of getting between 7 and 10 heads from 10 coin flips to 2 decimal places?
 
@@ -466,7 +466,7 @@ This was a long read so there is no test yourself today but be sure to make note
 ```
 
 
-### Activity 10 {#prob-a10sol}
+#### Activity 10 {#prob-a10sol}
 
 * What is the probability of meeting a 16-24 y.o. Scottish woman who is taller than the average 16-24 y.o. Scottish man?
 
@@ -476,7 +476,7 @@ pnorm(q = 176.2, mean = 163.8, sd = 6.931, lower.tail = FALSE)
 ```
 
 
-### Activity 11 {#prob-a11sol}
+#### Activity 11 {#prob-a11sol}
 
 * Using `pnorm()` again, what is the proportion of Scottish men Fiona would be willing to date to 2 decimal places? 
 
@@ -486,7 +486,7 @@ pnorm(q = 181.12, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 ```
 
 
-### Activity 12 {#prob-a12sol}
+#### Activity 12 {#prob-a12sol}
 
 * What is the proportion of Scottish women would Fiona be willing to date to 2 decimal places?
 
@@ -495,7 +495,7 @@ pnorm(q = 181.12, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 pnorm(q = 181.12, mean = 163.8, sd = 6.931, lower.tail = TRUE)
 ```
 
-### Activity 13 {#prob-a13sol}
+#### Activity 13 {#prob-a13sol}
 
 The answer to this last question was:
 

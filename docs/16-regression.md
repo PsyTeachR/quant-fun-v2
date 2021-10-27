@@ -308,11 +308,16 @@ report(mod)
 ```
 
 ```
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
+```
+
+```
 ## We fitted a linear model (estimated using OLS) to predict n_weeks with mean_anxiety (formula: n_weeks ~ mean_anxiety). The model explains a statistically significant and moderate proportion of variance (R2 = 0.26, F(1, 35) = 11.99, p = 0.001, adj. R2 = 0.23). The model's intercept, corresponding to mean_anxiety = 0, is at 9.06 (95% CI [6.32, 11.80], t(35) = 6.71, p < .001). Within this model:
 ## 
-##   - The effect of mean_anxiety is statistically significant and negative (beta = -2.17, 95% CI [-3.45, -0.90], t(35) = -3.46, p = 0.001; Std. beta = -0.51, 95% CI [-0.80, -0.21])
+##   - The effect of mean anxiety is statistically significant and negative (beta = -2.17, 95% CI [-3.45, -0.90], t(35) = -3.46, p = 0.001; Std. beta = -0.51, 95% CI [-0.80, -0.21])
 ## 
-## Standardized parameters were obtained by fitting the model on a standardized version of the dataset.
+## Standardized parameters were obtained by fitting the model on a standardized version of the dataset. 95% Confidence Intervals (CIs) and p-values were computed using the Wald approximation.
 ```
 
 ## Activity solutions {#regression-sols}

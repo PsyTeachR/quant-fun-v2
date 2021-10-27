@@ -38,7 +38,7 @@ We will talk a little bit about these two correlations in the work we do today. 
 
 As always, the first activity is about getting ourselves ready to analyse the data so try out the steps and if you need help, consult the earlier chapters.
 
-### Activity 1: Set-up {#corr-a1}
+#### Activity 1: Set-up {#corr-a1}
 
 * Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
     * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R`
@@ -61,7 +61,7 @@ As always, the first activity is about getting ourselves ready to analyse the da
 </div>
 
 
-### Activity 2: Look at your data {#corr-a2}
+#### Activity 2: Look at your data {#corr-a2}
 
 Excellent! If you have loaded in the data correctly then you should be able to have a look at it through one of the various methods we have looked at already.
 
@@ -96,7 +96,7 @@ A probable hypothesis for today could be that as Reading Ability increases so do
 
 Now before running an analysis we should check the assumptions of the test, where the assumptions are checks that the data must pass before we can use certain tests. The assumptions change on the test and you should only use a given test based on how well the data meets the assumptions of the test. In short, the Pearson correlation and the Spearman correlation have different assumptions and we need to check our data to see which test to use.
 
-### Activity 3: Assumptions {#corr-a3}
+#### Activity 3: Assumptions {#corr-a3}
 
 For correlations, the main assumptions we need to check are:
 
@@ -108,7 +108,7 @@ For correlations, the main assumptions we need to check are:
 
 We will look at each of these assumptions in turn to see which correlation we should use.
 
-#### Assumption 1: Level of Measurement
+**Assumption 1: Level of Measurement**
 
 If we want to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have?  
 
@@ -124,7 +124,7 @@ If we want to run a Pearson correlation then we need interval or ratio data; Spe
 </div>
   
 
-#### Assumption 2: Pairs of Data
+**Assumption 2: Pairs of Data**
 
 Great! So the data looks at least interval and continuous. Next, all correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can't correlate against an empty cell! So now go check that you have a data point in both columns for each participant. 
 
@@ -153,7 +153,7 @@ However you have looked at the data, it looks like that everyone has data in all
 </div>
   
 
-#### Assumption 3-5: Normality, linearity, homoscedasticity
+**Assumption 3-5: Normality, linearity, homoscedasticity**
 
 Brilliant! We know our data type and we know we have no missing data. The remaining assumptions are all best checked through visualisations. You can use histograms and QQ-plots to check that the data (`Abil` and `IQ`) are both normally distributed, and you can use a scatterplot of `IQ` as a function of `Abil` to check whether the relationship is linear, with homoscedasticity, and without outliers. An alternative would be to use z-scores to check for outliers with the cut-off usually being set at around $\pm2.5SD$ or $\pm3SD$. You could do this using the mutate function (e.g. `mutate(z = (X - mean(X))/SD(X))`), but today we will just use visual checks.
 
@@ -263,7 +263,7 @@ Finally, as the data is interval, continuous, normally distributed, and the rela
 
 Now that we have checked our assumptions and have confirmed we will use the Pearson correlation, the next step is descriptives. A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis. 
 
-### Activity 4: Descriptive statistics {#corr-a4}
+#### Activity 4: Descriptive statistics {#corr-a4}
 
 * Looking at the scatterplot, spend a couple of minutes thinking about and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis? A discussion is in the solutions at the end of the chapter.
 
@@ -304,7 +304,7 @@ Excellent! So we have checked our assumptions and our descriptives. Our data loo
 
 There are often many different functions that can be used to achieve the same thing and we're actually going to show you two ways of running a correlation as some people prefer one approach over the other because of the data type the results come in and how easy it is to work with that output.
 
-### Activity 5: Run the correlation {#corr-a5}
+#### Activity 5: Run the correlation {#corr-a5}
 
 First, we'll use the `correlation()` function from the `correlation` package. Remember that for help on any function you can type e.g., `?correlation` in the console window.  The `correlation()` function requires:
 
@@ -349,7 +349,7 @@ Look at how the output differs from `results`. We'll come back to why we've show
 
 Excellent work. As you can see, running the correlation is actually really quick, and the hard work was checking the assumptions and some data-wrangling. You should now have a tibble called `results` that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now is interpret the output and write it up. 
 
-### Activity 6: Interpreting the correlation {#corr-a6}
+#### Activity 6: Interpreting the correlation {#corr-a6}
 
 Look at `results` and then answer the following questions:
 
@@ -372,7 +372,7 @@ Look at `results` and then answer the following questions:
 </div>
   
 
-### Activity 7: Write-up {#corr-a7}
+#### Activity 7: Write-up {#corr-a7}
 
 Now we have interpreted the output we would want to write it up. Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file. 
 
@@ -389,17 +389,11 @@ So you get a fairly ok start of a write-up. It isn't perfect but it is a good st
 
 **But why two approaches**
 
-The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. `correlation()` produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. `cor.test()` on the other hand produces a `list` type object, which is a harder to work with. However, the output of `cor.test()` also happens to work with functions from the `report` package, `report()` and `report_table()` that give you an automatic report of the analyses. For example, `report()` presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. `report()` doesn't currently work with the output of `correlation()` which is why we showed you both ways. Run the below in your console window and you will see what we mean. 
+The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. `correlation()` produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. `cor.test()` on the other hand produces a `list` type object, which is a harder to work with. However, the output of `cor.test()` also happens to work with functions from the `report` package, `report()` and `report_table()` that give you an automatic report of the analyses. For example, `report()` presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. `report()` doesn't currently work with the output of `correlation()` which is why we showed you both ways. Run the below in your console window and you will see what we mean - you will probably get an error. 
 
 
 ```r
 report(results2)
-```
-
-```
-## Effect sizes were labelled following Funder's (2019) recommendations.
-## 
-## The Pearson's product-moment correlation between mh$IQ and mh$Abil is positive, statistically significant, and very large (r = 0.45, 95% CI [0.07, 0.72], t(23) = 2.42, p = 0.024)
 ```
 
 **Note:** The write-up that comes out of report should not be considered as something to copy and paste into a report. It is a means of just obtaining an overview quickly to help you confirm your own thinking. There are issues again with the presentation of numbers and writing, and additional info that isn't needed. Basically, use these functions and approaches to start you off in your writing, but not as your write-up.
@@ -408,7 +402,7 @@ report(results2)
 
 Finally, to round off this chapter, we want to briefly show you about running multiple correlations at one. Above we ran one correlation. However, when you have lots of variables in a dataset, to get a quick overview of patterns, you might want to run all the correlations at the same time or create a matrix of scatterplots at the one time. You can do this with functions from the `psych` and `correlation` packages (`cor.test()` only works for one correlation at a time). We will use the Miller and Haden data here again which you should still have in a tibble called `mh`. 
 
-### Activity 8: Scatterplot matrix {#corr-a8}
+#### Activity 8: Scatterplot matrix {#corr-a8}
 
 * In a new code chunk, type and run the following code. The `pairs.panels())` function comes from the `psych` library and creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time. So it is useful for checking assumptions in one place.
 
@@ -452,7 +446,7 @@ Which produces:
 <p class="caption">(\#fig:pairs-pipes)Adjusted scatterplot matrix</p>
 </div>
 
-### Activity 9: Running multiple correlations {#corr-a9}
+#### Activity 9: Running multiple correlations {#corr-a9}
 
 To perform multiple correlations in one go, we will again use the `correlation()` function. package. Rather than specifying two variables to correlation, you can also provide a data frame that has multiple variables  and it will run all possible correlations between the variables. Similar to above, we want to remove the `Participant` column before we do this.   
 
@@ -521,11 +515,52 @@ Nice work! So it can be really easy to run a lot of correlations at once. Howeve
 
 Excellent work today! You can now add running, interpreting and writing up correlations to the list of knowledge and skills in your research methods toolbox. Remember that actually a lot of the work is in the preparation of the data and really running the correlation is just one more function. It might be worthwhile repeating the first few activities with two other variables to test your understanding. If you have any questions, please post them on Teams.
 
+## Test Yourself
+
+
+
+
+Look at this code and answer the following questions:
+
+
+```r
+results <- correlation(data = mh, 
+                       select = "IQ", 
+                       select2 = "Home",  
+                       method = "pearson", 
+                       alternative = "two.sided")
+```
+
+1. What would this analysis show? <div class='webex-radiogroup' id='radio_BMYIZHUQSS'><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value=""></input> <span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value="answer"></input> <span>the relationship between IQ and the time spent reading at home</span></label><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value=""></input> <span>the relationship between IQ and the time spent watching TV at home</span></label><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value=""></input> <span>the effect of IQ on time spent reading at Home</span></label></div>
+
+2. What type of correlation analysis is it? <div class='webex-radiogroup' id='radio_YJKOWIEVXZ'><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value=""></input> <span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value=""></input> <span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value=""></input> <span>one-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value="answer"></input> <span>two-tailed pearson analysis</span></label></div>
+
+
+Now try running the code and then answering the following questions.
+
+3. To three decimal places, what is the r-value of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_YHRAWHQEKQ'><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value="answer"></input> <span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value=""></input> <span>0.334</span></label></div>
+
+
+4. To three decimal places, what is the p-value of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_SAOJDDPVXP'><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value="answer"></input> <span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value=""></input> <span>0.202</span></label></div>
+
+
+5. What is the degrees of freedom of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_OHOESKHVIS'><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value="answer"></input> <span>23</span></label><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value=""></input> <span>25</span></label><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value=""></input> <span>0.553</span></label></div>
+
+
+
+<div class='webex-solution'><button>Explain these answers</button>
+
+
+This analysis is a two-tailed pearson correlation looking at the relationship between IQ and the amount of time spent reading at home. You can tell this from the two variables in the code being IQ and Home, and the code stating pearson, and two-sided (another name for two-tailed). If you run the analysis you will find that the result would be r(23) = .202, p = .334.
+
+</div>
+
+
 ## Activity solutions {#corr-sols}
 
 Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.
 
-### Activity 1 {#corr-a1sol}
+#### Activity 1 {#corr-a1sol}
 
 
 ```r
@@ -537,7 +572,7 @@ library(tidyverse)
 mh <- read_csv("MillerHadenData.csv")
 ```
   
-### Activity 3 {#corr-a3sol}
+#### Activity 3 {#corr-a3sol}
 
 **The histogram of IQ**
 
@@ -554,7 +589,7 @@ ggplot(data = mh, aes(x = IQ)) +
 qqPlot(x = mh$IQ)
 ```
 
-<img src="09-correlation_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="09-correlation_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" />
 
 ```
 ## [1]  3 14
@@ -574,9 +609,9 @@ ggplot(data = mh, aes(x = Abil, y = IQ)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="09-correlation_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="09-correlation_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" />
 
-### Activity 4 {#corr-a4sol}
+#### Activity 4 {#corr-a4sol}
 
 **The scatterplot**
 
@@ -603,7 +638,7 @@ descriptives
 
 </div>
 
-### Activity 5 {#corr-a5sol}
+#### Activity 5 {#corr-a5sol}
 
 **The correlation using `correlation()`**
 

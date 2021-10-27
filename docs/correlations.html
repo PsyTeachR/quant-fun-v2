@@ -7,7 +7,7 @@
 <title>Chapter 9 Correlations | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="So far in this book we have been building your skills and knowledge on data wrangling and you now have the basis for a lot of the work you will do in research. You may think that the tasks we ask...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 9 Correlations | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/correlations.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="Chapter 9 Correlations | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="So far in this book we have been building your skills and knowledge on data wrangling and you now have the basis for a lot of the work you will do in research. You may think that the tasks we ask...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -124,10 +124,10 @@ Figure 9.1: Schematic examples of extreme bivariate relationships
 <span class="header-section-number">9.1</span> Set-up the Data<a class="anchor" aria-label="anchor" href="#set-up-the-data"><i class="fas fa-link"></i></a>
 </h2>
 <p>As always, the first activity is about getting ourselves ready to analyse the data so try out the steps and if you need help, consult the earlier chapters.</p>
-<div id="corr-a1" class="section level3" number="9.1.1">
-<h3>
-<span class="header-section-number">9.1.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#corr-a1"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a1" class="section level4" number="9.1.0.1">
+<h4>
+<span class="header-section-number">9.1.0.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#corr-a1"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
 <ul>
@@ -163,10 +163,10 @@ Additional Hints
 </ul>
 </div>
 </div>
-<div id="corr-a2" class="section level3" number="9.1.2">
-<h3>
-<span class="header-section-number">9.1.2</span> Activity 2: Look at your data<a class="anchor" aria-label="anchor" href="#corr-a2"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a2" class="section level4" number="9.1.0.2">
+<h4>
+<span class="header-section-number">9.1.0.2</span> Activity 2: Look at your data<a class="anchor" aria-label="anchor" href="#corr-a2"><i class="fas fa-link"></i></a>
+</h4>
 <p>Excellent! If you have loaded in the data correctly then you should be able to have a look at it through one of the various methods we have looked at already.</p>
 <ul>
 <li>Look at your data using the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code> function and you should see the following:</li>
@@ -243,10 +243,10 @@ Additional Hints
 <span class="header-section-number">9.2</span> Assumptions of the test<a class="anchor" aria-label="anchor" href="#assumptions-of-the-test"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now before running an analysis we should check the assumptions of the test, where the assumptions are checks that the data must pass before we can use certain tests. The assumptions change on the test and you should only use a given test based on how well the data meets the assumptions of the test. In short, the Pearson correlation and the Spearman correlation have different assumptions and we need to check our data to see which test to use.</p>
-<div id="corr-a3" class="section level3" number="9.2.1">
-<h3>
-<span class="header-section-number">9.2.1</span> Activity 3: Assumptions<a class="anchor" aria-label="anchor" href="#corr-a3"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a3" class="section level4" number="9.2.0.1">
+<h4>
+<span class="header-section-number">9.2.0.1</span> Activity 3: Assumptions<a class="anchor" aria-label="anchor" href="#corr-a3"><i class="fas fa-link"></i></a>
+</h4>
 <p>For correlations, the main assumptions we need to check are:</p>
 <ol style="list-style-type: decimal">
 <li>Is the data interval, ratio, or ordinal?</li>
@@ -256,10 +256,7 @@ Additional Hints
 <li>Does the spread have homoscedasticity?</li>
 </ol>
 <p>We will look at each of these assumptions in turn to see which correlation we should use.</p>
-<div id="assumption-1-level-of-measurement" class="section level4" number="9.2.1.1">
-<h4>
-<span class="header-section-number">9.2.1.1</span> Assumption 1: Level of Measurement<a class="anchor" aria-label="anchor" href="#assumption-1-level-of-measurement"><i class="fas fa-link"></i></a>
-</h4>
+<p><strong>Assumption 1: Level of Measurement</strong></p>
 <p>If we want to run a Pearson correlation then we need interval or ratio data; Spearman correlations can run with ordinal, interval or ratio data. What type of data do we have?</p>
 <ul>
 <li>The type of data in this analysis is most probably <select class="webex-select"><option value="blank"></option>
@@ -279,11 +276,7 @@ Hints on data type
 <li>Is the difference between 1 and 2 on the scale equal to the difference between 2 and 3?</li>
 </ul>
 </div>
-</div>
-<div id="assumption-2-pairs-of-data" class="section level4" number="9.2.1.2">
-<h4>
-<span class="header-section-number">9.2.1.2</span> Assumption 2: Pairs of Data<a class="anchor" aria-label="anchor" href="#assumption-2-pairs-of-data"><i class="fas fa-link"></i></a>
-</h4>
+<p><strong>Assumption 2: Pairs of Data</strong></p>
 <p>Great! So the data looks at least interval and continuous. Next, all correlations must have a data point for each participant in the two variables being correlated. This should make sense as to why - you can't correlate against an empty cell! So now go check that you have a data point in both columns for each participant.</p>
 <p><strong>Note:</strong> You can check for missing data by visual inspection - literally using your eyes. A missing data point will show as a NA, which is short for not applicable, not available, or no answer. An alternative would be to use the <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> function. This can be really handy when you have lots of data and visual inspection would just take too long. If for example you ran the following code:</p>
 <div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
@@ -321,11 +314,7 @@ Hints on removing missing data points
 </li>
 </ul>
 </div>
-</div>
-<div id="assumption-3-5-normality-linearity-homoscedasticity" class="section level4" number="9.2.1.3">
-<h4>
-<span class="header-section-number">9.2.1.3</span> Assumption 3-5: Normality, linearity, homoscedasticity<a class="anchor" aria-label="anchor" href="#assumption-3-5-normality-linearity-homoscedasticity"><i class="fas fa-link"></i></a>
-</h4>
+<p><strong>Assumption 3-5: Normality, linearity, homoscedasticity</strong></p>
 <p>Brilliant! We know our data type and we know we have no missing data. The remaining assumptions are all best checked through visualisations. You can use histograms and QQ-plots to check that the data (<code>Abil</code> and <code>IQ</code>) are both normally distributed, and you can use a scatterplot of <code>IQ</code> as a function of <code>Abil</code> to check whether the relationship is linear, with homoscedasticity, and without outliers. An alternative would be to use z-scores to check for outliers with the cut-off usually being set at around <span class="math inline">\(\pm2.5SD\)</span> or <span class="math inline">\(\pm3SD\)</span>. You could do this using the mutate function (e.g. <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate(z = (X - mean(X))/SD(X))</a></code>), but today we will just use visual checks.</p>
 <p>We will now ask you to create a few figures and then we will look at them together, as a whole, to answer some questions about these last assumptions.</p>
 <p><strong>Histograms for Normality</strong></p>
@@ -351,7 +340,7 @@ Figure 9.2: Histogram of Abil
 <li>In a new code chunk, type and run the below code to create a Q-Q plot for <code>Abil</code>.</li>
 </ul>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">qqPlot</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
 <p>This code looks a little different to code you've used up until this point as it comes from Base R. It uses the notation <code>object$variable</code> so our x variable could be read as "use the variable <code>Abil</code> from the object <code>mh</code>. And the figure will look like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qq-abil"></span>
@@ -420,16 +409,15 @@ Explain these answers
 </div>
 </div>
 </div>
-</div>
 <div id="descriptives-of-the-correlation" class="section level2" number="9.3">
 <h2>
 <span class="header-section-number">9.3</span> Descriptives of the Correlation<a class="anchor" aria-label="anchor" href="#descriptives-of-the-correlation"><i class="fas fa-link"></i></a>
 </h2>
 <p>Now that we have checked our assumptions and have confirmed we will use the Pearson correlation, the next step is descriptives. A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis.</p>
-<div id="corr-a4" class="section level3" number="9.3.1">
-<h3>
-<span class="header-section-number">9.3.1</span> Activity 4: Descriptive statistics<a class="anchor" aria-label="anchor" href="#corr-a4"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a4" class="section level4" number="9.3.0.1">
+<h4>
+<span class="header-section-number">9.3.0.1</span> Activity 4: Descriptive statistics<a class="anchor" aria-label="anchor" href="#corr-a4"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>Looking at the scatterplot, spend a couple of minutes thinking about and describing the relationship between Ability and IQ in terms of your hypothesis. Remember this is a descriptive analysis at this stage, so nothing is confirmed. Does the relationship appear to be as we predicted in our hypothesis? A discussion is in the solutions at the end of the chapter.</li>
 </ul>
@@ -494,10 +482,10 @@ Hints on discussing descriptives
 </h2>
 <p>Excellent! So we have checked our assumptions and our descriptives. Our data looks consistent with population norms and the scatterplot would suggest a positive relationship between the two variables. Finally we will run the correlation!</p>
 <p>There are often many different functions that can be used to achieve the same thing and we're actually going to show you two ways of running a correlation as some people prefer one approach over the other because of the data type the results come in and how easy it is to work with that output.</p>
-<div id="corr-a5" class="section level3" number="9.4.1">
-<h3>
-<span class="header-section-number">9.4.1</span> Activity 5: Run the correlation<a class="anchor" aria-label="anchor" href="#corr-a5"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a5" class="section level4" number="9.4.0.1">
+<h4>
+<span class="header-section-number">9.4.0.1</span> Activity 5: Run the correlation<a class="anchor" aria-label="anchor" href="#corr-a5"><i class="fas fa-link"></i></a>
+</h4>
 <p>First, we'll use the <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> function from the <code>correlation</code> package. Remember that for help on any function you can type e.g., <code><a href="https://easystats.github.io/correlation/reference/correlation.html">?correlation</a></code> in the console window. The <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> function requires:</p>
 <ul>
 <li>The name of the data set you are using</li>
@@ -510,7 +498,7 @@ Hints on discussing descriptives
 </ul>
 <p>For example, if your data is stored in <code>dat</code> and you want to do a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
 <div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, 
+<code class="sourceCode R"><span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, 
             select <span class="op">=</span> <span class="st">"X"</span>, 
             select2 <span class="op">=</span> <span class="st">"Y"</span>,  
             method <span class="op">=</span> <span class="st">"pearson"</span>, 
@@ -541,10 +529,10 @@ Hints on discussing descriptives
 <span class="header-section-number">9.5</span> Interpreting output and writing up<a class="anchor" aria-label="anchor" href="#interpreting-output-and-writing-up"><i class="fas fa-link"></i></a>
 </h2>
 <p>Excellent work. As you can see, running the correlation is actually really quick, and the hard work was checking the assumptions and some data-wrangling. You should now have a tibble called <code>results</code> that gives you the output of the correlation between Reading Ability and IQ for the school children measured in Miller and Haden (2013) Chapter 11. All that is left to do now is interpret the output and write it up.</p>
-<div id="corr-a6" class="section level3" number="9.5.1">
-<h3>
-<span class="header-section-number">9.5.1</span> Activity 6: Interpreting the correlation<a class="anchor" aria-label="anchor" href="#corr-a6"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a6" class="section level4" number="9.5.0.1">
+<h4>
+<span class="header-section-number">9.5.0.1</span> Activity 6: Interpreting the correlation<a class="anchor" aria-label="anchor" href="#corr-a6"><i class="fas fa-link"></i></a>
+</h4>
 <p>Look at <code>results</code> and then answer the following questions:</p>
 <ol style="list-style-type: decimal">
 <li>What is the value of Pearson's <em>r</em> to 2 decimal places? <input class="webex-solveme nospaces" size="20" data-answer='[".45","0.45"]'>
@@ -583,22 +571,19 @@ Explain these answers
 </ol>
 </div>
 </div>
-<div id="corr-a7" class="section level3" number="9.5.2">
-<h3>
-<span class="header-section-number">9.5.2</span> Activity 7: Write-up<a class="anchor" aria-label="anchor" href="#corr-a7"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a7" class="section level4" number="9.5.0.2">
+<h4>
+<span class="header-section-number">9.5.0.2</span> Activity 7: Write-up<a class="anchor" aria-label="anchor" href="#corr-a7"><i class="fas fa-link"></i></a>
+</h4>
 <p>Now we have interpreted the output we would want to write it up. Copy and paste the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knit the file.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="correlations.html#cb159-1" aria-hidden="true" tabindex="-1"></a>As shown <span class="cf">in</span> Figure <span class="fl">7.5</span>, there appeared to be a positive relationship between Reading <span class="fu">Ability</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r round(pluck(descriptives$Abil_mean),2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(pluck(descriptives$Abil_SD),2)</span><span class="st">`</span>) and <span class="fu">IQ</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r round(pluck(descriptives$IQ_mean),2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(pluck(descriptives$IQ_SD),2)</span><span class="st">`</span>), <span class="cf">in</span> line with the alternative hypothesis. A Pearson correlation found a significant, medium positive correlation between the two <span class="fu">variables</span> (<span class="fu">r</span> (<span class="st">`</span><span class="at">r results$df_error</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results$r, 2)</span><span class="st">`</span>, <span class="sc">*</span>p<span class="sc">*</span> <span class="er">=</span> <span class="st">`</span><span class="at">r round(results$p, 3)</span><span class="st">`</span>) and the alternative hypothesis is therefore accepted. </span></code></pre></div>
 <p>When you knit the code, assuming you have done all of the above tasks correctly, the code you pasted will transform into a readable passage as follows:</p>
 <p>As shown in Figure 7.5, there appeared to be a positive relationship between Reading Ability (M = 55.12, SD = 6.08) and IQ (M = 100.04, SD = 9.04), in line with the alternative hypothesis. A Pearson correlation found a significant, medium positive correlation between the two variables (r (23) = 0.45, <em>p</em> = 0.024) and the alternative hypothesis is therefore accepted.</p>
 <p>So you get a fairly ok start of a write-up. It isn't perfect but it is a good start. For instance, the r-value should not have the first 0 and just be r = .xx. Likewise, the p-value should not have the first 0 either. So you will always have to do a bit of tidying up.</p>
 <p><strong>But why two approaches</strong></p>
-<p>The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> on the other hand produces a <code>list</code> type object, which is a harder to work with. However, the output of <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> also happens to work with functions from the <code>report</code> package, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> and <code><a href="https://easystats.github.io/report/reference/report_table.html">report_table()</a></code> that give you an automatic report of the analyses. For example, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> doesn't currently work with the output of <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> which is why we showed you both ways. Run the below in your console window and you will see what we mean.</p>
+<p>The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> on the other hand produces a <code>list</code> type object, which is a harder to work with. However, the output of <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> also happens to work with functions from the <code>report</code> package, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> and <code><a href="https://easystats.github.io/report/reference/report_table.html">report_table()</a></code> that give you an automatic report of the analyses. For example, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> doesn't currently work with the output of <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> which is why we showed you both ways. Run the below in your console window and you will see what we mean - you will probably get an error.</p>
 <div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
-<pre><code>## Effect sizes were labelled following Funder's (2019) recommendations.
-## 
-## The Pearson's product-moment correlation between mh$IQ and mh$Abil is positive, statistically significant, and very large (r = 0.45, 95% CI [0.07, 0.72], t(23) = 2.42, p = 0.024)</code></pre>
+<code class="sourceCode R"><span class="fu">report</span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
 <p><strong>Note:</strong> The write-up that comes out of report should not be considered as something to copy and paste into a report. It is a means of just obtaining an overview quickly to help you confirm your own thinking. There are issues again with the presentation of numbers and writing, and additional info that isn't needed. Basically, use these functions and approaches to start you off in your writing, but not as your write-up.</p>
 </div>
 </div>
@@ -607,15 +592,15 @@ Explain these answers
 <span class="header-section-number">9.6</span> Multiple Correlations<a class="anchor" aria-label="anchor" href="#multiple-correlations"><i class="fas fa-link"></i></a>
 </h2>
 <p>Finally, to round off this chapter, we want to briefly show you about running multiple correlations at one. Above we ran one correlation. However, when you have lots of variables in a dataset, to get a quick overview of patterns, you might want to run all the correlations at the same time or create a matrix of scatterplots at the one time. You can do this with functions from the <code>psych</code> and <code>correlation</code> packages (<code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> only works for one correlation at a time). We will use the Miller and Haden data here again which you should still have in a tibble called <code>mh</code>.</p>
-<div id="corr-a8" class="section level3" number="9.6.1">
-<h3>
-<span class="header-section-number">9.6.1</span> Activity 8: Scatterplot matrix<a class="anchor" aria-label="anchor" href="#corr-a8"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a8" class="section level4" number="9.6.0.1">
+<h4>
+<span class="header-section-number">9.6.0.1</span> Activity 8: Scatterplot matrix<a class="anchor" aria-label="anchor" href="#corr-a8"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>In a new code chunk, type and run the following code. The <code>pairs.panels())</code> function comes from the <code>psych</code> library and creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time. So it is useful for checking assumptions in one place.</li>
 </ul>
-<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">pairs.panels</span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs"></span>
 <img src="09-correlation_files/figure-html/pairs-1.png" alt="Scatterplot matrix" width="100%"><p class="caption">
@@ -639,10 +624,10 @@ Figure 9.4: Scatterplot matrix
 </li>
 </ul>
 <p>There are additional arguments to adjust the plot <code>pairs.panel</code> creates that you can look up in the help documentation if you are interested.</p>
-<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">FALSE</span>, 
+  <span class="fu">pairs.panels</span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">FALSE</span>, 
                lm <span class="op">=</span> <span class="cn">TRUE</span>, 
                method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
 <p>Which produces:</p>
@@ -653,10 +638,10 @@ Figure 9.5: Adjusted scatterplot matrix
 </p>
 </div>
 </div>
-<div id="corr-a9" class="section level3" number="9.6.2">
-<h3>
-<span class="header-section-number">9.6.2</span> Activity 9: Running multiple correlations<a class="anchor" aria-label="anchor" href="#corr-a9"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a9" class="section level4" number="9.6.0.2">
+<h4>
+<span class="header-section-number">9.6.0.2</span> Activity 9: Running multiple correlations<a class="anchor" aria-label="anchor" href="#corr-a9"><i class="fas fa-link"></i></a>
+</h4>
 <p>To perform multiple correlations in one go, we will again use the <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> function. package. Rather than specifying two variables to correlation, you can also provide a data frame that has multiple variables and it will run all possible correlations between the variables. Similar to above, we want to remove the <code>Participant</code> column before we do this.</p>
 <ul>
 <li><p><code>method</code> controls which correlation is computed, the default is <code>pearson</code> but if you needed to run the non-parametric version you could change this to <code>spearman</code>.<br></p></li>
@@ -669,15 +654,15 @@ Figure 9.5: Adjusted scatterplot matrix
 <li><p><strong>Note:</strong> Because you're running multiple correlations and some may be positive and some may be negative, there is no option to specify a one or two-tailed test.</p></li>
 <li><p>Run the below code to calculate then view the correlation results</p></li>
 </ul>
-<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">corr_results</span> <span class="op">&lt;-</span> <span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, 
+  <span class="fu">correlation</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, 
               p_adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 
 <span class="va">corr_results</span></code></pre></div>
 <p>Which produces the following output:</p>
-<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb164"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">corr_results</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table style="width:100%;" class="table table-sm">
 <colgroup>
@@ -849,15 +834,63 @@ Explain these answers
 </h2>
 <p>Excellent work today! You can now add running, interpreting and writing up correlations to the list of knowledge and skills in your research methods toolbox. Remember that actually a lot of the work is in the preparation of the data and really running the correlation is just one more function. It might be worthwhile repeating the first few activities with two other variables to test your understanding. If you have any questions, please post them on Teams.</p>
 </div>
-<div id="corr-sols" class="section level2" number="9.8">
+<div id="test-yourself-3" class="section level2" number="9.8">
 <h2>
-<span class="header-section-number">9.8</span> Activity solutions<a class="anchor" aria-label="anchor" href="#corr-sols"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.8</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Look at this code and answer the following questions:</p>
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, 
+                       select <span class="op">=</span> <span class="st">"IQ"</span>, 
+                       select2 <span class="op">=</span> <span class="st">"Home"</span>,  
+                       method <span class="op">=</span> <span class="st">"pearson"</span>, 
+                       alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>What would this analysis show?
+<div id="radio_BMYIZHUQSS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value=""><span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value="answer"><span>the relationship between IQ and the time spent reading at home</span></label><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value=""><span>the relationship between IQ and the time spent watching TV at home</span></label><label><input type="radio" autocomplete="off" name="radio_BMYIZHUQSS" value=""><span>the effect of IQ on time spent reading at Home</span></label>
+</div>
+</li>
+<li>What type of correlation analysis is it?
+<div id="radio_YJKOWIEVXZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value=""><span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value=""><span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value=""><span>one-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_YJKOWIEVXZ" value="answer"><span>two-tailed pearson analysis</span></label>
+</div>
+</li>
+</ol>
+<p>Now try running the code and then answering the following questions.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>To three decimal places, what is the r-value of the correlation between IQ and the time spent reading at Home?
+<div id="radio_YHRAWHQEKQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value="answer"><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_YHRAWHQEKQ" value=""><span>0.334</span></label>
+</div>
+</li>
+<li>To three decimal places, what is the p-value of the correlation between IQ and the time spent reading at Home?
+<div id="radio_SAOJDDPVXP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value="answer"><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_SAOJDDPVXP" value=""><span>0.202</span></label>
+</div>
+</li>
+<li>What is the degrees of freedom of the correlation between IQ and the time spent reading at Home?
+<div id="radio_OHOESKHVIS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value="answer"><span>23</span></label><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value=""><span>25</span></label><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_OHOESKHVIS" value=""><span>0.553</span></label>
+</div>
+</li>
+</ol>
+<div class="webex-solution">
+<button>
+Explain these answers
+</button>
+<p>This analysis is a two-tailed pearson correlation looking at the relationship between IQ and the amount of time spent reading at home. You can tell this from the two variables in the code being IQ and Home, and the code stating pearson, and two-sided (another name for two-tailed). If you run the analysis you will find that the result would be r(23) = .202, p = .334.</p>
+</div>
+</div>
+<div id="corr-sols" class="section level2" number="9.9">
+<h2>
+<span class="header-section-number">9.9</span> Activity solutions<a class="anchor" aria-label="anchor" href="#corr-sols"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.</p>
-<div id="corr-a1sol" class="section level3" number="9.8.1">
-<h3>
-<span class="header-section-number">9.8.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#corr-a1sol"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a1sol" class="section level4" number="9.9.0.1">
+<h4>
+<span class="header-section-number">9.9.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#corr-a1sol"><i class="fas fa-link"></i></a>
+</h4>
 <div class="sourceCode" id="cb166"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/correlation/">correlation</a></span><span class="op">)</span>
@@ -866,10 +899,10 @@ Explain these answers
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">mh</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"MillerHadenData.csv"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="corr-a3sol" class="section level3" number="9.8.2">
-<h3>
-<span class="header-section-number">9.8.2</span> Activity 3<a class="anchor" aria-label="anchor" href="#corr-a3sol"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a3sol" class="section level4" number="9.9.0.2">
+<h4>
+<span class="header-section-number">9.9.0.2</span> Activity 3<a class="anchor" aria-label="anchor" href="#corr-a3sol"><i class="fas fa-link"></i></a>
+</h4>
 <p><strong>The histogram of IQ</strong></p>
 <div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">IQ</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -877,7 +910,7 @@ Explain these answers
 <p><strong>The qqPlot of IQ</strong></p>
 <div class="sourceCode" id="cb168"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">IQ</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="09-correlation_files/figure-html/unnamed-chunk-15-1.png" width="100%" style="display: block; margin: auto;"></div>
+<div class="inline-figure"><img src="09-correlation_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;"></div>
 <pre><code>## [1]  3 14</code></pre>
 <p><strong>The scatterplot</strong></p>
 <div class="sourceCode" id="cb170"><pre class="downlit sourceCode r">
@@ -886,12 +919,12 @@ Explain these answers
   <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Reading Ability"</span><span class="op">)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula 'y ~ x'</code></pre>
-<div class="inline-figure"><img src="09-correlation_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;"></div>
+<div class="inline-figure"><img src="09-correlation_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;"></div>
 </div>
-<div id="corr-a4sol" class="section level3" number="9.8.3">
-<h3>
-<span class="header-section-number">9.8.3</span> Activity 4<a class="anchor" aria-label="anchor" href="#corr-a4sol"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a4sol" class="section level4" number="9.9.0.3">
+<h4>
+<span class="header-section-number">9.9.0.3</span> Activity 4<a class="anchor" aria-label="anchor" href="#corr-a4sol"><i class="fas fa-link"></i></a>
+</h4>
 <p><strong>The scatterplot</strong></p>
 <p>Based on the scatterplot we might suggest that as reading ability scores increase, IQ scores also increase and as such it would appear that our data is inline with our hypothesis that the two variables are positively correlated. This appears to be a medium strength relationship.</p>
 <p><strong>The means and standard deviations</strong></p>
@@ -920,10 +953,10 @@ Explain these answers
 </table></div>
 </div>
 </div>
-<div id="corr-a5sol" class="section level3" number="9.8.4">
-<h3>
-<span class="header-section-number">9.8.4</span> Activity 5<a class="anchor" aria-label="anchor" href="#corr-a5sol"><i class="fas fa-link"></i></a>
-</h3>
+<div id="corr-a5sol" class="section level4" number="9.9.0.4">
+<h4>
+<span class="header-section-number">9.9.0.4</span> Activity 5<a class="anchor" aria-label="anchor" href="#corr-a5sol"><i class="fas fa-link"></i></a>
+</h4>
 <p><strong>The correlation using <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code></strong></p>
 <div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, 
@@ -978,9 +1011,9 @@ Explain these answers
 </div>
 </div>
 </div>
-<div id="words-from-this-chapter-8" class="section level2" number="9.9">
+<div id="words-from-this-chapter-8" class="section level2" number="9.10">
 <h2>
-<span class="header-section-number">9.9</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.10</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-8"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
 <div class="kable-table">
@@ -1198,43 +1231,16 @@ $( document ).ready(function() {
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#correlations"><span class="header-section-number">9</span> Correlations</a></li>
-<li>
-<a class="nav-link" href="#set-up-the-data"><span class="header-section-number">9.1</span> Set-up the Data</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#corr-a1"><span class="header-section-number">9.1.1</span> Activity 1: Set-up</a></li>
-<li><a class="nav-link" href="#corr-a2"><span class="header-section-number">9.1.2</span> Activity 2: Look at your data</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#assumptions-of-the-test"><span class="header-section-number">9.2</span> Assumptions of the test</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#corr-a3"><span class="header-section-number">9.2.1</span> Activity 3: Assumptions</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#descriptives-of-the-correlation"><span class="header-section-number">9.3</span> Descriptives of the Correlation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#corr-a4"><span class="header-section-number">9.3.1</span> Activity 4: Descriptive statistics</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#inferentials-of-the-correlation"><span class="header-section-number">9.4</span> Inferentials of the correlation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#corr-a5"><span class="header-section-number">9.4.1</span> Activity 5: Run the correlation</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#interpreting-output-and-writing-up"><span class="header-section-number">9.5</span> Interpreting output and writing up</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#corr-a6"><span class="header-section-number">9.5.1</span> Activity 6: Interpreting the correlation</a></li>
-<li><a class="nav-link" href="#corr-a7"><span class="header-section-number">9.5.2</span> Activity 7: Write-up</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#multiple-correlations"><span class="header-section-number">9.6</span> Multiple Correlations</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#corr-a8"><span class="header-section-number">9.6.1</span> Activity 8: Scatterplot matrix</a></li>
-<li><a class="nav-link" href="#corr-a9"><span class="header-section-number">9.6.2</span> Activity 9: Running multiple correlations</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#set-up-the-data"><span class="header-section-number">9.1</span> Set-up the Data</a></li>
+<li><a class="nav-link" href="#assumptions-of-the-test"><span class="header-section-number">9.2</span> Assumptions of the test</a></li>
+<li><a class="nav-link" href="#descriptives-of-the-correlation"><span class="header-section-number">9.3</span> Descriptives of the Correlation</a></li>
+<li><a class="nav-link" href="#inferentials-of-the-correlation"><span class="header-section-number">9.4</span> Inferentials of the correlation</a></li>
+<li><a class="nav-link" href="#interpreting-output-and-writing-up"><span class="header-section-number">9.5</span> Interpreting output and writing up</a></li>
+<li><a class="nav-link" href="#multiple-correlations"><span class="header-section-number">9.6</span> Multiple Correlations</a></li>
 <li><a class="nav-link" href="#corr-fin"><span class="header-section-number">9.7</span> Finished!</a></li>
-<li>
-<a class="nav-link" href="#corr-sols"><span class="header-section-number">9.8</span> Activity solutions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#corr-a1sol"><span class="header-section-number">9.8.1</span> Activity 1</a></li>
-<li><a class="nav-link" href="#corr-a3sol"><span class="header-section-number">9.8.2</span> Activity 3</a></li>
-<li><a class="nav-link" href="#corr-a4sol"><span class="header-section-number">9.8.3</span> Activity 4</a></li>
-<li><a class="nav-link" href="#corr-a5sol"><span class="header-section-number">9.8.4</span> Activity 5</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#words-from-this-chapter-8"><span class="header-section-number">9.9</span> Words from this Chapter</a></li>
+<li><a class="nav-link" href="#test-yourself-3"><span class="header-section-number">9.8</span> Test Yourself</a></li>
+<li><a class="nav-link" href="#corr-sols"><span class="header-section-number">9.9</span> Activity solutions</a></li>
+<li><a class="nav-link" href="#words-from-this-chapter-8"><span class="header-section-number">9.10</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1252,7 +1258,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-24.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

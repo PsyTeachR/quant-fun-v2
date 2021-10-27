@@ -408,13 +408,18 @@ report(mod)
 ```
 
 ```
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
+```
+
+```
 ## We fitted a linear model (estimated using OLS) to predict tot_wellbeing with thours_c and male_c (formula: tot_wellbeing ~ thours_c * male_c). The model explains a statistically significant and weak proportion of variance (R2 = 0.09, F(3, 71029) = 2450.89, p < .001, adj. R2 = 0.09). The model's intercept, corresponding to thours_c = 0 and male_c = -0.5, is at 44.87 (95% CI [44.78, 44.96], t(71029) = 1001.87, p < .001). Within this model:
 ## 
-##   - The effect of thours_c is statistically significant and negative (beta = -0.77, 95% CI [-0.82, -0.73], t(71029) = -32.96, p < .001; Std. beta = -0.15, 95% CI [-0.16, -0.15])
-##   - The effect of male_c [0.5] is statistically significant and positive (beta = 5.14, 95% CI [5.00, 5.28], t(71029) = 72.25, p < .001; Std. beta = 0.54, 95% CI [0.52, 0.55])
-##   - The interaction effect of male_c [0.5] on thours_c is statistically significant and positive (beta = 0.45, 95% CI [0.38, 0.52], t(71029) = 12.24, p < .001; Std. beta = 0.09, 95% CI [0.08, 0.11])
+##   - The effect of thours c is statistically significant and negative (beta = -0.77, 95% CI [-0.82, -0.73], t(71029) = -32.96, p < .001; Std. beta = -0.15, 95% CI [-0.16, -0.15])
+##   - The effect of male c [0 5] is statistically significant and positive (beta = 5.14, 95% CI [5.00, 5.28], t(71029) = 72.25, p < .001; Std. beta = 0.54, 95% CI [0.52, 0.55])
+##   - The interaction effect of male c [0 5] on thours c is statistically significant and positive (beta = 0.45, 95% CI [0.38, 0.52], t(71029) = 12.24, p < .001; Std. beta = 0.09, 95% CI [0.08, 0.11])
 ## 
-## Standardized parameters were obtained by fitting the model on a standardized version of the dataset.
+## Standardized parameters were obtained by fitting the model on a standardized version of the dataset. 95% Confidence Intervals (CIs) and p-values were computed using the Wald approximation.
 ```
 
 ## Finished! {#mulregression-fin}

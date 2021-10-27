@@ -260,9 +260,6 @@ corr-a1
 corr-a2
 assumptions-of-the-test
 corr-a3
-assumption-1-level-of-measurement
-assumption-2-pairs-of-data
-assumption-3-5-normality-linearity-homoscedasticity
 descriptives-of-the-correlation
 corr-a4
 inferentials-of-the-correlation
@@ -274,6 +271,7 @@ multiple-correlations
 corr-a8
 corr-a9
 corr-fin
+test-yourself-3
 corr-sols
 corr-a1sol
 corr-a3sol

@@ -7,7 +7,7 @@
 <title>Chapter 3 Starting with data | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="Part of becoming a psychologist is formulating and asking research questions and then gathering data to enable you to answer those questions effectively. In order to do that, it is very important...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 3 Starting with data | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/starting-with-data.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="Chapter 3 Starting with data | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="Part of becoming a psychologist is formulating and asking research questions and then gathering data to enable you to answer those questions effectively. In order to do that, it is very important...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -401,8 +401,8 @@ In our case, the <code>all_dat</code> contains the responses to each individual 
 </h3>
 <ol style="list-style-type: decimal">
 <li>When loading in a .csv file, which function should you use?
-<div id="radio_OOZNTVGFTS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OOZNTVGFTS" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_OOZNTVGFTS" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_OOZNTVGFTS" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_OOZNTVGFTS" value=""><span>library()</span></label>
+<div id="radio_LEPFOCBGDB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LEPFOCBGDB" value="answer"><span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_LEPFOCBGDB" value=""><span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_LEPFOCBGDB" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_LEPFOCBGDB" value=""><span>library()</span></label>
 </div>
 </li>
 </ol>
@@ -414,8 +414,8 @@ Explain this answer
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>The function <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> takes the arguments <code>x</code>, <code>y</code>, <code>by</code>. What does <code>by</code> do?
-<div id="radio_OYGYDHHABJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OYGYDHHABJ" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_OYGYDHHABJ" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_OYGYDHHABJ" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
+<div id="radio_HHCLNDMFGM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HHCLNDMFGM" value=""><span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_HHCLNDMFGM" value=""><span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_HHCLNDMFGM" value="answer"><span>Specifies the column to join by that both objects have in common</span></label>
 </div>
 </li>
 </ol>
@@ -427,8 +427,8 @@ Explain this answer
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>What does the function <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> do?
-<div id="radio_UXBBVUWXQL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UXBBVUWXQL" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_UXBBVUWXQL" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_UXBBVUWXQL" value=""><span>Keeps only the objects you specify</span></label>
+<div id="radio_AVGUFRISHM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AVGUFRISHM" value=""><span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_AVGUFRISHM" value="answer"><span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_AVGUFRISHM" value=""><span>Keeps only the objects you specify</span></label>
 </div>
 </li>
 </ol>
@@ -815,7 +815,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-24.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

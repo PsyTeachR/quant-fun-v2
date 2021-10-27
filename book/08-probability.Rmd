@@ -32,7 +32,7 @@ $$p = \frac{1}{24} = `r 1/24`$$
 
 So you can see that the probability of an event occurring changes with the number of possible outcomes. Makes sense really! The more possible outcomes, the less likely any specific one outcome is going to happen. So far so good!
 
-### Activity 1: Probability {#prob-a1}
+#### Activity 1: Probability {#prob-a1}
 
 Try to answer these questions below to check your understanding.
 
@@ -53,7 +53,7 @@ How you tackle probability also depends on the type of data/variables you are wo
 * **Interval** data is data which comes in the form of a numerical value where the difference between points is standardised and meaningful. For example temperature, the difference in temperature between 10-20 degrees is the same as the difference in temperature between 20-30 degrees. 
 * **Ratio** data is very like interval but has a true zero point. With our interval temperature example above, we have been experiencing negative temperatures (-1,-2 degrees) in Glasgow but with ratio data you don't see negative values such as these i.e. you can't be -10 cm tall. 
 
-### Activity 2: Types of data {#prob-a2}
+#### Activity 2: Types of data {#prob-a2}
 
 Try to answer these questions below to check your understanding. What types of data are the below measurements?
 
@@ -164,7 +164,7 @@ As with any probabilities, real-world data will come close to the normal distrib
 knitr::include_graphics(path="./images/normal_dist.gif")
 ```
 
-### Activity 3: Normal distribution {#prob-a3}
+#### Activity 3: Normal distribution {#prob-a3}
 
 Complete the sentences to make sure that you are understanding the above.
 
@@ -172,7 +172,7 @@ Complete the sentences to make sure that you are understanding the above.
 * In a normal distribution, the further away from the mean an observation is `r mcq(sample(c(answer = "the lower its probability of occuring", "the higher its probability of occuring")))`.
 * Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data `r mcq(sample(c(answer = "is a continuous variable", "has three possible values", "is a categorical variable")))`.
 
-### Activity 4: Distribution test {#prob-a4}
+#### Activity 4: Distribution test {#prob-a4}
 
 Which distribution is likely to be associated with the following?
 
@@ -184,7 +184,7 @@ Which distribution is likely to be associated with the following?
 
 Now, we're going to calculate probabilities based on the binomial distribution. In this chapter, for the first time we don't need to load the tidyverse. All of the functions we need are contained in Base R. If you want a refresher on the difference between Base R and packages, see Programming Basics.
 
-### Activity 5: Getting Set-Up {#prob-a5}
+#### Activity 5: Getting Set-Up {#prob-a5}
 
 * Open a new R Markdown document, call it "Probability" and save it in the relevant chapter folder, remembering to delete the default text which we do not need.
 
@@ -199,7 +199,7 @@ So let's try these functions out to answer two questions:
 1. What is the probability of getting exactly 5 heads on 10 flips?
 2. What is the probability of getting at most 2 heads on 10 flips?
 
-### Activity 6: `dbinom()` {#prob-a6}
+#### Activity 6: `dbinom()` {#prob-a6}
 
 Let's start with question 1, what is the probability of getting exactly 5 heads on 10 flips? 
 
@@ -222,7 +222,7 @@ Looking at the outcome, answer the following questions:
 * To two decimal places, what is the probability of getting 5 heads out of 10 coin flips? `r fitb(c("0.25", ".25"))`  
 * What is this probability expressed in percent? `r mcq(c("0.25%", "2.5%", answer = "25%"))`
 
-### Activity 7: `pbinom()` {#prob-a7}
+#### Activity 7: `pbinom()` {#prob-a7}
 
 OK, question 2. What is the probability of getting at most 2 heads on 10 flips? 
 
@@ -241,7 +241,7 @@ Looking at the outcome, answer the following question:
 * What is the probability of getting a maximum of 2 heads on 10 coin flips to 2 decimal places? `r fitb(c("0.05", ".05"))`  
 * What is this probability expressed in percent? `r mcq(c("0.05%", "0.5%", answer = "5%"))`
 
-### Activity 8: `pbinom()` 2 {#prob-a8}
+#### Activity 8: `pbinom()` 2 {#prob-a8}
 
 Let's try one more scenario with a cut-off point to make sure you have understood this. What is the probability of getting 7 or more heads on 10 flips?
 
@@ -275,7 +275,7 @@ Looking at the outcome, answer the following question:
 * What is the probability of getting between 7 and 10 heads from 10 coin flips to 2 decimal places? `r fitb(c("0.17", ".17"))`  
 * What is this probability expressed in percent? `r mcq(c("0.017%", "0.17", answer = "17%"))` 
 
-### Activity 9: `qbinom()` {#prob-a9}
+#### Activity 9: `qbinom()` {#prob-a9}
 
 OK great! You are doing excellent as this is tricky stuff. Remember though the whole point is to show you that using probability distributions you can ask all sorts of questions about the probability of any outcome or series of outcomes. 
 
@@ -372,7 +372,7 @@ ggplot(heights, aes(x = height, fill = sex)) +
 
 So to test the normal distribution, and to round off this chapter, we will use the above information to calculate the probability of observing at least or at most a specific height with `pnorm()`, and the heights that are associated with specific probabilities with `qnorm()`.
 
-### Activity 10:`pnorm()` {#prob-a10}
+#### Activity 10:`pnorm()` {#prob-a10}
 
 `pnorm()` requires three arguments:
 
@@ -396,7 +396,7 @@ Looking at your outcome, answer the following questions.
 * What is the probability of meeting a 16-24 y.o. Scottish woman who is taller than the average 16-24 y.o. Scottish man? `r fitb(c("0.04", ".04"))`  
 * What is this probability expressed in percent? `r mcq(c("0.04%", "0.4%", answer = "4%"))`
 
-### Activity 11: `pnorm` 2 {#prob-a11}
+#### Activity 11: `pnorm` 2 {#prob-a11}
 
 Fiona is a very tall Scottish woman (181.12 cm) in the 16-24 y.o. range who will only date men who are taller than her.  
 
@@ -405,7 +405,7 @@ Fiona is a very tall Scottish woman (181.12 cm) in the 16-24 y.o. range who will
   * **hint:** Fiona is 181.12 cm tall and you want taller than her.
 * What is this probability expressed in percent? `r mcq(c("0.23%", "2.3%", answer = "23%"))`
 
-### Activity 12: `pnorm` 3 {#prob-a12}
+#### Activity 12: `pnorm` 3 {#prob-a12}
 
 On the other hand, Fiona is bisexual and will date women who are shorter than her. 
 
@@ -413,7 +413,7 @@ On the other hand, Fiona is bisexual and will date women who are shorter than he
   * **hint:** female distribution, lower than Fiona.
 * What is this probability expressed in percent? `r mcq(c("0.99%", "9.9%", answer = "99%"))`
 
-### Activity 13: `qnorm()` {#prob-a13}
+#### Activity 13: `qnorm()` {#prob-a13}
 
 Finally, in the previous examples we calculated the probability of a particular outcome. Now we want to calculate what outcome would be associated with a particular probability and we can use `qnorm()` to do this.
 
@@ -450,7 +450,7 @@ This was a long read so there is no test yourself today but be sure to make note
 
 ## Activity solutions {#prob-sols}
 
-### Activity 6 {#prob-a6sol}
+#### Activity 6 {#prob-a6sol}
 
 * To two decimal places, what is the probability of getting 5 heads out of 10 coin flips? 
 
@@ -458,7 +458,7 @@ This was a long read so there is no test yourself today but be sure to make note
 .25
 ```
 
-### Activity 7 {#prob-a7sol}
+#### Activity 7 {#prob-a7sol}
 
 * What is the probability of getting a maximum of 2 heads on 10 coin flips to 2 decimal places? 
 
@@ -467,7 +467,7 @@ This was a long read so there is no test yourself today but be sure to make note
 ```
 
 
-### Activity 8 {#prob-a8sol}
+#### Activity 8 {#prob-a8sol}
 
 * What is the probability of getting between 7 and 10 heads from 10 coin flips to 2 decimal places?
 
@@ -476,7 +476,7 @@ This was a long read so there is no test yourself today but be sure to make note
 ```
 
 
-### Activity 10 {#prob-a10sol}
+#### Activity 10 {#prob-a10sol}
 
 * What is the probability of meeting a 16-24 y.o. Scottish woman who is taller than the average 16-24 y.o. Scottish man?
 
@@ -485,7 +485,7 @@ pnorm(q = 176.2, mean = 163.8, sd = 6.931, lower.tail = FALSE)
 ```
 
 
-### Activity 11 {#prob-a11sol}
+#### Activity 11 {#prob-a11sol}
 
 * Using `pnorm()` again, what is the proportion of Scottish men Fiona would be willing to date to 2 decimal places? 
 
@@ -494,7 +494,7 @@ pnorm(q = 181.12, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 ```
 
 
-### Activity 12 {#prob-a12sol}
+#### Activity 12 {#prob-a12sol}
 
 * What is the proportion of Scottish women would Fiona be willing to date to 2 decimal places?
 
@@ -502,7 +502,7 @@ pnorm(q = 181.12, mean = 176.2, sd = 6.748, lower.tail = FALSE)
 pnorm(q = 181.12, mean = 163.8, sd = 6.931, lower.tail = TRUE)
 ```
 
-### Activity 13 {#prob-a13sol}
+#### Activity 13 {#prob-a13sol}
 
 The answer to this last question was:
 

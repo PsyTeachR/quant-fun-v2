@@ -7,7 +7,7 @@
 <title>Chapter 5 Data wrangling 2 | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="As we have said previously, one of the key aspects in a researcher's toolbox is the knowledge and skill to work with data - regardless of how it comes to you. In fact, when you run an experiment...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 5 Data wrangling 2 | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/data-wrangling-2.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="Chapter 5 Data wrangling 2 | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="As we have said previously, one of the key aspects in a researcher's toolbox is the knowledge and skill to work with data - regardless of how it comes to you. In fact, when you run an experiment...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -439,14 +439,14 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 <li><p>View <code>pong_data_hits</code> and answer the following questions to see if you have completed the task correctly.</p></li>
 <li>
 <p>What was the total number of hits made with the small paddle (50) and the blue colour background?</p>
-<div id="radio_WTXGFZXJCO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WTXGFZXJCO" value=""><span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_WTXGFZXJCO" value=""><span>516</span></label><label><input type="radio" autocomplete="off" name="radio_WTXGFZXJCO" value=""><span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_WTXGFZXJCO" value="answer"><span>527</span></label>
+<div id="radio_CWNPTKEBOJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CWNPTKEBOJ" value=""><span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_CWNPTKEBOJ" value=""><span>516</span></label><label><input type="radio" autocomplete="off" name="radio_CWNPTKEBOJ" value=""><span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_CWNPTKEBOJ" value="answer"><span>527</span></label>
 </div>
 </li>
 <li>
 <p>To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background?</p>
-<div id="radio_WKYQZZPYNQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WKYQZZPYNQ" value=""><span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_WKYQZZPYNQ" value="answer"><span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_WKYQZZPYNQ" value=""><span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_WKYQZZPYNQ" value=""><span>0.451</span></label>
+<div id="radio_UFDMHNVRGR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UFDMHNVRGR" value=""><span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_UFDMHNVRGR" value=""><span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_UFDMHNVRGR" value="answer"><span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_UFDMHNVRGR" value=""><span>0.451</span></label>
 </div>
 </li>
 </ul>
@@ -623,23 +623,23 @@ Explain these answers
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Which of the Wickham Six would you use to sort columns from smallest to largest:
-<div id="radio_MQNPPFTLHJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MQNPPFTLHJ" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_MQNPPFTLHJ" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_MQNPPFTLHJ" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_MQNPPFTLHJ" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_MQNPPFTLHJ" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_MQNPPFTLHJ" value=""><span>summarise</span></label>
+<div id="radio_NJYQKFHGWE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NJYQKFHGWE" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_NJYQKFHGWE" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_NJYQKFHGWE" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_NJYQKFHGWE" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_NJYQKFHGWE" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_NJYQKFHGWE" value=""><span>summarise</span></label>
 </div>
 </li>
 <li>Which of the Wickham Six would you use to calculate the mean of a column:
-<div id="radio_FVRZBJTJWV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FVRZBJTJWV" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_FVRZBJTJWV" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_FVRZBJTJWV" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_FVRZBJTJWV" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_FVRZBJTJWV" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_FVRZBJTJWV" value="answer"><span>summarise</span></label>
+<div id="radio_AZMEXNSMBU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AZMEXNSMBU" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_AZMEXNSMBU" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_AZMEXNSMBU" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_AZMEXNSMBU" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_AZMEXNSMBU" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_AZMEXNSMBU" value="answer"><span>summarise</span></label>
 </div>
 </li>
 <li>Which of the Wickham Six would you use to remove certain observations - e.g. remove all males:
-<div id="radio_DPBRBXYYSR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DPBRBXYYSR" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_DPBRBXYYSR" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_DPBRBXYYSR" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_DPBRBXYYSR" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_DPBRBXYYSR" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_DPBRBXYYSR" value=""><span>summarise</span></label>
+<div id="radio_IQNSTYNLGX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IQNSTYNLGX" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_IQNSTYNLGX" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_IQNSTYNLGX" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_IQNSTYNLGX" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_IQNSTYNLGX" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_IQNSTYNLGX" value=""><span>summarise</span></label>
 </div>
 </li>
 <li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>:
-<div id="radio_PNCPCHFFRF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PNCPCHFFRF" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_PNCPCHFFRF" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_PNCPCHFFRF" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_PNCPCHFFRF" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
+<div id="radio_RTYFCITFZI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RTYFCITFZI" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_RTYFCITFZI" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_RTYFCITFZI" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_RTYFCITFZI" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
 </div>
 </li>
 </ol>
@@ -1111,7 +1111,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-24.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

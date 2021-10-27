@@ -7,7 +7,7 @@
 <title>Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
 <meta name="description" content="7.1 Data visualisation Data Visualisation. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical...">
-<meta name="generator" content="bookdown 0.23 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/intro-to-data-visualisation.html">
@@ -17,9 +17,9 @@
 <meta name="twitter:title" content="Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis">
 <meta name="twitter:description" content="7.1 Data visualisation Data Visualisation. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -116,10 +116,10 @@ Figure 7.1: Building a figure using the ggplot2() layers system as shown in Nord
 <span class="header-section-number">7.2</span> Setting up to Visaulise<a class="anchor" aria-label="anchor" href="#setting-up-to-visaulise"><i class="fas fa-link"></i></a>
 </h2>
 <p>We will use the same data files as in Chapter 2, Starting with Data, as we already know what the data contains so we can focus just on visualising it.</p>
-<div id="introviz-a1" class="section level3" number="7.2.1">
-<h3>
-<span class="header-section-number">7.2.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#introviz-a1"><i class="fas fa-link"></i></a>
-</h3>
+<div id="introviz-a1" class="section level4" number="7.2.0.1">
+<h4>
+<span class="header-section-number">7.2.0.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#introviz-a1"><i class="fas fa-link"></i></a>
+</h4>
 <p>This data contains happiness and depression scores:</p>
 <ul>
 <li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv"><code>participant-info.csv</code></a> into the folder on your computer for this chapter!
@@ -210,10 +210,10 @@ Figure 7.1: Building a figure using the ggplot2() layers system as shown in Nord
 <span class="header-section-number">7.4</span> Barplots<a class="anchor" aria-label="anchor" href="#barplots"><i class="fas fa-link"></i></a>
 </h2>
 <p>Ok great, we are now ready to do some visualising and some plotting. For our first example we will create a barplot of our data showing the number of male and female participants within our data. A <a class="glossary" title="A plot showing counts of categorical data where the height of each bar represents the count of that particular variable">barplot</a> is a plot that shows counts of categorical data, or factors, where the height of each bar represents the count of that particular variable.</p>
-<div id="introviz-a3" class="section level3" number="7.4.1">
-<h3>
-<span class="header-section-number">7.4.1</span> Activity 3: Bar plot<a class="anchor" aria-label="anchor" href="#introviz-a3"><i class="fas fa-link"></i></a>
-</h3>
+<div id="introviz-a3" class="section level4" number="7.4.0.1">
+<h4>
+<span class="header-section-number">7.4.0.1</span> Activity 3: Bar plot<a class="anchor" aria-label="anchor" href="#introviz-a3"><i class="fas fa-link"></i></a>
+</h4>
 <p>Read through the following section and try the different code chunks. Following this, and changing parts of the code to see what happens, will help you to see how the layers build up.</p>
 <p><strong>The first layer</strong></p>
 <ul>
@@ -392,10 +392,10 @@ Do watch out for that as it is a very common errore we see when people are first
 <span class="header-section-number">7.5</span> The Violin-boxplot<a class="anchor" aria-label="anchor" href="#the-violin-boxplot"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are numerous different styles of visualisations and figures that you can create. They all start with the format of <code>ggplot(data, aes(x, y)) + geom_...</code> and will learn more as you get deeper into the book or you can look at the cheatsheets in the help menus: top menu - <strong><code>Help &gt;&gt; Cheat Sheets &gt;&gt; Data Visualisation with ggplot2</code></strong>. For instance, <code>geom_point()</code> for scatterplots, <code>geom_histogram()</code> for histograms, and <code>geom_line()</code> for lineplots. But we want to show you a type of figure that is becoming a lot more common in the field due to the quality of information if tells you about your data - the violin-boxplot.</p>
-<div id="introviz-a4" class="section level3" number="7.5.1">
-<h3>
-<span class="header-section-number">7.5.1</span> Activity 4: Violin-boxplot<a class="anchor" aria-label="anchor" href="#introviz-a4"><i class="fas fa-link"></i></a>
-</h3>
+<div id="introviz-a4" class="section level4" number="7.5.0.1">
+<h4>
+<span class="header-section-number">7.5.0.1</span> Activity 4: Violin-boxplot<a class="anchor" aria-label="anchor" href="#introviz-a4"><i class="fas fa-link"></i></a>
+</h4>
 <p>The violin boxplot is actually a merge of a <a class="glossary" title="A plot showing the probability density of data with a smoothed kernel function and look like a rotated and mirrored histogram">violin plot</a> and a <a class="glossary" title="A plot summarising distributions using five key values: the median, the upper and lower interquartile values, and the max and min value not considered and outlier. The length of the box represents the interquartile range.">boxplot</a>. The violin-boxplot is just the boxplot laid over the top of the violin plot - to give additional information. As part of our final activities today we will create a violin-boxplot, hopefully now you will be able to see how similar it is in structure to the bar chart code. In fact, there are only three differences:</p>
 <ol style="list-style-type: decimal">
 <li>We have added a <code>y</code> argument to the first layer because we wanted to represent two variables, not just a count.</li>
@@ -442,10 +442,10 @@ Figure 7.10: Violin-boxplot
 <span class="header-section-number">7.6</span> Layer order<a class="anchor" aria-label="anchor" href="#layer-order"><i class="fas fa-link"></i></a>
 </h2>
 <p>As we said above, one key thing to note about <code>ggplot2</code> is the use of layers. Whilst we have built layers up step-by-step in this chapter, they are independent and you could remove any of them except for the first layer. Additionally, although they are independent, the order you put them in does matter as we will show you now.</p>
-<div id="introviz-a5" class="section level3" number="7.6.1">
-<h3>
-<span class="header-section-number">7.6.1</span> Activity 5: Layers part 2<a class="anchor" aria-label="anchor" href="#introviz-a5"><i class="fas fa-link"></i></a>
-</h3>
+<div id="introviz-a5" class="section level4" number="7.6.0.1">
+<h4>
+<span class="header-section-number">7.6.0.1</span> Activity 5: Layers part 2<a class="anchor" aria-label="anchor" href="#introviz-a5"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>Type and run this code into a new code chunk and look at the output.</li>
 </ul>
@@ -474,10 +474,10 @@ Figure 7.11: Showing the impact of changing the order of layers. Figure A shows 
 <span class="header-section-number">7.7</span> Saving your Figures<a class="anchor" aria-label="anchor" href="#saving-your-figures"><i class="fas fa-link"></i></a>
 </h2>
 <p>Great work today! We just want to show you one last very helpful function on how to save and export your figures. Much like your favourite jumper, there is no point having it if nobody gets to see it! It is so useful to be able to save a copy of your plots as an image file so that you can use them in a presentation or report. One approach we can use is the function <code>ggsave()</code>.</p>
-<div id="introviz-a6" class="section level3" number="7.7.1">
-<h3>
-<span class="header-section-number">7.7.1</span> Activity 6: Saving plots<a class="anchor" aria-label="anchor" href="#introviz-a6"><i class="fas fa-link"></i></a>
-</h3>
+<div id="introviz-a6" class="section level4" number="7.7.0.1">
+<h4>
+<span class="header-section-number">7.7.0.1</span> Activity 6: Saving plots<a class="anchor" aria-label="anchor" href="#introviz-a6"><i class="fas fa-link"></i></a>
+</h4>
 <p>There are two ways you can use <code>ggsave()</code>. If you don't tell <code>ggsave()</code> which plot you want to save, by default it will save <strong>the last plot you created</strong>. To demonstrate this let's run the code from Activity 5 again to produce the nice violin-boxplot:</p>
 <div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span>, 
@@ -568,8 +568,8 @@ Figure 7.12: Violin-boxplot2
 </h2>
 <ol style="list-style-type: decimal">
 <li>Which of these is the appropriate order of functions to create a boxplot?
-<div id="radio_BLVWUXCHAT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value=""><span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value=""><span>ggplot() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value="answer"><span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_BLVWUXCHAT" value=""><span>geom_boxplot() + ggplot()</span></label>
+<div id="radio_TAQMAVAEHR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value=""><span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value="answer"><span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value=""><span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TAQMAVAEHR" value=""><span>ggplot() %&gt;% geom_boxplot()</span></label>
 </div>
 </li>
 <li>Would this line of code run, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?</li>
@@ -577,8 +577,8 @@ Figure 7.12: Violin-boxplot2
 <div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="radio_ATICLAOEQA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ATICLAOEQA" value="answer"><span>No, because you have piped the geom_bar() instead of adding it</span></label><label><input type="radio" autocomplete="off" name="radio_ATICLAOEQA" value=""><span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label>
+<div id="radio_TZPJAMLRHZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TZPJAMLRHZ" value="answer"><span>No, because you have piped the geom_bar() instead of adding it</span></label><label><input type="radio" autocomplete="off" name="radio_TZPJAMLRHZ" value=""><span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Why would this line of code not create a barplot, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?</li>
@@ -586,13 +586,13 @@ Figure 7.12: Violin-boxplot2
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_barplot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="radio_NWTBZSMRPR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value=""><span>because this would create a boxplot</span></label><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value=""><span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_NWTBZSMRPR" value=""><span>because you have piped the barplot and not added it</span></label>
+<div id="radio_PGFRCAQDGB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value=""><span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value=""><span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_PGFRCAQDGB" value=""><span>because this would create a boxplot</span></label>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>If I wanted a boxplot on top of a violin plot, what order of functions would I write?
-<div id="radio_KVRDEMOWOV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value="answer"><span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value=""><span>ggplot() %&gt;% geom_boxplot() %&gt;% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value=""><span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_KVRDEMOWOV" value=""><span>ggplot() %&gt;% geom_violin() %&gt;% geom_boxplot()</span></label>
+<div id="radio_TCIWXRJOEA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value=""><span>ggplot() %&gt;% geom_boxplot() %&gt;% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value="answer"><span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value=""><span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_TCIWXRJOEA" value=""><span>ggplot() %&gt;% geom_violin() %&gt;% geom_boxplot()</span></label>
 </div>
 </li>
 </ol>
@@ -875,24 +875,14 @@ $( document ).ready(function() {
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#intro-to-data-visualisation"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
 <li><a class="nav-link" href="#data-visualisation"><span class="header-section-number">7.1</span> Data visualisation</a></li>
-<li>
-<a class="nav-link" href="#setting-up-to-visaulise"><span class="header-section-number">7.2</span> Setting up to Visaulise</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a1"><span class="header-section-number">7.2.1</span> Activity 1: Set-up</a></li></ul>
-</li>
+<li><a class="nav-link" href="#setting-up-to-visaulise"><span class="header-section-number">7.2</span> Setting up to Visaulise</a></li>
 <li>
 <a class="nav-link" href="#dealing-with-factors-and-categories"><span class="header-section-number">7.3</span> Dealing with Factors and Categories</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a2"><span class="header-section-number">7.3.1</span> Activity 2: Factors</a></li></ul>
 </li>
-<li>
-<a class="nav-link" href="#barplots"><span class="header-section-number">7.4</span> Barplots</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a3"><span class="header-section-number">7.4.1</span> Activity 3: Bar plot</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#the-violin-boxplot"><span class="header-section-number">7.5</span> The Violin-boxplot</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a4"><span class="header-section-number">7.5.1</span> Activity 4: Violin-boxplot</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#layer-order"><span class="header-section-number">7.6</span> Layer order</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a5"><span class="header-section-number">7.6.1</span> Activity 5: Layers part 2</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#saving-your-figures"><span class="header-section-number">7.7</span> Saving your Figures</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a6"><span class="header-section-number">7.7.1</span> Activity 6: Saving plots</a></li></ul>
-</li>
+<li><a class="nav-link" href="#barplots"><span class="header-section-number">7.4</span> Barplots</a></li>
+<li><a class="nav-link" href="#the-violin-boxplot"><span class="header-section-number">7.5</span> The Violin-boxplot</a></li>
+<li><a class="nav-link" href="#layer-order"><span class="header-section-number">7.6</span> Layer order</a></li>
+<li><a class="nav-link" href="#saving-your-figures"><span class="header-section-number">7.7</span> Saving your Figures</a></li>
 <li><a class="nav-link" href="#introviz-fin"><span class="header-section-number">7.8</span> Finished!</a></li>
 <li><a class="nav-link" href="#test-yourself-2"><span class="header-section-number">7.9</span> Test Yourself</a></li>
 <li><a class="nav-link" href="#words-from-this-chapter-6"><span class="header-section-number">7.10</span> Words from this Chapter</a></li>
@@ -913,7 +903,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-24.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
