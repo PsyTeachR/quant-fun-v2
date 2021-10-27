@@ -22,7 +22,7 @@ To summarise, 39 professional recruiters from Fortune 500 companies evaluated jo
 
 As always, the first activity is about getting ourselves ready to analyse the data so try out the steps and if you need help, consult the earlier chapters.
 
-### Activity 1: Set-up {#ttest-a1}
+#### Activity 1: Set-up {#ttest-a1}
 
 * Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
     * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R`
@@ -38,7 +38,7 @@ As always, the first activity is about getting ourselves ready to analyse the da
 
 
 
-### Activity 2: Explore the dataset {#ttest-a2}
+#### Activity 2: Explore the dataset {#ttest-a2}
 
 There are a few things we should do to explore the dataset and make working with it a bit easier. 
 
@@ -58,7 +58,7 @@ evaluators <- evaluators %>%
 * How many participants were noted as being male: <input class='webex-solveme nospaces' size='1' data-answer='["4"]'/>
 * How many data points are missing for `sex`? <input class='webex-solveme nospaces' size='1' data-answer='["5"]'/>
 
-### Activity 3: Ratings {#ttest-a3}
+#### Activity 3: Ratings {#ttest-a3}
 
 We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
 
@@ -116,11 +116,11 @@ ratings2 <- ratings %>%
   arrange(eval_id, Category)
 ```
 
-## Visualising two groups
+### Visualising two groups
 
 You should **always** visualise your data before you run a statistical analysis. Not only will it help you interpret the results of the test but it will give you a better understanding of the spread of your data. For comparing two means, we can take advantage of the many plotting options R provides so we don't have to settle for a boring (and more importantly, uninformative, bar plot).
 
-### Activity 4: Visualisation {#ttest-a4}
+#### Activity 4: Visualisation {#ttest-a4}
 
 To visualise our data we are going to create a violin-boxplot.
 
@@ -141,9 +141,9 @@ ggplot(ratings2, aes(x = condition, y = Rating)) +
 
 * Look at the plot. In which condition did the evaluators give the higher ratings? <select class='webex-select'><option value='blank'></option><option value='answer'>listened</option><option value=''>read</option></select>
 
-## Assumptions
+### Assumptions
 
-### Activity 5: Assumptions {#ttest-a5}
+#### Activity 5: Assumptions {#ttest-a5}
 
 Before we run the t-test we need to check that the data meet the assumptions for a Welch t-test.
 
@@ -187,9 +187,9 @@ The p-value is .2088 which is more than .05, the cut-off for statistical signifi
   * Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? <select class='webex-select'><option value='blank'></option><option value='answer'>Homogeneity of variance</option><option value=''>Homoscedascity</option><option value=''>Nominal data</option></select>    
 * Why should you always use a Welch test instead of a Student t-test? <select class='webex-select'><option value='blank'></option><option value=''>Because it rhymes with squelch which is a funny word</option><option value=''>Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal</option><option value='answer'>Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal</option></select>.
 
-## Inferential analysis
+### Inferential analysis
 
-### Activity 6: Running the t-test {#ttest-a6}
+#### Activity 6: Running the t-test {#ttest-a6}
 
 We are going to conduct t-tests for the Intellect, Hire and Impression ratings separately; each time comparing evaluators' overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who **listened** to pitches give a significant higher or lower rating than evaluators that **read** pitches.
 
@@ -277,7 +277,7 @@ results_impression <-
 </ol>
 </div>
 
-### Activity 7: Correcting for multiple comparisons {#ttest-a7}
+#### Activity 7: Correcting for multiple comparisons {#ttest-a7}
 
 Because we've run three t-tests we risk inflating our chances of a Type 1 errors due to familywise error. To correct for this we can apply a correction for multiple comparisons.
 
@@ -312,9 +312,9 @@ results <- results %>%
                                method = "bonferroni")) # type of correction to apply
 ```
 
-## Effect Size
+### Effect Size
 
-### Activity 8: Effect size {#ttest-a8}
+#### Activity 8: Effect size {#ttest-a8}
 
 Before we interpret and write-up the results our last task is to calculate the effect size which for a t-test is Cohen's D. To do this, we will use the function `cohens_d()` from the `effectsize` package. The code is similar to the syntax for `t.test()`. 
 
@@ -333,9 +333,9 @@ hire_d <-
 impression_d <- 
 ```
 
-## Interpretation
+### Interpretation
 
-### Activity 9: Interpreting the results {#ttest-a9}
+#### Activity 9: Interpreting the results {#ttest-a9}
 
 * Were your results for `hire` significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places). Use the adjusted p-values:
 
@@ -356,9 +356,9 @@ impression_d <-
 
 * According to Cohen's (1988) guidelines, the effect sizes for all three tests are <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value=''>Medium</option><option value='answer'>Large</option></select>
 
-## Write-Up
+### Write-Up
 
-### Activity 10: Write-up {#ttest-a10}
+#### Activity 10: Write-up {#ttest-a10}
 
 Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file to replicate the results section in the paper (p.887). 
 
@@ -417,7 +417,7 @@ report(intellect_t)
 
 ## Within-subjects (paired-samples)
 
-### Activity 11: Paired-samples t-test {#ttest-a11}
+#### Activity 11: Paired-samples t-test {#ttest-a11}
 
 For the final activity we will run a paired-samples t-test for a within-subject design but we will do this much quicker than for the Welch test and just point out the differences in the code.
 
@@ -432,6 +432,7 @@ The authors argue that melodies are shared within social groups. Whereas childre
 
 To test this hypothesis, the researchers recruited 32 infants and their parents to complete an experiment. During their first visit to the lab, the parents were taught a new lullaby (one that neither they nor their infants had heard before). The experimenters asked the parents to sing the new lullaby to their child every day for the next 1-2 weeks. Following this 1-2 week exposure period, the parents and their infant returned to the lab to complete the experimental portion of the study. Infants were first shown a screen with side-by-side videos of two unfamiliar people, each of whom were silently smiling and looking at the infant. The researchers recorded the looking behaviour (or gaze) of the infants during this ‘baseline’ phase. Next, one by one, the two unfamiliar people on the screen sang either the lullaby that the parents learned or a different lullaby (that had the same lyrics and rhythm, but a different melody). Finally, the infants saw the same silent video used at baseline, and the researchers again recorded the looking behaviour of the infants during this ‘test’ phase. For more details on the experiment’s methods, please refer to Mehr et al. (2016) Experiment 1. 
 
+### The Data
 
 * First, download <a href="Mehr Song and Spelke 2016 Experiment 1.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> and run the below code to load and wrangle the data into the format we need - this code selects only the data we need for the analysis and renames variables to make them easier to work with.
 
@@ -444,7 +445,9 @@ gaze <- read_csv("Mehr Song and Spelke 2016 Experiment 1.csv") %>%
          test = Test_Proportion_Gaze_to_Singer)
 ```
 
-### Activity 12: Assumptions {#ttest-a12}
+### Assumptions
+
+#### Activity 12: Assumptions {#ttest-a12}
 
 The assumptions for the paired-samples t-test are a little different (although very similar) to the independent t-test.
 
@@ -464,7 +467,9 @@ gaze <- gaze %>%
 
 As you can see, from both the Shapiro-Wilk test and the QQ-plot, the data meet the assumption of normality so we can proceed.
 
-### Activity 13: Descriptives and visualisations {#ttest-a13}
+### Descriptives
+
+#### Activity 13: Descriptives and visualisations {#ttest-a13}
 
 It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using `tidyverse` tools.
 
@@ -478,7 +483,9 @@ gaze_tidy <- gaze %>%
   arrange(time, id)
 ```
 
-### Activity 14: Paired-samples t-test {#ttest-a14}
+### Inferential Analysis
+
+#### Activity 14: Paired-samples t-test {#ttest-a14}
 
 Finally, we can calculate the t-test and the effect size. The code is almost identical to the independent code with two differences:
 
@@ -503,8 +510,10 @@ The output of the paired-samples t-test is very similar to the independent test,
     + Mean `estimate` = <input class='webex-solveme nospaces' size='5' data-answer='["-0.07"]'/>  
     
     + t(<input class='webex-solveme nospaces' size='2' data-answer='["31"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.42"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.022",".022"]'/> 
-    
-### Activity 15: Write-up {#ttest-a15}
+
+### Write-up and Interpretation
+
+#### Activity 15: Write-up {#ttest-a15}
 
 Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file to replicate the results section in the paper (p.489). 
 

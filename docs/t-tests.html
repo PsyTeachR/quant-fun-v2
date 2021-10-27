@@ -113,10 +113,10 @@
 <span class="header-section-number">10.2</span> Data and Descriptives<a class="anchor" aria-label="anchor" href="#data-and-descriptives"><i class="fas fa-link"></i></a>
 </h2>
 <p>As always, the first activity is about getting ourselves ready to analyse the data so try out the steps and if you need help, consult the earlier chapters.</p>
-<div id="ttest-a1" class="section level3" number="10.2.1">
-<h3>
-<span class="header-section-number">10.2.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#ttest-a1"><i class="fas fa-link"></i></a>
-</h3>
+<div id="ttest-a1" class="section level4" number="10.2.0.1">
+<h4>
+<span class="header-section-number">10.2.0.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#ttest-a1"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>
 <p>Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.</p>
@@ -145,10 +145,10 @@
 <li><p>Finally, load the data into an object named <code>mh</code> using <code>read_csv()</code>.</p></li>
 </ul>
 </div>
-<div id="ttest-a2" class="section level3" number="10.2.2">
-<h3>
-<span class="header-section-number">10.2.2</span> Activity 2: Explore the dataset<a class="anchor" aria-label="anchor" href="#ttest-a2"><i class="fas fa-link"></i></a>
-</h3>
+<div id="ttest-a2" class="section level4" number="10.2.0.2">
+<h4>
+<span class="header-section-number">10.2.0.2</span> Activity 2: Explore the dataset<a class="anchor" aria-label="anchor" href="#ttest-a2"><i class="fas fa-link"></i></a>
+</h4>
 <p>There are a few things we should do to explore the dataset and make working with it a bit easier.</p>
 <ul>
 <li>Use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code><a href="https://rdrr.io/pkg/car/man/recode.html">recode()</a></code> to recode <code>sex</code> into a new variable <code>sex_labels</code> so that <code>1</code> = <code>male</code> and <code>2</code> = <code>female</code>. Be careful - there are multiple functions in different packages called recode, make sure to specify <code><a href="https://dplyr.tidyverse.org/reference/recode.html">dplyr::recode()</a></code> to get the right one.</li>
@@ -170,10 +170,10 @@
 </li>
 </ul>
 </div>
-<div id="ttest-a3" class="section level3" number="10.2.3">
-<h3>
-<span class="header-section-number">10.2.3</span> Activity 3: Ratings<a class="anchor" aria-label="anchor" href="#ttest-a3"><i class="fas fa-link"></i></a>
-</h3>
+<div id="ttest-a3" class="section level4" number="10.2.0.3">
+<h4>
+<span class="header-section-number">10.2.0.3</span> Activity 3: Ratings<a class="anchor" aria-label="anchor" href="#ttest-a3"><i class="fas fa-link"></i></a>
+</h4>
 <p>We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators <strong>read</strong> or <strong>listened</strong> to the candidates' resume pitches. This is calculated by averaging the ratings of <code>competent</code>, <code>thoughtful</code> and <code>intelligent</code> for each evaluator; held within <code>ratings.csv</code>. <strong>Note:</strong> we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.</p>
 <p>We will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called <code>ratings2</code> - which has the following structure:</p>
 <div class="inline-table"><table class="table table-sm">
@@ -264,16 +264,15 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">age</span>, <span class="op">-</span><span class="va">sex</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">eval_id</span>, <span class="va">Category</span><span class="op">)</span></code></pre></div>
 </div>
-</div>
-<div id="visualising-two-groups" class="section level2" number="10.3">
-<h2>
-<span class="header-section-number">10.3</span> Visualising two groups<a class="anchor" aria-label="anchor" href="#visualising-two-groups"><i class="fas fa-link"></i></a>
-</h2>
-<p>You should <strong>always</strong> visualise your data before you run a statistical analysis. Not only will it help you interpret the results of the test but it will give you a better understanding of the spread of your data. For comparing two means, we can take advantage of the many plotting options R provides so we don't have to settle for a boring (and more importantly, uninformative, bar plot).</p>
-<div id="ttest-a4" class="section level3" number="10.3.1">
+<div id="visualising-two-groups" class="section level3" number="10.2.1">
 <h3>
-<span class="header-section-number">10.3.1</span> Activity 4: Visualisation<a class="anchor" aria-label="anchor" href="#ttest-a4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.1</span> Visualising two groups<a class="anchor" aria-label="anchor" href="#visualising-two-groups"><i class="fas fa-link"></i></a>
 </h3>
+<p>You should <strong>always</strong> visualise your data before you run a statistical analysis. Not only will it help you interpret the results of the test but it will give you a better understanding of the spread of your data. For comparing two means, we can take advantage of the many plotting options R provides so we don't have to settle for a boring (and more importantly, uninformative, bar plot).</p>
+<div id="ttest-a4" class="section level4" number="10.2.1.1">
+<h4>
+<span class="header-section-number">10.2.1.1</span> Activity 4: Visualisation<a class="anchor" aria-label="anchor" href="#ttest-a4"><i class="fas fa-link"></i></a>
+</h4>
 <p>To visualise our data we are going to create a violin-boxplot.</p>
 <ul>
 <li>
@@ -299,14 +298,14 @@
 </ul>
 </div>
 </div>
-<div id="assumptions" class="section level2" number="10.4">
-<h2>
-<span class="header-section-number">10.4</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions"><i class="fas fa-link"></i></a>
-</h2>
-<div id="ttest-a5" class="section level3" number="10.4.1">
+<div id="assumptions" class="section level3" number="10.2.2">
 <h3>
-<span class="header-section-number">10.4.1</span> Activity 5: Assumptions<a class="anchor" aria-label="anchor" href="#ttest-a5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.2</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a5" class="section level4" number="10.2.2.1">
+<h4>
+<span class="header-section-number">10.2.2.1</span> Activity 5: Assumptions<a class="anchor" aria-label="anchor" href="#ttest-a5"><i class="fas fa-link"></i></a>
+</h4>
 <p>Before we run the t-test we need to check that the data meet the assumptions for a Welch t-test.</p>
 <ol style="list-style-type: decimal">
 <li>The data are interval/ratio</li>
@@ -356,14 +355,14 @@ Explain this answer
 </ul>
 </div>
 </div>
-<div id="inferential-analysis" class="section level2" number="10.5">
-<h2>
-<span class="header-section-number">10.5</span> Inferential analysis<a class="anchor" aria-label="anchor" href="#inferential-analysis"><i class="fas fa-link"></i></a>
-</h2>
-<div id="ttest-a6" class="section level3" number="10.5.1">
+<div id="inferential-analysis" class="section level3" number="10.2.3">
 <h3>
-<span class="header-section-number">10.5.1</span> Activity 6: Running the t-test<a class="anchor" aria-label="anchor" href="#ttest-a6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.3</span> Inferential analysis<a class="anchor" aria-label="anchor" href="#inferential-analysis"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a6" class="section level4" number="10.2.3.1">
+<h4>
+<span class="header-section-number">10.2.3.1</span> Activity 6: Running the t-test<a class="anchor" aria-label="anchor" href="#ttest-a6"><i class="fas fa-link"></i></a>
+</h4>
 <p>We are going to conduct t-tests for the Intellect, Hire and Impression ratings separately; each time comparing evaluators' overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who <strong>listened</strong> to pitches give a significant higher or lower rating than evaluators that <strong>read</strong> pitches.</p>
 <ul>
 <li>First, calculate the mean and SD for each condition and category to help with reporting the descriptive statistics.</li>
@@ -403,7 +402,7 @@ Explain this answer
 </ul>
 <div class="sourceCode" id="cb182"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_intellect</span> <span class="op">&lt;-</span> <span class="va">intellect_t</span> <span class="op">%&gt;%</span>
-  <span class="fu">tidy</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>The output is in a nice table format that makes it easy to extract individual values but it is worth explaining what each variable means:</p>
 <ul>
 <li><p><code>estimate</code> is the difference between the two means</p></li>
@@ -441,10 +440,10 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </ol>
 </div>
 </div>
-<div id="ttest-a7" class="section level3" number="10.5.2">
-<h3>
-<span class="header-section-number">10.5.2</span> Activity 7: Correcting for multiple comparisons<a class="anchor" aria-label="anchor" href="#ttest-a7"><i class="fas fa-link"></i></a>
-</h3>
+<div id="ttest-a7" class="section level4" number="10.2.3.2">
+<h4>
+<span class="header-section-number">10.2.3.2</span> Activity 7: Correcting for multiple comparisons<a class="anchor" aria-label="anchor" href="#ttest-a7"><i class="fas fa-link"></i></a>
+</h4>
 <p>Because we've run three t-tests we risk inflating our chances of a Type 1 errors due to familywise error. To correct for this we can apply a correction for multiple comparisons.</p>
 <p>To do this first of all we need to join all the results of the t-tests
 together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code> which is one of the reasons why it was useful to <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> the t-test ouput.</p>
@@ -536,14 +535,14 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
                                method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span><span class="op">)</span> <span class="co"># type of correction to apply</span></code></pre></div>
 </div>
 </div>
-<div id="effect-size" class="section level2" number="10.6">
-<h2>
-<span class="header-section-number">10.6</span> Effect Size<a class="anchor" aria-label="anchor" href="#effect-size"><i class="fas fa-link"></i></a>
-</h2>
-<div id="ttest-a8" class="section level3" number="10.6.1">
+<div id="effect-size" class="section level3" number="10.2.4">
 <h3>
-<span class="header-section-number">10.6.1</span> Activity 8: Effect size<a class="anchor" aria-label="anchor" href="#ttest-a8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.4</span> Effect Size<a class="anchor" aria-label="anchor" href="#effect-size"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a8" class="section level4" number="10.2.4.1">
+<h4>
+<span class="header-section-number">10.2.4.1</span> Activity 8: Effect size<a class="anchor" aria-label="anchor" href="#ttest-a8"><i class="fas fa-link"></i></a>
+</h4>
 <p>Before we interpret and write-up the results our last task is to calculate the effect size which for a t-test is Cohen's D. To do this, we will use the function <code><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d()</a></code> from the <code>effectsize</code> package. The code is similar to the syntax for <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code>.</p>
 <ul>
 <li>The first argument should specify the formula, using the same syntax as <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code>, that is <code>dv ~ iv</code>.</li>
@@ -558,14 +557,14 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 <span id="cb186-5"><a href="t-tests.html#cb186-5" aria-hidden="true" tabindex="-1"></a>impression_d <span class="ot">&lt;-</span> </span></code></pre></div>
 </div>
 </div>
-<div id="interpretation" class="section level2" number="10.7">
-<h2>
-<span class="header-section-number">10.7</span> Interpretation<a class="anchor" aria-label="anchor" href="#interpretation"><i class="fas fa-link"></i></a>
-</h2>
-<div id="ttest-a9" class="section level3" number="10.7.1">
+<div id="interpretation" class="section level3" number="10.2.5">
 <h3>
-<span class="header-section-number">10.7.1</span> Activity 9: Interpreting the results<a class="anchor" aria-label="anchor" href="#ttest-a9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.5</span> Interpretation<a class="anchor" aria-label="anchor" href="#interpretation"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a9" class="section level4" number="10.2.5.1">
+<h4>
+<span class="header-section-number">10.2.5.1</span> Activity 9: Interpreting the results<a class="anchor" aria-label="anchor" href="#ttest-a9"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>
 <p>Were your results for <code>hire</code> significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places). Use the adjusted p-values:</p>
@@ -590,14 +589,14 @@ together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">b
 </ul>
 </div>
 </div>
-<div id="write-up" class="section level2" number="10.8">
-<h2>
-<span class="header-section-number">10.8</span> Write-Up<a class="anchor" aria-label="anchor" href="#write-up"><i class="fas fa-link"></i></a>
-</h2>
-<div id="ttest-a10" class="section level3" number="10.8.1">
+<div id="write-up" class="section level3" number="10.2.6">
 <h3>
-<span class="header-section-number">10.8.1</span> Activity 10: Write-up<a class="anchor" aria-label="anchor" href="#ttest-a10"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.6</span> Write-Up<a class="anchor" aria-label="anchor" href="#write-up"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a10" class="section level4" number="10.2.6.1">
+<h4>
+<span class="header-section-number">10.2.6.1</span> Activity 10: Write-up<a class="anchor" aria-label="anchor" href="#ttest-a10"><i class="fas fa-link"></i></a>
+</h4>
 <p>Copy and paste the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knit the file to replicate the results section in the paper (p.887).</p>
 <ul>
 <li>Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. Look back at the paper and see what differences this makes.</li>
@@ -682,14 +681,15 @@ Finally, they also reported being more likely to hire the candidates when they l
 </blockquote>
 </div>
 </div>
-<div id="within-subjects-paired-samples" class="section level2" number="10.9">
+</div>
+<div id="within-subjects-paired-samples" class="section level2" number="10.3">
 <h2>
-<span class="header-section-number">10.9</span> Within-subjects (paired-samples)<a class="anchor" aria-label="anchor" href="#within-subjects-paired-samples"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3</span> Within-subjects (paired-samples)<a class="anchor" aria-label="anchor" href="#within-subjects-paired-samples"><i class="fas fa-link"></i></a>
 </h2>
-<div id="ttest-a11" class="section level3" number="10.9.1">
-<h3>
-<span class="header-section-number">10.9.1</span> Activity 11: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a11"><i class="fas fa-link"></i></a>
-</h3>
+<div id="ttest-a11" class="section level4" number="10.3.0.1">
+<h4>
+<span class="header-section-number">10.3.0.1</span> Activity 11: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a11"><i class="fas fa-link"></i></a>
+</h4>
 <p>For the final activity we will run a paired-samples t-test for a within-subject design but we will do this much quicker than for the Welch test and just point out the differences in the code.</p>
 <p>For this example we will again draw from the <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities">Open Stats Lab</a> and look at data from the following paper:</p>
 <p><a href="https://journals.sagepub.com/stoken/default+domain/d5HcBHg85XamSXGdYqYN/full">Mehr, S. A., Song. L. A., &amp; Spelke, E. S. (2016). For 5-month-old infants, melodies are social. Psychological Science, 27, 486-501.</a></p>
@@ -697,6 +697,11 @@ Finally, they also reported being more likely to hire the candidates when they l
 important social information to infants. Specifically, melodies convey information about social affiliation.</p>
 <p>The authors argue that melodies are shared within social groups. Whereas children growing up in one culture may be exposed to certain songs as infants (e.g., “Rock-a-bye Baby”), children growing up in other cultures (or even other groups within a culture) may be exposed to different songs. Thus, when a novel person (someone who the infant has never seen before) sings a familiar song, it may signal to the infant that this new person is a member of their social group.</p>
 <p>To test this hypothesis, the researchers recruited 32 infants and their parents to complete an experiment. During their first visit to the lab, the parents were taught a new lullaby (one that neither they nor their infants had heard before). The experimenters asked the parents to sing the new lullaby to their child every day for the next 1-2 weeks. Following this 1-2 week exposure period, the parents and their infant returned to the lab to complete the experimental portion of the study. Infants were first shown a screen with side-by-side videos of two unfamiliar people, each of whom were silently smiling and looking at the infant. The researchers recorded the looking behaviour (or gaze) of the infants during this ‘baseline’ phase. Next, one by one, the two unfamiliar people on the screen sang either the lullaby that the parents learned or a different lullaby (that had the same lyrics and rhythm, but a different melody). Finally, the infants saw the same silent video used at baseline, and the researchers again recorded the looking behaviour of the infants during this ‘test’ phase. For more details on the experiment’s methods, please refer to Mehr et al. (2016) Experiment 1.</p>
+</div>
+<div id="the-data-1" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> The Data<a class="anchor" aria-label="anchor" href="#the-data-1"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>First, download <a href="Mehr%20Song%20and%20Spelke%202016%20Experiment%201.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> and run the below code to load and wrangle the data into the format we need - this code selects only the data we need for the analysis and renames variables to make them easier to work with.</li>
 </ul>
@@ -707,10 +712,14 @@ important social information to infants. Specifically, melodies convey informati
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>baseline <span class="op">=</span> <span class="va">Baseline_Proportion_Gaze_to_Singer</span>,
          test <span class="op">=</span> <span class="va">Test_Proportion_Gaze_to_Singer</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a12" class="section level3" number="10.9.2">
+<div id="assumptions-1" class="section level3" number="10.3.2">
 <h3>
-<span class="header-section-number">10.9.2</span> Activity 12: Assumptions<a class="anchor" aria-label="anchor" href="#ttest-a12"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.2</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a12" class="section level4" number="10.3.2.1">
+<h4>
+<span class="header-section-number">10.3.2.1</span> Activity 12: Assumptions<a class="anchor" aria-label="anchor" href="#ttest-a12"><i class="fas fa-link"></i></a>
+</h4>
 <p>The assumptions for the paired-samples t-test are a little different (although very similar) to the independent t-test.</p>
 <ol style="list-style-type: decimal">
 <li>The dependent variable must be continuous (interval/ratio).<br>
@@ -727,10 +736,15 @@ important social information to infants. Specifically, melodies convey informati
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">baseline</span> <span class="op">-</span> <span class="va">test</span><span class="op">)</span></code></pre></div>
 <p>As you can see, from both the Shapiro-Wilk test and the QQ-plot, the data meet the assumption of normality so we can proceed.</p>
 </div>
-<div id="ttest-a13" class="section level3" number="10.9.3">
+</div>
+<div id="descriptives" class="section level3" number="10.3.3">
 <h3>
-<span class="header-section-number">10.9.3</span> Activity 13: Descriptives and visualisations<a class="anchor" aria-label="anchor" href="#ttest-a13"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.3</span> Descriptives<a class="anchor" aria-label="anchor" href="#descriptives"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a13" class="section level4" number="10.3.3.1">
+<h4>
+<span class="header-section-number">10.3.3.1</span> Activity 13: Descriptives and visualisations<a class="anchor" aria-label="anchor" href="#ttest-a13"><i class="fas fa-link"></i></a>
+</h4>
 <p>It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using <code>tidyverse</code> tools.</p>
 <ul>
 <li>Run the below code to tidy the data and then create the same violin-boxplot as you did for the independent t-test (hint: it is perfectly acceptable to copy and paste the code from Activity 4 and change the data and variable names).</li>
@@ -741,10 +755,15 @@ important social information to infants. Specifically, melodies convey informati
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">diff</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">id</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a14" class="section level3" number="10.9.4">
+</div>
+<div id="inferential-analysis-1" class="section level3" number="10.3.4">
 <h3>
-<span class="header-section-number">10.9.4</span> Activity 14: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a14"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.4</span> Inferential Analysis<a class="anchor" aria-label="anchor" href="#inferential-analysis-1"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a14" class="section level4" number="10.3.4.1">
+<h4>
+<span class="header-section-number">10.3.4.1</span> Activity 14: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a14"><i class="fas fa-link"></i></a>
+</h4>
 <p>Finally, we can calculate the t-test and the effect size. The code is almost identical to the independent code with two differences:</p>
 <ol style="list-style-type: decimal">
 <li>In <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> you should specify <code>paired = TRUE</code> rather than <code>FALSE</code>
@@ -769,10 +788,15 @@ important social information to infants. Specifically, melodies convey informati
 </li>
 </ul>
 </div>
-<div id="ttest-a15" class="section level3" number="10.9.5">
+</div>
+<div id="write-up-and-interpretation" class="section level3" number="10.3.5">
 <h3>
-<span class="header-section-number">10.9.5</span> Activity 15: Write-up<a class="anchor" aria-label="anchor" href="#ttest-a15"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.3.5</span> Write-up and Interpretation<a class="anchor" aria-label="anchor" href="#write-up-and-interpretation"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a15" class="section level4" number="10.3.5.1">
+<h4>
+<span class="header-section-number">10.3.5.1</span> Activity 15: Write-up<a class="anchor" aria-label="anchor" href="#ttest-a15"><i class="fas fa-link"></i></a>
+</h4>
 <p>Copy and paste the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knit the file to replicate the results section in the paper (p.489).</p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="t-tests.html#cb195-1" aria-hidden="true" tabindex="-1"></a>At test, however, the infants selectively attended to the now<span class="sc">-</span>silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at <span class="fu">baseline</span> (difference <span class="cf">in</span> proportion of looking<span class="sc">:</span> <span class="at">M =</span> <span class="st">`</span><span class="at">r gaze_test$estimate %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sd(gaze$diff, na.rm = TRUE) %&gt;% round(2)</span><span class="st">`</span>, <span class="dv">95</span><span class="sc">% CI = [`r gaze_test$conf.low %</span><span class="er">&gt;</span><span class="sc">% round(2)`, `r gaze_test$conf.high %</span><span class="er">&gt;</span><span class="sc">% round(2)`]), t(`r gaze_test$parameter`) = `r gaze_test$statistic %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p = `r gaze_test$p.value %</span><span class="er">&gt;</span><span class="sc">% round(3)`, d = `r gaze_d$Cohens_d %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">.</span></span></code></pre></div>
 <blockquote>
@@ -787,25 +811,26 @@ important social information to infants. Specifically, melodies convey informati
 ## The Paired t-test testing the difference of looking by time (mean of the differences = -0.07) suggests that the effect is negative, statistically significant, and small (difference = -0.07, 95% CI [-0.13, -0.01], t(31) = -2.42, p = 0.022; Cohen's d = -0.43, 95% CI [-0.80, -0.06])</code></pre>
 </div>
 </div>
-<div id="ttest-fin" class="section level2" number="10.10">
+</div>
+<div id="ttest-fin" class="section level2" number="10.4">
 <h2>
-<span class="header-section-number">10.10</span> Finished!<a class="anchor" aria-label="anchor" href="#ttest-fin"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4</span> Finished!<a class="anchor" aria-label="anchor" href="#ttest-fin"><i class="fas fa-link"></i></a>
 </h2>
 <p>That was a long chapter but now that you've done all the statistical tests you need to complete your quantitative project - hopefully you will see that it really is true that the hardest part is the set-up and the data wrangling. As we've said before, you don't need to memorise lines of code - you just need to remember where to find examples and to understand which bits of them you need to change. Play around with the examples we have given you and see what changing the values does.</p>
 </div>
-<div id="test-yourself-4" class="section level2" number="10.11">
+<div id="test-yourself-4" class="section level2" number="10.5">
 <h2>
-<span class="header-section-number">10.11</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-4"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="ttest-sols" class="section level2" number="10.12">
+<div id="ttest-sols" class="section level2" number="10.6">
 <h2>
-<span class="header-section-number">10.12</span> Activity solutions<a class="anchor" aria-label="anchor" href="#ttest-sols"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6</span> Activity solutions<a class="anchor" aria-label="anchor" href="#ttest-sols"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.</p>
-<div id="ttest-a1sol" class="section level4" number="10.12.0.1">
+<div id="ttest-a1sol" class="section level4" number="10.6.0.1">
 <h4>
-<span class="header-section-number">10.12.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#ttest-a1sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#ttest-a1sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
@@ -815,9 +840,9 @@ important social information to infants. Specifically, melodies convey informati
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span>
 <span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"evaluators.csv"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a2sol" class="section level4" number="10.12.0.2">
+<div id="ttest-a2sol" class="section level4" number="10.6.0.2">
 <h4>
-<span class="header-section-number">10.12.0.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#ttest-a2sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#ttest-a2sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="va">evaluators</span> <span class="op">%&gt;%</span>
@@ -826,18 +851,18 @@ important social information to infants. Specifically, melodies convey informati
          condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">evaluators</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a6sol" class="section level4" number="10.12.0.3">
+<div id="ttest-a6sol" class="section level4" number="10.6.0.3">
 <h4>
-<span class="header-section-number">10.12.0.3</span> Activity 6<a class="anchor" aria-label="anchor" href="#ttest-a6sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.3</span> Activity 6<a class="anchor" aria-label="anchor" href="#ttest-a6sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span>
 <span class="va">hire</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"hire"</span><span class="op">)</span>
 <span class="va">impression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"impression"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a8sol" class="section level4" number="10.12.0.4">
+<div id="ttest-a8sol" class="section level4" number="10.6.0.4">
 <h4>
-<span class="header-section-number">10.12.0.4</span> Activity 8<a class="anchor" aria-label="anchor" href="#ttest-a8sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.4</span> Activity 8<a class="anchor" aria-label="anchor" href="#ttest-a8sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
@@ -850,18 +875,18 @@ important social information to infants. Specifically, melodies convey informati
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">impression</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a12sol" class="section level4" number="10.12.0.5">
+<div id="ttest-a12sol" class="section level4" number="10.6.0.5">
 <h4>
-<span class="header-section-number">10.12.0.5</span> Activity 12<a class="anchor" aria-label="anchor" href="#ttest-a12sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.5</span> Activity 12<a class="anchor" aria-label="anchor" href="#ttest-a12sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gaze</span><span class="op">$</span><span class="va">diff</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">gaze</span><span class="op">$</span><span class="va">diff</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a13sol" class="section level4" number="10.12.0.6">
+<div id="ttest-a13sol" class="section level4" number="10.6.0.6">
 <h4>
-<span class="header-section-number">10.12.0.6</span> Activity 13<a class="anchor" aria-label="anchor" href="#ttest-a13sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.6</span> Activity 13<a class="anchor" aria-label="anchor" href="#ttest-a13sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">gaze_tidy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">looking</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
@@ -869,9 +894,9 @@ important social information to infants. Specifically, melodies convey informati
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a14sol" class="section level4" number="10.12.0.7">
+<div id="ttest-a14sol" class="section level4" number="10.6.0.7">
 <h4>
-<span class="header-section-number">10.12.0.7</span> Activity 14<a class="anchor" aria-label="anchor" href="#ttest-a14sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.6.0.7</span> Activity 14<a class="anchor" aria-label="anchor" href="#ttest-a14sol"><i class="fas fa-link"></i></a>
 </h4>
 <div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, paired <span class="op">=</span> <span class="cn">TRUE</span>, data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span>
@@ -879,9 +904,9 @@ important social information to infants. Specifically, melodies convey informati
 <span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, method <span class="op">=</span> <span class="st">"paired"</span>, data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="words-from-this-chapter-9" class="section level2" number="10.13">
+<div id="words-from-this-chapter-9" class="section level2" number="10.7">
 <h2>
-<span class="header-section-number">10.13</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.7</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
 <div class="kable-table">
@@ -1102,45 +1127,27 @@ $( document ).ready(function() {
 <li><a class="nav-link" href="#between-subjects-t-tests-two-sample"><span class="header-section-number">10.1</span> Between-Subjects t-tests (two-sample)</a></li>
 <li>
 <a class="nav-link" href="#data-and-descriptives"><span class="header-section-number">10.2</span> Data and Descriptives</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ttest-a1"><span class="header-section-number">10.2.1</span> Activity 1: Set-up</a></li>
-<li><a class="nav-link" href="#ttest-a2"><span class="header-section-number">10.2.2</span> Activity 2: Explore the dataset</a></li>
-<li><a class="nav-link" href="#ttest-a3"><span class="header-section-number">10.2.3</span> Activity 3: Ratings</a></li>
+<li><a class="nav-link" href="#visualising-two-groups"><span class="header-section-number">10.2.1</span> Visualising two groups</a></li>
+<li><a class="nav-link" href="#assumptions"><span class="header-section-number">10.2.2</span> Assumptions</a></li>
+<li><a class="nav-link" href="#inferential-analysis"><span class="header-section-number">10.2.3</span> Inferential analysis</a></li>
+<li><a class="nav-link" href="#effect-size"><span class="header-section-number">10.2.4</span> Effect Size</a></li>
+<li><a class="nav-link" href="#interpretation"><span class="header-section-number">10.2.5</span> Interpretation</a></li>
+<li><a class="nav-link" href="#write-up"><span class="header-section-number">10.2.6</span> Write-Up</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#visualising-two-groups"><span class="header-section-number">10.3</span> Visualising two groups</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ttest-a4"><span class="header-section-number">10.3.1</span> Activity 4: Visualisation</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#assumptions"><span class="header-section-number">10.4</span> Assumptions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ttest-a5"><span class="header-section-number">10.4.1</span> Activity 5: Assumptions</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#inferential-analysis"><span class="header-section-number">10.5</span> Inferential analysis</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ttest-a6"><span class="header-section-number">10.5.1</span> Activity 6: Running the t-test</a></li>
-<li><a class="nav-link" href="#ttest-a7"><span class="header-section-number">10.5.2</span> Activity 7: Correcting for multiple comparisons</a></li>
+<a class="nav-link" href="#within-subjects-paired-samples"><span class="header-section-number">10.3</span> Within-subjects (paired-samples)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-data-1"><span class="header-section-number">10.3.1</span> The Data</a></li>
+<li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">10.3.2</span> Assumptions</a></li>
+<li><a class="nav-link" href="#descriptives"><span class="header-section-number">10.3.3</span> Descriptives</a></li>
+<li><a class="nav-link" href="#inferential-analysis-1"><span class="header-section-number">10.3.4</span> Inferential Analysis</a></li>
+<li><a class="nav-link" href="#write-up-and-interpretation"><span class="header-section-number">10.3.5</span> Write-up and Interpretation</a></li>
 </ul>
 </li>
-<li>
-<a class="nav-link" href="#effect-size"><span class="header-section-number">10.6</span> Effect Size</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ttest-a8"><span class="header-section-number">10.6.1</span> Activity 8: Effect size</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#interpretation"><span class="header-section-number">10.7</span> Interpretation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ttest-a9"><span class="header-section-number">10.7.1</span> Activity 9: Interpreting the results</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#write-up"><span class="header-section-number">10.8</span> Write-Up</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#ttest-a10"><span class="header-section-number">10.8.1</span> Activity 10: Write-up</a></li></ul>
-</li>
-<li>
-<a class="nav-link" href="#within-subjects-paired-samples"><span class="header-section-number">10.9</span> Within-subjects (paired-samples)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ttest-a11"><span class="header-section-number">10.9.1</span> Activity 11: Paired-samples t-test</a></li>
-<li><a class="nav-link" href="#ttest-a12"><span class="header-section-number">10.9.2</span> Activity 12: Assumptions</a></li>
-<li><a class="nav-link" href="#ttest-a13"><span class="header-section-number">10.9.3</span> Activity 13: Descriptives and visualisations</a></li>
-<li><a class="nav-link" href="#ttest-a14"><span class="header-section-number">10.9.4</span> Activity 14: Paired-samples t-test</a></li>
-<li><a class="nav-link" href="#ttest-a15"><span class="header-section-number">10.9.5</span> Activity 15: Write-up</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#ttest-fin"><span class="header-section-number">10.10</span> Finished!</a></li>
-<li><a class="nav-link" href="#test-yourself-4"><span class="header-section-number">10.11</span> Test Yourself</a></li>
-<li><a class="nav-link" href="#ttest-sols"><span class="header-section-number">10.12</span> Activity solutions</a></li>
-<li><a class="nav-link" href="#words-from-this-chapter-9"><span class="header-section-number">10.13</span> Words from this Chapter</a></li>
+<li><a class="nav-link" href="#ttest-fin"><span class="header-section-number">10.4</span> Finished!</a></li>
+<li><a class="nav-link" href="#test-yourself-4"><span class="header-section-number">10.5</span> Test Yourself</a></li>
+<li><a class="nav-link" href="#ttest-sols"><span class="header-section-number">10.6</span> Activity solutions</a></li>
+<li><a class="nav-link" href="#words-from-this-chapter-9"><span class="header-section-number">10.7</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">
