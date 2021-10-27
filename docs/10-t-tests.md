@@ -1,41 +1,44 @@
 # t-tests
 
-Two-sample designs are very common as often we want to know whether there is a difference between groups on a particular variable.  There are different types of two-sample designs depending on whether or not the two groups are independent (e.g. different participants on different conditions) or not (e.g. same participants on different conditions).  In this lab we will perform one test of each type.
+Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a different variable.  One of the really confusing things however about research design is that there are many names for the same type of design. To clarify:
 
-<div class="try">
-<p>One of the really confusing things about research design is that there are many names for the same type of design.</p>
-<ul>
-<li>Independent and between-subjects design typically mean the same thing - different participants in different conditions</li>
-<li>Within-subjects, dependent, paired samples, and repeated-measures tend to mean the same participants in all conditions</li>
-<li>Matched pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)</li>
-<li>Mixed design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half do ratings of trustworthiness (between).</li>
-</ul>
-</div>
+* One-sample are used to study one group of people against a known norm or criterion - for example, comparing the mean IQ of a sample against a known population norm such as an IQ of 100.
+* Independent-samples and between-subjects designs mean the same thing - different participants in different conditions.
+* In contrast, within-subjects, dependent-samples, paired-samples, and repeated-measures all tend to mean the same participants in all conditions
+* Matched-pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)
+* Mixed-design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half of the participants do ratings of trustworthiness (between).
 
+To get a better understanding of how some of these tests run we will look at running an example of a between-subjects t-test and a within-subjects t-test through a series of activities. Remember that the solutions are at the bottom of the page if you are stuck, and please do ask questions on the forums.
 
-For the independent t-test we will be using data from Schroeder and Epley (2015). You can take a look at the Psychological Science article here:
+## Between-Subjects t-tests (two-sample)
 
-[Schroeder, J. and Epley, N. (2015). The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal. Psychological Science, 26, 277--891.](https://doi.org/10.1177/0956797615572906)
-
-The abstract from this article explains more about the different experiments conducted (we will be specifically looking at the dataset from Experiment 4, courtesy of the [Open Stats Lab](https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities):
+We will begin by looking at the between-subjects t-test which is used for comparing the outcome in two groups of different people. Here we will be using data from Schroeder and Epley (2015) on the perception of people from their job applications. You can take a look at the Psychological Science article here, [Schroeder, J. and Epley, N. (2015). The sound of intellect: Speech reveals a thoughtful mind, increasing a job candidate's appeal. Psychological Science, 26, 277--891.](https://doi.org/10.1177/0956797615572906){target="_blank"}, if you like but it is not essential for completing the activities. The abstract from this article explains more about the different experiments conducted, and we will be specifically looking at the data set from Experiment 4, based on information from the [Open Stats Lab](https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities){target="_blank"}. The abstract reads:
 
 > A person's mental capacities, such as intellect, cannot be observed directly and so are instead inferred from indirect cues. We predicted that a person's intellect would be conveyed most strongly through a cue closely tied to actual thinking: his or her voice. Hypothetical employers (Experiments 1-3b) and professional recruiters (Experiment 4) watched, listened to, or read job candidates' pitches about why they should be hired. These evaluators (the employers) rated a candidate as more competent, thoughtful, and intelligent when they heard a pitch rather than read it and, as a result, had a more favourable impression of the candidate and were more interested in hiring the candidate. Adding voice to written pitches, by having trained actors (Experiment 3a) or untrained adults (Experiment 3b) read them, produced the same results. Adding visual cues to audio pitches did not alter evaluations of the candidates. For conveying one's intellect, it is important that one's voice, quite literally, be heard.
 
-To summarise, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887--889 of the article if you want to look at them specifically for more details. The original data, in **wide** format, can be found at the [Open Stats Lab](https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00) website for later self-directed learning. Today however, we will be working with a modified version in "tidy" format which can be downloaded from Moodle. 
+To summarise, 39 professional recruiters from Fortune 500 companies evaluated job pitches of M.B.A. candidates from the University of Chicago Booth School of Business. The methods and results appear on pages 887-889 of the article if you want to look at them specifically for more details and the original data, in **wide** format, can be found at the [Open Stats Lab](https://drive.google.com/open?id=0Bz-rhZ21ShvOei1MM24xNndnQ00){target="_blank"} website for later self-directed learning. Today however, we will be working with a modified version in "tidy" format which can be downloaded below and what we plan to do is reproduce the results from the article on Pg 887.
 
-## Activity 1: Set-up {#ttest-a1}
+## Data and Descriptives
 
-Your task is to reproduce the results from the article (p. 887). 
+As always, the first activity is about getting ourselves ready to analyse the data so try out the steps and if you need help, consult the earlier chapters.
 
-* Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.   
-* Open a new R Markdown document and save it in your working directory. Call the file "t-tests".    
-* Download <a href="evaluators.csv" download>evaluators.csv</a> and <a href="ratings.csv" download>ratings.csv</a> and save them in your t-test folder. Make sure that you do not change the file names at all.    
-* If you're on the server, avoid a number of issues by restarting the session - click `Session` - `Restart R` 
-* Delete the default R Markdown welcome text and insert a new code chunk that loads `broom`, `car`, `effectsize`, `report`  and `tidyverse` using the `library()` function and loads the data into an object named `evaluators` using `read_csv()`. You may need to install some of these packages if you don't already have them.
+### Activity 1: Set-up {#ttest-a1}
+
+* Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
+    * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R`
+* Open a new R Markdown document and save it in your working directory. Call the file "ttests".   
+
+* Download <a href="evaluators.csv" download>evaluators.csv</a> and <a href="ratings.csv" download>ratings.csv</a> and save them in your t-test folder. Make sure that you do not change the file names at all.
+  * If you prefer you can download the data in a [zip folder by clicking here](data/chpt10/PsyTeachR_FQA_Chpt10-data.zip){target="_blank"}
+  * Remember not to change the file names at all and that `data.csv` is not the same as `data (1).csv`.
+* Delete the default R Markdown welcome text and insert a new code chunk that loads the following packages, in this specific order, using the `library()` function. Remember the solutions if needed.
+  * Load the packages in this order, `broom`, `car`,`effectsize`, `report`, and `tidyverse`
+  * again we have not used some of these packages so you will likely need to install some of them using `install.packages()`. Remember though that you should only do this on your own machine and only in the console window. If you are using the RServer you will not need to install them.
+* Finally, load the data into an object named `mh` using `read_csv()`. 
 
 
 
-## Activity 2: Explore the dataset {#ttest-a2}
+### Activity 2: Explore the dataset {#ttest-a2}
 
 There are a few things we should do to explore the dataset and make working with it a bit easier. 
 
@@ -55,7 +58,7 @@ evaluators <- evaluators %>%
 * How many participants were noted as being male: <input class='webex-solveme nospaces' size='1' data-answer='["4"]'/>
 * How many data points are missing for `sex`? <input class='webex-solveme nospaces' size='1' data-answer='["5"]'/>
 
-## Activity 3: Ratings {#ttest-a3}
+### Activity 3: Ratings {#ttest-a3}
 
 We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
 
@@ -113,14 +116,16 @@ ratings2 <- ratings %>%
   arrange(eval_id, Category)
 ```
 
-## Activity 4: Visualisation {#ttest-a4}
+## Visualising two groups
 
 You should **always** visualise your data before you run a statistical analysis. Not only will it help you interpret the results of the test but it will give you a better understanding of the spread of your data. For comparing two means, we can take advantage of the many plotting options R provides so we don't have to settle for a boring (and more importantly, uninformative, bar plot).
+
+### Activity 4: Visualisation {#ttest-a4}
 
 To visualise our data we are going to create a violin-boxplot.
 
 * `geom_violin()` represents density. The fatter the plot, the more data points there are for that . The reason it is called a violin plot is because if your data are normally distributed it should look something like a violin.  
-* `geom_boxplot()` shows the median and inter-quartile range (see [here](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51) if you would like more information). The boxplot can also give you a good idea if the data are skewed - the median line should be in the middle of the box, if it's not, chances are the data are skewed.  
+* `geom_boxplot()` shows the median and inter-quartile range (see [here](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51){target="_blank"} if you would like more information). The boxplot can also give you a good idea if the data are skewed - the median line should be in the middle of the box, if it's not, chances are the data are skewed.  
 * For displaying the mean and confidence intervals, rather than calling a specified geom, we call stat_summary(). `fun.data` specifies the a summary function that gives us the summary of the data we want to plot, in this case, `mean_cl_normal` which will calculate the mean plus the upper and lower confidence interval limits. You could also specify `mean_se` here if you wanted standard error. Finally, `geom` specifies what shape or plot we want to use to display the summary, in this case we want a `pointrange` (literally a point (the mean) with a range (the CI)).
 
 Run the below code to produce the plot. It is a good idea to save code 'recipes' for tasks that you will likely want to repeat in the future. You do not need to memorise lines of code, you only need to understand how to alter examples to work with your specific data set.
@@ -136,7 +141,9 @@ ggplot(ratings2, aes(x = condition, y = Rating)) +
 
 * Look at the plot. In which condition did the evaluators give the higher ratings? <select class='webex-select'><option value='blank'></option><option value='answer'>listened</option><option value=''>read</option></select>
 
-## Activity 5: Assumptions {#ttest-a5}
+## Assumptions
+
+### Activity 5: Assumptions {#ttest-a5}
 
 Before we run the t-test we need to check that the data meet the assumptions for a Welch t-test.
 
@@ -180,7 +187,9 @@ The p-value is .2088 which is more than .05, the cut-off for statistical signifi
   * Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? <select class='webex-select'><option value='blank'></option><option value='answer'>Homogeneity of variance</option><option value=''>Homoscedascity</option><option value=''>Nominal data</option></select>    
 * Why should you always use a Welch test instead of a Student t-test? <select class='webex-select'><option value='blank'></option><option value=''>Because it rhymes with squelch which is a funny word</option><option value=''>Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal</option><option value='answer'>Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal</option></select>.
 
-## Activity 6: Running the t-test {#ttest-a6}
+## Inferential analysis
+
+### Activity 6: Running the t-test {#ttest-a6}
 
 We are going to conduct t-tests for the Intellect, Hire and Impression ratings separately; each time comparing evaluators' overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who **listened** to pitches give a significant higher or lower rating than evaluators that **read** pitches.
 
@@ -268,7 +277,7 @@ results_impression <-
 </ol>
 </div>
 
-## Activity 7: Correcting for multiple comparisons {#ttest-a7}
+### Activity 7: Correcting for multiple comparisons {#ttest-a7}
 
 Because we've run three t-tests we risk inflating our chances of a Type 1 errors due to familywise error. To correct for this we can apply a correction for multiple comparisons.
 
@@ -303,7 +312,9 @@ results <- results %>%
                                method = "bonferroni")) # type of correction to apply
 ```
 
-## Activity 8: Effect size {#ttest-a8}
+## Effect Size
+
+### Activity 8: Effect size {#ttest-a8}
 
 Before we interpret and write-up the results our last task is to calculate the effect size which for a t-test is Cohen's D. To do this, we will use the function `cohens_d()` from the `effectsize` package. The code is similar to the syntax for `t.test()`. 
 
@@ -322,7 +333,9 @@ hire_d <-
 impression_d <- 
 ```
 
-## Activity 9: Interpreting the results {#ttest-a9}
+## Interpretation
+
+### Activity 9: Interpreting the results {#ttest-a9}
 
 * Were your results for `hire` significant? Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places). Use the adjusted p-values:
 
@@ -343,7 +356,9 @@ impression_d <-
 
 * According to Cohen's (1988) guidelines, the effect sizes for all three tests are <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value=''>Medium</option><option value='answer'>Large</option></select>
 
-## Activity 10: Write-up {#ttest-a10}
+## Write-Up
+
+### Activity 10: Write-up {#ttest-a10}
 
 Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file to replicate the results section in the paper (p.887). 
 
@@ -400,8 +415,9 @@ report(intellect_t)
 ## The Welch Two Sample t-test testing the difference of Rating by condition (mean in group listened = 5.63, mean in group read = 3.65) suggests that the effect is positive, statistically significant, and large (difference = 1.99, 95% CI [0.83, 3.15], t(33.43) = 3.48, p = 0.001; Cohen's d = 1.20, 95% CI [0.46, 1.93])
 ```
 
+## Within-subjects (paired-samples)
 
-## Activity 11: Paired-samples t-test {#ttest-a11}
+### Activity 11: Paired-samples t-test {#ttest-a11}
 
 For the final activity we will run a paired-samples t-test for a within-subject design but we will do this much quicker than for the Welch test and just point out the differences in the code.
 
@@ -428,7 +444,7 @@ gaze <- read_csv("Mehr Song and Spelke 2016 Experiment 1.csv") %>%
          test = Test_Proportion_Gaze_to_Singer)
 ```
 
-## Activity 12: Assumptions {#ttest-a12}
+### Activity 12: Assumptions {#ttest-a12}
 
 The assumptions for the paired-samples t-test are a little different (although very similar) to the independent t-test.
 
@@ -448,7 +464,7 @@ gaze <- gaze %>%
 
 As you can see, from both the Shapiro-Wilk test and the QQ-plot, the data meet the assumption of normality so we can proceed.
 
-## Activity 13: Descriptives and visualisations {#ttest-a13}
+### Activity 13: Descriptives and visualisations {#ttest-a13}
 
 It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using `tidyverse` tools.
 
@@ -462,7 +478,7 @@ gaze_tidy <- gaze %>%
   arrange(time, id)
 ```
 
-## Activity 14: Paired-samples t-test {#ttest-a14}
+### Activity 14: Paired-samples t-test {#ttest-a14}
 
 Finally, we can calculate the t-test and the effect size. The code is almost identical to the independent code with two differences:
 
@@ -488,7 +504,7 @@ The output of the paired-samples t-test is very similar to the independent test,
     
     + t(<input class='webex-solveme nospaces' size='2' data-answer='["31"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.42"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.022",".022"]'/> 
     
-## Activity 15: Write-up {#ttest-a15}
+### Activity 15: Write-up {#ttest-a15}
 
 Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file to replicate the results section in the paper (p.489). 
 
@@ -517,16 +533,18 @@ report(gaze_t)
 ```
 
 
-### Finished! {#ttest-fin}
+## Finished! {#ttest-fin}
 
 That was a long chapter but now that you've done all the statistical tests you need to complete your quantitative project - hopefully you will see that it really is true that the hardest part is the set-up and the data wrangling. As we've said before, you don't need to memorise lines of code - you just need to remember where to find examples and to understand which bits of them you need to change. Play around with the examples we have given you and see what changing the values does.
 
+## Test Yourself
+
+
 ## Activity solutions {#ttest-sols}
 
-### Activity 1 {#ttest-a1sol}
+Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.
 
-
-<div class='webex-solution'><button>Activity 1</button>
+#### Activity 1 {#ttest-a1sol}
 
 
 ```r
@@ -537,17 +555,10 @@ library("report")
 library("tidyverse")
 evaluators <- read_csv("evaluators.csv")
 ```
+ 
 
-</div>
-  
+#### Activity 2 {#ttest-a2sol}
 
-**click the tab to see the solution**
-<br>
-
-### Activity 2 {#ttest-a2sol}
-
-
-<div class='webex-solution'><button>Activity 2</button>
 
 
 ```r
@@ -558,16 +569,8 @@ evaluators <- evaluators %>%
 summary(evaluators)
 ```
 
-</div>
-  
+#### Activity 6 {#ttest-a6sol}
 
-**click the tab to see the solution**
-<br>
-
-### Activity 6 {#ttest-a6sol}
-
-
-<div class='webex-solution'><button>Activity 6</button>
 
 
 ```r
@@ -576,16 +579,8 @@ hire <- filter(ratings2, Category == "hire")
 impression <- filter(ratings2, Category == "impression")
 ```
 
-</div>
-  
+#### Activity 8 {#ttest-a8sol}
 
-**click the tab to see the solution**
-<br>
-
-### Activity 8 {#ttest-a8sol}
-
-
-<div class='webex-solution'><button>Activity 7</button>
 
 
 ```r
@@ -600,13 +595,9 @@ impression_d <- cohens_d(Rating ~ condition,
                       data = impression)
 ```
 
-</div>
-  
 
-### Activity 12 {#ttest-a12sol}
+#### Activity 12 {#ttest-a12sol}
 
-
-<div class='webex-solution'><button>Activity 12</button>
 
 
 ```r
@@ -615,16 +606,9 @@ shapiro.test(x = gaze$diff)
 qqPlot(gaze$diff)
 ```
 
-</div>
 
+#### Activity 13 {#ttest-a13sol}
 
-**click the tab to see the solution**
-<br>
-
-### Activity 13 {#ttest-a13sol}
-
-
-<div class='webex-solution'><button>Activity 13</button>
 
 
 ```r
@@ -634,16 +618,9 @@ ggplot(gaze_tidy, aes(x = time, y = looking)) +
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")
 ```
 
-</div>
 
+#### Activity 14 {#ttest-a14sol}
 
-**click the tab to see the solution**
-<br>
-
-### Activity 14 {#ttest-a14sol}
-
-
-<div class='webex-solution'><button>Activity 14</button>
 
 
 ```r
@@ -652,8 +629,17 @@ gaze_test <-  gaze_t %>% tidy()
 gaze_d <- cohens_d(looking ~ time, method = "paired", data = gaze_tidy)
 ```
 
+## Words from this Chapter
+
+Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the [PsyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_blank"}. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.
+
+<div class="kable-table">
+
+||
+||
+||
+||
+
 </div>
 
-
-**click the tab to see the solution**
-<br>
+That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!
