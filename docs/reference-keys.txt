@@ -33,6 +33,9 @@ fig:abil-hist
 fig:qq-abil
 fig:pairs
 fig:pairs-pipes
+fig:plot2
+fig:qqplot3-1
+fig:qqplot3-2
 fig:unnamed-chunk-5-1
 fig:unnamed-chunk-5-2
 fig:hist1
@@ -64,7 +67,6 @@ fig:violin-plot
 fig:bar-plot
 fig:fig-qq
 fig:plt1
-fig:plot2
 fig:scatter
 fig:combined
 fig:plots
