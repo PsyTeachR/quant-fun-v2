@@ -31,11 +31,12 @@ As always, the first activity is about getting ourselves ready to analyse the da
   * If you prefer you can download the data in a [zip folder by clicking here](data/chpt10/PsyTeachR_FQA_Chpt10-data-between.zip){target="_blank"}
   * Remember not to change the file names at all and that `data.csv` is not the same as `data (1).csv`.
 * Delete the default R Markdown welcome text and insert a new code chunk that loads the following packages, in this specific order, using the `library()` function. Remember the solutions if needed.
-  * Load the packages in this order, `broom`, `car`,`effectsize`, `report`, and `tidyverse`
+  * Load the packages in this order, `Hmisc`, `broom`, `car`,`effectsize`, `report`, and `tidyverse`
   * again we have not used some of these packages so you will likely need to install some of them using `install.packages()`. Remember though that you should only do this on your own machine and only in the console window. If you are using the RServer you will not need to install them.
-* Finally, load the data into an object named `mh` using `read_csv()`. 
+* Finally, load the data held in `evaluators.csv` as a tibble into an object named `evaluators` using `read_csv()`. 
 
 ```{r library2, echo = FALSE, message=FALSE, warning=FALSE}
+library(Hmisc)
 library(broom)
 library(car)
 library(effectsize)
@@ -44,13 +45,17 @@ library(tidyverse)
 evaluators <- read_csv("evaluators.csv")
 ```
 
+Remember to have a look at your data to help you understand the structure and the layout of the data. You can do this in whatever way you prefer. 
+
+Now that we have our data, and have explored it, there is a few things we can do to make working with it a bit easier. If you look at the data, and in particular the `sex` column, you will see it is actually coded as `r glossary("numeric")` but we will want to treat it as `r glossary("categorical")`. Secondly, it can be tricky to work with 1s and 2s when you mean people, so we can "recode" the variables into labels that are easier to work with. That is what we will do here using a combination of `mutate()`, which we already know, and the `recode()` function from the `dplyr` package that is loaded in as part of the `tidyverse`, and the `as.factor()` function from `base`. Converting categorical data to factors will make it easier to work with in visualisations and analysis.
+
 #### Activity 2: Explore the dataset {#ttest-a2}
 
-There are a few things we should do to explore the dataset and make working with it a bit easier. 
+In a new code chunk, copy the code below and see if you can follow it.
 
-* Use `mutate()` and `recode()` to recode `sex` into a new variable `sex_labels` so that `1` = `male` and `2` = `female`. Be careful - there are multiple functions in different packages called recode, make sure to specify `dplyr::recode()` to get the right one.
-* Use `mutate()` and `as.factor()` to overwrite `sex_labels` and `condition` as factors.  
-* Use `summary()` to get an overview of the missing data points in each variable.
+* First we use `mutate()` and `recode()` to recode `sex` into a new variable called `sex_labels` so that `1` = `male` and `2` = `female`. 
+  * Be careful using `recode()` as there are multiple functions in different packages called with the same name so it is better to use the `package::function()` approach and specify `dplyr::recode()` to get the right one.
+* Then we use `mutate()` and `as.factor()` to overwrite `sex_labels` and `condition` as factors.  
 
 ```{r a2}
 evaluators <- evaluators %>%
@@ -59,15 +64,19 @@ evaluators <- evaluators %>%
          condition = as.factor(condition))
 ```
 
-* How many participants were noted as being female: `r fitb("30")`
-* How many participants were noted as being male: `r fitb("4")`
-* How many data points are missing for `sex`? `r fitb("5")`
+Now see if you can create a count of the different sex labels to answer the following question. One approach would be `group_by() %>% count()` but what would you group by? Maybe store this tibble in an object called `eval_counts`.
+
+```{r a2-hide, echo=FALSE}
+eval_counts <- group_by(evaluators, sex_labels) %>% count() %>% ungroup()
+```
+
+* How many participants were noted as being female: `r fitb(eval_counts %>% filter(sex_labels == "female") %>% pull(n))`
+* How many participants were noted as being male: `r fitb(eval_counts %>% filter(sex_labels == "male") %>% pull(n))`
+* How many data points are missing for `sex`? `r fitb("eval_counts %>% filter(is.na(sex_labels)) %>% pull(n)")`
 
 #### Activity 3: Ratings {#ttest-a3}
 
-We are now going calculate an overall intellect rating given by each evaluator - how intellectual the evaluators thought candidates were overall depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. This is calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` for each evaluator; held within `ratings.csv`. **Note:** we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little.
-
-We will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called `ratings2` - which has the following structure:
+Excellent work. Our evaluator data is ready to work with and we are now going to calculate what is called an "overall intellect rating" given by each evaluator, calculated by averaging the ratings of `competent`, `thoughtful` and `intelligent` from each evaluator; held within `ratings.csv`. This overall rating will measure how intellectual the evaluators thought candidates were, depending on whether or not the evaluators **read** or **listened** to the candidates' resume pitches. **Note**, however, we are not looking at ratings to individual candidates; we are looking at overall ratings for each evaluator. This is a bit confusing but makes sense if you stop to think about it a little. What we are interested in is how the medium they received the resume impacted their rating of the candidate. Once we have done that, we will then combine the overall intellect rating with the overall impression ratings and overall hire ratings for each evaluator, with the end goal of having a tibble called `ratings2` - which has the following structure:
 
 ```{r ratings_structure, echo=FALSE, message=FALSE}
 ratings3 <- read_csv("ratings.csv") %>%
@@ -88,20 +97,21 @@ ratings2 <- read_csv("ratings.csv") %>%
 head(ratings2) %>% knitr::kable()
 ```
 
-The following steps describe how to create the above tibble - if you're feeling comfortable with R, try yourself without using our code. The trick when doing data analysis and data wrangling is to first think about what you want to achieve - the end goal - and then think about what functions you need to use to get there. 
+The following steps describe how to create the above tibble and it would be good practice to try this out yourself. Look at the table and think what do I need? The trick when doing data analysis and data wrangling is to first think about what you want to achieve - the end goal - and then think about what functions you need to use to get there. The solution is hidden just below the stpes of course if you want to look at it. Let's look at the steps. Steps 1, 2 and 3 calculate the new overall `intellect` rating. Steps 4 and 5 combine this rating to all other information.
 
-Steps 1-3 calculate the new `intellect` rating. Steps 4 and 5 combine this rating to all other information.
+1. Load the data found in `ratings.csv` as a tibble into an object called `ratings`. (e.g. read the csv)
 
-1. Load the data found in `ratings.csv` into a tibble called `ratings`. 
+2. `filter()` only the relevant variables (**thoughtful**, **competent**, **intelligent**) into a new tibble stored in an objected called something useful (we will call ours `iratings`), and then calculate a mean `Rating` for each evaluator (e.g. group_by & summarise).  
 
-2. `filter()` only the relevant variables (**thoughtful**, **competent**, **intelligent**) into a new tibble (call it what you like - we use `iratings`), and calculate a mean `Rating` for each evaluator.  
+3. Add on a new column called `Category` where every entry is the word `intellect`. This tells us that every number in this tibble is an intellect rating.  (e.g. mutate)
 
-3. Add on a new column called `Category` where every entry is the word `intellect`. This tells us that every number in this tibble is an intellect rating.  
+4. Now create a new tibble called `ratings2` and filter into it just the "impression" and "hire" ratings from the original `ratings` tibble. 
 
-4. Now create a new tibble called `ratings2` and filter into it just the "impression" and "hire" ratings from the original `ratings` tibble. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in `ratings2`.  
+5. Next, bind this tibble with the tibble you created in step 3 to bring together the intellect, impression, and hire ratings, in `ratings2`.  (e.g. `bind_rows(object1, object2)`)
 
-5. Join `ratings2` with the `evaluator` tibble that we created in Task 1. Keep only the necessary columns as shown above and arrange by Evaluator and Category.
+6. Join `ratings2` with the `evaluator` tibble that we created in Task 1 (e.g. `inner_join()`). Keep only the necessary columns as shown above (e.g. `select()`) and arrange by Evaluator and Category (e.g. `arrange()`).
 
+`r hide("Our approach to this")`
 ```{r ratings_structure2, eval = FALSE}
 
 # 1. load in the data
@@ -121,7 +131,7 @@ imeans <- iratings %>%
 imeans2 <- imeans %>%
   mutate(Category = "intellect")
 
-# 4. & 5. combine into a single table
+# 4., 5. & 6. combine into a single table
 ratings2 <- ratings %>%
   filter(Category %in% c("impression", "hire")) %>%
   bind_rows(imeans2) %>%
@@ -129,89 +139,151 @@ ratings2 <- ratings %>%
   select(-age, -sex) %>%
   arrange(eval_id, Category)
 ```
+`r unhide()`
+
+* Finally, calculate the n, mean and SD for each condition and category to help with reporting the descriptive statistics.
+
+```{r means}
+group_means <- ratings2 %>%
+  group_by(condition, Category) %>%
+  summarise(n = n(), m = mean(Rating), sd = sd(Rating))
+```
 
 ### Visualising two groups
 
-You should **always** visualise your data before you run a statistical analysis. Not only will it help you interpret the results of the test but it will give you a better understanding of the spread of your data. For comparing two means, we can take advantage of the many plotting options R provides so we don't have to settle for a boring (and more importantly, uninformative, bar plot).
+Brilliant! Now that we have our data in a workable fashion, we are going to start looking at some visualisations and making figures. You should **always** visualise your data before you run a statistical analysis. Visualisations serve as part of the descriptive measures and they help you interpret the results of the test but they also give you an understanding of the spread of your data as part of the test assumptions. For categorical data, we are going to look at using the violin-boxplots that we saw in the introduction to visualisation chapter. In the past people would have tended to use barplots but as <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> point out, barplots are misleading to viewers about how the underlying data actually looks. You can read that paper if you like, for more info, but hopefully by the end of this section you will see why violin-boxplots are more informative.
 
 #### Activity 4: Visualisation {#ttest-a4}
 
-To visualise our data we are going to create a violin-boxplot.
-
-* `geom_violin()` represents density. The fatter the plot, the more data points there are for that . The reason it is called a violin plot is because if your data are normally distributed it should look something like a violin.  
-* `geom_boxplot()` shows the median and inter-quartile range (see [here](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51){target="_blank"} if you would like more information). The boxplot can also give you a good idea if the data are skewed - the median line should be in the middle of the box, if it's not, chances are the data are skewed.  
-* For displaying the mean and confidence intervals, rather than calling a specified geom, we call stat_summary(). `fun.data` specifies the a summary function that gives us the summary of the data we want to plot, in this case, `mean_cl_normal` which will calculate the mean plus the upper and lower confidence interval limits. You could also specify `mean_se` here if you wanted standard error. Finally, `geom` specifies what shape or plot we want to use to display the summary, in this case we want a `pointrange` (literally a point (the mean) with a range (the CI)).
-
-Run the below code to produce the plot. It is a good idea to save code 'recipes' for tasks that you will likely want to repeat in the future. You do not need to memorise lines of code, you only need to understand how to alter examples to work with your specific data set.
-* Try setting `trim = TRUE`, `show.legend = FALSE` and altering the value of `width` to see what these arguments do.  
+The code we will use to create our figure is as follows with the explanation below. Put this code in a new code chunk and run it.
 
 ```{r plot, eval = FALSE}
 ggplot(ratings2, aes(x = condition, y = Rating)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")
-
 ```
 
-* Look at the plot. In which condition did the evaluators give the higher ratings? `r mcq(c(answer = "listened", "read"))`
+The main parts of the code to create the violin-boxplot above are:
+
+* ggplot() which creates our base layer and sets our data and our x and y axes.
+* `geom_violin()` which creates the density plot. The reason it is called a violin plot is because if your data are normally distributed it should look something like a violin.  
+* `geom_boxplot()` which creates the boxplot, showing the median and inter-quartile range (see [here](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51){target="_blank"} if you would like more information). The boxplot can also give you a good idea if the data are skewed - the median line should be in the middle of the box. The more the median is moved towards one of th extremities of the box, the more your data is likely to be skewed.  
+* And finally, we will use `stat_summary()` for displaying the mean and confidence intervals. Within this function, `fun.data` specifies the a summary function that gives us the summary of the data we want to plot, in this case, `mean_cl_normal` which will calculate the mean plus the upper and lower confidence interval limits. You could also specify `mean_se` here if you wanted standard error. Finally, `geom` specifies what shape or plot we want to use to display the summary, in this case we want a `pointrange` (literally a point (the mean) with a range (the CI)).
+
+The figure will look like this:
+
+```{r plot2, echo=FALSE, fig.cap="Violin-boxplot of the evaluator data"}
+ggplot(ratings2, aes(x = condition, y = Rating)) +
+  geom_violin(trim = FALSE) +
+  geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
+  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")
+```
+
+Try to answer the following question:
+
+* In which condition did the evaluators give the higher ratings overall? `r mcq(c(answer = "listened", "read"))`
+* Would the descriptives (means, sds, figure) be inline with the hypothesis that evaluators favour resumes they have listened to more than resumes they have read? `r mcq(c(answer = "yes", "no"))`
+
+Nice and informative figure huh? It gives a good representation of the data in the two conditions, clearly showing the spread and the centre points. The code is really useful as well so you know it is here if you want to use it again. But maybe have a play with the code to try out things to see what happens. For instance:
+
+* Try setting `trim = TRUE`, `show.legend = FALSE`, and/or altering the value of `width` to see what these arguments do.  
 
 ### Assumptions
 
-#### Activity 5: Assumptions {#ttest-a5}
+Great. We have visualised our data as well and we have been able to make some descriptive analysis about what is going on. Now we want to get ready to run the actual analysis. But one final thing we are going to decide is which t-test? But hang on you say, didn't we decide that? We are going to run a between-subjects t-test! Right? Yes! But, and you know what we are about to say, there is more than one between-subjects t-test you can run.  The two common ones are:
 
-Before we run the t-test we need to check that the data meet the assumptions for a Welch t-test.
+* Student's between-subjects t-test
+* Welch's between-subjects t-test
+
+We are going to recommend that, at least when doing the analysis by code, you should use Welch's between-subjects t-test for the reasons explained in this paper by [Delarce et al,m (2017)](https://www.rips-irsp.com/article/10.5334/irsp.82/){target="_blank"} Now you don't have to read that paper but effectively, the Welch's between-subjects t-test is better at maintaining the false positive rate of your test ($\alpha$, usually set at $\alpha$ = .05) at the requested level. So we will show you how to run a Welch's t-test here.
+
+The assumptions for a Welch's between-subjects t-test are:
 
 1. The data are interval/ratio
 2. The data are independent
 3. The residuals are normally distributed for each group
 
-We know that 1 and 2 are true from the design of the experiment, the measures used, and by looking at the data. To test assumption 3, we can create a QQ-plot of the **residuals**. For a between-subject t-test the residuals are the difference between the mean of each group and each data point. E.g., if the mean of group A is 10 and a participant in group A scores 12, the residual for that participant is 2.
+We know that 1 and 2 are true from the design of the experiment, the measures used, and by looking at the data. To test assumption 3, we can create a Q-Q plots of the **residuals**. For a between-subject t-test the residuals are the difference between the mean of each group and each data point. E.g., if the mean of group A is 10 and a participant in group A scores 12, the residual for that participant is 2.
 
-* Run the below code to calculate then plot the residuals. Based upon the plot, do the data meet the assumption of normality? `r mcq(c(answer = "Yes", "No"))`
+* Thinking back to your lectures, if you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? `r mcq(c(answer = "Homogeneity of variance", "Homoscedascity", "Nominal data"))`
 
-```{r qqplot, results = 'hide', fig.show='hide'}
-ratings2 <- ratings2 %>%
-  group_by(condition) %>%
+#### Activity 5: Assumptions {#ttest-a5}
+
+* Run the below code to calculate then plot the residuals for the "listened" condition. 
+
+```{r qqplot1, eval = FALSE}
+listened_residuals <- ratings2 %>%
+  filter(condition == "listened") %>%
   mutate(group_resid = Rating - mean(Rating)) %>%
-  ungroup()
+  select(group_resid)
 
-qqPlot(ratings2$group_resid)
+qqPlot(listened_residuals$group_resid)
 ```
 
-We can also use a new test that will statistically test the residuals for normality, the **Shapiro-Wilk** test. `shapiro.wilk()` from Base R assesses if the distribution is significantly different from a normal distribution, so, if the test is significant it means your data is not normal, and if it is non-significant it means it is approximately normal. 
+* Run the below code to calculate then plot the residuals for the "read" condition.
 
-* Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? `r mcq(c(answer = "Yes", "No"))`
+```{r qqplot2, eval = FALSE}
+read_residuals <- ratings2 %>%
+  filter(condition == "read") %>%
+  mutate(group_resid = Rating - mean(Rating)) %>%
+  select(group_resid)
+
+qqPlot(read_residuals$group_resid)
+```
+
+If we put both our plots side-by-side they look something like this:
+
+```{r qqplot3, echo=FALSE, fig.cap="Residual plots of listened (left) and read (right) conditions"}
+
+library(patchwork)
+
+listened_residuals <- ratings2 %>%
+  filter(condition == "listened") %>%
+  mutate(group_resid = Rating - mean(Rating)) %>%
+  select(group_resid)
+
+a <- qqPlot(listened_residuals$group_resid)
+
+
+read_residuals <- ratings2 %>%
+  filter(condition == "read") %>%
+  mutate(group_resid = Rating - mean(Rating)) %>%
+  select(group_resid)
+
+b <- qqPlot(read_residuals$group_resid)
+
+a+b
+```
+
+What you are looking for is for the data to fall close to the diagonal line - maybe the read condition is not so great though! There will always be some deviation from it but these both seem to fall relatively close to their respective diagonal lines.  
+
+But in addition to the Q-Q plots we can also run a test on the residuals known as the **Shapiro-Wilk** test. The Shapiro-Wilk's test has the alternative hypothesis that the data is significantly different from normal. As such, if you find a significant result using the test then the interpretation is that your data is not normal. If you find a non-significant finding then the interpretation is that your data is not significantly different from normal. One technical point is that the test doesn't actually say your data is normal either but just that it is not significantly different from normal. Remember that assumptions have a degree of subjectivity to them. We use the `shapiro.wilk()` function from the base package to run the Shapiro-Wilk's test.
+
+* In a new code chunk, run both lines of code below and look at their output.Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? `r mcq(c(answer = "Yes", "No"))`
 
 ```{r shapiro, eval = FALSE}
-shapiro.test(x = ratings2$group_resid)
+shapiro.test(x = listened_residuals$group_resid)
+shapiro.test(x = read_residuals$group_resid)
 ```
 
-`r hide("Explain this answer")`
-```{r, echo = FALSE, results='asis'}
-cat("The p-value is .2088 which is more than .05, the cut-off for statistical significance. 
-    ")
+So as you can see, the p-value for the listened condition is p = .280, and the p-value for the read condition is p = .029. So here we are in an interesting position that often happens. The figures suggest normality is ok, and one of the tests suggests normality is ok, but the last test suggests the "read" condition is perhaps not ok. What do we do? Well we combine our knowledge of our data to make a reasoned decision. In this situation the majority of our information is pointing to the data being normal and there are known issues with the Shapiro-Wilks test when there are small sample sizes. It is never a good idea to run a small sample such as this and so in reality we might want to design a study that has larger sample groups, but here it would not be unreasonable to take the assumption of normality as being held.
+
+```{block, type="info"}
+For info though, here are some options if you are convinced your data is nor normal. 
+
+1. Transform your data to try and normalise the distribution. We won't cover this but if you'd like to know more, [this page](https://www.researchgate.net/profile/Jason_Osborne2/publication/200152356_Notes_on_the_Use_of_Data_Transformations/links/0deec5295f1eb10df8000000.pdf) is a good start. Not usually recommended these days but some still use it.
+2. Use a non-parametric test. The non-parametric equivalent of the independent t-test is the Mann-Whitney and the equivalent of the paired-samples t-test is the Wilcoxon signed-ranks test. Though more modern permutation tests are better. Again we won't cover these here but useful to know if you read them in a paper. 
+3. Do nothing. [Delacre, Lakens & Leys, 2017](https://www.rips-irsp.com/articles/10.5334/irsp.82/) argue that with a large enough sample (>30), the Welch test is robust to deviations from assumptions. With very large samples normality is even less of an issue, so design studies with large samples. 
 ```
-`r unhide()`  
-<br>
-  
-  * Think back to the lecture. If you ran a Student's t-test instead of a Welch t-test, what would the 4th assumption be? `r mcq(c(answer = "Homogeneity of variance", "Homoscedascity", "Nominal data"))`    
-* Why should you always use a Welch test instead of a Student t-test? `r mcq(c("Because it rhymes with squelch which is a funny word", "Because you are more likely to obtain a signifcant p-value than with Student's t-test when sample sizes and variances are equal", answer =   "Because it performs better if sample sizes and variances are unequal and gives the same result when sample sizes and variances are equal"))`.
 
 ### Inferential analysis
 
+Now that we have checked our assumptions and our data seems to fit our Welch's t-test we can go ahead and run the test. We are going to conduct t-tests for the Intellect, Hire and Impression ratings separately; each time comparing evaluators' overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who **listened** to pitches give a significant higher or lower rating than evaluators that **read** pitches.
+
 #### Activity 6: Running the t-test {#ttest-a6}
 
-We are going to conduct t-tests for the Intellect, Hire and Impression ratings separately; each time comparing evaluators' overall ratings for the listened group versus overall ratings for the read group to see if there was a significant difference between the two conditions: i.e. did the evaluators who **listened** to pitches give a significant higher or lower rating than evaluators that **read** pitches.
-
-* First, calculate the mean and SD for each condition and category to help with reporting the descriptive statistics.
-
-```{r means, message = FALSE}
-group_means <- ratings2 %>%
-  group_by(condition, Category) %>%
-  summarise(m = mean(Rating), sd = sd(Rating))
-```
-
-* Next, create separate data sets for the intellect, hire, and impression data using `filter()`. We have completed intellect for you.
+* First, create separate objects for the intellect, hire, and impression data using `filter()`. We have completed intellect object for you so you should replace the NULLs in the below code to create one for `hire` and `impression`.
 
 ```{r filters, echo = FALSE}
 intellect <- filter(ratings2, Category == "intellect")
@@ -221,28 +293,37 @@ impression <- filter(ratings2, Category == "impression")
 
 ```{r filters2, eval=FALSE}
 intellect <- filter(ratings2, Category == "intellect")
-hire <- 
-impression <- 
+hire <- NULL
+impression <- NULL 
 ```
 
-As you may have realised by now, most of the work of statistics involves the set-up - running the tests is generally very simple. To conduct the t-test we will use `t.test()` from Base R. This function uses **formula syntax** which you also saw in `cor.test()`.
+And we are finally ready to run the t-test. It is funny right, as you may have realised by now, most of the work in analysis involves the set-up and getting the data ready, running the tests is generally just one more function. To conduct the t-test we will use `t.test()` function from `base` which takes the following format called the **formula syntax**:
 
-* `~` is called a tilde. It can be read as 'by'.  
-* The variable on the left of the tilde is the dependent or outcome variable.
-* The variable(s) on the right of the tilde is the independent or predictor variable.  
-* You can read the below code as 'run a t-test for rating score by condition'.
-* `paired = FALSE` indicates that we do not want to run a paired-samples test and that our data is from a between-subjects design.
-* Run the below code and view the output by typing `intellect_t` in the console.
+```{r ttest-form, eval=FALSE}
+t.test(DV_column_name ~ IV_column_name, 
+       paired = FALSE,
+       data = my_object)
+```
+
+* `~` is called a tilde. It can be read as 'by' as in "analyse the DV by the IV".  
+* The variable on the left of the tilde is the dependent or outcome variable, `DV_column_name`.
+* The variable(s) on the right of the tilde is the independent or predictor variable, `IV_column_name`.  
+* and `paired = FALSE` indicates that we do not want to run a paired-samples test and that our data is from a between-subjects design.
+
+So let's run our first test:
+
+* In a new code chunk, type and run the below code, and thenview the output by typing `intellect_t` in the console.
 
 ```{r intellect_t}
 intellect_t <- t.test(Rating ~ condition, 
                       paired = FALSE, 
-                      data = intellect)
+                      data = intellect,
+                      alternative = "two.sided")
 ```
 
-Just like with `cor.test()`, the output of `t.test()` is a list type object which can make it harder to work with. This time, we are also going to use the function `tidy()` from the `broom` package to convert the output to a tidyverse format.
+Similar to when we used `cor.test()` for correlations, the output of `t.test()` is a list type object which can make it harder to work with. This time, we are going to show you how to use the function `tidy()` from the `broom` package to convert the output to a tidyverse format.
 
-* Run the below code. You can read it as "take object intellect_t, and then tidy it".  
+* Run the below code. You can read it as "take what is in the object `intellect_t` and try to tidy it into a tibble".  
 * View the object by clicking on `results_intellect` in the environment.  
 
 ```{r}
@@ -250,52 +331,42 @@ results_intellect <- intellect_t %>%
   tidy()
 ```
 
+As you will see, `results_intellect` is now in a nice tibble format that makes it easy to extract individual values. It is worth looking at the values with the below explanations:
 
-The output is in a nice table format that makes it easy to extract individual values but it is worth explaining what each variable means:
-
-* `estimate` is the difference between the two means
-* `estimate1` is the mean of group 1  
+* `estimate` is the difference between the two means (alphabetically entered as mean 1 minus mean 2)
+* `estimate1` is the mean of group 1
 * `estimate2` is the mean of group 2  
 * `statistic` is the t-statistic  
 * `p.value` is the p-value  
 * `parameter` is the degrees of freedom  
 * `con.low` and `conf.high` are the confidence interval of the `estimate`
-* `method` is the type of test, Welch, Student, paired, or one-sample
+* `method` is the type of test, Welch's, Student's, paired, or one-sample
 * `alternative` is whether the test was one or two-tailed  
 
-* Complete the code to run the t-tests for the hire and impression ratings and view the results.
+And now that we know how to run the test and tidy it, try the below:
 
 ```{r remain_ts, echo=FALSE}
 results_hire <- t.test(Rating ~ condition, data = hire) %>% tidy()
 results_impression <- t.test(Rating ~ condition, data = impression) %>% tidy()
 ```
 
+* Complete the code below in a new code chunk by replacing the NULLs to run the t-tests for the hire and impression ratings, don't tidy them yet.
+
 ```{r remain_ts2, eval=FALSE}
-# t-tests
-hire_t <- 
-impression_t <- 
-  
-# tidy the output
-results_hire <-
-results_impression <-
+hire_t <- NULL
+impression_t <- NULL
 ```
 
-```{block, type="warning"}
-What do you do if the data don't meet the assumption of normality? There are a few options. 
+* And now tidy the data into the respective objects - `hire_t` into `results_hire`, etc.
 
-1. Transform your data to try and normalise the distribution. We won't cover this but if you'd like to know more, [this page](https://www.researchgate.net/profile/Jason_Osborne2/publication/200152356_Notes_on_the_Use_of_Data_Transformations/links/0deec5295f1eb10df8000000.pdf) is a good start.
-2. Use a non-parametric test. The non-parametric equivalent of the independent t-test is the Mann-Whitney and the equivalent of the paired-samples t-test  is the Wilcoxon. 
-3. Do nothing. [Delacre, Lakens & Leys, 2017](https://www.rips-irsp.com/articles/10.5334/irsp.82/) argue that with a large enough sample (>30), the Welch test is robust and that using a two-step process actually causes more problems than it solves.
+```{r remain_ts3, eval=FALSE}
+results_hire <- NULL
+results_impression <- NULL
 ```
 
-#### Activity 7: Correcting for multiple comparisons {#ttest-a7}
+Be sure to look at each of your tests and see what the outcome of each was. To make that easier, we are going join all the results of the t-tests together using `bind_rows()` - which we can do because all the tibbles have the same column names after we passed them through `tidy()`. 
 
-Because we've run three t-tests we risk inflating our chances of a Type 1 errors due to familywise error. To correct for this we can apply a correction for multiple comparisons.
-
-To do this first of all we need to join all the results of the t-tests 
-together using `bind_rows()` which is one of the reasons why it was useful to `tidy()` the t-test ouput. 
-
-First, you specify all of the individual tibbles you want to join and give them a label, and then you specify what the ID column should be named.
+* Copy and run the below code. First, it specifies all of the individual tibbles you want to join and gives them a label (hire, impression, intellect), and then you specify what the ID column should be named (test).
 
 ```{r bind1}
 results <- bind_rows(hire = results_hire, 
@@ -304,29 +375,40 @@ results <- bind_rows(hire = results_hire,
                      .id = "test")
 ```
 
+Which produces the below:
+
 ```{r bind2, echo = FALSE}
-bind_rows(hire = results_hire, impression = results_impression, intellect = results_intellect, .id = "test") %>% knitr::kable(align = 'c')
+results %>% knitr::kable(align = 'c')
 ```
 
-Now, we're going to add on a column of adjusted p-values using `p.adj()` and `mutate()`. 
+And looking along the line at the p-values we might have some significant differences. However, we have to remember to consider multiple comparisons.
 
-* Run the below code and then view the adjusted p-values. Are they larger or smaller than the original values? `r mcq(c(answer = "Larger", "Smaller"))`
+#### Activity 7: Correcting for multiple comparisons {#ttest-a7}
+
+Because we have run three t-tests, we are actually increasing our false positive rate due to what is called familywise error - essentially, instead of a false positive rate of .05, we would have a false positive rate of 1-(1-.05)^3 = `r 1-(1-.05)^3`, where the "3" in the formula is the number of tests we ran. To correct for this we can apply the multiple comparison correction just like we did with correlations when we ran a lot of correlations. So, we're going to add on a column to our `results` tibble that shows the adjusted p-values using `p.adj()` and `mutate()`. 
+
+* Type and run the below code in a new code chunk and have a look at the output.
+  * inside the `p.adjust()`, `p.value` says what column the p-values are in, and `bonferroni` says what adjustment to use.
 
 ```{r}
-results <- results %>%
-  mutate(p.adjusted = p.adjust(p = p.value, # the column that contains the original p-values
-                               method = "bonferroni")) # type of correction to apply
+results_adj <- results %>%
+  mutate(p.adjusted = p.adjust(p = p.value, 
+                               method = "bonferroni"))
 ```
+
+Looking at the adjusted p-values, try to answer the following questions:
+
+* Listened is significantly more preferred in the `hire` condition after adjusting for multiple comparisons? `r torf(TRUE)`
+* Listened is significantly more preferred in the `impression` condition after adjusting for multiple comparisons? `r torf(TRUE)`
+* Listened is significantly more preferred in the `intellect` condition after adjusting for multiple comparisons? `r torf(TRUE)`
 
 ### Effect Size
 
+As you can see, even after correcting for multiple comparisons, our effects are still significant and we have maintained our false positive rate. But one more thing we can add is the effect size. Remember that some effects are significant and large, some are significant and medium, and some are significant and small. The effect size tells us the magnitude of the effect size in a way we can compare across studies - it is said to be a standardised - and the common effect size for a t-test is called Cohen's D.
+
 #### Activity 8: Effect size {#ttest-a8}
 
-Before we interpret and write-up the results our last task is to calculate the effect size which for a t-test is Cohen's D. To do this, we will use the function `cohens_d()` from the `effectsize` package. The code is similar to the syntax for `t.test()`. 
-
-* The first argument should specify the formula, using the same syntax as `t.test()`, that is `dv ~ iv`.
-* `pooled_sd` should be `FALSE` if you ran a Welch test where the variances are not assumed to be equal and `TRUE` if you ran a regular Student's t-test.
-* Run the below code and then calculate the effect sizes for hire and impression
+Whilst Cohen's D is relatively straightforward by hand, here we will use the function `cohens_d()` from the `effectsize` package. The code is similar to the syntax for `t.test()`. 
 
 ```{r es, echo = FALSE}
 intellect_d <- cohens_d(Rating ~ condition, 
@@ -340,15 +422,22 @@ impression_d <- cohens_d(Rating ~ condition,
                       data = impression)
 ```
 
+* The code to run the Cohen's D for intellect has been completed below.
+  * The first argument should specify the formula, using the same syntax as `t.test()`, that is `dv ~ iv`.
+  * `pooled_sd` should be `FALSE` if you ran a Welch test where the variances are not assumed to be equal and `TRUE` if you ran a regular Student's t-test.
+* Run and complete the code below by replacing the NULLs to calculate the effect sizes for hire and impression
+
 ```{r es2, eval = FALSE}
 intellect_d <- cohens_d(Rating ~ condition, 
                       pooled_sd = FALSE, 
                       data = intellect)
-hire_d <- 
-impression_d <- 
+hire_d <- NULL
+impression_d <- NULL
 ```
 
 ### Interpretation
+
+Great Work!  But let's take a second to recap on our understanding of the data.
 
 #### Activity 9: Interpreting the results {#ttest-a9}
 
@@ -373,32 +462,26 @@ impression_d <-
 
 ### Write-Up
 
+And then finally on the between-subjects t-test, we should look at the write up.
+
 #### Activity 10: Write-up {#ttest-a10}
 
-Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file to replicate the results section in the paper (p.887). 
+If you refer back to the original paper on pg 887, you can see, for example, that the authors wrote:
 
-* Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. Look back at the paper and see what differences this makes. 
+**In particular, the recruiters believed that the job candidates had greater intellect—were more competent, thoughtful, and intelligent—when they listened to pitches (M = 5.63, SD = 1.61) than when they read pitches (M = 3.65, SD = 1.91), t(37) = 3.53, p < .01, 95% CI of the difference = [0.85, 3.13], d = 1.16.**
+
+If we were to compare our findings, we would have something like the below:
+
+Bonferroni-corrected Welch's t-tests found that recruiters rated job candidates as more intellectual when they listened to resumes (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[3], 2)`) than when they read resumes (M = `r results_intellect$estimate2%>% round(2)`, SD = `r round(group_means$sd[6], 2)`), t(`r round(results_intellect$parameter, 2)`) = `r round(results$statistic,2)`, p < `r results_adj$p.adjusted[3] %>% round(3)`, 95% CI of the difference = [`r round(results_intellect$conf.low, 2)`, `r round(results_intellect$conf.high, 2)`], d = `r round(intellect_d$Cohens_d,2)`
+
+You can create this same paragraph, using code, by copying and pasting the below **exactly** into **white space** in your R Markdown document and then knittin the file. 
 
 ```{r writeup, eval = FALSE}
 The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). Bonferroni-corrected t-tests found that in particular, the recruiters believed that the job candidates had greater intellect---were more competent, thoughtful, and intelligent---when they listened to pitches (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[3], 2)`) than when they read pitches (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[6], 2)`), t(`r round(results_intellect$parameter, 2)`) = `r round(results$statistic,2)`, p < `r results$p.adjusted[3] %>% round(3)`, 95% CI of the difference = [`r round(results_intellect$conf.low, 2)`, `r round(results_intellect$conf.high, 2)`], d = `r round(intellect_d$Cohens_d,2)`. 
-
-The recruiters also formed more positive impressions of the candidates---rated them as more likeable and had a more positive and less negative impression of them---when they listened to pitches (M = `r results_impression$estimate1%>% round(2)`, SD = `r round(group_means$sd[2], 2)`) than when they read pitches (M = `r results_impression$estimate2%>% round(2)`, SD = `r round(group_means$sd[5], 2)`, t(`r round(results_impression$parameter,2)`) = `r round(results_impression$statistic,2)`, p < `r results$p.adjusted[2] %>% round(3)`, 95% CI of the difference = [`r round(results_impression$conf.low, 2)`, `r round(results_impression$conf.high, 2)`], d = `r round(impression_dintellect_d$Cohens_d, 2)`. 
-
-Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = `r results_hire$estimate1 %>% round(2)`, SD = `r round(group_means$sd[1], 2)`) than when they read the same pitches (M = `r results_hire$estimate2 %>% round(2)`, SD = `r round(group_means$sd[4],2)`), t(`r round(results_hire$parameter,2)`) = `r round(results_hire$statistic,2)`, p < `r results$p.adjusted[1] %>% round(3)`, 95% CI of the difference = [`r round(results_hire$conf.low, 2)`, `r round(results_hire$conf.high, 2)`], d = `r round(hire_dintellect_d$Cohens_d,2)`.
 ```
 
+Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. But you can look at the two examples and see the difference. It would also be worthwhile trying your own write-up of the two remaining conditions before moving on to within-subjects t-tests. 
 
-> The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). Bonferroni-corrected t-tests found that in particular, the recruiters believed that the job candidates had greater intellect---were more competent, thoughtful, and intelligent---when they listened to pitches (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[3], 2)`) than when they read pitches (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[6], 2)`), t(`r round(results_intellect$parameter, 2)`) = `r round(results$statistic,2)`, p < `r results$p.adjusted[3] %>% round(3)`, 95% CI of the difference = [`r round(results_intellect$conf.low, 2)`, `r round(results_intellect$conf.high, 2)`], d = `r round(intellect_d,2)`. 
-
-> The recruiters also formed more positive impressions of the candidates---rated them as more likeable and had a more positive and less negative impression of them---when they listened to pitches (M = `r results_impression$estimate1%>% round(2)`, SD = `r round(group_means$sd[2], 2)`) than when they read pitches (M = `r results_impression$estimate2%>% round(2)`, SD = `r round(group_means$sd[5], 2)`, t(`r round(results_impression$parameter,2)`) = `r round(results_impression$statistic,2)`, p < `r results$p.adjusted[2] %>% round(3)`, 95% CI of the difference = [`r round(results_impression$conf.low, 2)`, `r round(results_impression$conf.high, 2)`], d = `r round(impression_d, 2)`. 
-
-> Finally, they also reported being more likely to hire the candidates when they listened to pitches (M = `r results_hire$estimate1 %>% round(2)`, SD = `r round(group_means$sd[1], 2)`) than when they read the same pitches (M = `r results_hire$estimate2 %>% round(2)`, SD = `r round(group_means$sd[4],2)`), t(`r round(results_hire$parameter,2)`) = `r round(results_hire$statistic,2)`, p < `r results$p.adjusted[1] %>% round(3)`, 95% CI of the difference = [`r round(results_hire$conf.low, 2)`, `r round(results_hire$conf.high, 2)`], d = `r round(hire_d,2)`.
-
-Just like with correlations, you can also used the `report()` function to produce a report of the individual t-tests. Again, the output it produces is fixed and it must be used with the original list type object, rather than the tidied output. Additionally, `report()` only takes one t-test at a time, which means that you can't use the adjusted p-values, but it's a useful function to know about.
-
-```{r report_t}
-report(intellect_t)
-```
 
 ## Within-subjects (paired-samples)
 
@@ -540,13 +623,19 @@ evaluators <- read_csv("evaluators.csv")
 
 #### Activity 2 {#ttest-a2sol}
 
+This was our code:
 
 ```{r, eval=FALSE}
 evaluators <- evaluators %>%
   mutate(sex_labels = dplyr::recode(sex, "1" = "male", "2" = "female"),
          sex_labels = as.factor(sex_labels),
          condition = as.factor(condition))
-summary(evaluators)
+```
+
+and you could summarise as below to give an output:
+
+```{r}
+eval_counts <- group_by(evaluators, sex_labels) %>% count()
 ```
 
 #### Activity 6 {#ttest-a6sol}
