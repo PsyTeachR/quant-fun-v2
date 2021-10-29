@@ -34,8 +34,8 @@ fig:qq-abil
 fig:pairs
 fig:pairs-pipes
 fig:plot2
-fig:qqplot3-1
-fig:qqplot3-2
+fig:qqplot3
+fig:qqplot4
 fig:unnamed-chunk-5-1
 fig:unnamed-chunk-5-2
 fig:hist1

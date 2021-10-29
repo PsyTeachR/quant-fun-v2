@@ -142,19 +142,27 @@ group_means <- ratings2 %>%
 
 ### Visualising two groups
 
-Brilliant! Now that we have our data in a workable fashion, we are going to start looking at some visualisations and making figures. You should **always** visualise your data before you run a statistical analysis. Visualisations serve as part of the descriptive measures and they help you interpret the results of the test but they also give you an understanding of the spread of your data as part of the test assumptions. For categorical data, we are going to look at using the violin-boxplots that we saw in the introduction to visualisation chapter. In the past people would have tended to use barplots but as <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> point out, barplots are misleading to viewers about how the underlying data actually looks. You can read that paper if you like, for more info, but hopefully by the end of this section you will see why violin-boxplots are more informative.
+Brilliant! Now that we have our data in a workable fashion, we are going to start looking at some visualisations and making figures. You should **always** visualise your data before you run a statistical analysis. Visualisations serve as part of the descriptive measures and they help you interpret the results of the test but they also give you an understanding of the spread of your data as part of the test assumptions. For data with a categorical IV, we are going to look at using the violin-boxplots that we saw in the introduction to visualisation chapter. In the past people would have tended to use barplots but as <a href="https://link.springer.com/article/10.3758/s13423-012-0247-5" target = "_blank">Newman and Scholl (2012)</a> point out, barplots are misleading to viewers about how the underlying data actually looks. You can read that paper if you like, for more info, but hopefully by the end of this section you will see why violin-boxplots are more informative.
 
 #### Activity 4: Visualisation {#ttest-a4}
 
-The code we will use to create our figure is as follows with the explanation below. Put this code in a new code chunk and run it.
+We will visualise the intellect ratings for the listened and the read conditions. The code we will use to create our figure is as follows with the explanation below. Put this code in a new code chunk and run it.
 
 
 ```r
-ggplot(ratings2, aes(x = condition, y = Rating)) +
+ratings2 %>%
+  filter(Category == "intellect") %>%
+ggplot(aes(x = condition, y = Rating)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
-  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")
+  geom_jitter() +
+  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") 
 ```
+
+The first part of the code uses a pipe to filter the data to just the intellect rating:
+
+* `ratings %>% filter(Category == "intellect)` is the same as `filter(ratings, Category == "intellect")`
+* this code also reflects nicely the difference between pipes (`%>%`) used in wrangling and the `+` used in the visualisations with ggplot. Notice that we switch from pipes to plus when we start adding layers to our visualisation.
 
 The main parts of the code to create the violin-boxplot above are:
 
@@ -175,9 +183,12 @@ Try to answer the following question:
 * In which condition did the evaluators give the higher ratings overall? <select class='webex-select'><option value='blank'></option><option value='answer'>listened</option><option value=''>read</option></select>
 * Would the descriptives (means, sds, figure) be inline with the hypothesis that evaluators favour resumes they have listened to more than resumes they have read? <select class='webex-select'><option value='blank'></option><option value='answer'>yes</option><option value=''>no</option></select>
 
-Nice and informative figure huh? It gives a good representation of the data in the two conditions, clearly showing the spread and the centre points. The code is really useful as well so you know it is here if you want to use it again. But maybe have a play with the code to try out things to see what happens. For instance:
+Nice and informative figure huh? It gives a good representation of the data in the two conditions, clearly showing the spread and the centre points. If you compare this to Figure 7 in the original paper you see the difference. We actually get much more information with our approach. We even get a sense that maybe the data is questionable on whether it is skewed or not, but more on that below. 
 
-* Try setting `trim = TRUE`, `show.legend = FALSE`, and/or altering the value of `width` to see what these arguments do.  
+The code is really useful as well so you know it is here if you want to use it again. But maybe have a play with the code to try out things to see what happens. For instance:
+
+* Try setting `trim = TRUE`, `show.legend = FALSE`, and/or altering the value of `width` to see what these arguments do.
+* change the `Category == "intellect"` to `Category == "hire"` or `Category == "impression"` to create visualisations of the other conditions.
 
 ### Assumptions
 
@@ -200,19 +211,19 @@ We know that 1 and 2 are true from the design of the experiment, the measures us
 
 #### Activity 5: Assumptions {#ttest-a5}
 
-* Run the below code to calculate then plot the residuals for the "listened" condition. 
+* Run the below code to calculate then plot the residuals for the "listened" condition on "intellect" ratings. 
 
 
 ```r
-listened_residuals <- ratings2 %>%
-  filter(condition == "listened") %>%
+listened_intellect_residuals <- ratings2 %>%
+  filter(condition == "listened", Category == "intellect") %>%
   mutate(group_resid = Rating - mean(Rating)) %>%
   select(group_resid)
 
-qqPlot(listened_residuals$group_resid)
+qqPlot(listened_intellect_residuals$group_resid)
 ```
 
-* Run the below code to calculate then plot the residuals for the "read" condition.
+* Run the below code to calculate then plot the residuals for the "read" condition on "intellect" ratings. 
 
 
 ```r
@@ -224,33 +235,41 @@ read_residuals <- ratings2 %>%
 qqPlot(read_residuals$group_resid)
 ```
 
-If we put both our plots side-by-side they look something like this:
+If we then look at our plots we get something that looks like this for the listened condition:
 
 <div class="figure" style="text-align: center">
-<img src="10-t-tests_files/figure-html/qqplot3-1.png" alt="Residual plots of listened (left) and read (right) conditions" width="100%" />
-<p class="caption">(\#fig:qqplot3-1)Residual plots of listened (left) and read (right) conditions</p>
-</div><div class="figure" style="text-align: center">
-<img src="10-t-tests_files/figure-html/qqplot3-2.png" alt="Residual plots of listened (left) and read (right) conditions" width="100%" />
-<p class="caption">(\#fig:qqplot3-2)Residual plots of listened (left) and read (right) conditions</p>
+<img src="10-t-tests_files/figure-html/qqplot3-1.png" alt="Residual plots of listened condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line." width="100%" />
+<p class="caption">(\#fig:qqplot3)Residual plots of listened condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line.</p>
 </div>
 
 ```
-## [1] 48 42
+## [1] 6 8
 ```
 
-What you are looking for is for the data to fall close to the diagonal line - maybe the read condition is not so great though! There will always be some deviation from it but these both seem to fall relatively close to their respective diagonal lines.  
+And something like this for the read condition.
 
-But in addition to the Q-Q plots we can also run a test on the residuals known as the **Shapiro-Wilk** test. The Shapiro-Wilk's test has the alternative hypothesis that the data is significantly different from normal. As such, if you find a significant result using the test then the interpretation is that your data is not normal. If you find a non-significant finding then the interpretation is that your data is not significantly different from normal. One technical point is that the test doesn't actually say your data is normal either but just that it is not significantly different from normal. Remember that assumptions have a degree of subjectivity to them. We use the `shapiro.wilk()` function from the base package to run the Shapiro-Wilk's test.
+<div class="figure" style="text-align: center">
+<img src="10-t-tests_files/figure-html/qqplot4-1.png" alt="Residual plots of read intellect condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line." width="100%" />
+<p class="caption">(\#fig:qqplot4)Residual plots of read intellect condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line.</p>
+</div>
+
+```
+## [1] 11 18
+```
+
+What you are looking for is for the data to fall close to the diagonal line. Looking at the plots, maybe we could suggest that the "listened" condition is not so great as there is some data points moving away from the line at the far ends. The "read" condition seems a bit better, at least subjectively! There will always be some deviation from the diagonal line but at perhaps most of the data in both plots is relatively close to their respective diagonal lines.  
+
+But in addition to the Q-Q plots we can also run a test on the residuals known as the **Shapiro-Wilk** test. The Shapiro-Wilk's test has the alternative hypothesis that the data is significantly different from normal. As such, if you find a significant result using the test then the interpretation is that your data is not normal. If you find a non-significant finding then the interpretation is that your data is not significantly different from normal. One technical point is that the test doesn't actually say your data is normal either but just that it is not significantly different from normal. Again, remember that assumptions have a degree of subjectivity to them. We use the `shapiro.wilk()` function from the base package to run the Shapiro-Wilk's test.
 
 * In a new code chunk, run both lines of code below and look at their output.Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 
 ```r
-shapiro.test(x = listened_residuals$group_resid)
-shapiro.test(x = read_residuals$group_resid)
+shapiro.test(x = listened_intellect_residuals$group_resid)
+shapiro.test(x = read_intellect_residuals$group_resid)
 ```
 
-So as you can see, the p-value for the listened condition is p = .280, and the p-value for the read condition is p = .029. So here we are in an interesting position that often happens. The figures suggest normality is ok, and one of the tests suggests normality is ok, but the last test suggests the "read" condition is perhaps not ok. What do we do? Well we combine our knowledge of our data to make a reasoned decision. In this situation the majority of our information is pointing to the data being normal and there are known issues with the Shapiro-Wilks test when there are small sample sizes. It is never a good idea to run a small sample such as this and so in reality we might want to design a study that has larger sample groups, but here it would not be unreasonable to take the assumption of normality as being held.
+So as you can see, the p-value for the listened condition is p = .174, and the p-value for the read condition is p = .445. So here we are in an interesting position that often happens. The figures for "listened" is a bit unclear, but the figure for "read" looks ok and both tests show a non-significant difference from normality. What do we do? Well we combine our knowledge of our data to make a reasoned decision. In this situation the majority of our information is pointing to the data being normal. However, there are known issues with the Shapiro-Wilks test when there are small sample sizes so we must always take results like this with some caution. It is never a good idea to run a small sample such as this and so in reality we might want to design a study that has larger sample groups. All that said, here it would not be unreasonable to take the assumption of normality as being held.
 
 <div class="info">
 <p>For info though, here are some options if you are convinced your data is nor normal.</p>
@@ -451,7 +470,7 @@ If you refer back to the original paper on pg 887, you can see, for example, tha
 
 If we were to compare our findings, we would have something like the below:
 
-Bonferroni-corrected Welch's t-tests found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 5.64, SD = 1.91), t(33.43) = 2.64, 2.82, 3.48, p < 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12
+Bonferroni-corrected Welch's t-tests found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 3.65, SD = 1.91), t(33.43) = 2.64, 2.82, 3.48, p < 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12
 
 You can create this same paragraph, using code, by copying and pasting the below **exactly** into **white space** in your R Markdown document and then knittin the file. 
 
@@ -605,11 +624,11 @@ Below you will find the solutions to the above questions. Only look at them afte
 
 
 ```r
-library("broom")
-library("car")
-library("effectsize")
-library("report")
-library("tidyverse")
+library(broom)
+library(car)
+library(effectsize)
+library(report)
+library(tidyverse)
 evaluators <- read_csv("evaluators.csv")
 ```
  
