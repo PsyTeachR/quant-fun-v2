@@ -277,7 +277,7 @@ new_year - today
 ```
 
 ```
-## Time difference of -300 days
+## Time difference of -301 days
 ```
 
 
