@@ -1,33 +1,65 @@
-# Power and error
+# Power and Effect Sizes
 
-Until now we have mainly spent time on data-wrangling, visualising our data, and running inferential tests. In the lectures you have also learned about additional aspects of inferential testing and trying to reduce certain types of error in your analyses:
+Up until now we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures, however, you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses. It is this balance of minimising error in our inferential statisitcs that we will focus on today. 
 
-* **Type I error** - rejecting the null hypothesis when it is true (otherwise called **alpha** or $\alpha$). Probably better recalled as **False Positives** 
-* **Type II error** - retaining the null hypothesis when it is false (otherwise called **beta** or $\beta$). Probably better recalled as **False Negatives**
+First thing to remember is that, in the branch of statistics we are using here, that is Null Hypothesis Significance Testing (NHST), there are two types of <a class='glossary' target='_blank' title='A proposed explanation made on the basis of limited evidence as a starting point for further investigation.' href='https://psyteachr.github.io/glossary/h#hypothesis'>hypotheses</a>,  and what you are trying to establish is the <a class='glossary' target='_blank' title='A number between 0 and 1 where 0 indicates impossibility of the event and 1 indicates certainty' href='https://psyteachr.github.io/glossary/p#probability'>probability</a> of the null hypothesis not being accepted. Those two hypotheses are:
 
-Building from there we have started to discuss the idea of **power** ($1-\beta$) which you should understand as the probability of correctly rejecting the null hypothesis when it is false; i.e. finding an effect that is there rather than having a false negative and missing the effect. In short, **the higher the power of your study the better**, with the field standard proposed as $power >= .8$. Often in fact Registered Reports are required to have a power of at least $power >= .9$.
+* The **null hypothesis** which states that the compared values **are equivalent** and, when referring to means, is written as: $H_0: \mu_1 = \mu_2$ 
+* And the **alternative hypothesis** which states that the compared values **are not equivalent** and, when referring to means, is written as: $H_1: \mu_1 \ne \mu_2$.
 
-In the past a number of studies have fallen short of the field standard and it is this lack of power that is thought to be a key issue in the replication crisis. This makes sense because, if you think about it, if previous studies only have a $power = .5$ then they only have a .5 probability of correctly rejecting the null hypothesis. As such there may be a large number of studies where the null hypothesis has been rejected when it should not have been; the field becomes noisy at that point and you are unsure which studies will replicate.  It is issues like this that led us to redevelop our courses and why we really want you to understand power as much as possible.
+Now, each decision about a hypothesis is prone to some degree of error and, as you will learn, the two main types of error that we worry about in Psychology are:
 
-When designing an experiment any good researcher will consider four key elements of a study. The **APES**:
+* **Type I error** - or <a class='glossary' target='_blank' title='When a test concludes there is an effect when there really is no effect' href='https://psyteachr.github.io/glossary/f#false-positive'>false positive</a>, is the probability of rejecting the null hypothesis when it should not be rejected (otherwise called <a class='glossary' target='_blank' title='(stats) The cutoff value for making a decision to reject the null hypothesis; (graphics) A value between 0 and 1 used to control the levels of transparency in a plot' href='https://psyteachr.github.io/glossary/a#alpha'>alpha</a> or $\alpha$). In other words, you conclude that there is a real "effect" when in fact there is no effect. The field standard rate of acceptable false positives is $\alpha = .05$ meaning that in theory 1 in 20 studies may be a false positive.
+* **Type II error** - or <a class='glossary' target='_blank' title='When a test concludes there is no effect when there really is an effect' href='https://psyteachr.github.io/glossary/f#false-negative'>false negative</a>, is the probability of retaining the null hypothesis when it is false (otherwise called <a class='glossary' target='_blank' title='The false negative rate we accept for a statistical test.' href='https://psyteachr.github.io/glossary/b#beta'>beta</a> or $\beta$). In other words, you conclude that there was no real "effect" when in fact there was one. The field standard rate of acceptable false negatives is $\beta = .2$ meaning that in theory 1 in 5 studies may be a false negative. 
+
+Adding to the ideas of hypotheses and errors, we are going to look at the idea of **power** which you will learn is the long-run probability of correctly rejecting the null hypothesis for a fixed effect size and fixed sample size; i.e. correctly concluding there is an effect when there is a real effect to detect. <a class='glossary' target='_blank' title='The probability of rejecting the null hypothesis when it is false.' href='https://psyteachr.github.io/glossary/p#power'>Power</a> is calculated as $power = 1-\beta$ and is directly related to the False Negative rate. If the field standard of False Negatives is $\beta = .2$ then the field standard of power should be $power = 1 - .2 = .8$, for a given effect size and sample size (though some papers, including Registered Reports are often required to have a power of at least $power >= .9$). As such, $power = .8$ means that the majority of studies should find an effect if there is one to detect, assuming that your study maintains these rates of error and power.
+
+In the past a number of studies have fallen short of the field standard and it is this lack of power that is thought to be a key issue in the <a class='glossary' target='_blank' title='The extent to which the findings of a study can be repeated with new samples from the same population.' href='https://psyteachr.github.io/glossary/r#replicability'>replication</a> crisis. This makes sense because, if you think about it, if previous studies only have a $power = .5$ then they only have a .5 probability of correctly rejecting the null hypothesis. As such there may be a large number of studies where the null hypothesis has been rejected when it should not have been; the field becomes noisy at that point and you are unsure which studies will replicate.  It is issues like this that led us to redevelop our courses and why we really want you to understand power as much as possible.
+
+## Designing Studies
+
+To reiterate, power is defined as the probability of correctly rejecting the null hypothesis for a fixed effect size and fixed sample size. As such, power is a key decision when you design your study, under the premis that the higher the power of your planned study, the better.
+
+Two relationships you will learn in this chapter are that:
+
+* for a given sample size and $\alpha$, the power of your study is higher if the effect you are looking for is assumed to be a large effect as opposed to a small effect; large effects are easier to detect.
+* and, for a given effect size and $\alpha$, the power of your study is higher when you increase your sample size.
+
+From these relationships we see that, because you have little control over the size of the effect you are trying to detect (it lives in the real world which you don't control), you can instead increase the power of your study by increasing the size of your sample (and also reducing sources of noise and measurement error in your study). As such, when planning a study, any good researcher will consider the following four key elements - and we thank Dr Ian Walker (University of Bath) for the excellent acronym - the **APES**:
 
 * **alpha** - most commonly thought of as the significance level (i.e., your p-value); usually set at $\alpha = .05$
-* **power** - typically set at $power = .8$
+* **power** - the probability of correctly rejecting the null hypothesis for a given effect size and sample size, typically set at $power = .8$.
 * **effect size** - size of the relationship/difference between two variables
-* **sample size** - number of participants you ran in your study
+* **sample size** - the number of observations (usually, participants, but sometimes also stimuli) in your study. 
 
 And the beautiful thing is that **if you know three of these elements then you can calculate the fourth**. The two most common calculations prior to a study would be:
 
-1. to determine the appropriate sample size required to obtain the effect size that you are interested in. I.e. you know everything except the sample size. Generally, **the smaller the effect size, the more participants you will need**, assuming power and alpha are held constant at **.8** and **.05** respectively.
-2. to determine the smallest effect size you can reliably detect given your sample size. I.e. you know everything except the effect size. For example, say you are using an open dataset (like the mini-project) and you know they have run 100 participants, you can't add any more participants, but you want to know what is the minimum effect size you could reliably detect in this dataset.
+1. to determine the appropriate <a class='glossary' target='_blank' title='A subset of the population that you wish to make an inference about through your test.' href='https://psyteachr.github.io/glossary/s#sample'>sample</a> size required to obtain the effect size that you are interested in. That is, prior to the experiment you decide you would be interested in testing for a small, medium, or large effect sizes, so you know everything except the sample size - how many people you need to run in your study. Generally, **the smaller the effect size, the more participants you will need**, assuming power and alpha are held constant at **.8** and **.05** respectively.
+  * Here you know alpha, the power, and the effect size and you want to know the sample size.
+2. to determine the smallest effect size you can reliably detect given your sample size. For example, you know everything except the effect size. For example, say you are using an open dataset  and you know they have run 100 participants, you can't add any more participants, but you want to know what is the minimum effect size you could reliably detect in this dataset.
+  * Here you know alpha, the power, and the sample size and you want to know the smallest effect size you can determine.
 
-**Note:** Most papers would discourage you from calculating what is called Observed Power. This is where you calculate the power after running the study, based on your effect size and sample size. Similarly, this would be running an analysis on an open dataset, finding the outcome, and then calculating the power based on the outcome. Avoid this. You can read more about why, here, in your own time if you like: [Lakens (2014) Observed Power, and what to do if your editor asks for post-hoc power analyses](http://daniellakens.blogspot.com/2014/12/observed-power-and-what-to-do-if-your.html)
+Hopefully that gives you an idea of how we use power to determine sample sizes for studies - and that the sample size should not just be pulled out of thin air. Both of these approaches described above **a priori power analyses** as you are stating the power level you want **before** (a priori means before) the study - though the second approach of determining the smallest effect size you can determine based on a known sample size is also referred to as a **sensitivity power analysis**. However, you may now be thinking though, if everything is connected, then can we use the effect size from our study and the sample size to determine the power of the study after we have run it? No! Well, you can but it would be wrong to do so. This is actually called **Observed** or **Post-Hoc** power and most papers would discourage you from calculating it on the grounds that the effect size you are using is not the true effect size of the population you are interested in; it is just the effect size of your sample. As such any indication of power from this analysis is misleading. Avoid doing this. You can read more about why, here, in your own time if you like: [Lakens (2014) Observed Power, and what to do if your editor asks for post-hoc power analyses](http://daniellakens.blogspot.com/2014/12/observed-power-and-what-to-do-if-your.html). In brief, Observed Power conflates the effect size of the sample with the effect size within the population and those two are not the same. Stick to using only a priori power analyses approaches and use them to determine your required sample size or achievable reliable effect size.
 
-So let's jump into this a bit now and start running some analyses to help further our understanding of alpha, power, effect sizes and sample size!
+So let's jump into this a bit now and start running some analyses to help further our understanding of alpha, power, effect sizes and sample size! We will start by looking at effect sizes, before moving on to calculating power.
 
-## Effect Size
+## Effect Size By Hand
 
-We will focus on effect sizes for t-tests for this worksheet.  There are a number of different effect sizes to choose from in the field but today we will look at one type of effect size - **Cohen's d**: the standardised difference between two means (in units of SD). The thing to note is that the formula is slightly different depending on the type of t-test used and it can sometimes change depending on who you read. For this worksheet, let's go with the following formulas:
+There are a number of different "effect sizes" that you can choose to calculate but a common one for t-tests, as we have seen previously, is **Cohen's d**: the standardised difference between two means (in units of SD) and is written as d = effect-size-value. The key point is that Cohen's d is a standardised difference, meaning that it can be used to compare against other studies regardless of how the measurement was made. Take for example height differences in men and women which is estimated at about 5 inches (12.7 cm). That in itself is an effect size, but it is an unstandardised effect size in that for every sample that you test, that difference is dependent on the measurement tools, the measurement scale, and the errors contained within them (Note: ask Helena about the time she photocopied some rulers). As such using a standardised effect size allows you to make comparisons across studies regardless of measurement error. In standardised terms, the height difference above is considered a medium effect size (d = .5) which Cohen (1988, as cited by Schafer and Schwarz (2019)) defined as representing "an effect likely to be visible to the naked eye of a careful observer". Cohen (1988) in fact stated three sizes of Cohen's d that people could use as a guide:
+
+<br>
+
+|Effect size|Cohen's d value|
+|:--:|:---:|
+|small| .2 to .5|
+|medium| .5 to .8|
+|large| > .8|
+
+<br>
+
+You may wish to read this paper later about different effect sizes in psychology - <a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2019.00813/full" target = "_blank">Schafer and Schwarz (2019) The Meaningfulness of Effect Sizes in Psychological Research: Differences Between Sub-Disciplines and the Impact of Potential Biases</a>.
+
+The thing to note is that the formula is slightly different depending on the type of t-test used and it can sometimes change depending on who you read. For this worksheet, let's go with the following formulas:
 
 * One-sample t-test & paired-sample t-test:  
 
@@ -40,16 +72,16 @@ We will focus on effect sizes for t-tests for this worksheet.  There are a numbe
 
 Let's now try out some calculations. We will start with just looking at effect sizes from t-tests before calculating power in later tasks.
 
-## Activity 1: Set-up {#power-a1}
+#### Activity 1: Set-up {#power-a1}
 
-Do the following. 
+* Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
+    * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R`
+* Open a new R Markdown document and save it in your working directory. Call the file "APES". 
+* Delete the default R Markdown welcome text and insert a new code chunk that loads the following packages, in this specific order, using the `library()` function. Remember the solutions if needed.
+  * Load the packages in this order, `pwr`, and `tidyverse`
+  * we have not used the `pwr` package before so you will likely need to install them using `install.packages()`. Remember though that you should only do this on your own machine and only in the console window. If you are using the RServer you will not need to install them.
 
-* Open R Studio and set the working directory to your chapter folder.  
-* Open a new R Markdown document and save it in your working directory. Call the file "Power and Effect Size".    
-* If you're on the server, avoid a number of issues by restarting the session - click `Session` - `Restart R` 
-* Delete the default R Markdown welcome text and insert a new code chunk that loads the packages `pwr`, `broom`, and `tidyverse` using the `library()` function. You may need to install `pwr` if you are working on your own machine but remember **never install packages on a university machine**.
-
-## Activity 2: Effect size from a one-sample t-test {#power-a2}
+#### Activity 2: Effect size from a one-sample t-test {#power-a2}
 
 * You run a one-sample t-test and discover a significant effect, t(25) = 3.24, p < .05. Using the above formulas, calculate `d` and determine whether the effect size is small, medium or large.
 
@@ -74,7 +106,7 @@ Answering the following questions to check your answers. The solutions are at th
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places: <input class='webex-solveme nospaces' size='4' data-answer='["0.64",".64"]'/>
 * According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>  
 
-## Activity 3: Effect size from between-subjects t-test {#power-a3}
+#### Activity 3: Effect size from between-subjects t-test {#power-a3}
 
 * You run a between-subjects t-test and discover a significant effect, t(30) = 2.9, p < .05. Calculate `d` and determine whether the effect size is small, medium or large.
 
@@ -99,9 +131,11 @@ Answer the following questions to check your answers. The solutions are at the b
 * According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value=''>medium</option><option value='answer'>large</option></select>
 
 
-## Activity 4: t-value and effect size for a between-subjects Experiment {#power-a4}
+#### Activity 4: t-value and effect size for a between-subjects Experiment {#power-a4}
 
 * You run a between-subjects design study and the descriptives tell you: **Group 1**, M = 10, SD = 1.3, n = 30; **Group 2**, M = 11, SD = 1.7, n = 30. Calculate `t` and `d` for this between-subjects experiment.
+
+* Note: the hint contains the appropriate t-test formula if you are unsure.
 
 
 <div class='webex-solution'><button>Helpful hint</button>
@@ -129,26 +163,32 @@ Answer the following questions to check your answers. The solutions are at the b
 * Based on the above t-value above, enter the correct value of `d` for this analysis rounded to 2 decimal places: <input class='webex-solveme nospaces' size='4' data-answer='[".67","0.67"]'/>
 * According to Cohen (1988), the effect size for this t-test would probably be described as: <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
 
-We've asked you to calculate Cohen's D by hand above to reinforce your understanding of what `d` actually means, however, if you were conducting a t-test in R, chances are that you would get R is calculate this for you.
+**Excellent!** Now that you are comfortable with calculating effect sizes, we will look at using them to establish the sample size for a required power. One thing you will realise as we progress is that the true effect size in a population is something we do not know, but we need to justify one for our design. A clever approach is laid out by Daniel Lakens in the blog on the Smallest Effect Size of Interest (SESOI) - you set the smallest effect that you as a researcher would be interested in! This can be determined through theoretical analysis, through previous studies, through pilot studies, or through rules of thumb like Cohen (1988). However, also keep in mind that the lower the effect size, the larger the sample size you will need. Everything is a trade-off.
 
-* Think back to the t-test chapter. What is the name of the function for calculating Cohen's D? <input class='webex-solveme nospaces' size='7' data-answer='["cohensD"]'/>. What package does this come from? <input class='webex-solveme nospaces' size='3' data-answer='["lsr"]'/>
-
-**Excellent!** Now that you are comfortable with calculating effect sizes, we will look at using them to establish appropriate sample sizes for a given power. Remember, in analysis, in nearly all occasions we should set the effect size as the minimum effect size we are interested. This can be determined through discussion, through previous studies, through pilots studies, or through rules of thumb like Cohen (1988). However, also keep in mind that the lower the effect size, the larger the sample size you will need. Everything is a trade-off.
-
-## Activity 5: `pwr.t.test()` {#power-a5}
+## Power Calculations
 
 Today we will use the functions `pwr.t.test()`, `pwr.r.test()` and `pwr.chisq.test` from the package `pwr` to run power calculations for t-tests, correlations and chi-square.
 
-Remember that for more information on this function, simply do `?pwr.t.test` in the console. On doing this you will see that `pwr.t.test()` takes a series of inputs:
+### t-tests
 
-* **n** - Number of observations (**per sample**)
-* **d** - Effect size (Cohen's d) - difference between the means divided by the pooled standard deviation
-* **sig.level** - Significance level (Type I error probability) or $\alpha$
-* **power** - Power of test (1 minus Type II error probability) or $1-\beta$
-* **type** - Type of t test : `one.sample`, `two.sample`, or `paired`
+Remember that for more information on a function, for example `pwr.t.test()`, simply do `?pwr.t.test` in the console. Or you can have a look at these webpages later to get an idea (or bad ideas if you spot where they erroneously calculate post-hoc power!):
+
+* A quick-R summary of the **`pwr`** package - <a href= "https://www.statmethods.net/stats/power.html" target = "_blank">https://www.statmethods.net/stats/power.html</a>
+* the **`pwr`** package vignette - <a href = "https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html" target = "_blank"> https://cran.r-project.org/web/packages/pwr/vignettes/pwr-vignette.html</a>
+
+From these you will see that `pwr.t.test()` takes a series of inputs:
+
+* **n** - Number of observations/participants, **per group** for the independent samples version, or the **number of subjects or matched pairs** for the paired and one-sample designs.
+* **d** - the effect size of interest (Cohen's d) - difference between the means divided by the pooled standard deviation
+* **sig.level** - the significance level (False Positive Rate) or $\alpha$
+* **power** - the power of test (1 minus False Negative Rate) or $1-\beta$
+* **type** - the type of t test : `one.sample`, `two.sample`, or `paired`
 * **alternative** - the type of hypothesis; `"two.sided", "greater", "less"`
 
-The function works on a leave one out principle. You give it all the information you have and it returns the element you are missing.  So, for example, say you needed to know how many people per group (n) you would need to detect an effect size of `d = .4` with `power = .8`, `alpha = .05` in a `two.sample` (between-subjects) t-test on a `two.sided` hypothesis test.  
+And the function works on a leave one out principle. You give it all the information you have and it returns the element you are missing.  So, for example, say you needed to know how many people per group (n) you would need to detect an effect size of `d = .4` with `power = .8`, `alpha = .05` in a `two.sample` (between-subjects) t-test on a `two.sided` hypothesis test.  
+
+
+#### Activity 5: `pwr.t.test()` {#power-a5}
 
 * Run the below code:
 
@@ -184,7 +224,9 @@ pwr.t.test(d = .4,
   ceiling()
 ```
 
-## Activity 6: Sample size for standard power one-sample t-test {#power-a6}
+**Note:** `ceiling()` is better to use than `round()` when dealing with people as it always rounds up. For example, `ceiling(1.1)` gives you 2. `round()` on the other hand is useful for rounding an effect size, for example, to two decimal places - e.g. d = `round(.4356, 2)` would give you d = 0.44
+
+#### Activity 6: Sample size for standard power one-sample t-test {#power-a6}
 
 * Assuming you are interested in detecting a minimum Cohen's d of **d = .23**, what would be the minimum number of participants you would need in a one-sample t-test, assuming **power = .8**, $\alpha$ **= .05**, on a two-sided hypothesis? 
 
@@ -205,7 +247,7 @@ Answer the following question to check your answers. The solutions are at the bo
 
 * Enter the minimum number of participants you would need in this one-sample t-test: <input class='webex-solveme nospaces' size='3' data-answer='["151"]'/>
 
-## P&E Activity 7: Effect size from a high power between-subjects t-test
+#### Activity 7: Effect size from a high power between-subjects t-test
 
 * Assuming you run a between-subjects t-test with 50 participants per group and want a power of .9, what would be the minimum effect size you can reliably detect? Assume standard $\alpha$ and alternative hypothesis settings.
 
@@ -216,7 +258,9 @@ Answer the following questions to check your answers. The solutions are at the b
 * According to Cohen (1988), the effect size for this t-test is <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
 * Say you run the study and find that the effect size determined is d = .50. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = .65</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .65</option></select>
 
-## Activity 8: Sample size for a correlation {#power-a8}
+## Correlations
+
+#### Activity 8: Sample size for a correlation {#power-a8}
 
 Now, we're going to do the same thing but for a correlation analysis using `pwr.r.test`. The structure of this function is very similar to `pwr.t.test()` and works on the same leave-one-out principle:
 
@@ -232,7 +276,7 @@ Using a pipeline, store the answer as a single, rounded value called `sample_siz
 
 * Enter the minimum number of participants you would need in this correlation: <input class='webex-solveme nospaces' size='2' data-answer='["46"]'/>
 
-## Activity 9: Effect size for a correlation analysis {#power-a9}
+#### Activity 9: Effect size for a correlation analysis {#power-a9}
 
 * You run a correlation analysis with 50 participants and the standard power and alpha levels and you have hypothesised a positive correlation, what would be the minimum effect size you can reliably detect? 
 
@@ -243,7 +287,9 @@ Answer the following questions to check your answers. The solutions are at the b
 * According to Cohen (1988), the effect size for this correlation is <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
 * Say you run the study and find that the effect size determined is d = .24. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = .24</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .34</option></select>
 
-## Activity 10: Power of published research {#power-a10}
+## Effect Sizes in Published Research
+
+#### Activity 10: Power of published research {#power-a10}
 
 Thus far we have used hypothetical situations - now go look at the paper on the [Open Stats Lab](https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities) website called Does Music Convey Social Information to Infants? (we have used this dataset in the t-test chapter). You can download the pdf and look at it, but here we will determine the power of the significant t-tests reported in Experiment 1 under the Results section on Pg489. There is a one-sample t-test and a paired-samples t-test to consider, summarised below. Assume testing was at power = .8, alpha = .05. Based on your calculations are either of the stated effects underpowered?
 
@@ -263,7 +309,7 @@ Thus far we have used hypothetical situations - now go look at the paper on the 
 
 Which of the t-tests do you believe to be underpowered? Why do you think this may be? Additional information about this can be found in the solution to task 8 at the end of this activity.
 
-### Finished! {#power-fin}
+## Finished! {#power-fin}
 
 **Great!** Hopefully you are now starting to see the interaction between alpha, power, effect sizes, and sample size. We should always want really high powered studies and depending on the size of the effect we are interested in (small to large), and our $\alpha$ level, this will mean we will need to run more or less participants to make sure our study is well powered. Points to note:
 
@@ -280,12 +326,10 @@ If you want more examples of power to reinforce your understanding, go back and 
 
 ## Activity solutions {#power-sols}
 
-Below you will find possible solutions to the above tasks. But first, be sure to try the tasks before looking at the solutions and only look at them when you have exhausted all possibilities and yourself.  If that is the case, and you are sure you want to do this, then here are the potential solutions.
+Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.
 
 ### Activity 1 {#power-a1sol}
 
-
-<div class='webex-solution'><button>Activity 1</button>
 
 
 ```r
@@ -294,15 +338,8 @@ library(broom)
 library(tidyverse)
 ```
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 ### Activity 2 {#power-a2sol}
-
-
-<div class='webex-solution'><button>Activity 2</button>
 
 
 ```r
@@ -311,15 +348,8 @@ d <- 3.24 / sqrt(25 +1)
 # effect is medium to large; d = .64
 ```
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
-
 ### Activity 3 {#power-a3sol}
 
-
-<div class='webex-solution'><button>Activity 3</button>
 
 
 ```r
@@ -328,14 +358,8 @@ d <- (2*2.9) / sqrt(30)
 # effect is large; d = 1.06
 ```
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 ### Activity 4 {#power-a4sol}
-
-<div class='webex-solution'><button>Activity 4</button>
 
 
 ```r
@@ -349,14 +373,8 @@ d = (2*t)/sqrt((30-1) + (30-1))
 # Remember that convention is that people report the t and d as positive.
 ```
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 ### Activity 6 {#power-a6sol}
-
-<div class='webex-solution'><button>Activity 6</button>
 
 
 ```r
@@ -371,14 +389,8 @@ sample_size_t
 
 [1] 151
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 ### Activity 7 {#power-a7sol}
-
-<div class='webex-solution'><button>Activity 7</button>
 
 
 ```r
@@ -399,15 +411,9 @@ pwr.t.test(n = 50,
 
 NOTE: n is number in *each* group
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 
 ### Activity 8 {#power-a8sol}
-
-<div class='webex-solution'><button>Activity 8</button>
 
 
 ```r
@@ -418,15 +424,9 @@ sample_size_r <- pwr.r.test(r = .4,
   tidy() %>% pull(n) %>% ceiling()
 ```
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 
 ### Activity 9 {#power-a9sol}
-
-<div class='webex-solution'><button>Activity 9</button>
 
 
 ```r
@@ -444,15 +444,8 @@ pwr.r.test(n = 50,
           power = 0.8
     alternative = greater
 
-</div>
-
-<br>
-Click on the tab to reveal the solution
 
 ### Activity 10 {#power-a10sol}
-
-
-<div class='webex-solution'><button>Activity 11</button>
 
 
 ```r
@@ -510,7 +503,21 @@ sample_size
 
 [1] 52
 
-</div>
+## Words from this Chapter
 
-<br>
-Click on the tab to reveal the solution.
+Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the [PsyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_blank"}. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.
+
+
+|term                                                                                                           |definition                                                                                                                                                            |
+|:--------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|[alpha](https://psyteachr.github.io/glossary/a.html#alpha){class="glossary" target="_blank"}                   |(stats) The cutoff value for making a decision to reject the null hypothesis; (graphics) A value between 0 and 1 used to control the levels of transparency in a plot |
+|[beta](https://psyteachr.github.io/glossary/b.html#beta){class="glossary" target="_blank"}                     |The false negative rate we accept for a statistical test.                                                                                                             |
+|[false negative](https://psyteachr.github.io/glossary/f.html#false-negative){class="glossary" target="_blank"} |When a test concludes there is no effect when there really is an effect                                                                                               |
+|[false positive](https://psyteachr.github.io/glossary/f.html#false-positive){class="glossary" target="_blank"} |When a test concludes there is an effect when there really is no effect                                                                                               |
+|[hypothesis](https://psyteachr.github.io/glossary/h.html#hypothesis){class="glossary" target="_blank"}         |A proposed explanation made on the basis of limited evidence as a starting point for further investigation.                                                           |
+|[power](https://psyteachr.github.io/glossary/p.html#power){class="glossary" target="_blank"}                   |The probability of rejecting the null hypothesis when it is false.                                                                                                    |
+|[probability](https://psyteachr.github.io/glossary/p.html#probability){class="glossary" target="_blank"}       |A number between 0 and 1 where 0 indicates impossibility of the event and 1 indicates certainty                                                                       |
+|[replicability](https://psyteachr.github.io/glossary/r.html#replicability){class="glossary" target="_blank"}   |The extent to which the findings of a study can be repeated with new samples from the same population.                                                                |
+|[sample](https://psyteachr.github.io/glossary/s.html#sample){class="glossary" target="_blank"}                 |A subset of the population that you wish to make an inference about through your test.                                                                                |
+
+That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!
