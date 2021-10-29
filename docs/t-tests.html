@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 10 t-tests | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
-<meta name="description" content="Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a different variable. One of the really...">
+<meta name="description" content="Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a given variable. One of the really...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 10 t-tests | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/t-tests.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<meta property="og:description" content="Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a different variable. One of the really...">
+<meta property="og:description" content="Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a given variable. One of the really...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 10 t-tests | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a different variable. One of the really...">
+<meta name="twitter:description" content="Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a given variable. One of the really...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 <li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
 <li><a class="" href="correlations.html"><span class="header-section-number">9</span> Correlations</a></li>
 <li><a class="active" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
-<li><a class="" href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></li>
+<li><a class="" href="power-and-effect-sizes.html"><span class="header-section-number">11</span> Power and Effect Sizes</a></li>
 <li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
 <li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
 <li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
@@ -89,13 +89,15 @@
 <h1>
 <span class="header-section-number">10</span> t-tests<a class="anchor" aria-label="anchor" href="#t-tests"><i class="fas fa-link"></i></a>
 </h1>
-<p>Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a different variable. One of the really confusing things however about research design is that there are many names for the same type of design. To clarify:</p>
+<p>Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a given variable. One of the really confusing things however about research design is that there are many names for the same type of design. To clarify:</p>
 <ul>
-<li>One-sample are used to study one group of people against a known norm or criterion - for example, comparing the mean IQ of a sample against a known population norm such as an IQ of 100.</li>
-<li>Independent-samples and between-subjects designs mean the same thing - different participants in different conditions.</li>
-<li>In contrast, within-subjects, dependent-samples, paired-samples, and repeated-measures all tend to mean the same participants in all conditions</li>
+<li>
+<a class="glossary" title="A study to compare the mean and spread of one group against a known value or population norm.">One-sample</a> are used to study one group of people against a known norm or criterion - for example, comparing the mean IQ of a sample against a known population norm such as an IQ of 100.</li>
+<li>Independent-samples and <a class="glossary" target="_blank" title="Not varying within unit of observation, such that each has only one value" href="https://psyteachr.github.io/glossary/b#between-subjects">between-subjects</a> designs mean the same thing - different participants in different conditions.</li>
+<li>In contrast, <a class="glossary" target="_blank" title="Varying such that each unit of observation has more than one value" href="https://psyteachr.github.io/glossary/w#within-subjects">within-subjects</a>, dependent-samples, paired-samples, and repeated-measures all tend to mean the same participants in all conditions</li>
 <li>Matched-pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)</li>
-<li>Mixed-design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half of the participants do ratings of trustworthiness (between).</li>
+<li>
+<a class="glossary" target="_blank" title="An experimental design that has both within-subject and between-subject factors." href="https://psyteachr.github.io/glossary/m#mixed-design">Mixed-design</a> is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half of the participants do ratings of trustworthiness (between).</li>
 </ul>
 <p>To get a better understanding of how some of these tests run we will look at running an example of a between-subjects t-test and a within-subjects t-test through a series of activities. Remember that the solutions are at the bottom of the page if you are stuck, and please do ask questions on the forums.</p>
 <div id="between-subjects-t-tests-two-sample" class="section level2" number="10.1">
@@ -295,8 +297,8 @@ Our approach to this
 <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">geom_jitter</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span> </code></pre></div>
+  <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span>  <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Condition"</span>, y <span class="op">=</span> <span class="st">"Rating Score"</span><span class="op">)</span></code></pre></div>
 <p>The first part of the code uses a pipe to filter the data to just the intellect rating:</p>
 <ul>
 <li>
@@ -353,7 +355,7 @@ Figure 10.1: Violin-boxplot of the evaluator data
 <p>We are going to recommend that, at least when doing the analysis by code, you should use Welch's between-subjects t-test for the reasons explained in this paper by <a href="https://www.rips-irsp.com/article/10.5334/irsp.82/" target="_blank">Delarce et al,m (2017)</a> Now you don't have to read that paper but effectively, the Welch's between-subjects t-test is better at maintaining the false positive rate of your test (<span class="math inline">\(\alpha\)</span>, usually set at <span class="math inline">\(\alpha\)</span> = .05) at the requested level. So we will show you how to run a Welch's t-test here.</p>
 <p>The assumptions for a Welch's between-subjects t-test are:</p>
 <ol style="list-style-type: decimal">
-<li>The data are interval/ratio</li>
+<li>The data are continuous, i.e. interval/ratio</li>
 <li>The data are independent</li>
 <li>The residuals are normally distributed for each group</li>
 </ol>
@@ -383,12 +385,12 @@ Figure 10.1: Violin-boxplot of the evaluator data
 <li>Run the below code to calculate then plot the residuals for the "read" condition on "intellect" ratings.</li>
 </ul>
 <div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">read_residuals</span> <span class="op">&lt;-</span> <span class="va">ratings2</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"read"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<code class="sourceCode R"><span class="va">read_intellect_residuals</span> <span class="op">&lt;-</span> <span class="va">ratings2</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"read"</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group_resid <span class="op">=</span> <span class="va">Rating</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">group_resid</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">read_residuals</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">read_intellect_residuals</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
 <p>If we then look at our plots we get something that looks like this for the listened condition:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qqplot3"></span>
@@ -408,14 +410,22 @@ Figure 10.3: Residual plots of read intellect condition. Each circle represents 
 <p>What you are looking for is for the data to fall close to the diagonal line. Looking at the plots, maybe we could suggest that the "listened" condition is not so great as there is some data points moving away from the line at the far ends. The "read" condition seems a bit better, at least subjectively! There will always be some deviation from the diagonal line but at perhaps most of the data in both plots is relatively close to their respective diagonal lines.</p>
 <p>But in addition to the Q-Q plots we can also run a test on the residuals known as the <strong>Shapiro-Wilk</strong> test. The Shapiro-Wilk's test has the alternative hypothesis that the data is significantly different from normal. As such, if you find a significant result using the test then the interpretation is that your data is not normal. If you find a non-significant finding then the interpretation is that your data is not significantly different from normal. One technical point is that the test doesn't actually say your data is normal either but just that it is not significantly different from normal. Again, remember that assumptions have a degree of subjectivity to them. We use the <code>shapiro.wilk()</code> function from the base package to run the Shapiro-Wilk's test.</p>
 <ul>
-<li>In a new code chunk, run both lines of code below and look at their output.Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class="webex-select"><option value="blank"></option>
-<option value="answer">Yes</option>
-<option value="">No</option></select>
-</li>
+<li>In a new code chunk, run both lines of code below and look at their output.</li>
 </ul>
 <div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">listened_intellect_residuals</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">read_intellect_residuals</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
+<p>Try to answer the following questions:</p>
+<ul>
+<li>According to the Shapiro-Wilk's test, is the data normally distributed for the listened condition? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
+</li>
+<li>According to the Shapiro-Wilk's test, is the data normally distributed for the read condition? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select>
+</li>
+</ul>
 <p>So as you can see, the p-value for the listened condition is p = .174, and the p-value for the read condition is p = .445. So here we are in an interesting position that often happens. The figures for "listened" is a bit unclear, but the figure for "read" looks ok and both tests show a non-significant difference from normality. What do we do? Well we combine our knowledge of our data to make a reasoned decision. In this situation the majority of our information is pointing to the data being normal. However, there are known issues with the Shapiro-Wilks test when there are small sample sizes so we must always take results like this with some caution. It is never a good idea to run a small sample such as this and so in reality we might want to design a study that has larger sample groups. All that said, here it would not be unreasonable to take the assumption of normality as being held.</p>
 <div class="info">
 <p>
@@ -482,7 +492,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </ul>
 <div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_intellect</span> <span class="op">&lt;-</span> <span class="va">intellect_t</span> <span class="op">%&gt;%</span>
-  <span class="fu">tidy</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>As you will see, <code>results_intellect</code> is now in a nice tibble format that makes it easy to extract individual values. It is worth looking at the values with the below explanations:</p>
 <ul>
 <li>
@@ -657,7 +667,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <li>Run and complete the code below by replacing the NULLs to calculate the effect sizes for hire and impression</li>
 </ul>
 <div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu">cohens_d</span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
+<code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span>
 <span class="va">hire_d</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
@@ -709,9 +719,9 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <p>If you refer back to the original paper on pg 887, you can see, for example, that the authors wrote:</p>
 <p><strong>In particular, the recruiters believed that the job candidates had greater intellect—were more competent, thoughtful, and intelligent—when they listened to pitches (M = 5.63, SD = 1.61) than when they read pitches (M = 3.65, SD = 1.91), t(37) = 3.53, p &lt; .01, 95% CI of the difference = [0.85, 3.13], d = 1.16.</strong></p>
 <p>If we were to compare our findings, we would have something like the below:</p>
-<p>Bonferroni-corrected Welch's t-tests found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 3.65, SD = 1.91), t(33.43) = 2.64, 2.82, 3.48, p &lt; 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12</p>
-<p>You can create this same paragraph, using code, by copying and pasting the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knittin the file.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="t-tests.html#cb193-1" aria-hidden="true" tabindex="-1"></a>The pattern of evaluations by professional recruiters replicated the pattern observed <span class="cf">in</span> Experiments <span class="dv">1</span> through 3b (see Fig. <span class="dv">7</span>). Bonferroni<span class="sc">-</span>corrected t<span class="sc">-</span>tests found that <span class="cf">in</span> particular, the recruiters believed that the job candidates had greater intellect<span class="sc">---</span>were more competent, thoughtful, and intelligent<span class="sc">---</span>when they listened to <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[3], 2)</span><span class="st">`</span>) than when they read <span class="fu">pitches</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[6], 2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_intellect$parameter, 2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results$statistic,2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> <span class="st">`</span><span class="at">r results$p.adjusted[3] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the difference <span class="ot">=</span> [<span class="st">`</span><span class="at">r round(results_intellect$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_intellect$conf.high, 2)</span><span class="st">`</span>], d <span class="ot">=</span> <span class="st">`</span><span class="at">r round(intellect_d$Cohens_d,2)</span><span class="st">`</span>. </span></code></pre></div>
+<p><strong>A bonferroni-corrected Welch t-test found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 3.65, SD = 1.91), t(33.43) = 3.48, p = 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12.</strong></p>
+<p>You can create this same paragraph, using code, by copying and pasting the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knitting the file.</p>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="t-tests.html#cb193-1" aria-hidden="true" tabindex="-1"></a>A bonferroni<span class="sc">-</span>corrected Welch t<span class="sc">-</span>test found that recruiters rated job candidates as more intellectual when they listened to <span class="fu">resumes</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[3], 2)</span><span class="st">`</span>) than when they read <span class="fu">resumes</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate2%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[6], 2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_intellect$parameter, 2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_adj$statistic[3],2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r results_adj$p.adjusted[3] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the difference <span class="ot">=</span> [<span class="st">`</span><span class="at">r round(results_intellect$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_intellect$conf.high, 2)</span><span class="st">`</span>], d <span class="ot">=</span> <span class="st">`</span><span class="at">r round(intellect_d$Cohens_d,2)</span><span class="st">`</span>. </span></code></pre></div>
 <p>Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. But you can look at the two examples and see the difference. It would also be worthwhile trying your own write-up of the two remaining conditions before moving on to within-subjects t-tests.</p>
 </div>
 </div>
@@ -720,98 +730,194 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <h2>
 <span class="header-section-number">10.2</span> Within-subjects (paired-samples)<a class="anchor" aria-label="anchor" href="#within-subjects-paired-samples"><i class="fas fa-link"></i></a>
 </h2>
-<div id="ttest-a11" class="section level4" number="10.2.0.1">
-<h4>
-<span class="header-section-number">10.2.0.1</span> Activity 11: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a11"><i class="fas fa-link"></i></a>
-</h4>
-<p>For the final activity we will run a paired-samples t-test for a within-subject design but we will do this much quicker than for the Welch test and just point out the differences in the code.</p>
-<p>For this example we will again draw from the <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities">Open Stats Lab</a> and look at data from the following paper:</p>
-<p><a href="https://journals.sagepub.com/stoken/default+domain/d5HcBHg85XamSXGdYqYN/full">Mehr, S. A., Song. L. A., &amp; Spelke, E. S. (2016). For 5-month-old infants, melodies are social. Psychological Science, 27, 486-501.</a></p>
-<p>Parents often sing to their children and, even as infants, children listen to and look at their parents while they are singing. Research by Mehr, Song, and Spelke (2016) sought to explore the psychological function that music has for parents and infants, by examining the hypothesis that particular melodies convey
-important social information to infants. Specifically, melodies convey information about social affiliation.</p>
-<p>The authors argue that melodies are shared within social groups. Whereas children growing up in one culture may be exposed to certain songs as infants (e.g., “Rock-a-bye Baby”), children growing up in other cultures (or even other groups within a culture) may be exposed to different songs. Thus, when a novel person (someone who the infant has never seen before) sings a familiar song, it may signal to the infant that this new person is a member of their social group.</p>
-<p>To test this hypothesis, the researchers recruited 32 infants and their parents to complete an experiment. During their first visit to the lab, the parents were taught a new lullaby (one that neither they nor their infants had heard before). The experimenters asked the parents to sing the new lullaby to their child every day for the next 1-2 weeks. Following this 1-2 week exposure period, the parents and their infant returned to the lab to complete the experimental portion of the study. Infants were first shown a screen with side-by-side videos of two unfamiliar people, each of whom were silently smiling and looking at the infant. The researchers recorded the looking behaviour (or gaze) of the infants during this ‘baseline’ phase. Next, one by one, the two unfamiliar people on the screen sang either the lullaby that the parents learned or a different lullaby (that had the same lyrics and rhythm, but a different melody). Finally, the infants saw the same silent video used at baseline, and the researchers again recorded the looking behaviour of the infants during this ‘test’ phase. For more details on the experiment’s methods, please refer to Mehr et al. (2016) Experiment 1.</p>
-</div>
+<p>For the final activity we will run a paired-samples t-test for a within-subject design but we will go through this one more quickly and just point out the differences to the above. For this example we will again draw from the <a href="https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities">Open Stats Lab</a> and look at data from the data in <a href="https://journals.sagepub.com/stoken/default+domain/d5HcBHg85XamSXGdYqYN/full">Mehr, S. A., Song. L. A., &amp; Spelke, E. S. (2016). For 5-month-old infants, melodies are social. Psychological Science, 27, 486-501.</a>{target = "_blank"}.</p>
+<p>The premis of the paper is that parents often sing to their children and, even as infants, children listen to and look at their parents while they are sung to. The authors sought to explore the psychological function that music has for parents and infants, by examining the research question that particular melodies may convey important social information to infants. More specifically, that common knowledge of songs and melodies convey information about social affiliation. The authors argue that melodies are shared within social groups. Whereas children growing up in one culture may be exposed to certain songs as infants (e.g., “Rock-a-bye Baby”), children growing up in other cultures (or even other groups within a culture) may be exposed to different songs. Thus, when a novel person (someone who the infant has never seen before) sings a familiar song, it may signal to the infant that this new person is a member of their social group.</p>
+<p>To test this the researchers recruited 32 infants and their parents to take part in the following experiment. During their first visit to the lab, the parents were taught a new lullaby (one that neither they nor their infants had heard before). The experimenters asked the parents to sing the new lullaby to their child every day for the next 1-2 weeks. Following this 1-2 week exposure period, the parents and their infant returned to the lab to complete the experimental portion of the study. Infants were first shown a screen with side-by-side videos of two unfamiliar people, each of whom were silently smiling and looking at the infant. The researchers recorded the looking behaviour (or gaze) of the infants during this ‘baseline’ phase. Next, one by one, the two unfamiliar people on the screen sang either the lullaby that the parents learned or a different lullaby (that had the same lyrics and rhythm, but a different melody). Finally, the infants saw the same silent video used at baseline, and the researchers again recorded the looking behaviour of the infants during this ‘test’ phase. For more details on the experiment’s methods, please refer to Mehr et al. (2016) Experiment 1.</p>
 <div id="the-data-1" class="section level3" number="10.2.1">
 <h3>
 <span class="header-section-number">10.2.1</span> The Data<a class="anchor" aria-label="anchor" href="#the-data-1"><i class="fas fa-link"></i></a>
 </h3>
+<div id="ttest-a11" class="section level4" number="10.2.1.1">
+<h4>
+<span class="header-section-number">10.2.1.1</span> Activity 11: Getting the data ready<a class="anchor" aria-label="anchor" href="#ttest-a11"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
-<li>First, download <a href="Mehr%20Song%20and%20Spelke%202016%20Experiment%201.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> and run the below code to load and wrangle the data into the format we need - this code selects only the data we need for the analysis and renames variables to make them easier to work with.</li>
+<li>First, download <a href="Mehr%20Song%20and%20Spelke%202016%20Experiment%201.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> by clicking on the link and putting it into your working directory.
+<ul>
+<li>again if easier you can download the data as <a href="data/chpt10/PsyTeachR_FQA_Chpt10-data-between.zip">a zip file by clicking this link</a>.</li>
+</ul>
+</li>
+<li>Next, type and run the below code in a new code chunk. The code loads in the data and then does some wrangling to get the data into a working format:
+<ul>
+<li>it filters so we just have the first experiment from the paper</li>
+<li>selects the id and the preferential looking time of babies at the baseline stage and at the test stage.</li>
+<li>finally it renames the two preferential looking time columns to have names that are easier to work with using the <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> function.</li>
+</ul>
+</li>
 </ul>
 <div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"Mehr Song and Spelke 2016 Experiment 1.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">exp1</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">Baseline_Proportion_Gaze_to_Singer</span>,<span class="va">Test_Proportion_Gaze_to_Singer</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>,
+         <span class="va">Baseline_Proportion_Gaze_to_Singer</span>,
+         <span class="va">Test_Proportion_Gaze_to_Singer</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>baseline <span class="op">=</span> <span class="va">Baseline_Proportion_Gaze_to_Singer</span>,
          test <span class="op">=</span> <span class="va">Test_Proportion_Gaze_to_Singer</span><span class="op">)</span></code></pre></div>
+</div>
 </div>
 <div id="assumptions-1" class="section level3" number="10.2.2">
 <h3>
 <span class="header-section-number">10.2.2</span> Assumptions<a class="anchor" aria-label="anchor" href="#assumptions-1"><i class="fas fa-link"></i></a>
 </h3>
+<p>So now that we have our data ready to work with, and be sure to look at it to get an understanding of the data, we want to consider the assumptions of the within-subjects t-test.</p>
+<p>The assumptions for this t-test are a little different (although very similar) to the between-subjects t-tests above. They are</p>
+<ol style="list-style-type: decimal">
+<li>The data is continuous, i.e. interval/ratio</li>
+<li>All participants should appear in both conditions/groups.</li>
+<li>The residuals are normally distributed.</li>
+</ol>
+<p>Aside from the data being paired rather than independent, i.e. it is the same participants in two conditions, rather than two groups of people in different conditions, the key difference is that for the within-subjects test, the data is actually determined as the difference between the scores in the two conditions for each participant. So for example, say participant one scores 10 in condition 1 and 7 in condition 2, then there data is actually 3, and you do that for all participants. So it isn't looking at what they scored in either condition by itself, but what was the difference between conditions. And it is that data that must be continuous and that the residuals must be normally distributed for.</p>
 <div id="ttest-a12" class="section level4" number="10.2.2.1">
 <h4>
 <span class="header-section-number">10.2.2.1</span> Activity 12: Assumptions<a class="anchor" aria-label="anchor" href="#ttest-a12"><i class="fas fa-link"></i></a>
 </h4>
-<p>The assumptions for the paired-samples t-test are a little different (although very similar) to the independent t-test.</p>
-<ol style="list-style-type: decimal">
-<li>The dependent variable must be continuous (interval/ratio).<br>
-</li>
-<li>All participants should appear in both conditions/groups.</li>
-<li>The difference scores should be normally distributed.</li>
-</ol>
-<p>Aside from the data being paired rather than independent, the key difference is that for the paired-samples test, the assumption of normality if that the differences between each pair of scores are normally distributed, rather than the scores themselves.</p>
 <ul>
-<li>Run the below code to calculate the difference scores and then conduct the Shapriro-Wilk and QQ-plot as with the independent test.</li>
+<li>Type and run the below code to first calculate the difference scores (<code>diff</code>) and then the residuals (<code>group_resid</code>).</li>
+<li>next it plots the Q-Q plot of the residuals before carrying out a Shapiro-Wilk's test on the residuals</li>
 </ul>
 <div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gaze</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">baseline</span> <span class="op">-</span> <span class="va">test</span><span class="op">)</span></code></pre></div>
-<p>As you can see, from both the Shapiro-Wilk test and the QQ-plot, the data meet the assumption of normality so we can proceed.</p>
+<code class="sourceCode R"><span class="va">gaze_residual</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">baseline</span> <span class="op">-</span> <span class="va">test</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group_resid <span class="op">=</span> <span class="va">diff</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">diff</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">gaze_residual</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">gaze_residual</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
+<p>And if we look at the plot we see:</p>
+<div class="inline-figure"><img src="10-t-tests_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;"></div>
+<pre><code>## [1] 22 29</code></pre>
+<p>and the Shapiro-Wilk's suggests:</p>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  gaze_residual$group_resid
+## W = 0.97818, p-value = 0.7451</code></pre>
+<p>Now as we saw above, with the Q-Q plot we want the data to fall approximately on the diagonal line, and with the Shapiro-Wilks test we are looking for a non-significant finding. Based on those two tests, we can therefor say that our data meets the assumption of normality and so we can proceed.</p>
 </div>
 </div>
 <div id="descriptives" class="section level3" number="10.2.3">
 <h3>
 <span class="header-section-number">10.2.3</span> Descriptives<a class="anchor" aria-label="anchor" href="#descriptives"><i class="fas fa-link"></i></a>
 </h3>
+<p>Now we are going to look at some descriptives. It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using <code>tidyverse</code> tools.</p>
 <div id="ttest-a13" class="section level4" number="10.2.3.1">
 <h4>
 <span class="header-section-number">10.2.3.1</span> Activity 13: Descriptives and visualisations<a class="anchor" aria-label="anchor" href="#ttest-a13"><i class="fas fa-link"></i></a>
 </h4>
-<p>It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using <code>tidyverse</code> tools.</p>
 <ul>
-<li>Run the below code to tidy the data and then create the same violin-boxplot as you did for the independent t-test (hint: it is perfectly acceptable to copy and paste the code from Activity 4 and change the data and variable names).</li>
+<li>Type and run the below code to gather the data using pivot_longer().</li>
+<li>Next create a violin-boxplot of the data using your knowledge (and code) from Activity 4 above.</li>
+<li>Finally, create a descriptives table that contains the n, the mean, and the standard deviation of each condition.
+<ul>
+<li>If you prefer, you could actually work on the difference scores instead of the two different conditions. Whilst we analyse the difference, people plot either the difference or the two conditions as descriptives.</li>
 </ul>
-<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+</li>
+</ul>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_tidy</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
-  <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"time"</span>, values_to <span class="op">=</span> <span class="st">"looking"</span>, cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">baseline</span>, <span class="va">test</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">diff</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">time</span>, <span class="va">id</span><span class="op">)</span></code></pre></div>
+  <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"time"</span>, 
+               values_to <span class="op">=</span> <span class="st">"looking"</span>, 
+               cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">baseline</span>, <span class="va">test</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>If you have done this step correctly, you should see a plot that looks like this:</p>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="10-t-tests_files/figure-html/unnamed-chunk-6-1.png" alt="Preferential Looking time for infants at baseline stage (left) and test stage (right)." width="100%"><p class="caption">
+Figure 7.7: Preferential Looking time for infants at baseline stage (left) and test stage (right).
+</p>
+</div>
+<p>And the descriptives:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">time</th>
+<th align="right">n</th>
+<th align="right">mean_looking</th>
+<th align="right">sd_looking</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">baseline</td>
+<td align="right">32</td>
+<td align="right">0.5210967</td>
+<td align="right">0.1769651</td>
+</tr>
+<tr class="even">
+<td align="left">test</td>
+<td align="right">32</td>
+<td align="right">0.5934912</td>
+<td align="right">0.1786884</td>
+</tr>
+</tbody>
+</table></div>
+<p>Again you could look at the differences and if you know how you could plot the confidence interval of the difference, but it is not essential here. But looking at what you have done it would be worth spending a few minutes to try and predict the outcome of the t-test if the null hypothesis is that there is no difference in preferential looking time in babies between the baseline and test conditions.</p>
 </div>
 </div>
 <div id="inferential-analysis-1" class="section level3" number="10.2.4">
 <h3>
 <span class="header-section-number">10.2.4</span> Inferential Analysis<a class="anchor" aria-label="anchor" href="#inferential-analysis-1"><i class="fas fa-link"></i></a>
 </h3>
-<div id="ttest-a14" class="section level4" number="10.2.4.1">
-<h4>
-<span class="header-section-number">10.2.4.1</span> Activity 14: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a14"><i class="fas fa-link"></i></a>
-</h4>
-<p>Finally, we can calculate the t-test and the effect size. The code is almost identical to the independent code with two differences:</p>
+<p>Which brings us on to running the t-test and the effect size. The code is almost identical to the independent code with two differences:</p>
 <ol style="list-style-type: decimal">
 <li>In <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> you should specify <code>paired = TRUE</code> rather than <code>FALSE</code>
 </li>
 <li>In <code><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d()</a></code> you should specify <code>method = paired</code> rather than <code>pooled_sd</code>
 </li>
 </ol>
+<div id="ttest-a14" class="section level4" number="10.2.4.1">
+<h4>
+<span class="header-section-number">10.2.4.1</span> Activity 14: Paired-samples t-test<a class="anchor" aria-label="anchor" href="#ttest-a14"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
-<li>Run the t-test and calculate the effect size. Store the list output version in <code>gaze_t</code> and then use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> for <code>gaze_test</code>.</li>
+<li>Now have a go at running the within-subjects t-test based on your knowledge. The data you need is in <code>gaze_tidy()</code>. Store the output of the t-test as a tibble in the object <code>gaze_test</code>
+<ul>
+<li>i.e. pipe the output of the t-test into `tidy() in the one line of code.</li>
 </ul>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="t-tests.html#cb197-1" aria-hidden="true" tabindex="-1"></a>gaze_t <span class="ot">&lt;-</span> </span>
-<span id="cb197-2"><a href="t-tests.html#cb197-2" aria-hidden="true" tabindex="-1"></a>gaze_test <span class="ot">&lt;-</span> </span>
-<span id="cb197-3"><a href="t-tests.html#cb197-3" aria-hidden="true" tabindex="-1"></a>gaze_d <span class="ot">&lt;-</span> </span></code></pre></div>
-<p>The output of the paired-samples t-test is very similar to the independent test, with one exception. Rather than providing the means of both conditions, there is a single <code>estimate</code>. This is the mean <em>difference</em> score between the two conditions.</p>
+</li>
+<li>calculate the Cohen's D for the t-test and store it in <code>gaze_d</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gaze_test</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
+<span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
+<p>And if you have done that correctly, you should see in <code>gaze_test</code> something like this:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">estimate</th>
+<th align="right">statistic</th>
+<th align="right">p.value</th>
+<th align="right">parameter</th>
+<th align="right">conf.low</th>
+<th align="right">conf.high</th>
+<th align="left">method</th>
+<th align="left">alternative</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">-0.0723946</td>
+<td align="right">-2.41643</td>
+<td align="right">0.0217529</td>
+<td align="right">31</td>
+<td align="right">-0.133497</td>
+<td align="right">-0.0112922</td>
+<td align="left">Paired t-test</td>
+<td align="left">two.sided</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div id="write-up-and-interpretation" class="section level3" number="10.2.5">
+<h3>
+<span class="header-section-number">10.2.5</span> Write-Up and Interpretation<a class="anchor" aria-label="anchor" href="#write-up-and-interpretation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Looking at the output of the test, it is actually very similar to the between-subjects t-test, with one exception. Rather than providing the means of both conditions, there is a single <code>estimate</code>. This is the mean <em>difference</em> score between the two conditions and if you had calculated the descriptives on the <code>diff</code> we created above you would get the same answer.</p>
 <ul>
 <li>
 <p>Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):</p>
@@ -821,28 +927,19 @@ important social information to infants. Specifically, melodies convey informati
 </ul>
 </li>
 </ul>
-</div>
-</div>
-<div id="write-up-and-interpretation" class="section level3" number="10.2.5">
-<h3>
-<span class="header-section-number">10.2.5</span> Write-up and Interpretation<a class="anchor" aria-label="anchor" href="#write-up-and-interpretation"><i class="fas fa-link"></i></a>
-</h3>
 <div id="ttest-a15" class="section level4" number="10.2.5.1">
 <h4>
 <span class="header-section-number">10.2.5.1</span> Activity 15: Write-up<a class="anchor" aria-label="anchor" href="#ttest-a15"><i class="fas fa-link"></i></a>
 </h4>
-<p>Copy and paste the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knit the file to replicate the results section in the paper (p.489).</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="t-tests.html#cb198-1" aria-hidden="true" tabindex="-1"></a>At test, however, the infants selectively attended to the now<span class="sc">-</span>silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at <span class="fu">baseline</span> (difference <span class="cf">in</span> proportion of looking<span class="sc">:</span> <span class="at">M =</span> <span class="st">`</span><span class="at">r gaze_test$estimate %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sd(gaze$diff, na.rm = TRUE) %&gt;% round(2)</span><span class="st">`</span>, <span class="dv">95</span><span class="sc">% CI = [`r gaze_test$conf.low %</span><span class="er">&gt;</span><span class="sc">% round(2)`, `r gaze_test$conf.high %</span><span class="er">&gt;</span><span class="sc">% round(2)`]), t(`r gaze_test$parameter`) = `r gaze_test$statistic %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p = `r gaze_test$p.value %</span><span class="er">&gt;</span><span class="sc">% round(3)`, d = `r gaze_d$Cohens_d %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">.</span></span></code></pre></div>
-<blockquote>
-<p>At test, however, the infants selectively attended to the now-silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at baseline (difference in proportion of looking: M = -0.07, SD = 0.17, 95% CI = [-0.13, -0.01]), t(31) = -2.42, p = 0.022, d = -0.41.</p>
-</blockquote>
-<p>Similarly, we can use <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> on the original list object to produce an automated write-up.</p>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">gaze_t</span><span class="op">)</span></code></pre></div>
-<pre><code>## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.</code></pre>
-<pre><code>## Effect sizes were labelled following Cohen's (1988) recommendations.
-## 
-## The Paired t-test testing the difference of looking by time (mean of the differences = -0.07) suggests that the effect is negative, statistically significant, and small (difference = -0.07, 95% CI [-0.13, -0.01], t(31) = -2.42, p = 0.022; Cohen's d = -0.43, 95% CI [-0.80, -0.06])</code></pre>
+<p>Now have a go at summarising this finding in a sentence using the standard APA formatting. We have hidden our version just below for you to look at when you have had a go.</p>
+<div class="webex-solution">
+<button>
+Show our write-up
+</button>
+<p>At test stage (M = .59, SD = .18), infants showed a significantly longer preferential looking time to the singer of the familiar melody than they had shown the same singer at baseline (M = .52, SD = .18), t(31) = 2.42, p = .022, d = .41.</p>
+<p>Alternatively:</p>
+<p>At test stage, infants showed a significantly longer preferential looking time to the singer of the familiar melody than they had shown the same singer at baseline (Mean Difference = 0.07, SD = 0.17), t(31) = 2.42, p = .022, d = .41.</p>
+</div>
 </div>
 </div>
 </div>
@@ -850,23 +947,18 @@ important social information to infants. Specifically, melodies convey informati
 <h2>
 <span class="header-section-number">10.3</span> Finished!<a class="anchor" aria-label="anchor" href="#ttest-fin"><i class="fas fa-link"></i></a>
 </h2>
-<p>That was a long chapter but now that you've done all the statistical tests you need to complete your quantitative project - hopefully you will see that it really is true that the hardest part is the set-up and the data wrangling. As we've said before, you don't need to memorise lines of code - you just need to remember where to find examples and to understand which bits of them you need to change. Play around with the examples we have given you and see what changing the values does.</p>
+<p>That was a long chapter but hopefully you will see that it really is true that the hardest part is the set-up and the data wrangling. As we've said before, you don't need to memorise lines of code - you just need to remember where to find examples and to understand which bits of them you need to change. Play around with the examples we have given you and see what changing the values does. There is no specific Test Yourself section for this chapter but make sure you check your understanding of the different sections before moving on.</p>
 </div>
-<div id="test-yourself-4" class="section level2" number="10.4">
+<div id="ttest-sols" class="section level2" number="10.4">
 <h2>
-<span class="header-section-number">10.4</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-4"><i class="fas fa-link"></i></a>
-</h2>
-</div>
-<div id="ttest-sols" class="section level2" number="10.5">
-<h2>
-<span class="header-section-number">10.5</span> Activity solutions<a class="anchor" aria-label="anchor" href="#ttest-sols"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4</span> Activity solutions<a class="anchor" aria-label="anchor" href="#ttest-sols"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.</p>
-<div id="ttest-a1sol" class="section level4" number="10.5.0.1">
+<div id="ttest-a1sol" class="section level4" number="10.4.0.1">
 <h4>
-<span class="header-section-number">10.5.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#ttest-a1sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#ttest-a1sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/effectsize/">effectsize</a></span><span class="op">)</span>
@@ -874,34 +966,34 @@ important social information to infants. Specifically, melodies convey informati
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"evaluators.csv"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a2sol" class="section level4" number="10.5.0.2">
+<div id="ttest-a2sol" class="section level4" number="10.4.0.2">
 <h4>
-<span class="header-section-number">10.5.0.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#ttest-a2sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.0.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#ttest-a2sol"><i class="fas fa-link"></i></a>
 </h4>
 <p>This was our code:</p>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="va">evaluators</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex_labels <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">sex</span>, <span class="st">"1"</span> <span class="op">=</span> <span class="st">"male"</span>, <span class="st">"2"</span> <span class="op">=</span> <span class="st">"female"</span><span class="op">)</span>,
          sex_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">sex_labels</span><span class="op">)</span>,
          condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>and you could summarise as below to give an output:</p>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">eval_counts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">evaluators</span>, <span class="va">sex_labels</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a6sol" class="section level4" number="10.5.0.3">
+<div id="ttest-a6sol" class="section level4" number="10.4.0.3">
 <h4>
-<span class="header-section-number">10.5.0.3</span> Activity 6<a class="anchor" aria-label="anchor" href="#ttest-a6sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.0.3</span> Activity 6<a class="anchor" aria-label="anchor" href="#ttest-a6sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span>
 <span class="va">hire</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"hire"</span><span class="op">)</span>
 <span class="va">impression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"impression"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a8sol" class="section level4" number="10.5.0.4">
+<div id="ttest-a8sol" class="section level4" number="10.4.0.4">
 <h4>
-<span class="header-section-number">10.5.0.4</span> Activity 8<a class="anchor" aria-label="anchor" href="#ttest-a8sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.0.4</span> Activity 8<a class="anchor" aria-label="anchor" href="#ttest-a8sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span>
@@ -912,53 +1004,79 @@ important social information to infants. Specifically, melodies convey informati
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">impression</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ttest-a12sol" class="section level4" number="10.5.0.5">
+<div id="ttest-a13sol" class="section level4" number="10.4.0.5">
 <h4>
-<span class="header-section-number">10.5.0.5</span> Activity 12<a class="anchor" aria-label="anchor" href="#ttest-a12sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.0.5</span> Activity 13<a class="anchor" aria-label="anchor" href="#ttest-a13sol"><i class="fas fa-link"></i></a>
 </h4>
+<p>For the plot:</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="t-tests.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gaze_tidy, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> looking)) <span class="sc">+</span></span>
+<span id="cb205-2"><a href="t-tests.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb205-3"><a href="t-tests.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> time), <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb205-4"><a href="t-tests.html#cb205-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"pointrange"</span>, <span class="at">fun.data =</span> <span class="st">"mean_cl_normal"</span>) <span class="sc">+</span></span>
+<span id="cb205-5"><a href="t-tests.html#cb205-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Experimental Stage"</span>, <span class="st">"Preferential Looking Time (Proportion)</span></span></code></pre></div>
+<p>For the descriptives:</p>
+<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">desc</span> <span class="op">&lt;-</span> <span class="va">gaze_tidy</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, 
+            mean_looking <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">looking</span><span class="op">)</span>, 
+            sd_looking <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">looking</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="ttest-a14sol" class="section level4" number="10.4.0.6">
+<h4>
+<span class="header-section-number">10.4.0.6</span> Activity 14<a class="anchor" aria-label="anchor" href="#ttest-a14sol"><i class="fas fa-link"></i></a>
+</h4>
+<p>For the t-test:</p>
 <div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">gaze</span><span class="op">$</span><span class="va">diff</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">gaze</span><span class="op">$</span><span class="va">diff</span><span class="op">)</span></code></pre></div>
-</div>
-<div id="ttest-a13sol" class="section level4" number="10.5.0.6">
-<h4>
-<span class="header-section-number">10.5.0.6</span> Activity 13<a class="anchor" aria-label="anchor" href="#ttest-a13sol"><i class="fas fa-link"></i></a>
-</h4>
+<code class="sourceCode R"><span class="va">gaze_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, 
+                    paired <span class="op">=</span> <span class="cn">TRUE</span>, 
+                    data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>For the Cohen's D:</p>
 <div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">gaze_tidy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">looking</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">time</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span></code></pre></div>
-</div>
-<div id="ttest-a14sol" class="section level4" number="10.5.0.7">
-<h4>
-<span class="header-section-number">10.5.0.7</span> Activity 14<a class="anchor" aria-label="anchor" href="#ttest-a14sol"><i class="fas fa-link"></i></a>
-</h4>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">gaze_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, paired <span class="op">=</span> <span class="cn">TRUE</span>, data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span>
-<span class="va">gaze_test</span> <span class="op">&lt;-</span>  <span class="va">gaze_t</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, method <span class="op">=</span> <span class="st">"paired"</span>, data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, 
+                   method <span class="op">=</span> <span class="st">"paired"</span>, 
+                   data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="words-from-this-chapter-9" class="section level2" number="10.6">
+<div id="words-from-this-chapter-9" class="section level2" number="10.5">
 <h2>
-<span class="header-section-number">10.6</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.5</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-9"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="55%">
+<col width="44%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">term</th>
 <th align="left">definition</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/b.html#between-subjects" class="glossary" target="_blank">between subjects</a></td>
+<td align="left">Not varying within unit of observation, such that each has only one value</td>
+</tr>
+<tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/c.html#categorical" class="glossary" target="_blank">categorical</a></td>
 <td align="left">Data that can only take certain values, such as types of pet.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/m.html#mixed-design" class="glossary" target="_blank">mixed design</a></td>
+<td align="left">An experimental design that has both within-subject and between-subject factors.</td>
 </tr>
 <tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/n.html#numeric" class="glossary" target="_blank">numeric</a></td>
 <td align="left">A data type representing a real decimal number or integer.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/o.html#one-sample" class="glossary" target="_blank">one sample</a></td>
+<td align="left">A study to compare the mean and spread of one group against a known value or population norm.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/w.html#within-subjects" class="glossary" target="_blank">within subjects</a></td>
+<td align="left">Varying such that each unit of observation has more than one value</td>
 </tr>
 </tbody>
 </table></div>
@@ -1166,7 +1284,7 @@ $( document ).ready(function() {
 });
 </script><div class="chapter-nav">
 <div class="prev"><a href="correlations.html"><span class="header-section-number">9</span> Correlations</a></div>
-<div class="next"><a href="power-and-error.html"><span class="header-section-number">11</span> Power and error</a></div>
+<div class="next"><a href="power-and-effect-sizes.html"><span class="header-section-number">11</span> Power and Effect Sizes</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -1188,13 +1306,12 @@ $( document ).ready(function() {
 <li><a class="nav-link" href="#assumptions-1"><span class="header-section-number">10.2.2</span> Assumptions</a></li>
 <li><a class="nav-link" href="#descriptives"><span class="header-section-number">10.2.3</span> Descriptives</a></li>
 <li><a class="nav-link" href="#inferential-analysis-1"><span class="header-section-number">10.2.4</span> Inferential Analysis</a></li>
-<li><a class="nav-link" href="#write-up-and-interpretation"><span class="header-section-number">10.2.5</span> Write-up and Interpretation</a></li>
+<li><a class="nav-link" href="#write-up-and-interpretation"><span class="header-section-number">10.2.5</span> Write-Up and Interpretation</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#ttest-fin"><span class="header-section-number">10.3</span> Finished!</a></li>
-<li><a class="nav-link" href="#test-yourself-4"><span class="header-section-number">10.4</span> Test Yourself</a></li>
-<li><a class="nav-link" href="#ttest-sols"><span class="header-section-number">10.5</span> Activity solutions</a></li>
-<li><a class="nav-link" href="#words-from-this-chapter-9"><span class="header-section-number">10.6</span> Words from this Chapter</a></li>
+<li><a class="nav-link" href="#ttest-sols"><span class="header-section-number">10.4</span> Activity solutions</a></li>
+<li><a class="nav-link" href="#words-from-this-chapter-9"><span class="header-section-number">10.5</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">

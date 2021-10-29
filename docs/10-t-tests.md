@@ -1,12 +1,12 @@
 # t-tests
 
-Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a different variable.  One of the really confusing things however about research design is that there are many names for the same type of design. To clarify:
+Experiments where you compare results from two conditions or two groups are very common within Psychology as often we want to know if there is an effect of a given variable.  One of the really confusing things however about research design is that there are many names for the same type of design. To clarify:
 
-* One-sample are used to study one group of people against a known norm or criterion - for example, comparing the mean IQ of a sample against a known population norm such as an IQ of 100.
-* Independent-samples and between-subjects designs mean the same thing - different participants in different conditions.
-* In contrast, within-subjects, dependent-samples, paired-samples, and repeated-measures all tend to mean the same participants in all conditions
+* <a class='glossary' title='A study to compare the mean and spread of one group against a known value or population norm.'>One-sample</a> are used to study one group of people against a known norm or criterion - for example, comparing the mean IQ of a sample against a known population norm such as an IQ of 100.
+* Independent-samples and <a class='glossary' target='_blank' title='Not varying within unit of observation, such that each has only one value' href='https://psyteachr.github.io/glossary/b#between-subjects'>between-subjects</a> designs mean the same thing - different participants in different conditions.
+* In contrast, <a class='glossary' target='_blank' title='Varying such that each unit of observation has more than one value' href='https://psyteachr.github.io/glossary/w#within-subjects'>within-subjects</a>, dependent-samples, paired-samples, and repeated-measures all tend to mean the same participants in all conditions
 * Matched-pairs design means different people in different conditions but you have matched participants across the conditions so that they are effectively the same person (e.g. age, IQ, Social Economic Status, etc)
-* Mixed-design is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half of the participants do ratings of trustworthiness (between).
+* <a class='glossary' target='_blank' title='An experimental design that has both within-subject and between-subject factors.' href='https://psyteachr.github.io/glossary/m#mixed-design'>Mixed-design</a> is when there is a combination of within-subjects and between-subjects designs in the one experiment. For example, say you are looking at attractiveness and dominance of male and female faces. Everyone might see both male and female faces (within) but half of the participants do ratings of attractiveness and half of the participants do ratings of trustworthiness (between).
 
 To get a better understanding of how some of these tests run we will look at running an example of a between-subjects t-test and a within-subjects t-test through a series of activities. Remember that the solutions are at the bottom of the page if you are stuck, and please do ask questions on the forums.
 
@@ -155,8 +155,8 @@ ratings2 %>%
 ggplot(aes(x = condition, y = Rating)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
-  geom_jitter() +
-  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") 
+  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")  +
+  labs(x = "Condition", y = "Rating Score")
 ```
 
 The first part of the code uses a pipe to filter the data to just the intellect rating:
@@ -201,7 +201,7 @@ We are going to recommend that, at least when doing the analysis by code, you sh
 
 The assumptions for a Welch's between-subjects t-test are:
 
-1. The data are interval/ratio
+1. The data are continuous, i.e. interval/ratio
 2. The data are independent
 3. The residuals are normally distributed for each group
 
@@ -227,12 +227,12 @@ qqPlot(listened_intellect_residuals$group_resid)
 
 
 ```r
-read_residuals <- ratings2 %>%
-  filter(condition == "read") %>%
+read_intellect_residuals <- ratings2 %>%
+  filter(condition == "read", Category == "intellect") %>%
   mutate(group_resid = Rating - mean(Rating)) %>%
   select(group_resid)
 
-qqPlot(read_residuals$group_resid)
+qqPlot(read_intellect_residuals$group_resid)
 ```
 
 If we then look at our plots we get something that looks like this for the listened condition:
@@ -261,13 +261,18 @@ What you are looking for is for the data to fall close to the diagonal line. Loo
 
 But in addition to the Q-Q plots we can also run a test on the residuals known as the **Shapiro-Wilk** test. The Shapiro-Wilk's test has the alternative hypothesis that the data is significantly different from normal. As such, if you find a significant result using the test then the interpretation is that your data is not normal. If you find a non-significant finding then the interpretation is that your data is not significantly different from normal. One technical point is that the test doesn't actually say your data is normal either but just that it is not significantly different from normal. Again, remember that assumptions have a degree of subjectivity to them. We use the `shapiro.wilk()` function from the base package to run the Shapiro-Wilk's test.
 
-* In a new code chunk, run both lines of code below and look at their output.Run the below code. According to the Shapiro-Wilk test, is the data normally distributed? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+* In a new code chunk, run both lines of code below and look at their output. 
 
 
 ```r
 shapiro.test(x = listened_intellect_residuals$group_resid)
 shapiro.test(x = read_intellect_residuals$group_resid)
 ```
+
+Try to answer the following questions:
+
+* According to the Shapiro-Wilk's test, is the data normally distributed for the listened condition? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+* According to the Shapiro-Wilk's test, is the data normally distributed for the read condition? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
 
 So as you can see, the p-value for the listened condition is p = .174, and the p-value for the read condition is p = .445. So here we are in an interesting position that often happens. The figures for "listened" is a bit unclear, but the figure for "read" looks ok and both tests show a non-significant difference from normality. What do we do? Well we combine our knowledge of our data to make a reasoned decision. In this situation the majority of our information is pointing to the data being normal. However, there are known issues with the Shapiro-Wilks test when there are small sample sizes so we must always take results like this with some caution. It is never a good idea to run a small sample such as this and so in reality we might want to design a study that has larger sample groups. All that said, here it would not be unreasonable to take the assumption of normality as being held.
 
@@ -470,13 +475,13 @@ If you refer back to the original paper on pg 887, you can see, for example, tha
 
 If we were to compare our findings, we would have something like the below:
 
-Bonferroni-corrected Welch's t-tests found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 3.65, SD = 1.91), t(33.43) = 2.64, 2.82, 3.48, p < 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12
+**A bonferroni-corrected Welch t-test found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 3.65, SD = 1.91), t(33.43) = 3.48, p = 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12.**
 
-You can create this same paragraph, using code, by copying and pasting the below **exactly** into **white space** in your R Markdown document and then knittin the file. 
+You can create this same paragraph, using code, by copying and pasting the below **exactly** into **white space** in your R Markdown document and then knitting the file. 
 
 
 ```r
-The pattern of evaluations by professional recruiters replicated the pattern observed in Experiments 1 through 3b (see Fig. 7). Bonferroni-corrected t-tests found that in particular, the recruiters believed that the job candidates had greater intellect---were more competent, thoughtful, and intelligent---when they listened to pitches (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[3], 2)`) than when they read pitches (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[6], 2)`), t(`r round(results_intellect$parameter, 2)`) = `r round(results$statistic,2)`, p < `r results$p.adjusted[3] %>% round(3)`, 95% CI of the difference = [`r round(results_intellect$conf.low, 2)`, `r round(results_intellect$conf.high, 2)`], d = `r round(intellect_d$Cohens_d,2)`. 
+A bonferroni-corrected Welch t-test found that recruiters rated job candidates as more intellectual when they listened to resumes (M = `r results_intellect$estimate1%>% round(2)`, SD = `r round(group_means$sd[3], 2)`) than when they read resumes (M = `r results_intellect$estimate2%>% round(2)`, SD = `r round(group_means$sd[6], 2)`), t(`r round(results_intellect$parameter, 2)`) = `r round(results_adj$statistic[3],2)`, p = `r results_adj$p.adjusted[3] %>% round(3)`, 95% CI of the difference = [`r round(results_intellect$conf.low, 2)`, `r round(results_intellect$conf.high, 2)`], d = `r round(intellect_d$Cohens_d,2)`. 
 ```
 
 Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. But you can look at the two examples and see the difference. It would also be worthwhile trying your own write-up of the two remaining conditions before moving on to within-subjects t-tests. 
@@ -484,93 +489,151 @@ Note that we haven't replicated the analysis exactly - the authors of this paper
 
 ## Within-subjects (paired-samples)
 
-#### Activity 11: Paired-samples t-test {#ttest-a11}
+For the final activity we will run a paired-samples t-test for a within-subject design but we will go through this one more quickly and just point out the differences to the above. For this example we will again draw from the [Open Stats Lab](https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities) and look at data from the data in [Mehr, S. A., Song. L. A., & Spelke, E. S. (2016). For 5-month-old infants, melodies are social. Psychological Science, 27, 486-501.](https://journals.sagepub.com/stoken/default+domain/d5HcBHg85XamSXGdYqYN/full){target = "_blank"}. 
 
-For the final activity we will run a paired-samples t-test for a within-subject design but we will do this much quicker than for the Welch test and just point out the differences in the code.
+The premis of the paper is that parents often sing to their children and, even as infants, children listen to and look at their parents while they are sung to. The authors sought to explore the psychological function that music has for parents and infants, by examining the research question that particular melodies may convey important social information to infants. More specifically, that common knowledge of songs and melodies convey information about social affiliation. The authors argue that melodies are shared within social groups. Whereas children growing up in one culture may be exposed to certain songs as infants (e.g., “Rock-a-bye Baby”), children growing up in other cultures (or even other groups within a culture) may be exposed to different songs. Thus, when a novel person (someone who the infant has never seen before) sings a familiar song, it may signal to the infant that this new person is a member of their social group.
 
-For this example we will again draw from the [Open Stats Lab](https://sites.trinity.edu/osl/data-sets-and-activities/t-test-activities) and look at data from the following paper:
-
-[Mehr, S. A., Song. L. A., & Spelke, E. S. (2016). For 5-month-old infants, melodies are social. Psychological Science, 27, 486-501.](https://journals.sagepub.com/stoken/default+domain/d5HcBHg85XamSXGdYqYN/full)
-
-Parents often sing to their children and, even as infants, children listen to and look at their parents while they are singing. Research by Mehr, Song, and Spelke (2016) sought to explore the psychological function that music has for parents and infants, by examining the hypothesis that particular melodies convey
-important social information to infants. Specifically, melodies convey information about social affiliation.
-
-The authors argue that melodies are shared within social groups. Whereas children growing up in one culture may be exposed to certain songs as infants (e.g., “Rock-a-bye Baby”), children growing up in other cultures (or even other groups within a culture) may be exposed to different songs. Thus, when a novel person (someone who the infant has never seen before) sings a familiar song, it may signal to the infant that this new person is a member of their social group.
-
-To test this hypothesis, the researchers recruited 32 infants and their parents to complete an experiment. During their first visit to the lab, the parents were taught a new lullaby (one that neither they nor their infants had heard before). The experimenters asked the parents to sing the new lullaby to their child every day for the next 1-2 weeks. Following this 1-2 week exposure period, the parents and their infant returned to the lab to complete the experimental portion of the study. Infants were first shown a screen with side-by-side videos of two unfamiliar people, each of whom were silently smiling and looking at the infant. The researchers recorded the looking behaviour (or gaze) of the infants during this ‘baseline’ phase. Next, one by one, the two unfamiliar people on the screen sang either the lullaby that the parents learned or a different lullaby (that had the same lyrics and rhythm, but a different melody). Finally, the infants saw the same silent video used at baseline, and the researchers again recorded the looking behaviour of the infants during this ‘test’ phase. For more details on the experiment’s methods, please refer to Mehr et al. (2016) Experiment 1. 
+To test this the researchers recruited 32 infants and their parents to take part in the following experiment. During their first visit to the lab, the parents were taught a new lullaby (one that neither they nor their infants had heard before). The experimenters asked the parents to sing the new lullaby to their child every day for the next 1-2 weeks. Following this 1-2 week exposure period, the parents and their infant returned to the lab to complete the experimental portion of the study. Infants were first shown a screen with side-by-side videos of two unfamiliar people, each of whom were silently smiling and looking at the infant. The researchers recorded the looking behaviour (or gaze) of the infants during this ‘baseline’ phase. Next, one by one, the two unfamiliar people on the screen sang either the lullaby that the parents learned or a different lullaby (that had the same lyrics and rhythm, but a different melody). Finally, the infants saw the same silent video used at baseline, and the researchers again recorded the looking behaviour of the infants during this ‘test’ phase. For more details on the experiment’s methods, please refer to Mehr et al. (2016) Experiment 1. 
 
 ### The Data
 
-* First, download <a href="Mehr Song and Spelke 2016 Experiment 1.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> and run the below code to load and wrangle the data into the format we need - this code selects only the data we need for the analysis and renames variables to make them easier to work with.
+#### Activity 11: Getting the data ready {#ttest-a11}
 
+* First, download <a href="Mehr Song and Spelke 2016 Experiment 1.csv" download>Mehr Song and Spelke 2016 Experiment 1.csv</a> by clicking on the link and putting it into your working directory.
+  * again if easier you can download the data as [a zip file by clicking this link](data/chpt10/PsyTeachR_FQA_Chpt10-data-between.zip).
+* Next, type and run the below code in a new code chunk. The code loads in the data and then does some wrangling to get the data into a working format:
+  * it filters so we just have the first experiment from the paper
+  * selects the id and the preferential looking time of babies at the baseline stage and at the test stage.
+  * finally it renames the two preferential looking time columns to have names that are easier to work with using the `rename()` function.
+  
 
 ```r
 gaze <- read_csv("Mehr Song and Spelke 2016 Experiment 1.csv") %>%
   filter(exp1 == 1) %>%
-  select(id, Baseline_Proportion_Gaze_to_Singer,Test_Proportion_Gaze_to_Singer) %>%
+  select(id,
+         Baseline_Proportion_Gaze_to_Singer,
+         Test_Proportion_Gaze_to_Singer) %>%
   rename(baseline = Baseline_Proportion_Gaze_to_Singer,
          test = Test_Proportion_Gaze_to_Singer)
 ```
 
 ### Assumptions
 
+So now that we have our data ready to work with, and be sure to look at it to get an understanding of the data, we want to consider the assumptions of the within-subjects t-test.
+
+The assumptions for this t-test are a little different (although very similar) to the between-subjects t-tests above. They are
+
+1. The data is continuous, i.e. interval/ratio 
+2. All participants should appear in both conditions/groups. 
+3. The residuals are normally distributed. 
+
+Aside from the data being paired rather than independent, i.e. it is the same participants in two conditions, rather than two groups of people in different conditions, the key difference is that for the within-subjects test, the data is actually determined as the difference between the scores in the two conditions for each participant. So for example, say participant one scores 10 in condition 1 and 7 in condition 2, then there data is actually 3, and you do that for all participants. So it isn't looking at what they scored in either condition by itself, but what was the difference between conditions. And it is that data that must be continuous and that the residuals must be normally distributed for.
+
+
 #### Activity 12: Assumptions {#ttest-a12}
 
-The assumptions for the paired-samples t-test are a little different (although very similar) to the independent t-test.
-
-1. The dependent variable must be continuous (interval/ratio).  
-2. All participants should appear in both conditions/groups. 
-3. The difference scores should be normally distributed. 
-
-Aside from the data being paired rather than independent, the key difference is that for the paired-samples test, the assumption of normality if that the differences between each pair of scores are normally distributed, rather than the scores themselves.
-
-* Run the below code to calculate the difference scores and then conduct the Shapriro-Wilk and QQ-plot as with the independent test.
+* Type and run the below code to first calculate the difference scores (`diff`) and then the residuals (`group_resid`).
+* next it plots the Q-Q plot of the residuals before carrying out a Shapiro-Wilk's test on the residuals
 
 
 ```r
-gaze <- gaze %>%
-  mutate(diff = baseline - test)
+gaze_residual <- gaze %>%
+  mutate(diff = baseline - test) %>%
+  mutate(group_resid = diff - mean(diff))
+
+qqPlot(gaze_residual$group_resid)
+
+shapiro.test(gaze_residual$group_resid)
 ```
 
-As you can see, from both the Shapiro-Wilk test and the QQ-plot, the data meet the assumption of normality so we can proceed.
+And if we look at the plot we see:
+
+<img src="10-t-tests_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" />
+
+```
+## [1] 22 29
+```
+
+and the Shapiro-Wilk's suggests:
+
+
+```
+## 
+## 	Shapiro-Wilk normality test
+## 
+## data:  gaze_residual$group_resid
+## W = 0.97818, p-value = 0.7451
+```
+
+Now as we saw above, with the Q-Q plot we want the data to fall approximately on the diagonal line, and with the Shapiro-Wilks test we are looking for a non-significant finding.  Based on those two tests, we can therefor say that our data meets the assumption of normality and so we can proceed.
 
 ### Descriptives
 
+Now we are going to look at some descriptives. It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using `tidyverse` tools.
+
 #### Activity 13: Descriptives and visualisations {#ttest-a13}
 
-It made sense to keep the data in wide-form until this point to make it easy to calculate a column for the difference score, but now we will transform it to tidy data so that we can easily create descriptives and plot the data using `tidyverse` tools.
-
-* Run the below code to tidy the data and then create the same violin-boxplot as you did for the independent t-test (hint: it is perfectly acceptable to copy and paste the code from Activity 4 and change the data and variable names).
+* Type and run the below code to gather the data using pivot_longer().
+* Next create a violin-boxplot of the data using your knowledge (and code) from Activity 4 above. 
+* Finally, create a descriptives table that contains the n, the mean, and the standard deviation of each condition.
+  * If you prefer, you could actually work on the difference scores instead of the two different conditions. Whilst we analyse the difference, people plot either the difference or the two conditions as descriptives.
 
 
 ```r
 gaze_tidy <- gaze %>%
-  pivot_longer(names_to = "time", values_to = "looking", cols = c(baseline, test)) %>%
-  select(-diff) %>%
-  arrange(time, id)
+  pivot_longer(names_to = "time", 
+               values_to = "looking", 
+               cols = c(baseline, test))
 ```
+
+If you have done this step correctly, you should see a plot that looks like this:
+
+<div class="figure" style="text-align: center">
+<img src="10-t-tests_files/figure-html/unnamed-chunk-6-1.png" alt="Preferential Looking time for infants at baseline stage (left) and test stage (right)." width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)Preferential Looking time for infants at baseline stage (left) and test stage (right).</p>
+</div>
+
+And the descriptives:
+
+
+|time     |  n| mean_looking| sd_looking|
+|:--------|--:|------------:|----------:|
+|baseline | 32|    0.5210967|  0.1769651|
+|test     | 32|    0.5934912|  0.1786884|
+
+Again you could look at the differences and if you know how you could plot the confidence interval of the difference, but it is not essential here.  But looking at what you have done it would be worth spending a few minutes to try and predict the outcome of the t-test if the null hypothesis is that there is no difference in preferential looking time in babies between the baseline and test conditions.
 
 ### Inferential Analysis
 
-#### Activity 14: Paired-samples t-test {#ttest-a14}
-
-Finally, we can calculate the t-test and the effect size. The code is almost identical to the independent code with two differences:
+Which brings us on to running the t-test and the effect size. The code is almost identical to the independent code with two differences:
 
 1. In `t.test()` you should specify `paired = TRUE` rather than `FALSE`
 2. In `cohens_d()` you should specify `method = paired` rather than `pooled_sd`
 
-* Run the t-test and calculate the effect size. Store the list output version in `gaze_t` and then use `tidy()` for `gaze_test`.
+#### Activity 14: Paired-samples t-test {#ttest-a14}
+
+* Now have a go at running the within-subjects t-test based on your knowledge. The data you need is in `gaze_tidy()`. Store the output of the t-test as a tibble in the object `gaze_test`
+  * i.e. pipe the output of the t-test into `tidy() in the one line of code.
+* calculate the Cohen's D for the t-test and store it in `gaze_d`
 
 
 
 
 ```r
-gaze_t <- 
-gaze_test <- 
-gaze_d <- 
+gaze_test <- NULL
+gaze_d <- NULL
 ```
 
-The output of the paired-samples t-test is very similar to the independent test, with one exception. Rather than providing the means of both conditions, there is a single `estimate`. This is the mean *difference* score between the two conditions.
+And if you have done that correctly, you should see in `gaze_test` something like this:
+
+
+|   estimate| statistic|   p.value| parameter|  conf.low|  conf.high|method        |alternative |
+|----------:|---------:|---------:|---------:|---------:|----------:|:-------------|:-----------|
+| -0.0723946|  -2.41643| 0.0217529|        31| -0.133497| -0.0112922|Paired t-test |two.sided   |
+
+### Write-Up and Interpretation
+
+Looking at the output of the test, it is actually very similar to the between-subjects t-test, with one exception. Rather than providing the means of both conditions, there is a single `estimate`. This is the mean *difference* score between the two conditions and if you had calculated the descriptives on the `diff` we created above you would get the same answer.
 
 * Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
 
@@ -578,43 +641,27 @@ The output of the paired-samples t-test is very similar to the independent test,
     
     + t(<input class='webex-solveme nospaces' size='2' data-answer='["31"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.42"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.022",".022"]'/> 
 
-### Write-up and Interpretation
-
 #### Activity 15: Write-up {#ttest-a15}
 
-Copy and paste the below **exactly** into **white space** in your R Markdown document and then knit the file to replicate the results section in the paper (p.489). 
+Now have a go at summarising this finding in a sentence using the standard APA formatting. We have hidden our version just below for you to look at when you have had a go.
 
 
-```r
-At test, however, the infants selectively attended to the now-silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at baseline (difference in proportion of looking: M = `r gaze_test$estimate %>% round(2)`, SD = `r sd(gaze$diff, na.rm = TRUE) %>% round(2)`, 95% CI = [`r gaze_test$conf.low %>% round(2)`, `r gaze_test$conf.high %>% round(2)`]), t(`r gaze_test$parameter`) = `r gaze_test$statistic %>% round(2)`, p = `r gaze_test$p.value %>% round(3)`, d = `r gaze_d$Cohens_d %>% round(2)`.
-```
-
->At test, however, the infants selectively attended to the now-silent singer of the song with the familiar melody; the proportion of time during which they looked toward her was...greater than the proportion at baseline (difference in proportion of looking: M = -0.07, SD = 0.17, 95% CI = [-0.13, -0.01]), t(31) = -2.42, p = 0.022, d = -0.41.
-
-Similarly, we can use `report()` on the original list object to produce an automated write-up.
+<div class='webex-solution'><button>Show our write-up</button>
 
 
-```r
-report(gaze_t)
-```
+At test stage (M = .59, SD = .18), infants showed a significantly longer preferential looking time to the singer of the familiar melody than they had shown the same singer at baseline (M = .52, SD = .18), t(31) = 2.42, p = .022, d = .41.
 
-```
-## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
-```
+Alternatively:
 
-```
-## Effect sizes were labelled following Cohen's (1988) recommendations.
-## 
-## The Paired t-test testing the difference of looking by time (mean of the differences = -0.07) suggests that the effect is negative, statistically significant, and small (difference = -0.07, 95% CI [-0.13, -0.01], t(31) = -2.42, p = 0.022; Cohen's d = -0.43, 95% CI [-0.80, -0.06])
-```
+At test stage, infants showed a significantly longer preferential looking time to the singer of the familiar melody than they had shown the same singer at baseline (Mean Difference = 0.07, SD = 0.17), t(31) = 2.42, p = .022, d = .41.
+
+</div>
+
 
 
 ## Finished! {#ttest-fin}
 
-That was a long chapter but now that you've done all the statistical tests you need to complete your quantitative project - hopefully you will see that it really is true that the hardest part is the set-up and the data wrangling. As we've said before, you don't need to memorise lines of code - you just need to remember where to find examples and to understand which bits of them you need to change. Play around with the examples we have given you and see what changing the values does.
-
-## Test Yourself
-
+That was a long chapter but hopefully you will see that it really is true that the hardest part is the set-up and the data wrangling. As we've said before, you don't need to memorise lines of code - you just need to remember where to find examples and to understand which bits of them you need to change. Play around with the examples we have given you and see what changing the values does. There is no specific Test Yourself section for this chapter but make sure you check your understanding of the different sections before moving on.
 
 ## Activity solutions {#ttest-sols}
 
@@ -679,37 +726,49 @@ impression_d <- cohens_d(Rating ~ condition,
 ```
 
 
-#### Activity 12 {#ttest-a12sol}
-
-
-
-```r
-shapiro.test(x = gaze$diff)
-
-qqPlot(gaze$diff)
-```
-
-
 #### Activity 13 {#ttest-a13sol}
 
+For the plot:
 
 
 ```r
 ggplot(gaze_tidy, aes(x = time, y = looking)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = time), width = .2, show.legend = FALSE) + 
-  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")
+  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") +
+  labs(x = "Experimental Stage", "Preferential Looking Time (Proportion)
 ```
 
-
-#### Activity 14 {#ttest-a14sol}
-
+For the descriptives:
 
 
 ```r
-gaze_t <- t.test(looking ~ time, paired = TRUE, data = gaze_tidy)
-gaze_test <-  gaze_t %>% tidy()
-gaze_d <- cohens_d(looking ~ time, method = "paired", data = gaze_tidy)
+desc <- gaze_tidy %>% 
+  group_by(time) %>% 
+  summarise(n = n(), 
+            mean_looking = mean(looking), 
+            sd_looking = sd(looking))
+```
+
+#### Activity 14 {#ttest-a14sol}
+
+For the t-test:
+
+
+```r
+gaze_test <- t.test(looking ~ time, 
+                    paired = TRUE, 
+                    data = gaze_tidy) %>% 
+  tidy()
+```
+
+For the Cohen's D:
+
+
+```r
+gaze_d <- cohens_d(looking ~ time, 
+                   method = "paired", 
+                   data = gaze_tidy)
 ```
 
 ## Words from this Chapter
@@ -717,9 +776,13 @@ gaze_d <- cohens_d(looking ~ time, method = "paired", data = gaze_tidy)
 Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the [PsyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_blank"}. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.
 
 
-|term                                                                                                     |definition                                                    |
-|:--------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|
-|[categorical](https://psyteachr.github.io/glossary/c.html#categorical){class="glossary" target="_blank"} |Data that can only take certain values, such as types of pet. |
-|[numeric](https://psyteachr.github.io/glossary/n.html#numeric){class="glossary" target="_blank"}         |A data type representing a real decimal number or integer.    |
+|term                                                                                                               |definition                                                                                    |
+|:------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------|
+|[between subjects](https://psyteachr.github.io/glossary/b.html#between-subjects){class="glossary" target="_blank"} |Not varying within unit of observation, such that each has only one value                     |
+|[categorical](https://psyteachr.github.io/glossary/c.html#categorical){class="glossary" target="_blank"}           |Data that can only take certain values, such as types of pet.                                 |
+|[mixed design](https://psyteachr.github.io/glossary/m.html#mixed-design){class="glossary" target="_blank"}         |An experimental design that has both within-subject and between-subject factors.              |
+|[numeric](https://psyteachr.github.io/glossary/n.html#numeric){class="glossary" target="_blank"}                   |A data type representing a real decimal number or integer.                                    |
+|[one sample](https://psyteachr.github.io/glossary/o.html#one-sample){class="glossary" target="_blank"}             |A study to compare the mean and spread of one group against a known value or population norm. |
+|[within subjects](https://psyteachr.github.io/glossary/w.html#within-subjects){class="glossary" target="_blank"}   |Varying such that each unit of observation has more than one value                            |
 
 That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!
