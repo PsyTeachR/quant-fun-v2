@@ -270,7 +270,6 @@ interpreting-output-and-writing-up
 corr-a6
 corr-a7
 multiple-correlations
-corr-a8
 corr-a9
 corr-fin
 test-yourself-3
@@ -331,12 +330,14 @@ t-tests-1
 power-a5
 power-a6
 activity-7-effect-size-from-a-high-power-between-subjects-t-test
+uneven-groups
 correlations-1
 power-a8
 power-a9
 effect-sizes-in-published-research
 power-a10
 power-fin
+test-yourself-4
 power-sols
 power-a1sol
 power-a2sol
@@ -348,6 +349,9 @@ power-a8sol
 power-a9sol
 power-a10sol
 words-from-this-chapter-10
+additional-information
+a-blog-on-how-to-choose-an-effect-size-of-interest
+a-blog-on-interpreting-and-writing-up-power
 screening-data
 screening-a1
 screening-a2
