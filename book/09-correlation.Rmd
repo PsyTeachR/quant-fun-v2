@@ -22,7 +22,7 @@ For instance, you can now:
 * Calculate a range of descriptive statistics.
 * And Create plots of data.
 
-That's amazing! And to be honest, as you will see, that actually covers a large percentage of what we will do. What we do now is start moving on to actually running some inferential statistics, where we make inferences about our population of interest from the sample we have collected. Specifically, in this chapter we are going to move on to performing a correlation and to create a plot to visualise the data. Correlation is a test that measures the relationship between two variables. In other words, you measure two variables and the correlation analysis tells you whether or not they are related in some manner, either positively or negatively, and how strong that relationship is - when you discuss a correlation you should always talk about the strength and the direction of the relationship. The figure below shows three examples of correlations just to give an idea:
+That's amazing! And to be honest, as you will see, that actually covers a large percentage of what we will do. What we do now is start moving on to actually running some `r glossary("inferential")` statistics, where we make inferences about our population of interest from the sample we have collected. Specifically, in this chapter we are going to move on to performing a `r glossary("correlation")` and to create a plot to visualise the data. Correlation is a test that measures the relationship between two `r glossary("variable", def = "an aspect about your sample or population that can be measured", display = "variable", link = FALSE)`. In other words, you measure two variables and the correlation analysis tells you whether or not they are related in some manner, either `r glossary("positive relationship", link = FALSE, def = "a relationship between two variables where as one variable increases, the other variable also increases", display = "positively")`  or `r glossary("negative relationship", link = FALSE, def = "a relationship between two variables where as one variable increases, the other variable also decreases", display = "negatively")`, and how strong that relationship is - when you discuss a correlation you should always talk about the strength and the direction of the relationship. The figure below shows three examples of correlations just to give an idea:
 
 ```{r cor-examples, echo=FALSE, warning=FALSE, message = FALSE}
 dat1 <- tibble(x = c(1,2,3,4,5,6,7,8,9,10),
@@ -60,16 +60,16 @@ b <- ggplot(dat3, aes(x,y)) +
 a+b+c
 ```
 
-**Note:** When dealing with correlations you should always refer to relationships and not predictions. In a correlation, X does not predict Y, nor does X cause an effect in Y. We will look at different tests in this book where you can take about cause-and-effect and about prediction, but correlation all we can say is whether X and Y are related
+**Note:** When dealing with correlations you should always refer to relationships and not predictions. In a correlation, X does not predict Y, nor does X cause an effect in Y. We will look at different tests in this book where you can take about cause-and-effect and about prediction, but correlation all we can say is whether X and Y are related.
 
 Now, as we said above, to actually carry out a correlation is fairly straightforward and we will show you that today in a little while. The hardest part of correlations is really wrangling the data and interpreting what the results mean. You are going to run a few correlations in this chapter to give you good practice at running and interpreting the relationships between two variables. 
 
-In this chapter we will use the examples in [Miller and Haden (2013)](https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view){target="_blank"}, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You do not need to read the chapter but hopefully from just the names of the variables you can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations. And for clarity, this is an example of observational research. We will use this data across a series of tasks to help you understand correlations more.
+In this chapter we will use the examples in [Miller and Haden (2013)](https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view){target="_blank"}, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). We will use this data across a series of tasks to help you understand correlations more. You do not need to read the chapter but hopefully from just the names of the variables you can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations. And for clarity, this is an example of observational research; all correlations are observational, but not all observational research uses correlations. 
 
-Finally, there are two main types of correlations that people think of (though there are more):
+Finally, there are two main types of correlations that people tend to think of (though there are more):
 
-* Pearson's product-moment correlation (often shortened to Pearson's correlation) and symbolised by **r**
-* Spearman's rank correlation coefficient (often shortened to Spearman's correlation) and symbolised by **rho** or sometimes $r_s$ or sometimes $\rho$
+* Pearson's product-moment correlation (often shortened to the `r glossary("Pearson", def = "a standardised measure of the linear relationship between two variables")` correlation) and symbolised by **r**
+* Spearman's rank correlation coefficient (often shortened to the `r glossary("Spearman", def = "a standardised measure of the relationship between two variables that does not assume a linear relationship. Note that the relationship can be linear but it is not required.")` correlation) and symbolised by **rho** or sometimes $r_s$ or sometimes $\rho$
 
 We will talk a little bit about these two correlations in the work we do today. And we shall begin now!
 
@@ -121,11 +121,11 @@ As you can see, we have five columns and they are:
 
 Here we will we will focus on Reading Ability and IQ but for further practice you can look at other relationships in your free time.  
 
-A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (remember there is no causality here). Or phrasing the alternative hypothesis ($H_1$) more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, show a positive relationship. This is the hypothesis we will test today but remember that we could always state the null hypothesis ($H_0$) that there is no relationship between reading ability and IQ.
+A probable `r glossary("hypothesis")` for today could be that as Reading Ability increases so does Intelligence (remember there is no causality here). Or phrasing the `r glossary("alternative hypothesis", display = "alternative hypothesis", def = "the experimental hypothesis formed in Null Hypothesis Significance Testing and is the hypothesis that states that there will be a relationship between variables or an effect of one variable on the other", link = FALSE)` ($H_1$) more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, show a positive relationship. This is the hypothesis we will test today but remember that we could always state the `r glossary("null hypothesis", display = "null hypothesis", link = FALSE, def = "the defauly hypothesis in Null Hypothesis Significance Testing and is the hypothesis that states that there will be no effect or relationship in your study.")` ($H_0$) that there is no relationship between reading ability and IQ.
 
 ## Assumptions of the test
 
-Now before running an analysis we should check the assumptions of the test, where the assumptions are checks that the data must pass before we can use certain tests. The assumptions change on the test and you should only use a given test based on how well the data meets the assumptions of the test. In short, the Pearson correlation and the Spearman correlation have different assumptions and we need to check our data to see which test to use.
+Now before running an analysis we should check the `r glossary("assumptions", def = "requirements about your data and your design that must be held for your analysis to have meaning", link = FALSE, display = "assumptions")` of the test, where the assumptions are checks that the data must pass before we can use certain tests. The assumptions change on the test and you should only use a given test based on how well the data meets the assumptions of the test. In short, the Pearson correlation and the Spearman correlation have different assumptions and we need to check our data to see which test to use.
 
 #### Activity 3: Assumptions {#corr-a3}
 
@@ -133,9 +133,9 @@ For correlations, the main assumptions we need to check are:
 
 1. Is the data interval, ratio, or ordinal?
 2. Is there a data point for each participant on both variables?
-3. Is the data normally distributed in both variables?
+3. Is the data `r glossary("normal distribution", display = "normally distributed")` in both variables?
 4. Does the relationship between variables appear linear?
-5. Does the spread have homoscedasticity?
+5. Does the spread have `r glossary("homoscedasticity", def = "that the spread of data around the line of best fit is equal on both side along the length of the line", link = FALSE)`?
 
 We will look at each of these assumptions in turn to see which correlation we should use.
 
@@ -207,7 +207,7 @@ ggplot(data = mh, aes(x = Abil)) +
 
 **Q-Q Plots for Normality**
 
-As we said we will look at the figures in a minute but first we need a few more plots. One being the Q-Q plot which allows us to check normality. The Q-Q plot require us to use the package `car` rather than `ggplot2`. You can make Q-Q plots in `ggplot2` but they aren't as useful, however, the code is still very simple.
+As we said we will look at the figures in a minute but first we need a few more plots. One being the `r glossary("Q-Q plot")` which allows us to check normality. The Q-Q plot require us to use the package `car` rather than `ggplot2`. You can make Q-Q plots in `ggplot2` but they aren't as useful, however, the code is still very simple.
 
 * In a new code chunk, type and run the below code to create a Q-Q plot for `Abil`.
 
@@ -221,9 +221,17 @@ This code looks a little different to code you've used up until this point as it
 qqPlot(x = mh$Abil)
 ```
 
-The Q-Q plot includes a **confidence envelope** (the blue dotted lines) around the data with  the understanding that if your data points fall within these dotted lines then you can assume normality. The `ggplot2` version of Q-Q plots make it more difficult to add on this confidence envelope, which is why we're using a different package. `qqPlot()` will also print the IDs of the most extreme data points. In this case, the 4th and 15th data point in `Abil` are flagged, although because they fall within the confidence envelope, they don't appear problematic. This also explains why you might see a message staing `## [1] 15 4`. The 15th and 4th value are worth considering!
+The Q-Q plot includes a **confidence envelope** (the blue dotted lines) around the data with  the understanding that if your data points fall within these dotted lines then you can assume normality. The `ggplot2` version of Q-Q plots make it more difficult to add on this confidence envelope, which is why we're using a different package. `qqPlot()` will also print the IDs of the most extreme data points. In this case, the 4th and 15th data point in `Abil` are flagged, although because they fall within the confidence envelope, they don't appear problematic. This also explains why you might see a message stating `## [1] 15 4`. The 15th and 4th value are worth considering!
 
 * Now, in a new code chunk, write and run code to create a Q-Q plot for `IQ`.
+
+```{block, type="info"}
+
+**Normality of the residuals**
+
+In terms of normality, it is in fact the normality of the `r glossary("residual", display = "residuals")` that matters, where the residuals are the difference between the individual data points and the `r glossary("line of best fit", link = FALSE, def = "otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction")`. However, to fully understand this we need to cover more information first as introducing that concept at this stage would be confusing. One approach the field can use however is that if the data is normally distributed then it is highly likely that the residuals will also be normally distributed. We will look at residuals in the next chapter, but here we will instead use the normality of the raw data as a proxy for the normality of the residuals.
+
+```
 
 **Scatterplots for linearity and homoscedasticity**
 
@@ -275,7 +283,7 @@ Finally, as the data is interval, continuous, normally distributed, and the rela
 
 ## Descriptives of the Correlation
 
-Now that we have checked our assumptions and have confirmed we will use the Pearson correlation, the next step is descriptives. A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis. 
+Now that we have checked our assumptions and have confirmed we will use the Pearson correlation, the next step is descriptives. A key thing to keep in mind is that the `r glossary("scatterplot", def = "a visualisation where each individual data point shows the value of an observation on twi variables.", link = FALSE)` is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis. 
 
 #### Activity 4: Descriptive statistics {#corr-a4}
 
@@ -409,6 +417,8 @@ As shown in Figure 7.5, there appeared to be a positive relationship between Rea
 
 So you get a fairly ok start of a write-up. It isn't perfect but it is a good start. For instance, the r-value should not have the first 0 and just be r = .xx. Likewise, the p-value should not have the first 0 either. So you will always have to do a bit of tidying up.
 
+**Note:** Remember that a relationship is said to be `r glossary("significant", def = "The conclusion where the p-value is lower than the critical alpha and at which the null hypothesis is rejected", link = FALSE)` if the p-value of the relationship is lower than the accepted level (normally called `r glossary("alpha", def = "The cutoff value for making a decision to reject the null hypothesis")` and set at $\alpha = .05$). Alternatively, a relationship that has a p-value higher than the accepted level is said to be `r glossary("non significant", display = "non-significant", def = "The conclusion where the p-value is greater than the critical alpha and at which the null hypothesis is retained", link = FALSE)`
+
 **But why two approaches**
 
 The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. `correlation()` produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. `cor.test()` on the other hand produces a `list` type object, which is a harder to work with. However, the output of `cor.test()` also happens to work with functions from the `report` package, `report()` and `report_table()` that give you an automatic report of the analyses. For example, `report()` presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. `report()` doesn't currently work with the output of `correlation()` which is why we showed you both ways. Run the below in your console window and you will see what we mean - you will probably get an error. 
@@ -422,7 +432,6 @@ report(results2)
 ## Multiple Correlations
 
 Finally, to round off this chapter, we want to briefly show you about running multiple correlations at one. Above we ran one correlation. However, when you have lots of variables in a dataset, to get a quick overview of patterns, you might want to run all the correlations at the same time or create a matrix of scatterplots at the one time. You can do this with functions from the `psych` and `correlation` packages (`cor.test()` only works for one correlation at a time). We will use the Miller and Haden data here again which you should still have in a tibble called `mh`. 
-
 #### Activity 8: Scatterplot matrix {#corr-a8}
 
 * In a new code chunk, type and run the following code. The `pairs.panels())` function comes from the `psych` library and creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time. So it is useful for checking assumptions in one place.
@@ -468,8 +477,8 @@ mh %>%
 To perform multiple correlations in one go, we will again use the `correlation()` function. package. Rather than specifying two variables to correlation, you can also provide a data frame that has multiple variables  and it will run all possible correlations between the variables. Similar to above, we want to remove the `Participant` column before we do this.   
 
 * `method` controls which correlation is computed, the default is `pearson` but if you needed to run the non-parametric version you could change this to `spearman`.  
-* `p_adjust` is the reason we are using the `correlation` package. In the lectures we discussed the problem of multiple comparisons - the idea that if you run lots and lots of tests your false positive rate will increase and the probability of finding a significant result increase. 
-  * This argument applies a correction to the p-value that adjusts for the number of correlations you have performed. There are several different methods which you can look up in the help documentation, but here we are setting **bonferroni**. The default setting is actually the less conservative **holm** and you can read about why some might chose that instead in the help function by typing `?correlation` in the console window.
+* `p_adjust` is the reason we are using the `correlation` package. In the lectures we discussed the problem of `r glossary("multiple comparisons", def = "An issue of running mutlitple tests which results in an increase in the false positive rate making it more likely that you will incorrectly reject the null hypothesis and accept the alternative hypothesis. The issue is resolved through correction for multiple comparisons", link = FALSE)` - the idea that if you run lots and lots of tests your false positive rate will increase and the probability of finding a significant result increase. 
+  * This argument applies a correction to the p-value that adjusts for the number of correlations you have performed. There are several different methods which you can look up in the help documentation, but here we are setting `r glossary("bonferroni", link = FALSE, def = "A correction for multiple comparisons where the accepted alpha level is adjusted by dividing it by the number of comparisons made")`. The default setting is actually the less `r glossary("conservative analysis", link = FALSE, display = "conservative", def = "A conservative test is one that is more likely to result in more false negatives - i.e. missed findings - than a test considered less conservative")` `r glossary("Holm-Bonferroni", display = "holm", link = FALSE, def = "A correction for multiple comparisons where an ordinal iterative approach is used comparing each individual test to an adjusted p-value based on the order of p-values. Generally said to be less conservative than Bonferroni")` and you can read about why some might chose that instead in the help function by typing `?correlation` in the console window.
 * **Note:** Because you're running multiple correlations and some may be positive and some may be negative, there is no option to specify a one or two-tailed test.   
 
 * Run the below code to calculate then view the correlation results

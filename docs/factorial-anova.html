@@ -122,7 +122,7 @@
 <li>Recodes the values of <code>Condition</code> from numeric to text labels</li>
 <li>Recodes the values of <code>time</code> to be easier to read/write</li>
 </ul>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factorial</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"Zhang et al. 2014 Study 3.csv"</span><span class="op">)</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">Condition</span>, <span class="va">T1_Predicted_Interest_Composite</span>, <span class="va">T2_Actual_Interest_Composite</span><span class="op">)</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>subject <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">%&gt;%</span>
@@ -170,7 +170,7 @@ Figure 15.1: Violin-boxplot by condition and time
 <ul>
 <li>Run the code and then play around with how it looks by changing the arguments for e.g., colour, line-type, and the theme.</li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">sum_dat_factorial</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span>, y <span class="op">=</span> <span class="va">mean</span>, group <span class="op">=</span> <span class="va">Condition</span>, shape <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>linetype <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
@@ -192,7 +192,7 @@ Figure 10.1: Interaction plot
 <li><p>Save the ANOVA model to an object called <code>mod_factorial</code></p></li>
 <li><p>Pull out the anova table, you can either do this with <code>mod_factorial$anova_table</code> or <code><a href="https://rdrr.io/r/stats/anova.html">anova(mod_factorial)</a></code> both have the same result. Save this to an object named <code>factorial_output</code> and make sure you have used <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"NULL"</span>,
                data <span class="op">=</span> <span class="cn">NULL</span>, 
                between <span class="op">=</span> <span class="st">"NULL"</span>, 
@@ -255,7 +255,7 @@ Figure 10.1: Interaction plot
 <ul>
 <li>Run the below code and view the results.</li>
 </ul>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># run the tests</span>
 <span class="va">posthoc_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod_factorial</span>, 
                              <span class="va">pairwise</span> <span class="op">~</span> <span class="va">time</span><span class="op">|</span> <span class="va">Condition</span>, 
@@ -268,7 +268,7 @@ Figure 10.1: Interaction plot
 <ul>
 <li>Run the below code and look at the output of <code>contrast_factorial</code> and <code>contrasts_factorial2</code> carefully making sure you understand how to interpret the results. You will find it useful to refer to the interaction plot we made earlier.</li>
 </ul>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">posthoc_factorial2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod_factorial</span>, 
                              <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span><span class="op">|</span> <span class="va">time</span>, 
                              adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span> 
@@ -280,7 +280,7 @@ Figure 10.1: Interaction plot
 <ul>
 <li>Run the below code to add on effect sizes to <code>contrasts_factorial</code> and <code>contrasts_factorial2</code>.</li>
 </ul>
-<div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d_extra_t1_t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
                          data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">Condition</span> <span class="op">==</span> <span class="st">"Extraordinary"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
 
@@ -315,7 +315,7 @@ Figure 10.1: Interaction plot
 <li>We have replaced the simple effects in the main paper with our pairwise comparisons.</li>
 </ul>
 <p>First we need to calculate descriptives for the main effect of time as we didn't do this earlier.</p>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">time_descrip</span> <span class="op">&lt;-</span> <span class="va">factorial</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_interest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -323,7 +323,7 @@ Figure 10.1: Interaction plot
             min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,
             max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.975</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">interest</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Copy and paste the below into <strong>white-space</strong>.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="factorial-anova.html#cb304-1" aria-hidden="true" tabindex="-1"></a>We conducted the same repeated measures ANOVA with interest as the dependent measure and again found a main effect of time, <span class="fu">F</span>(<span class="st">`</span><span class="at">r factorial_output$num.Df[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r factorial_output$den.Df[2]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$statistic[2] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, ηp2 <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$ges[2] %&gt;% round(3)</span><span class="st">`</span>; anticipated interest at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r time_descrip$mean_interest[1] %&gt;% round(2)</span><span class="st">`</span>), SD <span class="ot">=</span> <span class="st">`</span><span class="at">r time_descrip$sd_interest[1]%&gt;% round(2)</span><span class="st">`</span><span class="er">))</span> was lower than actual interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r time_descrip$mean_interest[2]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r time_descrip$sd_interest[2]%&gt;% round(2)</span><span class="st">`</span>).We also observed an interaction between time and type of experience, <span class="fu">F</span>(<span class="st">`</span><span class="at">r factorial_output$num.Df[3]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r factorial_output$den.Df[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$statistic[3] %&gt;% round(3)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$p.value[3] %&gt;% round(2)</span><span class="st">`</span>, ηp2 <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$ges[3] %&gt;% round(3)</span><span class="st">`</span>. Pairwise comparisons revealed that <span class="cf">for</span> ordinary events, predicted interest at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[3]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[3]%&gt;% round(2)</span><span class="st">`</span>) was lower than experienced interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[4]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[4]%&gt;% round(2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r contrasts_factorial$df[2]%&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$statistic[2]%&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$eff_size[2]%&gt;% round(2)</span><span class="st">`</span>. Although predicted interest <span class="cf">for</span> extraordinary events at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[1]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[1]%&gt;% round(2)</span><span class="st">`</span>) was lower than experienced interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[2]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[2]%&gt;% round(2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r contrasts_factorial$df[1]%&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$statistic[1]%&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$eff_size[1]%&gt;% round(2)</span><span class="st">`</span> , the magnitude of underestimation was smaller than <span class="cf">for</span> ordinary events.</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="factorial-anova.html#cb305-1" aria-hidden="true" tabindex="-1"></a>We conducted the same repeated measures ANOVA with interest as the dependent measure and again found a main effect of time, <span class="fu">F</span>(<span class="st">`</span><span class="at">r factorial_output$num.Df[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r factorial_output$den.Df[2]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$statistic[2] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, ηp2 <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$ges[2] %&gt;% round(3)</span><span class="st">`</span>; anticipated interest at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r time_descrip$mean_interest[1] %&gt;% round(2)</span><span class="st">`</span>), SD <span class="ot">=</span> <span class="st">`</span><span class="at">r time_descrip$sd_interest[1]%&gt;% round(2)</span><span class="st">`</span><span class="er">))</span> was lower than actual interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r time_descrip$mean_interest[2]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r time_descrip$sd_interest[2]%&gt;% round(2)</span><span class="st">`</span>).We also observed an interaction between time and type of experience, <span class="fu">F</span>(<span class="st">`</span><span class="at">r factorial_output$num.Df[3]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r factorial_output$den.Df[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$statistic[3] %&gt;% round(3)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$p.value[3] %&gt;% round(2)</span><span class="st">`</span>, ηp2 <span class="ot">=</span> <span class="st">`</span><span class="at">r factorial_output$ges[3] %&gt;% round(3)</span><span class="st">`</span>. Pairwise comparisons revealed that <span class="cf">for</span> ordinary events, predicted interest at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[3]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[3]%&gt;% round(2)</span><span class="st">`</span>) was lower than experienced interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[4]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[4]%&gt;% round(2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r contrasts_factorial$df[2]%&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$statistic[2]%&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$eff_size[2]%&gt;% round(2)</span><span class="st">`</span>. Although predicted interest <span class="cf">for</span> extraordinary events at Time <span class="dv">1</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[1]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[1]%&gt;% round(2)</span><span class="st">`</span>) was lower than experienced interest at Time <span class="dv">2</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$mean[2]%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r sum_dat_factorial$sd[2]%&gt;% round(2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r contrasts_factorial$df[1]%&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$statistic[1]%&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r contrasts_factorial$eff_size[1]%&gt;% round(2)</span><span class="st">`</span> , the magnitude of underestimation was smaller than <span class="cf">for</span> ordinary events.</span></code></pre></div>
 <blockquote>
 <p>We conducted the same repeated measures ANOVA with interest as the dependent measure and again found a main effect of time, F(1, 128) = 25.88, p &lt; .001, ηp2 = 0.044; anticipated interest at Time 1 (M = 4.2), SD = 1.12)) was lower than actual interest at Time 2 (M = 4.69, SD = 1.19).We also observed an interaction between time and type of experience, F(1, 128) = 4.445, p = 0.04, ηp2 = 0.008. Pairwise comparisons revealed that for ordinary events, predicted interest at Time 1 (M = 4.04, SD = 1.09) was lower than experienced interest at Time 2 (M = 4.73, SD = 1.24), t(128) = -5.05, p &lt; .001, d = 0.59. Although predicted interest for extraordinary events at Time 1 (M = 4.36, SD = 1.13) was lower than experienced interest at Time 2 (M = 4.65, SD = 1.14), t(128) = -2.12, p &lt; .001, d = 0.25 , the magnitude of underestimation was smaller than for ordinary events.</p>
 </blockquote>
@@ -337,11 +337,11 @@ Figure 10.1: Interaction plot
 <ul>
 <li>Run the below code. This will use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> to add a new variable to the data-set, <code>interest_tukey</code> which is going to be our transformed DV. The function <code><a href="https://rdrr.io/pkg/rcompanion/man/transformTukey.html">transformTukey()</a></code> is from the <code>rcompanion</code> package. Setting <code>plotit = TRUE</code> will automatically create qqPlots and histograms so that we can immediately visualise the new variable.</li>
 </ul>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factorial</span> <span class="op">&lt;-</span> <span class="va">factorial</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>interest_tukey <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/rcompanion/man/transformTukey.html">transformTukey</a></span><span class="op">(</span><span class="va">interest</span>, plotit<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Now that you've transformed the DV we can re-run the ANOVA with this new variable.</p>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">tukey_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>,
                data <span class="op">=</span> <span class="va">factorial</span>, 
                between <span class="op">=</span> <span class="st">"Condition"</span>, 
@@ -369,7 +369,7 @@ Figure 10.1: Interaction plot
 <button>
 Activity 1
 </button>
-<div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/heliosdrm/pwr">"pwr"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://rcompanion.org/">"rcompanion"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://r-forge.r-project.org/projects/car/">"car"</a></span><span class="op">)</span>
@@ -389,7 +389,7 @@ Activity 1
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb308"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sum_dat_factorial</span><span class="op">&lt;-</span><span class="va">factorial</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Condition</span>, <span class="va">time</span><span class="op">)</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">interest</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
@@ -406,7 +406,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb309"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">factorial</span>, 
        <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">time</span> , y <span class="op">=</span> <span class="va">interest</span>, fill <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span>, 
@@ -432,7 +432,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb310"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>,
                data <span class="op">=</span> <span class="va">factorial</span>, 
                between <span class="op">=</span> <span class="st">"Condition"</span>, 
@@ -456,7 +456,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb311"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb312"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># normality testing</span>
 <span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">lm</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod_factorial</span><span class="op">$</span><span class="va">lm</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span>
@@ -702,7 +702,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

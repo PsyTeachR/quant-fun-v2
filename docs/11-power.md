@@ -36,7 +36,7 @@ And the beautiful thing is that **if you know three of these elements then you c
 
 1. to determine the appropriate <a class='glossary' target='_blank' title='A subset of the population that you wish to make an inference about through your test.' href='https://psyteachr.github.io/glossary/s#sample'>sample</a> size required to obtain the effect size that you are interested in. That is, prior to the experiment you decide you would be interested in testing for a small, medium, or large effect sizes, so you know everything except the sample size - how many people you need to run in your study. Generally, **the smaller the effect size, the more participants you will need**, assuming power and alpha are held constant at **.8** and **.05** respectively.
   * Here you know alpha, the power, and the effect size and you want to know the sample size.
-2. to determine the smallest effect size you can reliably detect given your sample size. For example, you know everything except the effect size. For example, say you are using an open dataset  and you know they have run 100 participants, you can't add any more participants, but you want to know what is the minimum effect size you could reliably detect in this dataset.
+2. to determine the smallest effect size you can reliably detect given your sample size. For example, you know everything except the effect size. For example, say you are taking a <a class='glossary' target='_blank' title='data that has been collected already and made available to you to ask research questions of.' href='https://psyteachr.github.io/glossary/s#secondary-data'>secondary data</a> approach and using an open dataset, and you know they have run 100 participants, you can't add any more participants, but you want to know what is the minimum effect size you could reliably detect in this dataset.
   * Here you know alpha, the power, and the sample size and you want to know the smallest effect size you can determine.
 
 Hopefully that gives you an idea of how we use power to determine sample sizes for studies - and that the sample size should not just be pulled out of thin air. Both of these approaches described above **a priori power analyses** as you are stating the power level you want **before** (a priori means before) the study - though the second approach of determining the smallest effect size you can determine based on a known sample size is also referred to as a **sensitivity power analysis**. However, you may now be thinking though, if everything is connected, then can we use the effect size from our study and the sample size to determine the power of the study after we have run it? No! Well, you can but it would be wrong to do so. This is actually called **Observed** or **Post-Hoc** power and most papers would discourage you from calculating it on the grounds that the effect size you are using is not the true effect size of the population you are interested in; it is just the effect size of your sample. As such any indication of power from this analysis is misleading. Avoid doing this. You can read more about why, here, in your own time if you like: [Lakens (2014) Observed Power, and what to do if your editor asks for post-hoc power analyses](http://daniellakens.blogspot.com/2014/12/observed-power-and-what-to-do-if-your.html). In brief, Observed Power conflates the effect size of the sample with the effect size within the population and those two are not the same. Stick to using only a priori power analyses approaches and use them to determine your required sample size or achievable reliable effect size.
@@ -45,7 +45,7 @@ So let's jump into this a bit now and start running some analyses to help furthe
 
 ## Effect Size By Hand
 
-There are a number of different "effect sizes" that you can choose to calculate but a common one for t-tests, as we have seen previously, is **Cohen's d**: the standardised difference between two means (in units of SD) and is written as d = effect-size-value. The key point is that Cohen's d is a standardised difference, meaning that it can be used to compare against other studies regardless of how the measurement was made. Take for example height differences in men and women which is estimated at about 5 inches (12.7 cm). That in itself is an effect size, but it is an unstandardised effect size in that for every sample that you test, that difference is dependent on the measurement tools, the measurement scale, and the errors contained within them (Note: ask Helena about the time she photocopied some rulers). As such using a standardised effect size allows you to make comparisons across studies regardless of measurement error. In standardised terms, the height difference above is considered a medium effect size (d = .5) which Cohen (1988, as cited by Schafer and Schwarz (2019)) defined as representing "an effect likely to be visible to the naked eye of a careful observer". Cohen (1988) in fact stated three sizes of Cohen's d that people could use as a guide:
+There are a number of different "effect sizes" that you can choose to calculate but a common one for t-tests, as we have seen previously, is **Cohen's d**: the standardised difference between two means (in units of SD) and is written as d = effect-size-value. The key point is that Cohen's d is a standardised difference, meaning that it can be used to compare against other studies regardless of how the measurement was made. Take for example height differences in men and women which is estimated at about 5 inches (12.7 cm). That in itself is an effect size, but it is an unstandardised effect size in that for every sample that you test, that difference is dependent on the measurement tools, the measurement scale, and the errors contained within them (Note: ask Helena about the time she photocopied some rulers). As such using a standardised effect size allows you to make comparisons across studies regardless of measurement error. In standardised terms, the height difference above is considered a medium effect size (d = 0.5) which Cohen (1988, as cited by Schafer and Schwarz (2019)) defined as representing "an effect likely to be visible to the naked eye of a careful observer". Cohen (1988) in fact stated three sizes of Cohen's d that people could use as a guide:
 
 <br>
 
@@ -185,7 +185,7 @@ From these you will see that `pwr.t.test()` takes a series of inputs:
 * **type** - the type of t test : `one.sample`, `two.sample`, or `paired`
 * **alternative** - the type of hypothesis; `"two.sided", "greater", "less"`
 
-And the function works on a leave one out principle. You give it all the information you have and it returns the element you are missing.  So, for example, say you needed to know how many people per group (n) you would need to detect an effect size of `d = .4` with `power = .8`, `alpha = .05` in a `two.sample` (between-subjects) t-test on a `two.sided` hypothesis test.  
+And the function works on a leave one out principle. You give it all the information you have and it returns the element you are missing.  So, for example, say you needed to know how many people per group (n) you would need to detect an effect size of `d = 0.4` with `power = .8`, `alpha = .05` in a `two.sample` (between-subjects) t-test on a `two.sided` hypothesis test.  
 
 
 #### Activity 5: `pwr.t.test()` {#power-a5}
@@ -208,8 +208,7 @@ The output tells you that you would need 99.0803248 people **per condition**. Bu
 
 To make the output of `pwr.t.test()` easier to work with, we're going to amend the code to just give us exactly the number that we want. 
 
-* `tidy()` will tidy the output and store it in a table (you have used this before)
-* `pull()` will pull out a single value (in this case `n` but it could be anything)
+* `pluck()` will pull out the value from the analysis that we want. e.g. `pluck("n")` will give us the sample size and `pluck("d")` will give us the effect size.
 * `ceiling()` rounds up to give us the next highest whole number
 
 
@@ -219,18 +218,17 @@ pwr.t.test(d = .4,
            sig.level = .05,
            alternative = "two.sided",
            type = "two.sample") %>% 
-  tidy() %>% 
-  pull(n) %>%
+  pluck("n")
   ceiling()
 ```
 
-**Note:** `ceiling()` is better to use than `round()` when dealing with people as it always rounds up. For example, `ceiling(1.1)` gives you 2. `round()` on the other hand is useful for rounding an effect size, for example, to two decimal places - e.g. d = `round(.4356, 2)` would give you d = 0.44
+**Note:** `ceiling()` is better to use than `round()` when dealing with people as it always rounds up. For example, `ceiling(1.1)` gives you 2. `round()` on the other hand is useful for rounding an effect size, for example, to two decimal places - e.g. d = `round(.4356, 2)` would give you d = 0.44. So use `ceiling()` for sample sizes and `round()` for effect sizes.
 
 #### Activity 6: Sample size for standard power one-sample t-test {#power-a6}
 
-* Assuming you are interested in detecting a minimum Cohen's d of **d = .23**, what would be the minimum number of participants you would need in a one-sample t-test, assuming **power = .8**, $\alpha$ **= .05**, on a two-sided hypothesis? 
+* Assuming you are interested in detecting a minimum Cohen's d of **d = 0.23**, what would be the minimum number of participants you would need in a one-sample t-test, assuming **power = .8**, $\alpha$ **= .05**, on a two-sided hypothesis? 
 
-Using a pipeline, store the answer as a single, rounded value called `sample_size_t` (i.e. use `tidy() %>% pull() %>% ceiling()`).
+Using a pipeline, store the answer as a single, rounded value called `sample_size_t` (i.e. use `pluck() %>% ceiling()`).
 
 
 <div class='webex-solution'><button>Helpful hint</button>
@@ -238,7 +236,7 @@ Using a pipeline, store the answer as a single, rounded value called `sample_siz
 
 * Use the list of inputs above as a kind of check-list to clearly determine which inputs are known or unknown. This can help you enter the appropriate values to your code.
 * The structure of the `pwr.t.test()` would be very similar to the one shown above except two.sample would become one.sample
-* You will also need to use `tidy() %>% pull(n)` to help you obtain the sample size and `%>% ceiling()` to round up to the nearest whole participant.
+* You will also need to use `pluck("n")` to help you obtain the sample size and `%>% ceiling()` to round up to the nearest whole participant.
 
 </div>
   
@@ -256,11 +254,36 @@ Answer the following questions to check your answers. The solutions are at the b
 * Based on the information given, what will you set `type` as in the function? <select class='webex-select'><option value='blank'></option><option value=''>one.sample</option><option value='answer'>two.sample</option></select>
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='webex-solveme nospaces' size='4' data-answer='[".65","0.65"]'/>
 * According to Cohen (1988), the effect size for this t-test is <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
-* Say you run the study and find that the effect size determined is d = .50. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = .65</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .65</option></select>
+* Say you run the study and find that the effect size determined is d = 0.50. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.65</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.65</option></select>
 
-## Correlations
+#### Uneven groups
 
-#### Activity 8: Sample size for a correlation {#power-a8}
+There is an additional function that is very worthwhile knowing about called `pwr.t2n.test()` that allows you to run power analyses for t-tests where there are uneven sample sizes in the two groups. For instance, say you wanted to know the minimum effect size you could determine in a between-subjects t-test where you have 25 participants in one group and 30 participants in the second group. The additional aspect of this function is that instead of `n = `, you would do:
+
+* `n1 = ...` for the number of people in group 1
+* `n2 = ...` for the number of people in group 2
+* note that there is no `type` argument in this function because it has to be two samples.
+
+Assuming $\alpha = .05$, Power = .8, and it is a two-tailed test, you would do:
+
+
+```r
+pwr.t2n.test(n1 = 25,
+             n2 = 30,
+             power = .8,
+             sig.level = .05,
+             alternative = "two.sided") %>%
+  pluck("d") %>%
+  round(3)
+```
+
+```
+## [1] 0.773
+```
+
+Meaning that the minimum effect size you could determine would be d = 0.773.
+
+### Correlations
 
 Now, we're going to do the same thing but for a correlation analysis using `pwr.r.test`. The structure of this function is very similar to `pwr.t.test()` and works on the same leave-one-out principle:
 
@@ -270,24 +293,25 @@ Now, we're going to do the same thing but for a correlation analysis using `pwr.
 * **power** - Power of test (1 minus Type II error probability)
 * **alternative** - a character string specifying the alternative hypothesis, must be one of `two.sided` (default), `greater` (a positive correlation) or `less` (a negative correlation).
 
+#### Activity 8: Sample size for a correlation {#power-a8}
+
 * Assuming you are interested in detecting a minimum correlation of **r = .4** (in either direction), what would be the minimum number of participants you would need for a correlation analysis, assuming **power = .8**, $\alpha$ **= .05**? 
 
-Using a pipeline, store the answer as a single, rounded value called `sample_size_r` (i.e. use `tidy() %>% pull() %>% ceiling()`).
+Using a pipeline, store the answer as a single, rounded value called `sample_size_r` (i.e. use `pluck() %>% ceiling()`).
 
 * Enter the minimum number of participants you would need in this correlation: <input class='webex-solveme nospaces' size='2' data-answer='["46"]'/>
 
 #### Activity 9: Effect size for a correlation analysis {#power-a9}
 
 * You run a correlation analysis with 50 participants and the standard power and alpha levels and you have hypothesised a positive correlation, what would be the minimum effect size you can reliably detect? 
-
 Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
 * Based on the information given, what will you set `alternative` as in the function? <select class='webex-select'><option value='blank'></option><option value=''>two.sided</option><option value='answer'>greater</option><option value=''>less</option></select>
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='webex-solveme nospaces' size='4' data-answer='[".34","0.34"]'/>
 * According to Cohen (1988), the effect size for this correlation is <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
-* Say you run the study and find that the effect size determined is d = .24. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = .24</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = .34</option></select>
+* Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34</option></select>
 
-## Effect Sizes in Published Research
+### Effect Sizes in Published Research
 
 #### Activity 10: Power of published research {#power-a10}
 
@@ -309,6 +333,8 @@ Thus far we have used hypothetical situations - now go look at the paper on the 
 
 Which of the t-tests do you believe to be underpowered? Why do you think this may be? Additional information about this can be found in the solution to task 8 at the end of this activity.
 
+**One caveat to Task 10:** We have to keep in mind that here we are looking at single studies using one sample from a potentially huge number of samples within a population. As such there will be a degree of variance in the true effect size within the population regardless of the effect size of one given sample. What that means is we have to be a little bit cautious when making claims about a study. Ultimately the higher the power the better as you can detect smaller effect sizes!
+
 ## Finished! {#power-fin}
 
 **Great!** Hopefully you are now starting to see the interaction between alpha, power, effect sizes, and sample size. We should always want really high powered studies and depending on the size of the effect we are interested in (small to large), and our $\alpha$ level, this will mean we will need to run more or less participants to make sure our study is well powered. Points to note:
@@ -323,12 +349,88 @@ There are additional functions in the `pwr` package for other types of statistic
 
 If you want more examples of power to reinforce your understanding, go back and calculate the power of the t-tests, correlations, and chi-squares from earlier chapters. 
 
+## Test Yourself
+
+1. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_QYMEUUTOOO'><label><input type="radio" autocomplete="off" name="radio_QYMEUUTOOO" value=""></input> <span>d = 0.281</span></label><label><input type="radio" autocomplete="off" name="radio_QYMEUUTOOO" value=""></input> <span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_QYMEUUTOOO" value=""></input> <span>d = 0.280</span></label><label><input type="radio" autocomplete="off" name="radio_QYMEUUTOOO" value="answer"></input> <span>d = 0.398</span></label></div>
+
+
+
+<div class='webex-solution'><button>Solution</button>
+
+The code for this test would be:
+
+
+```r
+pwr.t.test(n = 100, 
+           sig.level = .05, 
+           power = .8,
+           type = "two.sample",
+           alternative = "two.sided") %>% 
+  pluck("d") %>% 
+  round(3)
+```
+
+* Meaning that the smallest effect size would be d = 0.39
+
+
+</div>
+
+
+2. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_TEJGHVLQGJ'><label><input type="radio" autocomplete="off" name="radio_TEJGHVLQGJ" value=""></input> <span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_TEJGHVLQGJ" value=""></input> <span>r = .577</span></label><label><input type="radio" autocomplete="off" name="radio_TEJGHVLQGJ" value=""></input> <span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_TEJGHVLQGJ" value="answer"></input> <span>d = 0.578</span></label></div>
+
+
+
+<div class='webex-solution'><button>Solution</button>
+
+The code for this test would be:
+
+
+```r
+pwr.t2n.test(n1 = 60,
+           n2 = 40,
+           sig.level = .05, 
+           power = .8,
+           alternative = "two.sided") %>% 
+  pluck("d") %>% 
+  round(3)
+```
+
+* Meaning that the smallest effect size would be d = 0.578
+
+
+</div>
+
+
+3. Assuming you ran a correlation on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_BGBUCABVOC'><label><input type="radio" autocomplete="off" name="radio_BGBUCABVOC" value="answer"></input> <span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_BGBUCABVOC" value=""></input> <span>r = .385</span></label><label><input type="radio" autocomplete="off" name="radio_BGBUCABVOC" value=""></input> <span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_BGBUCABVOC" value=""></input> <span>r = .275</span></label></div>
+
+
+
+<div class='webex-solution'><button>Solution</button>
+
+The code for this test would be:
+
+
+```r
+pwr.r.test(n = 50,
+           sig.level = .05, 
+           power = .8,
+           alternative = "two.sided") %>% 
+  pluck("r") %>% 
+  round(3)
+```
+
+* Meaning that the smallest effect size would be r = .384
+
+
+</div>
+
+
 
 ## Activity solutions {#power-sols}
 
 Below you will find the solutions to the above questions. Only look at them after giving the questions a good try and trying to find help on Google or Teams about any issues.
 
-### Activity 1 {#power-a1sol}
+#### Activity 1 {#power-a1sol}
 
 
 
@@ -339,7 +441,7 @@ library(tidyverse)
 ```
 
 
-### Activity 2 {#power-a2sol}
+#### Activity 2 {#power-a2sol}
 
 
 ```r
@@ -348,7 +450,7 @@ d <- 3.24 / sqrt(25 +1)
 # effect is medium to large; d = .64
 ```
 
-### Activity 3 {#power-a3sol}
+#### Activity 3 {#power-a3sol}
 
 
 
@@ -359,7 +461,7 @@ d <- (2*2.9) / sqrt(30)
 ```
 
 
-### Activity 4 {#power-a4sol}
+#### Activity 4 {#power-a4sol}
 
 
 ```r
@@ -374,7 +476,7 @@ d = (2*t)/sqrt((30-1) + (30-1))
 ```
 
 
-### Activity 6 {#power-a6sol}
+#### Activity 6 {#power-a6sol}
 
 
 ```r
@@ -382,7 +484,7 @@ sample_size_t <- pwr.t.test(d = .23,
                             power = .8, 
                             sig.level = .05, 
                             alternative = "two.sided", 
-                            type = "one.sample") %>% tidy() %>% pull(n) %>% ceiling()
+                            type = "one.sample") %>% pluck("n") %>% ceiling()
 
 sample_size_t
 ```
@@ -390,7 +492,7 @@ sample_size_t
 [1] 151
 
 
-### Activity 7 {#power-a7sol}
+#### Activity 7 {#power-a7sol}
 
 
 ```r
@@ -398,22 +500,16 @@ pwr.t.test(n = 50,
            power = .9, 
            sig.level = .05, 
            alternative = "two.sided", 
-           type = "two.sample")
+           type = "two.sample") %>%
+  pluck("d") %>%
+  round(3)
 ```
 
-     Two-sample t test power calculation 
-
-              n = 50
-              d = 0.654752
-      sig.level = 0.05
-          power = 0.9
-    alternative = two.sided
-
-NOTE: n is number in *each* group
+[1] 0.655
 
 
 
-### Activity 8 {#power-a8sol}
+#### Activity 8 {#power-a8sol}
 
 
 ```r
@@ -421,87 +517,87 @@ sample_size_r <- pwr.r.test(r = .4,
                             sig.level = .05, 
                             power = .8, 
                             alternative = "two.sided") %>%
-  tidy() %>% pull(n) %>% ceiling()
+  pluck("n") %>% 
+  ceiling()
 ```
 
 
 
-### Activity 9 {#power-a9sol}
+#### Activity 9 {#power-a9sol}
 
 
 ```r
 pwr.r.test(n = 50,
            sig.level = .05, 
            power = .8, 
-           alternative = "greater")
+           alternative = "greater") %>%
+  pluck("r") %>%
+  round(3)
 ```
 
-     approximate correlation power calculation (arctangh transformation) 
-
-              n = 50
-              r = 0.3443671
-      sig.level = 0.05
-          power = 0.8
-    alternative = greater
+[1] 0.344
 
 
-### Activity 10 {#power-a10sol}
+#### Activity 10 {#power-a10sol}
+
+**Achievable Cohen d for Example 1**
 
 
 ```r
-# Achievable Cohen d for Example 1
 pwr.t.test(power = .8, 
            n = 32, 
            type = "one.sample", 
            alternative = "two.sided", 
-           sig.level = .05)
+           sig.level = .05) %>%
+  pluck("d") %>%
+  round(2)
 ```
 
-     One-sample t test power calculation 
+[1] 0.51
 
-              n = 32
-              d = 0.5112738
-      sig.level = 0.05
-          power = 0.8
-    alternative = two.sided
+* Giving an achievable effect size of 0.51 and they found an effect size of 0.52.
+
+This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52
+
+**Achievable Cohen d for Example 2**
+
 
 ```r
-# This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52
-
-# Achievable Cohen d for Example 2
 pwr.t.test(power = .8, 
            n = 32, 
            type = "paired", 
            alternative = "two.sided", 
-           sig.level = .05) 
+           sig.level = .05) %>%
+  pluck("d") %>%
+  round(2)
 ```
 
-     Paired t test power calculation 
+[1] 0.51
 
-              n = 32
-              d = 0.5112738
-      sig.level = 0.05
-          power = 0.8
-    alternative = two.sided
+* Giving an achievable effect size of 0.51 and they found an effect size of 0.43.
 
-NOTE: n is number of *pairs*
+This effect might not be reliable given that the effect size found was much lower than the achievable effect size. The issue here is that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then they should have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies isnt easy; hence why some people consider the Many Labs approach a good way ahead.
+
+**ONE CAVEAT** to the above is that before making the assumption that this study is therefore flawed, we have to keep in mind that this is one study using one sample from a potentially huge number of samples within a population. As such there will be a degree of variance in the true effect size within the population regardless of the effect size of one given sample. What that means is we have to be a little bit cautious when making claims about a study. Ultimately the higher the power the better.
+
+Below you could calculate the actual sample size required to achieve a power of .8:
+
 
 ```r
-# this effect might not be reliable given that the effect size found was much lower than the achievable effect size. The issue here is that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then they should have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies isnt easy; hence why some people consider the Many Labs approach a good way ahead.
-
-# Below you could calculate the actual sample size required to achieve a power of .8:
-
 sample_size <- pwr.t.test(power = .8,
                           d = .4, 
                           type = "paired", 
-                          alternative = "two.sided", 
+                          alternative = "two.sided",
                           sig.level = .05) %>%
-tidy() %>% pull(n) %>% ceiling()
+  pluck("n") %>% 
+  ceiling()
 
 sample_size
 ```
 
 [1] 52
+
+* Suggesting a sample size of n = 52 would be appropriate.
 
 ## Words from this Chapter
 
@@ -519,5 +615,31 @@ Below you will find a list of words that were used in this chapter that might be
 |[probability](https://psyteachr.github.io/glossary/p.html#probability){class="glossary" target="_blank"}       |A number between 0 and 1 where 0 indicates impossibility of the event and 1 indicates certainty                                                                       |
 |[replicability](https://psyteachr.github.io/glossary/r.html#replicability){class="glossary" target="_blank"}   |The extent to which the findings of a study can be repeated with new samples from the same population.                                                                |
 |[sample](https://psyteachr.github.io/glossary/s.html#sample){class="glossary" target="_blank"}                 |A subset of the population that you wish to make an inference about through your test.                                                                                |
+|[secondary data](https://psyteachr.github.io/glossary/s.html#secondary-data){class="glossary" target="_blank"} |data that has been collected already and made available to you to ask research questions of.                                                                          |
+
+## Additional Information
+
+### A blog on how to choose an effect size of interest
+
+A really quick analogy from Ian Walker's "Research Methods and statistics", is say your test is not a stats test but a telescope. And say you have a telescope that is specifically designed only for spotting animals that are the size of elephants or larger (similar to saying a cohens d of .8 or greater for example - very big effect). If your telescope can only reliably detect something down to the size of an elephant but when you look through it you see something smaller that you think might be a mouse, you can't say that the "object"" is definitely is a mouse as you don't have enough power in your telescope - it is too blurry. But likewise you can't rule out that it isn't a mouse as that would be something you don't know for sure - both of these are true because your telescope was only designed to spot things the size of an elephant or larger. You only bought a telescope that was able to spot elephants because that was all your were interested in. Had you been interested in spotting mice you would have had to have bought a more powerful telescope. And that is the point of Lakens' SESOI (Smallest Effect Size of Interest) blog mentioned at the start - you power to the minimum effect size (minimum object size) you would be interested in. This is why it is imperative that you decide before your study what effect you are interested in - and you can base this on previous literature or theory.
+
+### A blog on interpreting and writing up power
+
+A few points on interpreting power to consolidate things a bit. Firstly, it is great that you are now thinking about power and effect sizes in the first place. It is important that this becomes as second nature as thinking about the design of your study and in future years and future studies the first question you should ask yourself when designing your study/secondary analysis is what size are my APES - Alpha, Power, Effect Size and Sample. And remember that a priori power analysis is the way ahead. The power and alpha are determined in advance of the study and you are using them to determine the effect size or the sample size.
+
+Power is stated more and more commonly again in papers now and you will start to notice it in the Methods or Results sections. You will see something along the lines of "Based on a power =..... and alpha =...., given we had X voices in our sample, a power analysis (pwr package citation) revealed d = ...... as the minimum effect sizes we could reliably determine."
+
+But how do you interpret a study in terms of power? Well, lets say you run a power analysis for a t-test (or for a correlation), and you set the smallest effect size of interest as d = .4 (or the equivalent r-value). If you then run your analysis and find d = .6 and the effect is significant, then your study had enough power to determine this effect. The effect that you found was bigger than the effect you could have found. You can have some confidence that you have a reliable effect at that given power and alpha values. However, say that instead of d = .6 you found a significant effect but with an effect size just below .4, say d = .3 - the effect size you found is smaller than the smallest effect you could reliably find. In this case you have to be cautious as you are still unclear as to whether there actually is an effect or whether you have found an effect by chance due to your study not having enough power to reliably detect an effect size that small. You can't say for sure that there is an effect or that there isn't an effect. You need to consider both stances in your write up. Remember though that you have sampled a population, so how representative that sample is of your population will also influence the validity of your power. Each sample will give a slightly different effect size.
+
+Alternatively, and probably quite likely in many degree projects due to time constraints, say you find a non-significant effect at an effect size smaller than what you predicted; say you find a non-significant effect with an effect size of d = .2 and your power analysis said you could only reliably detect an effect as small as d = .4. The issue you have here is that you can't determine solely based on this study if you a) have a non-significant effect because you are under powered or b) that you have a non-significant effect because there is actually no effect in the first place. Again in your discussion you would need to consider both stances. What you can however say is that the effect that you were looking for is not any bigger than d = 0.4. That is still useful information. Ok you don't know how small the effect really is, but you can rule out any effect size bigger than your original d-value. In turn this helps future researchers plan their studies better and can guide them better in knowing how many participants to run. See how useful it would be if we published null findings!
+
+Basically, when your test finds an effect size smaller than you can detect, you don't know what it is but you know what it isn't - we aren't sure if it is a mouse but we know it is not an elephant. Instead you would use previous findings to support the object being a mouse or not but caveat the conclusion with the suggestion that the test isn't really sensitive to finding a mouse. Similar to a finding that has an effect size smaller than you can detect. You can use previous literature to support their not being an effect but you can't rule it out for sure. You might have actually found an effect had you had a more powerful test. Just like you might have been able to determine that it was a mouse had you had a more powerful telescope.
+
+Taking this a bit further in some studies there really is enough power (in terms of N - say a study of 25000 participants) to find a flea on the proverbial mouse, but where nevertheless there is a non-significant finding. In this case you have the fortunate situation where you have a well-powered study and so can say with some degree of confidence that your hypothesis and design is unlikely to ever produce a replicable significant result. That is probably about as certain as you can get in our science or as close as you can get to a "fact", a very rare and precious thing. However, incredibly high powered studies, with lots of participants, tend to be able to find any difference as a significant difference. A within-subjects design with 10000 participants (Power = .8, $\alpha = .05$) can determine reliably detect an incredibly small effect size of d = 0.04. The question at that stage is whether that effect has any real world significance or meaning.
+
+So the take-home message here is that your discussion should always consider the result in relation to the hypothesis, integrating previous research and theory, and if there is an additional issue of power, then your discussion could also consider the result in relation to whether you can truly determine the effect and how that might be resolved (e.g. re-assessing the effect size, changing the design (within is more powerful), low sample, power to high (e.g. .9), alpha to low (e.g. .01)). This issue of power would probably be a small part in the generalisability/limitation section.
+
+And finally, n all of the above you can swap effect and relationship, d and r, and other analyses accordingly.
+
 
 That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!
