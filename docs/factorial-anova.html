@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 15 Factorial ANOVA | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
-<meta name="description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code....">
+<meta name="description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the lectures, but for now, we'll just focus on the code. We're...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 15 Factorial ANOVA | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/factorial-anova.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<meta property="og:description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code....">
+<meta property="og:description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the lectures, but for now, we'll just focus on the code. We're...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 15 Factorial ANOVA | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code....">
+<meta name="twitter:description" content="For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the lectures, but for now, we'll just focus on the code. We're...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -89,7 +89,7 @@
 <h1>
 <span class="header-section-number">15</span> Factorial ANOVA<a class="anchor" aria-label="anchor" href="#factorial-anova"><i class="fas fa-link"></i></a>
 </h1>
-<p>For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the second lecture, but for now, we'll just focus on the code.</p>
+<p>For the second week of ANOVA we're going to look at an example of a factorial ANOVA. You'll learn more about interpreting these in the lectures, but for now, we'll just focus on the code.</p>
 <p>We're going to reproduce the analysis from Experiment 3 of <a href="https://journals.sagepub.com/doi/abs/10.1177/0956797614542274">Zhang, T., Kim, T., Brooks, A. W., Gino, F., &amp; Norton, M. I. (2014). A "present" for the future: The unexpected value of rediscovery. Psychological Science, 25, 1851-1860.</a>. You may remember this study from the Chapter Visualisation chapter.</p>
 <p>This experiment has a 2 x 2 mixed design:</p>
 <ul>
@@ -105,7 +105,7 @@
 <ul>
 <li>Open R Studio and set the working directory to your chpter folder. Ensure the environment is clear.</li>
 <li>Open a new R Markdown document and save it in your working directory. Call the file "Factorial ANOVA".</li>
-<li>Download <a href="Zhang%20et%20al.%202014%20Study%203.csv" download>Zhang et al. 2014 Study 3.csv</a> and extract the files in to your Week 11 folder.</li>
+<li>Download <a href="Zhang%20et%20al.%202014%20Study%203.csv" download>Zhang et al. 2014 Study 3.csv</a> and extract the files in to your Chapter 15 folder.</li>
 <li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
 </li>
 <li>If you are working on your own computer, install the package <code>rcompanion</code>. Remember <strong>do not install packages on university computers, they are already installed</strong>.</li>
@@ -302,7 +302,7 @@ Figure 10.1: Interaction plot
 
 <span class="va">time_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">d_time1_extra_ord</span>, <span class="va">d_time2_extra_ord</span><span class="op">)</span>
 
-<span class="va">contrasts_factorial2</span> <span class="op">&lt;-</span> <span class="va">contrasts_factorial</span> <span class="op">%&gt;%</span>
+<span class="va">contrasts_factorial2</span> <span class="op">&lt;-</span> <span class="va">contrasts_factorial2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>eff_size <span class="op">=</span> <span class="va">time_ds</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="factorial-a8" class="section level3" number="15.0.8">
