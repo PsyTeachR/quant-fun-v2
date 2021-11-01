@@ -108,7 +108,7 @@ What you have created is called a **<a class='glossary' target='_blank' title='A
 
 <div class="warning">
 <p>When you create a new code chunk you should notice that the grey box starts and ends with three back ticks, followed by the {r}, and then it ends with three back ticks again. This is the structure that creates a code chunk. You could actually just type this structure instead of using the <code>Insert</code> approach but when learning it does help a bit!</p>
-<p>One common mistake is to accidentally delete these back ticks. A useful thing to notice is that code chunks tend to have a different color background - in the default viewing settings a code chunk is gret and the normal text is white. You can use this to look for mistakes. If the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the backticks.</p>
+<p>One common mistake is to accidentally delete these back ticks. A useful thing to notice is that code chunks tend to have a different color background - in the default viewing settings a code chunk is grey and the normal text is white. You can use this to look for mistakes. If the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the backticks.</p>
 <p>In addition, remember it is backticks (i.e. this `) and not single quotes (i.e. not this ')!</p>
 </div>
 
@@ -183,7 +183,7 @@ As our final step we are going to **<a class='glossary' target='_blank' title='T
 
 Now let's look at this outputted HTML document and at the sentence we copied in from Activity 7. As if by magic, that slightly odd bit of text you copied and pasted now appears as a normal sentence with the values pulled in from the objects you created.
 
-**My name is Emily and I am 35 years old. <br><br>It is -112 days until my birthday.**
+**My name is Emily and I am 35 years old. <br><br>It is -113 days until my birthday.**
 
 Pretty amazing isn't it! We're not going to use inline coding very often in the rest of the course but hopefully you can see just how useful this would be when writing up a report with lots of numbers! R Markdown is an incredibly powerful and flexible format - this book was written using it! The key thing about using inline coding is the structure, i.e. the backtick, followed by the lower case r, then space, then the code, then another backtick. You will get the hang of it as the semester goes on with a little practice.
 
@@ -204,7 +204,7 @@ If you have any questions about anything contained in this chapter or in Program
 
 ## Test Yourself
 
-1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_EEIPAMHZSE'><label><input type="radio" autocomplete="off" name="radio_EEIPAMHZSE" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_EEIPAMHZSE" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_EEIPAMHZSE" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_EEIPAMHZSE" value=""></input> <span>make a coffee</span></label></div>
+1. One of the key first steps when we open RStudio is to: <div class='webex-radiogroup' id='radio_ERCQVKHQLF'><label><input type="radio" autocomplete="off" name="radio_ERCQVKHQLF" value="answer"></input> <span>set your working directory</span></label><label><input type="radio" autocomplete="off" name="radio_ERCQVKHQLF" value=""></input> <span>put on some top tunes as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_ERCQVKHQLF" value=""></input> <span>build some folders</span></label><label><input type="radio" autocomplete="off" name="radio_ERCQVKHQLF" value=""></input> <span>make a coffee</span></label></div>
 
 
 
@@ -231,7 +231,7 @@ Assuming you haven't changed any of the settings in RStudio, code chunks will te
 
 <br>
 
-4. Code chunks are started with: <div class='webex-radiogroup' id='radio_KQCGJAOJER'><label><input type="radio" autocomplete="off" name="radio_KQCGJAOJER" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_KQCGJAOJER" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_KQCGJAOJER" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_KQCGJAOJER" value=""></input> <span>three single clefs</span></label></div>
+4. Code chunks are started with: <div class='webex-radiogroup' id='radio_MMLARCQRGP'><label><input type="radio" autocomplete="off" name="radio_MMLARCQRGP" value=""></input> <span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_MMLARCQRGP" value="answer"></input> <span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_MMLARCQRGP" value=""></input> <span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_MMLARCQRGP" value=""></input> <span>three single clefs</span></label></div>
 
 
 
@@ -244,7 +244,7 @@ Code chunks always take the same general format of three backticks followed by c
 
 <br>
   
-5. Inline coding is: <div class='webex-radiogroup' id='radio_XGCUABUIZM'><label><input type="radio" autocomplete="off" name="radio_XGCUABUIZM" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_XGCUABUIZM" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_XGCUABUIZM" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_XGCUABUIZM" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
+5. Inline coding is: <div class='webex-radiogroup' id='radio_XSKOSIFFJF'><label><input type="radio" autocomplete="off" name="radio_XSKOSIFFJF" value=""></input> <span>where you nicely organise your code in a line</span></label><label><input type="radio" autocomplete="off" name="radio_XSKOSIFFJF" value=""></input> <span>where you make sure all the code is nicely indented from the side</span></label><label><input type="radio" autocomplete="off" name="radio_XSKOSIFFJF" value=""></input> <span>an exuberant way of exclaiming you have written good code!</span></label><label><input type="radio" autocomplete="off" name="radio_XSKOSIFFJF" value="answer"></input> <span>an approach of intergrating code and text in a sentence outside of a code chunk</span></label></div>
 
 
 
