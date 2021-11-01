@@ -270,6 +270,7 @@ interpreting-output-and-writing-up
 corr-a6
 corr-a7
 multiple-correlations
+corr-a8
 corr-a9
 corr-fin
 test-yourself-3
