@@ -193,7 +193,7 @@ Figure 10.1: Interaction plot
 <li><p>Pull out the anova table, you can either do this with <code>mod_factorial$anova_table</code> or <code><a href="https://rdrr.io/r/stats/anova.html">anova(mod_factorial)</a></code> both have the same result. Save this to an object named <code>factorial_output</code> and make sure you have used <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code>.</p></li>
 </ul>
 <div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"NULL"</span>,
+<code class="sourceCode R"><span class="va">mod_factorial</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"NULL"</span>,
                data <span class="op">=</span> <span class="cn">NULL</span>, 
                between <span class="op">=</span> <span class="st">"NULL"</span>, 
                within <span class="op">=</span> <span class="st">"NULL"</span>,
@@ -257,7 +257,7 @@ Figure 10.1: Interaction plot
 </ul>
 <div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># run the tests</span>
-<span class="va">posthoc_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod_factorial</span>, 
+<span class="va">posthoc_factorial</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mod_factorial</span>, 
                              <span class="va">pairwise</span> <span class="op">~</span> <span class="va">time</span><span class="op">|</span> <span class="va">Condition</span>, 
                              adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 
@@ -269,7 +269,7 @@ Figure 10.1: Interaction plot
 <li>Run the below code and look at the output of <code>contrast_factorial</code> and <code>contrasts_factorial2</code> carefully making sure you understand how to interpret the results. You will find it useful to refer to the interaction plot we made earlier.</li>
 </ul>
 <div class="sourceCode" id="cb302"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">posthoc_factorial2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod_factorial</span>, 
+<code class="sourceCode R"><span class="va">posthoc_factorial2</span> <span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="op">(</span><span class="va">mod_factorial</span>, 
                              <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span><span class="op">|</span> <span class="va">time</span>, 
                              adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span> 
 
@@ -281,10 +281,10 @@ Figure 10.1: Interaction plot
 <li>Run the below code to add on effect sizes to <code>contrasts_factorial</code> and <code>contrasts_factorial2</code>.</li>
 </ul>
 <div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d_extra_t1_t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
+<code class="sourceCode R"><span class="va">d_extra_t1_t2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
                          data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">Condition</span> <span class="op">==</span> <span class="st">"Extraordinary"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
 
-<span class="va">d_ord_t1_t2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
+<span class="va">d_ord_t1_t2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">time</span>, 
                          data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">Condition</span> <span class="op">==</span> <span class="st">"Ordinary"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
 
 
@@ -293,10 +293,10 @@ Figure 10.1: Interaction plot
 <span class="va">contrasts_factorial</span> <span class="op">&lt;-</span> <span class="va">contrasts_factorial</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>eff_size <span class="op">=</span> <span class="va">Condition_ds</span><span class="op">)</span>
 
-<span class="va">d_time1_extra_ord</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_time1_extra_ord</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">Condition</span>, 
                          data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">time</span> <span class="op">==</span> <span class="st">"time1_interest"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> 
 
-<span class="va">d_time2_extra_ord</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_time2_extra_ord</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">interest</span> <span class="op">~</span> <span class="va">Condition</span>, 
                          data <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">factorial</span>, <span class="va">time</span> <span class="op">==</span> <span class="st">"time2_interest"</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
 
@@ -339,10 +339,10 @@ Figure 10.1: Interaction plot
 </ul>
 <div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">factorial</span> <span class="op">&lt;-</span> <span class="va">factorial</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>interest_tukey <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/rcompanion/man/transformTukey.html">transformTukey</a></span><span class="op">(</span><span class="va">interest</span>, plotit<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>interest_tukey <span class="op">=</span> <span class="fu">transformTukey</span><span class="op">(</span><span class="va">interest</span>, plotit<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>Now that you've transformed the DV we can re-run the ANOVA with this new variable.</p>
 <div class="sourceCode" id="cb307"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tukey_factorial</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>,
+<code class="sourceCode R"><span class="va">tukey_factorial</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>,
                data <span class="op">=</span> <span class="va">factorial</span>, 
                between <span class="op">=</span> <span class="st">"Condition"</span>, 
                within <span class="op">=</span> <span class="st">"time"</span>,
@@ -702,7 +702,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-31.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

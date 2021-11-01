@@ -351,7 +351,7 @@ If you want more examples of power to reinforce your understanding, go back and 
 
 ## Test Yourself
 
-1. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_ETOHGSASEP'><label><input type="radio" autocomplete="off" name="radio_ETOHGSASEP" value=""></input> <span>d = 0.281</span></label><label><input type="radio" autocomplete="off" name="radio_ETOHGSASEP" value=""></input> <span>d = 0.280</span></label><label><input type="radio" autocomplete="off" name="radio_ETOHGSASEP" value=""></input> <span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_ETOHGSASEP" value="answer"></input> <span>d = 0.398</span></label></div>
+1. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_GWDIIOHRFX'><label><input type="radio" autocomplete="off" name="radio_GWDIIOHRFX" value=""></input> <span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_GWDIIOHRFX" value=""></input> <span>d = 0.281</span></label><label><input type="radio" autocomplete="off" name="radio_GWDIIOHRFX" value="answer"></input> <span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_GWDIIOHRFX" value=""></input> <span>d = 0.280</span></label></div>
 
 
 
@@ -376,7 +376,7 @@ pwr.t.test(n = 100,
 </div>
 
 
-2. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_ULLKOUMMDF'><label><input type="radio" autocomplete="off" name="radio_ULLKOUMMDF" value="answer"></input> <span>d = 0.578</span></label><label><input type="radio" autocomplete="off" name="radio_ULLKOUMMDF" value=""></input> <span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_ULLKOUMMDF" value=""></input> <span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_ULLKOUMMDF" value=""></input> <span>r = .577</span></label></div>
+2. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_XHAJKRSHLK'><label><input type="radio" autocomplete="off" name="radio_XHAJKRSHLK" value=""></input> <span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_XHAJKRSHLK" value=""></input> <span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_XHAJKRSHLK" value=""></input> <span>r = .577</span></label><label><input type="radio" autocomplete="off" name="radio_XHAJKRSHLK" value="answer"></input> <span>d = 0.578</span></label></div>
 
 
 
@@ -401,7 +401,7 @@ pwr.t2n.test(n1 = 60,
 </div>
 
 
-3. Assuming you ran a correlation on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_WUBDIQDVYW'><label><input type="radio" autocomplete="off" name="radio_WUBDIQDVYW" value=""></input> <span>r = .385</span></label><label><input type="radio" autocomplete="off" name="radio_WUBDIQDVYW" value=""></input> <span>r = .275</span></label><label><input type="radio" autocomplete="off" name="radio_WUBDIQDVYW" value=""></input> <span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_WUBDIQDVYW" value="answer"></input> <span>r = .384</span></label></div>
+3. Assuming you ran a correlation on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_AAUQWSBYYQ'><label><input type="radio" autocomplete="off" name="radio_AAUQWSBYYQ" value=""></input> <span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_AAUQWSBYYQ" value=""></input> <span>r = .275</span></label><label><input type="radio" autocomplete="off" name="radio_AAUQWSBYYQ" value="answer"></input> <span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_AAUQWSBYYQ" value=""></input> <span>r = .385</span></label></div>
 
 
 

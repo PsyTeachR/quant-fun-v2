@@ -37,7 +37,7 @@ So you can see that the probability of an event occurring changes with the numbe
 Try to answer these questions below to check your understanding.
 
 1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? `r mcq(sample(c(answer = 1/10, 1/12, 1/4, 1/24)))`
-2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! `r mcq(sample(c(answer = 1/10, 1/100, 0/100, 10/100)))`
+2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! `r mcq(sample(c(answer = 0/100, 1/10, 1/100, 10/100)))`
 
 ## Types of data
 

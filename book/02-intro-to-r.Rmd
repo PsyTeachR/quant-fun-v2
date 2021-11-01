@@ -114,7 +114,7 @@ What you have created is called a **`r glossary("chunk", display = "code chunk")
 ```{block, type="warning"}
 When you create a new code chunk you should notice that the grey box starts and ends with three back ticks, followed by the {r}, and then it ends with three back ticks again. This is the structure that creates a code chunk. You could actually just type this structure instead of using the `Insert` approach but when learning it does help a bit!
 
-One common mistake is to accidentally delete these back ticks. A useful thing to notice is that code chunks tend to have a different color background - in the default viewing settings a code chunk is gret and the normal text is white. You can use this to look for mistakes. If the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the backticks.
+One common mistake is to accidentally delete these back ticks. A useful thing to notice is that code chunks tend to have a different color background - in the default viewing settings a code chunk is grey and the normal text is white. You can use this to look for mistakes. If the colour of certain parts of your Markdown doesn't look right, check that you haven't deleted the backticks.
 
 In addition, remember it is backticks (i.e. this `) and not single quotes (i.e. not this ')!
 ```
