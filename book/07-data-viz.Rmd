@@ -14,7 +14,7 @@ As Grolemund and Wickham tell us in [R for Data Science](http://r4ds.had.co.nz/i
 
 The main package we use for visualisation within the `tidyverse` umbrella is called **`ggplot2`** and the main starting function of all visualisations is `ggplot()`. The reason we say the "main starting function" is that `ggplot()` builds plots by combining layers (see, for example, Figure \@ref(fig:img-layers) from [@nordmann2021]) - i.e. one function creates the first layer, the basic plot area, and you add functions and arguments to add additional layers such as the data, the labels, the colors, etc. If you're used to making plots in other software this might seem a bit odd at first, however, it means that you can customise each layer separately in order to make very complex and beautiful figures with relative ease. You can get a sense of what is possible from ([this website](https://www.data-to-viz.com/) but we will start off slow and build as we go!
 
-```{r img-layers, echo=FALSE, fig.cap="Building a figure using the ggplot2() layers system as shown in Nordmann et al. (2021)"}
+```{r img-layers, echo=FALSE, fig.cap="Building a figure using the ggplot2 layers system as shown in Nordmann et al. (2021)"}
 
 knitr::include_graphics("images/layers2.PNG")
 
@@ -125,14 +125,14 @@ Read through the following section and try the different code chunks. Following 
 * The first line (or layer) sets up the base of the graph: the data to use and the aesthetics (what will go on the x and y axis, how the plot will be grouped).    
 * `aes()` can take both an `x` and `y` argument, however, with a bar plot you are just asking R to count the number of data points in each group so you don't need to specify this. 
 
-```{r layer1, fig.cap="First ggplot layer sets the axes"}
+```{r layer1, fig.cap="First ggplot() layer sets the axes"}
 ggplot(summarydata, aes(x = sex))
 ```
 
 * The next layer adds a **geom** or a shape, in this case we use `geom_bar()` as we want to draw a bar plot. 
     * Note that we are adding layers, using a `+` between layers. This is a very important difference between pipes and visualisation. We will mention this again later but we add layers (`+`), we do not pipe them!
 
-```{r, fig.cap="Basic barplot"}
+```{r, fig.cap="Basic barplot with geom_bar() added"}
 ggplot(summarydata, aes(x = sex)) +
   geom_bar()
 ```
