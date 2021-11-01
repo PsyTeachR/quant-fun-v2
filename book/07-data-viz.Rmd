@@ -353,7 +353,7 @@ Note that the image tends to save at a default size, or the size that the image 
     * try different dimensions and units to see the difference. You might want to create violin-boxplot-v1, ...-v2, ...-v3, and compare them. Remeber you can use `?ggsave()` in the console window to bring up the help on this function.
 
 ```{r, eval = FALSE}
-ggsave("violin-boxplot", 
+ggsave("violin-boxplot.png", 
        width = 10, 
        height = 8, 
        units = "in")
