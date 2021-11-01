@@ -63,12 +63,11 @@ The thing to note is that the formula is slightly different depending on the typ
 
 * One-sample t-test & paired-sample t-test:  
 
-> $d = t\ / \sqrt(N)$
+$$d = \frac{t}{\sqrt{N}}$$
 
 * Independent t-test: 
 
-> $d = 2t\ / \sqrt(df)$
-
+$$d = \frac{2 \times t}{\sqrt{df}}$$
 
 Let's now try out some calculations. We will start with just looking at effect sizes from t-tests before calculating power in later tasks.
 
