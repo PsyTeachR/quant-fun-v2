@@ -382,6 +382,7 @@ So to test the normal distribution, and to round off this chapter, we will use t
 * `lower.tail` works as above and depends on whether you are interested in the upper or lower tail,
 
 Type the code below into a code chunk and replace the NULLs to calculate the probability of meeting a 16-24 y.o. Scottish woman who is as tall or taller than the average 16-24 y.o. Scottish man.
+
   * **hint:** You are asking about the female distribution so use that mean and sd
   * **hint:** the average male is 176.2
   * **hint:** tall or taller is upper.
