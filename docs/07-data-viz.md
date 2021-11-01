@@ -438,7 +438,7 @@ Well done! `ggplot` can be a bit difficult to get your head around at first, par
 
 ## Test Yourself
 
-1. Which of these is the appropriate order of functions to create a boxplot? <div class='webex-radiogroup' id='radio_GOTRQYRYWF'><label><input type="radio" autocomplete="off" name="radio_GOTRQYRYWF" value="answer"></input> <span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_GOTRQYRYWF" value=""></input> <span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_GOTRQYRYWF" value=""></input> <span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_GOTRQYRYWF" value=""></input> <span>ggplot() %>% geom_boxplot()</span></label></div>
+1. Which of these is the appropriate order of functions to create a boxplot? <div class='webex-radiogroup' id='radio_PDNGEVUHRI'><label><input type="radio" autocomplete="off" name="radio_PDNGEVUHRI" value=""></input> <span>ggplot() %>% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_PDNGEVUHRI" value=""></input> <span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_PDNGEVUHRI" value=""></input> <span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_PDNGEVUHRI" value="answer"></input> <span>ggplot() + geom_boxplot()</span></label></div>
 
 
 2. Would this line of code run, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?
@@ -449,7 +449,7 @@ ggplot(summarydata, aes(x = sex, fill = sex)) %>%
   geom_bar()
 ```
 
-<div class='webex-radiogroup' id='radio_DLQEKBFSZY'><label><input type="radio" autocomplete="off" name="radio_DLQEKBFSZY" value=""></input> <span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label><label><input type="radio" autocomplete="off" name="radio_DLQEKBFSZY" value="answer"></input> <span>No, because you have piped the geom_bar() instead of adding it</span></label></div>
+<div class='webex-radiogroup' id='radio_QNOJUZHWMU'><label><input type="radio" autocomplete="off" name="radio_QNOJUZHWMU" value=""></input> <span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label><label><input type="radio" autocomplete="off" name="radio_QNOJUZHWMU" value="answer"></input> <span>No, because you have piped the geom_bar() instead of adding it</span></label></div>
 
 
 3. Why would this line of code not create a barplot, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?
@@ -460,10 +460,10 @@ ggplot(summarydata, aes(x = sex, fill = sex)) +
   geom_barplot()
 ```
 
-<div class='webex-radiogroup' id='radio_VZHCUKUJJE'><label><input type="radio" autocomplete="off" name="radio_VZHCUKUJJE" value=""></input> <span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_VZHCUKUJJE" value="answer"></input> <span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_VZHCUKUJJE" value=""></input> <span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_VZHCUKUJJE" value=""></input> <span>because this would create a boxplot</span></label></div>
+<div class='webex-radiogroup' id='radio_EEWNYTMMOJ'><label><input type="radio" autocomplete="off" name="radio_EEWNYTMMOJ" value=""></input> <span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_EEWNYTMMOJ" value=""></input> <span>because this would create a boxplot</span></label><label><input type="radio" autocomplete="off" name="radio_EEWNYTMMOJ" value="answer"></input> <span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_EEWNYTMMOJ" value=""></input> <span>because you have not included a y axis</span></label></div>
 
 
-4. If I wanted a boxplot on top of a violin plot, what order of functions would I write? <div class='webex-radiogroup' id='radio_QEVVRISZSC'><label><input type="radio" autocomplete="off" name="radio_QEVVRISZSC" value=""></input> <span>ggplot() %>% geom_boxplot() %>% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_QEVVRISZSC" value="answer"></input> <span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_QEVVRISZSC" value=""></input> <span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_QEVVRISZSC" value=""></input> <span>ggplot() %>% geom_violin() %>% geom_boxplot()</span></label></div>
+4. If I wanted a boxplot on top of a violin plot, what order of functions would I write? <div class='webex-radiogroup' id='radio_ELBTKPMLNY'><label><input type="radio" autocomplete="off" name="radio_ELBTKPMLNY" value=""></input> <span>ggplot() %>% geom_boxplot() %>% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_ELBTKPMLNY" value="answer"></input> <span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_ELBTKPMLNY" value=""></input> <span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_ELBTKPMLNY" value=""></input> <span>ggplot() %>% geom_violin() %>% geom_boxplot()</span></label></div>
 
 
 

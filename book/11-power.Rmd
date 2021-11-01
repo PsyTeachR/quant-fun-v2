@@ -306,7 +306,7 @@ Answer the following questions to check your answers. The solutions are at the b
 * Based on the information given, what will you set `alternative` as in the function? `r mcq(c("two.sided", answer = "greater", "less"))`
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: `r fitb(c(".34", "0.34"),ignore_ws = TRUE)`
 * According to Cohen (1988), the effect size for this correlation is `r mcq(c("small", answer = "medium", "large"))`
-* Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true: `r mcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34"))`
+* Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true: `r longmcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34"))`
 
 ### Effect Sizes in Published Research
 
