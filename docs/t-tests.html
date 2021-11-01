@@ -492,7 +492,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </ul>
 <div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_intellect</span> <span class="op">&lt;-</span> <span class="va">intellect_t</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu">tidy</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>As you will see, <code>results_intellect</code> is now in a nice tibble format that makes it easy to extract individual values. It is worth looking at the values with the below explanations:</p>
 <ul>
 <li>
@@ -667,7 +667,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <li>Run and complete the code below by replacing the NULLs to calculate the effect sizes for hire and impression</li>
 </ul>
 <div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
+<code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu">cohens_d</span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span>
 <span class="va">hire_d</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>

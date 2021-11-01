@@ -355,7 +355,7 @@ Helpful hint
 <li>Run the below code:</li>
 </ul>
 <div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
+<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
            power <span class="op">=</span> <span class="fl">.8</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
@@ -369,7 +369,7 @@ Helpful hint
 <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code> rounds up to give us the next highest whole number</li>
 </ul>
 <div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
+<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
            power <span class="op">=</span> <span class="fl">.8</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
@@ -442,7 +442,7 @@ Helpful hint
 </ul>
 <p>Assuming <span class="math inline">\(\alpha = .05\)</span>, Power = .8, and it is a two-tailed test, you would do:</p>
 <div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t2n.test.html">pwr.t2n.test</a></span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">25</span>,
+<code class="sourceCode R"><span class="fu">pwr.t2n.test</span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">25</span>,
              n2 <span class="op">=</span> <span class="fl">30</span>,
              power <span class="op">=</span> <span class="fl">.8</span>,
              sig.level <span class="op">=</span> <span class="fl">.05</span>,
@@ -551,8 +551,8 @@ Helpful hint
 </h2>
 <ol style="list-style-type: decimal">
 <li>Assuming you were running a between-subjects t-test on secondary data (<span class="math inline">\(\alpha = .05\)</span>, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is:
-<div id="radio_DXHIXBLNGK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DXHIXBLNGK" value=""><span>d = 0.281</span></label><label><input type="radio" autocomplete="off" name="radio_DXHIXBLNGK" value=""><span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_DXHIXBLNGK" value="answer"><span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_DXHIXBLNGK" value=""><span>d = 0.280</span></label>
+<div id="radio_JODNNOMHBZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JODNNOMHBZ" value=""><span>d = 0.281</span></label><label><input type="radio" autocomplete="off" name="radio_JODNNOMHBZ" value="answer"><span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_JODNNOMHBZ" value=""><span>d = 0.280</span></label><label><input type="radio" autocomplete="off" name="radio_JODNNOMHBZ" value=""><span>d = 0.399</span></label>
 </div>
 </li>
 </ol>
@@ -562,7 +562,7 @@ Solution
 </button>
 <p>The code for this test would be:</p>
 <div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, 
+<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, 
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>,
            type <span class="op">=</span> <span class="st">"two.sample"</span>,
@@ -575,8 +575,8 @@ Solution
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Assuming you were running a between-subjects t-test on secondary data (<span class="math inline">\(\alpha = .05\)</span>, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is:
-<div id="radio_VWNLLHIQHR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VWNLLHIQHR" value="answer"><span>d = 0.578</span></label><label><input type="radio" autocomplete="off" name="radio_VWNLLHIQHR" value=""><span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_VWNLLHIQHR" value=""><span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_VWNLLHIQHR" value=""><span>r = .577</span></label>
+<div id="radio_HPZSVEFDOI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HPZSVEFDOI" value=""><span>r = .577</span></label><label><input type="radio" autocomplete="off" name="radio_HPZSVEFDOI" value=""><span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_HPZSVEFDOI" value=""><span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_HPZSVEFDOI" value="answer"><span>d = 0.578</span></label>
 </div>
 </li>
 </ol>
@@ -586,7 +586,7 @@ Solution
 </button>
 <p>The code for this test would be:</p>
 <div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t2n.test.html">pwr.t2n.test</a></span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">60</span>,
+<code class="sourceCode R"><span class="fu">pwr.t2n.test</span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">60</span>,
            n2 <span class="op">=</span> <span class="fl">40</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>,
@@ -599,8 +599,8 @@ Solution
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Assuming you ran a correlation on secondary data (<span class="math inline">\(\alpha = .05\)</span>, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is:
-<div id="radio_VOAYEHVWVT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VOAYEHVWVT" value=""><span>r = .385</span></label><label><input type="radio" autocomplete="off" name="radio_VOAYEHVWVT" value=""><span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_VOAYEHVWVT" value="answer"><span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_VOAYEHVWVT" value=""><span>r = .275</span></label>
+<div id="radio_OUBPLMLWCY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OUBPLMLWCY" value="answer"><span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_OUBPLMLWCY" value=""><span>r = .385</span></label><label><input type="radio" autocomplete="off" name="radio_OUBPLMLWCY" value=""><span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_OUBPLMLWCY" value=""><span>r = .275</span></label>
 </div>
 </li>
 </ol>
@@ -610,7 +610,7 @@ Solution
 </button>
 <p>The code for this test would be:</p>
 <div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
+<code class="sourceCode R"><span class="fu">pwr.r.test</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
