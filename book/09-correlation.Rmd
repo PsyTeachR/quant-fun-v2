@@ -230,7 +230,6 @@ The Q-Q plot includes a **confidence envelope** (the blue dotted lines) around t
 
 One thing to note before we move on is that, in terms of normality, it is in fact the normality of the `r glossary("residual", display = "residuals")` that matters, where the residuals are the difference between the individual data points and the `r glossary("line of best fit", link = FALSE, def = "otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction")`. However, to fully understand this we need to cover more information first as introducing that concept at this stage would be confusing. One approach the field can use however is that if the data is normally distributed then it is highly likely that the residuals will also be normally distributed. We will look at residuals in the next chapter, but here we will instead use the normality of the raw data as a proxy for the normality of the residuals.
 
-
 **Scatterplots for linearity and homoscedasticity**
 
 Finally, in order to assess linearity and homoscedasticity, we can create a scatterplot using `ggplot2`.
