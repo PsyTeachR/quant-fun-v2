@@ -204,10 +204,11 @@ The Q-Q plot includes a **confidence envelope** (the blue dotted lines) around t
 
 * Now, in a new code chunk, write and run code to create a Q-Q plot for `IQ`.
 
-<div class="info">
-<p><strong>Normality of the residuals</strong></p>
-<p>In terms of normality, it is in fact the normality of the <code>r glossary("residual", display = "residuals")</code> that matters, where the residuals are the difference between the individual data points and the <code>r glossary("line of best fit", link = FALSE, def = "otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction")</code>. However, to fully understand this we need to cover more information first as introducing that concept at this stage would be confusing. One approach the field can use however is that if the data is normally distributed then it is highly likely that the residuals will also be normally distributed. We will look at residuals in the next chapter, but here we will instead use the normality of the raw data as a proxy for the normality of the residuals.</p>
-</div>
+
+**Information: Normality of the residuals**
+
+One thing to note before we move on is that, in terms of normality, it is in fact the normality of the <a class='glossary' target='_blank' title='Defined as the deviation of an observation from a model&#39;s expected value.' href='https://psyteachr.github.io/glossary/r#residual'>residuals</a> that matters, where the residuals are the difference between the individual data points and the <a class='glossary' title='otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction'>line of best fit</a>. However, to fully understand this we need to cover more information first as introducing that concept at this stage would be confusing. One approach the field can use however is that if the data is normally distributed then it is highly likely that the residuals will also be normally distributed. We will look at residuals in the next chapter, but here we will instead use the normality of the raw data as a proxy for the normality of the residuals.
+
 
 **Scatterplots for linearity and homoscedasticity**
 
@@ -236,8 +237,8 @@ The figure should look as follows:
 ```
 
 <div class="figure" style="text-align: center">
-<img src="09-correlation_files/figure-html/unnamed-chunk-6-1.png" alt="Scatterplot of scores" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)Scatterplot of scores</p>
+<img src="09-correlation_files/figure-html/unnamed-chunk-5-1.png" alt="Scatterplot of scores" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)Scatterplot of scores</p>
 </div>
 
 **Note:** Do not worry if you see a message stating `## geom_smooth() using formula 'y ~ x'`. This is just letting you know how it is plotting the line of best fit (the blue line)
@@ -537,20 +538,20 @@ results <- correlation(data = mh,
                        alternative = "two.sided")
 ```
 
-1. What would this analysis show? <div class='webex-radiogroup' id='radio_PTOUUMHMVS'><label><input type="radio" autocomplete="off" name="radio_PTOUUMHMVS" value=""></input> <span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_PTOUUMHMVS" value=""></input> <span>the effect of IQ on time spent reading at Home</span></label><label><input type="radio" autocomplete="off" name="radio_PTOUUMHMVS" value=""></input> <span>the relationship between IQ and the time spent watching TV at home</span></label><label><input type="radio" autocomplete="off" name="radio_PTOUUMHMVS" value="answer"></input> <span>the relationship between IQ and the time spent reading at home</span></label></div>
+1. What would this analysis show? <div class='webex-radiogroup' id='radio_DEBTMISJUW'><label><input type="radio" autocomplete="off" name="radio_DEBTMISJUW" value=""></input> <span>the effect of IQ on time spent reading at Home</span></label><label><input type="radio" autocomplete="off" name="radio_DEBTMISJUW" value=""></input> <span>the relationship between IQ and the time spent watching TV at home</span></label><label><input type="radio" autocomplete="off" name="radio_DEBTMISJUW" value=""></input> <span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_DEBTMISJUW" value="answer"></input> <span>the relationship between IQ and the time spent reading at home</span></label></div>
 
-2. What type of correlation analysis is it? <div class='webex-radiogroup' id='radio_ZRIUMTFRVM'><label><input type="radio" autocomplete="off" name="radio_ZRIUMTFRVM" value=""></input> <span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_ZRIUMTFRVM" value=""></input> <span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_ZRIUMTFRVM" value="answer"></input> <span>two-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_ZRIUMTFRVM" value=""></input> <span>one-tailed pearson analysis</span></label></div>
+2. What type of correlation analysis is it? <div class='webex-radiogroup' id='radio_DJLXZHXWMF'><label><input type="radio" autocomplete="off" name="radio_DJLXZHXWMF" value=""></input> <span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_DJLXZHXWMF" value=""></input> <span>one-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_DJLXZHXWMF" value=""></input> <span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_DJLXZHXWMF" value="answer"></input> <span>two-tailed pearson analysis</span></label></div>
 
 
 Now try running the code and then answering the following questions.
 
-3. To three decimal places, what is the r-value of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_QGVYQDSRRS'><label><input type="radio" autocomplete="off" name="radio_QGVYQDSRRS" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_QGVYQDSRRS" value="answer"></input> <span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_QGVYQDSRRS" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_QGVYQDSRRS" value=""></input> <span>0.334</span></label></div>
+3. To three decimal places, what is the r-value of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_JLGZJLTBOY'><label><input type="radio" autocomplete="off" name="radio_JLGZJLTBOY" value="answer"></input> <span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_JLGZJLTBOY" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_JLGZJLTBOY" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_JLGZJLTBOY" value=""></input> <span>0.334</span></label></div>
 
 
-4. To three decimal places, what is the p-value of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_XNMVWZNMAV'><label><input type="radio" autocomplete="off" name="radio_XNMVWZNMAV" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_XNMVWZNMAV" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_XNMVWZNMAV" value="answer"></input> <span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_XNMVWZNMAV" value=""></input> <span>0.202</span></label></div>
+4. To three decimal places, what is the p-value of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_NBTOSVEFDK'><label><input type="radio" autocomplete="off" name="radio_NBTOSVEFDK" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_NBTOSVEFDK" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_NBTOSVEFDK" value="answer"></input> <span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_NBTOSVEFDK" value=""></input> <span>0.202</span></label></div>
 
 
-5. What is the degrees of freedom of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_CBZTZIETZQ'><label><input type="radio" autocomplete="off" name="radio_CBZTZIETZQ" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_CBZTZIETZQ" value="answer"></input> <span>23</span></label><label><input type="radio" autocomplete="off" name="radio_CBZTZIETZQ" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_CBZTZIETZQ" value=""></input> <span>25</span></label></div>
+5. What is the degrees of freedom of the correlation between IQ and the time spent reading at Home? <div class='webex-radiogroup' id='radio_XIUQKVSCHV'><label><input type="radio" autocomplete="off" name="radio_XIUQKVSCHV" value=""></input> <span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_XIUQKVSCHV" value="answer"></input> <span>23</span></label><label><input type="radio" autocomplete="off" name="radio_XIUQKVSCHV" value=""></input> <span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_XIUQKVSCHV" value=""></input> <span>25</span></label></div>
 
 
 
@@ -595,7 +596,7 @@ ggplot(data = mh, aes(x = IQ)) +
 qqPlot(x = mh$IQ)
 ```
 
-<img src="09-correlation_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="09-correlation_files/figure-html/unnamed-chunk-16-1.png" width="100%" style="display: block; margin: auto;" />
 
 ```
 ## [1]  3 14
@@ -615,7 +616,7 @@ ggplot(data = mh, aes(x = Abil, y = IQ)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="09-correlation_files/figure-html/unnamed-chunk-18-1.png" width="100%" style="display: block; margin: auto;" />
+<img src="09-correlation_files/figure-html/unnamed-chunk-17-1.png" width="100%" style="display: block; margin: auto;" />
 
 #### Activity 4 {#corr-a4sol}
 
@@ -684,6 +685,7 @@ Below you will find a list of words that were used in this chapter that might be
 |[homoscedasticity](https://psyteachr.github.io/glossary/h.html#homoscedasticity){class="glossary" target="_blank"}             |that the spread of data around the line of best fit is equal on both side along the length of the line                                                                                                                                                                          |
 |[hypothesis](https://psyteachr.github.io/glossary/h.html#hypothesis){class="glossary" target="_blank"}                         |A proposed explanation made on the basis of limited evidence as a starting point for further investigation.                                                                                                                                                                     |
 |[inferential](https://psyteachr.github.io/glossary/i.html#inferential){class="glossary" target="_blank"}                       |Statistics that allow you to make predictions about or comparisons between data (e.g., t-value, F-value, rho)                                                                                                                                                                   |
+|[line of best fit](https://psyteachr.github.io/glossary/l.html#line-of-best-fit){class="glossary" target="_blank"}             |otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction                                       |
 |[multiple comparisons](https://psyteachr.github.io/glossary/m.html#multiple-comparisons){class="glossary" target="_blank"}     |An issue of running mutlitple tests which results in an increase in the false positive rate making it more likely that you will incorrectly reject the null hypothesis and accept the alternative hypothesis. The issue is resolved through correction for multiple comparisons |
 |[negative relationship](https://psyteachr.github.io/glossary/n.html#negative-relationship){class="glossary" target="_blank"}   |a relationship between two variables where as one variable increases, the other variable also decreases                                                                                                                                                                         |
 |[non significant](https://psyteachr.github.io/glossary/n.html#non-significant){class="glossary" target="_blank"}               |The conclusion where the p-value is greater than the critical alpha and at which the null hypothesis is retained                                                                                                                                                                |
@@ -692,6 +694,7 @@ Below you will find a list of words that were used in this chapter that might be
 |[pearson](https://psyteachr.github.io/glossary/p.html#pearson){class="glossary" target="_blank"}                               |a standardised measure of the linear relationship between two variables                                                                                                                                                                                                         |
 |[positive relationship](https://psyteachr.github.io/glossary/p.html#positive-relationship){class="glossary" target="_blank"}   |a relationship between two variables where as one variable increases, the other variable also increases                                                                                                                                                                         |
 |[q q plot](https://psyteachr.github.io/glossary/q.html#q-q-plot){class="glossary" target="_blank"}                             |A scatterplot created by plotting two sets of quantiles against each other, used to check if data come from a specified distribution                                                                                                                                            |
+|[residual](https://psyteachr.github.io/glossary/r.html#residual){class="glossary" target="_blank"}                             |Defined as the deviation of an observation from a model&#39;s expected value.                                                                                                                                                                                                   |
 |[scatterplot](https://psyteachr.github.io/glossary/s.html#scatterplot){class="glossary" target="_blank"}                       |a visualisation where each individual data point shows the value of an observation on twi variables.                                                                                                                                                                            |
 |[significant](https://psyteachr.github.io/glossary/s.html#significant){class="glossary" target="_blank"}                       |The conclusion where the p-value is lower than the critical alpha and at which the null hypothesis is rejected                                                                                                                                                                  |
 |[spearman](https://psyteachr.github.io/glossary/s.html#spearman){class="glossary" target="_blank"}                             |a standardised measure of the relationship between two variables that does not assume a linear relationship. Note that the relationship can be linear but it is not required.                                                                                                   |
