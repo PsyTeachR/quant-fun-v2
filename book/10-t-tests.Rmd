@@ -748,7 +748,7 @@ ggplot(gaze_tidy, aes(x = time, y = looking)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = time), width = .2, show.legend = FALSE) + 
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") +
-  labs(x = "Experimental Stage", "Preferential Looking Time (Proportion)
+  labs(x = "Experimental Stage", "Preferential Looking Time (Proportion))
 ```
 
 For the descriptives:
