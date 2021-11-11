@@ -39,7 +39,8 @@ factorial <- read_csv("Zhang et al. 2014 Study 3.csv")%>%
   mutate(Condition = dplyr::recode(Condition, "1" = "Ordinary", "2" = "Extraordinary"))%>%
   mutate(time = dplyr::recode(time, "T1_Predicted_Interest_Composite" = "time1_interest",
                        "T2_Actual_Interest_Composite" = "time2_interest")) %>%
-  mutate(Condition = as.factor(Condition))
+  mutate(Condition = as.factor(Condition)) %>% 
+  mutate (time= as.factor(time))
 ```
 
 ### Activity 2: Descriptive statistics {#factorial-a2}
