@@ -219,7 +219,7 @@ pwr.t.test(d = .4,
            sig.level = .05,
            alternative = "two.sided",
            type = "two.sample") %>% 
-  pluck("n")
+  pluck("n") %>%
   ceiling()
 ```
 
