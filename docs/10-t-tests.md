@@ -99,7 +99,7 @@ The following steps describe how to create the above tibble and it would be good
 
 ```r
 # 1. load in the data
-ratings <- read_csv("ratings.csv")
+ratings <- read_csv("book/ratings.csv")
 
 # 2. first step: pull out the ratings associated with intellect
 iratings <- ratings %>%
@@ -153,10 +153,11 @@ We will visualise the intellect ratings for the listened and the read conditions
 ratings2 %>%
   filter(Category == "intellect") %>%
 ggplot(aes(x = condition, y = Rating)) +
-  geom_violin(trim = FALSE) +
+  geom_violin(trim = TRUE) +
   geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")  +
-  labs(x = "Condition", y = "Rating Score")
+  labs(x = "Condition", y = "Rating Score") +
+  geom_jitter()
 ```
 
 The first part of the code uses a pipe to filter the data to just the intellect rating:
