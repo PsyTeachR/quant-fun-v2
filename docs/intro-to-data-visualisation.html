@@ -106,8 +106,8 @@
 <p>The main package we use for visualisation within the <code>tidyverse</code> umbrella is called <strong><code>ggplot2</code></strong> and the main starting function of all visualisations is <code>ggplot()</code>. The reason we say the "main starting function" is that <code>ggplot()</code> builds plots by combining layers (see, for example, Figure <a href="intro-to-data-visualisation.html#fig:img-layers">7.1</a> from <span class="citation">(<a href="references.html#ref-nordmann2021" role="doc-biblioref">Nordmann et al., 2021</a>)</span>) - i.e. one function creates the first layer, the basic plot area, and you add functions and arguments to add additional layers such as the data, the labels, the colors, etc. If you're used to making plots in other software this might seem a bit odd at first, however, it means that you can customise each layer separately in order to make very complex and beautiful figures with relative ease. You can get a sense of what is possible from (<a href="https://www.data-to-viz.com/">this website</a> but we will start off slow and build as we go!</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-layers"></span>
-<img src="images/layers2.PNG" alt="Building a figure using the ggplot2() layers system as shown in Nordmann et al. (2021)" width="100%"><p class="caption">
-Figure 7.1: Building a figure using the ggplot2() layers system as shown in Nordmann et al. (2021)
+<img src="images/layers2.PNG" alt="Building a figure using the ggplot2 layers system as shown in Nordmann et al. (2021)" width="100%"><p class="caption">
+Figure 7.1: Building a figure using the ggplot2 layers system as shown in Nordmann et al. (2021)
 </p>
 </div>
 </div>
@@ -226,8 +226,8 @@ Figure 7.1: Building a figure using the ggplot2() layers system as shown in Nord
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:layer1"></span>
-<img src="07-data-viz_files/figure-html/layer1-1.png" alt="First ggplot layer sets the axes" width="100%"><p class="caption">
-Figure 7.2: First ggplot layer sets the axes
+<img src="07-data-viz_files/figure-html/layer1-1.png" alt="First ggplot() layer sets the axes" width="100%"><p class="caption">
+Figure 7.2: First ggplot() layer sets the axes
 </p>
 </div>
 <ul>
@@ -242,8 +242,8 @@ Figure 7.2: First ggplot layer sets the axes
   <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-2-1.png" alt="Basic barplot" width="100%"><p class="caption">
-Figure 7.3: Basic barplot
+<img src="07-data-viz_files/figure-html/unnamed-chunk-2-1.png" alt="Basic barplot with geom_bar() added" width="100%"><p class="caption">
+Figure 7.3: Basic barplot with geom_bar() added
 </p>
 </div>
 <ul>
@@ -517,7 +517,7 @@ Figure 7.12: Violin-boxplot2
 </li>
 </ul>
 <div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggsave</span><span class="op">(</span><span class="st">"violin-boxplot"</span>, 
+<code class="sourceCode R"><span class="fu">ggsave</span><span class="op">(</span><span class="st">"violin-boxplot.png"</span>, 
        width <span class="op">=</span> <span class="fl">10</span>, 
        height <span class="op">=</span> <span class="fl">8</span>, 
        units <span class="op">=</span> <span class="st">"in"</span><span class="op">)</span></code></pre></div>
@@ -568,8 +568,8 @@ Figure 7.12: Violin-boxplot2
 </h2>
 <ol style="list-style-type: decimal">
 <li>Which of these is the appropriate order of functions to create a boxplot?
-<div id="radio_QYUPCPBFNO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QYUPCPBFNO" value="answer"><span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_QYUPCPBFNO" value=""><span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_QYUPCPBFNO" value=""><span>ggplot() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_QYUPCPBFNO" value=""><span>geom_plot() + geom_boxplot()</span></label>
+<div id="radio_NFRGGRHOLU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NFRGGRHOLU" value="answer"><span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_NFRGGRHOLU" value=""><span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_NFRGGRHOLU" value=""><span>ggplot() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_NFRGGRHOLU" value=""><span>geom_plot() + geom_boxplot()</span></label>
 </div>
 </li>
 <li>Would this line of code run, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?</li>
@@ -577,8 +577,8 @@ Figure 7.12: Violin-boxplot2
 <div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="radio_DRRSHDQQJO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DRRSHDQQJO" value="answer"><span>No, because you have piped the geom_bar() instead of adding it</span></label><label><input type="radio" autocomplete="off" name="radio_DRRSHDQQJO" value=""><span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label>
+<div id="radio_EYIUZGCCIJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EYIUZGCCIJ" value=""><span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label><label><input type="radio" autocomplete="off" name="radio_EYIUZGCCIJ" value="answer"><span>No, because you have piped the geom_bar() instead of adding it</span></label>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Why would this line of code not create a barplot, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?</li>
@@ -586,13 +586,13 @@ Figure 7.12: Violin-boxplot2
 <div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_barplot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="radio_BGHVCCTZSV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BGHVCCTZSV" value=""><span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_BGHVCCTZSV" value=""><span>because this would create a boxplot</span></label><label><input type="radio" autocomplete="off" name="radio_BGHVCCTZSV" value=""><span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_BGHVCCTZSV" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label>
+<div id="radio_BMCEZAHDOS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BMCEZAHDOS" value=""><span>because this would create a boxplot</span></label><label><input type="radio" autocomplete="off" name="radio_BMCEZAHDOS" value=""><span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_BMCEZAHDOS" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_BMCEZAHDOS" value=""><span>because you have piped the barplot and not added it</span></label>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>If I wanted a boxplot on top of a violin plot, what order of functions would I write?
-<div id="radio_FDQNNECLKO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FDQNNECLKO" value=""><span>ggplot() %&gt;% geom_violin() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_FDQNNECLKO" value=""><span>ggplot() + geom_boxplot() + geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_FDQNNECLKO" value="answer"><span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_FDQNNECLKO" value=""><span>ggplot() %&gt;% geom_boxplot() %&gt;% geom_violin()</span></label>
+<div id="radio_ZXWSWZUPKD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZXWSWZUPKD" value=""><span>ggplot() %&gt;% geom_boxplot() %&gt;% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_ZXWSWZUPKD" value="answer"><span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_ZXWSWZUPKD" value=""><span>ggplot() %&gt;% geom_violin() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_ZXWSWZUPKD" value=""><span>ggplot() + geom_boxplot() + geom_violin()</span></label>
 </div>
 </li>
 </ol>
@@ -903,7 +903,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -101,21 +101,21 @@
 <li>Calculate a range of descriptive statistics.</li>
 <li>And Create plots of data.</li>
 </ul>
-<p>That's amazing! And to be honest, as you will see, that actually covers a large percentage of what we will do. What we do now is start moving on to actually running some inferential statistics, where we make inferences about our population of interest from the sample we have collected. Specifically, in this chapter we are going to move on to performing a correlation and to create a plot to visualise the data. Correlation is a test that measures the relationship between two variables. In other words, you measure two variables and the correlation analysis tells you whether or not they are related in some manner, either positively or negatively, and how strong that relationship is - when you discuss a correlation you should always talk about the strength and the direction of the relationship. The figure below shows three examples of correlations just to give an idea:</p>
+<p>That's amazing! And to be honest, as you will see, that actually covers a large percentage of what we will do. What we do now is start moving on to actually running some <a class="glossary" target="_blank" title="Statistics that allow you to make predictions about or comparisons between data (e.g., t-value, F-value, rho)" href="https://psyteachr.github.io/glossary/i#inferential">inferential</a> statistics, where we make inferences about our population of interest from the sample we have collected. Specifically, in this chapter we are going to move on to performing a <a class="glossary" target="_blank" title="The relationship two vectors have to each other." href="https://psyteachr.github.io/glossary/c#correlation">correlation</a> and to create a plot to visualise the data. Correlation is a test that measures the relationship between two <a class="glossary" title="an aspect about your sample or population that can be measured">variable</a>. In other words, you measure two variables and the correlation analysis tells you whether or not they are related in some manner, either <a class="glossary" title="a relationship between two variables where as one variable increases, the other variable also increases">positively</a> or <a class="glossary" title="a relationship between two variables where as one variable increases, the other variable also decreases">negatively</a>, and how strong that relationship is - when you discuss a correlation you should always talk about the strength and the direction of the relationship. The figure below shows three examples of correlations just to give an idea:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:ch10-show-figure"></span>
 <img src="09-correlation_files/figure-html/ch10-show-figure-1.png" alt="Schematic examples of extreme bivariate relationships" width="100%"><p class="caption">
 Figure 9.1: Schematic examples of extreme bivariate relationships
 </p>
 </div>
-<p><strong>Note:</strong> When dealing with correlations you should always refer to relationships and not predictions. In a correlation, X does not predict Y, nor does X cause an effect in Y. We will look at different tests in this book where you can take about cause-and-effect and about prediction, but correlation all we can say is whether X and Y are related</p>
+<p><strong>Note:</strong> When dealing with correlations you should always refer to relationships and not predictions. In a correlation, X does not predict Y, nor does X cause an effect in Y. We will look at different tests in this book where you can take about cause-and-effect and about prediction, but correlation all we can say is whether X and Y are related.</p>
 <p>Now, as we said above, to actually carry out a correlation is fairly straightforward and we will show you that today in a little while. The hardest part of correlations is really wrangling the data and interpreting what the results mean. You are going to run a few correlations in this chapter to give you good practice at running and interpreting the relationships between two variables.</p>
-<p>In this chapter we will use the examples in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target="_blank">Miller and Haden (2013)</a>, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). You do not need to read the chapter but hopefully from just the names of the variables you can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations. And for clarity, this is an example of observational research. We will use this data across a series of tasks to help you understand correlations more.</p>
-<p>Finally, there are two main types of correlations that people think of (though there are more):</p>
+<p>In this chapter we will use the examples in <a href="https://drive.google.com/file/d/0B1fyuTuvj3YoaFdUR3FZaXNuNXc/view" target="_blank">Miller and Haden (2013)</a>, Chapter 11, looking at the relationship between four variables: reading ability, intelligence (IQ), the number of minutes per week spent reading at home (Home); and the number of minutes per week spent watching TV at home (TV). We will use this data across a series of tasks to help you understand correlations more. You do not need to read the chapter but hopefully from just the names of the variables you can see in this situation that it would be unethical to manipulate these variables so measuring them as they exist in the environment is most appropriate; hence the use of correlations. And for clarity, this is an example of observational research; all correlations are observational, but not all observational research uses correlations.</p>
+<p>Finally, there are two main types of correlations that people tend to think of (though there are more):</p>
 <ul>
-<li>Pearson's product-moment correlation (often shortened to Pearson's correlation) and symbolised by <strong>r</strong>
+<li>Pearson's product-moment correlation (often shortened to the <a class="glossary" target="_blank" title="a standardised measure of the linear relationship between two variables" href="https://psyteachr.github.io/glossary/p#pearson">Pearson</a> correlation) and symbolised by <strong>r</strong>
 </li>
-<li>Spearman's rank correlation coefficient (often shortened to Spearman's correlation) and symbolised by <strong>rho</strong> or sometimes <span class="math inline">\(r_s\)</span> or sometimes <span class="math inline">\(\rho\)</span>
+<li>Spearman's rank correlation coefficient (often shortened to the <a class="glossary" target="_blank" title="a standardised measure of the relationship between two variables that does not assume a linear relationship. Note that the relationship can be linear but it is not required." href="https://psyteachr.github.io/glossary/s#spearman">Spearman</a> correlation) and symbolised by <strong>rho</strong> or sometimes <span class="math inline">\(r_s\)</span> or sometimes <span class="math inline">\(\rho\)</span>
 </li>
 </ul>
 <p>We will talk a little bit about these two correlations in the work we do today. And we shall begin now!</p>
@@ -235,14 +235,14 @@ Additional Hints
 <li>and the number of minutes spent watching TV per week (<code>TV</code>).</li>
 </ul>
 <p>Here we will we will focus on Reading Ability and IQ but for further practice you can look at other relationships in your free time.</p>
-<p>A probable hypothesis for today could be that as Reading Ability increases so does Intelligence (remember there is no causality here). Or phrasing the alternative hypothesis (<span class="math inline">\(H_1\)</span>) more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, show a positive relationship. This is the hypothesis we will test today but remember that we could always state the null hypothesis (<span class="math inline">\(H_0\)</span>) that there is no relationship between reading ability and IQ.</p>
+<p>A probable <a class="glossary" target="_blank" title="A proposed explanation made on the basis of limited evidence as a starting point for further investigation." href="https://psyteachr.github.io/glossary/h#hypothesis">hypothesis</a> for today could be that as Reading Ability increases so does Intelligence (remember there is no causality here). Or phrasing the <a class="glossary" title="the experimental hypothesis formed in Null Hypothesis Significance Testing and is the hypothesis that states that there will be a relationship between variables or an effect of one variable on the other">alternative hypothesis</a> (<span class="math inline">\(H_1\)</span>) more formally, we hypothesise that the reading ability of school children, as measured through a standardized test, and intelligence, again measured through a standardized test, show a positive relationship. This is the hypothesis we will test today but remember that we could always state the <a class="glossary" title="the defauly hypothesis in Null Hypothesis Significance Testing and is the hypothesis that states that there will be no effect or relationship in your study.">null hypothesis</a> (<span class="math inline">\(H_0\)</span>) that there is no relationship between reading ability and IQ.</p>
 </div>
 </div>
 <div id="assumptions-of-the-test" class="section level2" number="9.2">
 <h2>
 <span class="header-section-number">9.2</span> Assumptions of the test<a class="anchor" aria-label="anchor" href="#assumptions-of-the-test"><i class="fas fa-link"></i></a>
 </h2>
-<p>Now before running an analysis we should check the assumptions of the test, where the assumptions are checks that the data must pass before we can use certain tests. The assumptions change on the test and you should only use a given test based on how well the data meets the assumptions of the test. In short, the Pearson correlation and the Spearman correlation have different assumptions and we need to check our data to see which test to use.</p>
+<p>Now before running an analysis we should check the <a class="glossary" title="requirements about your data and your design that must be held for your analysis to have meaning">assumptions</a> of the test, where the assumptions are checks that the data must pass before we can use certain tests. The assumptions change on the test and you should only use a given test based on how well the data meets the assumptions of the test. In short, the Pearson correlation and the Spearman correlation have different assumptions and we need to check our data to see which test to use.</p>
 <div id="corr-a3" class="section level4" number="9.2.0.1">
 <h4>
 <span class="header-section-number">9.2.0.1</span> Activity 3: Assumptions<a class="anchor" aria-label="anchor" href="#corr-a3"><i class="fas fa-link"></i></a>
@@ -251,9 +251,9 @@ Additional Hints
 <ol style="list-style-type: decimal">
 <li>Is the data interval, ratio, or ordinal?</li>
 <li>Is there a data point for each participant on both variables?</li>
-<li>Is the data normally distributed in both variables?</li>
+<li>Is the data <a class="glossary" target="_blank" title="A symmetric distribution of data where values near the centre are most probable." href="https://psyteachr.github.io/glossary/n#normal-distribution">normally distributed</a> in both variables?</li>
 <li>Does the relationship between variables appear linear?</li>
-<li>Does the spread have homoscedasticity?</li>
+<li>Does the spread have <a class="glossary" title="that the spread of data around the line of best fit is equal on both side along the length of the line">homoscedasticity</a>?</li>
 </ol>
 <p>We will look at each of these assumptions in turn to see which correlation we should use.</p>
 <p><strong>Assumption 1: Level of Measurement</strong></p>
@@ -335,12 +335,12 @@ Figure 9.2: Histogram of Abil
 <li>Now, in a new code chunk, write and run code to produce a histogram for the variable <code>IQ</code>. Remember the solutions are at the end of the chapter.</li>
 </ul>
 <p><strong>Q-Q Plots for Normality</strong></p>
-<p>As we said we will look at the figures in a minute but first we need a few more plots. One being the Q-Q plot which allows us to check normality. The Q-Q plot require us to use the package <code>car</code> rather than <code>ggplot2</code>. You can make Q-Q plots in <code>ggplot2</code> but they aren't as useful, however, the code is still very simple.</p>
+<p>As we said we will look at the figures in a minute but first we need a few more plots. One being the <a class="glossary" target="_blank" title="A scatterplot created by plotting two sets of quantiles against each other, used to check if data come from a specified distribution" href="https://psyteachr.github.io/glossary/q#q-q-plot">Q-Q plot</a> which allows us to check normality. The Q-Q plot require us to use the package <code>car</code> rather than <code>ggplot2</code>. You can make Q-Q plots in <code>ggplot2</code> but they aren't as useful, however, the code is still very simple.</p>
 <ul>
 <li>In a new code chunk, type and run the below code to create a Q-Q plot for <code>Abil</code>.</li>
 </ul>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">qqPlot</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
 <p>This code looks a little different to code you've used up until this point as it comes from Base R. It uses the notation <code>object$variable</code> so our x variable could be read as "use the variable <code>Abil</code> from the object <code>mh</code>. And the figure will look like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qq-abil"></span>
@@ -349,10 +349,12 @@ Figure 9.3: Q-Q plot for Abil
 </p>
 </div>
 <pre><code>## [1] 15  4</code></pre>
-<p>The Q-Q plot includes a <strong>confidence envelope</strong> (the blue dotted lines) around the data with the understanding that if your data points fall within these dotted lines then you can assume normality. The <code>ggplot2</code> version of Q-Q plots make it more difficult to add on this confidence envelope, which is why we're using a different package. <code><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot()</a></code> will also print the IDs of the most extreme data points. In this case, the 4th and 15th data point in <code>Abil</code> are flagged, although because they fall within the confidence envelope, they don't appear problematic. This also explains why you might see a message staing <code>## [1] 15 4</code>. The 15th and 4th value are worth considering!</p>
+<p>The Q-Q plot includes a <strong>confidence envelope</strong> (the blue dotted lines) around the data with the understanding that if your data points fall within these dotted lines then you can assume normality. The <code>ggplot2</code> version of Q-Q plots make it more difficult to add on this confidence envelope, which is why we're using a different package. <code><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot()</a></code> will also print the IDs of the most extreme data points. In this case, the 4th and 15th data point in <code>Abil</code> are flagged, although because they fall within the confidence envelope, they don't appear problematic. This also explains why you might see a message stating <code>## [1] 15 4</code>. The 15th and 4th value are worth considering!</p>
 <ul>
 <li>Now, in a new code chunk, write and run code to create a Q-Q plot for <code>IQ</code>.</li>
 </ul>
+<p><strong>Information: Normality of the residuals</strong></p>
+<p>One thing to note before we move on is that, in terms of normality, it is in fact the normality of the <a class="glossary" target="_blank" title="Defined as the deviation of an observation from a model's expected value." href="https://psyteachr.github.io/glossary/r#residual">residuals</a> that matters, where the residuals are the difference between the individual data points and the <a class="glossary" title="otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction">line of best fit</a>. However, to fully understand this we need to cover more information first as introducing that concept at this stage would be confusing. One approach the field can use however is that if the data is normally distributed then it is highly likely that the residuals will also be normally distributed. We will look at residuals in the next chapter, but here we will instead use the normality of the raw data as a proxy for the normality of the residuals.</p>
 <p><strong>Scatterplots for linearity and homoscedasticity</strong></p>
 <p>Finally, in order to assess linearity and homoscedasticity, we can create a scatterplot using <code>ggplot2</code>.</p>
 <ul>
@@ -413,7 +415,7 @@ Explain these answers
 <h2>
 <span class="header-section-number">9.3</span> Descriptives of the Correlation<a class="anchor" aria-label="anchor" href="#descriptives-of-the-correlation"><i class="fas fa-link"></i></a>
 </h2>
-<p>Now that we have checked our assumptions and have confirmed we will use the Pearson correlation, the next step is descriptives. A key thing to keep in mind is that the scatterplot is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis.</p>
+<p>Now that we have checked our assumptions and have confirmed we will use the Pearson correlation, the next step is descriptives. A key thing to keep in mind is that the <a class="glossary" title="a visualisation where each individual data point shows the value of an observation on twi variables.">scatterplot</a> is actually the descriptive of the correlation. Meaning that in an article, or in a report, you would not only use the scatterplot to determine which type of correlation to use but also to describe the potential relationship in regards to your hypothesis. So you would always expect to see a scatterplot in the write-up of this type of analysis.</p>
 <div id="corr-a4" class="section level4" number="9.3.0.1">
 <h4>
 <span class="header-section-number">9.3.0.1</span> Activity 4: Descriptive statistics<a class="anchor" aria-label="anchor" href="#corr-a4"><i class="fas fa-link"></i></a>
@@ -498,7 +500,7 @@ Hints on discussing descriptives
 </ul>
 <p>For example, if your data is stored in <code>dat</code> and you want to do a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
 <div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, 
+<code class="sourceCode R"><span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, 
             select <span class="op">=</span> <span class="st">"X"</span>, 
             select2 <span class="op">=</span> <span class="st">"Y"</span>,  
             method <span class="op">=</span> <span class="st">"pearson"</span>, 
@@ -580,10 +582,11 @@ Explain these answers
 <p>When you knit the code, assuming you have done all of the above tasks correctly, the code you pasted will transform into a readable passage as follows:</p>
 <p>As shown in Figure 7.5, there appeared to be a positive relationship between Reading Ability (M = 55.12, SD = 6.08) and IQ (M = 100.04, SD = 9.04), in line with the alternative hypothesis. A Pearson correlation found a significant, medium positive correlation between the two variables (r (23) = 0.45, <em>p</em> = 0.024) and the alternative hypothesis is therefore accepted.</p>
 <p>So you get a fairly ok start of a write-up. It isn't perfect but it is a good start. For instance, the r-value should not have the first 0 and just be r = .xx. Likewise, the p-value should not have the first 0 either. So you will always have to do a bit of tidying up.</p>
+<p><strong>Note:</strong> Remember that a relationship is said to be <a class="glossary" title="The conclusion where the p-value is lower than the critical alpha and at which the null hypothesis is rejected">significant</a> if the p-value of the relationship is lower than the accepted level (normally called <a class="glossary" target="_blank" title="The cutoff value for making a decision to reject the null hypothesis" href="https://psyteachr.github.io/glossary/a#alpha">alpha</a> and set at <span class="math inline">\(\alpha = .05\)</span>). Alternatively, a relationship that has a p-value higher than the accepted level is said to be <a class="glossary" title="The conclusion where the p-value is greater than the critical alpha and at which the null hypothesis is retained">non-significant</a></p>
 <p><strong>But why two approaches</strong></p>
 <p>The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> on the other hand produces a <code>list</code> type object, which is a harder to work with. However, the output of <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> also happens to work with functions from the <code>report</code> package, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> and <code><a href="https://easystats.github.io/report/reference/report_table.html">report_table()</a></code> that give you an automatic report of the analyses. For example, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> doesn't currently work with the output of <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> which is why we showed you both ways. Run the below in your console window and you will see what we mean - you will probably get an error.</p>
 <div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">report</span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
 <p><strong>Note:</strong> The write-up that comes out of report should not be considered as something to copy and paste into a report. It is a means of just obtaining an overview quickly to help you confirm your own thinking. There are issues again with the presentation of numbers and writing, and additional info that isn't needed. Basically, use these functions and approaches to start you off in your writing, but not as your write-up.</p>
 </div>
 </div>
@@ -600,7 +603,7 @@ Explain these answers
 <li>In a new code chunk, type and run the following code. The <code>pairs.panels())</code> function comes from the <code>psych</code> library and creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time. So it is useful for checking assumptions in one place.</li>
 </ul>
 <div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">pairs.panels</span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs"></span>
 <img src="09-correlation_files/figure-html/pairs-1.png" alt="Scatterplot matrix" width="100%"><p class="caption">
@@ -627,7 +630,7 @@ Figure 9.4: Scatterplot matrix
 <div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">FALSE</span>, 
+  <span class="fu">pairs.panels</span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">FALSE</span>, 
                lm <span class="op">=</span> <span class="cn">TRUE</span>, 
                method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
 <p>Which produces:</p>
@@ -646,9 +649,9 @@ Figure 9.5: Adjusted scatterplot matrix
 <ul>
 <li><p><code>method</code> controls which correlation is computed, the default is <code>pearson</code> but if you needed to run the non-parametric version you could change this to <code>spearman</code>.<br></p></li>
 <li>
-<p><code>p_adjust</code> is the reason we are using the <code>correlation</code> package. In the lectures we discussed the problem of multiple comparisons - the idea that if you run lots and lots of tests your false positive rate will increase and the probability of finding a significant result increase.</p>
+<p><code>p_adjust</code> is the reason we are using the <code>correlation</code> package. In the lectures we discussed the problem of <a class="glossary" title="An issue of running mutlitple tests which results in an increase in the false positive rate making it more likely that you will incorrectly reject the null hypothesis and accept the alternative hypothesis. The issue is resolved through correction for multiple comparisons">multiple comparisons</a> - the idea that if you run lots and lots of tests your false positive rate will increase and the probability of finding a significant result increase.</p>
 <ul>
-<li>This argument applies a correction to the p-value that adjusts for the number of correlations you have performed. There are several different methods which you can look up in the help documentation, but here we are setting <strong>bonferroni</strong>. The default setting is actually the less conservative <strong>holm</strong> and you can read about why some might chose that instead in the help function by typing <code><a href="https://easystats.github.io/correlation/reference/correlation.html">?correlation</a></code> in the console window.</li>
+<li>This argument applies a correction to the p-value that adjusts for the number of correlations you have performed. There are several different methods which you can look up in the help documentation, but here we are setting <a class="glossary" title="A correction for multiple comparisons where the accepted alpha level is adjusted by dividing it by the number of comparisons made">bonferroni</a>. The default setting is actually the less <a class="glossary" title="A conservative test is one that is more likely to result in more false negatives - i.e. missed findings - than a test considered less conservative">conservative</a> <a class="glossary" title="A correction for multiple comparisons where an ordinal iterative approach is used comparing each individual test to an adjusted p-value based on the order of p-values. Generally said to be less conservative than Bonferroni">holm</a> and you can read about why some might chose that instead in the help function by typing <code><a href="https://easystats.github.io/correlation/reference/correlation.html">?correlation</a></code> in the console window.</li>
 </ul>
 </li>
 <li><p><strong>Note:</strong> Because you're running multiple correlations and some may be positive and some may be negative, there is no option to specify a one or two-tailed test.</p></li>
@@ -657,7 +660,7 @@ Figure 9.5: Adjusted scatterplot matrix
 <div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">corr_results</span> <span class="op">&lt;-</span> <span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, 
+  <span class="fu">correlation</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, 
               p_adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 
 <span class="va">corr_results</span></code></pre></div>
@@ -840,38 +843,38 @@ Explain these answers
 </h2>
 <p>Look at this code and answer the following questions:</p>
 <div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, 
+<code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, 
                        select <span class="op">=</span> <span class="st">"IQ"</span>, 
                        select2 <span class="op">=</span> <span class="st">"Home"</span>,  
                        method <span class="op">=</span> <span class="st">"pearson"</span>, 
                        alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>What would this analysis show?
-<div id="radio_XQNZNUVBXD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XQNZNUVBXD" value=""><span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_XQNZNUVBXD" value=""><span>the effect of IQ on time spent reading at Home</span></label><label><input type="radio" autocomplete="off" name="radio_XQNZNUVBXD" value="answer"><span>the relationship between IQ and the time spent reading at home</span></label><label><input type="radio" autocomplete="off" name="radio_XQNZNUVBXD" value=""><span>the relationship between IQ and the time spent watching TV at home</span></label>
+<div id="radio_SRWQUACSJI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SRWQUACSJI" value=""><span>the relationship between IQ and the time spent watching TV at home</span></label><label><input type="radio" autocomplete="off" name="radio_SRWQUACSJI" value=""><span>the effect of IQ on time spent reading at Home</span></label><label><input type="radio" autocomplete="off" name="radio_SRWQUACSJI" value=""><span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_SRWQUACSJI" value="answer"><span>the relationship between IQ and the time spent reading at home</span></label>
 </div>
 </li>
 <li>What type of correlation analysis is it?
-<div id="radio_WMYJFJGHWP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_WMYJFJGHWP" value=""><span>one-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_WMYJFJGHWP" value=""><span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_WMYJFJGHWP" value="answer"><span>two-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_WMYJFJGHWP" value=""><span>two-tailed spearman analysis</span></label>
+<div id="radio_MSYPBYMOLC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MSYPBYMOLC" value=""><span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_MSYPBYMOLC" value=""><span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_MSYPBYMOLC" value="answer"><span>two-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_MSYPBYMOLC" value=""><span>one-tailed pearson analysis</span></label>
 </div>
 </li>
 </ol>
 <p>Now try running the code and then answering the following questions.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>To three decimal places, what is the r-value of the correlation between IQ and the time spent reading at Home?
-<div id="radio_MBHWWOSXFV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MBHWWOSXFV" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_MBHWWOSXFV" value=""><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_MBHWWOSXFV" value="answer"><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_MBHWWOSXFV" value=""><span>0.553</span></label>
+<div id="radio_SEXGDFEKZR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SEXGDFEKZR" value="answer"><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_SEXGDFEKZR" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_SEXGDFEKZR" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_SEXGDFEKZR" value=""><span>0.334</span></label>
 </div>
 </li>
 <li>To three decimal places, what is the p-value of the correlation between IQ and the time spent reading at Home?
-<div id="radio_UIUPGBRLPB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UIUPGBRLPB" value="answer"><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_UIUPGBRLPB" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_UIUPGBRLPB" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_UIUPGBRLPB" value=""><span>0.202</span></label>
+<div id="radio_OMEMFFNQEW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OMEMFFNQEW" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_OMEMFFNQEW" value="answer"><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_OMEMFFNQEW" value=""><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_OMEMFFNQEW" value=""><span>0.988</span></label>
 </div>
 </li>
 <li>What is the degrees of freedom of the correlation between IQ and the time spent reading at Home?
-<div id="radio_PDSJGLCZIP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PDSJGLCZIP" value="answer"><span>23</span></label><label><input type="radio" autocomplete="off" name="radio_PDSJGLCZIP" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_PDSJGLCZIP" value=""><span>25</span></label><label><input type="radio" autocomplete="off" name="radio_PDSJGLCZIP" value=""><span>0.988</span></label>
+<div id="radio_OPVZCYHFFG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OPVZCYHFFG" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_OPVZCYHFFG" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_OPVZCYHFFG" value="answer"><span>23</span></label><label><input type="radio" autocomplete="off" name="radio_OPVZCYHFFG" value=""><span>25</span></label>
 </div>
 </li>
 </ol>
@@ -1016,12 +1019,114 @@ Explain these answers
 <span class="header-section-number">9.10</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-8"><i class="fas fa-link"></i></a>
 </h2>
 <p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
-<div class="kable-table">
-<p>||
-||
-||
-||</p>
-</div>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="31%">
+<col width="68%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">term</th>
+<th align="left">definition</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/a.html#alpha" class="glossary" target="_blank">alpha</a></td>
+<td align="left">The cutoff value for making a decision to reject the null hypothesis</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/a.html#alternative-hypothesis" class="glossary" target="_blank">alternative hypothesis</a></td>
+<td align="left">the experimental hypothesis formed in Null Hypothesis Significance Testing and is the hypothesis that states that there will be a relationship between variables or an effect of one variable on the other</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/a.html#assumptions" class="glossary" target="_blank">assumptions</a></td>
+<td align="left">requirements about your data and your design that must be held for your analysis to have meaning</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/b.html#bonferroni" class="glossary" target="_blank">bonferroni</a></td>
+<td align="left">A correction for multiple comparisons where the accepted alpha level is adjusted by dividing it by the number of comparisons made</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#conservative-analysis" class="glossary" target="_blank">conservative analysis</a></td>
+<td align="left">A conservative test is one that is more likely to result in more false negatives - i.e. missed findings - than a test considered less conservative</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/c.html#correlation" class="glossary" target="_blank">correlation</a></td>
+<td align="left">The relationship two vectors have to each other.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/h.html#holm-bonferroni" class="glossary" target="_blank">holm bonferroni</a></td>
+<td align="left">A correction for multiple comparisons where an ordinal iterative approach is used comparing each individual test to an adjusted p-value based on the order of p-values. Generally said to be less conservative than Bonferroni</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/h.html#homoscedasticity" class="glossary" target="_blank">homoscedasticity</a></td>
+<td align="left">that the spread of data around the line of best fit is equal on both side along the length of the line</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/h.html#hypothesis" class="glossary" target="_blank">hypothesis</a></td>
+<td align="left">A proposed explanation made on the basis of limited evidence as a starting point for further investigation.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/i.html#inferential" class="glossary" target="_blank">inferential</a></td>
+<td align="left">Statistics that allow you to make predictions about or comparisons between data (e.g., t-value, F-value, rho)</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/l.html#line-of-best-fit" class="glossary" target="_blank">line of best fit</a></td>
+<td align="left">otherwise known as the regression line, it is the line drawn between data points in a scatterplot that best divides the data in half. It is in fact a prediction of where data would fall for a given relationship strength and direction</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/m.html#multiple-comparisons" class="glossary" target="_blank">multiple comparisons</a></td>
+<td align="left">An issue of running mutlitple tests which results in an increase in the false positive rate making it more likely that you will incorrectly reject the null hypothesis and accept the alternative hypothesis. The issue is resolved through correction for multiple comparisons</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/n.html#negative-relationship" class="glossary" target="_blank">negative relationship</a></td>
+<td align="left">a relationship between two variables where as one variable increases, the other variable also decreases</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/n.html#non-significant" class="glossary" target="_blank">non significant</a></td>
+<td align="left">The conclusion where the p-value is greater than the critical alpha and at which the null hypothesis is retained</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/n.html#normal-distribution" class="glossary" target="_blank">normal distribution</a></td>
+<td align="left">A symmetric distribution of data where values near the centre are most probable.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/n.html#null-hypothesis" class="glossary" target="_blank">null hypothesis</a></td>
+<td align="left">the defauly hypothesis in Null Hypothesis Significance Testing and is the hypothesis that states that there will be no effect or relationship in your study.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/p.html#pearson" class="glossary" target="_blank">pearson</a></td>
+<td align="left">a standardised measure of the linear relationship between two variables</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/p.html#positive-relationship" class="glossary" target="_blank">positive relationship</a></td>
+<td align="left">a relationship between two variables where as one variable increases, the other variable also increases</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/q.html#q-q-plot" class="glossary" target="_blank">q q plot</a></td>
+<td align="left">A scatterplot created by plotting two sets of quantiles against each other, used to check if data come from a specified distribution</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/r.html#residual" class="glossary" target="_blank">residual</a></td>
+<td align="left">Defined as the deviation of an observation from a model's expected value.</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/s.html#scatterplot" class="glossary" target="_blank">scatterplot</a></td>
+<td align="left">a visualisation where each individual data point shows the value of an observation on twi variables.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/s.html#significant" class="glossary" target="_blank">significant</a></td>
+<td align="left">The conclusion where the p-value is lower than the critical alpha and at which the null hypothesis is rejected</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://psyteachr.github.io/glossary/s.html#spearman" class="glossary" target="_blank">spearman</a></td>
+<td align="left">a standardised measure of the relationship between two variables that does not assume a linear relationship. Note that the relationship can be linear but it is not required.</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://psyteachr.github.io/glossary/v.html#variable" class="glossary" target="_blank">variable</a></td>
+<td align="left">an aspect about your sample or population that can be measured</td>
+</tr>
+</tbody>
+</table></div>
 <p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
 
 </div>
@@ -1258,7 +1363,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-10-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
