@@ -332,7 +332,7 @@ Explain these answers
 <li>If you get the error message <code>Failed with error:  ‘there is no package called ‘qqplotr’’</code>, install the package <code>qqplotr</code>, you don't need to load it using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, but <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> uses it in the background.</li>
 </ul>
 <div class="sourceCode" id="cb315"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">check_model</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="16-regression_files/figure-html/check_model-1.png" alt="Visual assumption checks" width="100%"><p class="caption">
 (#fig:check_model)Visual assumption checks
@@ -342,7 +342,7 @@ Explain these answers
 <p>As we've already noted, it's good to visualise your assumption checks because just relying on statistics can be problematic, as they can be sensitive to small or large sample sizes. However, it can also be reassuring to have a statistical test to back up your intuitions from the plot.</p>
 <p>For Assumption 6, normality of residuals, the plot does suggest that the residuals might not be normal, so we can check this with <code><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality()</a></code> which runs a Shapiro-Wilk test.</p>
 <div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">check_normality</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Non-normality of residuals detected (p = 0.008).</code></pre>
 <p>The result confirms that the residuals are not normally distributed, something that is likely being exacerbated by the relatively small sample size. If you're feeling confident, you can see how we might resolve this below, but for the core aims of this chapter we'll conclude that it's because of the sample and continue.</p>
 <div class="webex-solution">
@@ -369,8 +369,8 @@ Transforming the data to correct for non-normality
 <p>You'll notice that the histogram for the transformed variable still doesn't look amazing, but remember it's the residuals, not the raw data that matters. If we re-run the regression with the transformed data and then check the model again, things are looking much better.</p>
 <div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod_transformed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">n_weeks_transformed</span> <span class="op">~</span> <span class="va">mean_anxiety</span>, <span class="va">joined</span><span class="op">)</span>
-<span class="fu">check_normality</span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span>
-<span class="fu">check_model</span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span>
+<span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="16-regression_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;"></div>
 <pre><code>## OK: residuals appear as normally distributed (p = 0.107).</code></pre>
 <p>It's worth saying at this point that which transformation you use, and whether it works, can be a bit of trial-and-error.</p>
@@ -378,7 +378,7 @@ Transforming the data to correct for non-normality
 <p><br></p>
 <p>For homoscedasticity, the plot looks mostly fine, but we can double check this with <code><a href="https://easystats.github.io/performance/reference/check_heteroscedasticity.html">check_heteroscedasticity()</a></code> and the result confirms that the data have met this assumption.</p>
 <div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">check_heteroscedasticity</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_heteroscedasticity.html">check_heteroscedasticity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## OK: Error variance appears to be homoscedastic (p = 0.542).</code></pre>
 </div>
 <div id="regression-a9" class="section level2" number="16.9">
@@ -388,6 +388,17 @@ Transforming the data to correct for non-normality
 <p>First we can calculate the minimum effect size we were able to detect given the sample size and design of the study using <code><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr.f2.test()</a></code>. As usual, we fill in all the information we have and set the effect size argument, in this case <code>f2</code>, to <code>NULL</code>.</p>
 <div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr.f2.test</a></span><span class="op">(</span>u <span class="op">=</span> <span class="fl">1</span>, v <span class="op">=</span> <span class="fl">35</span>, f2 <span class="op">=</span> <span class="cn">NULL</span>, sig.level <span class="op">=</span> <span class="fl">.05</span>, power <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span></code></pre></div>
+<div class="webex-solution">
+<button>
+Explain the pwr.f2.test function
+</button>
+<p><strong>u</strong> - Numerator degrees of freedom. This the number of coefficients you have in your model (minus the intercept)
+<strong>v</strong> - Denominator degrees of freedom. This is calculated as v=n-u-1, where n is the number of participants
+<strong>f2</strong> - The effect size - here we are solving the effect size, so this parameter is left as NULL
+<strong>sig.level</strong> - The significance level of your study
+<strong>power</strong> - The power level of your study</p>
+</div>
+<p><br></p>
 <ul>
 <li>Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? <input class="webex-solveme nospaces" size="0.22" data-answer='[".22"]'><br>
 </li>
@@ -416,9 +427,9 @@ Transforming the data to correct for non-normality
 <code class="sourceCode R"><span class="va">f</span> <span class="op">&lt;-</span><span class="va">mod_summary</span><span class="op">$</span><span class="va">fstatistic</span>
 <span class="va">mod_p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Fdist.html">pf</a></span><span class="op">(</span><span class="va">f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="va">f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, <span class="va">f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, lower<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> </code></pre></div>
 <p>Now, copy and paste the below code into <strong>white-space</strong> and knit the document.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="regression.html#cb327-1" aria-hidden="true" tabindex="-1"></a>A simple linear regression was performed with <span class="fu">engagment</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_weeks %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the outcome variable and statistics <span class="fu">anxiety</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_anx %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the predictor variable. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, <span class="at">f2 =</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Anxiety was a significant positive predictor (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; `r mod_p %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">3</span>)<span class="st">`</span><span class="at">.</span></span>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="regression.html#cb327-1" aria-hidden="true" tabindex="-1"></a>A simple linear regression was performed with <span class="fu">engagement</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_weeks %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the outcome variable and statistics <span class="fu">anxiety</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r descriptives$mean_anx %&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r descriptives$sd_anx %&gt;% round(2)</span><span class="st">`</span>) as the predictor variable. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, <span class="at">f2 =</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Anxiety was a significant predictor (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; `r mod_p %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">3</span>)<span class="st">`</span><span class="at">.</span></span>
 <span id="cb327-2"><a href="regression.html#cb327-2" aria-hidden="true" tabindex="-1"></a><span class="at">)</span></span></code></pre></div>
-<p>A simple linear regression was performed with engagement (M = 4.54, SD = 0.56) as the outcome variable and statistics anxiety (M = 2.08, SD = 0.56) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(1, 35) = 11.99, p &lt; .001, Adjusted R2 = 0.23, f<sup>2</sup> = .63), accounting for 23% of the variance. Anxiety was a significant positive predictor (β = -2.17, p &lt; 0.001.
+<p>A simple linear regression was performed with engagement (M = 4.54, SD = 0.56) as the outcome variable and statistics anxiety (M = 2.08, SD = 0.56) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(1, 35) = 11.99, p &lt; .001, Adjusted R2 = 0.23, f<sup>2</sup> = .63), accounting for 23% of the variance. Anxiety was a significant predictor (β = -2.17, p &lt; 0.001.
 )</p>
 <p>The second option uses <code>report</code>. Just like with the t-test, the output of these functions doesn't tend to be useable without some editing but particularly when you're first learning how to write-up stats it can be useful to have this kind of template (and also to see that there's different ways of reporting stats).</p>
 <p>Running <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> will output a summary of the results which you could copy and past into your Word document.</p>
@@ -502,9 +513,9 @@ Solution
 </div>
 <p>** Click tab to see solution **</p>
 </div>
-<div id="regression-a5sol" class="section level3" number="16.11.5">
+<div id="regression-a6sol" class="section level3" number="16.11.5">
 <h3>
-<span class="header-section-number">16.11.5</span> Activity 5<a class="anchor" aria-label="anchor" href="#regression-a5sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">16.11.5</span> Activity 6<a class="anchor" aria-label="anchor" href="#regression-a6sol"><i class="fas fa-link"></i></a>
 </h3>
 <div class="webex-solution">
 <button>
@@ -513,7 +524,8 @@ Solution
 <div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">joined</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">mean_anxiety</span>, <span class="va">n_weeks</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span></code></pre></div>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
 
@@ -741,7 +753,7 @@ $( document ).ready(function() {
 <li><a class="nav-link" href="#regression-a2sol"><span class="header-section-number">16.11.2</span> Activity 2</a></li>
 <li><a class="nav-link" href="#regression-a3sol"><span class="header-section-number">16.11.3</span> Activity 3</a></li>
 <li><a class="nav-link" href="#regression-a4sol"><span class="header-section-number">16.11.4</span> Activity 4</a></li>
-<li><a class="nav-link" href="#regression-a5sol"><span class="header-section-number">16.11.5</span> Activity 5</a></li>
+<li><a class="nav-link" href="#regression-a6sol"><span class="header-section-number">16.11.5</span> Activity 6</a></li>
 </ul>
 </li>
 </ul>
