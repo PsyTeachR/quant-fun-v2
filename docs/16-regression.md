@@ -263,6 +263,19 @@ First we can calculate the minimum effect size we were able to detect given the 
 pwr.f2.test(u = 1, v = 35, f2 = NULL, sig.level = .05, power = .8)
 ```
 
+
+<div class='webex-solution'><button>Explain the pwr.f2.test function</button>
+
+**u** - Numerator degrees of freedom. This the number of coefficients you have in your model (minus the intercept)
+**v** - Denominator degrees of freedom. This is calculated as v=n-u-1, where n is the number of participants
+**f2** - The effect size - here we are solving the effect size, so this parameter is left as NULL
+**sig.level** - The significance level of your study
+**power** - The power level of your study
+
+</div>
+  
+<br>
+
 * Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? <input class='webex-solveme nospaces' size='0.22' data-answer='[".22"]'/>  
 * According to Cohen's guidelines, this would be a <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value='answer'>Medium</option><option value=''>Large</option></select> effect.
 
@@ -291,11 +304,11 @@ Now, copy and paste the below code into **white-space** and knit the document.
 
 
 ```r
-A simple linear regression was performed with engagment (M = `r descriptives$mean_weeks %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the outcome variable and statistics anxiety (M = `r descriptives$mean_anx %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(`r mod_summary$fstatistic[2]`, `r mod_summary$fstatistic[3]`) = `r mod_summary$fstatistic[1] %>% round(2)`, p < .001, Adjusted R2 = `r mod_summary$adj.r.squared %>% round(2)`, f2 = .63), accounting for `r (mod_summary$adj.r.squared %>% round(2))*100`% of the variance. Anxiety was a significant positive predictor (β = `r mod$coefficients[2] %>% round(2)`, p < `r mod_p %>% round(3)`.
+A simple linear regression was performed with engagement (M = `r descriptives$mean_weeks %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the outcome variable and statistics anxiety (M = `r descriptives$mean_anx %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(`r mod_summary$fstatistic[2]`, `r mod_summary$fstatistic[3]`) = `r mod_summary$fstatistic[1] %>% round(2)`, p < .001, Adjusted R2 = `r mod_summary$adj.r.squared %>% round(2)`, f2 = .63), accounting for `r (mod_summary$adj.r.squared %>% round(2))*100`% of the variance. Anxiety was a significant predictor (β = `r mod$coefficients[2] %>% round(2)`, p < `r mod_p %>% round(3)`.
 )
 ```
 
-A simple linear regression was performed with engagement (M = 4.54, SD = 0.56) as the outcome variable and statistics anxiety (M = 2.08, SD = 0.56) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(1, 35) = 11.99, p < .001, Adjusted R2 = 0.23, f^2^ = .63), accounting for 23% of the variance. Anxiety was a significant positive predictor (β = -2.17, p < 0.001.
+A simple linear regression was performed with engagement (M = 4.54, SD = 0.56) as the outcome variable and statistics anxiety (M = 2.08, SD = 0.56) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(1, 35) = 11.99, p < .001, Adjusted R2 = 0.23, f^2^ = .63), accounting for 23% of the variance. Anxiety was a significant predictor (β = -2.17, p < 0.001.
 )
 
 The second option uses `report`. Just like with the t-test, the output of these functions doesn't tend to be useable without some editing but particularly when you're first learning how to write-up stats it can be useful to have this kind of template (and also to see that there's different ways of reporting stats).
@@ -396,7 +409,7 @@ joined <- inner_join(stars_means, engage, "ID")
 
 ** Click tab to see solution **
 
-### Activity 5 {#regression-a5sol}
+### Activity 6 {#regression-a6sol}
 
 
 <div class='webex-solution'><button>Solution</button>
@@ -405,12 +418,12 @@ joined <- inner_join(stars_means, engage, "ID")
 ```r
 ggplot(joined, aes(mean_anxiety, n_weeks)) +
   geom_point() +
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm")+
+  theme_minimal()
 ```
 
 </div>
 
 
 ** Click tab to see solution **
-
 

@@ -451,7 +451,7 @@ regression-a1sol
 regression-a2sol
 regression-a3sol
 regression-a4sol
-regression-a5sol
+regression-a6sol
 multiple-regression
 mulregression-a1
 mulregression-a2
