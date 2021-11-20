@@ -51,8 +51,8 @@ There are a number of different "effect sizes" that you can choose to calculate 
 
 |Effect size|Cohen's d value|
 |:--:|:---:|
-|small| .2 to .5|
-|medium| .5 to .8|
+|small to medium| .2 to .5|
+|medium to large| .5 to .8|
 |large| > .8|
 
 <br>
@@ -101,7 +101,7 @@ Answering the following questions to check your answers. The solutions are at th
 * Enter, in digits, how many people were run in this study: `r fitb("26", ignore_ws = TRUE)`
 * Which of these codes is the appropriate calculation of `d` in this instance:`r mcq(c(answer = "d = t/sqrt(N)","d = 2t/sqrt(df)"))`
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places: `r fitb(c("0.64", ".64"), ignore_ws = TRUE)`
-* According to Cohen (1988), the effect size for this t-test would probably be considered: `r mcq(c("small", answer = "medium", "large"))`  
+* According to Cohen (1988), the effect size for this t-test would probably be considered: `r mcq(c("small to medium", answer = "medium to large", "large"))`  
 
 #### Activity 3: Effect size from between-subjects t-test {#power-a3}
 
@@ -123,7 +123,7 @@ Answer the following questions to check your answers. The solutions are at the b
 * Enter, in digits, how many people were run in this study: `r fitb("32", ignore_ws = TRUE)`
 * Which of these codes is the appropriate calculation of `d` in this instance:`r mcq(c("d = t/sqrt(N)",answer = "d = 2t/sqrt(df)"))`
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places:  `r fitb(c("1.06"), ignore_ws = TRUE)`
-* According to Cohen (1988), the effect size for this t-test would probably be considered: `r mcq(c("small", "medium", answer = "large"))`
+* According to Cohen (1988), the effect size for this t-test would probably be considered: `r mcq(c("small to medium", "medium to large", answer = "large"))`
 
 
 #### Activity 4: t-value and effect size for a between-subjects Experiment {#power-a4}
@@ -154,7 +154,7 @@ Answer the following questions to check your answers. The solutions are at the b
 
 * Which of these codes is the appropriate calculation of `d` in this instance:`r mcq(c("d = t/sqrt(N)",answer = "d = 2t/sqrt(df)"))`
 * Based on the above t-value above, enter the correct value of `d` for this analysis rounded to 2 decimal places: `r fitb(c(".67", "0.67"))`
-* According to Cohen (1988), the effect size for this t-test would probably be described as: `r mcq(c("small", answer = "medium", "large"))`
+* According to Cohen (1988), the effect size for this t-test would probably be described as: `r mcq(c("small to medium", answer = "medium to large", "large"))`
 
 **Excellent!** Now that you are comfortable with calculating effect sizes, we will look at using them to establish the sample size for a required power. One thing you will realise as we progress is that the true effect size in a population is something we do not know, but we need to justify one for our design. A clever approach is laid out by Daniel Lakens in the blog on the Smallest Effect Size of Interest (SESOI) - you set the smallest effect that you as a researcher would be interested in! This can be determined through theoretical analysis, through previous studies, through pilot studies, or through rules of thumb like Cohen (1988). However, also keep in mind that the lower the effect size, the larger the sample size you will need. Everything is a trade-off.
 
@@ -255,7 +255,7 @@ Answer the following questions to check your answers. The solutions are at the b
 
 * Based on the information given, what will you set `type` as in the function? `r mcq(c("one.sample", answer = "two.sample"))`
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: `r fitb(c(".65", "0.65"),ignore_ws = TRUE)`
-* According to Cohen (1988), the effect size for this t-test is `r mcq(c("small", answer = "medium", "large"))`
+* According to Cohen (1988), the effect size for this t-test is `r mcq(c("small to medium", answer = "medium to large", "large"))`
 * Say you run the study and find that the effect size determined is d = 0.50. Given what you know about power, select the statement that is true: `r mcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.65",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.65"))`
 
 #### Uneven groups
@@ -305,7 +305,7 @@ Answer the following questions to check your answers. The solutions are at the b
 
 * Based on the information given, what will you set `alternative` as in the function? `r mcq(c("two.sided", answer = "greater", "less"))`
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: `r fitb(c(".34", "0.34"),ignore_ws = TRUE)`
-* According to Cohen (1988), the effect size for this correlation is `r mcq(c("small", answer = "medium", "large"))`
+* According to Cohen (1988), the effect size for this correlation is `r mcq(c("small to medium", answer = "medium to large", "large"))`
 * Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true: `r longmcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34"))`
 
 ### Effect Sizes in Published Research

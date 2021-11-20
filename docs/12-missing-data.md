@@ -1,40 +1,73 @@
 # Screening Data 
 
-In this chapter we're going to focus on how to screen datasets for  potential issues and to reinforce the concept of tidy data. So far, we've given you complete datasets to work with, however, you will find that real data is often much messier than this, for example, participants may not answer some items in your questionnaire or there may be errors or implausible values in your dataset. We're also going to show you a different function to make calculating descriptive statistics easier. 
+In this chapter we're going to focus on how to screen datasets for potential issues and to reinforce the concept of tidy data. So far, we've given you complete datasets to work with, however, you will find that real data is often much messier than this, for example, participants may not answer some items in your questionnaire or there may be errors or implausible values in your dataset. We're also going to show you a different function to make calculating descriptive statistics easier. 
 
-## Activity 1: Set-up {#screening-a1}
+## The Set-Up and the Data
 
-Do the following. 
+As always we first need to start with setting up our working environment, bringing in our data and looking at it.
 
-* Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear. 
-* Open a new R Markdown document and save it in your working directory. Call the file "Screening Data".    
-* Download <a href="messy.csv" download>messy.csv</a> and save it in your Screening Data folder. Make sure that you do not change the file name at all.  
-* If you're on the server, avoid a number of issues by restarting the session - click `Session` - `Restart R` 
-* Delete the default R Markdown welcome text and insert a new code chunk that loads the `tidyverse` and `psych` packages using the `library()` function and loads the data into an object named `messy` using `read_csv()`
+#### Activity 1: Set-up {#screening-a1}
+
+* Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
+    * If you're using the Rserver, avoid a number of issues by restarting the session - click `Session` - `Restart R`
+* Open a new R Markdown document and save it in your working directory. Call the file "screeningdata".   
+* Download <a href="messy.csv" download>messy.csv</a> and save it in your Screening Data folder. Make sure that you do not change the file name at all. 
+  * If you prefer you can download the data in a [zip folder by clicking here](data/chpt12/PsyTeachR_FQA_Chpt12-data.zip){target="_blank"}
+  * Remember not to change the file names at all and that `data.csv` is not the same as `data (1).csv`.
+* Delete the default R Markdown welcome text and insert a new code chunk that loads the following packages, in this specific order, using the `library()` function. Remember the solutions if needed. 
+    * Load the packages in this order, `psych` then `tidyverse`
+  * again we have not used some of these packages so you will likely need to install some of them using `install.packages()`. Remember though that you should only do this on your own machine and only in the console window. If you are using the RServer you will not need to install them.
+* Finally, load the data held in `messy.csv` as a tibble into an object named `messy` using `read_csv()`. If unsure, have a look at the solution at the end of the chapter
 
 
 
-## Activity 2: Look at the data {#screening-a2}
+#### Activity 2: Look at the data {#screening-a2}
 
-`messy` is simulated data for an experiment looking at the effect of note-taking on test performance and whether this is affected by being a native speaker. Participants are first given a pre-test to judge their baseline knowledge, then they watch a lecture and take notes. Immediately after the lecture is finished they take another test. Finally, they are tested after a week delay. The maximum score for any test is 30. Participants lose marks for incorrect answers so minus scores are also possible. The dataset has six variables:
+`messy` is simulated data for an experiment looking at the effect of note-taking on test performance and whether this is affected by being first language English. Participants are first given a pre-test to judge their baseline knowledge, then they watch a lecture and take notes. Immediately after the lecture is finished they take another test. Finally, they are tested after a week delay. The maximum score for any test is 30. Participants lose marks for incorrect answers so minus scores are also possible. The dataset has six variables:
 
-* `id` = the participant ID number  
-* `age` = the age of the participant
-* `speaker` = if the participant is a native or non-native English speaker  
-* `gender` = if the participant is male, female, or non-binary  
-* `pre` = pre-test score before any notes were taken  
-* `post` = post-test score immediately after the lecture  
-* `delay` = test score after one week delay
+  * `id` showing the participant ID number
+  * `age` showing the age of the participant
+  * `speaker`showing if the participant are first language English or not  
+  * `gender` showing if the participant is male, female, or non-binary  
+  * `pre` showing pre-test score before any notes were taken  
+  * `post` showing post-test score immediately after the lecture  
+  * `delay` showing test score after one week delay
 
 ## Missing data
 
-The first issue we will cover is missing data. Data can be missing because your participants accidentally didn't fill in a question, it can be missing because they intentionally didn't want to answer, or that they didn't turn up to a final testing session, or it could be that you did something wrong whilst setting up your questionnaire/experiment and it didn't save. Real data frequently contains missing values and it's important that you know how to identify missing data and what you can do with it.
+The first issue we will cover is missing data. There is a whole host of reasons that your data could have missing values. For example:
 
-## Activity 3: `summary()` {#screening-a3}
+* Data can be missing because your participants accidentally didn't fill in a question.
+* Data can be missing because participants intentionally didn't want to answer a question. 
+* Data can be missing because participants didn't turn up to a final testing session. 
+* Data can be missing because you did something wrong whilst setting up your questionnaire/experiment and it didn't save. 
 
-A good way to get a sense of how many missing data points you have is to use `summary()`. Because `speaker` and `gender` are text rather than numbers, in order to see how many values are missing we first need to convert them to factors.
+In truth, real data frequently contains missing values and it's important that you know how to identify missing data and what you can do with it. Which is what we want to show you a little of in this chapter.
 
-* Run the below code  
+#### Activity 3: `summary()` and `is.na()` {#screening-a3}
+
+Missing data is normally shown in your tibbles and objects as `NA` - usually taken to mean something like "Not Available". We have already seen a couple of approaches to find NAs in our data and we will quickly recap them.
+
+The first approach is to use a pipeline of functions we have used before including `summarise()`, `is.na()`, `sum()`, and `pluck()`. For instance:
+
+
+```r
+messy_na <- messy %>% 
+  summarise(find_nas = is.na(speaker)) %>%
+  summarise(count_nas = sum(find_nas)) %>%
+  pluck("count_nas")
+```
+
+Which reads as use `is.na()` to find all the NAs in messy (i.e the first `summarise()`) and then count up all those NAs (i.e. the second `summarise()` - which works because NAs are either TRUE, summed as 1, or FALSE, summed as 0), and then pluck out that number (i.e. the `pluck()`). And if you look at `messy_na` you see there are 20 NAs in `speaker`. That code looks quite long but it could actually be written as below if you prefer and can follow the pipe inside the `summarise()`.
+
+
+```r
+messy_na <- messy %>% 
+  summarise(count_nas = is.na(speaker) %>% sum()) %>% 
+  pluck("count_nas")
+```
+
+And this code, using `is.na()`, is a good approach if you are only interested in one column or maybe a couple of columns, but if you want a snapshot of all your columns then we can use `summary()` which we saw previously. First, however, because `speaker` and `gender` are character/text rather than numerical, in order to see how many values are missing we first need to convert these two columns into factors using the below code
 
 
 ```r
@@ -45,76 +78,108 @@ messy <- messy %>%
 summary(messy)
 ```
 
-As you can see, there are 20 data points missing (NAs) in each of `speaker`, `gender`, and `delay` (but importantly, this isn't from just 20 participants).There are several different approaches to dealing with missing data. We will cover the most common.
+If you run the code, you can see, there are 20 data points missing (NAs) in each of `speaker`, `gender`, and `delay`. However, and the important part if you look at the actual data, the missing data is not in the same 20 participants and that gives us some issues about how to deal with these different participants. Fortunately, there are several different approaches to dealing with missing data and we will cover a few here.
 
-## Activity 4: Listwise deletion {#screening-a4}
+## Listwise Deletion
 
-One method for dealing with missing data is **listwise deletion**. This approach removes any participant with a single missing value. So if there is missing data in any of the columns in the dataset, that participant will be removed and you will only be left with complete datasets. We can achieve this using `drop_na`
+One method for dealing with missing data is <a class='glossary' title='The removal of participants where they have missing data on any of the variables within the dataset'>listwise deletion</a>. This approach removes any participant who has a single missing value (i.e. a NA) in any variable. So if there is missing data in any of the columns in the dataset, that participant will be removed and you will only be left with participants with complete datasets. For example the below participants would be removed along with all others with a similar profile:
 
-* Run the below code and then view the object.  
+
+|  id  | age | speaker | gender | pre | post | delay |
+|:----:|:---:|:-------:|:------:|:---:|:----:|:-----:|
+| S008 | 48  | english |   NA   | 12  |  15  |  17   |
+| S009 | 22  |   NA    |  male  |  5  |  18  |   5   |
+| S010 | 31  |   NA    | female | 13  |  35  |  17   |
+| S011 | 26  | english |   NA   | 18  |  19  |  16   |
+
+We can achieve this using the `drop_na()` from the **`tidyr`** package that comes in as part of `tidyverse`.
+
+#### Activity 4: Listwise deletion {#screening-a4}
+
+* Run the below code and then view the tibble in the object called `messy_listwise`.  
 
 
 ```r
 messy_listwise <- drop_na(messy)
 ```
 
-As you can see `messy_listwise` now only contains data from participants with a complete set of data. This might seem like a good thing, and sometimes it is the most appropriate option, however, there are a couple of important points to consider. 
+As you can see `messy_listwise` now only contains data from participants with a complete set of data - i.e. responses in each column. 
 
-First, `gender` isn't part of our experiment - it's not one of the IVs, it's just there as demographic information. We wouldn't include `gender` in any of our analyses but because of listwise deletion we have deleted experimental data if the participant was missing `gender`. This is related to the second problem which is that using full listwise deletion may result in the loss of a lot of data. Look at the environment pane - the original dataset had 200 participants, after using `drop_na()` we only have 143 so we've lost over 25% of our data by doing this. If this was real data we would also want to check if the missing values were coming from one particular group (i.e., non-random attrition).
+Now, however, whilst this might seem like a good thing, and sometimes it is the most appropriate option, there are a couple of important points to consider. 
 
-One option is to amend the use of `drop_na()` so that it doesn't include `gender` and we can do this using the same code as we would if we were using `select()`.
+1. First, `gender` might not be part of our experiment; it might just be there as demographic information. So whilst we wouldn't include `gender` in any of our analyses, because of the listwise deletion approach we have deleted experimental data if the participant was missing `gender` which means we are removing participants we could actual use. 
+2. Relatedly, using a listwise deletion approach may result in the loss of a lot of data. Compare `messy` to `messy_listwise`. The original dataset had 200 participants. After using `drop_na()` we only have 143 meaning that we have lost over 25% of our data with this approach which is a lot of data. 
+* **Note:** It is worth mentioning that if you do use a listwise approach you should check that the missing values are not coming from one particular group (i.e., non-random attrition).
 
-* Run the below code. How many observations does `messy_listwise2` have? <input class='webex-solveme nospaces' size='3' data-answer='["161"]'/>
+To counter these issues, one option is to amend the use of `drop_na()` so that it doesn't include `gender`, or column for that matter that we don't want to exclude people based on. We can do this using a similar approach to what we have seen when using `select()`. For example, run the below code, have a look at the output and then answer the question:
 
 
 ```r
 messy_listwise2 <- drop_na(messy, -gender)
 ```
 
-## Pairwise deletion
+* How many observations does `messy_listwise2` have? <input class='webex-solveme nospaces' size='3' data-answer='["161"]'/>
 
-The alternative to listwise deletion is **pairwise deletion** when cases are removed depending upon the analysis. For example, if we were to calculate the correlations between `pre`, `post`, and `delay` without removing participants with missing data in the `delay` condition, R would use different numbers of participants in each correlation depending on missing data which you can see in the `Sample Sizes` section.
+So that approach says "remove participants with NAs from messy based on all columns **except** gender". Alternatively, you could do "remove participants with NAs from messy based on only the columns of speaker and delay" as follows:
 
+
+```r
+messy_listwise3 <- drop_na(messy, speaker, delay)
+```
+
+So you actually have a lot of control with `drop_na()` as long as you plan your approach in advance.
+
+## Pairwise Deletion
+
+The alternative to listwise deletion is <a class='glossary' title='The removal of participants for a given analysis only'>pairwise deletion</a>. This is when cases are removed depending upon the analysis. For example, if we were to calculate the correlations between `pre`, `post`, and `delay` without removing participants with missing data in the `delay` condition, we would basically just use different numbers of participants in each correlation depending on missing data. For example, if you compare the degrees of freedom for the following two correlations:
+
+
+```r
+cor.test(messy$pre, messy$post)
+```
 
 ```
 ## 
-## CORRELATIONS
-## ============
-## - correlation type:  pearson 
-## - correlations shown only when both variables are numeric
+## 	Pearson's product-moment correlation
 ## 
-##         pre     post    delay   
-## pre       .    0.448*** 0.512***
-## post  0.448***     .    0.548***
-## delay 0.512*** 0.548***     .   
-## 
-## ---
-## Signif. codes: . = p < .1, * = p<.05, ** = p<.01, *** = p<.001
-## 
-## 
-## p-VALUES
-## ========
-## - total number of tests run:  3 
-## - correction for multiple testing:  holm 
-## 
-##         pre  post delay
-## pre       . 0.000 0.000
-## post  0.000     . 0.000
-## delay 0.000 0.000     .
-## 
-## 
-## SAMPLE SIZES
-## ============
-## 
-##       pre post delay
-## pre   200  200   180
-## post  200  200   180
-## delay 180  180   180
+## data:  messy$pre and messy$post
+## t = 7.0493, df = 198, p-value = 2.924e-11
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.3296550 0.5523276
+## sample estimates:
+##       cor 
+## 0.4479101
 ```
 
-## Activity 5: `na.rm = TRUE` {#screening-a5}
 
-When running inferential tests like correlations and t-tests, R will usually know when to ignore missing values. However, if you're calculating descriptive statistics or if you want to calculate the average score of a number of different items, you need to explicitly tell R to ignore the missing values.
+```r
+cor.test(messy$pre, messy$delay)
+```
+
+```
+## 
+## 	Pearson's product-moment correlation
+## 
+## data:  messy$pre and messy$delay
+## t = 7.9619, df = 178, p-value = 1.927e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.3958642 0.6127887
+## sample estimates:
+##       cor 
+## 0.5124561
+```
+ 
+
+
+You can see that the correlation of `pre` versus `post` has df = 198 whereas `pre` versus `delay` has df = 178. Meaning that the correlation is by default run only on the participants who have data in both columns - pairwise deletion. The problem here is remembering to write up the output accordingly as the dfs are changing and they may be different from the number of participants you stated in your methods section. Again it is about looking at your data!
+
+## Summarising data with missing values 
+
+So when running inferential tests like correlations, the analysis will usually know when to ignore missing values. However, if you're calculating descriptive statistics or if you want to calculate the average score of a number of different items, you need to explicitly state to ignore the missing values. We can do this through `na.rm = TRUE`
+
+#### Activity 5: `na.rm = TRUE` {#screening-a5}
 
 * Run the below code to calculate the mean score for each testing condition.
 
@@ -127,31 +192,67 @@ summarise(messy,
           )
 ```
 
+Which gives a table similar to below. We have rounded all the values to two decimal places but yours might have more decimal places.
+
 
 | pre_mean | post_mean | delay_mean |
 |:--------:|:---------:|:----------:|
 |  10.02   |   17.27   |     NA     |
 
-The mean score for `delay` shows as `NA`. This is because R is trying to calculate an average of a dataset and including the missing value and this creates a logical problem (how do you take the average of nothing?). In order to calculate the mean we have to tell R to ignore the missing values by adding `na.rm = TRUE` to our code. You can read this as "remove the NAs? Yes".
+As you can see, the mean score for `delay` shows as `NA`. This is because we are trying to calculate an average of the variable that has missing data and that just isn't doable. As such we need to calculate the mean but ignoring the missing values by adding `na.rm = TRUE` - which you can read this as "remove the NAs? Yes".
 
-* Run the below code. What is the mean score for the `delay` condition to 2 decimal places? <input class='webex-solveme nospaces' size='5' data-answer='["13.57"]'/>
+* Run the below code and then answer the question. 
 
 
+```r
+summarise(messy, 
+          pre_mean = mean(pre),
+          post_mean = mean(post),
+          delay_mean = mean(delay, na.rm = TRUE)
+          )
+```
+
+* What is the mean score for the `delay` condition to 2 decimal places? <input class='webex-solveme nospaces' size='5' data-answer='["13.57"]'/>
 
 <div class="danger">
 <p>It's really important that you think about whether you want to calculate your descriptives from participants that have missing data. For example, if you are calculating the average reaction time from hundreds of trials, a few missing data points won't affect the validity of the mean. However, if you are using a standardised questionnaire that has been validated using complete responses but your participants didn't answer 3/10 questions, it may not be appropriate to calculate a mean score from the remaining data.</p>
 </div>
 
-## Activity 6: Implausible values {#screening-a6}
+## Implausible values
 
-A crucial step of data screening is checking for implausible values. What is implausible depends on the data you've collected! `summary()` can also help you out here by looking at the minimum and maximum values.
+Along with looking for missing values, an additional crucial step of data screening is checking for implausible values - values that should not exist in your data. What is implausible depends on the data you've collected!
 
-* Run `summary(messy)` again and look at the minimum and maximum values for each variable. 
+#### Activity 6: Implausible values {#screening-a6}
 
-* Do the min and max values of `age` look plausible? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
-* Do the min and max values of `pre` look plausible? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
-* Do the min and max values of `post` look plausible? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
-* Do the min and max values of `delay` look plausible? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+Additional functions we can put inside a `summarise()` function are `min()` and `max()`. 
+
+* Run the below code and look at the output and answer the questions below:
+
+
+```r
+messy %>%
+  summarise(max_age = max(age, na.rm = TRUE),
+            min_age = min(age, na.rm = TRUE),
+            max_pre = max(pre, na.rm = TRUE),
+            min_pre = min(pre, na.rm = TRUE),
+            max_post = max(post, na.rm = TRUE),
+            min_post = min(post, na.rm = TRUE),
+            max_delay = max(delay, na.rm = TRUE),
+            min_delay = min(delay, na.rm = TRUE))
+```
+
+<div class="kable-table">
+
+| max_age| min_age| max_pre| min_pre| max_post| min_post| max_delay| min_delay|
+|-------:|-------:|-------:|-------:|--------:|--------:|---------:|---------:|
+|     470|      18|      26|      -5|       40|        3|        29|        -3|
+
+</div>
+
+* Does the max value of `age` look plausible? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
+* Does the max value of `pre` look plausible? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select>
+* Do the max value of `post` look plausible? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select>
+* Do the min value of `delay` look plausible? <select class='webex-select'><option value='blank'></option><option value='answer'>No</option><option value=''>Yes</option></select>
 
 
 <div class='webex-solution'><button>Explain these answers</button>
@@ -163,11 +264,21 @@ The maximum value for pre, post, and delay should be 30, as we described at the 
 </div>
 
 
-## Activity 7: Visualising implausible values {#screening-a7}
+That code above does look a bit long and could be written quicker as below. We won't go into detail as to how this works but see if you can figure it out by comparing the output to the version above:
 
-Whilst `summary()` can be useful, another key step is to visualise the data to check for implausible values.
 
-How you do this will depend on the data, and your preferences. You could produce violin-boxplots with the data points on top to check the distributions
+```imps2
+messy %>% 
+  summarise_at(c("age","pre","post","delay"),
+               c(max, min),
+               na.rm = TRUE)
+```
+
+And there is always `summary(messy)` if you prefer. But the main point is that we should always check our values to make sure they are allowed in our data. But whilst looking at the values is useful, it can be easier to visualise the data.
+
+#### Activity 7: Visualising implausible values {#screening-a7}
+
+There are a number of different ways to visualise the data as you know and this depends on the data, and your preferences. You could produce violin-boxplots with the data points on top to check the distributions as follows:
 
 
 ```r
@@ -182,11 +293,31 @@ messy %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="12-missing-data_files/figure-html/unnamed-chunk-4-1.png" alt="Data screening plots" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-4)Data screening plots</p>
+<img src="12-missing-data_files/figure-html/fig1-1.png" alt="Data screening plots" width="100%" />
+<p class="caption">(\#fig:fig1)Data screening plots</p>
 </div>
 
-You could also use histograms:
+And if it helped you could add some max and min lines to help spot issues using `geom_hline()` as follows:
+
+
+```r
+messy %>%
+  pivot_longer(cols = c("pre", "post", "delay"), 
+               names_to = "test", 
+               values_to = "score") %>%
+  ggplot(aes(x = test, y = score)) +
+  geom_violin() +
+  geom_boxplot() +
+  geom_jitter(width = .2) +
+  geom_hline(yintercept = c(0,40), color = "red", linetype = 2)
+```
+
+<div class="figure" style="text-align: center">
+<img src="12-missing-data_files/figure-html/fig1a-1.png" alt="Data screening plots" width="100%" />
+<p class="caption">(\#fig:fig1a)Data screening plots</p>
+</div>
+
+Alternatively you could also use a histogram to spot an outlier:
 
 
 ```r
@@ -195,9 +326,12 @@ ggplot(messy, aes(x = age)) +
 ```
 
 <div class="figure" style="text-align: center">
-<img src="12-missing-data_files/figure-html/unnamed-chunk-5-1.png" alt="Histograms for data screening" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5-1)Histograms for data screening</p>
+<img src="12-missing-data_files/figure-html/fig2-1.png" alt="Histogram of age for data screening" width="100%" />
+<p class="caption">(\#fig:fig2)Histogram of age for data screening</p>
 </div>
+
+And we can make use of `facet_wrap()` which we have seen before to help split figures based on different conditions:
+
 
 ```r
 messy %>%
@@ -210,15 +344,15 @@ messy %>%
 ```
 
 <div class="figure" style="text-align: center">
-<img src="12-missing-data_files/figure-html/unnamed-chunk-5-2.png" alt="Histograms for data screening" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-5-2)Histograms for data screening</p>
+<img src="12-missing-data_files/figure-html/fig3-1.png" alt="Histogram of the DVs for data screening" width="100%" />
+<p class="caption">(\#fig:fig3)Histogram of the DVs for data screening</p>
 </div>
 
 Whatever method you choose, make sure that you look at your data before trying to work with it and that you know in advance what range your values should take (for example, if your Likert scale is 1-7, you shouldn't have a score of 8, for reaction times, 50ms is unlikely to reflect a real response). 
 
 ## Dealing with implausible values or missing data
 
-To remove implausible values you can use `replace` and `mutate`.
+Once we have spotted some implausible or missing values we then need to decide what to do with them. One way of dealing with these values is to use the `replace()` and `mutate()` functions.
 
 * For `age`, we know that we have one very specific data point that is implausible, an age of 470 so we can specify just to replace this one value with NA.
 * For `post`, there are multiple missing values so we specify to replace any data point that is over the maximum plausible value (30) with NA.
@@ -232,7 +366,7 @@ messy_screen <-  messy %>%
 
 There is no hard and fast rule about what to do with missing data. You should review the missing data to see if there are any patterns, for example, is all the missing data from one condition? Does a single participant have a lot of missing data and should they be removed.
 
-One method of dealing with implausible data is to **impute** the data, i.e., to replace missing data with substituted values. There are many methods of doing this, for example, you can replace missing values with the mean. We won't go into which method you should choose this in this chapter but there's [more information available](https://www.theanalysisfactor.com/seven-ways-to-make-up-data-common-methods-to-imputing-missing-data/) online about the various options if you're interested. The code for imputing missing data is relatively simple and uses `mutate()` and `replace_na()`.
+An alternative method for dealing with implausible data is to <a class='glossary' title='The replacement of missing values with a value such as the mean of the distribution'>impute</a> the data, i.e., to replace missing data with substituted values. There are many methods of doing this, for example, you can replace missing values with the mean value of the distribution. We won't go into which method you should choose this in this chapter but there's [more information available](https://www.theanalysisfactor.com/seven-ways-to-make-up-data-common-methods-to-imputing-missing-data/) online about the various options if you're interested. The code for imputing missing data is relatively simple and uses `mutate()` and `replace_na()`.
 
 * You can read the below code as "create a new variable named `post_impute` that replaces the values of `post` if they're `NA` with the mean of the values in `post`.
 
@@ -243,13 +377,20 @@ messy_impute <- messy_screen %>%
                                   mean(post, na.rm = TRUE)))
 ```
 
-## Alternative descriptive statistics
+And if we look at a participant who had a NA for `post` we can see the change:
 
-So far in this book, we've calculated descriptive statistics using `summarise()` from the tidyverse. There's a good reason we've done this - the output of `summarise()` works well with `ggplot()` and the code is very flexible. However, there are other options for producing descriptive statistics that it is helpful to know about.
 
-The `psych` package contains many functions that are useful for psychology research. One of the functions of `psych` is `describe()`.
+|id   | age|speaker |gender | pre| post| delay| post_impute|
+|:----|---:|:-------|:------|---:|----:|-----:|-----------:|
+|S016 |  40|english |female |  21|   NA|    12|    16.71134|
 
-* Run the below code
+So you can see that they have been given the value of the mean of the distribution in this new variable and then can be used in different analyses!
+
+## Alternative function for descriptive statistics
+
+And before we end this chapter we wanted to just add a small section on an alternative function for calculating some useful descriptives that you can use to check your data. So far in this book, we've calculated descriptive statistics using `summarise()` from the **`tidyverse`**. There's a good reason we've done this - the output of `summarise()` works well with `ggplot()` and the code is very flexible. However, it can be hard to calculate descriptives such as skew and kurtosis within `summarise()` and it can be useful to know of other functions that help create these. For example, the `psych` package contains many functions that are useful for psychology research. One of the functions of `psych` is `describe()`.
+
+* Run the below code and look at the output as shown below.
 
 
 ```r
@@ -392,13 +533,9 @@ descriptives
 </tbody>
 </table>
 
-`describe()` produces a full set of descriptive statistics, including skew, kurtosis and standard error for the entire dataset! Run `?describe` to see a full explanation of all the statistics it calculates.
+As you can see `describe()` produces a full set of descriptive statistics, including skew, kurtosis and standard error for the entire dataset! Run `?describe` to see a full explanation of all the statistics it calculates.
 
-You may have noticed when you ran the code you received a number of error messages. This is because `describe()` doesn't know how to deal with the data that is in `id` which has both numbers and letters. 
-
-Additionally, you should see that `id`, `speaker` and `gender` all have a star next to their name. This star signifies that these variables are factors, and so it is not really appropriate to calculate these statistics, but we asked it to apply `describe` to the entire dataset so it's done what you asked.
-
-`describe()` can be used in conjunction with `select()` to remove these variables.
+You may notice that `id`, `speaker` and `gender` all have a star next to their name. This star signifies that these variables are factors, and so it is not really appropriate to calculate these statistics, but we asked it to apply `describe()` to the entire dataset so it's done what you asked. However, we could `describe()`with `select()` to remove these variables and just get the data we want:
 
 
 ```r
@@ -496,98 +633,49 @@ descriptives2
 </tbody>
 </table>
 
-
-A variant of `describe()` is `describeBy` which works very much like using `summarise()` and `group_by()` together.
-
-
-```r
-descriptives3 <- messy %>%
-  select(-id, -speaker) %>%
-  describeBy(group = "gender")
-
-descriptives3
-```
-
-```
-## 
-##  Descriptive statistics by group 
-## gender: female
-##         vars  n  mean    sd median trimmed   mad min max range  skew kurtosis
-## age        1 84 38.10 48.64     31   32.96 11.86  18 470   452  8.32    71.04
-## gender*    2 84  1.00  0.00      1    1.00  0.00   1   1     0   NaN      NaN
-## pre        3 84 10.38  5.06      9   10.28  4.45  -1  23    24  0.24    -0.42
-## post       4 84 18.20  6.99     17   17.96  5.93   3  36    33  0.37    -0.08
-## delay      5 78 13.18  5.17     13   13.33  5.93  -3  24    27 -0.31     0.15
-##           se
-## age     5.31
-## gender* 0.00
-## pre     0.55
-## post    0.76
-## delay   0.59
-## ------------------------------------------------------------ 
-## gender: male
-##         vars  n  mean    sd median trimmed   mad min max range  skew kurtosis
-## age        1 68 34.96 10.03     35   35.09 14.83  18  50    32 -0.05    -1.30
-## gender*    2 68  2.00  0.00      2    2.00  0.00   2   2     0   NaN      NaN
-## pre        3 68 10.04  4.85     11   10.11  4.45  -5  26    31 -0.05     1.33
-## post       4 68 16.28  5.41     16   16.23  5.19   4  33    29  0.25     0.46
-## delay      5 59 14.02  5.07     14   14.04  4.45   1  29    28  0.04     0.62
-##           se
-## age     1.22
-## gender* 0.00
-## pre     0.59
-## post    0.66
-## delay   0.66
-## ------------------------------------------------------------ 
-## gender: nonbinary
-##         vars  n  mean   sd median trimmed   mad min max range  skew kurtosis
-## age        1 28 34.96 9.25   35.5   34.96 11.86  20  50    30 -0.03    -1.30
-## gender*    2 28  3.00 0.00    3.0    3.00  0.00   3   3     0   NaN      NaN
-## pre        3 28  9.29 5.36   10.0    9.54  4.45  -4  19    23 -0.48    -0.18
-## post       4 28 16.86 5.10   16.0   16.79  4.45   8  26    18  0.35    -0.85
-## delay      5 25 12.84 4.67   13.0   12.90  4.45   3  25    22  0.07     0.43
-##           se
-## age     1.75
-## gender* 0.00
-## pre     1.01
-## post    0.96
-## delay   0.93
-```
-
-If you look in the environment you will see that `descriptives3` is saved as a `List of 3`. What this means is that the table of descriptives for each gender is saved as a separate table, one for female, one for male, one for non-binary. To get access to them individually, you need to use the `object$variable` notation. 
-
-
-```r
-descriptives3$male
-descriptives3$female
-descriptives3$nonbinary
-```
-
 The output of `describe()` is a little harder to work with in terms of manipulating the table and using the data in subsequent plots and analyses, so we still strongly recommend that you use `summarise()` and `group_by()` for these operations, however, for getting a comprehensive overview of your data, `describe()` is a good function to know about.
 
 ## Finished! {#screening-fin}
 
-And you're done! This isn't a comprehensive tutorial on every type of dataset you will come across and the concept of tidy data will take practice but hopefully this should give you a good starting point for when you have your own real, messy data.
+And you're done! Excellent work today! This isn't a comprehensive tutorial on every type of dataset you will come across and the concept of tidy data will take practice but hopefully this should give you a good starting point for when you have your own real, messy data.
 
 ## Activity solutions {#screening-sols}
 
 ### Activity 1 {#screening-a1sol}
 
 
-<div class='webex-solution'><button>Activity 1</button>
-
-
 ```r
-library("tidyverse")
-library("psych")
+library(psych)
+library(tidyverse)
 messy <- read_csv("messy.csv")
 ```
 
-</div>
-  
+## Words from this Chapter
 
-**click the tab to see the solution**
-<br>
+Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the [PsyTeachR Glossary](https://psyteachr.github.io/glossary/){target="_blank"}. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.
 
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> term </th>
+   <th style="text-align:left;"> definition </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> [impute](https://psyteachr.github.io/glossary/i.html#impute){class="glossary" target="_blank"} </td>
+   <td style="text-align:left;"> The replacement of missing values with a value such as the mean of the distribution </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [listwise](https://psyteachr.github.io/glossary/l.html#listwise){class="glossary" target="_blank"} </td>
+   <td style="text-align:left;"> The removal of participants where they have missing data on any of the variables within the dataset </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> [pairwise](https://psyteachr.github.io/glossary/p.html#pairwise){class="glossary" target="_blank"} </td>
+   <td style="text-align:left;"> The removal of participants for a given analysis only </td>
+  </tr>
+</tbody>
+</table>
 
+That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!
 

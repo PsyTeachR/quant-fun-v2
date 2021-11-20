@@ -51,8 +51,8 @@ There are a number of different "effect sizes" that you can choose to calculate 
 
 |Effect size|Cohen's d value|
 |:--:|:---:|
-|small| .2 to .5|
-|medium| .5 to .8|
+|small to medium| .2 to .5|
+|medium to large| .5 to .8|
 |large| > .8|
 
 <br>
@@ -103,7 +103,7 @@ Answering the following questions to check your answers. The solutions are at th
 * Enter, in digits, how many people were run in this study: <input class='webex-solveme nospaces' size='2' data-answer='["26"]'/>
 * Which of these codes is the appropriate calculation of `d` in this instance:<select class='webex-select'><option value='blank'></option><option value='answer'>d = t/sqrt(N)</option><option value=''>d = 2t/sqrt(df)</option></select>
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places: <input class='webex-solveme nospaces' size='4' data-answer='["0.64",".64"]'/>
-* According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>  
+* According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='webex-select'><option value='blank'></option><option value=''>small to medium</option><option value='answer'>medium to large</option><option value=''>large</option></select>  
 
 #### Activity 3: Effect size from between-subjects t-test {#power-a3}
 
@@ -127,7 +127,7 @@ Answer the following questions to check your answers. The solutions are at the b
 * Enter, in digits, how many people were run in this study: <input class='webex-solveme nospaces' size='2' data-answer='["32"]'/>
 * Which of these codes is the appropriate calculation of `d` in this instance:<select class='webex-select'><option value='blank'></option><option value=''>d = t/sqrt(N)</option><option value='answer'>d = 2t/sqrt(df)</option></select>
 * Enter the correct value of `d` for this analysis rounded to 2 decimal places:  <input class='webex-solveme nospaces' size='4' data-answer='["1.06"]'/>
-* According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value=''>medium</option><option value='answer'>large</option></select>
+* According to Cohen (1988), the effect size for this t-test would probably be considered: <select class='webex-select'><option value='blank'></option><option value=''>small to medium</option><option value=''>medium to large</option><option value='answer'>large</option></select>
 
 
 #### Activity 4: t-value and effect size for a between-subjects Experiment {#power-a4}
@@ -160,7 +160,7 @@ Answer the following questions to check your answers. The solutions are at the b
 
 * Which of these codes is the appropriate calculation of `d` in this instance:<select class='webex-select'><option value='blank'></option><option value=''>d = t/sqrt(N)</option><option value='answer'>d = 2t/sqrt(df)</option></select>
 * Based on the above t-value above, enter the correct value of `d` for this analysis rounded to 2 decimal places: <input class='webex-solveme nospaces' size='4' data-answer='[".67","0.67"]'/>
-* According to Cohen (1988), the effect size for this t-test would probably be described as: <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
+* According to Cohen (1988), the effect size for this t-test would probably be described as: <select class='webex-select'><option value='blank'></option><option value=''>small to medium</option><option value='answer'>medium to large</option><option value=''>large</option></select>
 
 **Excellent!** Now that you are comfortable with calculating effect sizes, we will look at using them to establish the sample size for a required power. One thing you will realise as we progress is that the true effect size in a population is something we do not know, but we need to justify one for our design. A clever approach is laid out by Daniel Lakens in the blog on the Smallest Effect Size of Interest (SESOI) - you set the smallest effect that you as a researcher would be interested in! This can be determined through theoretical analysis, through previous studies, through pilot studies, or through rules of thumb like Cohen (1988). However, also keep in mind that the lower the effect size, the larger the sample size you will need. Everything is a trade-off.
 
@@ -252,7 +252,7 @@ Answer the following questions to check your answers. The solutions are at the b
 
 * Based on the information given, what will you set `type` as in the function? <select class='webex-select'><option value='blank'></option><option value=''>one.sample</option><option value='answer'>two.sample</option></select>
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='webex-solveme nospaces' size='4' data-answer='[".65","0.65"]'/>
-* According to Cohen (1988), the effect size for this t-test is <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
+* According to Cohen (1988), the effect size for this t-test is <select class='webex-select'><option value='blank'></option><option value=''>small to medium</option><option value='answer'>medium to large</option><option value=''>large</option></select>
 * Say you run the study and find that the effect size determined is d = 0.50. Given what you know about power, select the statement that is true: <select class='webex-select'><option value='blank'></option><option value=''>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.65</option><option value='answer'>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.65</option></select>
 
 #### Uneven groups
@@ -307,8 +307,8 @@ Answer the following questions to check your answers. The solutions are at the b
 
 * Based on the information given, what will you set `alternative` as in the function? <select class='webex-select'><option value='blank'></option><option value=''>two.sided</option><option value='answer'>greater</option><option value=''>less</option></select>
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: <input class='webex-solveme nospaces' size='4' data-answer='[".34","0.34"]'/>
-* According to Cohen (1988), the effect size for this correlation is <select class='webex-select'><option value='blank'></option><option value=''>small</option><option value='answer'>medium</option><option value=''>large</option></select>
-* Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true: <div class='webex-radiogroup' id='radio_RUOZSHCQWP'><label><input type="radio" autocomplete="off" name="radio_RUOZSHCQWP" value=""></input> <span>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24</span></label><label><input type="radio" autocomplete="off" name="radio_RUOZSHCQWP" value="answer"></input> <span>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34</span></label></div>
+* According to Cohen (1988), the effect size for this correlation is <select class='webex-select'><option value='blank'></option><option value=''>small to medium</option><option value='answer'>medium to large</option><option value=''>large</option></select>
+* Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true: <div class='webex-radiogroup' id='radio_WMBVDJFXPZ'><label><input type="radio" autocomplete="off" name="radio_WMBVDJFXPZ" value=""></input> <span>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24</span></label><label><input type="radio" autocomplete="off" name="radio_WMBVDJFXPZ" value="answer"></input> <span>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34</span></label></div>
 
 
 ### Effect Sizes in Published Research
@@ -351,7 +351,7 @@ If you want more examples of power to reinforce your understanding, go back and 
 
 ## Test Yourself
 
-1. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_HDTZXBDSHO'><label><input type="radio" autocomplete="off" name="radio_HDTZXBDSHO" value=""></input> <span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_HDTZXBDSHO" value=""></input> <span>d = 0.281</span></label><label><input type="radio" autocomplete="off" name="radio_HDTZXBDSHO" value="answer"></input> <span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_HDTZXBDSHO" value=""></input> <span>d = 0.280</span></label></div>
+1. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_UWXNAHAYKS'><label><input type="radio" autocomplete="off" name="radio_UWXNAHAYKS" value=""></input> <span>d = 0.280</span></label><label><input type="radio" autocomplete="off" name="radio_UWXNAHAYKS" value="answer"></input> <span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_UWXNAHAYKS" value=""></input> <span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_UWXNAHAYKS" value=""></input> <span>d = 0.281</span></label></div>
 
 
 
@@ -376,7 +376,7 @@ pwr.t.test(n = 100,
 </div>
 
 
-2. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_GOBOAUEKNT'><label><input type="radio" autocomplete="off" name="radio_GOBOAUEKNT" value=""></input> <span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_GOBOAUEKNT" value="answer"></input> <span>d = 0.578</span></label><label><input type="radio" autocomplete="off" name="radio_GOBOAUEKNT" value=""></input> <span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_GOBOAUEKNT" value=""></input> <span>r = .577</span></label></div>
+2. Assuming you were running a between-subjects t-test on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_NBNCHDNHFC'><label><input type="radio" autocomplete="off" name="radio_NBNCHDNHFC" value=""></input> <span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_NBNCHDNHFC" value=""></input> <span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_NBNCHDNHFC" value="answer"></input> <span>d = 0.578</span></label><label><input type="radio" autocomplete="off" name="radio_NBNCHDNHFC" value=""></input> <span>r = .577</span></label></div>
 
 
 
@@ -401,7 +401,7 @@ pwr.t2n.test(n1 = 60,
 </div>
 
 
-3. Assuming you ran a correlation on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_EPIALCMWFT'><label><input type="radio" autocomplete="off" name="radio_EPIALCMWFT" value=""></input> <span>r = .275</span></label><label><input type="radio" autocomplete="off" name="radio_EPIALCMWFT" value=""></input> <span>r = .385</span></label><label><input type="radio" autocomplete="off" name="radio_EPIALCMWFT" value=""></input> <span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_EPIALCMWFT" value="answer"></input> <span>r = .384</span></label></div>
+3. Assuming you ran a correlation on secondary data ($\alpha = .05$, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is: <div class='webex-radiogroup' id='radio_LJCHNMKBLV'><label><input type="radio" autocomplete="off" name="radio_LJCHNMKBLV" value="answer"></input> <span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_LJCHNMKBLV" value=""></input> <span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_LJCHNMKBLV" value=""></input> <span>r = .385</span></label><label><input type="radio" autocomplete="off" name="radio_LJCHNMKBLV" value=""></input> <span>r = .275</span></label></div>
 
 
 
