@@ -90,145 +90,245 @@
 <span class="header-section-number">12</span> Screening Data<a class="anchor" aria-label="anchor" href="#screening-data"><i class="fas fa-link"></i></a>
 </h1>
 <p>In this chapter we're going to focus on how to screen datasets for potential issues and to reinforce the concept of tidy data. So far, we've given you complete datasets to work with, however, you will find that real data is often much messier than this, for example, participants may not answer some items in your questionnaire or there may be errors or implausible values in your dataset. We're also going to show you a different function to make calculating descriptive statistics easier.</p>
-<div id="screening-a1" class="section level2" number="12.1">
+<div id="the-set-up-and-the-data" class="section level2" number="12.1">
 <h2>
-<span class="header-section-number">12.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#screening-a1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1</span> The Set-Up and the Data<a class="anchor" aria-label="anchor" href="#the-set-up-and-the-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>Do the following.</p>
+<p>As always we first need to start with setting up our working environment, bringing in our data and looking at it.</p>
+<div id="screening-a1" class="section level4" number="12.1.0.1">
+<h4>
+<span class="header-section-number">12.1.0.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#screening-a1"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
-<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.</li>
-<li>Open a new R Markdown document and save it in your working directory. Call the file "Screening Data".<br>
-</li>
-<li>Download <a href="messy.csv" download>messy.csv</a> and save it in your Screening Data folder. Make sure that you do not change the file name at all.<br>
-</li>
-<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
-</li>
-<li>Delete the default R Markdown welcome text and insert a new code chunk that loads the <code>tidyverse</code> and <code>psych</code> packages using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function and loads the data into an object named <code>messy</code> using <code>read_csv()</code>
+<li>Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
+<ul>
+<li>If you're using the Rserver, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
 </li>
 </ul>
-</div>
-<div id="screening-a2" class="section level2" number="12.2">
-<h2>
-<span class="header-section-number">12.2</span> Activity 2: Look at the data<a class="anchor" aria-label="anchor" href="#screening-a2"><i class="fas fa-link"></i></a>
-</h2>
-<p><code>messy</code> is simulated data for an experiment looking at the effect of note-taking on test performance and whether this is affected by being a native speaker. Participants are first given a pre-test to judge their baseline knowledge, then they watch a lecture and take notes. Immediately after the lecture is finished they take another test. Finally, they are tested after a week delay. The maximum score for any test is 30. Participants lose marks for incorrect answers so minus scores are also possible. The dataset has six variables:</p>
+</li>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "screeningdata".<br>
+</li>
+<li>Download <a href="messy.csv" download>messy.csv</a> and save it in your Screening Data folder. Make sure that you do not change the file name at all.
 <ul>
-<li>
-<code>id</code> = the participant ID number<br>
+<li>If you prefer you can download the data in a <a href="data/chpt12/PsyTeachR_FQA_Chpt12-data.zip" target="_blank">zip folder by clicking here</a>
 </li>
-<li>
-<code>age</code> = the age of the participant</li>
-<li>
-<code>speaker</code> = if the participant is a native or non-native English speaker<br>
+<li>Remember not to change the file names at all and that <code>data.csv</code> is not the same as <code>data (1).csv</code>.</li>
+</ul>
 </li>
-<li>
-<code>gender</code> = if the participant is male, female, or non-binary<br>
+<li>Delete the default R Markdown welcome text and insert a new code chunk that loads the following packages, in this specific order, using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function. Remember the solutions if needed.
+<ul>
+<li>Load the packages in this order, <code>psych</code> then <code>tidyverse</code>
 </li>
-<li>
-<code>pre</code> = pre-test score before any notes were taken<br>
+<li>again we have not used some of these packages so you will likely need to install some of them using <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>. Remember though that you should only do this on your own machine and only in the console window. If you are using the RServer you will not need to install them.</li>
+</ul>
 </li>
-<li>
-<code>post</code> = post-test score immediately after the lecture<br>
-</li>
-<li>
-<code>delay</code> = test score after one week delay</li>
+<li>Finally, load the data held in <code>messy.csv</code> as a tibble into an object named <code>messy</code> using <code>read_csv()</code>. If unsure, have a look at the solution at the end of the chapter</li>
 </ul>
 </div>
-<div id="missing-data" class="section level2" number="12.3">
-<h2>
-<span class="header-section-number">12.3</span> Missing data<a class="anchor" aria-label="anchor" href="#missing-data"><i class="fas fa-link"></i></a>
-</h2>
-<p>The first issue we will cover is missing data. Data can be missing because your participants accidentally didn't fill in a question, it can be missing because they intentionally didn't want to answer, or that they didn't turn up to a final testing session, or it could be that you did something wrong whilst setting up your questionnaire/experiment and it didn't save. Real data frequently contains missing values and it's important that you know how to identify missing data and what you can do with it.</p>
-</div>
-<div id="screening-a3" class="section level2" number="12.4">
-<h2>
-<span class="header-section-number">12.4</span> Activity 3: <code>summary()</code><a class="anchor" aria-label="anchor" href="#screening-a3"><i class="fas fa-link"></i></a>
-</h2>
-<p>A good way to get a sense of how many missing data points you have is to use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>. Because <code>speaker</code> and <code>gender</code> are text rather than numbers, in order to see how many values are missing we first need to convert them to factors.</p>
+<div id="screening-a2" class="section level4" number="12.1.0.2">
+<h4>
+<span class="header-section-number">12.1.0.2</span> Activity 2: Look at the data<a class="anchor" aria-label="anchor" href="#screening-a2"><i class="fas fa-link"></i></a>
+</h4>
+<p><code>messy</code> is simulated data for an experiment looking at the effect of note-taking on test performance and whether this is affected by being first language English. Participants are first given a pre-test to judge their baseline knowledge, then they watch a lecture and take notes. Immediately after the lecture is finished they take another test. Finally, they are tested after a week delay. The maximum score for any test is 30. Participants lose marks for incorrect answers so minus scores are also possible. The dataset has six variables:</p>
 <ul>
-<li>Run the below code</li>
+<li>
+<code>id</code> showing the participant ID number</li>
+<li>
+<code>age</code> showing the age of the participant</li>
+<li>
+<code>speaker</code>showing if the participant are first language English or not<br>
+</li>
+<li>
+<code>gender</code> showing if the participant is male, female, or non-binary<br>
+</li>
+<li>
+<code>pre</code> showing pre-test score before any notes were taken<br>
+</li>
+<li>
+<code>post</code> showing post-test score immediately after the lecture<br>
+</li>
+<li>
+<code>delay</code> showing test score after one week delay</li>
 </ul>
+</div>
+</div>
+<div id="missing-data" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> Missing data<a class="anchor" aria-label="anchor" href="#missing-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>The first issue we will cover is missing data. There is a whole host of reasons that your data could have missing values. For example:</p>
+<ul>
+<li>Data can be missing because your participants accidentally didn't fill in a question.</li>
+<li>Data can be missing because participants intentionally didn't want to answer a question.</li>
+<li>Data can be missing because participants didn't turn up to a final testing session.</li>
+<li>Data can be missing because you did something wrong whilst setting up your questionnaire/experiment and it didn't save.</li>
+</ul>
+<p>In truth, real data frequently contains missing values and it's important that you know how to identify missing data and what you can do with it. Which is what we want to show you a little of in this chapter.</p>
+<div id="screening-a3" class="section level4" number="12.2.0.1">
+<h4>
+<span class="header-section-number">12.2.0.1</span> Activity 3: <code>summary()</code> and <code>is.na()</code><a class="anchor" aria-label="anchor" href="#screening-a3"><i class="fas fa-link"></i></a>
+</h4>
+<p>Missing data is normally shown in your tibbles and objects as <code>NA</code> - usually taken to mean something like "Not Available". We have already seen a couple of approaches to find NAs in our data and we will quickly recap them.</p>
+<p>The first approach is to use a pipeline of functions we have used before including <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>, <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>, <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code>, and <code>pluck()</code>. For instance:</p>
 <div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy_na</span> <span class="op">&lt;-</span> <span class="va">messy</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>find_nas <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">speaker</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>count_nas <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">find_nas</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">pluck</span><span class="op">(</span><span class="st">"count_nas"</span><span class="op">)</span></code></pre></div>
+<p>Which reads as use <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code> to find all the NAs in messy (i.e the first <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>) and then count up all those NAs (i.e. the second <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> - which works because NAs are either TRUE, summed as 1, or FALSE, summed as 0), and then pluck out that number (i.e. the <code>pluck()</code>). And if you look at <code>messy_na</code> you see there are 20 NAs in <code>speaker</code>. That code looks quite long but it could actually be written as below if you prefer and can follow the pipe inside the <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>.</p>
+<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy_na</span> <span class="op">&lt;-</span> <span class="va">messy</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>count_nas <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">speaker</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">pluck</span><span class="op">(</span><span class="st">"count_nas"</span><span class="op">)</span></code></pre></div>
+<p>And this code, using <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>, is a good approach if you are only interested in one column or maybe a couple of columns, but if you want a snapshot of all your columns then we can use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> which we saw previously. First, however, because <code>speaker</code> and <code>gender</code> are character/text rather than numerical, in order to see how many values are missing we first need to convert these two columns into factors using the below code</p>
+<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy</span> <span class="op">&lt;-</span> <span class="va">messy</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>speaker <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">speaker</span><span class="op">)</span>, 
          gender <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">gender</span><span class="op">)</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">messy</span><span class="op">)</span></code></pre></div>
-<p>As you can see, there are 20 data points missing (NAs) in each of <code>speaker</code>, <code>gender</code>, and <code>delay</code> (but importantly, this isn't from just 20 participants).There are several different approaches to dealing with missing data. We will cover the most common.</p>
+<p>If you run the code, you can see, there are 20 data points missing (NAs) in each of <code>speaker</code>, <code>gender</code>, and <code>delay</code>. However, and the important part if you look at the actual data, the missing data is not in the same 20 participants and that gives us some issues about how to deal with these different participants. Fortunately, there are several different approaches to dealing with missing data and we will cover a few here.</p>
 </div>
-<div id="screening-a4" class="section level2" number="12.5">
+</div>
+<div id="listwise-deletion" class="section level2" number="12.3">
 <h2>
-<span class="header-section-number">12.5</span> Activity 4: Listwise deletion<a class="anchor" aria-label="anchor" href="#screening-a4"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.3</span> Listwise Deletion<a class="anchor" aria-label="anchor" href="#listwise-deletion"><i class="fas fa-link"></i></a>
 </h2>
-<p>One method for dealing with missing data is <strong>listwise deletion</strong>. This approach removes any participant with a single missing value. So if there is missing data in any of the columns in the dataset, that participant will be removed and you will only be left with complete datasets. We can achieve this using <code>drop_na</code></p>
+<p>One method for dealing with missing data is <a class="glossary" title="The removal of participants where they have missing data on any of the variables within the dataset">listwise deletion</a>. This approach removes any participant who has a single missing value (i.e. a NA) in any variable. So if there is missing data in any of the columns in the dataset, that participant will be removed and you will only be left with participants with complete datasets. For example the below participants would be removed along with all others with a similar profile:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="center">id</th>
+<th align="center">age</th>
+<th align="center">speaker</th>
+<th align="center">gender</th>
+<th align="center">pre</th>
+<th align="center">post</th>
+<th align="center">delay</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="center">S008</td>
+<td align="center">48</td>
+<td align="center">english</td>
+<td align="center">NA</td>
+<td align="center">12</td>
+<td align="center">15</td>
+<td align="center">17</td>
+</tr>
+<tr class="even">
+<td align="center">S009</td>
+<td align="center">22</td>
+<td align="center">NA</td>
+<td align="center">male</td>
+<td align="center">5</td>
+<td align="center">18</td>
+<td align="center">5</td>
+</tr>
+<tr class="odd">
+<td align="center">S010</td>
+<td align="center">31</td>
+<td align="center">NA</td>
+<td align="center">female</td>
+<td align="center">13</td>
+<td align="center">35</td>
+<td align="center">17</td>
+</tr>
+<tr class="even">
+<td align="center">S011</td>
+<td align="center">26</td>
+<td align="center">english</td>
+<td align="center">NA</td>
+<td align="center">18</td>
+<td align="center">19</td>
+<td align="center">16</td>
+</tr>
+</tbody>
+</table></div>
+<p>We can achieve this using the <code>drop_na()</code> from the <strong><code>tidyr</code></strong> package that comes in as part of <code>tidyverse</code>.</p>
+<div id="screening-a4" class="section level4" number="12.3.0.1">
+<h4>
+<span class="header-section-number">12.3.0.1</span> Activity 4: Listwise deletion<a class="anchor" aria-label="anchor" href="#screening-a4"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
-<li>Run the below code and then view the object.</li>
+<li>Run the below code and then view the tibble in the object called <code>messy_listwise</code>.</li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb230"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_listwise</span> <span class="op">&lt;-</span> <span class="fu">drop_na</span><span class="op">(</span><span class="va">messy</span><span class="op">)</span></code></pre></div>
-<p>As you can see <code>messy_listwise</code> now only contains data from participants with a complete set of data. This might seem like a good thing, and sometimes it is the most appropriate option, however, there are a couple of important points to consider.</p>
-<p>First, <code>gender</code> isn't part of our experiment - it's not one of the IVs, it's just there as demographic information. We wouldn't include <code>gender</code> in any of our analyses but because of listwise deletion we have deleted experimental data if the participant was missing <code>gender</code>. This is related to the second problem which is that using full listwise deletion may result in the loss of a lot of data. Look at the environment pane - the original dataset had 200 participants, after using <code>drop_na()</code> we only have 143 so we've lost over 25% of our data by doing this. If this was real data we would also want to check if the missing values were coming from one particular group (i.e., non-random attrition).</p>
-<p>One option is to amend the use of <code>drop_na()</code> so that it doesn't include <code>gender</code> and we can do this using the same code as we would if we were using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>.</p>
+<p>As you can see <code>messy_listwise</code> now only contains data from participants with a complete set of data - i.e. responses in each column.</p>
+<p>Now, however, whilst this might seem like a good thing, and sometimes it is the most appropriate option, there are a couple of important points to consider.</p>
+<ol style="list-style-type: decimal">
+<li>First, <code>gender</code> might not be part of our experiment; it might just be there as demographic information. So whilst we wouldn't include <code>gender</code> in any of our analyses, because of the listwise deletion approach we have deleted experimental data if the participant was missing <code>gender</code> which means we are removing participants we could actual use.</li>
+<li>Relatedly, using a listwise deletion approach may result in the loss of a lot of data. Compare <code>messy</code> to <code>messy_listwise</code>. The original dataset had 200 participants. After using <code>drop_na()</code> we only have 143 meaning that we have lost over 25% of our data with this approach which is a lot of data.</li>
+</ol>
 <ul>
-<li>Run the below code. How many observations does <code>messy_listwise2</code> have? <input class="webex-solveme nospaces" size="3" data-answer='["161"]'>
+<li>
+<strong>Note:</strong> It is worth mentioning that if you do use a listwise approach you should check that the missing values are not coming from one particular group (i.e., non-random attrition).</li>
+</ul>
+<p>To counter these issues, one option is to amend the use of <code>drop_na()</code> so that it doesn't include <code>gender</code>, or column for that matter that we don't want to exclude people based on. We can do this using a similar approach to what we have seen when using <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code>. For example, run the below code, have a look at the output and then answer the question:</p>
+<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy_listwise2</span> <span class="op">&lt;-</span> <span class="fu">drop_na</span><span class="op">(</span><span class="va">messy</span>, <span class="op">-</span><span class="va">gender</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>How many observations does <code>messy_listwise2</code> have? <input class="webex-solveme nospaces" size="3" data-answer='["161"]'>
 </li>
 </ul>
-<div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">messy_listwise2</span> <span class="op">&lt;-</span> <span class="fu">drop_na</span><span class="op">(</span><span class="va">messy</span>, <span class="op">-</span><span class="va">gender</span><span class="op">)</span></code></pre></div>
+<p>So that approach says "remove participants with NAs from messy based on all columns <strong>except</strong> gender". Alternatively, you could do "remove participants with NAs from messy based on only the columns of speaker and delay" as follows:</p>
+<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy_listwise3</span> <span class="op">&lt;-</span> <span class="fu">drop_na</span><span class="op">(</span><span class="va">messy</span>, <span class="va">speaker</span>, <span class="va">delay</span><span class="op">)</span></code></pre></div>
+<p>So you actually have a lot of control with <code>drop_na()</code> as long as you plan your approach in advance.</p>
 </div>
-<div id="pairwise-deletion" class="section level2" number="12.6">
+</div>
+<div id="pairwise-deletion" class="section level2" number="12.4">
 <h2>
-<span class="header-section-number">12.6</span> Pairwise deletion<a class="anchor" aria-label="anchor" href="#pairwise-deletion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.4</span> Pairwise Deletion<a class="anchor" aria-label="anchor" href="#pairwise-deletion"><i class="fas fa-link"></i></a>
 </h2>
-<p>The alternative to listwise deletion is <strong>pairwise deletion</strong> when cases are removed depending upon the analysis. For example, if we were to calculate the correlations between <code>pre</code>, <code>post</code>, and <code>delay</code> without removing participants with missing data in the <code>delay</code> condition, R would use different numbers of participants in each correlation depending on missing data which you can see in the <code>Sample Sizes</code> section.</p>
+<p>The alternative to listwise deletion is <a class="glossary" title="The removal of participants for a given analysis only">pairwise deletion</a>. This is when cases are removed depending upon the analysis. For example, if we were to calculate the correlations between <code>pre</code>, <code>post</code>, and <code>delay</code> without removing participants with missing data in the <code>delay</code> condition, we would basically just use different numbers of participants in each correlation depending on missing data. For example, if you compare the degrees of freedom for the following two correlations:</p>
+<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">messy</span><span class="op">$</span><span class="va">pre</span>, <span class="va">messy</span><span class="op">$</span><span class="va">post</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
-## CORRELATIONS
-## ============
-## - correlation type:  pearson 
-## - correlations shown only when both variables are numeric
+##  Pearson's product-moment correlation
 ## 
-##         pre     post    delay   
-## pre       .    0.448*** 0.512***
-## post  0.448***     .    0.548***
-## delay 0.512*** 0.548***     .   
+## data:  messy$pre and messy$post
+## t = 7.0493, df = 198, p-value = 2.924e-11
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.3296550 0.5523276
+## sample estimates:
+##       cor 
+## 0.4479101</code></pre>
+<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">messy</span><span class="op">$</span><span class="va">pre</span>, <span class="va">messy</span><span class="op">$</span><span class="va">delay</span><span class="op">)</span></code></pre></div>
+<pre><code>## 
+##  Pearson's product-moment correlation
 ## 
-## ---
-## Signif. codes: . = p &lt; .1, * = p&lt;.05, ** = p&lt;.01, *** = p&lt;.001
-## 
-## 
-## p-VALUES
-## ========
-## - total number of tests run:  3 
-## - correction for multiple testing:  holm 
-## 
-##         pre  post delay
-## pre       . 0.000 0.000
-## post  0.000     . 0.000
-## delay 0.000 0.000     .
-## 
-## 
-## SAMPLE SIZES
-## ============
-## 
-##       pre post delay
-## pre   200  200   180
-## post  200  200   180
-## delay 180  180   180</code></pre>
+## data:  messy$pre and messy$delay
+## t = 7.9619, df = 178, p-value = 1.927e-13
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.3958642 0.6127887
+## sample estimates:
+##       cor 
+## 0.5124561</code></pre>
+<p>You can see that the correlation of <code>pre</code> versus <code>post</code> has df = 198 whereas <code>pre</code> versus <code>delay</code> has df = 178. Meaning that the correlation is by default run only on the participants who have data in both columns - pairwise deletion. The problem here is remembering to write up the output accordingly as the dfs are changing and they may be different from the number of participants you stated in your methods section. Again it is about looking at your data!</p>
 </div>
-<div id="screening-a5" class="section level2" number="12.7">
+<div id="summarising-data-with-missing-values" class="section level2" number="12.5">
 <h2>
-<span class="header-section-number">12.7</span> Activity 5: <code>na.rm = TRUE</code><a class="anchor" aria-label="anchor" href="#screening-a5"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.5</span> Summarising data with missing values<a class="anchor" aria-label="anchor" href="#summarising-data-with-missing-values"><i class="fas fa-link"></i></a>
 </h2>
-<p>When running inferential tests like correlations and t-tests, R will usually know when to ignore missing values. However, if you're calculating descriptive statistics or if you want to calculate the average score of a number of different items, you need to explicitly tell R to ignore the missing values.</p>
+<p>So when running inferential tests like correlations, the analysis will usually know when to ignore missing values. However, if you're calculating descriptive statistics or if you want to calculate the average score of a number of different items, you need to explicitly state to ignore the missing values. We can do this through <code>na.rm = TRUE</code></p>
+<div id="screening-a5" class="section level4" number="12.5.0.1">
+<h4>
+<span class="header-section-number">12.5.0.1</span> Activity 5: <code>na.rm = TRUE</code><a class="anchor" aria-label="anchor" href="#screening-a5"><i class="fas fa-link"></i></a>
+</h4>
 <ul>
 <li>Run the below code to calculate the mean score for each testing condition.</li>
 </ul>
-<div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">messy</span>, 
           pre_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pre</span><span class="op">)</span>,
           post_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">post</span><span class="op">)</span>,
           delay_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">delay</span><span class="op">)</span>
           <span class="op">)</span></code></pre></div>
+<p>Which gives a table similar to below. We have rounded all the values to two decimal places but yours might have more decimal places.</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th align="center">pre_mean</th>
@@ -241,9 +341,18 @@
 <td align="center">NA</td>
 </tr></tbody>
 </table></div>
-<p>The mean score for <code>delay</code> shows as <code>NA</code>. This is because R is trying to calculate an average of a dataset and including the missing value and this creates a logical problem (how do you take the average of nothing?). In order to calculate the mean we have to tell R to ignore the missing values by adding <code>na.rm = TRUE</code> to our code. You can read this as "remove the NAs? Yes".</p>
+<p>As you can see, the mean score for <code>delay</code> shows as <code>NA</code>. This is because we are trying to calculate an average of the variable that has missing data and that just isn't doable. As such we need to calculate the mean but ignoring the missing values by adding <code>na.rm = TRUE</code> - which you can read this as "remove the NAs? Yes".</p>
 <ul>
-<li>Run the below code. What is the mean score for the <code>delay</code> condition to 2 decimal places? <input class="webex-solveme nospaces" size="5" data-answer='["13.57"]'>
+<li>Run the below code and then answer the question.</li>
+</ul>
+<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">messy</span>, 
+          pre_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pre</span><span class="op">)</span>,
+          post_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">post</span><span class="op">)</span>,
+          delay_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">delay</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+          <span class="op">)</span></code></pre></div>
+<ul>
+<li>What is the mean score for the <code>delay</code> condition to 2 decimal places? <input class="webex-solveme nospaces" size="5" data-answer='["13.57"]'>
 </li>
 </ul>
 <div class="danger">
@@ -252,25 +361,71 @@ It's really important that you think about whether you want to calculate your de
 </p>
 </div>
 </div>
-<div id="screening-a6" class="section level2" number="12.8">
+</div>
+<div id="implausible-values" class="section level2" number="12.6">
 <h2>
-<span class="header-section-number">12.8</span> Activity 6: Implausible values<a class="anchor" aria-label="anchor" href="#screening-a6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.6</span> Implausible values<a class="anchor" aria-label="anchor" href="#implausible-values"><i class="fas fa-link"></i></a>
 </h2>
-<p>A crucial step of data screening is checking for implausible values. What is implausible depends on the data you've collected! <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> can also help you out here by looking at the minimum and maximum values.</p>
+<p>Along with looking for missing values, an additional crucial step of data screening is checking for implausible values - values that should not exist in your data. What is implausible depends on the data you've collected!</p>
+<div id="screening-a6" class="section level4" number="12.6.0.1">
+<h4>
+<span class="header-section-number">12.6.0.1</span> Activity 6: Implausible values<a class="anchor" aria-label="anchor" href="#screening-a6"><i class="fas fa-link"></i></a>
+</h4>
+<p>Additional functions we can put inside a <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> function are <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> and <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>.</p>
 <ul>
-<li><p>Run <code><a href="https://rdrr.io/r/base/summary.html">summary(messy)</a></code> again and look at the minimum and maximum values for each variable.</p></li>
-<li><p>Do the min and max values of <code>age</code> look plausible? <select class="webex-select"><option value="blank"></option>
+<li>Run the below code and look at the output and answer the questions below:</li>
+</ul>
+<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>max_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            min_age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">age</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            max_pre <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">pre</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            min_pre <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">pre</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            max_post <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">post</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            min_post <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">post</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            max_delay <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">delay</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
+            min_delay <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">delay</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">max_age</th>
+<th align="right">min_age</th>
+<th align="right">max_pre</th>
+<th align="right">min_pre</th>
+<th align="right">max_post</th>
+<th align="right">min_post</th>
+<th align="right">max_delay</th>
+<th align="right">min_delay</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">470</td>
+<td align="right">18</td>
+<td align="right">26</td>
+<td align="right">-5</td>
+<td align="right">40</td>
+<td align="right">3</td>
+<td align="right">29</td>
+<td align="right">-3</td>
+</tr></tbody>
+</table></div>
+</div>
+<ul>
+<li>Does the max value of <code>age</code> look plausible? <select class="webex-select"><option value="blank"></option>
 <option value="">Yes</option>
-<option value="answer">No</option></select></p></li>
-<li><p>Do the min and max values of <code>pre</code> look plausible? <select class="webex-select"><option value="blank"></option>
+<option value="answer">No</option></select>
+</li>
+<li>Does the max value of <code>pre</code> look plausible? <select class="webex-select"><option value="blank"></option>
 <option value="answer">Yes</option>
-<option value="">No</option></select></p></li>
-<li><p>Do the min and max values of <code>post</code> look plausible? <select class="webex-select"><option value="blank"></option>
+<option value="">No</option></select>
+</li>
+<li>Do the max value of <code>post</code> look plausible? <select class="webex-select"><option value="blank"></option>
 <option value="">Yes</option>
-<option value="answer">No</option></select></p></li>
-<li><p>Do the min and max values of <code>delay</code> look plausible? <select class="webex-select"><option value="blank"></option>
-<option value="answer">Yes</option>
-<option value="">No</option></select></p></li>
+<option value="answer">No</option></select>
+</li>
+<li>Do the min value of <code>delay</code> look plausible? <select class="webex-select"><option value="blank"></option>
+<option value="answer">No</option>
+<option value="">Yes</option></select>
+</li>
 </ul>
 <div class="webex-solution">
 <button>
@@ -279,14 +434,19 @@ Explain these answers
 <p>The maximum value for age is 470, this is unlikely to be correct!</p>
 <p>The maximum value for pre, post, and delay should be 30, as we described at the start of the chapter. However, for post, the maximum value is 33 so something is wrong. This is a very important check to do on your data, not just for the raw data but if you've calculated a total score.</p>
 </div>
+<p>That code above does look a bit long and could be written quicker as below. We won't go into detail as to how this works but see if you can figure it out by comparing the output to the version above:</p>
+<pre class="imps2"><code>messy %&gt;% 
+  summarise_at(c("age","pre","post","delay"),
+               c(max, min),
+               na.rm = TRUE)</code></pre>
+<p>And there is always <code><a href="https://rdrr.io/r/base/summary.html">summary(messy)</a></code> if you prefer. But the main point is that we should always check our values to make sure they are allowed in our data. But whilst looking at the values is useful, it can be easier to visualise the data.</p>
 </div>
-<div id="screening-a7" class="section level2" number="12.9">
-<h2>
-<span class="header-section-number">12.9</span> Activity 7: Visualising implausible values<a class="anchor" aria-label="anchor" href="#screening-a7"><i class="fas fa-link"></i></a>
-</h2>
-<p>Whilst <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> can be useful, another key step is to visualise the data to check for implausible values.</p>
-<p>How you do this will depend on the data, and your preferences. You could produce violin-boxplots with the data points on top to check the distributions</p>
-<div class="sourceCode" id="cb232"><pre class="downlit sourceCode r">
+<div id="screening-a7" class="section level4" number="12.6.0.2">
+<h4>
+<span class="header-section-number">12.6.0.2</span> Activity 7: Visualising implausible values<a class="anchor" aria-label="anchor" href="#screening-a7"><i class="fas fa-link"></i></a>
+</h4>
+<p>There are a number of different ways to visualise the data as you know and this depends on the data, and your preferences. You could produce violin-boxplots with the data points on top to check the distributions as follows:</p>
+<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pre"</span>, <span class="st">"post"</span>, <span class="st">"delay"</span><span class="op">)</span>, 
                names_to <span class="op">=</span> <span class="st">"test"</span>, 
@@ -296,22 +456,40 @@ Explain these answers
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="12-missing-data_files/figure-html/unnamed-chunk-4-1.png" alt="Data screening plots" width="100%"><p class="caption">
-Figure 7.5: Data screening plots
+<span style="display:block;" id="fig:fig1"></span>
+<img src="12-missing-data_files/figure-html/fig1-1.png" alt="Data screening plots" width="100%"><p class="caption">
+Figure 12.1: Data screening plots
 </p>
 </div>
-<p>You could also use histograms:</p>
-<div class="sourceCode" id="cb233"><pre class="downlit sourceCode r">
+<p>And if it helped you could add some max and min lines to help spot issues using <code>geom_hline()</code> as follows:</p>
+<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy</span> <span class="op">%&gt;%</span>
+  <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pre"</span>, <span class="st">"post"</span>, <span class="st">"delay"</span><span class="op">)</span>, 
+               names_to <span class="op">=</span> <span class="st">"test"</span>, 
+               values_to <span class="op">=</span> <span class="st">"score"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">test</span>, y <span class="op">=</span> <span class="va">score</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_jitter</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_hline</span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">40</span><span class="op">)</span>, color <span class="op">=</span> <span class="st">"red"</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:fig1a"></span>
+<img src="12-missing-data_files/figure-html/fig1a-1.png" alt="Data screening plots" width="100%"><p class="caption">
+Figure 12.2: Data screening plots
+</p>
+</div>
+<p>Alternatively you could also use a histogram to spot an outlier:</p>
+<div class="sourceCode" id="cb243"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">messy</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">age</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-5-1"></span>
-<img src="12-missing-data_files/figure-html/unnamed-chunk-5-1.png" alt="Histograms for data screening" width="100%"><p class="caption">
-Figure 12.1: Histograms for data screening
+<span style="display:block;" id="fig:fig2"></span>
+<img src="12-missing-data_files/figure-html/fig2-1.png" alt="Histogram of age for data screening" width="100%"><p class="caption">
+Figure 12.3: Histogram of age for data screening
 </p>
 </div>
-<div class="sourceCode" id="cb234"><pre class="downlit sourceCode r">
+<p>And we can make use of <code>facet_wrap()</code> which we have seen before to help split figures based on different conditions:</p>
+<div class="sourceCode" id="cb244"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"pre"</span>, <span class="st">"post"</span>, <span class="st">"delay"</span><span class="op">)</span>, 
                names_to <span class="op">=</span> <span class="st">"test"</span>, 
@@ -320,46 +498,70 @@ Figure 12.1: Histograms for data screening
   <span class="fu">geom_histogram</span><span class="op">(</span>binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">test</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-5-2"></span>
-<img src="12-missing-data_files/figure-html/unnamed-chunk-5-2.png" alt="Histograms for data screening" width="100%"><p class="caption">
-Figure 12.2: Histograms for data screening
+<span style="display:block;" id="fig:fig3"></span>
+<img src="12-missing-data_files/figure-html/fig3-1.png" alt="Histogram of the DVs for data screening" width="100%"><p class="caption">
+Figure 12.4: Histogram of the DVs for data screening
 </p>
 </div>
 <p>Whatever method you choose, make sure that you look at your data before trying to work with it and that you know in advance what range your values should take (for example, if your Likert scale is 1-7, you shouldn't have a score of 8, for reaction times, 50ms is unlikely to reflect a real response).</p>
 </div>
-<div id="dealing-with-implausible-values-or-missing-data" class="section level2" number="12.10">
+</div>
+<div id="dealing-with-implausible-values-or-missing-data" class="section level2" number="12.7">
 <h2>
-<span class="header-section-number">12.10</span> Dealing with implausible values or missing data<a class="anchor" aria-label="anchor" href="#dealing-with-implausible-values-or-missing-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.7</span> Dealing with implausible values or missing data<a class="anchor" aria-label="anchor" href="#dealing-with-implausible-values-or-missing-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>To remove implausible values you can use <code>replace</code> and <code>mutate</code>.</p>
+<p>Once we have spotted some implausible or missing values we then need to decide what to do with them. One way of dealing with these values is to use the <code><a href="https://rdrr.io/r/base/replace.html">replace()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> functions.</p>
 <ul>
 <li>For <code>age</code>, we know that we have one very specific data point that is implausible, an age of 470 so we can specify just to replace this one value with NA.</li>
 <li>For <code>post</code>, there are multiple missing values so we specify to replace any data point that is over the maximum plausible value (30) with NA.</li>
 </ul>
-<div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb245"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_screen</span> <span class="op">&lt;-</span>  <span class="va">messy</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>age <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/replace.html">replace</a></span><span class="op">(</span><span class="va">age</span>, <span class="va">age</span> <span class="op">==</span> <span class="fl">470</span>, <span class="cn">NA</span><span class="op">)</span>,
          post <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/replace.html">replace</a></span><span class="op">(</span><span class="va">post</span>, <span class="va">post</span> <span class="op">&gt;</span> <span class="fl">30</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>There is no hard and fast rule about what to do with missing data. You should review the missing data to see if there are any patterns, for example, is all the missing data from one condition? Does a single participant have a lot of missing data and should they be removed.</p>
-<p>One method of dealing with implausible data is to <strong>impute</strong> the data, i.e., to replace missing data with substituted values. There are many methods of doing this, for example, you can replace missing values with the mean. We won't go into which method you should choose this in this chapter but there's <a href="https://www.theanalysisfactor.com/seven-ways-to-make-up-data-common-methods-to-imputing-missing-data/">more information available</a> online about the various options if you're interested. The code for imputing missing data is relatively simple and uses <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code>replace_na()</code>.</p>
+<p>An alternative method for dealing with implausible data is to <a class="glossary" title="The replacement of missing values with a value such as the mean of the distribution">impute</a> the data, i.e., to replace missing data with substituted values. There are many methods of doing this, for example, you can replace missing values with the mean value of the distribution. We won't go into which method you should choose this in this chapter but there's <a href="https://www.theanalysisfactor.com/seven-ways-to-make-up-data-common-methods-to-imputing-missing-data/">more information available</a> online about the various options if you're interested. The code for imputing missing data is relatively simple and uses <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> and <code>replace_na()</code>.</p>
 <ul>
 <li>You can read the below code as "create a new variable named <code>post_impute</code> that replaces the values of <code>post</code> if they're <code>NA</code> with the mean of the values in <code>post</code>.</li>
 </ul>
-<div class="sourceCode" id="cb236"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb246"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">messy_impute</span> <span class="op">&lt;-</span> <span class="va">messy_screen</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>post_impute <span class="op">=</span> <span class="fu">replace_na</span><span class="op">(</span><span class="va">post</span>, 
                                   <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">post</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p>And if we look at a participant who had a NA for <code>post</code> we can see the change:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">id</th>
+<th align="right">age</th>
+<th align="left">speaker</th>
+<th align="left">gender</th>
+<th align="right">pre</th>
+<th align="right">post</th>
+<th align="right">delay</th>
+<th align="right">post_impute</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="left">S016</td>
+<td align="right">40</td>
+<td align="left">english</td>
+<td align="left">female</td>
+<td align="right">21</td>
+<td align="right">NA</td>
+<td align="right">12</td>
+<td align="right">16.71134</td>
+</tr></tbody>
+</table></div>
+<p>So you can see that they have been given the value of the mean of the distribution in this new variable and then can be used in different analyses!</p>
 </div>
-<div id="alternative-descriptive-statistics" class="section level2" number="12.11">
+<div id="alternative-function-for-descriptive-statistics" class="section level2" number="12.8">
 <h2>
-<span class="header-section-number">12.11</span> Alternative descriptive statistics<a class="anchor" aria-label="anchor" href="#alternative-descriptive-statistics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.8</span> Alternative function for descriptive statistics<a class="anchor" aria-label="anchor" href="#alternative-function-for-descriptive-statistics"><i class="fas fa-link"></i></a>
 </h2>
-<p>So far in this book, we've calculated descriptive statistics using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> from the tidyverse. There's a good reason we've done this - the output of <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> works well with <code>ggplot()</code> and the code is very flexible. However, there are other options for producing descriptive statistics that it is helpful to know about.</p>
-<p>The <code>psych</code> package contains many functions that are useful for psychology research. One of the functions of <code>psych</code> is <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code>.</p>
+<p>And before we end this chapter we wanted to just add a small section on an alternative function for calculating some useful descriptives that you can use to check your data. So far in this book, we've calculated descriptive statistics using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> from the <strong><code>tidyverse</code></strong>. There's a good reason we've done this - the output of <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> works well with <code>ggplot()</code> and the code is very flexible. However, it can be hard to calculate descriptives such as skew and kurtosis within <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> and it can be useful to know of other functions that help create these. For example, the <code>psych</code> package contains many functions that are useful for psychology research. One of the functions of <code>psych</code> is <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code>.</p>
 <ul>
-<li>Run the below code</li>
+<li>Run the below code and look at the output as shown below.</li>
 </ul>
-<div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb247"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">descriptives</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="va">messy</span><span class="op">)</span>
 <span class="va">descriptives</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
@@ -717,11 +919,9 @@ delay
 </tr>
 </tbody>
 </table></div>
-<p><code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> produces a full set of descriptive statistics, including skew, kurtosis and standard error for the entire dataset! Run <code><a href="https://rdrr.io/pkg/psych/man/describe.html">?describe</a></code> to see a full explanation of all the statistics it calculates.</p>
-<p>You may have noticed when you ran the code you received a number of error messages. This is because <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> doesn't know how to deal with the data that is in <code>id</code> which has both numbers and letters.</p>
-<p>Additionally, you should see that <code>id</code>, <code>speaker</code> and <code>gender</code> all have a star next to their name. This star signifies that these variables are factors, and so it is not really appropriate to calculate these statistics, but we asked it to apply <code>describe</code> to the entire dataset so it's done what you asked.</p>
-<p><code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> can be used in conjunction with <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to remove these variables.</p>
-<div class="sourceCode" id="cb238"><pre class="downlit sourceCode r">
+<p>As you can see <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> produces a full set of descriptive statistics, including skew, kurtosis and standard error for the entire dataset! Run <code><a href="https://rdrr.io/pkg/psych/man/describe.html">?describe</a></code> to see a full explanation of all the statistics it calculates.</p>
+<p>You may notice that <code>id</code>, <code>speaker</code> and <code>gender</code> all have a star next to their name. This star signifies that these variables are factors, and so it is not really appropriate to calculate these statistics, but we asked it to apply <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> to the entire dataset so it's done what you asked. However, we could <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code>with <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to remove these variables and just get the data we want:</p>
+<div class="sourceCode" id="cb248"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">descriptives2</span> <span class="op">&lt;-</span> <span class="va">messy</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">speaker</span>, <span class="op">-</span><span class="va">gender</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.html">describe</a></span><span class="op">(</span><span class="op">)</span>
@@ -950,90 +1150,71 @@ delay
 </tr>
 </tbody>
 </table></div>
-<p>A variant of <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> is <code>describeBy</code> which works very much like using <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> together.</p>
-<div class="sourceCode" id="cb239"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">descriptives3</span> <span class="op">&lt;-</span> <span class="va">messy</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">id</span>, <span class="op">-</span><span class="va">speaker</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/describe.by.html">describeBy</a></span><span class="op">(</span>group <span class="op">=</span> <span class="st">"gender"</span><span class="op">)</span>
-
-<span class="va">descriptives3</span></code></pre></div>
-<pre><code>## 
-##  Descriptive statistics by group 
-## gender: female
-##         vars  n  mean    sd median trimmed   mad min max range  skew kurtosis
-## age        1 84 38.10 48.64     31   32.96 11.86  18 470   452  8.32    71.04
-## gender*    2 84  1.00  0.00      1    1.00  0.00   1   1     0   NaN      NaN
-## pre        3 84 10.38  5.06      9   10.28  4.45  -1  23    24  0.24    -0.42
-## post       4 84 18.20  6.99     17   17.96  5.93   3  36    33  0.37    -0.08
-## delay      5 78 13.18  5.17     13   13.33  5.93  -3  24    27 -0.31     0.15
-##           se
-## age     5.31
-## gender* 0.00
-## pre     0.55
-## post    0.76
-## delay   0.59
-## ------------------------------------------------------------ 
-## gender: male
-##         vars  n  mean    sd median trimmed   mad min max range  skew kurtosis
-## age        1 68 34.96 10.03     35   35.09 14.83  18  50    32 -0.05    -1.30
-## gender*    2 68  2.00  0.00      2    2.00  0.00   2   2     0   NaN      NaN
-## pre        3 68 10.04  4.85     11   10.11  4.45  -5  26    31 -0.05     1.33
-## post       4 68 16.28  5.41     16   16.23  5.19   4  33    29  0.25     0.46
-## delay      5 59 14.02  5.07     14   14.04  4.45   1  29    28  0.04     0.62
-##           se
-## age     1.22
-## gender* 0.00
-## pre     0.59
-## post    0.66
-## delay   0.66
-## ------------------------------------------------------------ 
-## gender: nonbinary
-##         vars  n  mean   sd median trimmed   mad min max range  skew kurtosis
-## age        1 28 34.96 9.25   35.5   34.96 11.86  20  50    30 -0.03    -1.30
-## gender*    2 28  3.00 0.00    3.0    3.00  0.00   3   3     0   NaN      NaN
-## pre        3 28  9.29 5.36   10.0    9.54  4.45  -4  19    23 -0.48    -0.18
-## post       4 28 16.86 5.10   16.0   16.79  4.45   8  26    18  0.35    -0.85
-## delay      5 25 12.84 4.67   13.0   12.90  4.45   3  25    22  0.07     0.43
-##           se
-## age     1.75
-## gender* 0.00
-## pre     1.01
-## post    0.96
-## delay   0.93</code></pre>
-<p>If you look in the environment you will see that <code>descriptives3</code> is saved as a <code>List of 3</code>. What this means is that the table of descriptives for each gender is saved as a separate table, one for female, one for male, one for non-binary. To get access to them individually, you need to use the <code>object$variable</code> notation.</p>
-<div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">descriptives3</span><span class="op">$</span><span class="va">male</span>
-<span class="va">descriptives3</span><span class="op">$</span><span class="va">female</span>
-<span class="va">descriptives3</span><span class="op">$</span><span class="va">nonbinary</span></code></pre></div>
 <p>The output of <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> is a little harder to work with in terms of manipulating the table and using the data in subsequent plots and analyses, so we still strongly recommend that you use <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> and <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> for these operations, however, for getting a comprehensive overview of your data, <code><a href="https://rdrr.io/pkg/psych/man/describe.html">describe()</a></code> is a good function to know about.</p>
 </div>
-<div id="screening-fin" class="section level2" number="12.12">
+<div id="screening-fin" class="section level2" number="12.9">
 <h2>
-<span class="header-section-number">12.12</span> Finished!<a class="anchor" aria-label="anchor" href="#screening-fin"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.9</span> Finished!<a class="anchor" aria-label="anchor" href="#screening-fin"><i class="fas fa-link"></i></a>
 </h2>
-<p>And you're done! This isn't a comprehensive tutorial on every type of dataset you will come across and the concept of tidy data will take practice but hopefully this should give you a good starting point for when you have your own real, messy data.</p>
+<p>And you're done! Excellent work today! This isn't a comprehensive tutorial on every type of dataset you will come across and the concept of tidy data will take practice but hopefully this should give you a good starting point for when you have your own real, messy data.</p>
 </div>
-<div id="screening-sols" class="section level2" number="12.13">
+<div id="screening-sols" class="section level2" number="12.10">
 <h2>
-<span class="header-section-number">12.13</span> Activity solutions<a class="anchor" aria-label="anchor" href="#screening-sols"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.10</span> Activity solutions<a class="anchor" aria-label="anchor" href="#screening-sols"><i class="fas fa-link"></i></a>
 </h2>
-<div id="screening-a1sol" class="section level3" number="12.13.1">
+<div id="screening-a1sol" class="section level3" number="12.10.1">
 <h3>
-<span class="header-section-number">12.13.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#screening-a1sol"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.10.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#screening-a1sol"><i class="fas fa-link"></i></a>
 </h3>
-<div class="webex-solution">
-<button>
-Activity 1
-</button>
-<div class="sourceCode" id="cb242"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://tidyverse.tidyverse.org">"tidyverse"</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://personality-project.org/r/psych/">"psych"</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb249"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="va">messy</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"messy.csv"</span><span class="op">)</span></code></pre></div>
 </div>
-<p><strong>click the tab to see the solution</strong>
-<br></p>
-
 </div>
+<div id="words-from-this-chapter-11" class="section level2" number="12.11">
+<h2>
+<span class="header-section-number">12.11</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-11"><i class="fas fa-link"></i></a>
+</h2>
+<p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+term
+</th>
+<th style="text-align:left;">
+definition
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<a href="https://psyteachr.github.io/glossary/i.html#impute" class="glossary" target="_blank">impute</a>
+</td>
+<td style="text-align:left;">
+The replacement of missing values with a value such as the mean of the distribution
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://psyteachr.github.io/glossary/l.html#listwise" class="glossary" target="_blank">listwise</a>
+</td>
+<td style="text-align:left;">
+The removal of participants where they have missing data on any of the variables within the dataset
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<a href="https://psyteachr.github.io/glossary/p.html#pairwise" class="glossary" target="_blank">pairwise</a>
+</td>
+<td style="text-align:left;">
+The removal of participants for a given analysis only
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
+
 </div>
 </div>
 <script>
@@ -1241,21 +1422,19 @@ $( document ).ready(function() {
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#screening-data"><span class="header-section-number">12</span> Screening Data</a></li>
-<li><a class="nav-link" href="#screening-a1"><span class="header-section-number">12.1</span> Activity 1: Set-up</a></li>
-<li><a class="nav-link" href="#screening-a2"><span class="header-section-number">12.2</span> Activity 2: Look at the data</a></li>
-<li><a class="nav-link" href="#missing-data"><span class="header-section-number">12.3</span> Missing data</a></li>
-<li><a class="nav-link" href="#screening-a3"><span class="header-section-number">12.4</span> Activity 3: summary()</a></li>
-<li><a class="nav-link" href="#screening-a4"><span class="header-section-number">12.5</span> Activity 4: Listwise deletion</a></li>
-<li><a class="nav-link" href="#pairwise-deletion"><span class="header-section-number">12.6</span> Pairwise deletion</a></li>
-<li><a class="nav-link" href="#screening-a5"><span class="header-section-number">12.7</span> Activity 5: na.rm = TRUE</a></li>
-<li><a class="nav-link" href="#screening-a6"><span class="header-section-number">12.8</span> Activity 6: Implausible values</a></li>
-<li><a class="nav-link" href="#screening-a7"><span class="header-section-number">12.9</span> Activity 7: Visualising implausible values</a></li>
-<li><a class="nav-link" href="#dealing-with-implausible-values-or-missing-data"><span class="header-section-number">12.10</span> Dealing with implausible values or missing data</a></li>
-<li><a class="nav-link" href="#alternative-descriptive-statistics"><span class="header-section-number">12.11</span> Alternative descriptive statistics</a></li>
-<li><a class="nav-link" href="#screening-fin"><span class="header-section-number">12.12</span> Finished!</a></li>
+<li><a class="nav-link" href="#the-set-up-and-the-data"><span class="header-section-number">12.1</span> The Set-Up and the Data</a></li>
+<li><a class="nav-link" href="#missing-data"><span class="header-section-number">12.2</span> Missing data</a></li>
+<li><a class="nav-link" href="#listwise-deletion"><span class="header-section-number">12.3</span> Listwise Deletion</a></li>
+<li><a class="nav-link" href="#pairwise-deletion"><span class="header-section-number">12.4</span> Pairwise Deletion</a></li>
+<li><a class="nav-link" href="#summarising-data-with-missing-values"><span class="header-section-number">12.5</span> Summarising data with missing values</a></li>
+<li><a class="nav-link" href="#implausible-values"><span class="header-section-number">12.6</span> Implausible values</a></li>
+<li><a class="nav-link" href="#dealing-with-implausible-values-or-missing-data"><span class="header-section-number">12.7</span> Dealing with implausible values or missing data</a></li>
+<li><a class="nav-link" href="#alternative-function-for-descriptive-statistics"><span class="header-section-number">12.8</span> Alternative function for descriptive statistics</a></li>
+<li><a class="nav-link" href="#screening-fin"><span class="header-section-number">12.9</span> Finished!</a></li>
 <li>
-<a class="nav-link" href="#screening-sols"><span class="header-section-number">12.13</span> Activity solutions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#screening-a1sol"><span class="header-section-number">12.13.1</span> Activity 1</a></li></ul>
+<a class="nav-link" href="#screening-sols"><span class="header-section-number">12.10</span> Activity solutions</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#screening-a1sol"><span class="header-section-number">12.10.1</span> Activity 1</a></li></ul>
 </li>
+<li><a class="nav-link" href="#words-from-this-chapter-11"><span class="header-section-number">12.11</span> Words from this Chapter</a></li>
 </ul>
 
       <div class="book-extra">
@@ -1273,7 +1452,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-11.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
