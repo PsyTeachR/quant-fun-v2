@@ -27,7 +27,7 @@ messy <- read_csv("messy.csv")
 
 #### Activity 2: Look at the data {#screening-a2}
 
-`messy` is simulated data for an experiment looking at the effect of note-taking on test performance and whether this is affected by being first language English. Participants are first given a pre-test to judge their baseline knowledge, then they watch a lecture and take notes. Immediately after the lecture is finished they take another test. Finally, they are tested after a week delay. The maximum score for any test is 30. Participants lose marks for incorrect answers so minus scores are also possible. The dataset has six variables:
+`messy` is simulated data for an experiment looking at the effect of note-taking on test performance and whether this is affected by being first language English. Participants are first given a pre-test to judge their baseline knowledge, then they watch a lecture and take notes. Immediately after the lecture is finished they take another test. Finally, they are tested after a week's delay. The maximum score for any test is 30. Participants lose marks for incorrect answers so minus scores are also possible. The dataset has six variables:
 
   * `id` showing the participant ID number
   * `age` showing the age of the participant
@@ -61,7 +61,7 @@ messy_na <- messy %>%
   pluck("count_nas")
 ```
 
-Which reads as use `is.na()` to find all the NAs in messy (i.e the first `summarise()`) and then count up all those NAs (i.e. the second `summarise()` - which works because NAs are either TRUE, summed as 1, or FALSE, summed as 0), and then pluck out that number (i.e. the `pluck()`). And if you look at `messy_na` you see there are `r messy_na` NAs in `speaker`. That code looks quite long but it could actually be written as below if you prefer and can follow the pipe inside the `summarise()`.
+Which reads as use `is.na()` to find all the NAs in messy (i.e the first `summarise()`) and then count up all those NAs (i.e. the second `summarise()` - which works because NAs are either TRUE, summed as 1, or FALSE, summed as 0), and then pluck out that number (i.e. the `pluck()`). And if you look at `messy_na` you see there are `r messy_na` NAs in `speaker`. That code looks quite long but it could actually be written as below if you prefer and you can follow the pipe inside the `summarise()`.
 
 ```{r isna2}
 messy_na <- messy %>% 
@@ -69,7 +69,7 @@ messy_na <- messy %>%
   pluck("count_nas")
 ```
 
-And this code, using `is.na()`, is a good approach if you are only interested in one column or maybe a couple of columns, but if you want a snapshot of all your columns then we can use `summary()` which we saw previously. First, however, because `speaker` and `gender` are character/text rather than numerical, in order to see how many values are missing we first need to convert these two columns into factors using the below code
+This approach, using `is.na()`, is a good approach if you are only interested in one column or maybe a couple of columns, but if you want a snapshot of all your columns then we can use `summary()` which we have seen previously. First, however, because `speaker` and `gender` are character/text rather than numerical, in order to see how many values are missing we first need to convert these two columns into factors using the below code
 
 ```{r summary, results='hide'}
 messy <- messy %>%
@@ -83,7 +83,7 @@ If you run the code, you can see, there are 20 data points missing (NAs) in each
 
 ## Listwise Deletion
 
-One method for dealing with missing data is `r glossary("listwise", display = "listwise deletion", def = "The removal of participants where they have missing data on any of the variables within the dataset", link = FALSE)`. This approach removes any participant who has a single missing value (i.e. a NA) in any variable. So if there is missing data in any of the columns in the dataset, that participant will be removed and you will only be left with participants with complete datasets. For example the below participants would be removed along with all others with a similar profile:
+One method for dealing with missing data is `r glossary("listwise", display = "listwise deletion", def = "The removal of participants where they have missing data on any of the variables within the dataset", link = FALSE)`. This approach removes any participant who have a missing value (i.e. a NA) in **any** variable. So if there is missing data in any of the columns in the dataset, that participant will be removed and you will only be left with participants with complete datasets. For example the below participants would be removed along with all others with a similar profile:
 
 ```{r removes, echo = FALSE}
 messy %>%
@@ -92,7 +92,7 @@ messy %>%
   knitr::kable(align = "c")
 ```
 
-We can achieve this using the `drop_na()` from the **`tidyr`** package that comes in as part of `tidyverse`.
+We can achieve this using the `drop_na()` function from the **`tidyr`** package that comes in as part of `tidyverse`.
 
 #### Activity 4: Listwise deletion {#screening-a4}
 
@@ -106,11 +106,11 @@ As you can see `messy_listwise` now only contains data from participants with a 
 
 Now, however, whilst this might seem like a good thing, and sometimes it is the most appropriate option, there are a couple of important points to consider. 
 
-1. First, `gender` might not be part of our experiment; it might just be there as demographic information. So whilst we wouldn't include `gender` in any of our analyses, because of the listwise deletion approach we have deleted experimental data if the participant was missing `gender` which means we are removing participants we could actual use. 
-2. Relatedly, using a listwise deletion approach may result in the loss of a lot of data. Compare `messy` to `messy_listwise`. The original dataset had 200 participants. After using `drop_na()` we only have 143 meaning that we have lost over 25% of our data with this approach which is a lot of data. 
+1. First, `gender` might not be part of our experiment; it might just be there as demographic information. So whilst we might not include `gender` in any of our analyses, because of the listwise deletion approach we have deleted experimental data if the participant was missing `gender` which means we are removing participants we could actual use. 
+2. Relatedly, using a listwise deletion approach may result in the loss of a lot of data. Compare `messy` to `messy_listwise`. The original dataset had 200 participants. After using `drop_na()` we only have 143 participants meaning that we have lost over 25% of our data with this approach which is a lot of data. 
 * **Note:** It is worth mentioning that if you do use a listwise approach you should check that the missing values are not coming from one particular group (i.e., non-random attrition).
 
-To counter these issues, one option is to amend the use of `drop_na()` so that it doesn't include `gender`, or column for that matter that we don't want to exclude people based on. We can do this using a similar approach to what we have seen when using `select()`. For example, run the below code, have a look at the output and then answer the question:
+To counter these issues, one option is to amend the use of `drop_na()` so that it doesn't include `gender`, or any column for that matter that we don't want to exclude people based on. We can do this using a similar approach to what we have seen when using `select()`. For example, run the below code, have a look at the output and then answer the question:
 
 ```{r drop_na2}
 messy_listwise2 <- drop_na(messy, -gender)
@@ -118,7 +118,7 @@ messy_listwise2 <- drop_na(messy, -gender)
 
 * How many observations does `messy_listwise2` have? `r fitb("161")`
 
-So that approach says "remove participants with NAs from messy based on all columns **except** gender". Alternatively, you could do "remove participants with NAs from messy based on only the columns of speaker and delay" as follows:
+So that approach says "remove participants with NAs from `messy` based on all columns **except** gender". Alternatively, you could do "remove participants with NAs from `messy` based on only the columns of speaker and delay" as follows:
 
 ```{r drop_na3}
 messy_listwise3 <- drop_na(messy, speaker, delay)
@@ -128,7 +128,7 @@ So you actually have a lot of control with `drop_na()` as long as you plan your 
 
 ## Pairwise Deletion
 
-The alternative to listwise deletion is `r glossary("pairwise", display = "pairwise deletion", def = "The removal of participants for a given analysis only", link = FALSE)`. This is when cases are removed depending upon the analysis. For example, if we were to calculate the correlations between `pre`, `post`, and `delay` without removing participants with missing data in the `delay` condition, we would basically just use different numbers of participants in each correlation depending on missing data. For example, if you compare the degrees of freedom for the following two correlations:
+The alternative to listwise deletion is `r glossary("pairwise", display = "pairwise deletion", def = "The removal of participants for a given analysis only", link = FALSE)`. This is when cases are removed depending upon the analysis. For example, if we were to calculate the correlations between `pre`, `post`, and `delay` without first removing participants with missing data, we would basically just use different numbers of participants in each correlation depending on missing data. For example, if you compare the degrees of freedom for the following two correlations:
 
 ```{r corr1}
 cor.test(messy$pre, messy$post)
@@ -161,7 +161,7 @@ summarise(messy,
           )
 ```
 
-Which gives a table similar to below. We have rounded all the values to two decimal places but yours might have more decimal places.
+This gives a table similar to below. We have rounded all the values to two decimal places but yours might have more decimal places.
 
 ```{r na.rm2, echo=FALSE}
 summarise(messy, 
@@ -172,7 +172,7 @@ summarise(messy,
   knitr::kable(digits = 2, align = "c")
 ```
 
-As you can see, the mean score for `delay` shows as `NA`. This is because we are trying to calculate an average of the variable that has missing data and that just isn't doable. As such we need to calculate the mean but ignoring the missing values by adding `na.rm = TRUE` - which you can read this as "remove the NAs? Yes".
+As you can see, the mean score for `delay` shows as `NA`. This is because we are trying to calculate an average of a variable that has missing data and that just isn't doable. As such we need to calculate the mean but ignoring the missing values by adding `na.rm = TRUE` - which you can read this as "remove the NAs? Yes".
 
 * Run the below code and then answer the question. 
 
@@ -216,7 +216,7 @@ messy %>%
 * Does the max value of `age` look plausible? `r mcq(c("Yes", answer = "No"))`
 * Does the max value of `pre` look plausible? `r mcq(c(answer = "Yes", "No"))`
 * Do the max value of `post` look plausible? `r mcq(c("Yes", answer = "No"))`
-* Do the min value of `delay` look plausible? `r mcq(c(answer = "No", "Yes"))`
+* Do the min value of `delay` look plausible? `r mcq(c("No", answer = "Yes"))`
 
 `r hide("Explain these answers")`
 ```{block}
@@ -252,7 +252,7 @@ messy %>%
   geom_jitter(width = .2)
 ```
 
-And if it helped you could add some max and min lines to help spot issues using `geom_hline()` as follows:
+And if it helped, you could add some max and min lines to help spot issues using `geom_hline()` as follows:
 
 ```{r fig1a, fig.cap="Data screening plots", warning = FALSE, message = FALSE}
 messy %>%
@@ -289,7 +289,9 @@ Whatever method you choose, make sure that you look at your data before trying t
 
 ## Dealing with implausible values or missing data
 
-Once we have spotted some implausible or missing values we then need to decide what to do with them. One way of dealing with these values is to use the `replace()` and `mutate()` functions.
+Once we have spotted some implausible or missing values we then need to decide what to do with them. However, there is no hard and fast rule about what to do with missing data. You should review the missing data to see if there are any patterns, for example, is all the missing data from one condition? A pattern may indicate a problem with your design. Alternatively, does a single participant have a lot of missing data and should they be removed? This might indicate they were not paying attention.
+
+One way of dealing with implausible values is to use the `replace()` and `mutate()` functions to change such values to Na.
 
 * For `age`, we know that we have one very specific data point that is implausible, an age of 470 so we can specify just to replace this one value with NA.
 * For `post`, there are multiple missing values so we specify to replace any data point that is over the maximum plausible value (30) with NA.
@@ -299,8 +301,6 @@ messy_screen <-  messy %>%
   mutate(age = replace(age, age == 470, NA),
          post = replace(post, post > 30, NA))
 ```
-
-There is no hard and fast rule about what to do with missing data. You should review the missing data to see if there are any patterns, for example, is all the missing data from one condition? Does a single participant have a lot of missing data and should they be removed.
 
 An alternative method for dealing with implausible data is to `r glossary("impute", def = "The replacement of missing values with a value such as the mean of the distribution", link = FALSE)` the data, i.e., to replace missing data with substituted values. There are many methods of doing this, for example, you can replace missing values with the mean value of the distribution. We won't go into which method you should choose this in this chapter but there's [more information available](https://www.theanalysisfactor.com/seven-ways-to-make-up-data-common-methods-to-imputing-missing-data/) online about the various options if you're interested. The code for imputing missing data is relatively simple and uses `mutate()` and `replace_na()`.
 
@@ -324,7 +324,7 @@ So you can see that they have been given the value of the mean of the distributi
 
 ## Alternative function for descriptive statistics
 
-And before we end this chapter we wanted to just add a small section on an alternative function for calculating some useful descriptives that you can use to check your data. So far in this book, we've calculated descriptive statistics using `summarise()` from the **`tidyverse`**. There's a good reason we've done this - the output of `summarise()` works well with `ggplot()` and the code is very flexible. However, it can be hard to calculate descriptives such as skew and kurtosis within `summarise()` and it can be useful to know of other functions that help create these. For example, the `psych` package contains many functions that are useful for psychology research. One of the functions of `psych` is `describe()`.
+And before we end this chapter we wanted to just add a small section on an alternative function for calculating some useful descriptives that you can use to check your data. So far in this book, we've calculated descriptive statistics using `summarise()` from the **`tidyverse`**. There's a good reason we've done this - the output of `summarise()` works well with `ggplot()` and the code is very flexible. However, it can be hard to calculate descriptives such as skew and kurtosis within `summarise()` and it can be useful to know of other functions that help create these descriptives. For example, the `psych` package contains many functions that are useful for psychology research. One of the functions of `psych` is `describe()`.
 
 * Run the below code and look at the output as shown below.
 
