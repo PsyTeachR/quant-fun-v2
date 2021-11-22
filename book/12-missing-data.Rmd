@@ -228,7 +228,7 @@ The maximum value for pre, post, and delay should be 30, as we described at the 
 
 That code above does look a bit long and could be written quicker as below. We won't go into detail as to how this works but see if you can figure it out by comparing the output to the version above:
 
-```{imps2}
+```{r imps2}
 messy %>% 
   summarise_at(c("age","pre","post","delay"),
                c(max, min),
