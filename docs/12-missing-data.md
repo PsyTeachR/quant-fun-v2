@@ -267,12 +267,20 @@ The maximum value for pre, post, and delay should be 30, as we described at the 
 That code above does look a bit long and could be written quicker as below. We won't go into detail as to how this works but see if you can figure it out by comparing the output to the version above:
 
 
-```imps2
+```r
 messy %>% 
   summarise_at(c("age","pre","post","delay"),
                c(max, min),
                na.rm = TRUE)
 ```
+
+<div class="kable-table">
+
+| age_fn1| pre_fn1| post_fn1| delay_fn1| age_fn2| pre_fn2| post_fn2| delay_fn2|
+|-------:|-------:|--------:|---------:|-------:|-------:|--------:|---------:|
+|     470|      26|       40|        29|      18|      -5|        3|        -3|
+
+</div>
 
 And there is always `summary(messy)` if you prefer. But the main point is that we should always check our values to make sure they are allowed in our data. But whilst looking at the values is useful, it can be easier to visualise the data.
 

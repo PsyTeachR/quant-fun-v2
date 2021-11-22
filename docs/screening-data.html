@@ -435,10 +435,35 @@ Explain these answers
 <p>The maximum value for pre, post, and delay should be 30, as we described at the start of the chapter. However, for post, the maximum value is 33 so something is wrong. This is a very important check to do on your data, not just for the raw data but if you've calculated a total score.</p>
 </div>
 <p>That code above does look a bit long and could be written quicker as below. We won't go into detail as to how this works but see if you can figure it out by comparing the output to the version above:</p>
-<pre class="imps2"><code>messy %&gt;% 
-  summarise_at(c("age","pre","post","delay"),
-               c(max, min),
-               na.rm = TRUE)</code></pre>
+<div class="sourceCode" id="cb240"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">messy</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html">summarise_at</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"age"</span>,<span class="st">"pre"</span>,<span class="st">"post"</span>,<span class="st">"delay"</span><span class="op">)</span>,
+               <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">max</span>, <span class="va">min</span><span class="op">)</span>,
+               na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<div class="kable-table">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">age_fn1</th>
+<th align="right">pre_fn1</th>
+<th align="right">post_fn1</th>
+<th align="right">delay_fn1</th>
+<th align="right">age_fn2</th>
+<th align="right">pre_fn2</th>
+<th align="right">post_fn2</th>
+<th align="right">delay_fn2</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td align="right">470</td>
+<td align="right">26</td>
+<td align="right">40</td>
+<td align="right">29</td>
+<td align="right">18</td>
+<td align="right">-5</td>
+<td align="right">3</td>
+<td align="right">-3</td>
+</tr></tbody>
+</table></div>
+</div>
 <p>And there is always <code><a href="https://rdrr.io/r/base/summary.html">summary(messy)</a></code> if you prefer. But the main point is that we should always check our values to make sure they are allowed in our data. But whilst looking at the values is useful, it can be easier to visualise the data.</p>
 </div>
 <div id="screening-a7" class="section level4" number="12.6.0.2">
