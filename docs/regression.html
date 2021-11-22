@@ -332,7 +332,7 @@ Explain these answers
 <li>If you get the error message <code>Failed with error:  ‘there is no package called ‘qqplotr’’</code>, install the package <code>qqplotr</code>, you don't need to load it using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, but <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> uses it in the background.</li>
 </ul>
 <div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">check_model</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <img src="16-regression_files/figure-html/check_model-1.png" alt="Visual assumption checks" width="100%"><p class="caption">
 (#fig:check_model)Visual assumption checks
@@ -342,7 +342,7 @@ Explain these answers
 <p>As we've already noted, it's good to visualise your assumption checks because just relying on statistics can be problematic, as they can be sensitive to small or large sample sizes. However, it can also be reassuring to have a statistical test to back up your intuitions from the plot.</p>
 <p>For Assumption 6, normality of residuals, the plot does suggest that the residuals might not be normal, so we can check this with <code><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality()</a></code> which runs a Shapiro-Wilk test.</p>
 <div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">check_normality</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Non-normality of residuals detected (p = 0.008).</code></pre>
 <p>The result confirms that the residuals are not normally distributed, something that is likely being exacerbated by the relatively small sample size. If you're feeling confident, you can see how we might resolve this below, but for the core aims of this chapter we'll conclude that it's because of the sample and continue.</p>
 <div class="webex-solution">
@@ -369,8 +369,8 @@ Transforming the data to correct for non-normality
 <p>You'll notice that the histogram for the transformed variable still doesn't look amazing, but remember it's the residuals, not the raw data that matters. If we re-run the regression with the transformed data and then check the model again, things are looking much better.</p>
 <div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mod_transformed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">n_weeks_transformed</span> <span class="op">~</span> <span class="va">mean_anxiety</span>, <span class="va">joined</span><span class="op">)</span>
-<span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span>
-<span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span></code></pre></div>
+<span class="fu">check_normality</span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span>
+<span class="fu">check_model</span><span class="op">(</span><span class="va">mod_transformed</span><span class="op">)</span></code></pre></div>
 <div class="inline-figure"><img src="16-regression_files/figure-html/unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;"></div>
 <pre><code>## OK: residuals appear as normally distributed (p = 0.107).</code></pre>
 <p>It's worth saying at this point that which transformation you use, and whether it works, can be a bit of trial-and-error.</p>
@@ -378,7 +378,7 @@ Transforming the data to correct for non-normality
 <p><br></p>
 <p>For homoscedasticity, the plot looks mostly fine, but we can double check this with <code><a href="https://easystats.github.io/performance/reference/check_heteroscedasticity.html">check_heteroscedasticity()</a></code> and the result confirms that the data have met this assumption.</p>
 <div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_heteroscedasticity.html">check_heteroscedasticity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">check_heteroscedasticity</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## OK: Error variance appears to be homoscedastic (p = 0.542).</code></pre>
 </div>
 <div id="regression-a9" class="section level2" number="16.9">
@@ -773,7 +773,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-20.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
