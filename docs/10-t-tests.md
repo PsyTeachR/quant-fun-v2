@@ -157,7 +157,7 @@ ggplot(aes(x = condition, y = Rating)) +
   geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal")  +
   labs(x = "Condition", y = "Rating Score") +
-  geom_jitter()
+  geom_jitter(height = .1, width = .2)
 ```
 
 The first part of the code uses a pipe to filter the data to just the intellect rating:
@@ -170,9 +170,28 @@ The main parts of the code to create the violin-boxplot above are:
 * ggplot() which creates our base layer and sets our data and our x and y axes.
 * `geom_violin()` which creates the density plot. The reason it is called a violin plot is because if your data are normally distributed it should look something like a violin.  
 * `geom_boxplot()` which creates the boxplot, showing the median and inter-quartile range (see [here](https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51){target="_blank"} if you would like more information). The boxplot can also give you a good idea if the data are skewed - the median line should be in the middle of the box. The more the median is moved towards one of th extremities of the box, the more your data is likely to be skewed.  
+* `geom_jitter()` can be used to show individual data points in your dataset and you can change the width and height of the jitter. Note that this uses a randomised method to display the points so you will get a different output each time you run it.
 * And finally, we will use `stat_summary()` for displaying the mean and confidence intervals. Within this function, `fun.data` specifies the a summary function that gives us the summary of the data we want to plot, in this case, `mean_cl_normal` which will calculate the mean plus the upper and lower confidence interval limits. You could also specify `mean_se` here if you wanted standard error. Finally, `geom` specifies what shape or plot we want to use to display the summary, in this case we want a `pointrange` (literally a point (the mean) with a range (the CI)).
 
 The figure will look like this:
+
+<div class="figure" style="text-align: center">
+<img src="10-t-tests_files/figure-html/plot1a-1.png" alt="Violin-boxplot of the evaluator data" width="100%" />
+<p class="caption">(\#fig:plot1a)Violin-boxplot of the evaluator data</p>
+</div>
+
+An alternative version would be this shown below. Perhaps compare the two codes and see if you can see what makes the differences:
+
+
+```r
+ratings2 %>%
+  filter(Category == "intellect") %>%
+ggplot(aes(x = condition, y = Rating)) +
+  geom_violin(trim = FALSE) +
+  geom_boxplot(aes(fill = condition), width = .2, show.legend = FALSE) + 
+  stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") +
+  labs(x = "Condition", y = "Rating Score")
+```
 
 <div class="figure" style="text-align: center">
 <img src="10-t-tests_files/figure-html/plot2-1.png" alt="Violin-boxplot of the evaluator data" width="100%" />

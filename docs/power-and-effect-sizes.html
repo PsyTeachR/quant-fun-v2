@@ -350,8 +350,8 @@ Helpful hint
 <ul>
 <li>Run the below code:</li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
+<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
            power <span class="op">=</span> <span class="fl">.8</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
@@ -364,8 +364,8 @@ Helpful hint
 <li>
 <code><a href="https://rdrr.io/r/base/Round.html">ceiling()</a></code> rounds up to give us the next highest whole number</li>
 </ul>
-<div class="sourceCode" id="cb210"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
+<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.4</span>,
            power <span class="op">=</span> <span class="fl">.8</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span>,
@@ -437,8 +437,8 @@ Helpful hint
 <li>note that there is no <code>type</code> argument in this function because it has to be two samples.</li>
 </ul>
 <p>Assuming <span class="math inline">\(\alpha = .05\)</span>, Power = .8, and it is a two-tailed test, you would do:</p>
-<div class="sourceCode" id="cb211"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t2n.test</span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">25</span>,
+<div class="sourceCode" id="cb212"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t2n.test.html">pwr.t2n.test</a></span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">25</span>,
              n2 <span class="op">=</span> <span class="fl">30</span>,
              power <span class="op">=</span> <span class="fl">.8</span>,
              sig.level <span class="op">=</span> <span class="fl">.05</span>,
@@ -497,8 +497,8 @@ Answer the following questions to check your answers. The solutions are at the b
 <option value="">large</option></select></p></li>
 <li>
 <p>Say you run the study and find that the effect size determined is d = 0.24. Given what you know about power, select the statement that is true:</p>
-<div id="radio_PRCNXQUJNF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PRCNXQUJNF" value=""><span>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24</span></label><label><input type="radio" autocomplete="off" name="radio_PRCNXQUJNF" value="answer"><span>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34</span></label>
+<div id="radio_EUAKFWGTMZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EUAKFWGTMZ" value=""><span>the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.24</span></label><label><input type="radio" autocomplete="off" name="radio_EUAKFWGTMZ" value="answer"><span>the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.34</span></label>
 </div>
 </li>
 </ul>
@@ -550,8 +550,8 @@ Helpful hint
 </h2>
 <ol style="list-style-type: decimal">
 <li>Assuming you were running a between-subjects t-test on secondary data (<span class="math inline">\(\alpha = .05\)</span>, Power = .8, alternative = two-tailed) and that this secondary data has 100 participants in both groups. The smallest effect size, to three decimal places, you could determine with this data is:
-<div id="radio_KVYXRLTHLX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KVYXRLTHLX" value="answer"><span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_KVYXRLTHLX" value=""><span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_KVYXRLTHLX" value=""><span>d = 0.280</span></label><label><input type="radio" autocomplete="off" name="radio_KVYXRLTHLX" value=""><span>d = 0.281</span></label>
+<div id="radio_AVCNPWSJCB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AVCNPWSJCB" value=""><span>d = 0.280</span></label><label><input type="radio" autocomplete="off" name="radio_AVCNPWSJCB" value="answer"><span>d = 0.398</span></label><label><input type="radio" autocomplete="off" name="radio_AVCNPWSJCB" value=""><span>d = 0.399</span></label><label><input type="radio" autocomplete="off" name="radio_AVCNPWSJCB" value=""><span>d = 0.281</span></label>
 </div>
 </li>
 </ol>
@@ -560,8 +560,8 @@ Helpful hint
 Solution
 </button>
 <p>The code for this test would be:</p>
-<div class="sourceCode" id="cb213"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t.test</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, 
+<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">100</span>, 
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>,
            type <span class="op">=</span> <span class="st">"two.sample"</span>,
@@ -574,8 +574,8 @@ Solution
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Assuming you were running a between-subjects t-test on secondary data (<span class="math inline">\(\alpha = .05\)</span>, Power = .8, alternative = two-tailed) and that this secondary data has 60 participants in Group 1 and 40 participants in Group 2. The smallest effect size, to three decimal places, you could determine with this data is:
-<div id="radio_CMYHCOWZMS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CMYHCOWZMS" value=""><span>r = .577</span></label><label><input type="radio" autocomplete="off" name="radio_CMYHCOWZMS" value=""><span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_CMYHCOWZMS" value="answer"><span>d = 0.578</span></label><label><input type="radio" autocomplete="off" name="radio_CMYHCOWZMS" value=""><span>r = .578</span></label>
+<div id="radio_GTXBCVBDUB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GTXBCVBDUB" value="answer"><span>d = 0.578</span></label><label><input type="radio" autocomplete="off" name="radio_GTXBCVBDUB" value=""><span>r = .578</span></label><label><input type="radio" autocomplete="off" name="radio_GTXBCVBDUB" value=""><span>d = 0.577</span></label><label><input type="radio" autocomplete="off" name="radio_GTXBCVBDUB" value=""><span>r = .577</span></label>
 </div>
 </li>
 </ol>
@@ -584,8 +584,8 @@ Solution
 Solution
 </button>
 <p>The code for this test would be:</p>
-<div class="sourceCode" id="cb214"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.t2n.test</span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">60</span>,
+<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t2n.test.html">pwr.t2n.test</a></span><span class="op">(</span>n1 <span class="op">=</span> <span class="fl">60</span>,
            n2 <span class="op">=</span> <span class="fl">40</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>,
@@ -598,8 +598,8 @@ Solution
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Assuming you ran a correlation on secondary data (<span class="math inline">\(\alpha = .05\)</span>, Power = .8, alternative = two-tailed) and that this secondary data has 50 observations. The smallest effect size, to three decimal places, you could determine with this data is:
-<div id="radio_PGNCDSYINJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PGNCDSYINJ" value=""><span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_PGNCDSYINJ" value="answer"><span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_PGNCDSYINJ" value=""><span>r = .275</span></label><label><input type="radio" autocomplete="off" name="radio_PGNCDSYINJ" value=""><span>r = .385</span></label>
+<div id="radio_ZDRYHFCOJS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZDRYHFCOJS" value=""><span>r = .276</span></label><label><input type="radio" autocomplete="off" name="radio_ZDRYHFCOJS" value=""><span>r = .275</span></label><label><input type="radio" autocomplete="off" name="radio_ZDRYHFCOJS" value="answer"><span>r = .384</span></label><label><input type="radio" autocomplete="off" name="radio_ZDRYHFCOJS" value=""><span>r = .385</span></label>
 </div>
 </li>
 </ol>
@@ -608,8 +608,8 @@ Solution
 Solution
 </button>
 <p>The code for this test would be:</p>
-<div class="sourceCode" id="cb215"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">pwr.r.test</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
+<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>,
            alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -629,7 +629,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#power-a1sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb216"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heliosdrm/pwr">pwr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
@@ -638,7 +638,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#power-a2sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb217"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="fl">3.24</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">25</span> <span class="op">+</span><span class="fl">1</span><span class="op">)</span>
 
 <span class="co"># effect is medium to large; d = .64</span></code></pre></div>
@@ -647,7 +647,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.3</span> Activity 3<a class="anchor" aria-label="anchor" href="#power-a3sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb218"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">d</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="fl">2.9</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span>
 
 <span class="co"># effect is large; d = 1.06</span></code></pre></div>
@@ -656,7 +656,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.4</span> Activity 4<a class="anchor" aria-label="anchor" href="#power-a4sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb219"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t</span> <span class="op">=</span> <span class="op">(</span><span class="fl">10</span> <span class="op">-</span> <span class="fl">11</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1.3</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">30</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1.7</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">30</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">d</span> <span class="op">=</span> <span class="op">(</span><span class="fl">2</span><span class="op">*</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">(</span><span class="fl">30</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">30</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -670,7 +670,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.5</span> Activity 6<a class="anchor" aria-label="anchor" href="#power-a6sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb220"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_size_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>d <span class="op">=</span> <span class="fl">.23</span>,
                             power <span class="op">=</span> <span class="fl">.8</span>, 
                             sig.level <span class="op">=</span> <span class="fl">.05</span>, 
@@ -684,7 +684,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.6</span> Activity 7<a class="anchor" aria-label="anchor" href="#power-a7sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
            power <span class="op">=</span> <span class="fl">.9</span>, 
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
@@ -698,7 +698,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.7</span> Activity 8<a class="anchor" aria-label="anchor" href="#power-a8sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb222"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_size_r</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>r <span class="op">=</span> <span class="fl">.4</span>, 
                             sig.level <span class="op">=</span> <span class="fl">.05</span>, 
                             power <span class="op">=</span> <span class="fl">.8</span>, 
@@ -710,7 +710,7 @@ Solution
 <h4>
 <span class="header-section-number">11.6.0.8</span> Activity 9<a class="anchor" aria-label="anchor" href="#power-a9sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb223"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.r.test.html">pwr.r.test</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">50</span>,
            sig.level <span class="op">=</span> <span class="fl">.05</span>, 
            power <span class="op">=</span> <span class="fl">.8</span>, 
@@ -724,7 +724,7 @@ Solution
 <span class="header-section-number">11.6.0.9</span> Activity 10<a class="anchor" aria-label="anchor" href="#power-a10sol"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Achievable Cohen d for Example 1</strong></p>
-<div class="sourceCode" id="cb224"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>power <span class="op">=</span> <span class="fl">.8</span>, 
            n <span class="op">=</span> <span class="fl">32</span>, 
            type <span class="op">=</span> <span class="st">"one.sample"</span>, 
@@ -738,7 +738,7 @@ Solution
 </ul>
 <p>This study seems ok as the authors could achieve an effect size as low as .51 and found an effect size at .52</p>
 <p><strong>Achievable Cohen d for Example 2</strong></p>
-<div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>power <span class="op">=</span> <span class="fl">.8</span>, 
            n <span class="op">=</span> <span class="fl">32</span>, 
            type <span class="op">=</span> <span class="st">"paired"</span>, 
@@ -753,7 +753,7 @@ Solution
 <p>This effect might not be reliable given that the effect size found was much lower than the achievable effect size. The issue here is that the researchers established their sample size based on a previous effect size and not on the minimum effect size that they would find important. If an effect size as small as .4 was important then they should have powered all studies to that level and ran the appropriate n ~52 babies (see below). Flipside of course is that obtaining 52 babies isnt easy; hence why some people consider the Many Labs approach a good way ahead.</p>
 <p><strong>ONE CAVEAT</strong> to the above is that before making the assumption that this study is therefore flawed, we have to keep in mind that this is one study using one sample from a potentially huge number of samples within a population. As such there will be a degree of variance in the true effect size within the population regardless of the effect size of one given sample. What that means is we have to be a little bit cautious when making claims about a study. Ultimately the higher the power the better.</p>
 <p>Below you could calculate the actual sample size required to achieve a power of .8:</p>
-<div class="sourceCode" id="cb226"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sample_size</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.t.test.html">pwr.t.test</a></span><span class="op">(</span>power <span class="op">=</span> <span class="fl">.8</span>,
                           d <span class="op">=</span> <span class="fl">.4</span>, 
                           type <span class="op">=</span> <span class="st">"paired"</span>, 
@@ -1095,7 +1095,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-22.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
