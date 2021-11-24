@@ -299,7 +299,7 @@ Our approach to this
   <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
   <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span>  <span class="op">+</span>
   <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Condition"</span>, y <span class="op">=</span> <span class="st">"Rating Score"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_jitter</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu">geom_jitter</span><span class="op">(</span>height <span class="op">=</span> <span class="fl">.1</span>, width <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span></code></pre></div>
 <p>The first part of the code uses a pipe to filter the data to just the intellect rating:</p>
 <ul>
 <li>
@@ -316,13 +316,30 @@ Our approach to this
 <li>
 <code>geom_boxplot()</code> which creates the boxplot, showing the median and inter-quartile range (see <a href="https://towardsdatascience.com/understanding-boxplots-5e2df7bcbd51" target="_blank">here</a> if you would like more information). The boxplot can also give you a good idea if the data are skewed - the median line should be in the middle of the box. The more the median is moved towards one of th extremities of the box, the more your data is likely to be skewed.<br>
 </li>
+<li>
+<code>geom_jitter()</code> can be used to show individual data points in your dataset and you can change the width and height of the jitter. Note that this uses a randomised method to display the points so you will get a different output each time you run it.</li>
 <li>And finally, we will use <code>stat_summary()</code> for displaying the mean and confidence intervals. Within this function, <code>fun.data</code> specifies the a summary function that gives us the summary of the data we want to plot, in this case, <code>mean_cl_normal</code> which will calculate the mean plus the upper and lower confidence interval limits. You could also specify <code>mean_se</code> here if you wanted standard error. Finally, <code>geom</code> specifies what shape or plot we want to use to display the summary, in this case we want a <code>pointrange</code> (literally a point (the mean) with a range (the CI)).</li>
 </ul>
 <p>The figure will look like this:</p>
 <div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plot1a"></span>
+<img src="10-t-tests_files/figure-html/plot1a-1.png" alt="Violin-boxplot of the evaluator data" width="100%"><p class="caption">
+Figure 10.1: Violin-boxplot of the evaluator data
+</p>
+</div>
+<p>An alternative version would be this shown below. Perhaps compare the two codes and see if you can see what makes the differences:</p>
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">ratings2</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+<span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">.2</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">stat_summary</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"pointrange"</span>, fun.data <span class="op">=</span> <span class="st">"mean_cl_normal"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Condition"</span>, y <span class="op">=</span> <span class="st">"Rating Score"</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:plot2"></span>
 <img src="10-t-tests_files/figure-html/plot2-1.png" alt="Violin-boxplot of the evaluator data" width="100%"><p class="caption">
-Figure 10.1: Violin-boxplot of the evaluator data
+Figure 10.2: Violin-boxplot of the evaluator data
 </p>
 </div>
 <p>Try to answer the following question:</p>
@@ -375,7 +392,7 @@ Figure 10.1: Violin-boxplot of the evaluator data
 <ul>
 <li>Run the below code to calculate then plot the residuals for the "listened" condition on "intellect" ratings.</li>
 </ul>
-<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">listened_intellect_residuals</span> <span class="op">&lt;-</span> <span class="va">ratings2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"listened"</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group_resid <span class="op">=</span> <span class="va">Rating</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -385,7 +402,7 @@ Figure 10.1: Violin-boxplot of the evaluator data
 <ul>
 <li>Run the below code to calculate then plot the residuals for the "read" condition on "intellect" ratings.</li>
 </ul>
-<div class="sourceCode" id="cb180"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">read_intellect_residuals</span> <span class="op">&lt;-</span> <span class="va">ratings2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"read"</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group_resid <span class="op">=</span> <span class="va">Rating</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Rating</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
@@ -396,7 +413,7 @@ Figure 10.1: Violin-boxplot of the evaluator data
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qqplot3"></span>
 <img src="10-t-tests_files/figure-html/qqplot3-1.png" alt="Residual plots of listened condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line." width="100%"><p class="caption">
-Figure 10.2: Residual plots of listened condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line.
+Figure 10.3: Residual plots of listened condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line.
 </p>
 </div>
 <pre><code>## [1] 6 8</code></pre>
@@ -404,7 +421,7 @@ Figure 10.2: Residual plots of listened condition. Each circle represents an ind
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qqplot4"></span>
 <img src="10-t-tests_files/figure-html/qqplot4-1.png" alt="Residual plots of read intellect condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line." width="100%"><p class="caption">
-Figure 10.3: Residual plots of read intellect condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line.
+Figure 10.4: Residual plots of read intellect condition. Each circle represents an indivudal rater. If data is normally distributed then it should fall close to or on the diagonal line.
 </p>
 </div>
 <pre><code>## [1] 11 18</code></pre>
@@ -413,7 +430,7 @@ Figure 10.3: Residual plots of read intellect condition. Each circle represents 
 <ul>
 <li>In a new code chunk, run both lines of code below and look at their output.</li>
 </ul>
-<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">listened_intellect_residuals</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">read_intellect_residuals</span><span class="op">$</span><span class="va">group_resid</span><span class="op">)</span></code></pre></div>
 <p>Try to answer the following questions:</p>
@@ -458,12 +475,12 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <ul>
 <li>First, create separate objects for the intellect, hire, and impression data using <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>. We have completed intellect object for you so you should replace the NULLs in the below code to create one for <code>hire</code> and <code>impression</code>.</li>
 </ul>
-<div class="sourceCode" id="cb184"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span>
 <span class="va">hire</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
 <span class="va">impression</span> <span class="op">&lt;-</span> <span class="cn">NULL</span> </code></pre></div>
 <p>And we are finally ready to run the t-test. It is funny right, as you may have realised by now, most of the work in analysis involves the set-up and getting the data ready, running the tests is generally just one more function. To conduct the t-test we will use <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function from <code>base</code> which takes the following format called the <strong>formula syntax</strong>:</p>
-<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">DV_column_name</span> <span class="op">~</span> <span class="va">IV_column_name</span>, 
        paired <span class="op">=</span> <span class="cn">FALSE</span>,
        data <span class="op">=</span> <span class="va">my_object</span><span class="op">)</span></code></pre></div>
@@ -480,7 +497,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <ul>
 <li>In a new code chunk, type and run the below code, and thenview the output by typing <code>intellect_t</code> in the console.</li>
 </ul>
-<div class="sourceCode" id="cb186"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect_t</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       paired <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span>,
@@ -491,9 +508,9 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </li>
 <li>View the object by clicking on <code>results_intellect</code> in the environment.</li>
 </ul>
-<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_intellect</span> <span class="op">&lt;-</span> <span class="va">intellect_t</span> <span class="op">%&gt;%</span>
-  <span class="fu">tidy</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>As you will see, <code>results_intellect</code> is now in a nice tibble format that makes it easy to extract individual values. It is worth looking at the values with the below explanations:</p>
 <ul>
 <li>
@@ -524,20 +541,20 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <ul>
 <li>Complete the code below in a new code chunk by replacing the NULLs to run the t-tests for the hire and impression ratings, don't tidy them yet.</li>
 </ul>
-<div class="sourceCode" id="cb188"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">hire_t</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
 <span class="va">impression_t</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
 <ul>
 <li>And now tidy the data into the respective objects - <code>hire_t</code> into <code>results_hire</code>, etc.</li>
 </ul>
-<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_hire</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
 <span class="va">results_impression</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
 <p>Be sure to look at each of your tests and see what the outcome of each was. To make that easier, we are going join all the results of the t-tests together using <code><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a></code> - which we can do because all the tibbles have the same column names after we passed them through <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code>.</p>
 <ul>
 <li>Copy and run the below code. First, it specifies all of the individual tibbles you want to join and gives them a label (hire, impression, intellect), and then you specify what the ID column should be named (test).</li>
 </ul>
-<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span>hire <span class="op">=</span> <span class="va">results_hire</span>, 
                      impression <span class="op">=</span> <span class="va">results_impression</span>, 
                      intellect <span class="op">=</span> <span class="va">results_intellect</span>, 
@@ -626,7 +643,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </ul>
 </li>
 </ul>
-<div class="sourceCode" id="cb191"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">results_adj</span> <span class="op">&lt;-</span> <span class="va">results</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>p.adjusted <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">p.value</span>, 
                                method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -667,8 +684,8 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </li>
 <li>Run and complete the code below by replacing the NULLs to calculate the effect sizes for hire and impression</li>
 </ul>
-<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu">cohens_d</span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
+<div class="sourceCode" id="cb193"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span>
 <span class="va">hire_d</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
@@ -722,7 +739,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <p>If we were to compare our findings, we would have something like the below:</p>
 <p><strong>A bonferroni-corrected Welch t-test found that recruiters rated job candidates as more intellectual when they listened to resumes (M = 5.64, SD = 1.61) than when they read resumes (M = 3.65, SD = 1.91), t(33.43) = 3.48, p = 0.004, 95% CI of the difference = [0.83, 3.15], d = 1.12.</strong></p>
 <p>You can create this same paragraph, using code, by copying and pasting the below <strong>exactly</strong> into <strong>white space</strong> in your R Markdown document and then knitting the file.</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="t-tests.html#cb193-1" aria-hidden="true" tabindex="-1"></a>A bonferroni<span class="sc">-</span>corrected Welch t<span class="sc">-</span>test found that recruiters rated job candidates as more intellectual when they listened to <span class="fu">resumes</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[3], 2)</span><span class="st">`</span>) than when they read <span class="fu">resumes</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate2%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[6], 2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_intellect$parameter, 2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_adj$statistic[3],2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r results_adj$p.adjusted[3] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the difference <span class="ot">=</span> [<span class="st">`</span><span class="at">r round(results_intellect$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_intellect$conf.high, 2)</span><span class="st">`</span>], d <span class="ot">=</span> <span class="st">`</span><span class="at">r round(intellect_d$Cohens_d,2)</span><span class="st">`</span>. </span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="t-tests.html#cb194-1" aria-hidden="true" tabindex="-1"></a>A bonferroni<span class="sc">-</span>corrected Welch t<span class="sc">-</span>test found that recruiters rated job candidates as more intellectual when they listened to <span class="fu">resumes</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate1%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[3], 2)</span><span class="st">`</span>) than when they read <span class="fu">resumes</span> (<span class="at">M =</span> <span class="st">`</span><span class="at">r results_intellect$estimate2%&gt;% round(2)</span><span class="st">`</span>, <span class="at">SD =</span> <span class="st">`</span><span class="at">r round(group_means$sd[6], 2)</span><span class="st">`</span>), <span class="fu">t</span>(<span class="st">`</span><span class="at">r round(results_intellect$parameter, 2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r round(results_adj$statistic[3],2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r results_adj$p.adjusted[3] %&gt;% round(3)</span><span class="st">`</span>, <span class="dv">95</span>% CI of the difference <span class="ot">=</span> [<span class="st">`</span><span class="at">r round(results_intellect$conf.low, 2)</span><span class="st">`</span>, <span class="st">`</span><span class="at">r round(results_intellect$conf.high, 2)</span><span class="st">`</span>], d <span class="ot">=</span> <span class="st">`</span><span class="at">r round(intellect_d$Cohens_d,2)</span><span class="st">`</span>. </span></code></pre></div>
 <p>Note that we haven't replicated the analysis exactly - the authors of this paper conducted Student's t-test whilst we have conducted Welch tests and we've also applied a multiple comparison correction. But you can look at the two examples and see the difference. It would also be worthwhile trying your own write-up of the two remaining conditions before moving on to within-subjects t-tests.</p>
 </div>
 </div>
@@ -756,7 +773,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </ul>
 </li>
 </ul>
-<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"Mehr Song and Spelke 2016 Experiment 1.csv"</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">exp1</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>,
@@ -786,7 +803,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 <li>Type and run the below code to first calculate the difference scores (<code>diff</code>) and then the residuals (<code>group_resid</code>).</li>
 <li>next it plots the Q-Q plot of the residuals before carrying out a Shapiro-Wilk's test on the residuals</li>
 </ul>
-<div class="sourceCode" id="cb195"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_residual</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>diff <span class="op">=</span> <span class="va">baseline</span> <span class="op">-</span> <span class="va">test</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>group_resid <span class="op">=</span> <span class="va">diff</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">diff</span><span class="op">)</span><span class="op">)</span>
@@ -824,7 +841,7 @@ Do nothing. <a href="https://www.rips-irsp.com/articles/10.5334/irsp.82/">Delacr
 </ul>
 </li>
 </ul>
-<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_tidy</span> <span class="op">&lt;-</span> <span class="va">gaze</span> <span class="op">%&gt;%</span>
   <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"time"</span>, 
                values_to <span class="op">=</span> <span class="st">"looking"</span>, 
@@ -886,7 +903,7 @@ Figure 7.7: Preferential Looking time for infants at baseline stage (left) and t
 <li>calculate the Cohen's D for the t-test and store it in <code>gaze_d</code>
 </li>
 </ul>
-<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_test</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
 <span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="cn">NULL</span></code></pre></div>
 <p>And if you have done that correctly, you should see in <code>gaze_test</code> something like this:</p>
@@ -959,7 +976,7 @@ Show our write-up
 <h4>
 <span class="header-section-number">10.4.0.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#ttest-a1sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb200"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/">car</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://easystats.github.io/effectsize/">effectsize</a></span><span class="op">)</span>
@@ -972,20 +989,20 @@ Show our write-up
 <span class="header-section-number">10.4.0.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#ttest-a2sol"><i class="fas fa-link"></i></a>
 </h4>
 <p>This was our code:</p>
-<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">evaluators</span> <span class="op">&lt;-</span> <span class="va">evaluators</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex_labels <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">sex</span>, <span class="st">"1"</span> <span class="op">=</span> <span class="st">"male"</span>, <span class="st">"2"</span> <span class="op">=</span> <span class="st">"female"</span><span class="op">)</span>,
          sex_labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">sex_labels</span><span class="op">)</span>,
          condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p>and you could summarise as below to give an output:</p>
-<div class="sourceCode" id="cb202"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">eval_counts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">evaluators</span>, <span class="va">sex_labels</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="ttest-a6sol" class="section level4" number="10.4.0.3">
 <h4>
 <span class="header-section-number">10.4.0.3</span> Activity 6<a class="anchor" aria-label="anchor" href="#ttest-a6sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"intellect"</span><span class="op">)</span>
 <span class="va">hire</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"hire"</span><span class="op">)</span>
 <span class="va">impression</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">ratings2</span>, <span class="va">Category</span> <span class="op">==</span> <span class="st">"impression"</span><span class="op">)</span></code></pre></div>
@@ -994,7 +1011,7 @@ Show our write-up
 <h4>
 <span class="header-section-number">10.4.0.4</span> Activity 8<a class="anchor" aria-label="anchor" href="#ttest-a8sol"><i class="fas fa-link"></i></a>
 </h4>
-<div class="sourceCode" id="cb204"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">intellect_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">Rating</span> <span class="op">~</span> <span class="va">condition</span>, 
                       pooled_sd <span class="op">=</span> <span class="cn">FALSE</span>, 
                       data <span class="op">=</span> <span class="va">intellect</span><span class="op">)</span>
@@ -1010,13 +1027,13 @@ Show our write-up
 <span class="header-section-number">10.4.0.5</span> Activity 13<a class="anchor" aria-label="anchor" href="#ttest-a13sol"><i class="fas fa-link"></i></a>
 </h4>
 <p>For the plot:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="t-tests.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gaze_tidy, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> looking)) <span class="sc">+</span></span>
-<span id="cb205-2"><a href="t-tests.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb205-3"><a href="t-tests.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> time), <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb205-4"><a href="t-tests.html#cb205-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"pointrange"</span>, <span class="at">fun.data =</span> <span class="st">"mean_cl_normal"</span>) <span class="sc">+</span></span>
-<span id="cb205-5"><a href="t-tests.html#cb205-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Experimental Stage"</span>, <span class="st">"Preferential Looking Time (Proportion))</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="t-tests.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gaze_tidy, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> looking)) <span class="sc">+</span></span>
+<span id="cb206-2"><a href="t-tests.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb206-3"><a href="t-tests.html#cb206-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill =</span> time), <span class="at">width =</span> .<span class="dv">2</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb206-4"><a href="t-tests.html#cb206-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">"pointrange"</span>, <span class="at">fun.data =</span> <span class="st">"mean_cl_normal"</span>) <span class="sc">+</span></span>
+<span id="cb206-5"><a href="t-tests.html#cb206-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Experimental Stage"</span>, <span class="st">"Preferential Looking Time (Proportion))</span></span></code></pre></div>
 <p>For the descriptives:</p>
-<div class="sourceCode" id="cb206"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">desc</span> <span class="op">&lt;-</span> <span class="va">gaze_tidy</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>, 
@@ -1028,13 +1045,13 @@ Show our write-up
 <span class="header-section-number">10.4.0.6</span> Activity 14<a class="anchor" aria-label="anchor" href="#ttest-a14sol"><i class="fas fa-link"></i></a>
 </h4>
 <p>For the t-test:</p>
-<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_test</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, 
                     paired <span class="op">=</span> <span class="cn">TRUE</span>, 
                     data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>For the Cohen's D:</p>
-<div class="sourceCode" id="cb208"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">gaze_d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/effectsize/reference/cohens_d.html">cohens_d</a></span><span class="op">(</span><span class="va">looking</span> <span class="op">~</span> <span class="va">time</span>, 
                    method <span class="op">=</span> <span class="st">"paired"</span>, 
                    data <span class="op">=</span> <span class="va">gaze_tidy</span><span class="op">)</span></code></pre></div>
@@ -1330,7 +1347,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-22.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2021-11-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

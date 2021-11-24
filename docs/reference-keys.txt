@@ -33,6 +33,7 @@ fig:abil-hist
 fig:qq-abil
 fig:pairs
 fig:pairs-pipes
+fig:plot1a
 fig:plot2
 fig:qqplot3
 fig:qqplot4
