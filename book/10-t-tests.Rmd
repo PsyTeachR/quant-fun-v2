@@ -72,7 +72,7 @@ eval_counts <- group_by(evaluators, sex_labels) %>% count() %>% ungroup()
 
 * How many participants were noted as being female: `r fitb(eval_counts %>% filter(sex_labels == "female") %>% pull(n))`
 * How many participants were noted as being male: `r fitb(eval_counts %>% filter(sex_labels == "male") %>% pull(n))`
-* How many data points are missing for `sex`? `r fitb("eval_counts %>% filter(is.na(sex_labels)) %>% pull(n)")`
+* How many data points are missing for `sex`? `r fitb(eval_counts %>% filter(is.na(sex_labels)) %>% pull(n))`
 
 #### Activity 3: Ratings {#ttest-a3}
 
