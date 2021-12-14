@@ -63,7 +63,7 @@ Now see if you can create a count of the different sex labels to answer the foll
 
 * How many participants were noted as being female: <input class='webex-solveme nospaces' size='2' data-answer='["30"]'/>
 * How many participants were noted as being male: <input class='webex-solveme nospaces' size='1' data-answer='["4"]'/>
-* How many data points are missing for `sex`? <input class='webex-solveme nospaces' size='53' data-answer='["eval_counts %>% filter(is.na(sex_labels)) %>% pull(n)"]'/>
+* How many data points are missing for `sex`? <input class='webex-solveme nospaces' size='1' data-answer='["5"]'/>
 
 #### Activity 3: Ratings {#ttest-a3}
 
