@@ -253,10 +253,10 @@ Answer the following question to check your answers. The solutions are at the bo
 
 Answer the following questions to check your answers. The solutions are at the bottom if you need them:
 
-* Based on the information given, what will you set `type` as in the function? `r mcq(c("one.sample", answer = "two.sample"))`
+* Based on the information given, what will you set `type` as in the function? `r longmcq(c("one.sample", answer = "two.sample"))`
 * Based on the output, enter the minimum effect size you can reliably detect in this test, rounded to two decimal places: `r fitb(c(".65", "0.65"),ignore_ws = TRUE)`
-* According to Cohen (1988), the effect size for this t-test is `r mcq(c("small to medium", answer = "medium to large", "large"))`
-* Say you run the study and find that the effect size determined is d = 0.50. Given what you know about power, select the statement that is true: `r mcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.65",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.65"))`
+* According to Cohen (1988), the effect size for this t-test is `r longmcq(c("small to medium", answer = "medium to large", "large"))`
+* Say you run the study and find that the effect size determined is d = 0.50. Given what you know about power, select the statement that is true: `r longmcq(c("the study is sufficiently powered as the analysis indicates you can detect only effect sizes smaller than d = 0.65",answer = "the study is underpowered as the analysis indicates you can detect only effect sizes larger than d = 0.65"))`
 
 #### Uneven groups
 
@@ -478,7 +478,7 @@ pwr.t.test(n = 50,
            alternative = "two.sided", 
            type = "two.sample") %>%
   pluck("d") %>%
-  round(3)
+  round(2)
 
 ```
 
