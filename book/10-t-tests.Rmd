@@ -672,7 +672,7 @@ Looking at the output of the test, it is actually very similar to the between-su
 
 * Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
 
-    + Mean `estimate` = `r fitb("-0.07")`  
+    + Mean `estimate` = `r fitb(c("-0.07","0.07"))`  
     
     + t(`r fitb("31")`) = `r fitb("2.42")`, p = `r fitb(c("0.022",".022"))` 
 
@@ -764,7 +764,8 @@ ggplot(gaze_tidy, aes(x = time, y = looking)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = time), width = .2, show.legend = FALSE) + 
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") +
-  labs(x = "Experimental Stage", "Preferential Looking Time (Proportion))
+  labs(x = "Experimental Stage", 
+       y = "Preferential Looking Time (Proportion)")
 ```
 
 For the descriptives:
