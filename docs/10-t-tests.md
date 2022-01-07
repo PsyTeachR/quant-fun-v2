@@ -657,7 +657,7 @@ Looking at the output of the test, it is actually very similar to the between-su
 
 * Enter the mean estimates and t-test results (means and t-value to 2 decimal places, p-value to 3 decimal places):
 
-    + Mean `estimate` = <input class='webex-solveme nospaces' size='5' data-answer='["-0.07"]'/>  
+    + Mean `estimate` = <input class='webex-solveme nospaces' size='5' data-answer='["-0.07","0.07"]'/>  
     
     + t(<input class='webex-solveme nospaces' size='2' data-answer='["31"]'/>) = <input class='webex-solveme nospaces' size='4' data-answer='["2.42"]'/>, p = <input class='webex-solveme nospaces' size='5' data-answer='["0.022",".022"]'/> 
 
@@ -756,7 +756,8 @@ ggplot(gaze_tidy, aes(x = time, y = looking)) +
   geom_violin(trim = FALSE) +
   geom_boxplot(aes(fill = time), width = .2, show.legend = FALSE) + 
   stat_summary(geom = "pointrange", fun.data = "mean_cl_normal") +
-  labs(x = "Experimental Stage", "Preferential Looking Time (Proportion))
+  labs(x = "Experimental Stage", 
+       y = "Preferential Looking Time (Proportion)")
 ```
 
 For the descriptives:
