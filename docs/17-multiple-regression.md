@@ -38,6 +38,17 @@ But the expressive power of regression allows us to do this all within a single 
 * Load the CSV datasets into variables called `pinfo`, `wellbeing` and `screen` using `read_csv()`.
 
 
+```
+## Warning: package 'see' was built under R version 4.1.2
+```
+
+```
+## Warning: package 'performance' was built under R version 4.1.2
+```
+
+```
+## Warning: package 'report' was built under R version 4.1.2
+```
 
 ## Activity 2: Look at the data {#mulregression-a2}
 
@@ -405,11 +416,6 @@ Now, we can use `report()` to produce an automated summary. Again, it would need
 
 ```r
 report(mod)
-```
-
-```
-## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
-## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
 ```
 
 ```

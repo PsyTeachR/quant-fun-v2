@@ -340,7 +340,7 @@ Figure 9.2: Histogram of Abil
 <li>In a new code chunk, type and run the below code to create a Q-Q plot for <code>Abil</code>.</li>
 </ul>
 <div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">qqPlot</span><span class="op">(</span>x <span class="op">=</span> <span class="va">mh</span><span class="op">$</span><span class="va">Abil</span><span class="op">)</span></code></pre></div>
 <p>This code looks a little different to code you've used up until this point as it comes from Base R. It uses the notation <code>object$variable</code> so our x variable could be read as "use the variable <code>Abil</code> from the object <code>mh</code>. And the figure will look like this:</p>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:qq-abil"></span>
@@ -500,7 +500,7 @@ Hints on discussing descriptives
 </ul>
 <p>For example, if your data is stored in <code>dat</code> and you want to do a two-sided pearson correlation of the variables (columns) <code>X</code> and <code>Y</code>, then you would do:</p>
 <div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, 
+<code class="sourceCode R"><span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dat</span>, 
             select <span class="op">=</span> <span class="st">"X"</span>, 
             select2 <span class="op">=</span> <span class="st">"Y"</span>,  
             method <span class="op">=</span> <span class="st">"pearson"</span>, 
@@ -586,7 +586,7 @@ Explain these answers
 <p><strong>But why two approaches</strong></p>
 <p>The reason that we have shown you two methods of performing correlations is because of the way each outputs the results. <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> produces a tibble which means it is very easy to work with and pull out values or join to another table as needed because it is already in tidyverse format. <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> on the other hand produces a <code>list</code> type object, which is a harder to work with. However, the output of <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> also happens to work with functions from the <code>report</code> package, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> and <code><a href="https://easystats.github.io/report/reference/report_table.html">report_table()</a></code> that give you an automatic report of the analyses. For example, <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> presents a fixed write-up of the correlation with all the available information. For correlations, this is perhaps less than useful, however, for more complex statistics this reporting function can really help when learning about data and output, and so we're introducing it now. <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> doesn't currently work with the output of <code><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation()</a></code> which is why we showed you both ways. Run the below in your console window and you will see what we mean - you will probably get an error.</p>
 <div class="sourceCode" id="cb160"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">report</span><span class="op">(</span><span class="va">results2</span><span class="op">)</span></code></pre></div>
 <p><strong>Note:</strong> The write-up that comes out of report should not be considered as something to copy and paste into a report. It is a means of just obtaining an overview quickly to help you confirm your own thinking. There are issues again with the presentation of numbers and writing, and additional info that isn't needed. Basically, use these functions and approaches to start you off in your writing, but not as your write-up.</p>
 </div>
 </div>
@@ -603,7 +603,7 @@ Explain these answers
 <li>In a new code chunk, type and run the following code. The <code>pairs.panels())</code> function comes from the <code>psych</code> library and creates a matrix of scatterplots, with the histograms, and correlation coefficients which you can then use to give you an overview of all the relationships at the one time. So it is useful for checking assumptions in one place.</li>
 </ul>
 <div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">pairs.panels</span><span class="op">(</span><span class="va">mh</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:pairs"></span>
 <img src="09-correlation_files/figure-html/pairs-1.png" alt="Scatterplot matrix" width="100%"><p class="caption">
@@ -630,7 +630,7 @@ Figure 9.4: Scatterplot matrix
 <div class="sourceCode" id="cb162"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/psych/man/pairs.panels.html">pairs.panels</a></span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">FALSE</span>, 
+  <span class="fu">pairs.panels</span><span class="op">(</span>ellipses <span class="op">=</span> <span class="cn">FALSE</span>, 
                lm <span class="op">=</span> <span class="cn">TRUE</span>, 
                method <span class="op">=</span> <span class="st">"pearson"</span><span class="op">)</span></code></pre></div>
 <p>Which produces:</p>
@@ -660,7 +660,7 @@ Figure 9.5: Adjusted scatterplot matrix
 <div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">corr_results</span> <span class="op">&lt;-</span> <span class="va">mh</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">Participant</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, 
+  <span class="fu">correlation</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"pearson"</span>, 
               p_adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 
 <span class="va">corr_results</span></code></pre></div>
@@ -843,38 +843,38 @@ Explain these answers
 </h2>
 <p>Look at this code and answer the following questions:</p>
 <div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/correlation/reference/correlation.html">correlation</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, 
+<code class="sourceCode R"><span class="va">results</span> <span class="op">&lt;-</span> <span class="fu">correlation</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mh</span>, 
                        select <span class="op">=</span> <span class="st">"IQ"</span>, 
                        select2 <span class="op">=</span> <span class="st">"Home"</span>,  
                        method <span class="op">=</span> <span class="st">"pearson"</span>, 
                        alternative <span class="op">=</span> <span class="st">"two.sided"</span><span class="op">)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>What would this analysis show?
-<div id="radio_SIUTVBXILZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SIUTVBXILZ" value="answer"><span>the relationship between IQ and the time spent reading at home</span></label><label><input type="radio" autocomplete="off" name="radio_SIUTVBXILZ" value=""><span>the effect of IQ on time spent reading at Home</span></label><label><input type="radio" autocomplete="off" name="radio_SIUTVBXILZ" value=""><span>the relationship between IQ and the time spent watching TV at home</span></label><label><input type="radio" autocomplete="off" name="radio_SIUTVBXILZ" value=""><span>the relationship between IQ and Reading Ability</span></label>
+<div id="radio_WUERWPLSLZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WUERWPLSLZ" value=""><span>the effect of IQ on time spent reading at Home</span></label><label><input type="radio" autocomplete="off" name="radio_WUERWPLSLZ" value=""><span>the relationship between IQ and Reading Ability</span></label><label><input type="radio" autocomplete="off" name="radio_WUERWPLSLZ" value="answer"><span>the relationship between IQ and the time spent reading at home</span></label><label><input type="radio" autocomplete="off" name="radio_WUERWPLSLZ" value=""><span>the relationship between IQ and the time spent watching TV at home</span></label>
 </div>
 </li>
 <li>What type of correlation analysis is it?
-<div id="radio_USWPZTJTOV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_USWPZTJTOV" value="answer"><span>two-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_USWPZTJTOV" value=""><span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_USWPZTJTOV" value=""><span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_USWPZTJTOV" value=""><span>one-tailed pearson analysis</span></label>
+<div id="radio_XQFRSGBCFQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XQFRSGBCFQ" value=""><span>two-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_XQFRSGBCFQ" value=""><span>one-tailed pearson analysis</span></label><label><input type="radio" autocomplete="off" name="radio_XQFRSGBCFQ" value=""><span>one-tailed spearman analysis</span></label><label><input type="radio" autocomplete="off" name="radio_XQFRSGBCFQ" value="answer"><span>two-tailed pearson analysis</span></label>
 </div>
 </li>
 </ol>
 <p>Now try running the code and then answering the following questions.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>To three decimal places, what is the r-value of the correlation between IQ and the time spent reading at Home?
-<div id="radio_RZXHZUADZH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RZXHZUADZH" value=""><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_RZXHZUADZH" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_RZXHZUADZH" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_RZXHZUADZH" value="answer"><span>0.202</span></label>
+<div id="radio_VKRHGBPQMJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VKRHGBPQMJ" value=""><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_VKRHGBPQMJ" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_VKRHGBPQMJ" value="answer"><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_VKRHGBPQMJ" value=""><span>0.988</span></label>
 </div>
 </li>
 <li>To three decimal places, what is the p-value of the correlation between IQ and the time spent reading at Home?
-<div id="radio_AQYFNBWVBV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AQYFNBWVBV" value=""><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_AQYFNBWVBV" value="answer"><span>0.334</span></label><label><input type="radio" autocomplete="off" name="radio_AQYFNBWVBV" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_AQYFNBWVBV" value=""><span>0.553</span></label>
+<div id="radio_TRGYJWIAKJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TRGYJWIAKJ" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_TRGYJWIAKJ" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_TRGYJWIAKJ" value=""><span>0.202</span></label><label><input type="radio" autocomplete="off" name="radio_TRGYJWIAKJ" value="answer"><span>0.334</span></label>
 </div>
 </li>
 <li>What is the degrees of freedom of the correlation between IQ and the time spent reading at Home?
-<div id="radio_BVUFLDYYPR" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BVUFLDYYPR" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_BVUFLDYYPR" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_BVUFLDYYPR" value="answer"><span>23</span></label><label><input type="radio" autocomplete="off" name="radio_BVUFLDYYPR" value=""><span>25</span></label>
+<div id="radio_OPQOKVOWOK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OPQOKVOWOK" value=""><span>0.553</span></label><label><input type="radio" autocomplete="off" name="radio_OPQOKVOWOK" value=""><span>0.988</span></label><label><input type="radio" autocomplete="off" name="radio_OPQOKVOWOK" value=""><span>25</span></label><label><input type="radio" autocomplete="off" name="radio_OPQOKVOWOK" value="answer"><span>23</span></label>
 </div>
 </li>
 </ol>
@@ -1363,7 +1363,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-01-07.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-02-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
