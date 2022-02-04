@@ -421,8 +421,8 @@ Figure 4.3: Plots by sex with the same scale
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, 
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
 The above code will produce:
-<div id="radio_UDMHHPDMJU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UDMHHPDMJU" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_UDMHHPDMJU" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_UDMHHPDMJU" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_UDMHHPDMJU" value=""><span>the data sorted by ascending year, sex and prop</span></label>
+<div id="radio_IQWSMRKFZA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IQWSMRKFZA" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_IQWSMRKFZA" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_IQWSMRKFZA" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_IQWSMRKFZA" value=""><span>the data sorted by ascending year, sex and prop</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -610,8 +610,8 @@ Explain this answer
 <code class="sourceCode R"><span class="va">baby_where</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>,
                   country <span class="op">=</span> <span class="st">"USA"</span><span class="op">)</span></code></pre></div>
 What will be stored in the object <code>baby_where</code>?
-<div id="radio_GRMVIKYBKX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GRMVIKYBKX" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_GRMVIKYBKX" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_GRMVIKYBKX" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_GRMVIKYBKX" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
+<div id="radio_ALUQJMDARM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ALUQJMDARM" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_ALUQJMDARM" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_ALUQJMDARM" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_ALUQJMDARM" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -767,7 +767,7 @@ If you get what looks like an error that says <code>summarise() ungrouping outpu
 <span class="header-section-number">4.4</span> Introducing Pipes<a class="anchor" aria-label="anchor" href="#dw1-a9"><i class="fas fa-link"></i></a>
 </h2>
 <p>The final activity for this chapter essentially repeats what we've already covered but in a slightly different way. In the previous activities, you created new objects with new variables or groupings and then you called <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code> on those new objects in separate lines of code. As a result, you had multiple objects in your environment pane and you need to make sure that you keep track of the different names.</p>
-<p>Instead, you can use <a class="glossary" target="_blank" title="" href="https://psyteachr.github.io/glossary/p#pipe">pipes</a>. Pipes are written as <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> and can be read as "and then". Pipes allow you to string together 'sentences' of code into 'paragraphs' so that you don't need to create intermediary objects. Really, this is something that is easier to show than tell.</p>
+<p>Instead, you can use <a class="glossary" target="_blank" title="A way to order your code in a more readable format using the symbol %&gt;%" href="https://psyteachr.github.io/glossary/p#pipe">pipes</a>. Pipes are written as <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code> and can be read as "and then". Pipes allow you to string together 'sentences' of code into 'paragraphs' so that you don't need to create intermediary objects. Really, this is something that is easier to show than tell.</p>
 <p>The below code does very similar to all the code we wrote above but it only creates one object.</p>
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pipe_summary</span> <span class="op">&lt;-</span> <span class="va">babynames</span> <span class="op">%&gt;%</span>
@@ -849,28 +849,28 @@ When learning to code it can be a useful practice to read your code 'out loud' i
 </h3>
 <ol style="list-style-type: decimal">
 <li>Which of the following is not one of the Wickham Six functions?
-<div id="radio_IWDKXXKJLN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IWDKXXKJLN" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_IWDKXXKJLN" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_IWDKXXKJLN" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_IWDKXXKJLN" value=""><span>filter()</span></label>
+<div id="radio_UNCJWPAOYQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UNCJWPAOYQ" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_UNCJWPAOYQ" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_UNCJWPAOYQ" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_UNCJWPAOYQ" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain columns?
-<div id="radio_TAKOZFPERB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_TAKOZFPERB" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_TAKOZFPERB" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_TAKOZFPERB" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_TAKOZFPERB" value=""><span>filter()</span></label>
+<div id="radio_OFRGSTHJBZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OFRGSTHJBZ" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_OFRGSTHJBZ" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_OFRGSTHJBZ" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_OFRGSTHJBZ" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain rows?
-<div id="radio_EIDJWMRJGE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EIDJWMRJGE" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_EIDJWMRJGE" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_EIDJWMRJGE" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_EIDJWMRJGE" value="answer"><span>filter()</span></label>
+<div id="radio_WPPTARGLEJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WPPTARGLEJ" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_WPPTARGLEJ" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_WPPTARGLEJ" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_WPPTARGLEJ" value="answer"><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to add a new column of information?
-<div id="radio_XABUHCRFMX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XABUHCRFMX" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_XABUHCRFMX" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_XABUHCRFMX" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_XABUHCRFMX" value=""><span>filter()</span></label>
+<div id="radio_WAGTZAGPSS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WAGTZAGPSS" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_WAGTZAGPSS" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_WAGTZAGPSS" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_WAGTZAGPSS" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which boolean expression would I add to a <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function to keep only Male babies in the original <code>babynames</code> data?
-<div id="radio_IJZPCPBMGJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IJZPCPBMGJ" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_IJZPCPBMGJ" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_IJZPCPBMGJ" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_IJZPCPBMGJ" value=""><span>Sex == M</span></label>
+<div id="radio_WHEDQKBWLM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_WHEDQKBWLM" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_WHEDQKBWLM" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_WHEDQKBWLM" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_WHEDQKBWLM" value=""><span>Sex == M</span></label>
 </div>
 </li>
 </ol>
@@ -1014,7 +1014,7 @@ Solution
 </tr>
 <tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/p.html#pipe" class="glossary" target="_blank">pipe</a></td>
-<td align="left"></td>
+<td align="left">A way to order your code in a more readable format using the symbol %&gt;%</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/r.html#reproducible-research" class="glossary" target="_blank">reproducible research</a></td>
@@ -1287,7 +1287,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-01-07.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-02-04.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
