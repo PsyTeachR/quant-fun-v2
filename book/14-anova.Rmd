@@ -2,7 +2,7 @@
 
 ### Background: Intrusive memories
 
-In the lecture we worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. In this chapter we'll show you how to run a one-factor and factorial ANOVA using the `afex` package and post-hoc tests using a package called `emmeans`. 
+In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. In this chapter we'll show you how to run a one-factor and factorial ANOVA using the `afex` package and post-hoc tests using a package called `emmeans`. 
 
 In this example we will be using data from experiment 2 of [James, E. L., Bonsall, M. B., Hoppitt, L., Tunbridge, E. M., Geddes, J. R., Milton, A. L., & Holmes, E. A. (2015). Computer game play reduces intrusive memories of experimental trauma via reconsolidation-update mechanisms. Psychological Science, 26, 1201-1215](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4526368/).
 
@@ -44,7 +44,7 @@ There are a lot of columns in this data set that we don't need for this analysis
 * Create a new object called `dat2` that just has the three columns we need - use `select()` to select the columns `subject`, `Condition`, and  `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary`
 * Use `rename()` to rename `Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary` to `intrusions`
 * See if you can do this all in one pipeline
-* Hint: `new_name = old_name`
+* Hint: in rename, `new_name = old_name`
 
 ```{r select variables, echo = FALSE}
 dat2 <- dat%>%
@@ -76,11 +76,8 @@ Next we want to calculate some descriptive statistics. We're really interested i
 `r hide(" Hint")`
 ```{r, echo = FALSE}
 cat("
-
 * Use group_by(some_grouping_variable) %>% summarise(...)
-* standard error = sd/sqrt(n) =  sd/sqrt(length(some_variable_name)"
-
-)
+* standard error = sd/sqrt(n) =  sd/sqrt(length(some_variable_name)")
 ```
 `r unhide()`
 
@@ -175,7 +172,7 @@ You may be wondering why we haven't yet checked the assumptions. Well, unlike th
 3. The residuals should be normally distributed
 4. There should be homogeneity of variance between the groups
 
-We know that 1 and 2 are met because of the design of our study. To test 3, as we have done before we can look at the QQ-plot of the residuals and test for normality with the Shapiro-Wilk test. The residuals have been stored as one of the components of `mod`. To access them we specify `mod$aov$residuals`.
+We know that 1 and 2 are met because of the design of our study. To test 3, we can look at the QQ-plot of the residuals and test for normality with the Shapiro-Wilk test. The residuals have been stored as one of the components of `mod`. To access them we specify `mod$aov$residuals`.
 
 ```{r fig-qq, fig.cap = "qq-plot for model residuals"}
 
@@ -195,6 +192,12 @@ shapiro <- shapiro.test(mod$aov$residuals) %>% #run the test
   mutate(p.value = round(p.value, digits = 3)) # overwrite the p-value with one rounded to 3 decimal places
 ```
 
+If you find scientific notation difficult to read, you can paste and run the following code in your console to turn it off
+```{r, eval=FALSE}
+options(scipen=999)
+```
+
+
 The second thing to note is that from both the qq-plot and the Shapiro-Wilk test it is clear that the assumption of normality has not been met. Is this a problem? Well, Field et al. (2009) say that if the sample sizes for each group are equal then ANOVA is robust to violations of both normality and of homogeneity of variance. There's also a good discussion of this [here](https://link.springer.com/article/10.3758/s13428-017-0918-2) but it is a bit technical. We can check how many participants are in each condition using `count()`:
 
 ```{r count-condition, eval=FALSE}
@@ -207,7 +210,7 @@ dat2 %>% count(Condition) %>% knitr::kable(align = 'c')
 
 Thankfully the sample sizes are equal so we should be OK to proceed with the ANOVA. It is not clear whether normality was checked in the original paper.
 
-For the last assumption, we can test homogeneity of variance with Levene's test and the function `test_levene()` from `afex`. The code for this is very simple, you just need to supply the ANOVA model we created earlier `mod`.
+For the last assumption, we can test homogeneity of variance with Levene's test and the function `test_levene()` from `performance`. The code for this is very simple, you just need to supply the ANOVA model we created earlier `mod`.
 
 ```{r levene}
 test_levene(mod)
