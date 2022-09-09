@@ -1,6 +1,6 @@
 # Power and Effect Sizes
 
-Up until now we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures, however, you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses. It is this balance of minimising error in our inferential statisitcs that we will focus on today. 
+Up until now we have mainly spent time on data-wrangling, understanding probability, visualising our data, and more recently, running inferential tests, i.e. t-tests. In the lectures, however, you have also started to learn about additional aspects of inferential testing and trying to reduce certain types of error in your analyses. It is this balance of minimising error in our inferential statistics that we will focus on today. 
 
 First thing to remember is that, in the branch of statistics we are using here, that is Null Hypothesis Significance Testing (NHST), there are two types of `r glossary("hypothesis", display = "hypotheses")`,  and what you are trying to establish is the `r glossary("probability")` of the null hypothesis not being accepted. Those two hypotheses are:
 
