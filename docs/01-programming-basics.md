@@ -156,7 +156,7 @@ The auto-complete is incredibly useful when you are first learning R and you sho
 
 ## Base R and packages {#packages}
 
-When you install R you will have access to a range of functions including options for data wrangling and statistical analysis. The functions that are included in the default installation of R are typically referred to as **<a class='glossary' target='_blank' title='The set of R functions that come with a basic installation of R, before you add external packages' href='https://psyteachr.github.io/glossary/b#base-r'>Base R</a>** and there is a useful cheat sheet that shows many Base R functions which can be found about halfway down [this page under Contributed Cheatsheets here](https://www.rstudio.com/resources/cheatsheets/){target="_blank"} along with a host of other cheatsheets.
+When you install R you will have access to a range of functions including options for data wrangling and statistical analysis. The functions that are included in the default installation of R are typically referred to as **<a class='glossary' target='_blank' title='The set of R functions that come with a basic installation of R, before you add external packages.' href='https://psyteachr.github.io/glossary/b#base-r'>Base R</a>** and there is a useful cheat sheet that shows many Base R functions which can be found about halfway down [this page under Contributed Cheatsheets here](https://www.rstudio.com/resources/cheatsheets/){target="_blank"} along with a host of other cheatsheets.
 
 However, the power of R is that it is extendable and open source - put simply, if a function doesn't exist or doesn't work very well, anyone can create a new **<a class='glossary' target='_blank' title='A group of R functions.' href='https://psyteachr.github.io/glossary/p#package'>package</a>** that contains data and code to allow you to perform new tasks. You may find it useful to think of **Base R** as the default apps that come on your phone and other packages as additional apps - the ones that you really want to use to make the phone your own - that you need to download separately.
 
@@ -277,7 +277,7 @@ new_year - today
 ```
 
 ```
-## Time difference of -399 days
+## Time difference of -619 days
 ```
 
 
@@ -481,7 +481,7 @@ Below you will find a list of words that were used in this chapter that might be
 |:------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |[argument](https://psyteachr.github.io/glossary/a.html#argument){class="glossary" target="_blank"}                       |A variable that provides input to a function.                                                                                                                    |
 |[assignment operator](https://psyteachr.github.io/glossary/a.html#assignment-operator){class="glossary" target="_blank"} |The symbol <-, which functions like = and assigns the value on the right to the object on the left                                                               |
-|[base r](https://psyteachr.github.io/glossary/b.html#base-r){class="glossary" target="_blank"}                           |The set of R functions that come with a basic installation of R, before you add external packages                                                                |
+|[base r](https://psyteachr.github.io/glossary/b.html#base-r){class="glossary" target="_blank"}                           |The set of R functions that come with a basic installation of R, before you add external packages.                                                               |
 |[console](https://psyteachr.github.io/glossary/c.html#console){class="glossary" target="_blank"}                         |The pane in RStudio where you can type in commands and view output messages.                                                                                     |
 |[default value](https://psyteachr.github.io/glossary/d.html#default-value){class="glossary" target="_blank"}             |A value that a function uses for an argument if it is skipped.                                                                                                   |
 |[environment](https://psyteachr.github.io/glossary/e.html#environment){class="glossary" target="_blank"}                 |A data structure that contains R objects such as variables and functions                                                                                         |

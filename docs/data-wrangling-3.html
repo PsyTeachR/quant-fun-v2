@@ -93,7 +93,7 @@
 <p>Today, as a progression from working with one table/tibble, we will focus on working with data across two or more tibbles To do this we are going to add two more functions, to the skills we already know. Those are:</p>
 <ul>
 <li>
-<code>pivot_longer()</code> which allows us to <strong>transform</strong> a <a class="glossary" target="_blank" title="A container for tabular data with some different properties to a data frame" href="https://psyteachr.github.io/glossary/t#tibble">tibble</a> from <a class="glossary" target="_blank" title="Data where all of the observations about one subject are in the same row" href="https://psyteachr.github.io/glossary/w#wide">wide</a> format to <a class="glossary" target="_blank" title="Data where each observation is on a separate row" href="https://psyteachr.github.io/glossary/l#long">long</a> format.</li>
+<code>pivot_longer()</code> which allows us to <strong>transform</strong> a <a class="glossary" target="_blank" title="A container for tabular data with some different properties to a data frame" href="https://psyteachr.github.io/glossary/t#tibble">tibble</a> from <a class="glossary" target="_blank" title="A data format where all of the observations about one subject are in the same row" href="https://psyteachr.github.io/glossary/w#wide">wide</a> format to <a class="glossary" target="_blank" title="A data format where each observation is on a separate row" href="https://psyteachr.github.io/glossary/l#long">long</a> format.</li>
 <li>
 <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> which allows us to <strong>combine</strong> two tibbles together based on common columns. We actually saw this <a class="glossary" target="_blank" title="A named section of code that can be reused." href="https://psyteachr.github.io/glossary/f#function">function</a> in Chapter 3 so this might be more of a recap.</li>
 </ul>
@@ -218,8 +218,8 @@ There is more information about <a href="https://r4ds.had.co.nz/tidy-data.html">
 <p>Have a look at the data in <code>responses</code> to see if you think it is Tidy or not and answer the following question:</p>
 <ul>
 <li>The data in <code>responses</code> is in what format?
-<div id="radio_SXHVNHWIMF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SXHVNHWIMF" value=""><span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_SXHVNHWIMF" value=""><span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_SXHVNHWIMF" value="answer"><span>Wide</span></label>
+<div id="radio_RAKXXYLSCP" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RAKXXYLSCP" value=""><span>Tidy</span></label><label><input type="radio" autocomplete="off" name="radio_RAKXXYLSCP" value=""><span>Long</span></label><label><input type="radio" autocomplete="off" name="radio_RAKXXYLSCP" value="answer"><span>Wide</span></label>
 </div>
 </li>
 </ul>
@@ -412,21 +412,21 @@ Additional Hints
 <ul>
 <li>
 <p>Complete the sentence, the higher the AQ score...</p>
-<div id="radio_XOPZLOIUHH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XOPZLOIUHH" value=""><span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_XOPZLOIUHH" value=""><span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_XOPZLOIUHH" value="answer"><span>the more autistic-like traits displayed</span></label>
+<div id="radio_PHLQHMVCFF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PHLQHMVCFF" value=""><span>the less autistic-like traits displayed</span></label><label><input type="radio" autocomplete="off" name="radio_PHLQHMVCFF" value=""><span>has no relation to autistic-like traits</span></label><label><input type="radio" autocomplete="off" name="radio_PHLQHMVCFF" value="answer"><span>the more autistic-like traits displayed</span></label>
 </div>
 </li>
 <li>
 <p>Assuming that your code all worked, what was the AQ score (just the number) of Participant ID No. 87:</p>
-<div id="radio_MJOCJOBJCX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_MJOCJOBJCX" value="answer"><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_MJOCJOBJCX" value=""><span>3</span></label><label><input type="radio" autocomplete="off" name="radio_MJOCJOBJCX" value=""><span>5</span></label><label><input type="radio" autocomplete="off" name="radio_MJOCJOBJCX" value=""><span>6</span></label>
+<div id="radio_RFCHNNAIYJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RFCHNNAIYJ" value="answer"><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_RFCHNNAIYJ" value=""><span>3</span></label><label><input type="radio" autocomplete="off" name="radio_RFCHNNAIYJ" value=""><span>5</span></label><label><input type="radio" autocomplete="off" name="radio_RFCHNNAIYJ" value=""><span>6</span></label>
 </div>
 </li>
 <li><p>Type in the box how many participants had an AQ score of 3 (again just the number): <input class="webex-solveme nospaces" size="10" data-answer='["13"]'></p></li>
 <li>
 <p>The cut-off for the AQ10 is usually said to be around 6 meaning that anyone with a score of more than 6 should be referred for diagnostic assessment. Based on this data, how many participants might be referred for further assessment?</p>
-<div id="radio_ZUHHWFTSRM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZUHHWFTSRM" value=""><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_ZUHHWFTSRM" value=""><span>4</span></label><label><input type="radio" autocomplete="off" name="radio_ZUHHWFTSRM" value="answer"><span>6</span></label><label><input type="radio" autocomplete="off" name="radio_ZUHHWFTSRM" value=""><span>8</span></label>
+<div id="radio_AZARVTRIWV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AZARVTRIWV" value=""><span>2</span></label><label><input type="radio" autocomplete="off" name="radio_AZARVTRIWV" value=""><span>4</span></label><label><input type="radio" autocomplete="off" name="radio_AZARVTRIWV" value="answer"><span>6</span></label><label><input type="radio" autocomplete="off" name="radio_AZARVTRIWV" value=""><span>8</span></label>
 </div>
 </li>
 </ul>
@@ -445,35 +445,35 @@ Explain these answers
 <p>Which function(s) would you use to approach each of the following problems?</p>
 <ul>
 <li><p>We have a dataset of 400 adults, but we want to remove anyone with an age of 50 years or more. To do this, we could use the <select class="webex-select"><option value="blank"></option>
-<option value="">summarise()</option>
 <option value="answer">filter()</option>
+<option value="">select()</option>
+<option value="">summarise()</option>
 <option value="">arrange()</option>
 <option value="">group_by()</option>
-<option value="">select()</option>
 <option value="">mutate()</option></select> function.</p></li>
 <li><p>We are interested in overall summary statistics for our data, such as the overall average and total number of observations. To do this, we could use the <select class="webex-select"><option value="blank"></option>
+<option value="">group_by()</option>
+<option value="">filter()</option>
 <option value="answer">summarise()</option>
-<option value="">filter()</option>
-<option value="">arrange()</option>
+<option value="">select()</option>
 <option value="">mutate()</option>
-<option value="">group_by()</option>
-<option value="">select()</option></select> function.</p></li>
+<option value="">arrange()</option></select> function.</p></li>
 <li><p>Our dataset has a column with the number of cats a person has, and a column with the number of dogs. We want to calculate a new column which contains the total number of pets each participant has. To do this, we could use the <select class="webex-select"><option value="blank"></option>
-<option value="answer">mutate()</option>
 <option value="">group_by()</option>
+<option value="answer">mutate()</option>
 <option value="">filter()</option>
-<option value="">arrange()</option>
+<option value="">select()</option>
 <option value="">summarise()</option>
-<option value="">select()</option></select> function.</p></li>
+<option value="">arrange()</option></select> function.</p></li>
 <li><p>We want to calculate the average for each participant in our dataset. To do this we could use the <select class="webex-select"><option value="blank"></option>
-<option value="">group_by() and arrange()</option>
 <option value="">arrange() and mutate()</option>
 <option value="">filter() and select()</option>
+<option value="">group_by() and arrange()</option>
 <option value="answer">group_by() and summarise()</option></select> functions.</p></li>
 <li><p>We want to order a dataframe of participants by the number of cats that they own, but want our new dataframe to only contain some of our columns. To do this we could use the <select class="webex-select"><option value="blank"></option>
 <option value="answer">arrange() and select()</option>
-<option value="">select() and summarise()</option>
 <option value="answer">filter() and select()</option>
+<option value="">select() and summarise()</option>
 <option value="">group_by() and mutate()</option></select> functions.</p></li>
 </ul>
 <div class="webex-solution">
@@ -576,8 +576,8 @@ Explain these Answers
 <p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
-<col width="58%">
-<col width="41%">
+<col width="57%">
+<col width="42%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">term</th>
@@ -598,7 +598,7 @@ Explain these Answers
 </tr>
 <tr class="even">
 <td align="left"><a href="https://psyteachr.github.io/glossary/l.html#long" class="glossary" target="_blank">long</a></td>
-<td align="left">Data where each observation is on a separate row</td>
+<td align="left">A data format where each observation is on a separate row</td>
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/p.html#package" class="glossary" target="_blank">package</a></td>
@@ -618,7 +618,7 @@ Explain these Answers
 </tr>
 <tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/w.html#wide" class="glossary" target="_blank">wide</a></td>
-<td align="left">Data where all of the observations about one subject are in the same row</td>
+<td align="left">A data format where all of the observations about one subject are in the same row</td>
 </tr>
 </tbody>
 </table></div>
@@ -884,7 +884,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-02-04.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -492,3 +492,4 @@ additional-resources
 citing-r-rstudio
 symbols
 conventions
+citation

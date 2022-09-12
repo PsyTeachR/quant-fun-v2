@@ -104,10 +104,10 @@ Figure B.1: Updating packages with RStudio
 <p>If you try to update an existing package and get an error message that says something like <code>Warning in install.packages : installation of package ‘vctrs’ had non-zero exit status</code> or perhaps <code>Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) :  namespace 'rlang' 0.4.9 is being loaded, but &gt;= 0.4.10 is required</code> one solution I have found is to manually uninstall the package, restart R, and then install the package new, rather than trying to update an existing version. The <code>installr</code> package also has a useful function for uninstalling packages.</p>
 <div class="sourceCode" id="cb368"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load installr</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">installr</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/installr/">installr</a></span><span class="op">)</span>
 
 <span class="co"># Uninstall the problem package</span>
-<span class="fu">uninstall.packages</span><span class="op">(</span><span class="st">"package_name"</span><span class="op">)</span>
+<span class="fu"><a href="https://talgalili.github.io/installr/reference/uninstall.packages.html">uninstall.packages</a></span><span class="op">(</span><span class="st">"package_name"</span><span class="op">)</span>
 
 <span class="co"># Then restart R using session - restart R</span>
 <span class="co"># Then install the package fresh</span>
@@ -117,16 +117,16 @@ Figure B.1: Updating packages with RStudio
 <h2>
 <span class="header-section-number">B.1</span> Updating R<a class="anchor" aria-label="anchor" href="#updating-r"><i class="fas fa-link"></i></a>
 </h2>
-<p>Finally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages. The easiest way to update R and not cause yourself a huge headache is to use the <code>installr</code> package. When you use the <code>updateR()</code> function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a <a href="https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/">full step-by-step guide available</a> for how to use <code>installr</code>, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.</p>
+<p>Finally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages. The easiest way to update R and not cause yourself a huge headache is to use the <code>installr</code> package. When you use the <code><a href="https://talgalili.github.io/installr/reference/updateR.html">updateR()</a></code> function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a <a href="https://www.r-statistics.com/2015/06/a-step-by-step-screenshots-tutorial-for-upgrading-r-on-windows/">full step-by-step guide available</a> for how to use <code>installr</code>, the important bit is to select "Yes" when it asked if you would like to copy your packages from the older version of R.</p>
 <div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Install the installr package</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"installr"</span><span class="op">)</span>
 
 <span class="co"># Load installr</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">installr</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/installr/">installr</a></span><span class="op">)</span>
 
 <span class="co"># Run the update function</span>
-<span class="fu">updateR</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://talgalili.github.io/installr/reference/updateR.html">updateR</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <p>As always, if you're having issues, please ask on Teams or book into a GTA session.</p>
 
 </div>
@@ -354,7 +354,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-02-04.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
