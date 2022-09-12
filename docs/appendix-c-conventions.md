@@ -10,7 +10,7 @@ This book will use the following conventions:
 * Strings: <code><span class='st'>"psyTeachR"</span></code>
 * Numbers: <code><span class='fl'>100</span></code>, <code><span class='fl'>3.14</span></code>
 * Logical values: <code><span class='cn'>TRUE</span></code>, <code><span class='cn'>FALSE</span></code>
-* Glossary items: <a class='glossary' target='_blank' title='Discrete variables that have an inherent order, such as number of legs' href='https://psyteachr.github.io/glossary/o#ordinal'>ordinal</a>
+* Glossary items: <a class='glossary' target='_blank' title='Discrete variables that have an inherent order, such as level of education or dislike/like.' href='https://psyteachr.github.io/glossary/o#ordinal'>ordinal</a>
 * Citations: @R-tidyverse
 * Internal links: Chapter\ \@ref(intro)
 * External links: [R for Data Science](https://r4ds.had.co.nz/){target="_blank"}

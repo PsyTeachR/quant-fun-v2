@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis</title>
 <meta name="author" content="Emily Nordmann &amp; Phil McAleer">
-<meta name="description" content="14.0.1 Background: Intrusive memories In the lecture we worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the...">
+<meta name="description" content="14.0.1 Background: Intrusive memories In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/one-way-anova.html">
 <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<meta property="og:description" content="14.0.1 Background: Intrusive memories In the lecture we worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the...">
+<meta property="og:description" content="14.0.1 Background: Intrusive memories In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="14.0.1 Background: Intrusive memories In the lecture we worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the...">
+<meta name="twitter:description" content="14.0.1 Background: Intrusive memories In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an...">
 <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -93,7 +93,7 @@
 <h3>
 <span class="header-section-number">14.0.1</span> Background: Intrusive memories<a class="anchor" aria-label="anchor" href="#background-intrusive-memories"><i class="fas fa-link"></i></a>
 </h3>
-<p>In the lecture we worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. In this chapter we'll show you how to run a one-factor and factorial ANOVA using the <code>afex</code> package and post-hoc tests using a package called <code>emmeans</code>.</p>
+<p>In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. In this chapter we'll show you how to run a one-factor and factorial ANOVA using the <code>afex</code> package and post-hoc tests using a package called <code>emmeans</code>.</p>
 <p>In this example we will be using data from experiment 2 of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4526368/">James, E. L., Bonsall, M. B., Hoppitt, L., Tunbridge, E. M., Geddes, J. R., Milton, A. L., &amp; Holmes, E. A. (2015). Computer game play reduces intrusive memories of experimental trauma via reconsolidation-update mechanisms. Psychological Science, 26, 1201-1215</a>.</p>
 <p>The abstract for the paper is as follows:</p>
 <blockquote>
@@ -130,7 +130,7 @@
 <li>Use <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> to rename <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> to <code>intrusions</code>
 </li>
 <li>See if you can do this all in one pipeline</li>
-<li>Hint: <code>new_name = old_name</code>
+<li>Hint: in rename, <code>new_name = old_name</code>
 </li>
 </ul>
 </div>
@@ -161,7 +161,6 @@
 Hint
 </button>
 <pre><code>## 
-## 
 ## * Use group_by(some_grouping_variable) %&gt;% summarise(...)
 ## * standard error = sd/sqrt(n) =  sd/sqrt(length(some_variable_name)</code></pre>
 </div>
@@ -203,12 +202,12 @@ Figure 14.2: Bar plot of instrusions by condition
 <span class="header-section-number">14.0.7</span> Activity 6: One-way ANOVA<a class="anchor" aria-label="anchor" href="#anova-a6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now we can run the one-way ANOVA using <code>aov_ez</code> from the <code>afex</code> package and save it to the object <code>mod</code>. As well as running the ANOVA, the <code>aov_ez</code> function also conducts a Levene's test for homogeneity of variance so that we can test our final assumption.</p>
-<p><code>aov_ez()</code> will likely produce some messages that look like errors, do not worry about these, they are just letting you know what it's done.</p>
+<p><code><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez()</a></code> will likely produce some messages that look like errors, do not worry about these, they are just letting you know what it's done.</p>
 <ul>
 <li>Copy and paste the below code to run and then view the results of the ANOVA using <code><a href="https://rdrr.io/r/stats/anova.html">anova(mod)</a></code>.</li>
 </ul>
 <div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>, <span class="co"># the column containing the subject IDs</span>
+<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>, <span class="co"># the column containing the subject IDs</span>
               dv <span class="op">=</span> <span class="st">"intrusions"</span>, <span class="co"># the DV </span>
               between <span class="op">=</span> <span class="st">"Condition"</span>, <span class="co"># the between-subject variable</span>
               es <span class="op">=</span> <span class="st">"pes"</span>, <span class="co"># sets effect size to partial eta-squared</span>
@@ -262,14 +261,14 @@ Figure 14.2: Bar plot of instrusions by condition
 <h3>
 <span class="header-section-number">14.0.8</span> Activity 7: Assumption checking<a class="anchor" aria-label="anchor" href="#anova-a7"><i class="fas fa-link"></i></a>
 </h3>
-<p>You may be wondering why we haven't yet checked the assumptions. Well, unlike the t-tests and correlations, in order to test the assumptions we need to use the model we created with <code>aov_ez()</code>, so we couldn't assess them all until this point. For a one-way independent ANOVA, the assumptions are the same as for a Student's t-test:</p>
+<p>You may be wondering why we haven't yet checked the assumptions. Well, unlike the t-tests and correlations, in order to test the assumptions we need to use the model we created with <code><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez()</a></code>, so we couldn't assess them all until this point. For a one-way independent ANOVA, the assumptions are the same as for a Student's t-test:</p>
 <ol style="list-style-type: decimal">
 <li>The DV is interval or ratio data</li>
 <li>The observations should be independent</li>
 <li>The residuals should be normally distributed</li>
 <li>There should be homogeneity of variance between the groups</li>
 </ol>
-<p>We know that 1 and 2 are met because of the design of our study. To test 3, as we have done before we can look at the QQ-plot of the residuals and test for normality with the Shapiro-Wilk test. The residuals have been stored as one of the components of <code>mod</code>. To access them we specify <code>mod$aov$residuals</code>.</p>
+<p>We know that 1 and 2 are met because of the design of our study. To test 3, we can look at the QQ-plot of the residuals and test for normality with the Shapiro-Wilk test. The residuals have been stored as one of the components of <code>mod</code>. To access them we specify <code>mod$aov$residuals</code>.</p>
 <div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">aov</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
@@ -299,8 +298,11 @@ Figure 14.3: qq-plot for model residuals
 <code class="sourceCode R"><span class="va">shapiro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">aov</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#run the test</span>
   <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># tidy the output</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>p.value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">p.value</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># overwrite the p-value with one rounded to 3 decimal places</span></code></pre></div>
-<p>The second thing to note is that from both the qq-plot and the Shapiro-Wilk test it is clear that the assumption of normality has not been met. Is this a problem? Well, Field et al. (2009) say that if the sample sizes for each group are equal then ANOVA is robust to violations of both normality and of homogeneity of variance. There's also a good discussion of this <a href="https://link.springer.com/article/10.3758/s13428-017-0918-2">here</a> but it is a bit technical. We can check how many participants are in each condition using <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>:</p>
+<p>If you find scientific notation difficult to read, you can paste and run the following code in your console to turn it off</p>
 <div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>scipen<span class="op">=</span><span class="fl">999</span><span class="op">)</span></code></pre></div>
+<p>The second thing to note is that from both the qq-plot and the Shapiro-Wilk test it is clear that the assumption of normality has not been met. Is this a problem? Well, Field et al. (2009) say that if the sample sizes for each group are equal then ANOVA is robust to violations of both normality and of homogeneity of variance. There's also a good discussion of this <a href="https://link.springer.com/article/10.3758/s13428-017-0918-2">here</a> but it is a bit technical. We can check how many participants are in each condition using <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>:</p>
+<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dat2</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">Condition</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -327,9 +329,9 @@ Figure 14.3: qq-plot for model residuals
 </tbody>
 </table></div>
 <p>Thankfully the sample sizes are equal so we should be OK to proceed with the ANOVA. It is not clear whether normality was checked in the original paper.</p>
-<p>For the last assumption, we can test homogeneity of variance with Levene's test and the function <code>test_levene()</code> from <code>afex</code>. The code for this is very simple, you just need to supply the ANOVA model we created earlier <code>mod</code>.</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">test_levene</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<p>For the last assumption, we can test homogeneity of variance with Levene's test and the function <code><a href="https://rdrr.io/pkg/afex/man/deprecated.html">test_levene()</a></code> from <code>performance</code>. The code for this is very simple, you just need to supply the ANOVA model we created earlier <code>mod</code>.</p>
+<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/afex/man/deprecated.html">test_levene</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Functionality has moved to the 'performance' package.
 ## Calling 'performance::check_homogeneity()'.</code></pre>
 <pre><code>## Warning: Variances differ between groups (Levene's Test, p = 0.039).</code></pre>
@@ -347,7 +349,7 @@ Figure 14.3: qq-plot for model residuals
 </h3>
 <p>For post-hoc comparisons, as mentioned, the paper appears to have computed Welch t-tests but there is no mention of any multiple comparison correction. We could reproduce these results by using <code>t.test</code> for each of the contrasts.</p>
 <p>For example, to compare condition 1 (the control group) with condition 2 (the reactivation plus tetris group) we could run:</p>
-<div class="sourceCode" id="cb296"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dat2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -357,13 +359,13 @@ Figure 14.3: qq-plot for model residuals
 Because <code>Condition</code> has four levels, we can’t just specify <code>intrustion ~ Condition</code> because a t-test compares two groups and it wouldn’t know which of the four to compare so first we have to filter the data and use a new function <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code>. It's important to remember that when it comes to R there are two things to consider, the data you can see and the underlying structure of that data. In the above code we use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to select only conditions 1 and 2 so that we can compare them. However, that doesn't change the fact that R "knows" that <code>Condition</code> has four levels - it doesn't matter if two of those levels don't have any observations any more, the underlying structure still says there are four groups. <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code> tells R to remove any unused levels from a factor. Try running the above code but without <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code> and see what happens.
 </p>
 </div>
-<p>However, a quicker and better way of doing this that allows you apply a correction for multiple comparisons easily is to use <code>emmeans()</code> which computes all possible pairwise comparison t-tests and applies a correction to the p-value.</p>
-<p>First, we use <code>emmeans()</code> to run the comparisons and then we can pull out the contrasts and use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to make it easier to work with.</p>
+<p>However, a quicker and better way of doing this that allows you apply a correction for multiple comparisons easily is to use <code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> which computes all possible pairwise comparison t-tests and applies a correction to the p-value.</p>
+<p>First, we use <code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> to run the comparisons and then we can pull out the contrasts and use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to make it easier to work with.</p>
 <ul>
 <li>Run the code below. Which conditions are significantly different from each other? Are any of the comparisons different from the ones reported in the paper now that a correction for multiple comparisons has been applied?</li>
 </ul>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu">emmeans</span><span class="op">(</span><span class="va">mod</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
+<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 <span class="va">mod_contrasts</span> <span class="op">&lt;-</span> <span class="va">mod_pairwise</span><span class="op">$</span><span class="va">contrasts</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="warning">
 <p>
@@ -379,7 +381,7 @@ The inquisitive amongst you may have noticed that <code>mod</code> is a list of 
 <blockquote>
 <p>On the basis of the effect size of d = 1.14 from Experiment 1, we assumed a large effect size of f = 0.4. A sample size of 18 per condition was required in order to ensure an 80% power to detect this difference at the 5% significance level.</p>
 </blockquote>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.anova.test.html">pwr.anova.test</a></span><span class="op">(</span>k <span class="op">=</span> <span class="fl">4</span>, f <span class="op">=</span> <span class="fl">.4</span>, sig.level <span class="op">=</span> <span class="fl">.05</span>, power <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
@@ -392,28 +394,28 @@ The inquisitive amongst you may have noticed that <code>mod</code> is a list of 
 ## 
 ## NOTE: n is number in each group</code></pre>
 <p>We've already got the effect size for the overall ANOVA, however, we should also really calculate Cohen's D using <code>cohensD</code> from <code>lsr</code> for each of the pairwise comparisons. This code is a little complicated because you need to do it separately for each comparison, bind them all together and then add them to <code>mod_contrasts</code> - just make sure your understand which bits of the code you would need to change to run this on different data.</p>
-<div class="sourceCode" id="cb300"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d_1_2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">d_1_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_1_3</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_1_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> 
 
-<span class="va">d_1_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_1_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_2_3</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_2_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_2_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_2_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_3_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_3_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
@@ -443,7 +445,7 @@ You could use bootstrapping, which is not something we will cover in this course
 <span class="header-section-number">14.0.11</span> Activity 10: Write-up<a class="anchor" aria-label="anchor" href="#anova-a10"><i class="fas fa-link"></i></a>
 </h3>
 <p>The below code replicates the write-up in the paper, although has changed the Welch t-test to the pairwise comparisons from <code>emmeans</code>.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="one-way-anova.html#cb301-1" aria-hidden="true" tabindex="-1"></a>Second, and critically, <span class="cf">for</span> the <span class="dv">7</span><span class="sc">-</span>day diary postintervention, there was a significant difference between groups <span class="cf">in</span> overall intrusion frequency <span class="cf">in</span> daily life, <span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_output$num.Df</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_output$den.Df</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_output$statistic %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_output$p.value %&gt;% round(3)</span><span class="st">`</span>, ηp2 <span class="ot">=</span> .<span class="st">`</span><span class="at">r mod_output$ges %&gt;% round(2)</span><span class="st">`</span>. Planned comparisons demonstrated that relative to the no<span class="sc">-</span>task control group, only those <span class="cf">in</span> the reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[1]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[1] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[1] %&gt;% round(2)</span><span class="st">`</span>, experienced significantly fewer intrusive memories; this finding replicated Experiment <span class="fl">1.</span> The reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group had significantly fewer intrusive thoughts than the reactivation<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[5]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[5] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[5] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[5] %&gt;% round(2)</span><span class="st">`</span>. Further, there were no significant differences between the reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group and the Tetris<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[4]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[4] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[4] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[4] %&gt;% round(2)</span><span class="st">`</span>, the no<span class="sc">-</span>task control group and the reactivation<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[3] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[3] %&gt;% round(2)</span><span class="st">`</span>, or between the no<span class="sc">-</span>task control group and the Tetris<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[2]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[2] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[2] %&gt;% round(2)</span><span class="st">`</span></span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="one-way-anova.html#cb302-1" aria-hidden="true" tabindex="-1"></a>Second, and critically, <span class="cf">for</span> the <span class="dv">7</span><span class="sc">-</span>day diary postintervention, there was a significant difference between groups <span class="cf">in</span> overall intrusion frequency <span class="cf">in</span> daily life, <span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_output$num.Df</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_output$den.Df</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_output$statistic %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_output$p.value %&gt;% round(3)</span><span class="st">`</span>, ηp2 <span class="ot">=</span> .<span class="st">`</span><span class="at">r mod_output$ges %&gt;% round(2)</span><span class="st">`</span>. Planned comparisons demonstrated that relative to the no<span class="sc">-</span>task control group, only those <span class="cf">in</span> the reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[1]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[1] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[1] %&gt;% round(2)</span><span class="st">`</span>, experienced significantly fewer intrusive memories; this finding replicated Experiment <span class="fl">1.</span> The reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group had significantly fewer intrusive thoughts than the reactivation<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[5]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[5] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[5] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[5] %&gt;% round(2)</span><span class="st">`</span>. Further, there were no significant differences between the reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group and the Tetris<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[4]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[4] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[4] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[4] %&gt;% round(2)</span><span class="st">`</span>, the no<span class="sc">-</span>task control group and the reactivation<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[3] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[3] %&gt;% round(2)</span><span class="st">`</span>, or between the no<span class="sc">-</span>task control group and the Tetris<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[2]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[2] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[2] %&gt;% round(2)</span><span class="st">`</span></span></code></pre></div>
 <p>Second, and critically, for the 7-day diary postintervention, there was a significant difference between groups in overall intrusion frequency in daily life, F(3, 68) = 3.79, p = 0.014, ηp2 = .0.14. Planned comparisons demonstrated that relative to the no-task control group, only those in the reactivation-plus-Tetris group, t(68) = 3.04, p = 0.02, d = 1, experienced significantly fewer intrusive memories; this finding replicated Experiment 1. Critically, as predicted by reconsolidation theory, the reactivation-plus-Tetris group had significantly fewer intrusive memories than the Tetris-only group, t(68) = -1.89, p = 0.38, d = 0.84, as well as the reactivation-only group, t(68) = -2.78, p = 0.04, d = 1.11. Further, there were no significant differences between the no-task control group and the reactivation-only group, t(68) = 0.26, p = 1, or between the no-task control group and the Tetris-only group, t(68) = 1.15, p = 1</p>
 </div>
 <div id="anova-sols" class="section level3" number="14.0.12">
@@ -459,17 +461,17 @@ You could use bootstrapping, which is not something we will cover in this course
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="one-way-anova.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"pwr"</span>)</span>
-<span id="cb302-2"><a href="one-way-anova.html#cb302-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lsr"</span>)</span>
-<span id="cb302-3"><a href="one-way-anova.html#cb302-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"car"</span>)</span>
-<span id="cb302-4"><a href="one-way-anova.html#cb302-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"broom"</span>)</span>
-<span id="cb302-5"><a href="one-way-anova.html#cb302-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"afex"</span>)</span>
-<span id="cb302-6"><a href="one-way-anova.html#cb302-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"emmeans"</span>)</span>
-<span id="cb302-7"><a href="one-way-anova.html#cb302-7" aria-hidden="true" tabindex="-1"></a>libr\<span class="fu">ry</span>(<span class="st">"performance"</span>)</span>
-<span id="cb302-8"><a href="one-way-anova.html#cb302-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb302-9"><a href="one-way-anova.html#cb302-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb302-10"><a href="one-way-anova.html#cb302-10" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"James Holmes_Expt 2_DATA.csv"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb302-11"><a href="one-way-anova.html#cb302-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">subject =</span> <span class="fu">row_number</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="one-way-anova.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"pwr"</span>)</span>
+<span id="cb303-2"><a href="one-way-anova.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lsr"</span>)</span>
+<span id="cb303-3"><a href="one-way-anova.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"car"</span>)</span>
+<span id="cb303-4"><a href="one-way-anova.html#cb303-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"broom"</span>)</span>
+<span id="cb303-5"><a href="one-way-anova.html#cb303-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"afex"</span>)</span>
+<span id="cb303-6"><a href="one-way-anova.html#cb303-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"emmeans"</span>)</span>
+<span id="cb303-7"><a href="one-way-anova.html#cb303-7" aria-hidden="true" tabindex="-1"></a>libr\<span class="fu">ry</span>(<span class="st">"performance"</span>)</span>
+<span id="cb303-8"><a href="one-way-anova.html#cb303-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb303-9"><a href="one-way-anova.html#cb303-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb303-10"><a href="one-way-anova.html#cb303-10" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"James Holmes_Expt 2_DATA.csv"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb303-11"><a href="one-way-anova.html#cb303-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">subject =</span> <span class="fu">row_number</span>())</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
@@ -481,7 +483,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb303"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">subject</span>,<span class="va">Condition</span>,<span class="va">Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</span><span class="op">)</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>intrusions <span class="op">=</span> <span class="va">Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</span><span class="op">)</span></code></pre></div>
@@ -496,7 +498,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sum_dat</span><span class="op">&lt;-</span><span class="va">dat2</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Condition</span><span class="op">)</span><span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">intrusions</span><span class="op">)</span>,
@@ -513,7 +515,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dat2</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">intrusions</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
   <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span></code></pre></div>
@@ -758,7 +760,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-02-04.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

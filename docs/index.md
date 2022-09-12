@@ -1,7 +1,7 @@
 --- 
 title: "Fundamentals of Quantitative Analysis"
 author: "Emily Nordmann & Phil McAleer"
-date: "2022-02-04"
+date: "2022-09-12"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -28,7 +28,7 @@ favicon: images/logos/favicon.ico
 
 **Summary:** Materials for the University of Glasgow School of Psychology & Neuroscience Research Methods modules for MSc students. 
 
-**Authors:** Emily Nordmann & Phil McAleer
+**Authors:** Emily Nordmann, Wil Toivo & Phil McAleer
 
 **Aim:** This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size, as well as demonstrating how to perform numerous analyses based around the general linear model including correlations, t-tests, ANOVAs and Regression.
 
