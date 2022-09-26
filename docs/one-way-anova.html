@@ -202,12 +202,12 @@ Figure 14.2: Bar plot of instrusions by condition
 <span class="header-section-number">14.0.7</span> Activity 6: One-way ANOVA<a class="anchor" aria-label="anchor" href="#anova-a6"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now we can run the one-way ANOVA using <code>aov_ez</code> from the <code>afex</code> package and save it to the object <code>mod</code>. As well as running the ANOVA, the <code>aov_ez</code> function also conducts a Levene's test for homogeneity of variance so that we can test our final assumption.</p>
-<p><code><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez()</a></code> will likely produce some messages that look like errors, do not worry about these, they are just letting you know what it's done.</p>
+<p><code>aov_ez()</code> will likely produce some messages that look like errors, do not worry about these, they are just letting you know what it's done.</p>
 <ul>
 <li>Copy and paste the below code to run and then view the results of the ANOVA using <code><a href="https://rdrr.io/r/stats/anova.html">anova(mod)</a></code>.</li>
 </ul>
 <div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>, <span class="co"># the column containing the subject IDs</span>
+<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>, <span class="co"># the column containing the subject IDs</span>
               dv <span class="op">=</span> <span class="st">"intrusions"</span>, <span class="co"># the DV </span>
               between <span class="op">=</span> <span class="st">"Condition"</span>, <span class="co"># the between-subject variable</span>
               es <span class="op">=</span> <span class="st">"pes"</span>, <span class="co"># sets effect size to partial eta-squared</span>
@@ -261,7 +261,7 @@ Figure 14.2: Bar plot of instrusions by condition
 <h3>
 <span class="header-section-number">14.0.8</span> Activity 7: Assumption checking<a class="anchor" aria-label="anchor" href="#anova-a7"><i class="fas fa-link"></i></a>
 </h3>
-<p>You may be wondering why we haven't yet checked the assumptions. Well, unlike the t-tests and correlations, in order to test the assumptions we need to use the model we created with <code><a href="https://rdrr.io/pkg/afex/man/aov_car.html">aov_ez()</a></code>, so we couldn't assess them all until this point. For a one-way independent ANOVA, the assumptions are the same as for a Student's t-test:</p>
+<p>You may be wondering why we haven't yet checked the assumptions. Well, unlike the t-tests and correlations, in order to test the assumptions we need to use the model we created with <code>aov_ez()</code>, so we couldn't assess them all until this point. For a one-way independent ANOVA, the assumptions are the same as for a Student's t-test:</p>
 <ol style="list-style-type: decimal">
 <li>The DV is interval or ratio data</li>
 <li>The observations should be independent</li>
@@ -329,9 +329,9 @@ Figure 14.3: qq-plot for model residuals
 </tbody>
 </table></div>
 <p>Thankfully the sample sizes are equal so we should be OK to proceed with the ANOVA. It is not clear whether normality was checked in the original paper.</p>
-<p>For the last assumption, we can test homogeneity of variance with Levene's test and the function <code><a href="https://rdrr.io/pkg/afex/man/deprecated.html">test_levene()</a></code> from <code>performance</code>. The code for this is very simple, you just need to supply the ANOVA model we created earlier <code>mod</code>.</p>
+<p>For the last assumption, we can test homogeneity of variance with Levene's test and the function <code>test_levene()</code> from <code>performance</code>. The code for this is very simple, you just need to supply the ANOVA model we created earlier <code>mod</code>.</p>
 <div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/afex/man/deprecated.html">test_levene</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">test_levene</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Functionality has moved to the 'performance' package.
 ## Calling 'performance::check_homogeneity()'.</code></pre>
 <pre><code>## Warning: Variances differ between groups (Levene's Test, p = 0.039).</code></pre>
@@ -359,13 +359,13 @@ Figure 14.3: qq-plot for model residuals
 Because <code>Condition</code> has four levels, we can’t just specify <code>intrustion ~ Condition</code> because a t-test compares two groups and it wouldn’t know which of the four to compare so first we have to filter the data and use a new function <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code>. It's important to remember that when it comes to R there are two things to consider, the data you can see and the underlying structure of that data. In the above code we use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to select only conditions 1 and 2 so that we can compare them. However, that doesn't change the fact that R "knows" that <code>Condition</code> has four levels - it doesn't matter if two of those levels don't have any observations any more, the underlying structure still says there are four groups. <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code> tells R to remove any unused levels from a factor. Try running the above code but without <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code> and see what happens.
 </p>
 </div>
-<p>However, a quicker and better way of doing this that allows you apply a correction for multiple comparisons easily is to use <code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> which computes all possible pairwise comparison t-tests and applies a correction to the p-value.</p>
-<p>First, we use <code><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans()</a></code> to run the comparisons and then we can pull out the contrasts and use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to make it easier to work with.</p>
+<p>However, a quicker and better way of doing this that allows you apply a correction for multiple comparisons easily is to use <code>emmeans()</code> which computes all possible pairwise comparison t-tests and applies a correction to the p-value.</p>
+<p>First, we use <code>emmeans()</code> to run the comparisons and then we can pull out the contrasts and use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to make it easier to work with.</p>
 <ul>
 <li>Run the code below. Which conditions are significantly different from each other? Are any of the comparisons different from the ones reported in the paper now that a correction for multiple comparisons has been applied?</li>
 </ul>
 <div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html">emmeans</a></span><span class="op">(</span><span class="va">mod</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu">emmeans</span><span class="op">(</span><span class="va">mod</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
 <span class="va">mod_contrasts</span> <span class="op">&lt;-</span> <span class="va">mod_pairwise</span><span class="op">$</span><span class="va">contrasts</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <div class="warning">
 <p>
@@ -395,27 +395,27 @@ The inquisitive amongst you may have noticed that <code>mod</code> is a list of 
 ## NOTE: n is number in each group</code></pre>
 <p>We've already got the effect size for the overall ANOVA, however, we should also really calculate Cohen's D using <code>cohensD</code> from <code>lsr</code> for each of the pairwise comparisons. This code is a little complicated because you need to do it separately for each comparison, bind them all together and then add them to <code>mod_contrasts</code> - just make sure your understand which bits of the code you would need to change to run this on different data.</p>
 <div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d_1_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<code class="sourceCode R"><span class="va">d_1_2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_1_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_1_3</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> 
 
-<span class="va">d_1_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_1_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_2_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_2_3</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_2_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_2_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">d_3_4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lsr/man/cohensD.html">cohensD</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
+<span class="va">d_3_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
                  data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
                    <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
 
@@ -760,7 +760,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-12.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
