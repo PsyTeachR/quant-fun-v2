@@ -277,7 +277,7 @@ new_year - today
 ```
 
 ```
-## Time difference of -619 days
+## Time difference of -636 days
 ```
 
 
@@ -325,8 +325,8 @@ So it is a good idea to keep your environment clean and tidy. Which leads us on 
 When you open RStudio it will show you what you were last working on, including your code and any objects you have created, assuming this is not the first time you have used RStudio. This might sound helpful, but actually it tends to cause more problems than it's worth because it means that you risk accidentally using an old version of an object - say `Date` is kept over in the environment from the last time you did some work and you don't realise and you start working on the wrong `Date` because you wanted a new one etc etc etc. In reality, we recommend changing the settings so that each time you start RStudio, it opens a fresh new environment. You can do this by clicking on the top menu **`Tools >> Global Options`** and then deselecting boxes so that your box looks like the below and saving/applying the changes.
 
 <div class="figure" style="text-align: center">
-<img src="images/global_options.jpg" alt="Global options" width="100%" />
-<p class="caption">(\#fig:img-options)Global options</p>
+<img src="images/global_options.jpg" alt="Global options - you are aiming to make your global options look similar, in terms of what is ticked, to the above. The main thing is to make sure that Restore RData into workspace is not ticked, and we would set Save workspace to Never. The History options are optional but can help. The update options are really just in case you want to." width="100%" />
+<p class="caption">(\#fig:img-options)Global options - you are aiming to make your global options look similar, in terms of what is ticked, to the above. The main thing is to make sure that Restore RData into workspace is not ticked, and we would set Save workspace to Never. The History options are optional but can help. The update options are really just in case you want to.</p>
 </div>
 
 That should save a lot of hassle going forward. You will still encounter issues of course and so we are going to end this chapter by having a quick look at getting help.
