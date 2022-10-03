@@ -1,6 +1,6 @@
 # Regression
 
-In this activity, you will be working with real data and using regression to explore the question of whether there is a relationship between statistics anxiety and engagement in course activities.  The hypothesis is that students who are more anxious about statistics are less likely to engage in course-related activities. This avoidance behaviour could ultimately be responsible for lower performance for these students (although we won't be examining the assessment scores in this activity).
+In this activity, you will be working with real data and using regression to explore the question of whether there is a relationship between statistics anxiety and engagement in course activities.  The hypothesis is that students who are more anxious about statistics are less likely to engage in course-related activities.
 
 We are going to analyse data from the STARS Statistics Anxiety Survey, which was administered to students in the third-year statistics course in Psychology at the University of Glasgow. All the responses have been anonymised by associating the responses for each student with an arbitrary ID number (integer).
 
@@ -158,6 +158,8 @@ For the rest of the assumptions, we're going to use functions from the packages 
 First, we can use `check_model()` to produce a range of assumption test visualisations. Helpfully, this function also provides a brief explanation of what you should be looking for in each plot - if only all functions in R were so helpful!
 
 * If you get the error message `Failed with error:  ‘there is no package called ‘qqplotr’’`, install the package `qqplotr`, you don't need to load it using `library()`, but `check_model()` uses it in the background.
+
+* If your `check_model()` plots are not showing, try maximising your plot window.
 
 
 ```r
