@@ -245,18 +245,18 @@ So we have learnt about functions and arguments and earlier we said functions gi
 
 ```r
 name <- "emily"
-age <- 16 + 19 
+age <- 16 + 17 
 today <- Sys.Date()
-new_year <- as.Date("2021-01-01")
+new_year <- as.Date("2020-01-01")
 data <- rnorm(n = 10, mean = 15, sd = 3)
 ```
 
 <div class="figure" style="text-align: center">
-<img src="images/objects-enviro.png" alt="Objects in the environment" width="100%" />
-<p class="caption">(\#fig:img-objects-enviro)Objects in the environment</p>
+<img src="images/objects-enviro.png" alt="Objects in the environment. Feel free to change your numbers and check that they match the environment!" width="100%" />
+<p class="caption">(\#fig:img-objects-enviro)Objects in the environment. Feel free to change your numbers and check that they match the environment!</p>
 </div>
 
-Note that in these examples, `name`,`age`, and `new_year` would always contain the values `emily`, `35`, and the date of New Year's Day 2021, however, `today` will draw the date from the operating system on the day you are using the computer, and `data` will be a randomly generated set of data - as we saw earlier - so the values of these objects will not be static. 
+Note that in these examples, `name`,`age`, and `new_year` would always contain the values `emily`, 33, and the date of New Year's Day 2020, however, `today` will draw the date from the operating system on the day you are using the computer, and `data` will be a randomly generated set of data - as we saw earlier - so the values of these objects will not be static. 
 
 * Why don't you try changing the name to your name and the age to your age, and seeing if they update in the environment window.
 
@@ -268,7 +268,7 @@ age + 10
 ```
 
 ```
-## [1] 45
+## [1] 43
 ```
 
 
@@ -277,7 +277,7 @@ new_year - today
 ```
 
 ```
-## Time difference of -640 days
+## Time difference of -1016 days
 ```
 
 
