@@ -242,20 +242,20 @@ So we have learnt about functions and arguments and earlier we said functions gi
 ```{r objects}
 
 name <- "emily"
-age <- 16 + 19 
+age <- 16 + 17 
 today <- Sys.Date()
-new_year <- as.Date("2021-01-01")
+new_year <- as.Date("2020-01-01")
 data <- rnorm(n = 10, mean = 15, sd = 3)
 
 ```
 
-```{r img-objects-enviro, echo=FALSE, fig.cap="Objects in the environment"}
+```{r img-objects-enviro, echo=FALSE, fig.cap="Objects in the environment. Feel free to change your numbers and check that they match the environment!"}
 
 knitr::include_graphics("images/objects-enviro.png")
 
 ```
 
-Note that in these examples, `name`,`age`, and `new_year` would always contain the values `emily`, `35`, and the date of New Year's Day 2021, however, `today` will draw the date from the operating system on the day you are using the computer, and `data` will be a randomly generated set of data - as we saw earlier - so the values of these objects will not be static. 
+Note that in these examples, `name`,`age`, and `new_year` would always contain the values `emily`, `r age`, and the date of New Year's Day 2020, however, `today` will draw the date from the operating system on the day you are using the computer, and `data` will be a randomly generated set of data - as we saw earlier - so the values of these objects will not be static. 
 
 * Why don't you try changing the name to your name and the age to your age, and seeing if they update in the environment window.
 
