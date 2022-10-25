@@ -408,7 +408,7 @@ Fiona is a very tall Scottish woman (181.12 cm) in the 16-24 y.o. range who will
 
 #### Activity 12: `pnorm` 3 {#prob-a12}
 
-On the other hand, Fiona is bisexual and will date women who are shorter than her. 
+On the other hand, Fiona is bisexual and will only date women who are shorter than her. 
 
 * What is the proportion of Scottish women would Fiona be willing to date to 2 decimal places? `r fitb(c("0.99", ".99"))`
   * **hint:** female distribution, lower than Fiona.
