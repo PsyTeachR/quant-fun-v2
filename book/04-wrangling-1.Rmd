@@ -220,7 +220,7 @@ sort_asc <- arrange(.data = babynames,
 
 If you look in `sort_asc` the data are now sorted in ascending alphabetical order by name. But what if you want the data in descending order? Here we can wrap the name of the variable in the `desc()` function. 
 
-* Type and run the below code in a new code chunk. When you have run the code have a look at `sort_desc` and note that the data is not sorted by descending year!
+* Type and run the below code in a new code chunk. When you have run the code have a look at `sort_desc` and note that the data is now sorted by descending year!
 
 ```{r sort2, eval=FALSE}
 
