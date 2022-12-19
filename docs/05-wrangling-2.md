@@ -269,12 +269,12 @@ pong_data_hits <- pong_data_renumbered %>%
 
 
 
-* What was the total number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_XGPEEOWVRB'><label><input type="radio" autocomplete="off" name="radio_XGPEEOWVRB" value=""></input> <span>516</span></label><label><input type="radio" autocomplete="off" name="radio_XGPEEOWVRB" value="answer"></input> <span>527</span></label><label><input type="radio" autocomplete="off" name="radio_XGPEEOWVRB" value=""></input> <span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_XGPEEOWVRB" value=""></input> <span>1059</span></label></div>
+* What was the total number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_UXEVEUZWKI'><label><input type="radio" autocomplete="off" name="radio_UXEVEUZWKI" value=""></input> <span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_UXEVEUZWKI" value=""></input> <span>516</span></label><label><input type="radio" autocomplete="off" name="radio_UXEVEUZWKI" value=""></input> <span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_UXEVEUZWKI" value="answer"></input> <span>527</span></label></div>
 
 
 
 
-* To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_VTKHFGDCOS'><label><input type="radio" autocomplete="off" name="radio_VTKHFGDCOS" value=""></input> <span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_VTKHFGDCOS" value="answer"></input> <span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_VTKHFGDCOS" value=""></input> <span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_VTKHFGDCOS" value=""></input> <span>0.451</span></label></div>
+* To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background? <div class='webex-radiogroup' id='radio_FXCTAIVSMD'><label><input type="radio" autocomplete="off" name="radio_FXCTAIVSMD" value=""></input> <span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_FXCTAIVSMD" value="answer"></input> <span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_FXCTAIVSMD" value=""></input> <span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_FXCTAIVSMD" value=""></input> <span>0.922</span></label></div>
 
 
 **Note:**
@@ -370,7 +370,7 @@ Here is an example of code that doesn't use pipes to find how many hits there we
 
 * First we group the data accordingly, storing it in `pong_data_group`
 * And then we summarise it, storing the answer in `total_hits`
-* And finally we filter just the red, small paddle hits
+* And finally we filter just the red, large paddle hits
 
 
 ```r
@@ -381,7 +381,7 @@ pong_data_group <- group_by(pong_data,
 pong_data_hits <- summarise(pong_data_group, 
                             total_hits = sum(HitOrMiss))
 
-pong_data_hits_red_small <- filter(pong_data_hits, 
+pong_data_hits_red_large <- filter(pong_data_hits, 
                                    BackgroundColor == "red", 
                                    PaddleLength == 250)
 ```
@@ -390,7 +390,7 @@ Alternatively we can make our code even more efficient, using less code, by stri
 
 
 ```r
-pong_data_hits_red_small <- pong_data %>% 
+pong_data_hits_red_large <- pong_data %>% 
   group_by(BackgroundColor, 
            PaddleLength) %>% 
   summarise(total_hits = sum(HitOrMiss)) %>% 
@@ -444,13 +444,13 @@ There is a lot of different types of data and as well as different types of leve
 
 <br>
 
-2. Which of the Wickham Six would you use to sort columns from smallest to largest: <div class='webex-radiogroup' id='radio_GYEJIHUPOM'><label><input type="radio" autocomplete="off" name="radio_GYEJIHUPOM" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_GYEJIHUPOM" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_GYEJIHUPOM" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_GYEJIHUPOM" value="answer"></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_GYEJIHUPOM" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_GYEJIHUPOM" value=""></input> <span>summarise</span></label></div>
+2. Which of the Wickham Six would you use to sort columns from smallest to largest: <div class='webex-radiogroup' id='radio_KYQCEXUGMH'><label><input type="radio" autocomplete="off" name="radio_KYQCEXUGMH" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_KYQCEXUGMH" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_KYQCEXUGMH" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_KYQCEXUGMH" value="answer"></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_KYQCEXUGMH" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_KYQCEXUGMH" value=""></input> <span>summarise</span></label></div>
 
-3. Which of the Wickham Six would you use to calculate the mean of a column: <div class='webex-radiogroup' id='radio_BEOZSJPUFV'><label><input type="radio" autocomplete="off" name="radio_BEOZSJPUFV" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_BEOZSJPUFV" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_BEOZSJPUFV" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_BEOZSJPUFV" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_BEOZSJPUFV" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_BEOZSJPUFV" value="answer"></input> <span>summarise</span></label></div>
+3. Which of the Wickham Six would you use to calculate the mean of a column: <div class='webex-radiogroup' id='radio_TOULIJFNNF'><label><input type="radio" autocomplete="off" name="radio_TOULIJFNNF" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_TOULIJFNNF" value=""></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_TOULIJFNNF" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_TOULIJFNNF" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_TOULIJFNNF" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_TOULIJFNNF" value="answer"></input> <span>summarise</span></label></div>
 
-4. Which of the Wickham Six would you use to remove certain observations - e.g. remove all males: <div class='webex-radiogroup' id='radio_AENZLOREOD'><label><input type="radio" autocomplete="off" name="radio_AENZLOREOD" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_AENZLOREOD" value="answer"></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_AENZLOREOD" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_AENZLOREOD" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_AENZLOREOD" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_AENZLOREOD" value=""></input> <span>summarise</span></label></div>
+4. Which of the Wickham Six would you use to remove certain observations - e.g. remove all males: <div class='webex-radiogroup' id='radio_VDCOMSLLYV'><label><input type="radio" autocomplete="off" name="radio_VDCOMSLLYV" value=""></input> <span>select</span></label><label><input type="radio" autocomplete="off" name="radio_VDCOMSLLYV" value="answer"></input> <span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_VDCOMSLLYV" value=""></input> <span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_VDCOMSLLYV" value=""></input> <span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_VDCOMSLLYV" value=""></input> <span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_VDCOMSLLYV" value=""></input> <span>summarise</span></label></div>
  
-5. What does this line of code say? `data %>% filter() %>% group_by() %>% summarise()`: <div class='webex-radiogroup' id='radio_YHYJKWSTAA'><label><input type="radio" autocomplete="off" name="radio_YHYJKWSTAA" value=""></input> <span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_YHYJKWSTAA" value="answer"></input> <span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_YHYJKWSTAA" value=""></input> <span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_YHYJKWSTAA" value=""></input> <span>take the data and then group it and then summarise it and then filter it</span></label></div>
+5. What does this line of code say? `data %>% filter() %>% group_by() %>% summarise()`: <div class='webex-radiogroup' id='radio_QXDBOQWGUG'><label><input type="radio" autocomplete="off" name="radio_QXDBOQWGUG" value=""></input> <span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_QXDBOQWGUG" value="answer"></input> <span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_QXDBOQWGUG" value=""></input> <span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_QXDBOQWGUG" value=""></input> <span>take the data and then group it and then summarise it and then filter it</span></label></div>
   
 
 ### Debugging tips {#dw2-debug}

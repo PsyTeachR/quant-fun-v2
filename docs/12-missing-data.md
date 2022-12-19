@@ -212,7 +212,7 @@ summarise(messy,
           )
 ```
 
-* What is the mean score for the `delay` condition to 2 decimal places? <input class='webex-solveme nospaces' size='5' data-answer='["13.57"]'/>
+* What is the mean score for the `delay` condition to 2 decimal places? <input class='webex-solveme nospaces' size='5' data-answer='["13.60"]'/>
 
 <div class="danger">
 <p>It's really important that you think about whether you want to calculate your descriptives from participants that have missing data. For example, if you are calculating the average reaction time from hundreds of trials, a few missing data points won't affect the validity of the mean. However, if you are using a standardised questionnaire that has been validated using complete responses but your participants didn't answer 3/10 questions, it may not be appropriate to calculate a mean score from the remaining data.</p>
@@ -259,7 +259,9 @@ messy %>%
 
 The maximum value for age is 470, this is unlikely to be correct!
   
-The maximum value for pre, post, and delay should be 30, as we described at the start of the chapter. However, for post, the maximum value is 33 so something is wrong. This is a very important check to do on your data, not just for the raw data but if you've calculated a total score.
+The maximum value for pre, post, and delay should be 30, as we described at the start of the chapter. However, for post, the maximum value is 40 so something is wrong. This is a very important check to do on your data, not just for the raw data but if you've calculated a total score.
+
+The min value for delay is plausible, given the explanation at the start of the chapter. Remember that participants can be deducted points for incorrect answers, so negative values are possible.
 
 </div>
 
@@ -317,7 +319,7 @@ messy %>%
   geom_violin() +
   geom_boxplot() +
   geom_jitter(width = .2) +
-  geom_hline(yintercept = c(0,40), color = "red", linetype = 2)
+  geom_hline(yintercept = c(0,30), color = "red", linetype = 2)
 ```
 
 <div class="figure" style="text-align: center">

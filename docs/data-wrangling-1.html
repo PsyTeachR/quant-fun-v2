@@ -409,7 +409,7 @@ Figure 4.3: Plots by sex with the same scale
                     <span class="va">name</span><span class="op">)</span></code></pre></div>
 <p>If you look in <code>sort_asc</code> the data are now sorted in ascending alphabetical order by name. But what if you want the data in descending order? Here we can wrap the name of the variable in the <code><a href="https://dplyr.tidyverse.org/reference/desc.html">desc()</a></code> function.</p>
 <ul>
-<li>Type and run the below code in a new code chunk. When you have run the code have a look at <code>sort_desc</code> and note that the data is not sorted by descending year!</li>
+<li>Type and run the below code in a new code chunk. When you have run the code have a look at <code>sort_desc</code> and note that the data is now sorted by descending year!</li>
 </ul>
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sort_desc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">babynames</span>, 
@@ -421,8 +421,8 @@ Figure 4.3: Plots by sex with the same scale
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>, 
         <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">prop</span><span class="op">)</span><span class="op">)</span> </code></pre></div>
 The above code will produce:
-<div id="radio_NOYOTOVTLY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NOYOTOVTLY" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_NOYOTOVTLY" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_NOYOTOVTLY" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_NOYOTOVTLY" value=""><span>the data sorted by ascending year, sex and prop</span></label>
+<div id="radio_NHTPIMHVSH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NHTPIMHVSH" value=""><span>the data sorted by descending year and sex but ascending prop</span></label><label><input type="radio" autocomplete="off" name="radio_NHTPIMHVSH" value=""><span>the data sorted by descending year and prop but ascending sex</span></label><label><input type="radio" autocomplete="off" name="radio_NHTPIMHVSH" value="answer"><span>the data sorted by descending year, sex and prop</span></label><label><input type="radio" autocomplete="off" name="radio_NHTPIMHVSH" value=""><span>the data sorted by ascending year, sex and prop</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -610,8 +610,8 @@ Explain this answer
 <code class="sourceCode R"><span class="va">baby_where</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">babynames</span>,
                   country <span class="op">=</span> <span class="st">"USA"</span><span class="op">)</span></code></pre></div>
 What will be stored in the object <code>baby_where</code>?
-<div id="radio_ASPJKOOULC" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ASPJKOOULC" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_ASPJKOOULC" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_ASPJKOOULC" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_ASPJKOOULC" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
+<div id="radio_JGMTHEPYKG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JGMTHEPYKG" value=""><span>a tibble with one column called country that contains the decade people were born</span></label><label><input type="radio" autocomplete="off" name="radio_JGMTHEPYKG" value="answer"><span>a tibble with all the original data and a new column called country stating USA</span></label><label><input type="radio" autocomplete="off" name="radio_JGMTHEPYKG" value=""><span>a tibble with all the original data and a new column stating usa</span></label><label><input type="radio" autocomplete="off" name="radio_JGMTHEPYKG" value=""><span>a tibble with all the original data arranged by the country USA</span></label>
 </div>
 <div class="webex-solution">
 <button>
@@ -849,28 +849,28 @@ When learning to code it can be a useful practice to read your code 'out loud' i
 </h3>
 <ol style="list-style-type: decimal">
 <li>Which of the following is not one of the Wickham Six functions?
-<div id="radio_XOOTYCJCNP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XOOTYCJCNP" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_XOOTYCJCNP" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_XOOTYCJCNP" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_XOOTYCJCNP" value=""><span>filter()</span></label>
+<div id="radio_UMSBOLUVIM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UMSBOLUVIM" value="answer"><span>melt()</span></label><label><input type="radio" autocomplete="off" name="radio_UMSBOLUVIM" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_UMSBOLUVIM" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_UMSBOLUVIM" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain columns?
-<div id="radio_LZYNLWMIIA" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LZYNLWMIIA" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_LZYNLWMIIA" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_LZYNLWMIIA" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_LZYNLWMIIA" value=""><span>filter()</span></label>
+<div id="radio_HLUHTZVQJU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_HLUHTZVQJU" value="answer"><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_HLUHTZVQJU" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_HLUHTZVQJU" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_HLUHTZVQJU" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to keep only certain rows?
-<div id="radio_JVNSQUVBBS" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JVNSQUVBBS" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_JVNSQUVBBS" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_JVNSQUVBBS" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_JVNSQUVBBS" value="answer"><span>filter()</span></label>
+<div id="radio_MAOSPRUCXS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MAOSPRUCXS" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_MAOSPRUCXS" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_MAOSPRUCXS" value=""><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_MAOSPRUCXS" value="answer"><span>filter()</span></label>
 </div>
 </li>
 <li>Which of the following functions would I use if I wanted to add a new column of information?
-<div id="radio_DVUSEWXMFU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DVUSEWXMFU" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_DVUSEWXMFU" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_DVUSEWXMFU" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_DVUSEWXMFU" value=""><span>filter()</span></label>
+<div id="radio_MOXNGDQGEZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_MOXNGDQGEZ" value=""><span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_MOXNGDQGEZ" value=""><span>arrange()</span></label><label><input type="radio" autocomplete="off" name="radio_MOXNGDQGEZ" value="answer"><span>mutate()</span></label><label><input type="radio" autocomplete="off" name="radio_MOXNGDQGEZ" value=""><span>filter()</span></label>
 </div>
 </li>
 <li>Which boolean expression would I add to a <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> function to keep only Male babies in the original <code>babynames</code> data?
-<div id="radio_NVDGPLQEAU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NVDGPLQEAU" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_NVDGPLQEAU" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_NVDGPLQEAU" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_NVDGPLQEAU" value=""><span>Sex == M</span></label>
+<div id="radio_GQPEJJRSXS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GQPEJJRSXS" value=""><span>sex == F</span></label><label><input type="radio" autocomplete="off" name="radio_GQPEJJRSXS" value="answer"><span>sex == M</span></label><label><input type="radio" autocomplete="off" name="radio_GQPEJJRSXS" value=""><span>sex &lt; F</span></label><label><input type="radio" autocomplete="off" name="radio_GQPEJJRSXS" value=""><span>Sex == M</span></label>
 </div>
 </li>
 </ol>

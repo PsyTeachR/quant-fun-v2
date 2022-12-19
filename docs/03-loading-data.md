@@ -195,7 +195,7 @@ Finally, if you're using the R server, we strongly recommend that you download a
 
 ### Knowledge Questions
 
-1. When loading in a .csv file, which function should you use? <div class='webex-radiogroup' id='radio_TRRRGTMXMD'><label><input type="radio" autocomplete="off" name="radio_TRRRGTMXMD" value="answer"></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_TRRRGTMXMD" value=""></input> <span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_TRRRGTMXMD" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_TRRRGTMXMD" value=""></input> <span>library()</span></label></div>
+1. When loading in a .csv file, which function should you use? <div class='webex-radiogroup' id='radio_XZQLYRVGYR'><label><input type="radio" autocomplete="off" name="radio_XZQLYRVGYR" value="answer"></input> <span>read_csv()</span></label><label><input type="radio" autocomplete="off" name="radio_XZQLYRVGYR" value=""></input> <span>read.csv()</span></label><label><input type="radio" autocomplete="off" name="radio_XZQLYRVGYR" value=""></input> <span>select()</span></label><label><input type="radio" autocomplete="off" name="radio_XZQLYRVGYR" value=""></input> <span>library()</span></label></div>
 
 
 
@@ -206,7 +206,7 @@ Remember, in this course we use `read_csv()` and it is important that you use th
 </div>
  
 
-2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do? <div class='webex-radiogroup' id='radio_AURZGEOSJS'><label><input type="radio" autocomplete="off" name="radio_AURZGEOSJS" value=""></input> <span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_AURZGEOSJS" value=""></input> <span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_AURZGEOSJS" value="answer"></input> <span>Specifies the column to join by that both objects have in common</span></label></div>
+2. The function `inner_join()` takes the arguments `x`, `y`, `by`. What does `by` do? <div class='webex-radiogroup' id='radio_LXCPYGPYQU'><label><input type="radio" autocomplete="off" name="radio_LXCPYGPYQU" value=""></input> <span>Specifies the first object to join</span></label><label><input type="radio" autocomplete="off" name="radio_LXCPYGPYQU" value=""></input> <span>Specifies the second object to join</span></label><label><input type="radio" autocomplete="off" name="radio_LXCPYGPYQU" value="answer"></input> <span>Specifies the column to join by that both objects have in common</span></label></div>
 
 
 
@@ -217,7 +217,7 @@ Remember, functions have arguments and the arguments all do something slightly d
 </div>
  
 
-3. What does the function `select()` do? <div class='webex-radiogroup' id='radio_ROQFDMIQZO'><label><input type="radio" autocomplete="off" name="radio_ROQFDMIQZO" value=""></input> <span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_ROQFDMIQZO" value="answer"></input> <span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_ROQFDMIQZO" value=""></input> <span>Keeps only the objects you specify</span></label></div>
+3. What does the function `select()` do? <div class='webex-radiogroup' id='radio_GXQQGQEFPZ'><label><input type="radio" autocomplete="off" name="radio_GXQQGQEFPZ" value=""></input> <span>Keeps only the observations you specify</span></label><label><input type="radio" autocomplete="off" name="radio_GXQQGQEFPZ" value="answer"></input> <span>Keeps only the columns you specify</span></label><label><input type="radio" autocomplete="off" name="radio_GXQQGQEFPZ" value=""></input> <span>Keeps only the objects you specify</span></label></div>
 
 
 
