@@ -1,40 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis</title>
-<meta name="author" content="Emily Nordmann &amp; Phil McAleer">
-<meta name="description" content="7.1 Data visualisation Data Visualisation. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/intro-to-data-visualisation.html">
-<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<meta property="og:description" content="7.1 Data visualisation Data Visualisation. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="7.1 Data visualisation Data Visualisation. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical...">
-<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis</title>
+
+    <meta name="author" content="Emily Nordmann &amp; Phil McAleer" />
+  
+   <meta name="description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2" />
+  <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png" />
+  <meta property="og:description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Intro to Data Visualisation | Fundamentals of Quantitative Analysis" />
+  
+  <meta name="twitter:description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
+  <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.3.1/transition.js"></script>
+    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-6NP3MF25W3');
-    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
-<link rel="stylesheet" href="include/webex.css">
-<link rel="stylesheet" href="include/style.css">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="include/psyteachr.css" />
+    <link rel="stylesheet" href="include/webex.css" />
+    <link rel="stylesheet" href="include/style.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -46,133 +71,92 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Overview</a></li>
-<li><a class="" href="foreword.html">Foreword</a></li>
-<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
-<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
-<li><a class="" href="starting-with-data.html"><span class="header-section-number">3</span> Starting with data</a></li>
-<li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
-<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
-<li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
-<li><a class="active" href="intro-to-data-visualisation.html"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
-<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
-<li><a class="" href="correlations.html"><span class="header-section-number">9</span> Correlations</a></li>
-<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
-<li><a class="" href="power-and-effect-sizes.html"><span class="header-section-number">11</span> Power and Effect Sizes</a></li>
-<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
-<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
-<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
-<li><a class="" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
-<li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
-<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="citing-r-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
-<li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
-<li><a class="" href="license.html">License</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/PsyTeachR/quant-fun-v2">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="intro-to-data-visualisation" class="section level1" number="7">
-<h1>
-<span class="header-section-number">7</span> Intro to Data Visualisation<a class="anchor" aria-label="anchor" href="#intro-to-data-visualisation"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="intro-to-data-visualisation" class="section level1" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Intro to Data Visualisation</h1>
 <div id="data-visualisation" class="section level2" number="7.1">
-<h2>
-<span class="header-section-number">7.1</span> Data visualisation<a class="anchor" aria-label="anchor" href="#data-visualisation"><i class="fas fa-link"></i></a>
-</h2>
-<p><a class="glossary" title="Data Visualisation is the skill of creating and interpreting plots and figures from data.">Data Visualisation</a>. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical analyses or present any summary statistics, we should visualise our data as it is:</p>
+<h2><span class="header-section-number">7.1</span> Data visualisation</h2>
+<p><a class='glossary' title='Data Visualisation is the skill of creating and interpreting plots and figures from data.'>Data Visualisation</a>. Being able to visualise our data, and relationships between our variables, is an incredibly useful and important skill. Before we do any statistical analyses or present any summary statistics, we should visualise our data as it is:</p>
 <ol style="list-style-type: decimal">
 <li>A quick and easy way to check our data make sense, and to identify any unusual trends.</li>
 <li>A way to honestly present the features of our data to anyone who reads our research.</li>
-<li>A means of checking that our data fits with the assumptions of our <a class="glossary" target="_blank" title="Statistics that describe an aspect of data (e.g., mean, median, mode, variance, range)" href="https://psyteachr.github.io/glossary/d#descriptive">descriptive</a> and <a class="glossary" target="_blank" title="Statistics that allow you to make predictions about or comparisons between data (e.g., t-value, F-value, rho)" href="https://psyteachr.github.io/glossary/i#inferential">inferential</a> tests and of the statistical analyses that we intend to use.</li>
+<li>A means of checking that our data fits with the assumptions of our <a class='glossary' target='_blank' title='Statistics that describe an aspect of data (e.g., mean, median, mode, variance, range)' href='https://psyteachr.github.io/glossary/d#descriptive'>descriptive</a> and <a class='glossary' target='_blank' title='Statistics that allow you to make predictions about or comparisons between data (e.g., t-value, F-value, rho)' href='https://psyteachr.github.io/glossary/i#inferential'>inferential</a> tests and of the statistical analyses that we intend to use.</li>
 </ol>
 <p>As Grolemund and Wickham tell us in <a href="http://r4ds.had.co.nz/introduction.html" target="_blank">R for Data Science</a>:</p>
 <blockquote>
 <p>Visualisation is a fundamentally human activity. A good visualisation will show you things that you did not expect, or raise new questions about the data. A good visualisation might also hint that you’re asking the wrong question, or you need to collect different data. Visualisations can surprise you, but don’t scale particularly well because they require a human to interpret them.</p>
 </blockquote>
 <p>The main package we use for visualisation within the <code>tidyverse</code> umbrella is called <strong><code>ggplot2</code></strong> and the main starting function of all visualisations is <code>ggplot()</code>. The reason we say the "main starting function" is that <code>ggplot()</code> builds plots by combining layers (see, for example, Figure <a href="intro-to-data-visualisation.html#fig:img-layers">7.1</a> from <span class="citation">(<a href="references.html#ref-nordmann2021" role="doc-biblioref">Nordmann et al., 2021</a>)</span>) - i.e. one function creates the first layer, the basic plot area, and you add functions and arguments to add additional layers such as the data, the labels, the colors, etc. If you're used to making plots in other software this might seem a bit odd at first, however, it means that you can customise each layer separately in order to make very complex and beautiful figures with relative ease. You can get a sense of what is possible from (<a href="https://www.data-to-viz.com/">this website</a> but we will start off slow and build as we go!</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:img-layers"></span>
-<img src="images/layers2.PNG" alt="Building a figure using the ggplot2 layers system as shown in Nordmann et al. (2021)" width="100%"><p class="caption">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:img-layers"></span>
+<img src="images/layers2.PNG" alt="Building a figure using the ggplot2 layers system as shown in Nordmann et al. (2021)" width="100%" />
+<p class="caption">
 Figure 7.1: Building a figure using the ggplot2 layers system as shown in Nordmann et al. (2021)
 </p>
 </div>
 </div>
 <div id="setting-up-to-visaulise" class="section level2" number="7.2">
-<h2>
-<span class="header-section-number">7.2</span> Setting up to Visaulise<a class="anchor" aria-label="anchor" href="#setting-up-to-visaulise"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.2</span> Setting up to Visaulise</h2>
 <p>We will use the same data files as in Chapter 2, Starting with Data, as we already know what the data contains so we can focus just on visualising it.</p>
 <div id="introviz-a1" class="section level4" number="7.2.0.1">
-<h4>
-<span class="header-section-number">7.2.0.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#introviz-a1"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">7.2.0.1</span> Activity 1: Set-up</h4>
 <p>This data contains happiness and depression scores:</p>
 <ul>
 <li>Download <a href="ahi-cesd.csv" download><code>ahi-cesd.csv</code></a> and <a href="participant-info.csv"><code>participant-info.csv</code></a> into the folder on your computer for this chapter!
 <ul>
 <li>Make sure that you have downloaded both .csv files above and saved them in your chapter folder. Remember not to change the file names at all and that <code>data.csv</code> is not the same as <code>data (1).csv</code>.</li>
-</ul>
-</li>
+</ul></li>
 <li>Open RStudio and set the working directory to your chapter folder. Ensure the environment is clear.
 <ul>
-<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
-</li>
-</ul>
-</li>
-<li>Open a new R Markdown document and save it in your working directory. Call the file "DataVisualisation1".<br>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code></li>
+</ul></li>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "DataVisualisation1".<br />
 </li>
 <li>Delete the default R Markdown welcome text and insert a new code chunk.</li>
 <li>Type and run the below code to load the <code>tidyverse</code> package and to load in the data files.</li>
 </ul>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> 
-
-<span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"ahi-cesd.csv"</span><span class="op">)</span>
-<span class="va">pinfo</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"participant-info.csv"</span><span class="op">)</span>
-
-<span class="va">all_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">dat</span>, 
-                      <span class="va">pinfo</span>, 
-                      by<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"id"</span>, <span class="st">"intervention"</span><span class="op">)</span><span class="op">)</span>
-<span class="va">summarydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>.data <span class="op">=</span> <span class="va">all_dat</span>, 
-                      <span class="va">ahiTotal</span>, 
-                      <span class="va">cesdTotal</span>, 
-                      <span class="va">sex</span>, 
-                      <span class="va">age</span>, 
-                      <span class="va">educ</span>, 
-                      <span class="va">income</span>, 
-                      <span class="va">occasion</span>, 
-                      <span class="va">elapsed.days</span><span class="op">)</span> </code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="intro-to-data-visualisation.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb111-2"><a href="intro-to-data-visualisation.html#cb111-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="intro-to-data-visualisation.html#cb111-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;ahi-cesd.csv&quot;</span>)</span>
+<span id="cb111-4"><a href="intro-to-data-visualisation.html#cb111-4" aria-hidden="true" tabindex="-1"></a>pinfo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;participant-info.csv&quot;</span>)</span>
+<span id="cb111-5"><a href="intro-to-data-visualisation.html#cb111-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-6"><a href="intro-to-data-visualisation.html#cb111-6" aria-hidden="true" tabindex="-1"></a>all_dat <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(dat, </span>
+<span id="cb111-7"><a href="intro-to-data-visualisation.html#cb111-7" aria-hidden="true" tabindex="-1"></a>                      pinfo, </span>
+<span id="cb111-8"><a href="intro-to-data-visualisation.html#cb111-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">by=</span> <span class="fu">c</span>(<span class="st">&quot;id&quot;</span>, <span class="st">&quot;intervention&quot;</span>))</span>
+<span id="cb111-9"><a href="intro-to-data-visualisation.html#cb111-9" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> <span class="fu">select</span>(<span class="at">.data =</span> all_dat, </span>
+<span id="cb111-10"><a href="intro-to-data-visualisation.html#cb111-10" aria-hidden="true" tabindex="-1"></a>                      ahiTotal, </span>
+<span id="cb111-11"><a href="intro-to-data-visualisation.html#cb111-11" aria-hidden="true" tabindex="-1"></a>                      cesdTotal, </span>
+<span id="cb111-12"><a href="intro-to-data-visualisation.html#cb111-12" aria-hidden="true" tabindex="-1"></a>                      sex, </span>
+<span id="cb111-13"><a href="intro-to-data-visualisation.html#cb111-13" aria-hidden="true" tabindex="-1"></a>                      age, </span>
+<span id="cb111-14"><a href="intro-to-data-visualisation.html#cb111-14" aria-hidden="true" tabindex="-1"></a>                      educ, </span>
+<span id="cb111-15"><a href="intro-to-data-visualisation.html#cb111-15" aria-hidden="true" tabindex="-1"></a>                      income, </span>
+<span id="cb111-16"><a href="intro-to-data-visualisation.html#cb111-16" aria-hidden="true" tabindex="-1"></a>                      occasion, </span>
+<span id="cb111-17"><a href="intro-to-data-visualisation.html#cb111-17" aria-hidden="true" tabindex="-1"></a>                      elapsed.days) </span></code></pre></div>
 <p>You should have a good idea about what this code is doing but if not here is a brief summary:</p>
 <ol style="list-style-type: decimal">
 <li>It loads in the tidyverse</li>
 <li>It reads both datafiles as tibbles into separate objects, <code>dat</code> and <code>pinfo</code>.</li>
-<li>Joins the data together into one larger tibble and stores it in the object called <code>all_dat</code>
-</li>
+<li>Joins the data together into one larger tibble and stores it in the object called <code>all_dat</code></li>
 <li>Select a number of columns to keep in our data and discards others.</li>
 </ol>
 </div>
 </div>
 <div id="dealing-with-factors-and-categories" class="section level2" number="7.3">
-<h2>
-<span class="header-section-number">7.3</span> Dealing with Factors and Categories<a class="anchor" aria-label="anchor" href="#dealing-with-factors-and-categories"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.3</span> Dealing with Factors and Categories</h2>
 <p>Before we go any further we need to perform an additional step of data processing that we have glossed over up until this point. First, run the below code to look at the structure of the dataset:</p>
-<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">summarydata</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="intro-to-data-visualisation.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(summarydata)</span></code></pre></div>
 <pre><code>## Rows: 992
 ## Columns: 8
 ## $ ahiTotal     &lt;dbl&gt; 32, 34, 34, 35, 36, 37, 38, 38, 38, 38, 39, 40, 41, 41, 4~
@@ -183,132 +167,108 @@ Figure 7.1: Building a figure using the ggplot2 layers system as shown in Nordma
 ## $ income       &lt;dbl&gt; 3, 2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 3, 2, 2, 3, 2, 2, 2, ~
 ## $ occasion     &lt;dbl&gt; 5, 2, 3, 0, 5, 0, 2, 2, 2, 4, 4, 0, 4, 0, 1, 4, 0, 5, 4, ~
 ## $ elapsed.days &lt;dbl&gt; 182.025139, 14.191806, 33.033831, 0.000000, 202.096887, 0~</code></pre>
-<p>You can see that all the variables are automatically considered as <a class="glossary" target="_blank" title="A data type representing a real decimal number or integer." href="https://psyteachr.github.io/glossary/n#numeric">numeric</a> (in this case <a class="glossary" target="_blank" title="A data type representing a real decimal number" href="https://psyteachr.github.io/glossary/d#double">double</a> represented by <code>&lt;dbl&gt;</code>). This is going to be a problem because whilst the different categories within <code>sex</code>, <code>educ</code>, and <code>income</code> are represented by numbers, we don't want to treat them as such because they are categories, or what we call <strong>factors</strong>. So to get around this, we need to convert these variables into <a class="glossary" target="_blank" title="A data type where a specific set of values are stored with labels" href="https://psyteachr.github.io/glossary/f#factor-data-type">factor data type</a>. Fortunately we already know a good function for this! We can use <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code> to do this by overriding the original variable with the same data but classified as a factor.</p>
+<p>You can see that all the variables are automatically considered as <a class='glossary' target='_blank' title='A data type representing a real decimal number or integer.' href='https://psyteachr.github.io/glossary/n#numeric'>numeric</a> (in this case <a class='glossary' target='_blank' title='A data type representing a real decimal number' href='https://psyteachr.github.io/glossary/d#double'>double</a> represented by <code>&lt;dbl&gt;</code>). This is going to be a problem because whilst the different categories within <code>sex</code>, <code>educ</code>, and <code>income</code> are represented by numbers, we don't want to treat them as such because they are categories, or what we call <strong>factors</strong>. So to get around this, we need to convert these variables into <a class='glossary' target='_blank' title='A data type where a specific set of values are stored with labels' href='https://psyteachr.github.io/glossary/f#factor-data-type'>factor data type</a>. Fortunately we already know a good function for this! We can use <code>mutate()</code> to do this by overriding the original variable with the same data but classified as a factor.</p>
 <div id="introviz-a2" class="section level3" number="7.3.1">
-<h3>
-<span class="header-section-number">7.3.1</span> Activity 2: Factors<a class="anchor" aria-label="anchor" href="#introviz-a2"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">7.3.1</span> Activity 2: Factors</h3>
 <ul>
 <li>Type and run the below code to change the categories to factors.
 <ul>
 <li>You can read each line of the mutate as "overwrite the data that is in that column with the same values now considered factors and not doubles"</li>
 <li>So for example, the 1s in <code>sex</code> change to categorical factors instead of numerical 1s.</li>
 <li>Remember if you mutate a new column with the same name as the old one, it will overwrite the column.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">summarydata</span> <span class="op">&lt;-</span> <span class="va">summarydata</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">sex</span><span class="op">)</span>,
-         educ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">educ</span><span class="op">)</span>,
-         income <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">income</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="intro-to-data-visualisation.html#cb114-1" aria-hidden="true" tabindex="-1"></a>summarydata <span class="ot">&lt;-</span> summarydata <span class="sc">%&gt;%</span></span>
+<span id="cb114-2"><a href="intro-to-data-visualisation.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as.factor</span>(sex),</span>
+<span id="cb114-3"><a href="intro-to-data-visualisation.html#cb114-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">educ =</span> <span class="fu">as.factor</span>(educ),</span>
+<span id="cb114-4"><a href="intro-to-data-visualisation.html#cb114-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">income =</span> <span class="fu">as.factor</span>(income))</span></code></pre></div>
 <p>This is a very imporant step to remember if, when you look at your data, some of your categories are represented as numbers and not factors. If you do not do this then you might end up with some really confused looking figures!</p>
 </div>
 </div>
 <div id="barplots" class="section level2" number="7.4">
-<h2>
-<span class="header-section-number">7.4</span> Barplots<a class="anchor" aria-label="anchor" href="#barplots"><i class="fas fa-link"></i></a>
-</h2>
-<p>Ok great, we are now ready to do some visualising and some plotting. For our first example we will create a barplot of our data showing the number of male and female participants within our data. A <a class="glossary" title="A plot showing counts of categorical data where the height of each bar represents the count of that particular variable">barplot</a> is a plot that shows counts of categorical data, or factors, where the height of each bar represents the count of that particular variable.</p>
+<h2><span class="header-section-number">7.4</span> Barplots</h2>
+<p>Ok great, we are now ready to do some visualising and some plotting. For our first example we will create a barplot of our data showing the number of male and female participants within our data. A <a class='glossary' title='A plot showing counts of categorical data where the height of each bar represents the count of that particular variable'>barplot</a> is a plot that shows counts of categorical data, or factors, where the height of each bar represents the count of that particular variable.</p>
 <div id="introviz-a3" class="section level4" number="7.4.0.1">
-<h4>
-<span class="header-section-number">7.4.0.1</span> Activity 3: Bar plot<a class="anchor" aria-label="anchor" href="#introviz-a3"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">7.4.0.1</span> Activity 3: Bar plot</h4>
 <p>Read through the following section and try the different code chunks. Following this, and changing parts of the code to see what happens, will help you to see how the layers build up.</p>
 <p><strong>The first layer</strong></p>
 <ul>
-<li>The first line (or layer) sets up the base of the graph: the data to use and the aesthetics (what will go on the x and y axis, how the plot will be grouped).<br>
+<li>The first line (or layer) sets up the base of the graph: the data to use and the aesthetics (what will go on the x and y axis, how the plot will be grouped).<br />
 </li>
-<li>
-<code>aes()</code> can take both an <code>x</code> and <code>y</code> argument, however, with a bar plot you are just asking R to count the number of data points in each group so you don't need to specify this.</li>
+<li><code>aes()</code> can take both an <code>x</code> and <code>y</code> argument, however, with a bar plot you are just asking R to count the number of data points in each group so you don't need to specify this.</li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:layer1"></span>
-<img src="07-data-viz_files/figure-html/layer1-1.png" alt="First ggplot() layer sets the axes" width="100%"><p class="caption">
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="intro-to-data-visualisation.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:layer1"></span>
+<img src="07-data-viz_files/figure-html/layer1-1.png" alt="First ggplot() layer sets the axes" width="100%" />
+<p class="caption">
 Figure 7.2: First ggplot() layer sets the axes
 </p>
 </div>
 <ul>
 <li>The next layer adds a <strong>geom</strong> or a shape, in this case we use <code>geom_bar()</code> as we want to draw a bar plot.
 <ul>
-<li>Note that we are adding layers, using a <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> between layers. This is a very important difference between pipes and visualisation. We will mention this again later but we add layers (<code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>), we do not pipe them!</li>
+<li>Note that we are adding layers, using a <code>+</code> between layers. This is a very important difference between pipes and visualisation. We will mention this again later but we add layers (<code>+</code>), we do not pipe them!</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-2"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-2-1.png" alt="Basic barplot with geom_bar() added" width="100%"><p class="caption">
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="intro-to-data-visualisation.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb116-2"><a href="intro-to-data-visualisation.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-2-1.png" alt="Basic barplot with geom_bar() added" width="100%" />
+<p class="caption">
 Figure 7.3: Basic barplot with geom_bar() added
 </p>
 </div>
 <ul>
 <li>Adding <code>fill</code> to the first layer will separate the data into each level of the grouping variable and give it a different colour. In this case, there is a different coloured bar for each level of <code>sex</code>.</li>
 </ul>
-<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-3-1.png" alt="Barplot with colour" width="100%"><p class="caption">
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="intro-to-data-visualisation.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb117-2"><a href="intro-to-data-visualisation.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-3-1.png" alt="Barplot with colour" width="100%" />
+<p class="caption">
 Figure 7.4: Barplot with colour
 </p>
 </div>
 <ul>
 <li>As you can see, adding the <code>fill()</code> has also produced a plot legend to the right of the graph. When you have multiple grouping variables you want legends to know which groups each color or part of the plot is referring to, but in this case it is redundant because it doesn't tell us anything that the axes labels don't already. We can get rid of it by adding <code>show.legend = FALSE</code> to the <code>geom_bar()</code> code.</li>
 </ul>
-<div class="sourceCode" id="cb118"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-4"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-4-1.png" alt="Barplot without legend" width="100%"><p class="caption">
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="intro-to-data-visualisation.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb118-2"><a href="intro-to-data-visualisation.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-4-1.png" alt="Barplot without legend" width="100%" />
+<p class="caption">
 Figure 7.5: Barplot without legend
 </p>
 </div>
 <p>Excellent. So far so good! But we might want to tidy up our plot to make it look a bit nicer. First we can edit the axis labels to be more informative. The most common functions you will use are:</p>
 <ul>
-<li>
-<code>scale_x_continuous()</code> for adjusting the x-axis for a continuous variable</li>
-<li>
-<code>scale_y_continuous()</code> for adjusting the y-axis for a continuous variable</li>
-<li>
-<code>scale_x_discrete()</code> for adjusting the x-axis for a discrete/categorical variable</li>
-<li>
-<code>scale_y_discrete()</code> for adjusting the y-axis for a discrete/categorical variable</li>
+<li><code>scale_x_continuous()</code> for adjusting the x-axis for a continuous variable</li>
+<li><code>scale_y_continuous()</code> for adjusting the y-axis for a continuous variable</li>
+<li><code>scale_x_discrete()</code> for adjusting the x-axis for a discrete/categorical variable</li>
+<li><code>scale_y_discrete()</code> for adjusting the y-axis for a discrete/categorical variable</li>
 </ul>
 <p>And in those functions the two most common arguments you will use are:</p>
 <ul>
-<li>
-<code>name</code> which controls the name of each axis - i.e. what is the overall variable called for example (e.g. Groups)</li>
-<li>
-<code>labels</code> which controls the names of the break points on the axis - i.e. what are the conditions within a variable called for example (e.g. dogs and cats)</li>
+<li><code>name</code> which controls the name of each axis - i.e. what is the overall variable called for example (e.g. Groups)</li>
+<li><code>labels</code> which controls the names of the break points on the axis - i.e. what are the conditions within a variable called for example (e.g. dogs and cats)</li>
 </ul>
 <p>There are lots more ways you can customise your axes but we will stick with these for now.</p>
 <ul>
 <li>Type out and and run the below code to change the axes labels and change the numeric sex codes (the 1s and 2s) into words (Female and Male).
 <ul>
-<li>
-<strong>Note:</strong> We are using <code>scale_x_discrete()</code> because our x-axis is a discrete variable in this data (Female or Male), and we are using <code>scale_y_continuous()</code> because our y-axis is continuous in this data (a count of how many people there are)</li>
-<li>
-<strong>Note:</strong> The <code>labels</code> arguments must be written in the correct order of your data. Here it will make the 1's Female and the 2's Male, but if you flipped the order of Male and Female, it would make the 1's Male and the 2's Female. Remember the code does what you tell it to do so always check your output!</li>
+<li><strong>Note:</strong> We are using <code>scale_x_discrete()</code> because our x-axis is a discrete variable in this data (Female or Male), and we are using <code>scale_y_continuous()</code> because our y-axis is continuous in this data (a count of how many people there are)</li>
+<li><strong>Note:</strong> The <code>labels</code> arguments must be written in the correct order of your data. Here it will make the 1's Female and the 2's Male, but if you flipped the order of Male and Female, it would make the 1's Male and the 2's Female. Remember the code does what you tell it to do so always check your output!</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Participant Sex"</span>, 
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, 
-                              <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Number of participants"</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-5-1.png" alt="Barplot with axis labels" width="100%"><p class="caption">
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="intro-to-data-visualisation.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb119-2"><a href="intro-to-data-visualisation.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb119-3"><a href="intro-to-data-visualisation.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Participant Sex&quot;</span>, </span>
+<span id="cb119-4"><a href="intro-to-data-visualisation.html#cb119-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, </span>
+<span id="cb119-5"><a href="intro-to-data-visualisation.html#cb119-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Male&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb119-6"><a href="intro-to-data-visualisation.html#cb119-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Number of participants&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-5-1.png" alt="Barplot with axis labels" width="100%" />
+<p class="caption">
 Figure 7.6: Barplot with axis labels
 </p>
 </div>
@@ -317,20 +277,18 @@ Figure 7.6: Barplot with axis labels
 <li>Type the code below into a new code chunk and run it.
 <ul>
 <li>Here we use <code>theme_minimal()</code> but try changing it to others and see what happens. You start by typing <code>theme_</code> into the code chunk, instead of <code>theme_minimal()</code>, and trying the options that come up on auto-complete. Examples include, <code>theme_bw()</code>, <code>theme_classic()</code>, <code>theme_light()</code>, etc.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb120"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Participant Sex"</span>, 
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, 
-                              <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Number of participants"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-6"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-6-1.png" alt="Barplot with minimal theme" width="100%"><p class="caption">
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="intro-to-data-visualisation.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb120-2"><a href="intro-to-data-visualisation.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb120-3"><a href="intro-to-data-visualisation.html#cb120-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Participant Sex&quot;</span>, </span>
+<span id="cb120-4"><a href="intro-to-data-visualisation.html#cb120-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, </span>
+<span id="cb120-5"><a href="intro-to-data-visualisation.html#cb120-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Male&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb120-6"><a href="intro-to-data-visualisation.html#cb120-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Number of participants&quot;</span>) <span class="sc">+</span></span>
+<span id="cb120-7"><a href="intro-to-data-visualisation.html#cb120-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-6-1.png" alt="Barplot with minimal theme" width="100%" />
+<p class="caption">
 Figure 7.7: Barplot with minimal theme
 </p>
 </div>
@@ -338,35 +296,33 @@ Figure 7.7: Barplot with minimal theme
 <ul>
 <li>Type and run the below code into a new code chunk. Try changing the option to either A, B, C or D and see which one you like!</li>
 </ul>
-<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Participant Sex"</span>, 
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, 
-                              <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Number of participants"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span>option <span class="op">=</span> <span class="st">"E"</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-7-1.png" alt="Barplot with colour-blind friendly colour scheme" width="100%"><p class="caption">
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="intro-to-data-visualisation.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb121-2"><a href="intro-to-data-visualisation.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb121-3"><a href="intro-to-data-visualisation.html#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Participant Sex&quot;</span>, </span>
+<span id="cb121-4"><a href="intro-to-data-visualisation.html#cb121-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, </span>
+<span id="cb121-5"><a href="intro-to-data-visualisation.html#cb121-5" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Male&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb121-6"><a href="intro-to-data-visualisation.html#cb121-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Number of participants&quot;</span>) <span class="sc">+</span></span>
+<span id="cb121-7"><a href="intro-to-data-visualisation.html#cb121-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb121-8"><a href="intro-to-data-visualisation.html#cb121-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">&quot;E&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-7-1.png" alt="Barplot with colour-blind friendly colour scheme" width="100%" />
+<p class="caption">
 Figure 7.8: Barplot with colour-blind friendly colour scheme
 </p>
 </div>
 <p>Finally, you can also adjust the transparency of the bars by adding <code>alpha</code> to <code>geom_bar()</code>. Play around with the value and see what value you prefer.</p>
-<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_bar</span><span class="op">(</span>show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-           alpha <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Participant Sex"</span>, 
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, 
-                              <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Number of participants"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span>option <span class="op">=</span> <span class="st">"E"</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-8"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-8-1.png" alt="Barplot with adjusted alpha" width="100%"><p class="caption">
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="intro-to-data-visualisation.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb122-2"><a href="intro-to-data-visualisation.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb122-3"><a href="intro-to-data-visualisation.html#cb122-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb122-4"><a href="intro-to-data-visualisation.html#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Participant Sex&quot;</span>, </span>
+<span id="cb122-5"><a href="intro-to-data-visualisation.html#cb122-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, </span>
+<span id="cb122-6"><a href="intro-to-data-visualisation.html#cb122-6" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Male&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb122-7"><a href="intro-to-data-visualisation.html#cb122-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Number of participants&quot;</span>) <span class="sc">+</span></span>
+<span id="cb122-8"><a href="intro-to-data-visualisation.html#cb122-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb122-9"><a href="intro-to-data-visualisation.html#cb122-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">&quot;E&quot;</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-8"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-8-1.png" alt="Barplot with adjusted alpha" width="100%" />
+<p class="caption">
 Figure 7.9: Barplot with adjusted alpha
 </p>
 </div>
@@ -376,7 +332,7 @@ Figure 7.9: Barplot with adjusted alpha
 <strong>We add layers, we don't pipe them</strong>
 </p>
 <p>
-We just wanted to remind you of a key point here - that you add layers through <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> and you do not pipe layers with <code><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></code>. If you try to pip on a layer you will probably see an error that looks something like this:
+We just wanted to remind you of a key point here - that you add layers through <code>+</code> and you do not pipe layers with <code>%&gt;%</code>. If you try to pip on a layer you will probably see an error that looks something like this:
 </p>
 <p>
 <strong>Error: <code>mapping</code> must be created by <code>aes()</code>. Did you use %&gt;% instead of +?</strong>
@@ -388,117 +344,98 @@ Do watch out for that as it is a very common errore we see when people are first
 </div>
 </div>
 <div id="the-violin-boxplot" class="section level2" number="7.5">
-<h2>
-<span class="header-section-number">7.5</span> The Violin-boxplot<a class="anchor" aria-label="anchor" href="#the-violin-boxplot"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.5</span> The Violin-boxplot</h2>
 <p>There are numerous different styles of visualisations and figures that you can create. They all start with the format of <code>ggplot(data, aes(x, y)) + geom_...</code> and will learn more as you get deeper into the book or you can look at the cheatsheets in the help menus: top menu - <strong><code>Help &gt;&gt; Cheat Sheets &gt;&gt; Data Visualisation with ggplot2</code></strong>. For instance, <code>geom_point()</code> for scatterplots, <code>geom_histogram()</code> for histograms, and <code>geom_line()</code> for lineplots. But we want to show you a type of figure that is becoming a lot more common in the field due to the quality of information if tells you about your data - the violin-boxplot.</p>
 <div id="introviz-a4" class="section level4" number="7.5.0.1">
-<h4>
-<span class="header-section-number">7.5.0.1</span> Activity 4: Violin-boxplot<a class="anchor" aria-label="anchor" href="#introviz-a4"><i class="fas fa-link"></i></a>
-</h4>
-<p>The violin boxplot is actually a merge of a <a class="glossary" title="A plot showing the probability density of data with a smoothed kernel function and look like a rotated and mirrored histogram">violin plot</a> and a <a class="glossary" title="A plot summarising distributions using five key values: the median, the upper and lower interquartile values, and the max and min value not considered and outlier. The length of the box represents the interquartile range.">boxplot</a>. The violin-boxplot is just the boxplot laid over the top of the violin plot - to give additional information. As part of our final activities today we will create a violin-boxplot, hopefully now you will be able to see how similar it is in structure to the bar chart code. In fact, there are only three differences:</p>
+<h4><span class="header-section-number">7.5.0.1</span> Activity 4: Violin-boxplot</h4>
+<p>The violin boxplot is actually a merge of a <a class='glossary' title='A plot showing the probability density of data with a smoothed kernel function and look like a rotated and mirrored histogram'>violin plot</a> and a <a class='glossary' title='A plot summarising distributions using five key values: the median, the upper and lower interquartile values, and the max and min value not considered and outlier. The length of the box represents the interquartile range.'>boxplot</a>. The violin-boxplot is just the boxplot laid over the top of the violin plot - to give additional information. As part of our final activities today we will create a violin-boxplot, hopefully now you will be able to see how similar it is in structure to the bar chart code. In fact, there are only three differences:</p>
 <ol style="list-style-type: decimal">
 <li>We have added a <code>y</code> argument to the first layer because we wanted to represent two variables, not just a count.</li>
-<li>
-<code>geom_violin()</code> has an additional argument <code>trim</code>.</li>
-<li>
-<code>geom_boxplot()</code> has an additional argument <code>width</code>. Try adjusting the value of this and see what happens.</li>
+<li><code>geom_violin()</code> has an additional argument <code>trim</code>.</li>
+<li><code>geom_boxplot()</code> has an additional argument <code>width</code>. Try adjusting the value of this and see what happens.</li>
 </ol>
 <ul>
 <li>Type and run the below code in a new code chunk and see what it produces.
 <ul>
 <li>Try setting the <code>trim</code> argument in <code>geom_violin()</code> to <code>TRUE</code> and seeing what happens.</li>
 <li>Try adjusting the value of the <code>width</code> argument within <code>geom_boxplot()</code> and seeing what happens.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span>, 
-                        y <span class="op">=</span> <span class="va">ahiTotal</span>, 
-                        fill <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span>, 
-              show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-              alpha <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, 
-               show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-               alpha <span class="op">=</span> <span class="fl">.7</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Income"</span>,
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Below Average"</span>, 
-                              <span class="st">"Average"</span>, 
-                              <span class="st">"Above Average"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Authentic Happiness Inventory Score"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-10"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-10-1.png" alt="Violin-boxplot" width="100%"><p class="caption">
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="intro-to-data-visualisation.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> income, </span>
+<span id="cb123-2"><a href="intro-to-data-visualisation.html#cb123-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> ahiTotal, </span>
+<span id="cb123-3"><a href="intro-to-data-visualisation.html#cb123-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">fill =</span> income)) <span class="sc">+</span></span>
+<span id="cb123-4"><a href="intro-to-data-visualisation.html#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb123-5"><a href="intro-to-data-visualisation.html#cb123-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb123-6"><a href="intro-to-data-visualisation.html#cb123-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb123-7"><a href="intro-to-data-visualisation.html#cb123-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>, </span>
+<span id="cb123-8"><a href="intro-to-data-visualisation.html#cb123-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb123-9"><a href="intro-to-data-visualisation.html#cb123-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>)<span class="sc">+</span></span>
+<span id="cb123-10"><a href="intro-to-data-visualisation.html#cb123-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb123-11"><a href="intro-to-data-visualisation.html#cb123-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Below Average&quot;</span>, </span>
+<span id="cb123-12"><a href="intro-to-data-visualisation.html#cb123-12" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Average&quot;</span>, </span>
+<span id="cb123-13"><a href="intro-to-data-visualisation.html#cb123-13" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Above Average&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb123-14"><a href="intro-to-data-visualisation.html#cb123-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Authentic Happiness Inventory Score&quot;</span>)<span class="sc">+</span></span>
+<span id="cb123-15"><a href="intro-to-data-visualisation.html#cb123-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb123-16"><a href="intro-to-data-visualisation.html#cb123-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-10"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-10-1.png" alt="Violin-boxplot" width="100%" />
+<p class="caption">
 Figure 7.10: Violin-boxplot
 </p>
 </div>
 </div>
 </div>
 <div id="layer-order" class="section level2" number="7.6">
-<h2>
-<span class="header-section-number">7.6</span> Layer order<a class="anchor" aria-label="anchor" href="#layer-order"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.6</span> Layer order</h2>
 <p>As we said above, one key thing to note about <code>ggplot2</code> is the use of layers. Whilst we have built layers up step-by-step in this chapter, they are independent and you could remove any of them except for the first layer. Additionally, although they are independent, the order you put them in does matter as we will show you now.</p>
 <div id="introviz-a5" class="section level4" number="7.6.0.1">
-<h4>
-<span class="header-section-number">7.6.0.1</span> Activity 5: Layers part 2<a class="anchor" aria-label="anchor" href="#introviz-a5"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">7.6.0.1</span> Activity 5: Layers part 2</h4>
 <ul>
 <li>Type and run this code into a new code chunk and look at the output.</li>
 </ul>
-<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span>, y <span class="op">=</span> <span class="va">ahiTotal</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="intro-to-data-visualisation.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span></span>
+<span id="cb124-2"><a href="intro-to-data-visualisation.html#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb124-3"><a href="intro-to-data-visualisation.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <ul>
 <li>Now type and run this code into a new code chunk and compare the output to the output of the code above. Do you see the difference?</li>
 </ul>
-<div class="sourceCode" id="cb125"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span>, y <span class="op">=</span> <span class="va">ahiTotal</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="intro-to-data-visualisation.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">y =</span> ahiTotal)) <span class="sc">+</span></span>
+<span id="cb125-2"><a href="intro-to-data-visualisation.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb125-3"><a href="intro-to-data-visualisation.html#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
 <p>If you compare the two figures, shown here below for ease, the first puts the boxplots on top of the violins whereas the second puts the violins on top of the boxplots. It does that because each plot is a different layer that it literally puts on top of what is already there. Again a great reason to always look at your output and not just run code blindly as you don't always get what you think you are doing!</p>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:patch-layers"></span>
-<img src="07-data-viz_files/figure-html/patch-layers-1.png" alt="Showing the impact of changing the order of layers. Figure A shows the boxplots on top of the violin plots. Figure B shows the violins on top of the boxplots. The codes are the same but the order of the geoms is different." width="100%"><p class="caption">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:patch-layers"></span>
+<img src="07-data-viz_files/figure-html/patch-layers-1.png" alt="Showing the impact of changing the order of layers. Figure A shows the boxplots on top of the violin plots. Figure B shows the violins on top of the boxplots. The codes are the same but the order of the geoms is different." width="100%" />
+<p class="caption">
 Figure 7.11: Showing the impact of changing the order of layers. Figure A shows the boxplots on top of the violin plots. Figure B shows the violins on top of the boxplots. The codes are the same but the order of the geoms is different.
 </p>
 </div>
 </div>
 </div>
 <div id="saving-your-figures" class="section level2" number="7.7">
-<h2>
-<span class="header-section-number">7.7</span> Saving your Figures<a class="anchor" aria-label="anchor" href="#saving-your-figures"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.7</span> Saving your Figures</h2>
 <p>Great work today! We just want to show you one last very helpful function on how to save and export your figures. Much like your favourite jumper, there is no point having it if nobody gets to see it! It is so useful to be able to save a copy of your plots as an image file so that you can use them in a presentation or report. One approach we can use is the function <code>ggsave()</code>.</p>
 <div id="introviz-a6" class="section level4" number="7.7.0.1">
-<h4>
-<span class="header-section-number">7.7.0.1</span> Activity 6: Saving plots<a class="anchor" aria-label="anchor" href="#introviz-a6"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">7.7.0.1</span> Activity 6: Saving plots</h4>
 <p>There are two ways you can use <code>ggsave()</code>. If you don't tell <code>ggsave()</code> which plot you want to save, by default it will save <strong>the last plot you created</strong>. To demonstrate this let's run the code from Activity 5 again to produce the nice violin-boxplot:</p>
-<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span>, 
-                        y <span class="op">=</span> <span class="va">ahiTotal</span>, 
-                        fill <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span>, 
-              show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-              alpha <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, 
-               show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-               alpha <span class="op">=</span> <span class="fl">.7</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Income"</span>,
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Below Average"</span>, 
-                              <span class="st">"Average"</span>, 
-                              <span class="st">"Above Average"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Authentic Happiness Inventory Score"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:unnamed-chunk-13"></span>
-<img src="07-data-viz_files/figure-html/unnamed-chunk-13-1.png" alt="Violin-boxplot2" width="100%"><p class="caption">
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="intro-to-data-visualisation.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> income, </span>
+<span id="cb126-2"><a href="intro-to-data-visualisation.html#cb126-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">y =</span> ahiTotal, </span>
+<span id="cb126-3"><a href="intro-to-data-visualisation.html#cb126-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">fill =</span> income)) <span class="sc">+</span></span>
+<span id="cb126-4"><a href="intro-to-data-visualisation.html#cb126-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb126-5"><a href="intro-to-data-visualisation.html#cb126-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb126-6"><a href="intro-to-data-visualisation.html#cb126-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb126-7"><a href="intro-to-data-visualisation.html#cb126-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>, </span>
+<span id="cb126-8"><a href="intro-to-data-visualisation.html#cb126-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb126-9"><a href="intro-to-data-visualisation.html#cb126-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>)<span class="sc">+</span></span>
+<span id="cb126-10"><a href="intro-to-data-visualisation.html#cb126-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb126-11"><a href="intro-to-data-visualisation.html#cb126-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Below Average&quot;</span>, </span>
+<span id="cb126-12"><a href="intro-to-data-visualisation.html#cb126-12" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Average&quot;</span>, </span>
+<span id="cb126-13"><a href="intro-to-data-visualisation.html#cb126-13" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Above Average&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb126-14"><a href="intro-to-data-visualisation.html#cb126-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Authentic Happiness Inventory Score&quot;</span>)<span class="sc">+</span></span>
+<span id="cb126-15"><a href="intro-to-data-visualisation.html#cb126-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb126-16"><a href="intro-to-data-visualisation.html#cb126-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-13"></span>
+<img src="07-data-viz_files/figure-html/unnamed-chunk-13-1.png" alt="Violin-boxplot2" width="100%" />
+<p class="caption">
 Figure 7.12: Violin-boxplot2
 </p>
 </div>
@@ -506,95 +443,80 @@ Figure 7.12: Violin-boxplot2
 <ul>
 <li>Type and run the below code into a new code chunk and then check your chapter folder. If you have performed this correctly then you see the saved image file.</li>
 </ul>
-<div class="sourceCode" id="cb127"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggsave</span><span class="op">(</span><span class="st">"violin-boxplot.png"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="intro-to-data-visualisation.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;violin-boxplot.png&quot;</span>)</span></code></pre></div>
 <p>Note that the image tends to save at a default size, or the size that the image is displayed in your viewer, but you can change this manually if you think that the dimensions of the plot are not correct or if you need a particular size or file type.</p>
 <ul>
 <li>Type and run the below code to overwrite the image file with new dimensions.
 <ul>
 <li>try different dimensions and units to see the difference. You might want to create violin-boxplot-v1, ...-v2, ...-v3, and compare them. Remeber you can use <code>?ggsave()</code> in the console window to bring up the help on this function.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggsave</span><span class="op">(</span><span class="st">"violin-boxplot.png"</span>, 
-       width <span class="op">=</span> <span class="fl">10</span>, 
-       height <span class="op">=</span> <span class="fl">8</span>, 
-       units <span class="op">=</span> <span class="st">"in"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="intro-to-data-visualisation.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;violin-boxplot.png&quot;</span>, </span>
+<span id="cb128-2"><a href="intro-to-data-visualisation.html#cb128-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">10</span>, </span>
+<span id="cb128-3"><a href="intro-to-data-visualisation.html#cb128-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="dv">8</span>, </span>
+<span id="cb128-4"><a href="intro-to-data-visualisation.html#cb128-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">&quot;in&quot;</span>)</span></code></pre></div>
 <p>Alternatively, the second way of using <code>ggsave()</code> is to save your plot as an object, just like we have done with tibbles, and then tell <code>ggsave()</code> which object you want to save.</p>
 <ul>
 <li>Type and run the below code and then check your folder for the image file. Resize the plot if you think it needs it.
 <ul>
 <li>The below code saves the plot from Activity 5 into an object named <code>viobox</code> and then saves it to an image file "violin-boxplot-stored.png".</li>
-<li>
-<strong>Note:</strong> We do not add on <code>ggsave()</code>. Instead it is a separate line of code and we tell it which object to save. So, do not do <code>+ ggsave()</code>
-</li>
+<li><strong>Note:</strong> We do not add on <code>ggsave()</code>. Instead it is a separate line of code and we tell it which object to save. So, do not do <code>+ ggsave()</code></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">viobox</span> <span class="op">&lt;-</span> <span class="va">summarydata</span> <span class="op">%&gt;%</span>
-  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">income</span>,
-             y <span class="op">=</span> <span class="va">ahiTotal</span>,
-             fill <span class="op">=</span> <span class="va">income</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span>, 
-              show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-              alpha <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span>, 
-               show.legend <span class="op">=</span> <span class="cn">FALSE</span>, 
-               alpha <span class="op">=</span> <span class="fl">.7</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Income"</span>,
-                   labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Below Average"</span>, 
-                              <span class="st">"Average"</span>, 
-                              <span class="st">"Above Average"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Authentic Happiness Inventory Score"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span>
-
-
-<span class="fu">ggsave</span><span class="op">(</span><span class="st">"violin-boxplot-stored.png"</span>, plot <span class="op">=</span> <span class="va">viobox</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="intro-to-data-visualisation.html#cb129-1" aria-hidden="true" tabindex="-1"></a>viobox <span class="ot">&lt;-</span> summarydata <span class="sc">%&gt;%</span></span>
+<span id="cb129-2"><a href="intro-to-data-visualisation.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> income,</span>
+<span id="cb129-3"><a href="intro-to-data-visualisation.html#cb129-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> ahiTotal,</span>
+<span id="cb129-4"><a href="intro-to-data-visualisation.html#cb129-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill =</span> income)) <span class="sc">+</span></span>
+<span id="cb129-5"><a href="intro-to-data-visualisation.html#cb129-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb129-6"><a href="intro-to-data-visualisation.html#cb129-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb129-7"><a href="intro-to-data-visualisation.html#cb129-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb129-8"><a href="intro-to-data-visualisation.html#cb129-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>, </span>
+<span id="cb129-9"><a href="intro-to-data-visualisation.html#cb129-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">show.legend =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb129-10"><a href="intro-to-data-visualisation.html#cb129-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">alpha =</span> .<span class="dv">7</span>)<span class="sc">+</span></span>
+<span id="cb129-11"><a href="intro-to-data-visualisation.html#cb129-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Income&quot;</span>,</span>
+<span id="cb129-12"><a href="intro-to-data-visualisation.html#cb129-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Below Average&quot;</span>, </span>
+<span id="cb129-13"><a href="intro-to-data-visualisation.html#cb129-13" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Average&quot;</span>, </span>
+<span id="cb129-14"><a href="intro-to-data-visualisation.html#cb129-14" aria-hidden="true" tabindex="-1"></a>                              <span class="st">&quot;Above Average&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb129-15"><a href="intro-to-data-visualisation.html#cb129-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Authentic Happiness Inventory Score&quot;</span>)<span class="sc">+</span></span>
+<span id="cb129-16"><a href="intro-to-data-visualisation.html#cb129-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb129-17"><a href="intro-to-data-visualisation.html#cb129-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>()</span>
+<span id="cb129-18"><a href="intro-to-data-visualisation.html#cb129-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-19"><a href="intro-to-data-visualisation.html#cb129-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-20"><a href="intro-to-data-visualisation.html#cb129-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;violin-boxplot-stored.png&quot;</span>, <span class="at">plot =</span> viobox)</span></code></pre></div>
 <p>Finall, note that when you save a plot to an object, you will not see the plot displayed anywhere. To get the figure to display you need to type the object name in the console (i.e., <code>viobox</code>). The benefit of saving figures this way is that if you are making lots of plots, you can't accidentally save the wrong one because you are explicitly specifying which plot to save rather than just saving the last one.</p>
 </div>
 </div>
 <div id="introviz-fin" class="section level2" number="7.8">
-<h2>
-<span class="header-section-number">7.8</span> Finished!<a class="anchor" aria-label="anchor" href="#introviz-fin"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.8</span> Finished!</h2>
 <p>Well done! <code>ggplot</code> can be a bit difficult to get your head around at first, particularly if you've been used to making graphs a different way. But once it clicks, you'll be able to make informative and professional visualisations with ease, which, amongst other things, will make any report you write look more professional!</p>
 </div>
 <div id="test-yourself-2" class="section level2" number="7.9">
-<h2>
-<span class="header-section-number">7.9</span> Test Yourself<a class="anchor" aria-label="anchor" href="#test-yourself-2"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.9</span> Test Yourself</h2>
 <ol style="list-style-type: decimal">
 <li>Which of these is the appropriate order of functions to create a boxplot?
-<div id="radio_HXLNFJCDRT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HXLNFJCDRT" value="answer"><span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_HXLNFJCDRT" value=""><span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_HXLNFJCDRT" value=""><span>ggplot() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_HXLNFJCDRT" value=""><span>geom_boxplot() + ggplot()</span></label>
-</div>
-</li>
+<div id="radio_RLOGEUROLM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RLOGEUROLM" value=""></input> <span>geom_plot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_RLOGEUROLM" value=""></input> <span>geom_boxplot() + ggplot()</span></label><label><input type="radio" autocomplete="off" name="radio_RLOGEUROLM" value="answer"></input> <span>ggplot() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_RLOGEUROLM" value=""></input> <span>ggplot() %&gt;% geom_boxplot()</span></label>
+</div></li>
 <li>Would this line of code run, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?</li>
 </ol>
-<div class="sourceCode" id="cb130"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="radio_UORHVSUJIU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UORHVSUJIU" value=""><span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label><label><input type="radio" autocomplete="off" name="radio_UORHVSUJIU" value="answer"><span>No, because you have piped the geom_bar() instead of adding it</span></label>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="intro-to-data-visualisation.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">%&gt;%</span></span>
+<span id="cb130-2"><a href="intro-to-data-visualisation.html#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
+<div id="radio_XXGCYKPLRE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XXGCYKPLRE" value=""></input> <span>Yes, as the code looks perfectly acceptable and no errors are visible</span></label><label><input type="radio" autocomplete="off" name="radio_XXGCYKPLRE" value="answer"></input> <span>No, because you have piped the geom_bar() instead of adding it</span></label>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Why would this line of code not create a barplot, assuming all data and libraries had been loaded in and the data and column names were spelt correctly?</li>
 </ol>
-<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">summarydata</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">sex</span>, fill <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">geom_barplot</span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="radio_JBEXCMJKZE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JBEXCMJKZE" value=""><span>because this would create a boxplot</span></label><label><input type="radio" autocomplete="off" name="radio_JBEXCMJKZE" value=""><span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_JBEXCMJKZE" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_JBEXCMJKZE" value=""><span>because you have piped the barplot and not added it</span></label>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="intro-to-data-visualisation.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb131-2"><a href="intro-to-data-visualisation.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_barplot</span>()</span></code></pre></div>
+<div id="radio_SBSXZKWREW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SBSXZKWREW" value=""></input> <span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_SBSXZKWREW" value="answer"></input> <span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_SBSXZKWREW" value=""></input> <span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_SBSXZKWREW" value=""></input> <span>because this would create a boxplot</span></label>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>If I wanted a boxplot on top of a violin plot, what order of functions would I write?
-<div id="radio_KEYTMOKKBX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_KEYTMOKKBX" value=""><span>ggplot() %&gt;% geom_violin() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_KEYTMOKKBX" value="answer"><span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_KEYTMOKKBX" value=""><span>ggplot() %&gt;% geom_boxplot() %&gt;% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_KEYTMOKKBX" value=""><span>ggplot() + geom_boxplot() + geom_violin()</span></label>
-</div>
-</li>
+<div id="radio_CPSVVRMNXZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CPSVVRMNXZ" value="answer"></input> <span>ggplot() + geom_violin() + geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_CPSVVRMNXZ" value=""></input> <span>ggplot() %&gt;% geom_violin() %&gt;% geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_CPSVVRMNXZ" value=""></input> <span>ggplot() %&gt;% geom_boxplot() %&gt;% geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_CPSVVRMNXZ" value=""></input> <span>ggplot() + geom_boxplot() + geom_violin()</span></label>
+</div></li>
 </ol>
 <div class="webex-solution">
 <button>
@@ -602,29 +524,27 @@ Explain these answers
 </button>
 <p><code>r unhide()</code></p>
 <ol style="list-style-type: decimal">
-<li>
-<code>ggplot() + geom_boxplot()</code> would be the correct answer as the rest either use pipes, have the wrong order, or have the wrong functions.</li>
+<li><code>ggplot() + geom_boxplot()</code> would be the correct answer as the rest either use pipes, have the wrong order, or have the wrong functions.</li>
 <li>The line of code would not run because it uses pipes instead of adding a layer</li>
-<li>The line of code would not run because there is no <code>geom_barplot()</code> function and it should be <code>geom_bar()</code>
-</li>
+<li>The line of code would not run because there is no <code>geom_barplot()</code> function and it should be <code>geom_bar()</code></li>
 <li>The correct order would be <code>ggplot() + geom_violin() + geom_boxplot()</code> as the others either use pipes, have the wrong order, or have the wrong functions.</li>
 </ol>
 </div>
 </div>
 <div id="words-from-this-chapter-6" class="section level2" number="7.10">
-<h2>
-<span class="header-section-number">7.10</span> Words from this Chapter<a class="anchor" aria-label="anchor" href="#words-from-this-chapter-6"><i class="fas fa-link"></i></a>
-</h2>
+<h2><span class="header-section-number">7.10</span> Words from this Chapter</h2>
 <p>Below you will find a list of words that were used in this chapter that might be new to you in case it helps to have somewhere to refer back to what they mean. The links in this table take you to the entry for the words in the <a href="https://psyteachr.github.io/glossary/" target="_blank">PsyTeachR Glossary</a>. Note that the Glossary is written by numerous members of the team and as such may use slightly different terminology from that shown in the chapter.</p>
-<div class="inline-table"><table class="table table-sm">
+<table>
 <colgroup>
-<col width="34%">
-<col width="65%">
+<col width="34%" />
+<col width="65%" />
 </colgroup>
-<thead><tr class="header">
+<thead>
+<tr class="header">
 <th align="left">term</th>
 <th align="left">definition</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td align="left"><a href="https://psyteachr.github.io/glossary/b.html#barplot" class="glossary" target="_blank">barplot</a></td>
@@ -663,7 +583,7 @@ Explain these answers
 <td align="left">A plot showing the probability density of data with a smoothed kernel function and look like a rotated and mirrored histogram</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p><strong>End of Chapter</strong></p>
 <p>That is end of this chapter. Be sure to look again at anything you were unsure about and make some notes to help develop your own knowledge and skills. It would be good to write yourself some questions about what you are unsure of and see if you can answer them later or speak to someone about them. Good work today!</p>
 
@@ -839,7 +759,8 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script><script>
+</script>
+<script>
 $( document ).ready(function() {
   var cite = ' ';
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
@@ -867,43 +788,31 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><div class="chapter-nav">
-<div class="prev"><a href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></div>
-<div class="next"><a href="probability.html"><span class="header-section-number">8</span> Probability</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#intro-to-data-visualisation"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
-<li><a class="nav-link" href="#data-visualisation"><span class="header-section-number">7.1</span> Data visualisation</a></li>
-<li><a class="nav-link" href="#setting-up-to-visaulise"><span class="header-section-number">7.2</span> Setting up to Visaulise</a></li>
-<li>
-<a class="nav-link" href="#dealing-with-factors-and-categories"><span class="header-section-number">7.3</span> Dealing with Factors and Categories</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#introviz-a2"><span class="header-section-number">7.3.1</span> Activity 2: Factors</a></li></ul>
-</li>
-<li><a class="nav-link" href="#barplots"><span class="header-section-number">7.4</span> Barplots</a></li>
-<li><a class="nav-link" href="#the-violin-boxplot"><span class="header-section-number">7.5</span> The Violin-boxplot</a></li>
-<li><a class="nav-link" href="#layer-order"><span class="header-section-number">7.6</span> Layer order</a></li>
-<li><a class="nav-link" href="#saving-your-figures"><span class="header-section-number">7.7</span> Saving your Figures</a></li>
-<li><a class="nav-link" href="#introviz-fin"><span class="header-section-number">7.8</span> Finished!</a></li>
-<li><a class="nav-link" href="#test-yourself-2"><span class="header-section-number">7.9</span> Test Yourself</a></li>
-<li><a class="nav-link" href="#words-from-this-chapter-6"><span class="header-section-number">7.10</span> Words from this Chapter</a></li>
-</ul>
+</script>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/07-data-viz.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/07-data-viz.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-10-13.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-12-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -911,7 +820,11 @@ $( document ).ready(function() {
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -923,7 +836,8 @@ $( document ).ready(function() {
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -941,4 +855,5 @@ for (let popover of popovers) {
 }
 </script>
 </body>
+
 </html>

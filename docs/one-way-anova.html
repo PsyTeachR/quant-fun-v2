@@ -1,40 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis</title>
-<meta name="author" content="Emily Nordmann &amp; Phil McAleer">
-<meta name="description" content="14.0.1 Background: Intrusive memories In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/one-way-anova.html">
-<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<meta property="og:description" content="14.0.1 Background: Intrusive memories In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an...">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis">
-<meta name="twitter:description" content="14.0.1 Background: Intrusive memories In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an...">
-<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis</title>
+
+    <meta name="author" content="Emily Nordmann &amp; Phil McAleer" />
+  
+   <meta name="description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2" />
+  <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png" />
+  <meta property="og:description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 14 One-way ANOVA | Fundamentals of Quantitative Analysis" />
+  
+  <meta name="twitter:description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
+  <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png" />
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.3.1/transition.js"></script>
+    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-6NP3MF25W3');
-    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
-<link rel="stylesheet" href="include/webex.css">
-<link rel="stylesheet" href="include/style.css">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="include/psyteachr.css" />
+    <link rel="stylesheet" href="include/webex.css" />
+    <link rel="stylesheet" href="include/style.css" />
+  
 </head>
+
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -46,53 +71,24 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
+      </form>
 
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Overview</a></li>
-<li><a class="" href="foreword.html">Foreword</a></li>
-<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
-<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
-<li><a class="" href="starting-with-data.html"><span class="header-section-number">3</span> Starting with data</a></li>
-<li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
-<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
-<li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
-<li><a class="" href="intro-to-data-visualisation.html"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
-<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
-<li><a class="" href="correlations.html"><span class="header-section-number">9</span> Correlations</a></li>
-<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
-<li><a class="" href="power-and-effect-sizes.html"><span class="header-section-number">11</span> Power and Effect Sizes</a></li>
-<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
-<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
-<li><a class="active" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
-<li><a class="" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
-<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
-<li><a class="" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
-<li class="book-part">Appendices</li>
-<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
-<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
-<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
-<li><a class="" href="citing-r-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
-<li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
-<li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
-<li><a class="" href="license.html">License</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/PsyTeachR/quant-fun-v2">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
-</div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="one-way-anova" class="section level1" number="14">
-<h1>
-<span class="header-section-number">14</span> One-way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="one-way-anova" class="section level1" number="14">
+<h1><span class="header-section-number">Chapter 14</span> One-way ANOVA</h1>
 <div id="background-intrusive-memories" class="section level3" number="14.0.1">
-<h3>
-<span class="header-section-number">14.0.1</span> Background: Intrusive memories<a class="anchor" aria-label="anchor" href="#background-intrusive-memories"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.1</span> Background: Intrusive memories</h3>
 <p>In the lecture reading materials you have worked through calculating an ANOVA by hand in order to gain a conceptual understanding. However, when you run an ANOVA, typically the computer does all of these calculations for you. In this chapter we'll show you how to run a one-factor and factorial ANOVA using the <code>afex</code> package and post-hoc tests using a package called <code>emmeans</code>.</p>
 <p>In this example we will be using data from experiment 2 of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4526368/">James, E. L., Bonsall, M. B., Hoppitt, L., Tunbridge, E. M., Geddes, J. R., Milton, A. L., &amp; Holmes, E. A. (2015). Computer game play reduces intrusive memories of experimental trauma via reconsolidation-update mechanisms. Psychological Science, 26, 1201-1215</a>.</p>
 <p>The abstract for the paper is as follows:</p>
@@ -101,58 +97,46 @@
 </blockquote>
 </div>
 <div id="anova-a1" class="section level3" number="14.0.2">
-<h3>
-<span class="header-section-number">14.0.2</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#anova-a1"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.2</span> Activity 1: Set-up</h3>
 <p>Do the following:</p>
 <ul>
-<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.<br>
+<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.<br />
 </li>
-<li>Open a new R Markdown document and save it in your working directory. Call the file "One-way ANOVA".<br>
+<li>Open a new R Markdown document and save it in your working directory. Call the file "One-way ANOVA".<br />
 </li>
-<li>Download <a href="James%20Holmes_Expt%202_DATA.csv" download>James Holmes_Expt 2_DATA.csv</a> and save it in your chapter folder.<br>
+<li>Download <a href="James Holmes_Expt 2_DATA.csv" download>James Holmes_Expt 2_DATA.csv</a> and save it in your chapter folder.<br />
 </li>
-<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code><br>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code><br />
 </li>
-<li>In a new code chunk, type and run the code that loads <code>pwr</code>, <code>lsr</code>, <code>car</code>, <code>broom</code>, <code>afex</code>, <code>emmeans</code>, <code>performance</code> and <code>tidyverse</code> using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function and loads the data into an object named <code>dat</code> using <code>read_csv()</code>. If you are working on your own machine you may need to install <code>afex</code> and <code>emmeans</code> but as always <strong>do not install packages on university machines</strong>.<br>
+<li>In a new code chunk, type and run the code that loads <code>pwr</code>, <code>lsr</code>, <code>car</code>, <code>broom</code>, <code>afex</code>, <code>emmeans</code>, <code>performance</code> and <code>tidyverse</code> using the <code>library()</code> function and loads the data into an object named <code>dat</code> using <code>read_csv()</code>. If you are working on your own machine you may need to install <code>afex</code> and <code>emmeans</code> but as always <strong>do not install packages on university machines</strong>.<br />
 </li>
-<li>Add (hint: mutate) a column to <code>dat</code> called <code>subject</code>that equals <code><a href="https://dplyr.tidyverse.org/reference/ranking.html">row_number()</a></code> to act as a participant ID which is currently missing from the data set.</li>
+<li>Add (hint: mutate) a column to <code>dat</code> called <code>subject</code>that equals <code>row_number()</code> to act as a participant ID which is currently missing from the data set.</li>
 </ul>
 </div>
 <div id="anova-a2" class="section level3" number="14.0.3">
-<h3>
-<span class="header-section-number">14.0.3</span> Activity 2: Data wrangling<a class="anchor" aria-label="anchor" href="#anova-a2"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.3</span> Activity 2: Data wrangling</h3>
 <p>There are a lot of columns in this data set that we don't need for this analysis and the names of the variable are also long and difficult to work with.</p>
 <ul>
-<li>Create a new object called <code>dat2</code> that just has the three columns we need - use <code><a href="https://dplyr.tidyverse.org/reference/select.html">select()</a></code> to select the columns <code>subject</code>, <code>Condition</code>, and <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code>
-</li>
-<li>Use <code><a href="https://dplyr.tidyverse.org/reference/rename.html">rename()</a></code> to rename <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> to <code>intrusions</code>
-</li>
+<li>Create a new object called <code>dat2</code> that just has the three columns we need - use <code>select()</code> to select the columns <code>subject</code>, <code>Condition</code>, and <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code></li>
+<li>Use <code>rename()</code> to rename <code>Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</code> to <code>intrusions</code></li>
 <li>See if you can do this all in one pipeline</li>
-<li>Hint: in rename, <code>new_name = old_name</code>
-</li>
+<li>Hint: in rename, <code>new_name = old_name</code></li>
 </ul>
 </div>
 <div id="anova-a3" class="section level3" number="14.0.4">
-<h3>
-<span class="header-section-number">14.0.4</span> Activity 3: Numbers and factors<a class="anchor" aria-label="anchor" href="#anova-a3"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.4</span> Activity 3: Numbers and factors</h3>
 <p>In addition to the names of the variables being too long, the levels of <code>Condition</code> are named 1,2,3,4 which R will think is a number rather than a category. We're going to overwrite the column <code>Condition</code> with a column that recodes these numbers as a factor. Copy and paste the code below into your Markdown and then run it.</p>
-<div class="sourceCode" id="cb282"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="va">dat2</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">Condition</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="one-way-anova.html#cb282-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat2 <span class="sc">%&gt;%</span></span>
+<span id="cb282-2"><a href="one-way-anova.html#cb282-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Condition =</span> <span class="fu">as.factor</span>(Condition))</span></code></pre></div>
 <p><strong>This is a really important step</strong>. If you forget to recode variables as factors and R treats them as numbers, a lot of things won't work. Trust us, we've spent a lot of time trying to figure out what was wrong because we forgot to do this step!</p>
 </div>
 <div id="anova-a4" class="section level3" number="14.0.5">
-<h3>
-<span class="header-section-number">14.0.5</span> Activity 4: Create summary statistics<a class="anchor" aria-label="anchor" href="#anova-a4"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.5</span> Activity 4: Create summary statistics</h3>
 <p>Next we want to calculate some descriptive statistics. We're really interested in the scores from each experimental group rather than overall.</p>
 <ul>
-<li>Create an object called <code>sum_dat</code>that contains the mean, standard deviation and standard error for the number of intrusions grouped by <code>Condition</code><br>
+<li>Create an object called <code>sum_dat</code>that contains the mean, standard deviation and standard error for the number of intrusions grouped by <code>Condition</code><br />
 </li>
-<li>Use the pipe to achieve this in one pipeline<br>
+<li>Use the pipe to achieve this in one pipeline<br />
 </li>
 <li>Your table should have four columns, <code>Condition</code>, <code>mean</code>, <code>sd</code>, and <code>se</code>.</li>
 </ul>
@@ -166,101 +150,77 @@ Hint
 </div>
 </div>
 <div id="anova-a5" class="section level3" number="14.0.6">
-<h3>
-<span class="header-section-number">14.0.6</span> Activity 5: Visualisation<a class="anchor" aria-label="anchor" href="#anova-a5"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.6</span> Activity 5: Visualisation</h3>
 <p>Now we can visualise the data. In the original paper they use a bar plot, which we will reproduce later but for now let's use a better plot that gives us more information about the data.</p>
 <ul>
 <li>Create the below violin-boxplot with number of intrusions on the y-axis and condition on the x-axis (see the Visualisation chapter for more info).</li>
 <li>Change the labels on the x-axis to something more informative (hint: <code>scale_x_discrete(labels = c("label names")</code>)</li>
 </ul>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:violin-plot"></span>
-<img src="14-anova_files/figure-html/violin-plot-1.png" alt="Number of intrusions by condition" width="100%"><p class="caption">
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:violin-plot"></span>
+<img src="14-anova_files/figure-html/violin-plot-1.png" alt="Number of intrusions by condition" width="100%" />
+<p class="caption">
 Figure 14.1: Number of intrusions by condition
 </p>
 </div>
 <p>We can see from this plot that there are outliers in each of the groups. This information isn't present in the bar plot, which is why it's not a good idea to use them but we will reproduce it anyway.The below code shows you how to produce the bar plot that is presented in the paper. Try and figure out what each bit of code is doing in the plot (remember to use the help documentation for each function) and see what happens when you change the values for each argument.</p>
-<div class="sourceCode" id="cb284"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">sum_dat</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">mean</span>, fill <span class="op">=</span> <span class="va">Condition</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">stat_summary</span><span class="op">(</span>fun <span class="op">=</span> <span class="st">"mean"</span>, geom <span class="op">=</span> <span class="st">"bar"</span>, show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_errorbar</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">mean</span> <span class="op">-</span> <span class="va">se</span>, ymax <span class="op">=</span> <span class="va">mean</span> <span class="op">+</span> <span class="va">se</span><span class="op">)</span>, width <span class="op">=</span> <span class="fl">0.25</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_y_continuous</span><span class="op">(</span>limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">7</span><span class="op">)</span>, 
-                     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span>, 
-                     name <span class="op">=</span> <span class="st">"Intrusive-Memory Frequency (Mean for the Week"</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">scale_x_discrete</span><span class="op">(</span>labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"No-task control"</span>, <span class="st">"Reactivation plus Tetris"</span>, <span class="st">"Tetris only"</span>,
-                                <span class="st">"Reactivation only"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:bar-plot"></span>
-<img src="14-anova_files/figure-html/bar-plot-1.png" alt="Bar plot of instrusions by condition" width="100%"><p class="caption">
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="one-way-anova.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sum_dat, <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> mean, <span class="at">fill =</span> Condition))<span class="sc">+</span></span>
+<span id="cb284-2"><a href="one-way-anova.html#cb284-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>, <span class="at">geom =</span> <span class="st">&quot;bar&quot;</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb284-3"><a href="one-way-anova.html#cb284-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean <span class="sc">-</span> se, <span class="at">ymax =</span> mean <span class="sc">+</span> se), <span class="at">width =</span> <span class="fl">0.25</span>)<span class="sc">+</span></span>
+<span id="cb284-4"><a href="one-way-anova.html#cb284-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">7</span>), </span>
+<span id="cb284-5"><a href="one-way-anova.html#cb284-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>), </span>
+<span id="cb284-6"><a href="one-way-anova.html#cb284-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">name =</span> <span class="st">&quot;Intrusive-Memory Frequency (Mean for the Week&quot;</span>)<span class="sc">+</span></span>
+<span id="cb284-7"><a href="one-way-anova.html#cb284-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;No-task control&quot;</span>, <span class="st">&quot;Reactivation plus Tetris&quot;</span>, <span class="st">&quot;Tetris only&quot;</span>,</span>
+<span id="cb284-8"><a href="one-way-anova.html#cb284-8" aria-hidden="true" tabindex="-1"></a>                                <span class="st">&quot;Reactivation only&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bar-plot"></span>
+<img src="14-anova_files/figure-html/bar-plot-1.png" alt="Bar plot of instrusions by condition" width="100%" />
+<p class="caption">
 Figure 14.2: Bar plot of instrusions by condition
 </p>
 </div>
 </div>
 <div id="anova-a6" class="section level3" number="14.0.7">
-<h3>
-<span class="header-section-number">14.0.7</span> Activity 6: One-way ANOVA<a class="anchor" aria-label="anchor" href="#anova-a6"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.7</span> Activity 6: One-way ANOVA</h3>
 <p>Now we can run the one-way ANOVA using <code>aov_ez</code> from the <code>afex</code> package and save it to the object <code>mod</code>. As well as running the ANOVA, the <code>aov_ez</code> function also conducts a Levene's test for homogeneity of variance so that we can test our final assumption.</p>
 <p><code>aov_ez()</code> will likely produce some messages that look like errors, do not worry about these, they are just letting you know what it's done.</p>
 <ul>
-<li>Copy and paste the below code to run and then view the results of the ANOVA using <code><a href="https://rdrr.io/r/stats/anova.html">anova(mod)</a></code>.</li>
+<li>Copy and paste the below code to run and then view the results of the ANOVA using <code>anova(mod)</code>.</li>
 </ul>
-<div class="sourceCode" id="cb285"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu">aov_ez</span><span class="op">(</span>id <span class="op">=</span> <span class="st">"subject"</span>, <span class="co"># the column containing the subject IDs</span>
-              dv <span class="op">=</span> <span class="st">"intrusions"</span>, <span class="co"># the DV </span>
-              between <span class="op">=</span> <span class="st">"Condition"</span>, <span class="co"># the between-subject variable</span>
-              es <span class="op">=</span> <span class="st">"pes"</span>, <span class="co"># sets effect size to partial eta-squared</span>
-              type <span class="op">=</span> <span class="fl">3</span>, <span class="co"># this affects how the sum of squares is calculated, set this to 3</span>
-              include_aov <span class="op">=</span> <span class="cn">TRUE</span>,
-              data <span class="op">=</span> <span class="va">dat2</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
-<p>Just like with the t-tests and correlations, we can use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to make the output easier to work with.</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="one-way-anova.html#cb285-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov_ez</span>(<span class="at">id =</span> <span class="st">&quot;subject&quot;</span>, <span class="co"># the column containing the subject IDs</span></span>
+<span id="cb285-2"><a href="one-way-anova.html#cb285-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">dv =</span> <span class="st">&quot;intrusions&quot;</span>, <span class="co"># the DV </span></span>
+<span id="cb285-3"><a href="one-way-anova.html#cb285-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">between =</span> <span class="st">&quot;Condition&quot;</span>, <span class="co"># the between-subject variable</span></span>
+<span id="cb285-4"><a href="one-way-anova.html#cb285-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">es =</span> <span class="st">&quot;pes&quot;</span>, <span class="co"># sets effect size to partial eta-squared</span></span>
+<span id="cb285-5"><a href="one-way-anova.html#cb285-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">type =</span> <span class="dv">3</span>, <span class="co"># this affects how the sum of squares is calculated, set this to 3</span></span>
+<span id="cb285-6"><a href="one-way-anova.html#cb285-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">include_aov =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb285-7"><a href="one-way-anova.html#cb285-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> dat2)</span>
+<span id="cb285-8"><a href="one-way-anova.html#cb285-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb285-9"><a href="one-way-anova.html#cb285-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mod)</span></code></pre></div>
+<p>Just like with the t-tests and correlations, we can use <code>tidy()</code> to make the output easier to work with.</p>
 <ul>
 <li>Run the below code to transform the output. Don't worry about the warning message, it is just telling you it doesn't know how to automatically rename the columns so it will keep the original names.</li>
 </ul>
-<div class="sourceCode" id="cb286"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod_output</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">anova_table</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="one-way-anova.html#cb286-1" aria-hidden="true" tabindex="-1"></a>mod_output <span class="ot">&lt;-</span> (mod<span class="sc">$</span>anova_table) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>()</span></code></pre></div>
 <pre><code>## Warning in tidy.anova(.): The following column names in ANOVA output were not
 ## recognized or transformed: num.Df, den.Df, MSE, ges</code></pre>
 <ul>
-<li>
-<code>term</code> = the IV<br>
+<li><code>term</code> = the IV<br />
 </li>
-<li>
-<code>num.Df</code> = degrees of freedom effect</li>
-<li>
-<code>den.Df</code> = degrees of freedom residuals</li>
-<li>
-<code>MSE</code> = Mean-squared errors</li>
-<li>
-<code>statistic</code> = F-statistic</li>
-<li>
-<code>ges</code> = effect size<br>
+<li><code>num.Df</code> = degrees of freedom effect</li>
+<li><code>den.Df</code> = degrees of freedom residuals</li>
+<li><code>MSE</code> = Mean-squared errors</li>
+<li><code>statistic</code> = F-statistic</li>
+<li><code>ges</code> = effect size<br />
 </li>
-<li>
-<code>p.value</code> = p.value</li>
+<li><code>p.value</code> = p.value</li>
 </ul>
 <p>You should refer to the lecture for more information on what each variable means and how it is calculated.</p>
 <ul>
-<li>Is the overall effect of Condition significant? <select class="webex-select"><option value="blank"></option>
-<option value="answer">Yes</option>
-<option value="">No</option></select>
-</li>
-<li>What is the F-statistics to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["3.79"]'>
-</li>
-<li>According to the rules of thumb, the effect size is <select class="webex-select"><option value="blank"></option>
-<option value="">Small</option>
-<option value="">Medium</option>
-<option value="answer">Large</option></select>
-</li>
+<li>Is the overall effect of Condition significant? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select></li>
+<li>What is the F-statistics to 2 decimal places? <input class='webex-solveme nospaces' size='4' data-answer='["3.79"]'/></li>
+<li>According to the rules of thumb, the effect size is <select class='webex-select'><option value='blank'></option><option value=''>Small</option><option value=''>Medium</option><option value='answer'>Large</option></select></li>
 </ul>
 </div>
 <div id="anova-a7" class="section level3" number="14.0.8">
-<h3>
-<span class="header-section-number">14.0.8</span> Activity 7: Assumption checking<a class="anchor" aria-label="anchor" href="#anova-a7"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.8</span> Activity 7: Assumption checking</h3>
 <p>You may be wondering why we haven't yet checked the assumptions. Well, unlike the t-tests and correlations, in order to test the assumptions we need to use the model we created with <code>aov_ez()</code>, so we couldn't assess them all until this point. For a one-way independent ANOVA, the assumptions are the same as for a Student's t-test:</p>
 <ol style="list-style-type: decimal">
 <li>The DV is interval or ratio data</li>
@@ -269,16 +229,14 @@ Figure 14.2: Bar plot of instrusions by condition
 <li>There should be homogeneity of variance between the groups</li>
 </ol>
 <p>We know that 1 and 2 are met because of the design of our study. To test 3, we can look at the QQ-plot of the residuals and test for normality with the Shapiro-Wilk test. The residuals have been stored as one of the components of <code>mod</code>. To access them we specify <code>mod$aov$residuals</code>.</p>
-<div class="sourceCode" id="cb288"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">aov</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span style="display:block;" id="fig:fig-qq"></span>
-<img src="14-anova_files/figure-html/fig-qq-1.png" alt="qq-plot for model residuals" width="100%"><p class="caption">
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="one-way-anova.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(mod<span class="sc">$</span>aov<span class="sc">$</span>residuals)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig-qq"></span>
+<img src="14-anova_files/figure-html/fig-qq-1.png" alt="qq-plot for model residuals" width="100%" />
+<p class="caption">
 Figure 14.3: qq-plot for model residuals
 </p>
 </div>
-<div class="sourceCode" id="cb289"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">aov</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="one-way-anova.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(mod<span class="sc">$</span>aov<span class="sc">$</span>residuals)</span></code></pre></div>
 <pre><code>## [1] 11 60
 ## 
 ##  Shapiro-Wilk normality test
@@ -287,28 +245,23 @@ Figure 14.3: qq-plot for model residuals
 ## W = 0.87739, p-value = 4.252e-06</code></pre>
 <p>There are a few things to note about the assumption test results. First, look at the p-value for the Shapiro-Wilk test - <code>4.252e-06</code>. Whenever you see the <code>e</code> at the end of a number it means that R is using <strong>scientific notation</strong>. Scientific notation is a way of writing very large or very small numbers. Because the number after the <code>e</code> is negative it means the number should be divided by 10 to the power of six. Put simply, move the decimal place six places to the left and you will get the standard number. When reporting p-values in your results section, you should not use scientific notation, instead you should round to 3 decimal places.</p>
 <ul>
-<li>What is the value of <code>4.252e-06</code>? <select class="webex-select"><option value="blank"></option>
-<option value="">.004252</option>
-<option value="">42.52</option>
-<option value="answer">.000004252</option></select>
-</li>
+<li>What is the value of <code>4.252e-06</code>? <select class='webex-select'><option value='blank'></option><option value=''>.004252</option><option value=''>42.52</option><option value='answer'>.000004252</option></select></li>
 </ul>
 <p>If you want R to round this for you to make it easier to read, you could use the below code to save it to an object, tidy it and then round the p.value. Just remember that in APA style you should never write "p = 0", instead, you should write "p &lt; .001" (because p will never equal actual zero, it can just be very, very, very small).</p>
-<div class="sourceCode" id="cb291"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">shapiro</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">aov</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co">#run the test</span>
-  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="co"># tidy the output</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>p.value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">p.value</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># overwrite the p-value with one rounded to 3 decimal places</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="one-way-anova.html#cb291-1" aria-hidden="true" tabindex="-1"></a>shapiro <span class="ot">&lt;-</span> <span class="fu">shapiro.test</span>(mod<span class="sc">$</span>aov<span class="sc">$</span>residuals) <span class="sc">%&gt;%</span> <span class="co">#run the test</span></span>
+<span id="cb291-2"><a href="one-way-anova.html#cb291-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="co"># tidy the output</span></span>
+<span id="cb291-3"><a href="one-way-anova.html#cb291-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p.value =</span> <span class="fu">round</span>(p.value, <span class="at">digits =</span> <span class="dv">3</span>)) <span class="co"># overwrite the p-value with one rounded to 3 decimal places</span></span></code></pre></div>
 <p>If you find scientific notation difficult to read, you can paste and run the following code in your console to turn it off</p>
-<div class="sourceCode" id="cb292"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>scipen<span class="op">=</span><span class="fl">999</span><span class="op">)</span></code></pre></div>
-<p>The second thing to note is that from both the qq-plot and the Shapiro-Wilk test it is clear that the assumption of normality has not been met. Is this a problem? Well, Field et al. (2009) say that if the sample sizes for each group are equal then ANOVA is robust to violations of both normality and of homogeneity of variance. There's also a good discussion of this <a href="https://link.springer.com/article/10.3758/s13428-017-0918-2">here</a> but it is a bit technical. We can check how many participants are in each condition using <code><a href="https://dplyr.tidyverse.org/reference/count.html">count()</a></code>:</p>
-<div class="sourceCode" id="cb293"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat2</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">Condition</span><span class="op">)</span></code></pre></div>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="one-way-anova.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span></code></pre></div>
+<p>The second thing to note is that from both the qq-plot and the Shapiro-Wilk test it is clear that the assumption of normality has not been met. Is this a problem? Well, Field et al. (2009) say that if the sample sizes for each group are equal then ANOVA is robust to violations of both normality and of homogeneity of variance. There's also a good discussion of this <a href="https://link.springer.com/article/10.3758/s13428-017-0918-2">here</a> but it is a bit technical. We can check how many participants are in each condition using <code>count()</code>:</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="one-way-anova.html#cb293-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span> <span class="fu">count</span>(Condition)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
 <th align="center">Condition</th>
 <th align="center">n</th>
-</tr></thead>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td align="center">1</td>
@@ -327,14 +280,13 @@ Figure 14.3: qq-plot for model residuals
 <td align="center">18</td>
 </tr>
 </tbody>
-</table></div>
+</table>
 <p>Thankfully the sample sizes are equal so we should be OK to proceed with the ANOVA. It is not clear whether normality was checked in the original paper.</p>
 <p>For the last assumption, we can test homogeneity of variance with Levene's test and the function <code>test_levene()</code> from <code>performance</code>. The code for this is very simple, you just need to supply the ANOVA model we created earlier <code>mod</code>.</p>
-<div class="sourceCode" id="cb294"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">test_levene</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning: Functionality has moved to the 'performance' package.
-## Calling 'performance::check_homogeneity()'.</code></pre>
-<pre><code>## Warning: Variances differ between groups (Levene's Test, p = 0.039).</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="one-way-anova.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_levene</span>(mod)</span></code></pre></div>
+<pre><code>## Warning: Functionality has moved to the &#39;performance&#39; package.
+## Calling &#39;performance::check_homogeneity()&#39;.</code></pre>
+<pre><code>## Warning: Variances differ between groups (Levene&#39;s Test, p = 0.039).</code></pre>
 <p>The results from Levene's test show that the assumption of homogeneity of variance has also not been met. The paper does indicate this might be the case as it specifies that the ANOVAs do not assume equal variance, however, the results of the ANOVA that are reported are identical to our results above where no correction has been made although the post-hoc tests are Welch tests (you can tell this because the degrees of freedom have been adjusted and are not whole numbers).</p>
 <p>Whilst all of this might seem very confusing - we imagine you might be wondering what the point of assumption testing is given that it seems to be ignored - we're showing you this for three reasons:</p>
 <ol style="list-style-type: decimal">
@@ -344,45 +296,38 @@ Figure 14.3: qq-plot for model residuals
 </ol>
 </div>
 <div id="anova-a8" class="section level3" number="14.0.9">
-<h3>
-<span class="header-section-number">14.0.9</span> Activity 8: Post-hoc tests<a class="anchor" aria-label="anchor" href="#anova-a8"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.9</span> Activity 8: Post-hoc tests</h3>
 <p>For post-hoc comparisons, as mentioned, the paper appears to have computed Welch t-tests but there is no mention of any multiple comparison correction. We could reproduce these results by using <code>t.test</code> for each of the contrasts.</p>
 <p>For example, to compare condition 1 (the control group) with condition 2 (the reactivation plus tetris group) we could run:</p>
-<div class="sourceCode" id="cb297"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat2</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, data <span class="op">=</span> <span class="va">.</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="one-way-anova.html#cb297-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="sc">%&gt;%</span></span>
+<span id="cb297-2"><a href="one-way-anova.html#cb297-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb297-3"><a href="one-way-anova.html#cb297-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">droplevels</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb297-4"><a href="one-way-anova.html#cb297-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">t.test</span>(intrusions <span class="sc">~</span> Condition, <span class="at">data =</span> .)</span></code></pre></div>
 <div class="info">
 <p>
-Because <code>Condition</code> has four levels, we can’t just specify <code>intrustion ~ Condition</code> because a t-test compares two groups and it wouldn’t know which of the four to compare so first we have to filter the data and use a new function <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code>. It's important to remember that when it comes to R there are two things to consider, the data you can see and the underlying structure of that data. In the above code we use <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> to select only conditions 1 and 2 so that we can compare them. However, that doesn't change the fact that R "knows" that <code>Condition</code> has four levels - it doesn't matter if two of those levels don't have any observations any more, the underlying structure still says there are four groups. <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code> tells R to remove any unused levels from a factor. Try running the above code but without <code><a href="https://rdrr.io/r/base/droplevels.html">droplevels()</a></code> and see what happens.
+Because <code>Condition</code> has four levels, we can’t just specify <code>intrustion ~ Condition</code> because a t-test compares two groups and it wouldn’t know which of the four to compare so first we have to filter the data and use a new function <code>droplevels()</code>. It's important to remember that when it comes to R there are two things to consider, the data you can see and the underlying structure of that data. In the above code we use <code>filter()</code> to select only conditions 1 and 2 so that we can compare them. However, that doesn't change the fact that R "knows" that <code>Condition</code> has four levels - it doesn't matter if two of those levels don't have any observations any more, the underlying structure still says there are four groups. <code>droplevels()</code> tells R to remove any unused levels from a factor. Try running the above code but without <code>droplevels()</code> and see what happens.
 </p>
 </div>
 <p>However, a quicker and better way of doing this that allows you apply a correction for multiple comparisons easily is to use <code>emmeans()</code> which computes all possible pairwise comparison t-tests and applies a correction to the p-value.</p>
-<p>First, we use <code>emmeans()</code> to run the comparisons and then we can pull out the contrasts and use <code><a href="https://generics.r-lib.org/reference/tidy.html">tidy()</a></code> to make it easier to work with.</p>
+<p>First, we use <code>emmeans()</code> to run the comparisons and then we can pull out the contrasts and use <code>tidy()</code> to make it easier to work with.</p>
 <ul>
 <li>Run the code below. Which conditions are significantly different from each other? Are any of the comparisons different from the ones reported in the paper now that a correction for multiple comparisons has been applied?</li>
 </ul>
-<div class="sourceCode" id="cb298"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mod_pairwise</span> <span class="op">&lt;-</span><span class="fu">emmeans</span><span class="op">(</span><span class="va">mod</span>, <span class="va">pairwise</span> <span class="op">~</span> <span class="va">Condition</span>, adjust <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span>
-<span class="va">mod_contrasts</span> <span class="op">&lt;-</span> <span class="va">mod_pairwise</span><span class="op">$</span><span class="va">contrasts</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="one-way-anova.html#cb298-1" aria-hidden="true" tabindex="-1"></a>mod_pairwise <span class="ot">&lt;-</span><span class="fu">emmeans</span>(mod, pairwise <span class="sc">~</span> Condition, <span class="at">adjust =</span> <span class="st">&quot;bonferroni&quot;</span>)</span>
+<span id="cb298-2"><a href="one-way-anova.html#cb298-2" aria-hidden="true" tabindex="-1"></a>mod_contrasts <span class="ot">&lt;-</span> mod_pairwise<span class="sc">$</span>contrasts <span class="sc">%&gt;%</span> <span class="fu">tidy</span>()</span></code></pre></div>
 <div class="warning">
 <p>
-The inquisitive amongst you may have noticed that <code>mod</code> is a list of 5 and seemingly contains the same thing three times: <code>anova_table</code>, <code>aov</code> and <code>Anova</code>. The reasons behind the differences are too complex to go into detail on this course (see <a href="https://rcompanion.org/rcompanion/d_04.html">here</a> for more info) but the simple version is that <code>anova_table</code> and <code>Anova</code>use one method of calculating the results (type 3 sum of squares) and <code>aov</code> uses a different method (type 1 sum of squares). What's important for your purposes is that you need to use <code>anova_table</code> to view the overall results (and replicate the results from papers) and <code>aov</code>to run the follow-up tests and to get access to the residuals (or <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> for factorial ANOVA). As always, precision and attention to detail is key.
+The inquisitive amongst you may have noticed that <code>mod</code> is a list of 5 and seemingly contains the same thing three times: <code>anova_table</code>, <code>aov</code> and <code>Anova</code>. The reasons behind the differences are too complex to go into detail on this course (see <a href="https://rcompanion.org/rcompanion/d_04.html">here</a> for more info) but the simple version is that <code>anova_table</code> and <code>Anova</code>use one method of calculating the results (type 3 sum of squares) and <code>aov</code> uses a different method (type 1 sum of squares). What's important for your purposes is that you need to use <code>anova_table</code> to view the overall results (and replicate the results from papers) and <code>aov</code>to run the follow-up tests and to get access to the residuals (or <code>lm()</code> for factorial ANOVA). As always, precision and attention to detail is key.
 </p>
 </div>
 </div>
 <div id="anova-a9" class="section level3" number="14.0.10">
-<h3>
-<span class="header-section-number">14.0.10</span> Activity 9: Power and effect size<a class="anchor" aria-label="anchor" href="#anova-a9"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.10</span> Activity 9: Power and effect size</h3>
 <p>Finally, we can replicate their power analysis using <code>pwr.anova.test</code>.</p>
 <blockquote>
 <p>On the basis of the effect size of d = 1.14 from Experiment 1, we assumed a large effect size of f = 0.4. A sample size of 18 per condition was required in order to ensure an 80% power to detect this difference at the 5% significance level.</p>
 </blockquote>
-<div class="sourceCode" id="cb299"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.anova.test.html">pwr.anova.test</a></span><span class="op">(</span>k <span class="op">=</span> <span class="fl">4</span>, f <span class="op">=</span> <span class="fl">.4</span>, sig.level <span class="op">=</span> <span class="fl">.05</span>, power <span class="op">=</span> <span class="fl">.8</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="one-way-anova.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.anova.test</span>(<span class="at">k =</span> <span class="dv">4</span>, <span class="at">f =</span> .<span class="dv">4</span>, <span class="at">sig.level =</span> .<span class="dv">05</span>, <span class="at">power =</span> .<span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## 
 ##      Balanced one-way analysis of variance power calculation 
 ## 
@@ -394,35 +339,34 @@ The inquisitive amongst you may have noticed that <code>mod</code> is a list of 
 ## 
 ## NOTE: n is number in each group</code></pre>
 <p>We've already got the effect size for the overall ANOVA, however, we should also really calculate Cohen's D using <code>cohensD</code> from <code>lsr</code> for each of the pairwise comparisons. This code is a little complicated because you need to do it separately for each comparison, bind them all together and then add them to <code>mod_contrasts</code> - just make sure your understand which bits of the code you would need to change to run this on different data.</p>
-<div class="sourceCode" id="cb301"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">d_1_2</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
-                 data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-                   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">d_1_3</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
-                 data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-                   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> 
-
-<span class="va">d_1_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
-                 data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-                   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">d_2_3</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
-                 data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-                   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">d_2_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
-                 data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-                   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">d_3_4</span> <span class="op">&lt;-</span> <span class="fu">cohensD</span><span class="op">(</span><span class="va">intrusions</span> <span class="op">~</span> <span class="va">Condition</span>, 
-                 data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">dat2</span>, <span class="va">Condition</span> <span class="op">%in%</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
-                   <span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">pairwise_ds</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">d_1_2</span>,<span class="va">d_1_3</span>,<span class="va">d_1_4</span>,<span class="va">d_2_3</span>,<span class="va">d_2_4</span>,<span class="va">d_3_4</span><span class="op">)</span>
-
-<span class="va">mod_contrasts</span> <span class="op">&lt;-</span> <span class="va">mod_contrasts</span> <span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>eff_size <span class="op">=</span> <span class="va">pairwise_ds</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="one-way-anova.html#cb301-1" aria-hidden="true" tabindex="-1"></a>d_1_2 <span class="ot">&lt;-</span> <span class="fu">cohensD</span>(intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb301-2"><a href="one-way-anova.html#cb301-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> <span class="fu">filter</span>(dat2, Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb301-3"><a href="one-way-anova.html#cb301-3" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">droplevels</span>())</span>
+<span id="cb301-4"><a href="one-way-anova.html#cb301-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-5"><a href="one-way-anova.html#cb301-5" aria-hidden="true" tabindex="-1"></a>d_1_3 <span class="ot">&lt;-</span> <span class="fu">cohensD</span>(intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb301-6"><a href="one-way-anova.html#cb301-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> <span class="fu">filter</span>(dat2, Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb301-7"><a href="one-way-anova.html#cb301-7" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">droplevels</span>()) </span>
+<span id="cb301-8"><a href="one-way-anova.html#cb301-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-9"><a href="one-way-anova.html#cb301-9" aria-hidden="true" tabindex="-1"></a>d_1_4 <span class="ot">&lt;-</span> <span class="fu">cohensD</span>(intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb301-10"><a href="one-way-anova.html#cb301-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> <span class="fu">filter</span>(dat2, Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb301-11"><a href="one-way-anova.html#cb301-11" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">droplevels</span>())</span>
+<span id="cb301-12"><a href="one-way-anova.html#cb301-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-13"><a href="one-way-anova.html#cb301-13" aria-hidden="true" tabindex="-1"></a>d_2_3 <span class="ot">&lt;-</span> <span class="fu">cohensD</span>(intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb301-14"><a href="one-way-anova.html#cb301-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> <span class="fu">filter</span>(dat2, Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb301-15"><a href="one-way-anova.html#cb301-15" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">droplevels</span>())</span>
+<span id="cb301-16"><a href="one-way-anova.html#cb301-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-17"><a href="one-way-anova.html#cb301-17" aria-hidden="true" tabindex="-1"></a>d_2_4 <span class="ot">&lt;-</span> <span class="fu">cohensD</span>(intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb301-18"><a href="one-way-anova.html#cb301-18" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> <span class="fu">filter</span>(dat2, Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb301-19"><a href="one-way-anova.html#cb301-19" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">droplevels</span>())</span>
+<span id="cb301-20"><a href="one-way-anova.html#cb301-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-21"><a href="one-way-anova.html#cb301-21" aria-hidden="true" tabindex="-1"></a>d_3_4 <span class="ot">&lt;-</span> <span class="fu">cohensD</span>(intrusions <span class="sc">~</span> Condition, </span>
+<span id="cb301-22"><a href="one-way-anova.html#cb301-22" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> <span class="fu">filter</span>(dat2, Condition <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb301-23"><a href="one-way-anova.html#cb301-23" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">droplevels</span>())</span>
+<span id="cb301-24"><a href="one-way-anova.html#cb301-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-25"><a href="one-way-anova.html#cb301-25" aria-hidden="true" tabindex="-1"></a>pairwise_ds <span class="ot">&lt;-</span> <span class="fu">c</span>(d_1_2,d_1_3,d_1_4,d_2_3,d_2_4,d_3_4)</span>
+<span id="cb301-26"><a href="one-way-anova.html#cb301-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb301-27"><a href="one-way-anova.html#cb301-27" aria-hidden="true" tabindex="-1"></a>mod_contrasts <span class="ot">&lt;-</span> mod_contrasts <span class="sc">%&gt;%</span></span>
+<span id="cb301-28"><a href="one-way-anova.html#cb301-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">eff_size =</span> pairwise_ds)</span></code></pre></div>
 <div class="warning">
 <p>
 What are your options if the data don't meet the assumptions and it's really not appropriate to continue with a regular one-way ANOVA? As always, there are multiple options and it is a judgement call.
@@ -441,84 +385,69 @@ You could use bootstrapping, which is not something we will cover in this course
 </div>
 </div>
 <div id="anova-a10" class="section level3" number="14.0.11">
-<h3>
-<span class="header-section-number">14.0.11</span> Activity 10: Write-up<a class="anchor" aria-label="anchor" href="#anova-a10"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.11</span> Activity 10: Write-up</h3>
 <p>The below code replicates the write-up in the paper, although has changed the Welch t-test to the pairwise comparisons from <code>emmeans</code>.</p>
 <div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="one-way-anova.html#cb302-1" aria-hidden="true" tabindex="-1"></a>Second, and critically, <span class="cf">for</span> the <span class="dv">7</span><span class="sc">-</span>day diary postintervention, there was a significant difference between groups <span class="cf">in</span> overall intrusion frequency <span class="cf">in</span> daily life, <span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_output$num.Df</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_output$den.Df</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_output$statistic %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_output$p.value %&gt;% round(3)</span><span class="st">`</span>, ηp2 <span class="ot">=</span> .<span class="st">`</span><span class="at">r mod_output$ges %&gt;% round(2)</span><span class="st">`</span>. Planned comparisons demonstrated that relative to the no<span class="sc">-</span>task control group, only those <span class="cf">in</span> the reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[1]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[1] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[1] %&gt;% round(2)</span><span class="st">`</span>, experienced significantly fewer intrusive memories; this finding replicated Experiment <span class="fl">1.</span> The reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group had significantly fewer intrusive thoughts than the reactivation<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[5]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[5] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[5] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[5] %&gt;% round(2)</span><span class="st">`</span>. Further, there were no significant differences between the reactivation<span class="sc">-</span>plus<span class="sc">-</span>Tetris group and the Tetris<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[4]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[4] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[4] %&gt;% round(2)</span><span class="st">`</span>, d <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$eff_size[4] %&gt;% round(2)</span><span class="st">`</span>, the no<span class="sc">-</span>task control group and the reactivation<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[3]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[3] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[3] %&gt;% round(2)</span><span class="st">`</span>, or between the no<span class="sc">-</span>task control group and the Tetris<span class="sc">-</span>only group, <span class="fu">t</span>(<span class="st">`</span><span class="at">r mod_contrasts$df[2]</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$statistic[2] %&gt;% round(2)</span><span class="st">`</span>, p <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_contrasts$adj.p.value[2] %&gt;% round(2)</span><span class="st">`</span></span></code></pre></div>
 <p>Second, and critically, for the 7-day diary postintervention, there was a significant difference between groups in overall intrusion frequency in daily life, F(3, 68) = 3.79, p = 0.014, ηp2 = .0.14. Planned comparisons demonstrated that relative to the no-task control group, only those in the reactivation-plus-Tetris group, t(68) = 3.04, p = 0.02, d = 1, experienced significantly fewer intrusive memories; this finding replicated Experiment 1. Critically, as predicted by reconsolidation theory, the reactivation-plus-Tetris group had significantly fewer intrusive memories than the Tetris-only group, t(68) = -1.89, p = 0.38, d = 0.84, as well as the reactivation-only group, t(68) = -2.78, p = 0.04, d = 1.11. Further, there were no significant differences between the no-task control group and the reactivation-only group, t(68) = 0.26, p = 1, or between the no-task control group and the Tetris-only group, t(68) = 1.15, p = 1</p>
 </div>
 <div id="anova-sols" class="section level3" number="14.0.12">
-<h3>
-<span class="header-section-number">14.0.12</span> Activity solutions<a class="anchor" aria-label="anchor" href="#anova-sols"><i class="fas fa-link"></i></a>
-</h3>
+<h3><span class="header-section-number">14.0.12</span> Activity solutions</h3>
 <p>Below this line you will find the solutions to the above tasks. Only look at them after giving the tasks a good try yourself!</p>
 <div id="anova-1sol" class="section level4" number="14.0.12.1">
-<h4>
-<span class="header-section-number">14.0.12.1</span> Activity 1<a class="anchor" aria-label="anchor" href="#anova-1sol"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.0.12.1</span> Activity 1</h4>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="one-way-anova.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"pwr"</span>)</span>
-<span id="cb303-2"><a href="one-way-anova.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lsr"</span>)</span>
-<span id="cb303-3"><a href="one-way-anova.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"car"</span>)</span>
-<span id="cb303-4"><a href="one-way-anova.html#cb303-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"broom"</span>)</span>
-<span id="cb303-5"><a href="one-way-anova.html#cb303-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"afex"</span>)</span>
-<span id="cb303-6"><a href="one-way-anova.html#cb303-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"emmeans"</span>)</span>
-<span id="cb303-7"><a href="one-way-anova.html#cb303-7" aria-hidden="true" tabindex="-1"></a>libr\<span class="fu">ry</span>(<span class="st">"performance"</span>)</span>
-<span id="cb303-8"><a href="one-way-anova.html#cb303-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="one-way-anova.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;pwr&quot;</span>)</span>
+<span id="cb303-2"><a href="one-way-anova.html#cb303-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lsr&quot;</span>)</span>
+<span id="cb303-3"><a href="one-way-anova.html#cb303-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;car&quot;</span>)</span>
+<span id="cb303-4"><a href="one-way-anova.html#cb303-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;broom&quot;</span>)</span>
+<span id="cb303-5"><a href="one-way-anova.html#cb303-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;afex&quot;</span>)</span>
+<span id="cb303-6"><a href="one-way-anova.html#cb303-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;emmeans&quot;</span>)</span>
+<span id="cb303-7"><a href="one-way-anova.html#cb303-7" aria-hidden="true" tabindex="-1"></a>libr\<span class="fu">ry</span>(<span class="st">&quot;performance&quot;</span>)</span>
+<span id="cb303-8"><a href="one-way-anova.html#cb303-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
 <span id="cb303-9"><a href="one-way-anova.html#cb303-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb303-10"><a href="one-way-anova.html#cb303-10" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"James Holmes_Expt 2_DATA.csv"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb303-10"><a href="one-way-anova.html#cb303-10" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;James Holmes_Expt 2_DATA.csv&quot;</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb303-11"><a href="one-way-anova.html#cb303-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">subject =</span> <span class="fu">row_number</span>())</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
 <div id="anova-a2sol" class="section level4" number="14.0.12.2">
-<h4>
-<span class="header-section-number">14.0.12.2</span> Activity 2<a class="anchor" aria-label="anchor" href="#anova-a2sol"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.0.12.2</span> Activity 2</h4>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb304"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">subject</span>,<span class="va">Condition</span>,<span class="va">Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</span><span class="op">)</span><span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>intrusions <span class="op">=</span> <span class="va">Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="one-way-anova.html#cb304-1" aria-hidden="true" tabindex="-1"></a>dat2 <span class="ot">&lt;-</span> dat<span class="sc">%&gt;%</span></span>
+<span id="cb304-2"><a href="one-way-anova.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(subject,Condition,Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary)<span class="sc">%&gt;%</span></span>
+<span id="cb304-3"><a href="one-way-anova.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">intrusions =</span> Days_One_to_Seven_Image_Based_Intrusions_in_Intrusion_Diary)</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
 <div id="anova-a4sol" class="section level4" number="14.0.12.3">
-<h4>
-<span class="header-section-number">14.0.12.3</span> Activity 4<a class="anchor" aria-label="anchor" href="#anova-a4sol"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.0.12.3</span> Activity 4</h4>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb305"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sum_dat</span><span class="op">&lt;-</span><span class="va">dat2</span><span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Condition</span><span class="op">)</span><span class="op">%&gt;%</span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">intrusions</span><span class="op">)</span>,
-            sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">intrusions</span><span class="op">)</span>,
-            se <span class="op">=</span> <span class="va">sd</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">intrusions</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="one-way-anova.html#cb305-1" aria-hidden="true" tabindex="-1"></a>sum_dat<span class="ot">&lt;-</span>dat2<span class="sc">%&gt;%</span></span>
+<span id="cb305-2"><a href="one-way-anova.html#cb305-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Condition)<span class="sc">%&gt;%</span></span>
+<span id="cb305-3"><a href="one-way-anova.html#cb305-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(intrusions),</span>
+<span id="cb305-4"><a href="one-way-anova.html#cb305-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(intrusions),</span>
+<span id="cb305-5"><a href="one-way-anova.html#cb305-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">se =</span> sd<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(intrusions)))</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
 </div>
 <div id="anova-a5sol" class="section level4" number="14.0.12.4">
-<h4>
-<span class="header-section-number">14.0.12.4</span> Activity 5<a class="anchor" aria-label="anchor" href="#anova-a5sol"><i class="fas fa-link"></i></a>
-</h4>
+<h4><span class="header-section-number">14.0.12.4</span> Activity 5</h4>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb306"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">dat2</span>, <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Condition</span>, y <span class="op">=</span> <span class="va">intrusions</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_violin</span><span class="op">(</span>trim <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">+</span>
-  <span class="fu">geom_boxplot</span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.2</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="one-way-anova.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat2, <span class="fu">aes</span>(<span class="at">x =</span> Condition, <span class="at">y =</span> intrusions))<span class="sc">+</span></span>
+<span id="cb306-2"><a href="one-way-anova.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb306-3"><a href="one-way-anova.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> .<span class="dv">2</span>)</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
 
@@ -695,7 +624,8 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script><script>
+</script>
+<script>
 $( document ).ready(function() {
   var cite = ' ';
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
@@ -723,44 +653,31 @@ $( document ).ready(function() {
   move_sidebar();
   window.onresize = move_sidebar;
 });
-</script><div class="chapter-nav">
-<div class="prev"><a href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></div>
-<div class="next"><a href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li>
-<a class="nav-link" href="#one-way-anova"><span class="header-section-number">14</span> One-way ANOVA</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#background-intrusive-memories"><span class="header-section-number">14.0.1</span> Background: Intrusive memories</a></li>
-<li><a class="nav-link" href="#anova-a1"><span class="header-section-number">14.0.2</span> Activity 1: Set-up</a></li>
-<li><a class="nav-link" href="#anova-a2"><span class="header-section-number">14.0.3</span> Activity 2: Data wrangling</a></li>
-<li><a class="nav-link" href="#anova-a3"><span class="header-section-number">14.0.4</span> Activity 3: Numbers and factors</a></li>
-<li><a class="nav-link" href="#anova-a4"><span class="header-section-number">14.0.5</span> Activity 4: Create summary statistics</a></li>
-<li><a class="nav-link" href="#anova-a5"><span class="header-section-number">14.0.6</span> Activity 5: Visualisation</a></li>
-<li><a class="nav-link" href="#anova-a6"><span class="header-section-number">14.0.7</span> Activity 6: One-way ANOVA</a></li>
-<li><a class="nav-link" href="#anova-a7"><span class="header-section-number">14.0.8</span> Activity 7: Assumption checking</a></li>
-<li><a class="nav-link" href="#anova-a8"><span class="header-section-number">14.0.9</span> Activity 8: Post-hoc tests</a></li>
-<li><a class="nav-link" href="#anova-a9"><span class="header-section-number">14.0.10</span> Activity 9: Power and effect size</a></li>
-<li><a class="nav-link" href="#anova-a10"><span class="header-section-number">14.0.11</span> Activity 10: Write-up</a></li>
-<li><a class="nav-link" href="#anova-sols"><span class="header-section-number">14.0.12</span> Activity solutions</a></li>
-</ul>
-</li></ul>
+</script>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/14-anova.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/14-anova.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
-</div>
+      </div>
     </nav>
-</div>
+  </div>
 
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-10-13.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-12-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -768,7 +685,11 @@ $( document ).ready(function() {
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -780,7 +701,8 @@ $( document ).ready(function() {
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script>
+<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -798,4 +720,5 @@ for (let popover of popovers) {
 }
 </script>
 </body>
+
 </html>
