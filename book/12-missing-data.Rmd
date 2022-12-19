@@ -263,7 +263,7 @@ messy %>%
   geom_violin() +
   geom_boxplot() +
   geom_jitter(width = .2) +
-  geom_hline(yintercept = c(0,40), color = "red", linetype = 2)
+  geom_hline(yintercept = c(0,30), color = "red", linetype = 2)
 ```
 
 Alternatively you could also use a histogram to spot an outlier:
