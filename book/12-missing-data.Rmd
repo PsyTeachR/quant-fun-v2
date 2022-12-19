@@ -184,7 +184,7 @@ summarise(messy,
           )
 ```
 
-* What is the mean score for the `delay` condition to 2 decimal places? `r fitb("13.57")`
+* What is the mean score for the `delay` condition to 2 decimal places? `r fitb("13.60")`
 
 ```{block, type = "danger"}
 
@@ -222,7 +222,9 @@ messy %>%
 ```{block}
 The maximum value for age is 470, this is unlikely to be correct!
   
-The maximum value for pre, post, and delay should be 30, as we described at the start of the chapter. However, for post, the maximum value is 33 so something is wrong. This is a very important check to do on your data, not just for the raw data but if you've calculated a total score.
+The maximum value for pre, post, and delay should be 30, as we described at the start of the chapter. However, for post, the maximum value is 40 so something is wrong. This is a very important check to do on your data, not just for the raw data but if you've calculated a total score.
+
+The min value for delay is plausible, given the explanation at the start of the chapter. Remember that participants can be deducted points for incorrect answers, so negative values are possible.
 ```
 `r unhide()`
 
