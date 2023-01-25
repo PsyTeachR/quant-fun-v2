@@ -1,65 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Chapter 17 Multiple regression | Fundamentals of Quantitative Analysis</title>
-
-    <meta name="author" content="Emily Nordmann &amp; Phil McAleer" />
-  
-   <meta name="description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
-   <meta name="generator" content="placeholder" />
-  <meta property="og:title" content="Chapter 17 Multiple regression | Fundamentals of Quantitative Analysis" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2" />
-  <meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png" />
-  <meta property="og:description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Multiple regression | Fundamentals of Quantitative Analysis" />
-  
-  <meta name="twitter:description" content="This book is designed for Masters Level students who have no prior training in data skills and/or statistical analysis." />
-  <meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png" />
-  <!-- JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
-    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
-    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
-    <script src="libs/bs3compat-0.3.1/transition.js"></script>
-    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
-    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
-    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
-    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script>
-    <script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 17 Multiple regression | Fundamentals of Quantitative Analysis</title>
+<meta name="author" content="Emily Nordmann &amp; Phil McAleer">
+<meta name="description" content="There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We'll be looking at data from this recent study...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 17 Multiple regression | Fundamentals of Quantitative Analysis">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://psyteachr.github.io/quant-fun-v2/multiple-regression.html">
+<meta property="og:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
+<meta property="og:description" content="There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We'll be looking at data from this recent study...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 17 Multiple regression | Fundamentals of Quantitative Analysis">
+<meta name="twitter:description" content="There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We'll be looking at data from this recent study...">
+<meta name="twitter:image" content="https://psyteachr.github.io/quant-fun-v2/images/logos/logo.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-6NP3MF25W3"></script><script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-6NP3MF25W3');
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-    <link rel="stylesheet" href="include/psyteachr.css" />
-    <link rel="stylesheet" href="include/webex.css" />
-    <link rel="stylesheet" href="include/style.css" />
-  
+    </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="include/psyteachr.css">
+<link rel="stylesheet" href="include/webex.css">
+<link rel="stylesheet" href="include/style.css">
 </head>
-
 <body data-spy="scroll" data-target="#toc">
 
 <div class="container-fluid">
 <div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
@@ -71,22 +46,49 @@
     <div id="main-nav" class="collapse-lg">
       <form role="search">
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-      </form>
+</form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
-        <div id="book-toc"></div>
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Overview</a></li>
+<li><a class="" href="foreword.html">Foreword</a></li>
+<li><a class="" href="programming-basics.html"><span class="header-section-number">1</span> Programming basics</a></li>
+<li><a class="" href="intro-to-r.html"><span class="header-section-number">2</span> Intro to R</a></li>
+<li><a class="" href="starting-with-data.html"><span class="header-section-number">3</span> Starting with data</a></li>
+<li><a class="" href="data-wrangling-1.html"><span class="header-section-number">4</span> Data wrangling 1</a></li>
+<li><a class="" href="data-wrangling-2.html"><span class="header-section-number">5</span> Data wrangling 2</a></li>
+<li><a class="" href="data-wrangling-3.html"><span class="header-section-number">6</span> Data Wrangling 3</a></li>
+<li><a class="" href="intro-to-data-visualisation.html"><span class="header-section-number">7</span> Intro to Data Visualisation</a></li>
+<li><a class="" href="probability.html"><span class="header-section-number">8</span> Probability</a></li>
+<li><a class="" href="correlations.html"><span class="header-section-number">9</span> Correlations</a></li>
+<li><a class="" href="t-tests.html"><span class="header-section-number">10</span> t-tests</a></li>
+<li><a class="" href="power-and-effect-sizes.html"><span class="header-section-number">11</span> Power and Effect Sizes</a></li>
+<li><a class="" href="screening-data.html"><span class="header-section-number">12</span> Screening Data</a></li>
+<li><a class="" href="visualisation.html"><span class="header-section-number">13</span> Visualisation</a></li>
+<li><a class="" href="one-way-anova.html"><span class="header-section-number">14</span> One-way ANOVA</a></li>
+<li><a class="" href="factorial-anova.html"><span class="header-section-number">15</span> Factorial ANOVA</a></li>
+<li><a class="" href="regression.html"><span class="header-section-number">16</span> Regression</a></li>
+<li><a class="active" href="multiple-regression.html"><span class="header-section-number">17</span> Multiple regression</a></li>
+<li class="book-part">Appendices</li>
+<li><a class="" href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></li>
+<li><a class="" href="updating-packages.html"><span class="header-section-number">B</span> Updating packages</a></li>
+<li><a class="" href="additional-resources.html"><span class="header-section-number">C</span> Additional Resources</a></li>
+<li><a class="" href="citing-r-rstudio.html"><span class="header-section-number">D</span> Citing R and RStudio</a></li>
+<li><a class="" href="symbols.html"><span class="header-section-number">E</span> Symbols</a></li>
+<li><a class="" href="conventions.html"><span class="header-section-number">F</span> Conventions</a></li>
+<li><a class="" href="license.html">License</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          <p><a id="book-repo" href="https://github.com/PsyTeachR/quant-fun-v2">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
-<div id="multiple-regression" class="section level1" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Multiple regression</h1>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="multiple-regression" class="section level1" number="17">
+<h1>
+<span class="header-section-number">17</span> Multiple regression<a class="anchor" aria-label="anchor" href="#multiple-regression"><i class="fas fa-link"></i></a>
+</h1>
 <p>There is currently much debate (and hype) surrounding smartphones and their effects on well-being, especially with regard to children and teenagers. We'll be looking at data from this recent study of English adolescents:</p>
 <blockquote>
 <p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204--215.</p>
@@ -106,34 +108,45 @@
 <p>We want to estimate two slopes relating screen time to well-being, one for girls and one for boys, and then statistically compare these slopes. So this problem seems simultaneously like a situation where you would run a regression (to estimate the slopes) but also one where you would need a t-test (to compare two groups).</p>
 <p>But the expressive power of regression allows us to do this all within a single model. As the <a href="http://deevybee.blogspot.com/2017/11/anova-t-tests-and-regression-different.html">Bishop blog showed</a>, <em>an independent groups t-test is just a special case of ordinary regression with a single categorical predictor; ANOVA is just a special case of regression where all predictors are categorical.</em> So although we can express any ANOVA design using regression, the converse is not true: we cannot express every regression design in ANOVA. Regression allows us to have any combination of continuous and categorical predictors in the model. The only inconvenience with running ANOVA models as regression models is that you have to take care in how you numerically code the categorical predictors.</p>
 <div id="mulregression-a1" class="section level2" number="17.1">
-<h2><span class="header-section-number">17.1</span> Activity 1: Set-up</h2>
+<h2>
+<span class="header-section-number">17.1</span> Activity 1: Set-up<a class="anchor" aria-label="anchor" href="#mulregression-a1"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
-<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.<br />
+<li>Open R Studio and set the working directory to your chapter folder. Ensure the environment is clear.<br>
 </li>
-<li>Open a new R Markdown document and save it in your working directory. Call the file "Multiple Regression".<br />
+<li>Open a new R Markdown document and save it in your working directory. Call the file "Multiple Regression".<br>
 </li>
-<li>Download <a href="wellbeing.csv" download>wellbeing.csv</a>, <a href="participant_info.csv" download>participant_info.csv</a> and <a href="screen_time.csv" download>screen_time.csv</a> and save them in your Chapter folder. Make sure that you do not change the file names at all.<br />
+<li>Download <a href="wellbeing.csv" download>wellbeing.csv</a>, <a href="participant_info.csv" download>participant_info.csv</a> and <a href="screen_time.csv" download>screen_time.csv</a> and save them in your Chapter folder. Make sure that you do not change the file names at all.<br>
 </li>
-<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code></li>
-<li>Delete the default R Markdown welcome text and insert a new code chunk that loads <code>pwr</code>, <code>see</code>, <code>performance</code>, <code>report</code>, and <code>tidyverse</code> using the <code>library()</code> function.</li>
+<li>If you're on the server, avoid a number of issues by restarting the session - click <code>Session</code> - <code>Restart R</code>
+</li>
+<li>Delete the default R Markdown welcome text and insert a new code chunk that loads <code>pwr</code>, <code>see</code>, <code>performance</code>, <code>report</code>, and <code>tidyverse</code> using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function.</li>
 <li>Load the CSV datasets into variables called <code>pinfo</code>, <code>wellbeing</code> and <code>screen</code> using <code>read_csv()</code>.</li>
 </ul>
-<pre><code>## Warning: package &#39;see&#39; was built under R version 4.1.2</code></pre>
-<pre><code>## Warning: package &#39;performance&#39; was built under R version 4.1.2</code></pre>
-<pre><code>## Warning: package &#39;report&#39; was built under R version 4.1.2</code></pre>
 </div>
 <div id="mulregression-a2" class="section level2" number="17.2">
-<h2><span class="header-section-number">17.2</span> Activity 2: Look at the data</h2>
+<h2>
+<span class="header-section-number">17.2</span> Activity 2: Look at the data<a class="anchor" aria-label="anchor" href="#mulregression-a2"><i class="fas fa-link"></i></a>
+</h2>
 <p>Take a look at the resulting tibbles <code>pinfo</code>, <code>wellbeing</code>, and <code>screen</code>. The <code>wellbeing</code> tibble has information from the WEMWBS questionnaire; <code>screen</code> has information about screen time use on weekends (variables ending with <code>we</code>) and weekdays (variables ending with <code>wk</code>) for four types of activities: using a computer (variables starting with <code>Comph</code>; Q10 on the survey), playing video games (variables starting with <code>Comp</code>; Q9 on the survey), using a smartphone (variables starting with <code>Smart</code>; Q11 on the survey) and watching TV (variables starting with <code>Watch</code>; Q8 on the survey). If you want more information about these variables, look at the items 8-11 on pages 4-5 of the the <a href="https://osf.io/82ybd/">PDF version of the survey on the OSF website</a>.</p>
 <ul>
-<li><p>The variable corresponding to <em>gender</em> is located in the table named <select class='webex-select'><option value='blank'></option><option value='answer'>pinfo</option><option value=''>wellbeing</option><option value=''>screen</option></select> and this variable is called <input class='webex-solveme nospaces' size='6' data-answer='["male"]'/>.</p></li>
-<li><p>The WEMWBS data is in <select class='webex-select'><option value='blank'></option><option value=''>long</option><option value='answer'>wide</option></select> format, and contains observations from <input class='webex-solveme nospaces' size='10' data-answer='["102580","102,580"]'/> participants on <input class='webex-solveme nospaces' size='2' data-answer='["15"]'/> items.</p></li>
-<li><p>Individual participants in this dataset are identified by the variable named <input class='webex-solveme nospaces' size='9' data-answer='["Serial"]'/> [be sure to type the name <em>exactly</em>, including capitalization]. This variable will allow us to link information across the three tables.</p></li>
-<li><p>Run <code>summary()</code> on the three data-sets. Are there any missing data points? <select class='webex-select'><option value='blank'></option><option value=''>Yes</option><option value='answer'>No</option></select></p></li>
+<li><p>The variable corresponding to <em>gender</em> is located in the table named <select class="webex-select"><option value="blank"></option>
+<option value="answer">pinfo</option>
+<option value="">wellbeing</option>
+<option value="">screen</option></select> and this variable is called <input class="webex-solveme nospaces" size="6" data-answer='["male"]'>.</p></li>
+<li><p>The WEMWBS data is in <select class="webex-select"><option value="blank"></option>
+<option value="">long</option>
+<option value="answer">wide</option></select> format, and contains observations from <input class="webex-solveme nospaces" size="10" data-answer='["102580","102,580"]'> participants on <input class="webex-solveme nospaces" size="2" data-answer='["15"]'> items.</p></li>
+<li><p>Individual participants in this dataset are identified by the variable named <input class="webex-solveme nospaces" size="9" data-answer='["Serial"]'> [be sure to type the name <em>exactly</em>, including capitalization]. This variable will allow us to link information across the three tables.</p></li>
+<li><p>Run <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> on the three data-sets. Are there any missing data points? <select class="webex-select"><option value="blank"></option>
+<option value="">Yes</option>
+<option value="answer">No</option></select></p></li>
 </ul>
 </div>
 <div id="mulregression-a3" class="section level2" number="17.3">
-<h2><span class="header-section-number">17.3</span> Activity 3: Compute the well-being score for each respondent</h2>
+<h2>
+<span class="header-section-number">17.3</span> Activity 3: Compute the well-being score for each respondent<a class="anchor" aria-label="anchor" href="#mulregression-a3"><i class="fas fa-link"></i></a>
+</h2>
 <p>The WEMWBS well-being score is simply the <em>sum</em> of all the items.</p>
 <ul>
 <li>Write the code to create a new table called <code>wemwbs</code>, with two variables: <code>Serial</code> (the participant ID), and <code>tot_wellbeing</code>, the total WEMWBS score.</li>
@@ -151,7 +164,9 @@ Hint
 Another Hint
 </button>
 <ul>
-<li><code>group_by()</code>; <code>summarise(tot_wellbeing = ...)</code></li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code>; <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise(tot_wellbeing = ...)</a></code>
+</li>
 </ul>
 </div>
 <p><strong>Sanity check:</strong> Verify for yourself that the scores all fall in the 14-70 range. Przybylski and Weinstein reported a mean of 47.52 with a standard deviation of 9.55. Can you reproduce these values?</p>
@@ -160,7 +175,9 @@ Another Hint
 Hint
 </button>
 <ul>
-<li><code>summarise()</code>, <code>min()</code>, <code>max()</code></li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code>, <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code>
+</li>
 </ul>
 </div>
 <p><br></p>
@@ -179,51 +196,60 @@ Hint
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="multiple-regression.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(wemwbs, <span class="fu">aes</span>(tot_wellbeing)) <span class="sc">+</span> <span class="fu">geom_histogram</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">wemwbs</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span> </code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="17-multiple-regression_files/figure-html/wemwbs_histogram-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<div class="inline-figure"><img src="17-multiple-regression_files/figure-html/wemwbs_histogram-1.png" width="100%" style="display: block; margin: auto;"></div>
 </div>
-<p>The distribution of well-being scores is <select class='webex-select'><option value='blank'></option><option value=''>symmetric</option><option value='answer'>negatively skewed</option><option value=''>positively skewed</option></select>.</p>
+<p>The distribution of well-being scores is <select class="webex-select"><option value="blank"></option>
+<option value="">symmetric</option>
+<option value="answer">negatively skewed</option>
+<option value="">positively skewed</option></select>.</p>
 </div>
 <div id="mulregression-a4" class="section level2" number="17.4">
-<h2><span class="header-section-number">17.4</span> Activity 4: Visualise the relationship</h2>
+<h2>
+<span class="header-section-number">17.4</span> Activity 4: Visualise the relationship<a class="anchor" aria-label="anchor" href="#mulregression-a4"><i class="fas fa-link"></i></a>
+</h2>
 <p>Let's take a quick look at the relationship between screen time (for the four different technologies) and measures of well-being. Here is code to do this.</p>
 <ul>
-<li>Run the below code and try and explain in words what each line of code is doing (remember, pronounce <code>%&gt;%</code> as "and then"). You may find it easier to look at each of the tables that are produced.</li>
+<li>Run the below code and try and explain in words what each line of code is doing (remember, pronounce <code><a href="https://rdrr.io/pkg/faux/man/pipe.html">%&gt;%</a></code> as "and then"). You may find it easier to look at each of the tables that are produced.</li>
 </ul>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="multiple-regression.html#cb349-1" aria-hidden="true" tabindex="-1"></a>screen_long <span class="ot">&lt;-</span> screen <span class="sc">%&gt;%</span></span>
-<span id="cb349-2"><a href="multiple-regression.html#cb349-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">&quot;var&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;hours&quot;</span>, <span class="sc">-</span>Serial) <span class="sc">%&gt;%</span></span>
-<span id="cb349-3"><a href="multiple-regression.html#cb349-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(var, <span class="fu">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="st">&quot;_&quot;</span>)</span>
-<span id="cb349-4"><a href="multiple-regression.html#cb349-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb349-5"><a href="multiple-regression.html#cb349-5" aria-hidden="true" tabindex="-1"></a>screen2 <span class="ot">&lt;-</span> screen_long <span class="sc">%&gt;%</span></span>
-<span id="cb349-6"><a href="multiple-regression.html#cb349-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">variable =</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(variable,</span>
-<span id="cb349-7"><a href="multiple-regression.html#cb349-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Watch&quot;</span> <span class="ot">=</span> <span class="st">&quot;Watching TV&quot;</span>,</span>
-<span id="cb349-8"><a href="multiple-regression.html#cb349-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Comp&quot;</span> <span class="ot">=</span> <span class="st">&quot;Playing Video Games&quot;</span>,</span>
-<span id="cb349-9"><a href="multiple-regression.html#cb349-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Comph&quot;</span> <span class="ot">=</span> <span class="st">&quot;Using Computers&quot;</span>,</span>
-<span id="cb349-10"><a href="multiple-regression.html#cb349-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;Smart&quot;</span> <span class="ot">=</span> <span class="st">&quot;Using Smartphone&quot;</span>),</span>
-<span id="cb349-11"><a href="multiple-regression.html#cb349-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">day =</span> dplyr<span class="sc">::</span><span class="fu">recode</span>(day,</span>
-<span id="cb349-12"><a href="multiple-regression.html#cb349-12" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;wk&quot;</span> <span class="ot">=</span> <span class="st">&quot;Weekday&quot;</span>,</span>
-<span id="cb349-13"><a href="multiple-regression.html#cb349-13" aria-hidden="true" tabindex="-1"></a>              <span class="st">&quot;we&quot;</span> <span class="ot">=</span> <span class="st">&quot;Weekend&quot;</span>))</span>
-<span id="cb349-14"><a href="multiple-regression.html#cb349-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb349-15"><a href="multiple-regression.html#cb349-15" aria-hidden="true" tabindex="-1"></a>dat_means <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(wemwbs, screen2, <span class="st">&quot;Serial&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb349-16"><a href="multiple-regression.html#cb349-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(variable, day, hours) <span class="sc">%&gt;%</span></span>
-<span id="cb349-17"><a href="multiple-regression.html#cb349-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_wellbeing =</span> <span class="fu">mean</span>(tot_wellbeing))</span>
-<span id="cb349-18"><a href="multiple-regression.html#cb349-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb349-19"><a href="multiple-regression.html#cb349-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dat_means, <span class="fu">aes</span>(hours, mean_wellbeing, <span class="at">linetype =</span> day)) <span class="sc">+</span></span>
-<span id="cb349-20"><a href="multiple-regression.html#cb349-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb349-21"><a href="multiple-regression.html#cb349-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb349-22"><a href="multiple-regression.html#cb349-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>variable, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:combined"></span>
-<img src="17-multiple-regression_files/figure-html/combined-1.png" alt="Relationship between wellbeing and screentime usage by technology and weekday" width="100%" />
-<p class="caption">
+<div class="sourceCode" id="cb347"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">screen_long</span> <span class="op">&lt;-</span> <span class="va">screen</span> <span class="op">%&gt;%</span>
+  <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"var"</span>, values_to <span class="op">=</span> <span class="st">"hours"</span>, <span class="op">-</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">separate</span><span class="op">(</span><span class="va">var</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"variable"</span>, <span class="st">"day"</span><span class="op">)</span>, <span class="st">"_"</span><span class="op">)</span>
+
+<span class="va">screen2</span> <span class="op">&lt;-</span> <span class="va">screen_long</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">variable</span>,
+               <span class="st">"Watch"</span> <span class="op">=</span> <span class="st">"Watching TV"</span>,
+               <span class="st">"Comp"</span> <span class="op">=</span> <span class="st">"Playing Video Games"</span>,
+               <span class="st">"Comph"</span> <span class="op">=</span> <span class="st">"Using Computers"</span>,
+               <span class="st">"Smart"</span> <span class="op">=</span> <span class="st">"Using Smartphone"</span><span class="op">)</span>,
+     day <span class="op">=</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/recode.html">recode</a></span><span class="op">(</span><span class="va">day</span>,
+              <span class="st">"wk"</span> <span class="op">=</span> <span class="st">"Weekday"</span>,
+              <span class="st">"we"</span> <span class="op">=</span> <span class="st">"Weekend"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">dat_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">wemwbs</span>, <span class="va">screen2</span>, <span class="st">"Serial"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">variable</span>, <span class="va">day</span>, <span class="va">hours</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_wellbeing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">dat_means</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">hours</span>, <span class="va">mean_wellbeing</span>, linetype <span class="op">=</span> <span class="va">day</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">variable</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:combined"></span>
+<img src="17-multiple-regression_files/figure-html/combined-1.png" alt="Relationship between wellbeing and screentime usage by technology and weekday" width="100%"><p class="caption">
 Figure 17.1: Relationship between wellbeing and screentime usage by technology and weekday
 </p>
 </div>
-<p>The graph makes it evident that smartphone use of more than 1 hour per day is associated with increasingly negative well-being. Note that we have combined the tables using an <code>inner_join()</code>, such that we only include data for which we have observations across the <code>wemwbs</code> and <code>screen2</code> tables.</p>
+<p>The graph makes it evident that smartphone use of more than 1 hour per day is associated with increasingly negative well-being. Note that we have combined the tables using an <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>, such that we only include data for which we have observations across the <code>wemwbs</code> and <code>screen2</code> tables.</p>
 <p>In the next step, we are going to focus in on the smartphone/well-being relationship.</p>
 </div>
 <div id="mulregression-a5" class="section level2" number="17.5">
-<h2><span class="header-section-number">17.5</span> Activity 5: Smartphone and well-being for boys and girls</h2>
+<h2>
+<span class="header-section-number">17.5</span> Activity 5: Smartphone and well-being for boys and girls<a class="anchor" aria-label="anchor" href="#mulregression-a5"><i class="fas fa-link"></i></a>
+</h2>
 <p>For this analysis, we are going to collapse weekday and weekend use for smartphones.</p>
 <ul>
 <li>Create a new table, <code>smarttot</code>, that has the that has mean number of hours per day of smartphone use for each participant, averaged over weekends/weekdays.</li>
@@ -237,7 +263,9 @@ Figure 17.1: Relationship between wellbeing and screentime usage by technology a
 Hint
 </button>
 <ul>
-<li><code>filter()</code> then <code>group_by()</code> then <code>summarise()</code></li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> then <code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> then <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>
+</li>
 </ul>
 </div>
 <ul>
@@ -248,12 +276,16 @@ Hint
 Hint
 </button>
 <ul>
-<li><code>filter()</code> then <code>inner_join()</code> then another <code>inner_join()</code></li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code> then <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code> then another <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join()</a></code>
+</li>
 </ul>
 </div>
 </div>
 <div id="mulregression-a6" class="section level2" number="17.6">
-<h2><span class="header-section-number">17.6</span> Activity 6: Mean-centering variables</h2>
+<h2>
+<span class="header-section-number">17.6</span> Activity 6: Mean-centering variables<a class="anchor" aria-label="anchor" href="#mulregression-a6"><i class="fas fa-link"></i></a>
+</h2>
 <p>As discussed in the lecture, When you have continuous variables in a regression, it is often sensible to transform them by <em>mean centering</em>. You mean center a predictor <code>X</code> simply by subtracting the mean (<code>X_centered = X - mean(X)</code>). This has two useful consequences:</p>
 <ul>
 <li><p>the model intercept reflects the prediction for <span class="math inline">\(Y\)</span> at the mean value of the predictor variable, rather than at the zero value of the unscaled variable;</p></li>
@@ -262,12 +294,14 @@ Hint
 <p>For categorical predictors with two levels, these become coded as -.5 and .5 (because the mean of these two values is 0).</p>
 <ul>
 <li>Use <code>mutate</code> to add two new variables to <code>smart_wb</code>: <code>tothours_c</code>, calculated as a mean-centered version of the <code>tothours</code> predictor; and <code>male_c</code>, recoded as -.5 for female and .5 for male.</li>
-<li>To create <code>male_c</code> you will need to use <code>if_else(male == 1, .5, -.5)</code> You can read this code as "if the variable <code>male</code> equals 1, recode it as .5, if not, recode it as -.5".</li>
+<li>To create <code>male_c</code> you will need to use <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else(male == 1, .5, -.5)</a></code> You can read this code as "if the variable <code>male</code> equals 1, recode it as .5, if not, recode it as -.5".</li>
 <li>Finally, recode <code>male</code> and <code>male_c</code> as factors, so that R knows not to treat them as a real numbers.</li>
 </ul>
 </div>
 <div id="mulregression-a7" class="section level2" number="17.7">
-<h2><span class="header-section-number">17.7</span> Activity 7: Visualise the relationship</h2>
+<h2>
+<span class="header-section-number">17.7</span> Activity 7: Visualise the relationship<a class="anchor" aria-label="anchor" href="#mulregression-a7"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>Reverse-engineer the below plot. Calculate mean well-being scores for each combination of <code>male</code> and <code>tothours</code>, and then create a scatterplot plot that includes separate regression lines for each gender.</li>
 <li>You may find it useful to refer to the Visualisation chapter.</li>
@@ -277,13 +311,15 @@ Hint
 Hint
 </button>
 <ul>
-<li><code>group_by()</code> both variables then <code>summarise()</code></li>
+<li>
+<code><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by()</a></code> both variables then <code><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise()</a></code>
+</li>
 <li><code>colour = variable_you_want_different_colours_for</code></li>
 </ul>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plots"></span>
-<img src="17-multiple-regression_files/figure-html/plots-1.png" alt="Relationship between mean wellbeing and smartphone use by gender" width="100%" />
-<p class="caption">
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:plots"></span>
+<img src="17-multiple-regression_files/figure-html/plots-1.png" alt="Relationship between mean wellbeing and smartphone use by gender" width="100%"><p class="caption">
 Figure 17.2: Relationship between mean wellbeing and smartphone use by gender
 </p>
 </div>
@@ -296,18 +332,24 @@ Possible solution
 </div>
 </div>
 <div id="mulregression-a8" class="section level2" number="17.8">
-<h2><span class="header-section-number">17.8</span> Activity 8: Running the regression</h2>
+<h2>
+<span class="header-section-number">17.8</span> Activity 8: Running the regression<a class="anchor" aria-label="anchor" href="#mulregression-a8"><i class="fas fa-link"></i></a>
+</h2>
 <p>Now we're going to see if there is statistical support for our above interpretation of the graph.</p>
-<p>For the data in <code>smart_wb</code>, use the <code>lm()</code> function to calculate the multiple regression model:</p>
+<p>For the data in <code>smart_wb</code>, use the <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> function to calculate the multiple regression model:</p>
 <p><span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + e_i\)</span></p>
 <p>where</p>
 <ul>
-<li><span class="math inline">\(Y_i\)</span> is the well-being score for participant <span class="math inline">\(i\)</span>;</li>
-<li><span class="math inline">\(X_{1i}\)</span> is the mean-centered smartphone use variable for participant <span class="math inline">\(i\)</span>;</li>
-<li><span class="math inline">\(X_{2i}\)</span> is gender (-.5 = female, .5 = male);</li>
-<li><span class="math inline">\(X_{3i}\)</span> is the interaction between smartphone use and gender (<span class="math inline">\(= X_{1i} \times X_{2i}\)</span>)</li>
+<li>
+<span class="math inline">\(Y_i\)</span> is the well-being score for participant <span class="math inline">\(i\)</span>;</li>
+<li>
+<span class="math inline">\(X_{1i}\)</span> is the mean-centered smartphone use variable for participant <span class="math inline">\(i\)</span>;</li>
+<li>
+<span class="math inline">\(X_{2i}\)</span> is gender (-.5 = female, .5 = male);</li>
+<li>
+<span class="math inline">\(X_{3i}\)</span> is the interaction between smartphone use and gender (<span class="math inline">\(= X_{1i} \times X_{2i}\)</span>)</li>
 </ul>
-<p>Then use <code>summary()</code> to view the results and store this in an object called <code>mod_summary()</code>.</p>
+<p>Then use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> to view the results and store this in an object called <code>mod_summary()</code>.</p>
 <div class="webex-solution">
 <button>
 Hint
@@ -317,14 +359,27 @@ Hint
 </ul>
 </div>
 <ul>
-<li><p>The interaction between smartphone use and gender is shown by the variable <select class='webex-select'><option value='blank'></option><option value=''>thours_c</option><option value=''>male_c</option><option value='answer'>thours_c:male_c</option></select>, and this interaction was <select class='webex-select'><option value='blank'></option><option value='answer'>significant</option><option value=''>nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
-<li><p>To 2 decimal places, what proportion of the variance in well-being scores does the overall model explain? <input class='webex-solveme nospaces' size='4' data-answer='["9.38"]'/></p></li>
-<li><p>The p-value for the overall model fit is <code>&lt; 2.2e-16</code>. Is this significant? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select></p></li>
-<li><p>What is the most reasonable interpretation of these results? <select class='webex-select'><option value='blank'></option><option value=''>smartphone use harms girls more than boys</option><option value=''>smartphone use harms boys more than girls</option><option value=''>there is no evidence for gender differences in the relationship between smartphone use and well-being</option><option value='answer'>smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p></li>
+<li><p>The interaction between smartphone use and gender is shown by the variable <select class="webex-select"><option value="blank"></option>
+<option value="">thours_c</option>
+<option value="">male_c</option>
+<option value="answer">thours_c:male_c</option></select>, and this interaction was <select class="webex-select"><option value="blank"></option>
+<option value="answer">significant</option>
+<option value="">nonsignificant</option></select> at the <span class="math inline">\(\alpha = .05\)</span> level.</p></li>
+<li><p>To 2 decimal places, what proportion of the variance in well-being scores does the overall model explain? <input class="webex-solveme nospaces" size="4" data-answer='["9.38"]'></p></li>
+<li><p>The p-value for the overall model fit is <code>&lt; 2.2e-16</code>. Is this significant? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select></p></li>
+<li><p>What is the most reasonable interpretation of these results? <select class="webex-select"><option value="blank"></option>
+<option value="">smartphone use harms girls more than boys</option>
+<option value="">smartphone use harms boys more than girls</option>
+<option value="">there is no evidence for gender differences in the relationship between smartphone use and well-being</option>
+<option value="answer">smartphone use was more negatively associated with wellbeing for girls than for boys</option></select></p></li>
 </ul>
 </div>
 <div id="mulregression-a9" class="section level2" number="17.9">
-<h2><span class="header-section-number">17.9</span> Activity 9: Assumption checking</h2>
+<h2>
+<span class="header-section-number">17.9</span> Activity 9: Assumption checking<a class="anchor" aria-label="anchor" href="#mulregression-a9"><i class="fas fa-link"></i></a>
+</h2>
 <p>Now it's time to test those pesky assumptions. The assumptions for multiple regression are the same as simple regression but there is one additional assumption, that of multicollinearity, the idea that predictor variables should not be too highly correlated.</p>
 <ol style="list-style-type: decimal">
 <li>The outcome/DV is a interval/ratio level data</li>
@@ -337,59 +392,62 @@ Hint
 <li>Multicollinearity: predictor variables should not be too highly correlated</li>
 </ol>
 <p>From the work we've done so far we know that assumptions 1 - 4 are met and we can use the functions from the <code>performance</code> package again to check the rest, like we did with the simple linear regression chapter.</p>
-<p>One difference from when we used <code>check_model()</code> previously is that rather than just letting it run all the tests it wants, we're going to specify which tests, to stop it throwing an error. A word of warning - these assumptions tests will take longer than usual to run, because it's such a big dataset. The first line of code will run the assumption tests and save it to an object, calling the object name will then display the plots.</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="multiple-regression.html#cb350-1" aria-hidden="true" tabindex="-1"></a>assumptions <span class="ot">&lt;-</span> <span class="fu">check_model</span>(mod, <span class="at">check =</span> <span class="fu">c</span>(<span class="st">&quot;vif&quot;</span>, <span class="st">&quot;qq&quot;</span>, <span class="st">&quot;normality&quot;</span>, <span class="st">&quot;linearity&quot;</span>, <span class="st">&quot;homogeneity&quot;</span>))</span>
-<span id="cb350-2"><a href="multiple-regression.html#cb350-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb350-3"><a href="multiple-regression.html#cb350-3" aria-hidden="true" tabindex="-1"></a>assumptions</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="17-multiple-regression_files/figure-html/unnamed-chunk-1-1.png" alt="Assumption plots" width="100%" />
-<p class="caption">
+<p>One difference from when we used <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> previously is that rather than just letting it run all the tests it wants, we're going to specify which tests, to stop it throwing an error. A word of warning - these assumptions tests will take longer than usual to run, because it's such a big dataset. The first line of code will run the assumption tests and save it to an object, calling the object name will then display the plots.</p>
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">assumptions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://easystats.github.io/performance/reference/check_model.html">check_model</a></span><span class="op">(</span><span class="va">mod</span>, check <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"vif"</span>, <span class="st">"qq"</span>, <span class="st">"normality"</span>, <span class="st">"linearity"</span>, <span class="st">"homogeneity"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">assumptions</span></code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="17-multiple-regression_files/figure-html/unnamed-chunk-1-1.png" alt="Assumption plots" width="100%"><p class="caption">
 Figure 8.1: Assumption plots
 </p>
 </div>
 <p>For assumption 5, linearity, we already know from looking at the scatterplot that the relationship is linear, but the residual plot also confirms this.</p>
-<p>For assumption 6, normality of residuals, again the residuals look good in both plots and this provides an excellent example of why it's often better to visualise than rely on statistics because if we use <code>check_normality()</code> which calls the Shapiro-Wilk test:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="multiple-regression.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(mod)</span></code></pre></div>
+<p>For assumption 6, normality of residuals, again the residuals look good in both plots and this provides an excellent example of why it's often better to visualise than rely on statistics because if we use <code><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality()</a></code> which calls the Shapiro-Wilk test:</p>
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_normality.html">check_normality</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Non-normality of residuals detected (p &lt; .001).</code></pre>
 <p>It tells us that the residuals are not normal, despite the fact that the plots look almost perfect. And that's because with large sample sizes, any deviation from perfect normality can be flagged as non-normal.</p>
 <p>For assumption 7, homoscedasticity, the plot is missing the reference line - fun fact, this took us several days of our lives and asking for help on Twitter to figure out. The reason the line isn't there is because the dataset is so large that is creates a memory issue so we need to create the plot ourselves using code the developers of the package <code>see</code> provided to us on Twitter. The default code would try to draw confidence intervals around the line which is what causes the memory issue, this code removes that with <code>se = FALSE</code>.</p>
 <p>Please note that with most datasets you wouldn't have to do this extra step, but it's a good example that when it comes to programming, it doesn't matter how long you've been doing it, there will always be a problem you haven't come across and that asking for help is part of the process.</p>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="multiple-regression.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(assumptions<span class="sc">$</span>HOMOGENEITY, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb353-2"><a href="multiple-regression.html#cb353-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point2</span>() <span class="sc">+</span></span>
-<span id="cb353-3"><a href="multiple-regression.html#cb353-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stat_smooth</span>(</span>
-<span id="cb353-4"><a href="multiple-regression.html#cb353-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">method =</span> <span class="st">&quot;loess&quot;</span>,</span>
-<span id="cb353-5"><a href="multiple-regression.html#cb353-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb353-6"><a href="multiple-regression.html#cb353-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">formula =</span> y <span class="sc">~</span> x,</span>
-<span id="cb353-7"><a href="multiple-regression.html#cb353-7" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb353-8"><a href="multiple-regression.html#cb353-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(</span>
-<span id="cb353-9"><a href="multiple-regression.html#cb353-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&quot;Homogeneity of Variance&quot;</span>,</span>
-<span id="cb353-10"><a href="multiple-regression.html#cb353-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">subtitle =</span> <span class="st">&quot;Reference line should be flat and horizontal&quot;</span>,</span>
-<span id="cb353-11"><a href="multiple-regression.html#cb353-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">sqrt</span>(<span class="st">&quot;|Std. residuals|&quot;</span>)),</span>
-<span id="cb353-12"><a href="multiple-regression.html#cb353-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="st">&quot;Fitted values&quot;</span></span>
-<span id="cb353-13"><a href="multiple-regression.html#cb353-13" aria-hidden="true" tabindex="-1"></a>    ) </span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
-<img src="17-multiple-regression_files/figure-html/unnamed-chunk-3-1.png" alt="Adjusted homogeneity plot that will produce reference line" width="100%" />
-<p class="caption">
+<div class="sourceCode" id="cb351"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">assumptions</span><span class="op">$</span><span class="va">HOMOGENEITY</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu"><a href="https://easystats.github.io/see/reference/geom_point2.html">geom_point2</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+    <span class="fu">stat_smooth</span><span class="op">(</span>
+      method <span class="op">=</span> <span class="st">"loess"</span>,
+      se <span class="op">=</span> <span class="cn">FALSE</span>,
+      formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span>,
+    <span class="op">)</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>
+      title <span class="op">=</span> <span class="st">"Homogeneity of Variance"</span>,
+      subtitle <span class="op">=</span> <span class="st">"Reference line should be flat and horizontal"</span>,
+      y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="st">"|Std. residuals|"</span><span class="op">)</span><span class="op">)</span>,
+      x <span class="op">=</span> <span class="st">"Fitted values"</span>
+    <span class="op">)</span> </code></pre></div>
+<div class="figure" style="text-align: center">
+<span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="17-multiple-regression_files/figure-html/unnamed-chunk-3-1.png" alt="Adjusted homogeneity plot that will produce reference line" width="100%"><p class="caption">
 Figure 7.4: Adjusted homogeneity plot that will produce reference line
 </p>
 </div>
 <p>Again like normality, the plot isn't perfect but it is pretty good and another example of why visualisation is better than running statistical tests as we see the same significant result if we run:</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="multiple-regression.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_homogeneity</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_homogeneity.html">check_homogeneity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning: Variances differ between groups (Bartlett Test, p = 0.000).</code></pre>
 <p>For assumption 8, linearity, again the plot looks fine, and we could also have used the grouped scatterplots above to look at this.</p>
-<p>Finally, for assumption 9, multicollinearity, the plot also indicates no issues but we can also test this statistically using <code>check_collinearity()</code>.</p>
+<p>Finally, for assumption 9, multicollinearity, the plot also indicates no issues but we can also test this statistically using <code><a href="https://easystats.github.io/performance/reference/check_collinearity.html">check_collinearity()</a></code>.</p>
 <p>Essentially, this function estimates how much the variance of a coefficient is “inflated” because of linear dependence with other predictors, i.e., that a predictor isn't actually adding any unique variance to the model, it's just really strongly related to other predictors. <a href="https://statisticalhorizons.com/multicollinearity">You can read more about this here</a>. Thankfully, VIF is not affected by large samples like the other tests.</p>
 <p>There are various rules of thumb, but most converge on a VIF of above 2 - 2.5 for any one predictor being problematic.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="multiple-regression.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_collinearity</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/performance/reference/check_collinearity.html">check_collinearity</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 <div class="kable-table">
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="left">Term</th>
 <th align="right">VIF</th>
 <th align="right">SE_factor</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">thours_c</td>
@@ -407,29 +465,37 @@ Figure 7.4: Adjusted homogeneity plot that will produce reference line
 <td align="right">1.310095</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 </div>
 <div id="mulregression-a10" class="section level2" number="17.10">
-<h2><span class="header-section-number">17.10</span> Activity 10: Power and effect size</h2>
+<h2>
+<span class="header-section-number">17.10</span> Activity 10: Power and effect size<a class="anchor" aria-label="anchor" href="#mulregression-a10"><i class="fas fa-link"></i></a>
+</h2>
 <p>Finally, we'll calculate power and effect size as usual.</p>
 <ul>
-<li><p>Using the code from Power and Effect Size calculate the minimum effect size we could reliably observe given our sample size and design but for 99% power. Report this to 2 decimal places <input class='webex-solveme nospaces' size='0.00' data-answer='[".00"]'/></p></li>
-<li><p>What is the observed effect size for the study to 2 decimal places? <input class='webex-solveme nospaces' size='0.10' data-answer='[".10"]'/><br />
-</p></li>
-<li><p>Is the study sufficiently powered? <select class='webex-select'><option value='blank'></option><option value='answer'>Yes</option><option value=''>No</option></select></p></li>
+<li><p>Using the code from Power and Effect Size calculate the minimum effect size we could reliably observe given our sample size and design but for 99% power. Report this to 2 decimal places <input class="webex-solveme nospaces" size="0.00" data-answer='[".00"]'></p></li>
+<li><p>What is the observed effect size for the study to 2 decimal places? <input class="webex-solveme nospaces" size="0.10" data-answer='[".10"]'><br></p></li>
+<li><p>Is the study sufficiently powered? <select class="webex-select"><option value="blank"></option>
+<option value="answer">Yes</option>
+<option value="">No</option></select></p></li>
 </ul>
 </div>
 <div id="mulregression-a11" class="section level2" number="17.11">
-<h2><span class="header-section-number">17.11</span> Activity 11: Write-up</h2>
-<p>Same as the simple regression, we can use inline coding or the <code>report()</code> function to help with the write-up. First, copy and paste the below code into <strong>white-space</strong> and then knit the document. Note that the p-values are entered manually because of the APA <code>p &lt; .001</code> formatting.</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="multiple-regression.html#cb357-1" aria-hidden="true" tabindex="-1"></a>All continuous predictors were mean<span class="sc">-</span>centered and deviation coding was used <span class="cf">for</span> categorical predictors. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3] %&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, f<span class="sc">^</span><span class="dv">2</span><span class="sc">^</span> <span class="er">=</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Total screen time was a significant negative predictor of wellbeing scores (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, as was gender (β = `r mod$coefficients[3] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, with girls having lower wellbeing scores than boys. Importantly, there was a significant interaction between screentime and gender (β = `r mod$coefficients[4] %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">, p &lt; .001), smartphone use was more negatively associated with wellbeing for girls than for boys. </span></span></code></pre></div>
+<h2>
+<span class="header-section-number">17.11</span> Activity 11: Write-up<a class="anchor" aria-label="anchor" href="#mulregression-a11"><i class="fas fa-link"></i></a>
+</h2>
+<p>Same as the simple regression, we can use inline coding or the <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> function to help with the write-up. First, copy and paste the below code into <strong>white-space</strong> and then knit the document. Note that the p-values are entered manually because of the APA <code>p &lt; .001</code> formatting.</p>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="multiple-regression.html#cb355-1" aria-hidden="true" tabindex="-1"></a>All continuous predictors were mean<span class="sc">-</span>centered and deviation coding was used <span class="cf">for</span> categorical predictors. The results of the regression indicated that the model significantly predicted course <span class="fu">engagement</span> (<span class="fu">F</span>(<span class="st">`</span><span class="at">r mod_summary$fstatistic[2]</span><span class="st">`</span>, <span class="st">`</span><span class="at">r mod_summary$fstatistic[3] %&gt;% round(2)</span><span class="st">`</span>) <span class="ot">=</span> <span class="st">`</span><span class="at">r mod_summary$fstatistic[1] %&gt;% round(2)</span><span class="st">`</span>, p <span class="sc">&lt;</span> .<span class="dv">001</span>, Adjusted <span class="at">R2 =</span> <span class="st">`</span><span class="at">r mod_summary$adj.r.squared %&gt;% round(2)</span><span class="st">`</span>, f<span class="sc">^</span><span class="dv">2</span><span class="sc">^</span> <span class="er">=</span> .<span class="dv">63</span>), accounting <span class="cf">for</span> <span class="st">`</span><span class="at">r (mod_summary$adj.r.squared %&gt;% round(2))*100</span><span class="st">`</span><span class="sc">% of the variance. Total screen time was a significant negative predictor of wellbeing scores (β = `r mod$coefficients[2] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, as was gender (β = `r mod$coefficients[3] %</span><span class="er">&gt;</span><span class="sc">% round(2)`, p &lt; .001, with girls having lower wellbeing scores than boys. Importantly, there was a significant interaction between screentime and gender (β = `r mod$coefficients[4] %</span><span class="er">&gt;</span>% <span class="fu">round</span>(<span class="dv">2</span>)<span class="st">`</span><span class="at">, p &lt; .001), smartphone use was more negatively associated with wellbeing for girls than for boys. </span></span></code></pre></div>
 <blockquote>
 <p>All continuous predictors were mean-centered and deviation coding was used for categorical predictors. The results of the regression indicated that the model significantly predicted course engagement (F(3, 7.1029^{4}) = 2450.89, p &lt; .001, Adjusted R2 = 0.09, f2 = .63), accounting for 9% of the variance. Total screen time was a significant negative predictor of well-being scores (β = -0.77, p &lt; .001, as was gender (β = 5.14, p &lt; .001, with girls having lower well-being scores than boys. Importantly, there was a significant interaction between screen time and gender (β = 0.45, p &lt; .001), smartphone use was more negatively associated with well-being for girls than for boys.</p>
 </blockquote>
-<p>Now, we can use <code>report()</code> to produce an automated summary. Again, it would need some editing but may be useful to aid interpretation and reporting.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="multiple-regression.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">report</span>(mod)</span></code></pre></div>
-<pre><code>## We fitted a linear model (estimated using OLS) to predict tot_wellbeing with thours_c and male_c (formula: tot_wellbeing ~ thours_c * male_c). The model explains a statistically significant and weak proportion of variance (R2 = 0.09, F(3, 71029) = 2450.89, p &lt; .001, adj. R2 = 0.09). The model&#39;s intercept, corresponding to thours_c = 0 and male_c = -0.5, is at 44.87 (95% CI [44.78, 44.96], t(71029) = 1001.87, p &lt; .001). Within this model:
+<p>Now, we can use <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> to produce an automated summary. Again, it would need some editing but may be useful to aid interpretation and reporting.</p>
+<div class="sourceCode" id="cb356"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
+<pre><code>## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
+## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.</code></pre>
+<pre><code>## We fitted a linear model (estimated using OLS) to predict tot_wellbeing with thours_c and male_c (formula: tot_wellbeing ~ thours_c * male_c). The model explains a statistically significant and weak proportion of variance (R2 = 0.09, F(3, 71029) = 2450.89, p &lt; .001, adj. R2 = 0.09). The model's intercept, corresponding to thours_c = 0 and male_c = -0.5, is at 44.87 (95% CI [44.78, 44.96], t(71029) = 1001.87, p &lt; .001). Within this model:
 ## 
 ##   - The effect of thours c is statistically significant and negative (beta = -0.77, 95% CI [-0.82, -0.73], t(71029) = -32.96, p &lt; .001; Std. beta = -0.15, 95% CI [-0.16, -0.15])
 ##   - The effect of male c [0 5] is statistically significant and positive (beta = 5.14, 95% CI [5.00, 5.28], t(71029) = 72.25, p &lt; .001; Std. beta = 0.54, 95% CI [0.52, 0.55])
@@ -438,113 +504,138 @@ Figure 7.4: Adjusted homogeneity plot that will produce reference line
 ## Standardized parameters were obtained by fitting the model on a standardized version of the dataset. 95% Confidence Intervals (CIs) and p-values were computed using the Wald approximation.</code></pre>
 </div>
 <div id="mulregression-fin" class="section level2" number="17.12">
-<h2><span class="header-section-number">17.12</span> Finished!</h2>
+<h2>
+<span class="header-section-number">17.12</span> Finished!<a class="anchor" aria-label="anchor" href="#mulregression-fin"><i class="fas fa-link"></i></a>
+</h2>
 <p>And you're done! Not just with this week but with the R component of RM2! The progress that you have made is truly astonishing. Even if you struggled with R and haven't quite understood every single line of code we've shown, what you're capable of with data wrangling and visualisation alone makes you some of the most highly competitive psychology graduates in the world.</p>
 <p>Regardless of whether you continue with quantitative methods and using R, remember the more important critical skills that you have learned as part of this process. The next time you see a dataset or you see data being talked about in the news, think about all work that was put into getting the data into the final format. More importantly, think about all the decisions that the researcher needed to make along the way and how that might have affected the outcome.</p>
-<p><img src="https://media.giphy.com/media/ujGfBmVppmgEg/giphy.gif" /></p>
+<div class="inline-figure"><img src="https://media.giphy.com/media/ujGfBmVppmgEg/giphy.gif"></div>
 </div>
 <div id="mulregression-sols" class="section level2" number="17.13">
-<h2><span class="header-section-number">17.13</span> Activity solutions</h2>
+<h2>
+<span class="header-section-number">17.13</span> Activity solutions<a class="anchor" aria-label="anchor" href="#mulregression-sols"><i class="fas fa-link"></i></a>
+</h2>
 <div id="mulregression-a3sol" class="section level3" number="17.13.1">
-<h3><span class="header-section-number">17.13.1</span> Activity 3</h3>
+<h3>
+<span class="header-section-number">17.13.1</span> Activity 3<a class="anchor" aria-label="anchor" href="#mulregression-a3sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="multiple-regression.html#cb360-1" aria-hidden="true" tabindex="-1"></a>wemwbs <span class="ot">&lt;-</span> wellbeing <span class="sc">%&gt;%</span></span>
-<span id="cb360-2"><a href="multiple-regression.html#cb360-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">&quot;var&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;score&quot;</span>, <span class="sc">-</span>Serial) <span class="sc">%&gt;%</span></span>
-<span id="cb360-3"><a href="multiple-regression.html#cb360-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Serial) <span class="sc">%&gt;%</span></span>
-<span id="cb360-4"><a href="multiple-regression.html#cb360-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tot_wellbeing =</span> <span class="fu">sum</span>(score))</span>
-<span id="cb360-5"><a href="multiple-regression.html#cb360-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb360-6"><a href="multiple-regression.html#cb360-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sanity check values</span></span>
-<span id="cb360-7"><a href="multiple-regression.html#cb360-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb360-8"><a href="multiple-regression.html#cb360-8" aria-hidden="true" tabindex="-1"></a>wemwbs <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(tot_wellbeing),</span>
-<span id="cb360-9"><a href="multiple-regression.html#cb360-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">sd =</span> <span class="fu">sd</span>(tot_wellbeing),</span>
-<span id="cb360-10"><a href="multiple-regression.html#cb360-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="fu">min</span>(tot_wellbeing), </span>
-<span id="cb360-11"><a href="multiple-regression.html#cb360-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="fu">max</span>(tot_wellbeing))</span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">wemwbs</span> <span class="op">&lt;-</span> <span class="va">wellbeing</span> <span class="op">%&gt;%</span>
+  <span class="fu">pivot_longer</span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"var"</span>, values_to <span class="op">=</span> <span class="st">"score"</span>, <span class="op">-</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>tot_wellbeing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">score</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># sanity check values</span>
+
+<span class="va">wemwbs</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span>,
+                     sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span>,
+                     min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span>, 
+                     max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="mulregression-a5sol" class="section level3" number="17.13.2">
-<h3><span class="header-section-number">17.13.2</span> Activity 5</h3>
+<h3>
+<span class="header-section-number">17.13.2</span> Activity 5<a class="anchor" aria-label="anchor" href="#mulregression-a5sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="multiple-regression.html#cb361-1" aria-hidden="true" tabindex="-1"></a>smarttot <span class="ot">&lt;-</span> screen2 <span class="sc">%&gt;%</span></span>
-<span id="cb361-2"><a href="multiple-regression.html#cb361-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">&quot;Using Smartphone&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb361-3"><a href="multiple-regression.html#cb361-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Serial) <span class="sc">%&gt;%</span></span>
-<span id="cb361-4"><a href="multiple-regression.html#cb361-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tothours =</span> <span class="fu">mean</span>(hours))</span>
-<span id="cb361-5"><a href="multiple-regression.html#cb361-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb361-6"><a href="multiple-regression.html#cb361-6" aria-hidden="true" tabindex="-1"></a>smart_wb <span class="ot">&lt;-</span> smarttot <span class="sc">%&gt;%</span></span>
-<span id="cb361-7"><a href="multiple-regression.html#cb361-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tothours <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb361-8"><a href="multiple-regression.html#cb361-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(wemwbs, <span class="st">&quot;Serial&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb361-9"><a href="multiple-regression.html#cb361-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(pinfo, <span class="st">&quot;Serial&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">smarttot</span> <span class="op">&lt;-</span> <span class="va">screen2</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">==</span> <span class="st">"Using Smartphone"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">Serial</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>tothours <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">hours</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">smart_wb</span> <span class="op">&lt;-</span> <span class="va">smarttot</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tothours</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">wemwbs</span>, <span class="st">"Serial"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">pinfo</span>, <span class="st">"Serial"</span><span class="op">)</span> </code></pre></div>
 </div>
 </div>
 <div id="mulregression-a6sol" class="section level3" number="17.13.3">
-<h3><span class="header-section-number">17.13.3</span> Activity 6</h3>
+<h3>
+<span class="header-section-number">17.13.3</span> Activity 6<a class="anchor" aria-label="anchor" href="#mulregression-a6sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="multiple-regression.html#cb362-1" aria-hidden="true" tabindex="-1"></a>smart_wb <span class="ot">&lt;-</span> smarttot <span class="sc">%&gt;%</span></span>
-<span id="cb362-2"><a href="multiple-regression.html#cb362-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tothours <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb362-3"><a href="multiple-regression.html#cb362-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(wemwbs, <span class="st">&quot;Serial&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb362-4"><a href="multiple-regression.html#cb362-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(pinfo, <span class="st">&quot;Serial&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb362-5"><a href="multiple-regression.html#cb362-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">thours_c =</span> tothours <span class="sc">-</span> <span class="fu">mean</span>(tothours),</span>
-<span id="cb362-6"><a href="multiple-regression.html#cb362-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">male_c =</span> <span class="fu">ifelse</span>(male <span class="sc">==</span> <span class="dv">1</span>, .<span class="dv">5</span>, <span class="sc">-</span>.<span class="dv">5</span>),</span>
-<span id="cb362-7"><a href="multiple-regression.html#cb362-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">male_c =</span> <span class="fu">as.factor</span>(male_c),</span>
-<span id="cb362-8"><a href="multiple-regression.html#cb362-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">male =</span> <span class="fu">as.factor</span>(male))</span></code></pre></div>
+<div class="sourceCode" id="cb361"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">smart_wb</span> <span class="op">&lt;-</span> <span class="va">smarttot</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">tothours</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">wemwbs</span>, <span class="st">"Serial"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">pinfo</span>, <span class="st">"Serial"</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>thours_c <span class="op">=</span> <span class="va">tothours</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">tothours</span><span class="op">)</span>,
+         male_c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">male</span> <span class="op">==</span> <span class="fl">1</span>, <span class="fl">.5</span>, <span class="op">-</span><span class="fl">.5</span><span class="op">)</span>,
+         male_c <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">male_c</span><span class="op">)</span>,
+         male <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">male</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="mulregression-a7sol" class="section level3" number="17.13.4">
-<h3><span class="header-section-number">17.13.4</span> Activity 7</h3>
+<h3>
+<span class="header-section-number">17.13.4</span> Activity 7<a class="anchor" aria-label="anchor" href="#mulregression-a7sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="multiple-regression.html#cb363-1" aria-hidden="true" tabindex="-1"></a>smart_wb_gen <span class="ot">&lt;-</span> smart_wb <span class="sc">%&gt;%</span></span>
-<span id="cb363-2"><a href="multiple-regression.html#cb363-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tothours, male) <span class="sc">%&gt;%</span></span>
-<span id="cb363-3"><a href="multiple-regression.html#cb363-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_wellbeing =</span> <span class="fu">mean</span>(tot_wellbeing))</span>
-<span id="cb363-4"><a href="multiple-regression.html#cb363-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb363-5"><a href="multiple-regression.html#cb363-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(smart_wb_gen, <span class="fu">aes</span>(tothours, mean_wellbeing, <span class="at">color =</span> male)) <span class="sc">+</span></span>
-<span id="cb363-6"><a href="multiple-regression.html#cb363-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb363-7"><a href="multiple-regression.html#cb363-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
-<span id="cb363-8"><a href="multiple-regression.html#cb363-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">name =</span> <span class="st">&quot;Gender&quot;</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>))<span class="sc">+</span></span>
-<span id="cb363-9"><a href="multiple-regression.html#cb363-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Total hours smartphone use&quot;</span>) <span class="sc">+</span></span>
-<span id="cb363-10"><a href="multiple-regression.html#cb363-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">&quot;Mean well-being score&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">smart_wb_gen</span> <span class="op">&lt;-</span> <span class="va">smart_wb</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">tothours</span>, <span class="va">male</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_wellbeing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">tot_wellbeing</span><span class="op">)</span><span class="op">)</span>
+
+<span class="fu">ggplot</span><span class="op">(</span><span class="va">smart_wb_gen</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">tothours</span>, <span class="va">mean_wellbeing</span>, color <span class="op">=</span> <span class="va">male</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_color_discrete</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Gender"</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Female"</span>, <span class="st">"Male"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span>
+  <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Total hours smartphone use"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Mean well-being score"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="mulregression-a8sol" class="section level3" number="17.13.5">
-<h3><span class="header-section-number">17.13.5</span> Activity 8</h3>
+<h3>
+<span class="header-section-number">17.13.5</span> Activity 8<a class="anchor" aria-label="anchor" href="#mulregression-a8sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="multiple-regression.html#cb364-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing <span class="sc">~</span> thours_c <span class="sc">*</span> male_c, smart_wb)</span>
-<span id="cb364-2"><a href="multiple-regression.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="co"># alternatively: </span></span>
-<span id="cb364-3"><a href="multiple-regression.html#cb364-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mod &lt;- lm(tot_wellbeing ~ thours_c + male_c + thours_c:male_c, smart_wb)</span></span>
-<span id="cb364-4"><a href="multiple-regression.html#cb364-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb364-5"><a href="multiple-regression.html#cb364-5" aria-hidden="true" tabindex="-1"></a>mod_summary <span class="ot">&lt;-</span> <span class="fu">summary</span>(mod)</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">tot_wellbeing</span> <span class="op">~</span> <span class="va">thours_c</span> <span class="op">*</span> <span class="va">male_c</span>, <span class="va">smart_wb</span><span class="op">)</span>
+<span class="co"># alternatively: </span>
+<span class="co"># mod &lt;- lm(tot_wellbeing ~ thours_c + male_c + thours_c:male_c, smart_wb)</span>
+
+<span class="va">mod_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="mulregression-a9sol" class="section level3" number="17.13.6">
-<h3><span class="header-section-number">17.13.6</span> Activity 9</h3>
+<h3>
+<span class="header-section-number">17.13.6</span> Activity 9<a class="anchor" aria-label="anchor" href="#mulregression-a9sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="multiple-regression.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqPlot</span>(mod<span class="sc">$</span>residuals)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/car/man/qqPlot.html">qqPlot</a></span><span class="op">(</span><span class="va">mod</span><span class="op">$</span><span class="va">residuals</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
 <div id="mulregression-a10sol" class="section level3" number="17.13.7">
-<h3><span class="header-section-number">17.13.7</span> Activity 10</h3>
+<h3>
+<span class="header-section-number">17.13.7</span> Activity 10<a class="anchor" aria-label="anchor" href="#mulregression-a10sol"><i class="fas fa-link"></i></a>
+</h3>
 <div class="webex-solution">
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="multiple-regression.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pwr.f2.test</span>(<span class="at">u =</span> <span class="dv">3</span>, <span class="at">v =</span> <span class="dv">71029</span>, <span class="at">f2 =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> .<span class="dv">05</span>, <span class="at">power =</span> .<span class="dv">99</span>)</span>
-<span id="cb366-2"><a href="multiple-regression.html#cb366-2" aria-hidden="true" tabindex="-1"></a>f2 <span class="ot">&lt;-</span> mod_summary<span class="sc">$</span>adj.r.squared<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">-</span> mod_summary<span class="sc">$</span>adj.r.squared)</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pwr/man/pwr.f2.test.html">pwr.f2.test</a></span><span class="op">(</span>u <span class="op">=</span> <span class="fl">3</span>, v <span class="op">=</span> <span class="fl">71029</span>, f2 <span class="op">=</span> <span class="cn">NULL</span>, sig.level <span class="op">=</span> <span class="fl">.05</span>, power <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span>
+<span class="va">f2</span> <span class="op">&lt;-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">mod_summary</span><span class="op">$</span><span class="va">adj.r.squared</span><span class="op">)</span></code></pre></div>
 </div>
 
 </div>
@@ -553,6 +644,46 @@ Solution
 
 
 
+<div class="chapter-nav">
+<div class="prev"><a href="regression.html"><span class="header-section-number">16</span> Regression</a></div>
+<div class="next"><a href="installing-r.html"><span class="header-section-number">A</span> Installing R</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiple-regression"><span class="header-section-number">17</span> Multiple regression</a></li>
+<li><a class="nav-link" href="#mulregression-a1"><span class="header-section-number">17.1</span> Activity 1: Set-up</a></li>
+<li><a class="nav-link" href="#mulregression-a2"><span class="header-section-number">17.2</span> Activity 2: Look at the data</a></li>
+<li><a class="nav-link" href="#mulregression-a3"><span class="header-section-number">17.3</span> Activity 3: Compute the well-being score for each respondent</a></li>
+<li><a class="nav-link" href="#mulregression-a4"><span class="header-section-number">17.4</span> Activity 4: Visualise the relationship</a></li>
+<li><a class="nav-link" href="#mulregression-a5"><span class="header-section-number">17.5</span> Activity 5: Smartphone and well-being for boys and girls</a></li>
+<li><a class="nav-link" href="#mulregression-a6"><span class="header-section-number">17.6</span> Activity 6: Mean-centering variables</a></li>
+<li><a class="nav-link" href="#mulregression-a7"><span class="header-section-number">17.7</span> Activity 7: Visualise the relationship</a></li>
+<li><a class="nav-link" href="#mulregression-a8"><span class="header-section-number">17.8</span> Activity 8: Running the regression</a></li>
+<li><a class="nav-link" href="#mulregression-a9"><span class="header-section-number">17.9</span> Activity 9: Assumption checking</a></li>
+<li><a class="nav-link" href="#mulregression-a10"><span class="header-section-number">17.10</span> Activity 10: Power and effect size</a></li>
+<li><a class="nav-link" href="#mulregression-a11"><span class="header-section-number">17.11</span> Activity 11: Write-up</a></li>
+<li><a class="nav-link" href="#mulregression-fin"><span class="header-section-number">17.12</span> Finished!</a></li>
+<li>
+<a class="nav-link" href="#mulregression-sols"><span class="header-section-number">17.13</span> Activity solutions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#mulregression-a3sol"><span class="header-section-number">17.13.1</span> Activity 3</a></li>
+<li><a class="nav-link" href="#mulregression-a5sol"><span class="header-section-number">17.13.2</span> Activity 5</a></li>
+<li><a class="nav-link" href="#mulregression-a6sol"><span class="header-section-number">17.13.3</span> Activity 6</a></li>
+<li><a class="nav-link" href="#mulregression-a7sol"><span class="header-section-number">17.13.4</span> Activity 7</a></li>
+<li><a class="nav-link" href="#mulregression-a8sol"><span class="header-section-number">17.13.5</span> Activity 8</a></li>
+<li><a class="nav-link" href="#mulregression-a9sol"><span class="header-section-number">17.13.6</span> Activity 9</a></li>
+<li><a class="nav-link" href="#mulregression-a10sol"><span class="header-section-number">17.13.7</span> Activity 10</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/PsyTeachR/quant-fun-v2/blob/master/book/17-multiple-regression.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/PsyTeachR/quant-fun-v2/edit/master/book/17-multiple-regression.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 </div>
 <script>
 
@@ -724,8 +855,7 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script>
+</script><script>
 $( document ).ready(function() {
   var cite = ' ';
   var psyteachr = ' <a href="https://psyteachr.github.io/"><img src="images/logos/psyteachr_logo.png" style="height: 31px; color: white;" alt="psyTeachR: Reproducible Research" /></a>';
@@ -754,30 +884,14 @@ $( document ).ready(function() {
   window.onresize = move_sidebar;
 });
 </script>
-  </main>
-
-  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page">
-      <h2>On this page</h2>
-      <div id="book-on-this-page"></div>
-
-      <div class="book-extra">
-        <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
 
 </div>
-</div> <!-- .container -->
+ <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
-  <div class="container"><div class="row">
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-12-19.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2023-01-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -785,11 +899,7 @@ $( document ).ready(function() {
   </div>
 
 </div></div>
-</footer>
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -801,8 +911,7 @@ $( document ).ready(function() {
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
-</script>
-<script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
 for (let popover of popovers) {
   const div = document.createElement('div');
   div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
@@ -820,5 +929,4 @@ for (let popover of popovers) {
 }
 </script>
 </body>
-
 </html>
