@@ -1,7 +1,7 @@
 --- 
 title: "Fundamentals of Quantitative Analysis"
 author: "Emily Nordmann & Phil McAleer"
-date: "2022-12-19"
+date: "2023-01-25"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
