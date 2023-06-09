@@ -183,7 +183,7 @@ cat("
 
 **Assumption 3-5: Normality, linearity, homoscedasticity**
 
-Brilliant! We know our data type and we know we have no missing data. The remaining assumptions are all best checked through visualisations. You can use histograms and QQ-plots to check that the data (`Abil` and `IQ`) are both normally distributed, and you can use a scatterplot of `IQ` as a function of `Abil` to check whether the relationship is linear, with homoscedasticity, and without outliers. An alternative would be to use z-scores to check for outliers with the cut-off usually being set at around $\pm2.5SD$ or $\pm3SD$. You could do this using the mutate function (e.g. `mutate(z = (X - mean(X))/SD(X))`), but today we will just use visual checks.
+Brilliant! We know our data type and we know we have no missing data. The remaining assumptions are all best checked through visualisations. You can use histograms and QQ-plots to check that the data (`Abil` and `IQ`) are both normally distributed, and you can use a scatterplot of `IQ` as a function of `Abil` to check whether the relationship is linear, with homoscedasticity, and without outliers. An alternative would be to use z-scores to check for outliers with the cut-off usually being set at around $\pm2.5SD$ or $\pm3SD$. You could do this using the mutate function (e.g. `mutate(z = (X - mean(X))/sd(X))`), but today we will just use visual checks.
 
 We will now ask you to create a few figures and then we will look at them together, as a whole, to answer some questions about these last assumptions.
 
