@@ -71,7 +71,7 @@ You should see something like the following output:
 head(babynames)
 ```
 
-The first line tells us "# A tibble: `r dim(babynames)[1]` x `r dim(babynames)[2]`". What this means is that the object we are looking at is actually a `r glossary("tibble")`, a type of two dimensional table with some unique properties, and we have data across `r dim(babynames)[1]` variables (columns) with `r dim(babynames)[1]` million observations (rows). Yes, this dataset contains over 1.9 **million** observations. Interested in analyzing these data by hand? No thanks!  
+The first line tells us "# A tibble: `r dim(babynames)[1]` x `r dim(babynames)[2]`". What this means is that the object we are looking at is actually a `r glossary("tibble")`, a type of two dimensional table with some unique properties, and we have data across `r dim(babynames)[2]` variables (columns) with `r dim(babynames)[1]` million observations (rows). Yes, this dataset contains over 1.9 **million** observations. Interested in analyzing these data by hand? No thanks!  
 
 Looking at the column names you start to get a sense of what the data is. The variables (columns) are as follows:
 
