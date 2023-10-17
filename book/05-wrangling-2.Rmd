@@ -374,7 +374,7 @@ Here is an example of code that doesn't use pipes to find how many hits there we
 
 * First we group the data accordingly, storing it in `pong_data_group`
 * And then we summarise it, storing the answer in `total_hits`
-* And finally we filter just the red, small paddle hits
+* And finally we filter just the red, large paddle hits
 
 ```{r datasummary-nopipe, eval = FALSE}
 
@@ -385,7 +385,7 @@ pong_data_group <- group_by(pong_data,
 pong_data_hits <- summarise(pong_data_group, 
                             total_hits = sum(HitOrMiss))
 
-pong_data_hits_red_small <- filter(pong_data_hits, 
+pong_data_hits_red_large <- filter(pong_data_hits, 
                                    BackgroundColor == "red", 
                                    PaddleLength == 250)
 ```
@@ -393,7 +393,7 @@ pong_data_hits_red_small <- filter(pong_data_hits,
 Alternatively we can make our code even more efficient, using less code, by stringing our sequence of functions together using pipes. This would look like:
 
 ```{r datasummary-pipes, eval = FALSE}
-pong_data_hits_red_small <- pong_data %>% 
+pong_data_hits_red_large <- pong_data %>% 
   group_by(BackgroundColor, 
            PaddleLength) %>% 
   summarise(total_hits = sum(HitOrMiss)) %>% 

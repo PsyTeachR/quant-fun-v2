@@ -1,6 +1,6 @@
 # Regression
 
-In this activity, you will be working with real data and using regression to explore the question of whether there is a relationship between statistics anxiety and engagement in course activities.  The hypothesis is that students who are more anxious about statistics are less likely to engage in course-related activities. This avoidance behaviour could ultimately be responsible for lower performance for these students (although we won't be examining the assessment scores in this activity).
+In this activity, you will be working with real data and using regression to explore the question of whether there is a relationship between statistics anxiety and engagement in course activities.  The hypothesis is that students who are more anxious about statistics are less likely to engage in course-related activities.
 
 We are going to analyse data from the STARS Statistics Anxiety Survey, which was administered to students in the third-year statistics course in Psychology at the University of Glasgow. All the responses have been anonymised by associating the responses for each student with an arbitrary ID number (integer).
 
@@ -158,6 +158,8 @@ For the rest of the assumptions, we're going to use functions from the packages 
 First, we can use `check_model()` to produce a range of assumption test visualisations. Helpfully, this function also provides a brief explanation of what you should be looking for in each plot - if only all functions in R were so helpful!
 
 * If you get the error message `Failed with error:  ‘there is no package called ‘qqplotr’’`, install the package `qqplotr`, you don't need to load it using `library()`, but `check_model()` uses it in the background.
+
+* If your `check_model()` plots are not showing, try maximising your plot window.
 
 
 ```r
@@ -321,11 +323,6 @@ report(mod)
 ```
 
 ```
-## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
-## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
-```
-
-```
 ## We fitted a linear model (estimated using OLS) to predict n_weeks with mean_anxiety (formula: n_weeks ~ mean_anxiety). The model explains a statistically significant and moderate proportion of variance (R2 = 0.26, F(1, 35) = 11.99, p = 0.001, adj. R2 = 0.23). The model's intercept, corresponding to mean_anxiety = 0, is at 9.06 (95% CI [6.32, 11.80], t(35) = 6.71, p < .001). Within this model:
 ## 
 ##   - The effect of mean anxiety is statistically significant and negative (beta = -2.17, 95% CI [-3.45, -0.90], t(35) = -3.46, p = 0.001; Std. beta = -0.51, 95% CI [-0.80, -0.21])
@@ -385,7 +382,7 @@ stars_means <- stars2 %>%
   group_by(ID) %>%
   summarise(mean_anxiety = mean(Score, na.rm = TRUE),
             min = min(Score), 
-            max = min(Score),
+            max = max(Score),
             sd = sd(Score))
 ```
 

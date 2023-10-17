@@ -304,27 +304,27 @@ To avoid accidentally overwriting a package with a later version, you should <st
 </ul>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"emily"</span>
-<span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">16</span> <span class="op">+</span> <span class="fl">19</span> 
+<span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">16</span> <span class="op">+</span> <span class="fl">17</span> 
 <span class="va">today</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">new_year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2021-01-01"</span><span class="op">)</span>
+<span class="va">new_year</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.Date.html">as.Date</a></span><span class="op">(</span><span class="st">"2020-01-01"</span><span class="op">)</span>
 <span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">15</span>, sd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <div class="figure" style="text-align: center">
 <span style="display:block;" id="fig:img-objects-enviro"></span>
-<img src="images/objects-enviro.png" alt="Objects in the environment" width="100%"><p class="caption">
-Figure 1.3: Objects in the environment
+<img src="images/objects-enviro.png" alt="Objects in the environment. Feel free to change your numbers and check that they match the environment!" width="100%"><p class="caption">
+Figure 1.3: Objects in the environment. Feel free to change your numbers and check that they match the environment!
 </p>
 </div>
-<p>Note that in these examples, <code>name</code>,<code>age</code>, and <code>new_year</code> would always contain the values <code>emily</code>, <code>35</code>, and the date of New Year's Day 2021, however, <code>today</code> will draw the date from the operating system on the day you are using the computer, and <code>data</code> will be a randomly generated set of data - as we saw earlier - so the values of these objects will not be static.</p>
+<p>Note that in these examples, <code>name</code>,<code>age</code>, and <code>new_year</code> would always contain the values <code>emily</code>, 33, and the date of New Year's Day 2020, however, <code>today</code> will draw the date from the operating system on the day you are using the computer, and <code>data</code> will be a randomly generated set of data - as we saw earlier - so the values of these objects will not be static.</p>
 <ul>
 <li>Why don't you try changing the name to your name and the age to your age, and seeing if they update in the environment window.</li>
 </ul>
 <p>Importantly, for what we will learn in future chapters, objects can be involved in calculations and can interact with each other. For example:</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">age</span> <span class="op">+</span> <span class="fl">10</span></code></pre></div>
-<pre><code>## [1] 45</code></pre>
+<pre><code>## [1] 43</code></pre>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">new_year</span> <span class="op">-</span> <span class="va">today</span></code></pre></div>
-<pre><code>## Time difference of -636 days</code></pre>
+<pre><code>## Time difference of -1121 days</code></pre>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 16.71506</code></pre>
@@ -873,7 +873,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2023-01-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

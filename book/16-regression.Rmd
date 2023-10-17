@@ -326,7 +326,7 @@ stars_means <- stars2 %>%
   group_by(ID) %>%
   summarise(mean_anxiety = mean(Score, na.rm = TRUE),
             min = min(Score), 
-            max = min(Score),
+            max = max(Score),
             sd = sd(Score))
 
 ```

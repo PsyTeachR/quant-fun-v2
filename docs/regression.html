@@ -89,7 +89,7 @@
 <h1>
 <span class="header-section-number">16</span> Regression<a class="anchor" aria-label="anchor" href="#regression"><i class="fas fa-link"></i></a>
 </h1>
-<p>In this activity, you will be working with real data and using regression to explore the question of whether there is a relationship between statistics anxiety and engagement in course activities. The hypothesis is that students who are more anxious about statistics are less likely to engage in course-related activities. This avoidance behaviour could ultimately be responsible for lower performance for these students (although we won't be examining the assessment scores in this activity).</p>
+<p>In this activity, you will be working with real data and using regression to explore the question of whether there is a relationship between statistics anxiety and engagement in course activities. The hypothesis is that students who are more anxious about statistics are less likely to engage in course-related activities.</p>
 <p>We are going to analyse data from the STARS Statistics Anxiety Survey, which was administered to students in the third-year statistics course in Psychology at the University of Glasgow. All the responses have been anonymised by associating the responses for each student with an arbitrary ID number (integer).</p>
 <p>The STARS survey (Cruise, Cash, &amp; Bolton, 1985) is a 51-item questionnaire, with each response on a 1 to 5 scale, with higher numbers indicating greater anxiety.</p>
 <p>Cruise, R. J., Cash, R. W., &amp; Bolton, D. L. (1985). Development and validation of an instrument to measure statistical anxiety. <em>Proceedings of the American Statistical Association, Section on Statistical Education</em>, Las Vegas, NV.</p>
@@ -329,7 +329,8 @@ Explain these answers
 <p>For the rest of the assumptions, we're going to use functions from the packages <code>see</code> and <code>performance</code> that make life a whole lot easier.</p>
 <p>First, we can use <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> to produce a range of assumption test visualisations. Helpfully, this function also provides a brief explanation of what you should be looking for in each plot - if only all functions in R were so helpful!</p>
 <ul>
-<li>If you get the error message <code>Failed with error:  ‘there is no package called ‘qqplotr’’</code>, install the package <code>qqplotr</code>, you don't need to load it using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, but <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> uses it in the background.</li>
+<li><p>If you get the error message <code>Failed with error:  ‘there is no package called ‘qqplotr’’</code>, install the package <code>qqplotr</code>, you don't need to load it using <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>, but <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> uses it in the background.</p></li>
+<li><p>If your <code><a href="https://easystats.github.io/performance/reference/check_model.html">check_model()</a></code> plots are not showing, try maximising your plot window.</p></li>
 </ul>
 <div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">check_model</span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
@@ -435,8 +436,6 @@ Explain the pwr.f2.test function
 <p>Running <code><a href="https://easystats.github.io/report/reference/report.html">report()</a></code> will output a summary of the results which you could copy and past into your Word document.</p>
 <div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://easystats.github.io/report/reference/report.html">report</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></code></pre></div>
-<pre><code>## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.
-## 'interpret_d()' is now deprecated. Please use 'interpret_cohens_d()'.</code></pre>
 <pre><code>## We fitted a linear model (estimated using OLS) to predict n_weeks with mean_anxiety (formula: n_weeks ~ mean_anxiety). The model explains a statistically significant and moderate proportion of variance (R2 = 0.26, F(1, 35) = 11.99, p = 0.001, adj. R2 = 0.23). The model's intercept, corresponding to mean_anxiety = 0, is at 9.06 (95% CI [6.32, 11.80], t(35) = 6.71, p &lt; .001). Within this model:
 ## 
 ##   - The effect of mean anxiety is statistically significant and negative (beta = -2.17, 95% CI [-3.45, -0.90], t(35) = -3.46, p = 0.001; Std. beta = -0.51, 95% CI [-0.80, -0.21])
@@ -455,7 +454,7 @@ Explain the pwr.f2.test function
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/heliosdrm/pwr">"pwr"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://broom.tidymodels.org/">"broom"</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://easystats.github.io/see/">"see"</a></span><span class="op">)</span>
@@ -476,7 +475,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">stars2</span> <span class="op">&lt;-</span> <span class="fu">pivot_longer</span><span class="op">(</span>data <span class="op">=</span> <span class="va">stars</span>, names_to <span class="op">=</span> <span class="st">"Question"</span>, values_to <span class="op">=</span> <span class="st">"Score"</span>,cols <span class="op">=</span> <span class="va">Q01</span><span class="op">:</span><span class="va">Q51</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">ID</span><span class="op">)</span></code></pre></div>
 </div>
@@ -490,12 +489,12 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">stars_means</span> <span class="op">&lt;-</span> <span class="va">stars2</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span><span class="op">)</span> <span class="op">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_anxiety <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Score</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,
             min <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span>, 
-            max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span>,
+            max <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span>,
             sd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">Score</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
@@ -508,7 +507,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">joined</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">stars_means</span>, <span class="va">engage</span>, <span class="st">"ID"</span><span class="op">)</span></code></pre></div>
 </div>
 <p>** Click tab to see solution **</p>
@@ -521,7 +520,7 @@ Solution
 <button>
 Solution
 </button>
-<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">joined</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">mean_anxiety</span>, <span class="va">n_weeks</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span><span class="op">+</span>
@@ -773,7 +772,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2023-01-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -439,14 +439,14 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 <li><p>View <code>pong_data_hits</code> and answer the following questions to see if you have completed the task correctly.</p></li>
 <li>
 <p>What was the total number of hits made with the small paddle (50) and the blue colour background?</p>
-<div id="radio_JHMUBVIALE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JHMUBVIALE" value=""><span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_JHMUBVIALE" value="answer"><span>527</span></label><label><input type="radio" autocomplete="off" name="radio_JHMUBVIALE" value=""><span>1057</span></label><label><input type="radio" autocomplete="off" name="radio_JHMUBVIALE" value=""><span>516</span></label>
+<div id="radio_VISSBZFPFE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VISSBZFPFE" value="answer"><span>527</span></label><label><input type="radio" autocomplete="off" name="radio_VISSBZFPFE" value=""><span>1059</span></label><label><input type="radio" autocomplete="off" name="radio_VISSBZFPFE" value=""><span>516</span></label><label><input type="radio" autocomplete="off" name="radio_VISSBZFPFE" value=""><span>1057</span></label>
 </div>
 </li>
 <li>
 <p>To three decimal places, what was the mean number of hits made with the small paddle (50) and the blue colour background?</p>
-<div id="radio_URXDJTDVQN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_URXDJTDVQN" value=""><span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_URXDJTDVQN" value=""><span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_URXDJTDVQN" value="answer"><span>0.459</span></label><label><input type="radio" autocomplete="off" name="radio_URXDJTDVQN" value=""><span>0.92</span></label>
+<div id="radio_DWZSSHKCJY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DWZSSHKCJY" value=""><span>0.922</span></label><label><input type="radio" autocomplete="off" name="radio_DWZSSHKCJY" value=""><span>0.92</span></label><label><input type="radio" autocomplete="off" name="radio_DWZSSHKCJY" value=""><span>0.451</span></label><label><input type="radio" autocomplete="off" name="radio_DWZSSHKCJY" value="answer"><span>0.459</span></label>
 </div>
 </li>
 </ul>
@@ -546,7 +546,7 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 </li>
 <li>And then we summarise it, storing the answer in <code>total_hits</code>
 </li>
-<li>And finally we filter just the red, small paddle hits</li>
+<li>And finally we filter just the red, large paddle hits</li>
 </ul>
 <div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">pong_data_group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">pong_data</span>, 
@@ -556,12 +556,12 @@ Remember, if you get what looks like an error that says "<code><a href="https://
 <span class="va">pong_data_hits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="va">pong_data_group</span>, 
                             total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">pong_data_hits_red_small</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data_hits</span>, 
+<span class="va">pong_data_hits_red_large</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pong_data_hits</span>, 
                                    <span class="va">BackgroundColor</span> <span class="op">==</span> <span class="st">"red"</span>, 
                                    <span class="va">PaddleLength</span> <span class="op">==</span> <span class="fl">250</span><span class="op">)</span></code></pre></div>
 <p>Alternatively we can make our code even more efficient, using less code, by stringing our sequence of functions together using pipes. This would look like:</p>
 <div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pong_data_hits_red_small</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span> 
+<code class="sourceCode R"><span class="va">pong_data_hits_red_large</span> <span class="op">&lt;-</span> <span class="va">pong_data</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">BackgroundColor</span>, 
            <span class="va">PaddleLength</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>total_hits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">HitOrMiss</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
@@ -623,23 +623,23 @@ Explain these answers
 <p><br></p>
 <ol start="2" style="list-style-type: decimal">
 <li>Which of the Wickham Six would you use to sort columns from smallest to largest:
-<div id="radio_EPAGEDJCDG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EPAGEDJCDG" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_EPAGEDJCDG" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_EPAGEDJCDG" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_EPAGEDJCDG" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_EPAGEDJCDG" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_EPAGEDJCDG" value=""><span>summarise</span></label>
+<div id="radio_VXKMLIKVWF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VXKMLIKVWF" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_VXKMLIKVWF" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_VXKMLIKVWF" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_VXKMLIKVWF" value="answer"><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_VXKMLIKVWF" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_VXKMLIKVWF" value=""><span>summarise</span></label>
 </div>
 </li>
 <li>Which of the Wickham Six would you use to calculate the mean of a column:
-<div id="radio_VCFXLCQWPO" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VCFXLCQWPO" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_VCFXLCQWPO" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_VCFXLCQWPO" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_VCFXLCQWPO" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_VCFXLCQWPO" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_VCFXLCQWPO" value="answer"><span>summarise</span></label>
+<div id="radio_RLXTLEAMBC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RLXTLEAMBC" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_RLXTLEAMBC" value=""><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_RLXTLEAMBC" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_RLXTLEAMBC" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_RLXTLEAMBC" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_RLXTLEAMBC" value="answer"><span>summarise</span></label>
 </div>
 </li>
 <li>Which of the Wickham Six would you use to remove certain observations - e.g. remove all males:
-<div id="radio_RYXWEKMGUC" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RYXWEKMGUC" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_RYXWEKMGUC" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_RYXWEKMGUC" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_RYXWEKMGUC" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_RYXWEKMGUC" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_RYXWEKMGUC" value=""><span>summarise</span></label>
+<div id="radio_VCSWNUFXOR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VCSWNUFXOR" value=""><span>select</span></label><label><input type="radio" autocomplete="off" name="radio_VCSWNUFXOR" value="answer"><span>filter</span></label><label><input type="radio" autocomplete="off" name="radio_VCSWNUFXOR" value=""><span>mutate</span></label><label><input type="radio" autocomplete="off" name="radio_VCSWNUFXOR" value=""><span>arrange</span></label><label><input type="radio" autocomplete="off" name="radio_VCSWNUFXOR" value=""><span>group_by</span></label><label><input type="radio" autocomplete="off" name="radio_VCSWNUFXOR" value=""><span>summarise</span></label>
 </div>
 </li>
 <li>What does this line of code say? <code>data %&gt;% filter() %&gt;% group_by() %&gt;% summarise()</code>:
-<div id="radio_IJBEAENSOE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IJBEAENSOE" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IJBEAENSOE" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_IJBEAENSOE" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_IJBEAENSOE" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
+<div id="radio_ZTVOUHIALS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZTVOUHIALS" value=""><span>take the data and then group it and then filter it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_ZTVOUHIALS" value="answer"><span>take the data and then filter it and then group it and then summarise it</span></label><label><input type="radio" autocomplete="off" name="radio_ZTVOUHIALS" value=""><span>take the data and then summarise it and then filter it and then group it</span></label><label><input type="radio" autocomplete="off" name="radio_ZTVOUHIALS" value=""><span>take the data and then group it and then summarise it and then filter it</span></label>
 </div>
 </li>
 </ol>
@@ -1111,7 +1111,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2023-01-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

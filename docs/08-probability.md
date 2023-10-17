@@ -36,8 +36,8 @@ So you can see that the probability of an event occurring changes with the numbe
 
 Try to answer these questions below to check your understanding.
 
-1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class='webex-select'><option value='blank'></option><option value=''>0.0833333333333333</option><option value=''>0.25</option><option value=''>0.0416666666666667</option><option value='answer'>0.1</option></select>
-2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class='webex-select'><option value='blank'></option><option value=''>0.1</option><option value=''>0.01</option><option value=''>0.1</option><option value='answer'>0</option></select>
+1. What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class='webex-select'><option value='blank'></option><option value=''>0.25</option><option value='answer'>0.1</option><option value=''>0.0833333333333333</option><option value=''>0.0416666666666667</option></select>
+2. What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class='webex-select'><option value='blank'></option><option value=''>0.01</option><option value=''>0.1</option><option value='answer'>0</option><option value=''>0.1</option></select>
 
 ## Types of data
 
@@ -57,10 +57,10 @@ How you tackle probability also depends on the type of data/variables you are wo
 
 Try to answer these questions below to check your understanding. What types of data are the below measurements?
 
-* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value=''>ordinal</option><option value='answer'>ratio</option><option value=''>categorical</option></select>
-* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>interval</option><option value='answer'>ordinal</option><option value=''>ratio</option><option value=''>categorical</option></select>
-* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value='answer'>categorical</option><option value=''>ordinal</option><option value=''>interval</option></select>
-* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value=''>categorical</option><option value=''>ordinal</option><option value=''>ratio</option><option value='answer'>interval</option></select>
+* Time taken to run a marathon (in seconds): <select class='webex-select'><option value='blank'></option><option value=''>ordinal</option><option value=''>interval</option><option value='answer'>ratio</option><option value=''>categorical</option></select>
+* Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value=''>interval</option><option value='answer'>ordinal</option><option value=''>categorical</option></select>
+* Which Sesame Street character a runner was dressed as: <select class='webex-select'><option value='blank'></option><option value='answer'>categorical</option><option value=''>interval</option><option value=''>ordinal</option><option value=''>ratio</option></select>
+* Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class='webex-select'><option value='blank'></option><option value=''>ratio</option><option value=''>ordinal</option><option value=''>categorical</option><option value='answer'>interval</option></select>
 
 ## Probability distributions
 
@@ -152,9 +152,9 @@ As with any probabilities, real-world data will come close to the normal distrib
 
 Complete the sentences to make sure that you are understanding the above.
 
-* In a normal distribution, the mean, median, and mode <select class='webex-select'><option value='blank'></option><option value='answer'>are all equal</option><option value=''>are always different</option><option value=''>sum to zero</option></select>.
-* In a normal distribution, the further away from the mean an observation is <select class='webex-select'><option value='blank'></option><option value='answer'>the lower its probability of occuring</option><option value=''>the higher its probability of occuring</option></select>.
-* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-select'><option value='blank'></option><option value=''>has three possible values</option><option value=''>is a categorical variable</option><option value='answer'>is a continuous variable</option></select>.
+* In a normal distribution, the mean, median, and mode <select class='webex-select'><option value='blank'></option><option value='answer'>are all equal</option><option value=''>sum to zero</option><option value=''>are always different</option></select>.
+* In a normal distribution, the further away from the mean an observation is <select class='webex-select'><option value='blank'></option><option value=''>the higher its probability of occuring</option><option value='answer'>the lower its probability of occuring</option></select>.
+* Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class='webex-select'><option value='blank'></option><option value=''>is a categorical variable</option><option value='answer'>is a continuous variable</option><option value=''>has three possible values</option></select>.
 
 #### Activity 4: Distribution test {#prob-a4}
 
@@ -271,7 +271,7 @@ Now let's consider a scenario in which you'd use the quantile function `qbinom`.
 
 You have used the argument `prob` in the previous two functions, `dbinom` and `pbinom`, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). For `qbinom`, `prob` still represents the probability of success in one trial, whereas `p` represents the overall probability of success across all trials. When you run `pbinom`, it calculates the number of heads that would give that probability. 
 
-We know from looking at the binomial distribution above that sometimes even when the coin is fair, we won't get exactly 5/10 heads. Instead, we want to set a cut-off, a probability that below which well say that it's so unlikely we'd get that result if the coin was fair and in this example we will use the default cut-off for statistical significance in psychology, .05, or 5%.
+We know from looking at the binomial distribution above that sometimes even when the coin is fair, we won't get exactly 5/10 heads. Instead, we want to set a cut-off, a probability that below which we'll say that it's so unlikely we'd get that result if the coin was fair and in this example we will use the default cut-off for statistical significance in psychology, .05, or 5%.
 
 In other words, you ask for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. To do that we use the below code:
 
@@ -398,7 +398,7 @@ Fiona is a very tall Scottish woman (181.12 cm) in the 16-24 y.o. range who will
 
 #### Activity 12: `pnorm` 3 {#prob-a12}
 
-On the other hand, Fiona is bisexual and will date women who are shorter than her. 
+On the other hand, Fiona is bisexual and will only date women who are shorter than her. 
 
 * What is the proportion of Scottish women would Fiona be willing to date to 2 decimal places? <input class='webex-solveme nospaces' size='4' data-answer='["0.99",".99"]'/>
   * **hint:** female distribution, lower than Fiona.
@@ -419,7 +419,7 @@ Replace the NULLs in the above code to calculate how tall a 16-24 y.o. Scottish 
 
 
 
-The answer to this last question was: <div class='webex-radiogroup' id='radio_TDOZCVJXEK'><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value=""></input> <span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value=""></input> <span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value="answer"></input> <span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value=""></input> <span>175.352037231422</span></label></div>
+The answer to this last question was: <div class='webex-radiogroup' id='radio_ODLIDHEOEQ'><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value="answer"></input> <span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value=""></input> <span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value=""></input> <span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value=""></input> <span>175.352037231422</span></label></div>
 
 
 *****

@@ -120,16 +120,16 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <p>Try to answer these questions below to check your understanding.</p>
 <ol style="list-style-type: decimal">
 <li>What would be the probability of selecting your name from a hat when there are ten names in the hat and your name is one of them? <select class="webex-select"><option value="blank"></option>
-<option value="">0.0833333333333333</option>
 <option value="">0.25</option>
-<option value="">0.0416666666666667</option>
-<option value="answer">0.1</option></select>
+<option value="answer">0.1</option>
+<option value="">0.0833333333333333</option>
+<option value="">0.0416666666666667</option></select>
 </li>
 <li>What would be the probability of selecting your name from a hat when there are 100 names in the hat and your name is not one of them? Be careful on this one! <select class="webex-select"><option value="blank"></option>
-<option value="">0.1</option>
 <option value="">0.01</option>
 <option value="">0.1</option>
-<option value="answer">0</option></select>
+<option value="answer">0</option>
+<option value="">0.1</option></select>
 </li>
 </ol>
 </div>
@@ -160,27 +160,27 @@ For example, what is the probability of randomly drawing your name out of a hat 
 <p>Try to answer these questions below to check your understanding. What types of data are the below measurements?</p>
 <ul>
 <li>Time taken to run a marathon (in seconds): <select class="webex-select"><option value="blank"></option>
-<option value="">interval</option>
 <option value="">ordinal</option>
+<option value="">interval</option>
 <option value="answer">ratio</option>
 <option value="">categorical</option></select>
 </li>
 <li>Finishing position in marathon (e.g. 1st, 2nd, 3rd): <select class="webex-select"><option value="blank"></option>
+<option value="">ratio</option>
 <option value="">interval</option>
 <option value="answer">ordinal</option>
-<option value="">ratio</option>
 <option value="">categorical</option></select>
 </li>
 <li>Which Sesame Street character a runner was dressed as: <select class="webex-select"><option value="blank"></option>
-<option value="">ratio</option>
 <option value="answer">categorical</option>
+<option value="">interval</option>
 <option value="">ordinal</option>
-<option value="">interval</option></select>
+<option value="">ratio</option></select>
 </li>
 <li>Temperature of a runner dressed in a cookie monster outfit (in degrees Celsius): <select class="webex-select"><option value="blank"></option>
-<option value="">categorical</option>
-<option value="">ordinal</option>
 <option value="">ratio</option>
+<option value="">ordinal</option>
+<option value="">categorical</option>
 <option value="answer">interval</option></select>
 </li>
 </ul>
@@ -281,15 +281,15 @@ Figure 7.6: A simulation of an experiment collecting height data from 2000 parti
 <ul>
 <li>In a normal distribution, the mean, median, and mode <select class="webex-select"><option value="blank"></option>
 <option value="answer">are all equal</option>
-<option value="">are always different</option>
-<option value="">sum to zero</option></select>.</li>
+<option value="">sum to zero</option>
+<option value="">are always different</option></select>.</li>
 <li>In a normal distribution, the further away from the mean an observation is <select class="webex-select"><option value="blank"></option>
-<option value="answer">the lower its probability of occuring</option>
-<option value="">the higher its probability of occuring</option></select>.</li>
+<option value="">the higher its probability of occuring</option>
+<option value="answer">the lower its probability of occuring</option></select>.</li>
 <li>Whereas the binomial distribution is based on situations in which there are two possible outcomes, the normal distribution is based on situations in which the data <select class="webex-select"><option value="blank"></option>
-<option value="">has three possible values</option>
 <option value="">is a categorical variable</option>
-<option value="answer">is a continuous variable</option></select>.</li>
+<option value="answer">is a continuous variable</option>
+<option value="">has three possible values</option></select>.</li>
 </ul>
 </div>
 <div id="prob-a4" class="section level4" number="8.6.0.2">
@@ -434,7 +434,7 @@ Figure 7.7: Lower and upper tails
 <p>OK great! You are doing excellent as this is tricky stuff. Remember though the whole point is to show you that using probability distributions you can ask all sorts of questions about the probability of any outcome or series of outcomes.</p>
 <p>Now let's consider a scenario in which you'd use the quantile function <code>qbinom</code>. Imagine that you've been accosted by a street magician and they want to bet you that they can predict whether the coin will land on heads or tails. You suspect that they've done something to the coin so that it's not fair and that the probability of the coin landing on a head is no longer .5 or 50/50 - you suspect the coin is now very much more likely to land on tails. Your null hypothesis is that the coin is not a trick coin and that the probability of heads or tails should be even. You are going to run a single experiment to test your hypothesis, with 10 trials. What is the minimum number of heads that is acceptable if p really does equal .5?</p>
 <p>You have used the argument <code>prob</code> in the previous two functions, <code>dbinom</code> and <code>pbinom</code>, and it represents the probability of success on a single trial (here it is the probability of 'heads' in one coin flip, .5). For <code>qbinom</code>, <code>prob</code> still represents the probability of success in one trial, whereas <code>p</code> represents the overall probability of success across all trials. When you run <code>pbinom</code>, it calculates the number of heads that would give that probability.</p>
-<p>We know from looking at the binomial distribution above that sometimes even when the coin is fair, we won't get exactly 5/10 heads. Instead, we want to set a cut-off, a probability that below which well say that it's so unlikely we'd get that result if the coin was fair and in this example we will use the default cut-off for statistical significance in psychology, .05, or 5%.</p>
+<p>We know from looking at the binomial distribution above that sometimes even when the coin is fair, we won't get exactly 5/10 heads. Instead, we want to set a cut-off, a probability that below which we'll say that it's so unlikely we'd get that result if the coin was fair and in this example we will use the default cut-off for statistical significance in psychology, .05, or 5%.</p>
 <p>In other words, you ask for the minimum number of successes (e.g. heads) to maintain an overall probability of .05, in 10 flips, when the probability of a success on any one flip is .5. To do that we use the below code:</p>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">qbinom</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">.05</span>, size <span class="op">=</span> <span class="fl">10</span>, prob <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span></code></pre></div>
@@ -578,7 +578,7 @@ Figure 8.2: Simulation of Scottish height data
 <h4>
 <span class="header-section-number">8.8.1.3</span> Activity 12: <code>pnorm</code> 3<a class="anchor" aria-label="anchor" href="#prob-a12"><i class="fas fa-link"></i></a>
 </h4>
-<p>On the other hand, Fiona is bisexual and will date women who are shorter than her.</p>
+<p>On the other hand, Fiona is bisexual and will only date women who are shorter than her.</p>
 <ul>
 <li>What is the proportion of Scottish women would Fiona be willing to date to 2 decimal places? <input class="webex-solveme nospaces" size="4" data-answer='["0.99",".99"]'><ul>
 <li>
@@ -602,8 +602,8 @@ Figure 8.2: Simulation of Scottish height data
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="cn">NULL</span>, mean <span class="op">=</span> <span class="cn">NULL</span>, sd <span class="op">=</span> <span class="cn">NULL</span>, lower.tail <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
 <p>Replace the NULLs in the above code to calculate how tall a 16-24 y.o. Scottish man would have to be in order to be in the top 5% (i.e., p = .05) of the height distribution for Scottish men in his age group. Remember the solutions are at the end of the chapter. You can confirm if you are right or not by answering this question:</p>
 The answer to this last question was:
-<div id="radio_TDOZCVJXEK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value=""><span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value=""><span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value="answer"><span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_TDOZCVJXEK" value=""><span>175.352037231422</span></label>
+<div id="radio_ODLIDHEOEQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value="answer"><span>187.299472274669</span></label><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value=""><span>176.2</span></label><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value=""><span>193.581696140348</span></label><label><input type="radio" autocomplete="off" name="radio_ODLIDHEOEQ" value=""><span>175.352037231422</span></label>
 </div>
 <hr>
 <p><strong>Visualise it!</strong></p>
@@ -1020,7 +1020,7 @@ $( document ).ready(function() {
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2022-09-29.</p>
+    <p>"<strong>Fundamentals of Quantitative Analysis</strong>" was written by Emily Nordmann &amp; Phil McAleer. It was last built on 2023-01-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
