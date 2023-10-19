@@ -26,7 +26,7 @@ Whatever you do, don't call the folder your keep your data skills work in "R". I
 
 The main disadvantage to using the R server is that you will need create folders on the server and then upload and download any files you are working on to and from the server. Please be aware that **there is no link between your computer and the R server**. If you change files on the server, they won't appear on your computer until you download them from the server, and you need to be very careful when you submit your assessment files that you're submitting the right file. This is the main reason we recommend installing R on your computer if you can.
 
-Going forward throughout this book, if you're using the server, you'll do an extra step where you also upload them to the sever. We're not going to use any data files in this session but let's try an example to make it clear how you get the data files on to the server.
+Going forward throughout this book, if you're using the server, you'll do an extra step where you also upload them to the server. We're not going to use any data files in this session but let's try an example to make it clear how you get the data files on to the server.
 
 * Log on to the **R server** using the link on the main course Moodle page.
 * In the file pane click `New folder` and create the same structure you created on your computer.
