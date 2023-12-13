@@ -233,15 +233,16 @@ pwr.f2.test(u = 1, v = 35, f2 = NULL, sig.level = .05, power = .8)
 ```
 
 `r hide("Explain the pwr.f2.test function")`
-**u** - Numerator degrees of freedom. This the number of coefficients you have in your model (minus the intercept)
-**v** - Denominator degrees of freedom. This is calculated as v=n-u-1, where n is the number of participants
-**f2** - The effect size - here we are solving the effect size, so this parameter is left as NULL
-**sig.level** - The significance level of your study
-**power** - The power level of your study
+
+  - **u** - Numerator degrees of freedom. This the number of coefficients you have in your model (minus the intercept)
+  - **v** - Denominator degrees of freedom. This is calculated as v=n-u-1, where n is the number of participants
+  - **f2** - The effect size - here we are solving the effect size, so this parameter is left as NULL
+  - **sig.level** - The significance level of your study
+  - **power** - The power level of your study
 `r unhide()`  
 <br>
 
-* Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? `r fitb(".22", "0.22")`  
+* Based on the power analysis, what is the minimum effect size we were able to detect rounded to 2 decimal places? `r fitb("0.22")`  
 * According to Cohen's guidelines, this would be a `r mcq(c("Small", answer = "Medium", "Large"))` effect.
 
 There is no formula to calculate our observed f^2^, we must do it manually using the formula from the lecture.
@@ -266,7 +267,7 @@ mod_p <- pf(f[1], f[2], f[3], lower=FALSE)
 Now, copy and paste the below code into **white-space** and knit the document.
 
 ```{r writeup1, eval = FALSE}
-A simple linear regression was performed with engagement (M = `r descriptives$mean_weeks %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the outcome variable and statistics anxiety (M = `r descriptives$mean_anx %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(`r mod_summary$fstatistic[2]`, `r mod_summary$fstatistic[3]`) = `r mod_summary$fstatistic[1] %>% round(2)`, p < .001, Adjusted R2 = `r mod_summary$adj.r.squared %>% round(2)`, f2 = .63), accounting for `r (mod_summary$adj.r.squared %>% round(2))*100`% of the variance. Anxiety was a significant predictor (β = `r mod$coefficients[2] %>% round(2)`, p < `r mod_p %>% round(3)`.
+A simple linear regression was performed with engagement (M = `r descriptives$mean_weeks %>% round(2)`, SD = `r descriptives$sd_weeks %>% round(2)`) as the outcome variable and statistics anxiety (M = `r descriptives$mean_anx %>% round(2)`, SD = `r descriptives$sd_anx %>% round(2)`) as the predictor variable. The results of the regression indicated that the model significantly predicted course engagement (F(`r mod_summary$fstatistic[2]`, `r mod_summary$fstatistic[3]`) = `r mod_summary$fstatistic[1] %>% round(2)`, p < .001, Adjusted R2 = `r mod_summary$adj.r.squared %>% round(2)`, f2 = .3), accounting for `r (mod_summary$adj.r.squared %>% round(2))*100`% of the variance. Anxiety was a significant predictor (β = `r mod$coefficients[2] %>% round(2)`, p < `r mod_p %>% round(3)`.
 )
 ```
 
